@@ -5,75 +5,657 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>深入理解 DeepSeek Harness</title>
   <style>
-*{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:24px}
-body{margin:0;background:#f6f8fa;color:#24292f;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans",Helvetica,Arial,sans-serif;line-height:1.75}
-aside{position:fixed;left:0;top:0;bottom:0;width:320px;background:#ffffff;border-right:1px solid #d0d7de;overflow-y:auto;padding:24px 16px;z-index:100}
-aside h2{font-size:18px;margin:0 0 8px;color:#0969da;font-weight:700}
-aside p{font-size:12px;color:#57606a;margin:0 0 16px;line-height:1.5}
-aside nav a{display:flex;align-items:flex-start;color:#24292f;text-decoration:none;font-size:13px;line-height:1.45;padding:7px 10px;border-radius:6px;margin-bottom:3px;transition:all 0.15s ease}
-aside nav a:hover{background:#f3f4f6;color:#0969da}
-aside nav a span{display:inline-block;min-width:24px;color:#0969da;font-weight:700;margin-right:6px}
-main{margin-left:320px;padding:40px 5vw 80px;max-width:1440px}
-article{max-width:980px;margin:0 auto;background:#ffffff;border:1px solid #d0d7de;border-radius:8px;padding:48px 56px;box-shadow:0 1px 3px rgba(0,0,0,0.04)}
-h1{font-size:28px;border-bottom:1px solid #d8dee4;padding-bottom:12px;margin-top:0;color:#1f2328}
-h2{font-size:22px;border-bottom:1px solid #eaeef2;padding-bottom:8px;margin-top:36px;color:#1f2328}
-h3{font-size:18px;margin-top:24px;color:#24292f}
-h4{font-size:15px;margin-top:18px;color:#24292f}
-p,ul,ol{font-size:15px;color:#24292f}
-pre{background:#f6f8fa;border:1px solid #d0d7de;border-radius:6px;padding:14px;overflow-x:auto;font-family:ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;font-size:13px;line-height:1.55}
-code{background:rgba(175,184,193,0.2);padding:0.2em 0.4em;border-radius:4px;font-size:85%;font-family:ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace}
-pre code{background:none;padding:0}
-blockquote{margin:16px 0;padding:4px 16px;color:#57606a;border-left:4px solid #d0d7de;background:#f8f9fa}
-table{border-collapse:collapse;width:100%;margin:16px 0;font-size:14px}
-th,td{border:1px solid #d0d7de;padding:8px 12px;text-align:left}
-th{background:#f6f8fa;font-weight:600}
-hr{height:1px;background:#d8dee4;border:none;margin:32px 0}
-figure{margin:24px 0;text-align:center}
-figure img{max-width:100%;height:auto;border:1px solid #d0d7de;border-radius:6px;box-shadow:0 1px 3px rgba(0,0,0,0.05)}
-figcaption{font-size:13px;color:#57606a;margin-top:8px}
-.math-block{background:#f8fafc;border-left:3px solid #0969da;padding:10px 14px;margin:12px 0;font-family:serif;font-style:italic}
-.math-inline{background:#f1f5f9;color:#0366d6;font-family:serif}
-.table-wrap{overflow-x:auto}
-footer{margin-top:48px;padding-top:20px;border-top:1px solid #d0d7de;font-size:13px;color:#656d76;text-align:center}
-@media(max-width:900px){
-  aside{position:static;width:100%;border-right:none;border-bottom:1px solid #d0d7de}
-  main{margin-left:0;padding:20px 16px}
-  article{padding:24px 20px}
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", "Fira Code", monospace;
+  --font-serif: "Songti SC", "Source Han Serif SC", STSong, Georgia, serif;
+  
+  --bg-page: #f8fafc;
+  --bg-surface: #ffffff;
+  --bg-subtle: #f1f5f9;
+  --bg-sidebar: #ffffff;
+  --bg-code: #0f172a;
+  --text-code: #e2e8f0;
+  
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #94a3b8;
+  
+  --brand-primary: #2563eb;
+  --brand-hover: #1d4ed8;
+  --brand-light: #eff6ff;
+  --brand-border: #bfdbfe;
+  
+  --accent-cyan: #0891b2;
+  --accent-purple: #7c3aed;
+  --accent-amber: #d97706;
+  --accent-emerald: #059669;
+  
+  --border-light: #e2e8f0;
+  --border-subtle: #cbd5e1;
+  
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.04);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 36px;
+  font-size: 16px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  line-height: 1.85;
+  display: flex;
+}
+
+/* Reading Progress Bar */
+#reading-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #2563eb, #0891b2, #7c3aed);
+  z-index: 9999;
+  width: 0%;
+  transition: width 0.1s ease-out;
+}
+
+/* Sidebar Styling */
+aside {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 330px;
+  background: var(--bg-sidebar);
+  border-right: 1px solid var(--border-light);
+  overflow-y: auto;
+  padding: 30px 18px 48px;
+  z-index: 100;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-light) transparent;
+}
+
+aside::-webkit-scrollbar {
+  width: 5px;
+}
+aside::-webkit-scrollbar-thumb {
+  background: var(--border-light);
+  border-radius: 4px;
+}
+
+.brand-header {
+  padding-bottom: 18px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid var(--border-light);
+}
+
+.brand-header h2 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #1e293b;
+  margin: 0 0 8px;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.brand-header h2 .logo-dot {
+  width: 10px;
+  height: 10px;
+  background: #2563eb;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+.brand-header p {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.badge-tag {
+  display: inline-block;
+  padding: 2px 7px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: var(--brand-light);
+  color: var(--brand-primary);
+  border-radius: 4px;
+  border: 1px solid var(--brand-border);
+  margin-top: 8px;
+}
+
+/* Navigation Links */
+aside nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.nav-section-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-tertiary);
+  margin: 16px 8px 6px;
+}
+
+aside nav a {
+  display: flex;
+  align-items: center;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  padding: 7px 10px;
+  border-radius: 7px;
+  transition: all 0.15s ease-in-out;
+}
+
+aside nav a:hover {
+  background: var(--bg-subtle);
+  color: var(--brand-primary);
+  transform: translateX(2px);
+}
+
+aside nav a.active {
+  background: var(--brand-light);
+  color: var(--brand-primary);
+  font-weight: 600;
+}
+
+aside nav a span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 24px;
+  height: 20px;
+  background: #f1f5f9;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #64748b;
+  margin-right: 9px;
+  transition: all 0.15s ease;
+}
+
+aside nav a.active span,
+aside nav a:hover span {
+  background: var(--brand-primary);
+  color: #ffffff;
+}
+
+/* Main Content Area */
+main {
+  margin-left: 330px;
+  flex: 1;
+  padding: 48px 5vw 120px;
+  max-width: 1440px;
+}
+
+article {
+  max-width: 920px;
+  margin: 0 auto;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: 16px;
+  padding: 56px 64px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* Headings Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: #0f172a;
+  letter-spacing: -0.025em;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 2.1rem;
+  line-height: 1.25;
+  border-bottom: 2px solid var(--border-light);
+  padding-bottom: 16px;
+  margin-top: 48px;
+  margin-bottom: 24px;
+}
+
+article > h1:first-of-type {
+  margin-top: 0;
+}
+
+h2 {
+  font-size: 1.55rem;
+  line-height: 1.35;
+  border-bottom: 1px solid var(--border-light);
+  padding-bottom: 10px;
+  margin-top: 44px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+h2::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 48px;
+  height: 2px;
+  background: var(--brand-primary);
+  border-radius: 2px;
+}
+
+h3 {
+  font-size: 1.25rem;
+  line-height: 1.4;
+  margin-top: 32px;
+  margin-bottom: 14px;
+  color: #1e293b;
+}
+
+h4 {
+  font-size: 1.05rem;
+  margin-top: 24px;
+  margin-bottom: 12px;
+  color: #334155;
+}
+
+/* Paragraphs & Text */
+p {
+  font-size: 0.98rem;
+  line-height: 1.85;
+  margin: 16px 0;
+  color: #334155;
+}
+
+strong {
+  color: #0f172a;
+  font-weight: 600;
+}
+
+/* Code & Pre Blocks */
+pre {
+  background: var(--bg-code);
+  color: var(--text-code);
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin: 24px 0;
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  line-height: 1.65;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+  position: relative;
+}
+
+pre::before {
+  content: " ";
+  display: block;
+  height: 10px;
+  width: 42px;
+  background: radial-gradient(circle, #ef4444 3px, transparent 3.5px),
+              radial-gradient(circle, #f59e0b 3px, transparent 3.5px),
+              radial-gradient(circle, #10b981 3px, transparent 3.5px);
+  background-position: 0 center, 12px center, 24px center;
+  background-repeat: no-repeat;
+  margin-bottom: 14px;
+  opacity: 0.85;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  background: #f1f5f9;
+  color: #0f766e;
+  padding: 0.18em 0.45em;
+  border-radius: 5px;
+  border: 1px solid #e2e8f0;
+}
+
+pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+  border: none;
+  font-size: 0.88rem;
+}
+
+/* Blockquotes */
+blockquote {
+  margin: 24px 0;
+  padding: 16px 22px;
+  background: linear-gradient(to right, #f8fafc, #f1f5f9);
+  border-left: 4px solid var(--brand-primary);
+  border-radius: 0 10px 10px 0;
+  color: #475569;
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+/* Modern Tables */
+.table-wrap {
+  overflow-x: auto;
+  margin: 28px 0;
+  border: 1px solid var(--border-light);
+  border-radius: 10px;
+  box-shadow: var(--shadow-sm);
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.9rem;
+  text-align: left;
+}
+
+th {
+  background: #f8fafc;
+  color: #1e293b;
+  font-weight: 600;
+  padding: 12px 18px;
+  border-bottom: 2px solid var(--border-light);
+}
+
+td {
+  padding: 12px 18px;
+  border-bottom: 1px solid var(--border-light);
+  color: #334155;
+}
+
+tr:last-child td {
+  border-bottom: none;
+}
+
+tr:hover td {
+  background: #f8fafc;
+}
+
+/* Lists */
+ul, ol {
+  padding-left: 24px;
+  margin: 16px 0;
+  color: #334155;
+}
+
+li {
+  margin: 8px 0;
+  line-height: 1.75;
+}
+
+/* Figures & Images */
+figure {
+  margin: 32px 0;
+  text-align: center;
+  background: #f8fafc;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  padding: 24px 16px 16px;
+}
+
+figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+}
+
+figcaption {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-top: 14px;
+  font-weight: 500;
+}
+
+/* Math formula blocks */
+.math-block {
+  background: #f8fafc;
+  border-left: 3px solid var(--accent-cyan);
+  padding: 14px 20px;
+  margin: 20px 0;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: #0f172a;
+  border-radius: 0 8px 8px 0;
+  overflow-x: auto;
+}
+
+.math-inline {
+  font-family: var(--font-serif);
+  background: #f0fdf4;
+  color: #166534;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.95em;
+  border: 1px solid #dcfce7;
+}
+
+/* QA Cards Styling */
+.qa-card {
+  margin: 28px 0;
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s ease;
+}
+
+.qa-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--brand-border);
+}
+
+.qa-header {
+  background: linear-gradient(to right, #eff6ff, #f8fafc);
+  border-bottom: 1px solid var(--border-light);
+  padding: 14px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.qa-badge {
+  background: var(--brand-primary);
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+
+.qa-title {
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+.qa-body {
+  padding: 20px 24px;
+}
+
+.badge-role {
+  display: inline-block;
+  font-size: 0.76rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 4px;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.badge-ans {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+.badge-theory {
+  background: #f5f3ff;
+  color: #6d28d9;
+  border: 1px solid #ddd6fe;
+}
+
+.badge-follow {
+  background: #fffbeb;
+  color: #b45309;
+  border: 1px solid #fde68a;
+}
+
+.badge-points {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0;
+}
+
+/* Divider */
+hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--border-light), transparent);
+  margin: 48px 0;
+}
+
+/* Back to top button */
+#back-to-top {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  width: 44px;
+  height: 44px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-md);
+  color: var(--text-secondary);
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  z-index: 1000;
+  font-size: 18px;
+}
+
+#back-to-top:hover {
+  background: var(--brand-primary);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+#back-to-top.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Footer */
+footer {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border-light);
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-tertiary);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  aside {
+    width: 280px;
+    padding: 24px 14px;
+  }
+  main {
+    margin-left: 280px;
+    padding: 32px 3vw 80px;
+  }
+  article {
+    padding: 40px 32px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+  aside {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border-light);
+    padding: 20px 16px;
+  }
+  main {
+    margin-left: 0;
+    padding: 20px 12px 60px;
+  }
+  article {
+    padding: 28px 18px;
+    border-radius: 10px;
+  }
 }
 </style>
 </head>
 <body id="top">
+  <div id="reading-progress"></div>
+  
   <aside>
-    <h2>深入理解 DeepSeek Harness</h2>
-    <p>全 19 章系统教材 · 融合全景版<br>固定基线：<code>dsh@0.2.0-rc.2</code></p>
+    <div class="brand-header">
+      <h2><span class="logo-dot"></span>深入理解 DSH</h2>
+      <p>全 19 章系统工程教材 · 融合全景版</p>
+      <div class="badge-tag">基线：dsh@0.2.0-rc.2</div>
+    </div>
     <nav>
-<a href="#chapter-01"><span>01</span>智能体运行框架究竟做什么</a>
-<a href="#chapter-02"><span>02</span>类型系统与异步等待</a>
-<a href="#chapter-03"><span>03</span>循环与收件箱消息队列</a>
-<a href="#chapter-04"><span>04</span>文件读取工具与材料获取</a>
-<a href="#chapter-05"><span>05</span>会话记录、日志与崩溃恢复</a>
-<a href="#chapter-06"><span>06</span>提示词装配与项目指令</a>
-<a href="#chapter-07"><span>07</span>技能的按需发现与动态加载</a>
-<a href="#chapter-08"><span>08</span>长程上下文压缩与成本</a>
-<a href="#chapter-09"><span>09</span>流式输出、重试与容错</a>
-<a href="#chapter-10"><span>10</span>微内核插件装配与配置</a>
-<a href="#chapter-11"><span>11</span>工具准入、单调守卫与审批</a>
-<a href="#chapter-12"><span>12</span>外部服务与 MCP/LSP 接入</a>
-<a href="#chapter-13"><span>13</span>子代理派生与团队编排</a>
-<a href="#chapter-14"><span>14</span>网页端通信与增量状态流</a>
-<a href="#chapter-15"><span>15</span>桌面端三层隔离与受控桥</a>
-<a href="#chapter-16"><span>16</span>测试与确定性无模型回放</a>
-<a href="#chapter-17"><span>17</span>四维量化评价指标体系</a>
-<a href="#chapter-18"><span>18</span>综合案例：完整能力落地</a>
-<a href="#chapter-19"><span>19</span>理论奠基：时空可组合性与 Cordis</a>
-<hr style="margin:12px 0">
-<a href="#appendices"><span>附</span>术语与语法速查</a>
-<a href="#reference-index"><span>索</span>全书参考索引</a>
+<div class="nav-section-label">第一部分 · 核心运行原理</div><a href="#chapter-01" id="nav-chapter-01"><span>01</span>智能体运行框架究竟做什么</a>
+<a href="#chapter-02" id="nav-chapter-02"><span>02</span>类型系统与异步等待</a>
+<a href="#chapter-03" id="nav-chapter-03"><span>03</span>循环与收件箱消息队列</a>
+<a href="#chapter-04" id="nav-chapter-04"><span>04</span>文件读取工具与材料获取</a>
+<a href="#chapter-05" id="nav-chapter-05"><span>05</span>会话记录、日志与崩溃恢复</a>
+<a href="#chapter-06" id="nav-chapter-06"><span>06</span>提示词装配与项目指令</a>
+<a href="#chapter-07" id="nav-chapter-07"><span>07</span>技能的按需发现与动态加载</a>
+<a href="#chapter-08" id="nav-chapter-08"><span>08</span>长程上下文压缩与成本</a>
+<a href="#chapter-09" id="nav-chapter-09"><span>09</span>流式输出、重试与容错</a>
+<a href="#chapter-10" id="nav-chapter-10"><span>10</span>微内核插件装配与配置</a>
+<div class="nav-section-label">第二部分 · 安全交互与度量</div><a href="#chapter-11" id="nav-chapter-11"><span>11</span>工具准入、单调守卫与审批</a>
+<a href="#chapter-12" id="nav-chapter-12"><span>12</span>外部服务与 MCP/LSP 接入</a>
+<a href="#chapter-13" id="nav-chapter-13"><span>13</span>子代理派生与团队编排</a>
+<a href="#chapter-14" id="nav-chapter-14"><span>14</span>网页端通信与增量状态流</a>
+<a href="#chapter-15" id="nav-chapter-15"><span>15</span>桌面端三层隔离与受控桥</a>
+<a href="#chapter-16" id="nav-chapter-16"><span>16</span>测试与确定性无模型回放</a>
+<a href="#chapter-17" id="nav-chapter-17"><span>17</span>四维量化评价指标体系</a>
+<a href="#chapter-18" id="nav-chapter-18"><span>18</span>综合案例：完整能力落地</a>
+<div class="nav-section-label">第三部分 · 理论奠基</div><a href="#chapter-19" id="nav-chapter-19"><span>19</span>理论奠基：时空可组合性与 Cordis</a>
+<div class="nav-section-label">配套附录与索引</div><a href="#appendices" id="nav-appendices"><span>附</span>术语与语法速查</a>
+<a href="#reference-index" id="nav-reference-index"><span>索</span>全书参考索引</a>
+
     </nav>
-    <hr style="margin:16px 0">
-    <p style="font-size:11px;color:#8c959f">理论奠基文献：<br>arXiv:2608.25512 [cs.PL]<br>Shi, Zhang, Cui (2026)</p>
+    <div style="margin-top:24px;padding:12px;background:#f8fafc;border-radius:8px;border:1px solid #e2e8f0;font-size:11px;color:#64748b;line-height:1.5">
+      <strong>理论奠基文献：</strong><br>
+      arXiv:2608.25512 [cs.PL]<br>
+      Shi, Zhang, Cui (2026)
+    </div>
   </aside>
+
   <main>
     <article>
 <h1>深入理解 DeepSeek Harness</h1>
@@ -217,30 +799,30 @@ footer{margin-top:48px;padding-top:20px;border-top:1px solid #d0d7de;font-size:1
 <p>&lt;!-- references:end --&gt;</p>
 <hr>
 <h2>本章面试问答</h2>
-<blockquote>本节把本章机制改写成面试官会追问的问题。回答分两层：先给可直接使用的回答，再用&quot;原理&quot;解释机制背后的设计原因。引用的文件与行号属于固定提交 <code>639ed01</code>，可在<a href="source-excerpts.md">可选证据附录</a>复核。</blockquote>
-<h3>Q1 · 用户敲下一句话到看到回答，中间经过哪些责任交接？哪一步最容易被误认为是&quot;模型自己做的&quot;？</h3>
+<blockquote>本节把本章机制改写成面试官会追问的问题。回答分两层：先给可直接使用的回答，再用&quot;原理&quot;解释机制背后的设计原因。引用的文件与行号属于固定提交 <code>639ed01</code>，可在<a href="../source-excerpts.md">可选证据附录</a>复核。</blockquote>
+<div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q1 · 用户敲下一句话到看到回答，中间经过哪些责任交接？哪一步最容易被误认为是&quot;模型自己做的&quot;？</span></div><div class="qa-body">
 <p><strong>考察点</strong>：是否真的理解 Harness 的角色边界，还是把一切归功于模型。</p>
-<p><strong>回答</strong>：五次交接。①会话命令控制器的 <code>prompt</code> 方法（packages/api/session-controller/src/commands.ts，第 311 行起）校验内容非空、解析目标智能体，并用 <code>hasPromptRequest</code> 识别重复 requestId——已识别的请求直接返回 <code>{accepted: true}</code>（第 329—335 行），不会再排一次；②有效文本构造为用户消息，经 <code>followup</code> 或 <code>steer</code> 进入收件箱（packages/core/agent-loop/src/agent.ts 第 163—169 行）；③驱动开轮次（记录 <code>turn/start</code> 事件）、跑 <code>preStep</code> 前置准入、进入步骤发起模型请求；④成功消息里的 tool-call 块交给 <code>executeToolCalls</code>（packages/core/agent-loop/src/tool-calls.ts 第 60 行），每个调用先记录一条 <code>tool/call</code> 事实并拿到序号（第 263—266 行），结果之后与这个序号关联；⑤文件片段进入会话历史，组装下一次请求时模型才有机会基于它回答。最容易被误解的是第④步：文件是执行体通过 <code>ctx.fs</code> 文件服务读的，模型只提出了路径参数；以及 <code>accepted</code> 只是接纳契约，不是回答。</p>
-<p><strong>原理</strong>：这样设计的核心原因是&quot;提议与执行分离&quot;。模型的输出在协议上只是结构化提议（工具名、参数），真正作用在外部世界的动作由框架持有并记录。这带来三个可依赖的性质：权限判断发生在框架层而不是模型输出层；每个动作都有 <code>tool/call</code> 事实可审计；文件内容必须真实进入请求材料，回答才有可检查的依据。若把执行权交给模型输出本身，&quot;模型说读了&quot;和&quot;真的读了&quot;就无法区分。</p>
-<p><strong>追问</strong>：为什么 accepted 不等于成功？向产品经理解释一遍。 <strong>回答要点</strong>：接纳延迟、首段输出时间、终态时间是三个不同的钟（教材 1.1.6 的 30 ms/900 ms/1800 ms 教学示例）；接纳解决&quot;系统收到了&quot;，终态要靠轮次结束事件与产物检查，两者不能互相替代。</p>
-<h3>Q2 · turn、step、attempt 三层边界怎么划分？为什么不是一个大循环？</h3>
+<p><span class="badge-role badge-ans">权威回答</span>五次交接。①会话命令控制器的 <code>prompt</code> 方法（packages/api/session-controller/src/commands.ts，第 311 行起）校验内容非空、解析目标智能体，并用 <code>hasPromptRequest</code> 识别重复 requestId——已识别的请求直接返回 <code>{accepted: true}</code>（第 329—335 行），不会再排一次；②有效文本构造为用户消息，经 <code>followup</code> 或 <code>steer</code> 进入收件箱（packages/core/agent-loop/src/agent.ts 第 163—169 行）；③驱动开轮次（记录 <code>turn/start</code> 事件）、跑 <code>preStep</code> 前置准入、进入步骤发起模型请求；④成功消息里的 tool-call 块交给 <code>executeToolCalls</code>（packages/core/agent-loop/src/tool-calls.ts 第 60 行），每个调用先记录一条 <code>tool/call</code> 事实并拿到序号（第 263—266 行），结果之后与这个序号关联；⑤文件片段进入会话历史，组装下一次请求时模型才有机会基于它回答。最容易被误解的是第④步：文件是执行体通过 <code>ctx.fs</code> 文件服务读的，模型只提出了路径参数；以及 <code>accepted</code> 只是接纳契约，不是回答。</p>
+<p><span class="badge-role badge-theory">设计原理</span>这样设计的核心原因是&quot;提议与执行分离&quot;。模型的输出在协议上只是结构化提议（工具名、参数），真正作用在外部世界的动作由框架持有并记录。这带来三个可依赖的性质：权限判断发生在框架层而不是模型输出层；每个动作都有 <code>tool/call</code> 事实可审计；文件内容必须真实进入请求材料，回答才有可检查的依据。若把执行权交给模型输出本身，&quot;模型说读了&quot;和&quot;真的读了&quot;就无法区分。</p>
+<p><span class="badge-role badge-follow">考官追问</span>为什么 accepted 不等于成功？向产品经理解释一遍。 <span class="badge-role badge-points">应答要点</span>接纳延迟、首段输出时间、终态时间是三个不同的钟（教材 1.1.6 的 30 ms/900 ms/1800 ms 教学示例）；接纳解决&quot;系统收到了&quot;，终态要靠轮次结束事件与产物检查，两者不能互相替代。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q2 · turn、step、attempt 三层边界怎么划分？为什么不是一个大循环？</span></div><div class="qa-body">
 <p><strong>考察点</strong>：循环结构设计、失败归因能力。</p>
-<p><strong>回答</strong>：轮次（turn）由驱动管理，以 <code>turn/start</code> 与 <code>turn/end</code> 事件为界；进入前先跑 <code>preStep</code>，拒绝时该轮以 <code>blocked</code> 结束，可以一步都没走（agent.ts 第 303—319 行：先记录 <code>turn/start</code>，<code>phase.turn</code> 加一，循环内先做前置决定）。步骤（step）是&quot;一次模型请求＋成功后的工具阶段&quot;；尝试（attempt）是本步内一次模型请求尝试，失败恢复在同一尝试循环里进行——只有错误恢复链返回 <code>retry</code> 才继续，否则抛出 <code>LlmError</code>（agent.ts 第 505—509 行）。教材 1.3.6 的教学轨迹：1 个 turn、2 个 step、3 次 attempt、1 次工具调用。</p>
-<p><strong>原理</strong>：分层的目的把不同原因的失败放进不同抽屉。attempt 层解释&quot;这次模型请求为什么失败、重试了几次&quot;；step 层解释&quot;工具阶段有没有执行、材料是否进入下一步&quot;；turn 层解释&quot;这轮任务为什么结束（完成、阻塞、取消）&quot;。合成一层循环时，重试次数、工具副作用和任务终态会被搅在同一个计数里，日志分析与回归定位都要靠字符串猜。分层后每一层有自己的事件（<code>turn/start</code>、步骤边界、attempt 记录），统计与回放都有明确锚点。</p>
-<p><strong>追问</strong>：steer 输入为什么不能打断已经发出的模型请求？ <strong>回答要点</strong>：steer 只是声明领取时点（next-step），请求在提交时已冻结（教材 2.1.3）；已发出的请求不能被后到的一句话倒回去修改，新输入在下一步边界被领取并参与下一次组装。</p>
-<h3>Q3 · followup、steer、inject 三个入口差在哪？为什么需要&quot;不唤醒&quot;的注入？</h3>
-<p><strong>回答</strong>：agent.ts 第 163—173 行，三者都调用 <code>send</code>，差异在两个参数：followup 投给 <code>next-turn</code> 并唤醒；steer 投给 <code>next-step</code> 并唤醒；inject 投给 <code>next-step</code> 但第三个布尔值为 <code>false</code>，不触发唤醒。收件箱变更经 <code>mutate</code> 先更新投影状态再通知监听者（packages/core/agent-loop/src/inbox.ts 第 198 行），所以通知回调里查到的是新状态。</p>
-<p><strong>原理</strong>：区分&quot;进入时点&quot;与&quot;是否启动工作&quot;是队列设计的关键。进入时点决定输入影响哪次组装（本轮还是下一步），唤醒与否决定空闲驱动是否启动。外部观察者（例如工具结果回填、插件投递材料）只想把事实放进队列，不该有&quot;把空闲系统吵醒&quot;的副作用；否则多次注入会引发多次唤醒竞争，破坏&quot;同一会话一个驱动&quot;的约定。把两个自由度拆成两个参数，接口就无需为每种组合再加方法。</p>
-<p><strong>追问</strong>：空闲时 inject 的输入什么时候被消费？ <strong>回答要点</strong>：留在队列里，直到下一次驱动因别的原因运行才被领取；不能期待注入动作本身让任务启动。</p>
-<h3>Q4 · &quot;工具注册&quot;与&quot;工具执行&quot;在代码上如何区分？这个区分有什么调试价值？</h3>
-<p><strong>回答</strong>：注册发生在插件 <code>apply</code> 阶段：<code>applyReadTool</code> 调用 <code>ctx.tools.register(defineTool({...}))</code>，对象里的 <code>async execute(...)</code> 只是属性值，尚未运行（packages/fs/tool-fs/src/read.ts 第 77—84 行）。执行发生在模型消息出现 tool-call 块之后：工具链 <code>prepareExecution → dispatch</code>（packages/core/tools/src/index.ts 第 1493 行起）重新解析可执行工具并调用真实 <code>execute</code>。启动时注册 3 个工具、运行期执行 1 次调用，是两个不同计数。</p>
-<p><strong>原理</strong>：注册表让&quot;模型知道有哪些能力&quot;与&quot;能力被使用&quot;解耦。模型在请求材料里看到的是工具 schema（名称、参数契约），这只是目录；运行时准入（第 4 章的 pre-execute → ask → guard）决定某次调用是否兑现。调试&quot;提交成功但没有回答&quot;时，这个区分给出一条排查链：接纳返回了 accepted 吗→收件箱与驱动状态如何→attempt 是否失败→工具是被拒绝还是执行出错。每一层有不同的证据，不会把所有故障都归因为&quot;模型没答&quot;。</p>
-<p><strong>追问</strong>：<code>ReactLoopAgent</code> 里的 React 是前端框架吗？ <strong>回答要点</strong>：不是，指 ReAct 式&quot;推理—行动&quot;循环；判断一个类的职责要看方法、依赖和调用位置，不能靠同名联想。</p>
-<h3>Q5 · 手写一个 Agent 和用现成 Harness（如 DSH）搭，本质区别是什么？</h3>
+<p><span class="badge-role badge-ans">权威回答</span>轮次（turn）由驱动管理，以 <code>turn/start</code> 与 <code>turn/end</code> 事件为界；进入前先跑 <code>preStep</code>，拒绝时该轮以 <code>blocked</code> 结束，可以一步都没走（agent.ts 第 303—319 行：先记录 <code>turn/start</code>，<code>phase.turn</code> 加一，循环内先做前置决定）。步骤（step）是&quot;一次模型请求＋成功后的工具阶段&quot;；尝试（attempt）是本步内一次模型请求尝试，失败恢复在同一尝试循环里进行——只有错误恢复链返回 <code>retry</code> 才继续，否则抛出 <code>LlmError</code>（agent.ts 第 505—509 行）。教材 1.3.6 的教学轨迹：1 个 turn、2 个 step、3 次 attempt、1 次工具调用。</p>
+<p><span class="badge-role badge-theory">设计原理</span>分层的目的把不同原因的失败放进不同抽屉。attempt 层解释&quot;这次模型请求为什么失败、重试了几次&quot;；step 层解释&quot;工具阶段有没有执行、材料是否进入下一步&quot;；turn 层解释&quot;这轮任务为什么结束（完成、阻塞、取消）&quot;。合成一层循环时，重试次数、工具副作用和任务终态会被搅在同一个计数里，日志分析与回归定位都要靠字符串猜。分层后每一层有自己的事件（<code>turn/start</code>、步骤边界、attempt 记录），统计与回放都有明确锚点。</p>
+<p><span class="badge-role badge-follow">考官追问</span>steer 输入为什么不能打断已经发出的模型请求？ <span class="badge-role badge-points">应答要点</span>steer 只是声明领取时点（next-step），请求在提交时已冻结（教材 2.1.3）；已发出的请求不能被后到的一句话倒回去修改，新输入在下一步边界被领取并参与下一次组装。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q3 · followup、steer、inject 三个入口差在哪？为什么需要&quot;不唤醒&quot;的注入？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span>agent.ts 第 163—173 行，三者都调用 <code>send</code>，差异在两个参数：followup 投给 <code>next-turn</code> 并唤醒；steer 投给 <code>next-step</code> 并唤醒；inject 投给 <code>next-step</code> 但第三个布尔值为 <code>false</code>，不触发唤醒。收件箱变更经 <code>mutate</code> 先更新投影状态再通知监听者（packages/core/agent-loop/src/inbox.ts 第 198 行），所以通知回调里查到的是新状态。</p>
+<p><span class="badge-role badge-theory">设计原理</span>区分&quot;进入时点&quot;与&quot;是否启动工作&quot;是队列设计的关键。进入时点决定输入影响哪次组装（本轮还是下一步），唤醒与否决定空闲驱动是否启动。外部观察者（例如工具结果回填、插件投递材料）只想把事实放进队列，不该有&quot;把空闲系统吵醒&quot;的副作用；否则多次注入会引发多次唤醒竞争，破坏&quot;同一会话一个驱动&quot;的约定。把两个自由度拆成两个参数，接口就无需为每种组合再加方法。</p>
+<p><span class="badge-role badge-follow">考官追问</span>空闲时 inject 的输入什么时候被消费？ <span class="badge-role badge-points">应答要点</span>留在队列里，直到下一次驱动因别的原因运行才被领取；不能期待注入动作本身让任务启动。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q4 · &quot;工具注册&quot;与&quot;工具执行&quot;在代码上如何区分？这个区分有什么调试价值？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span>注册发生在插件 <code>apply</code> 阶段：<code>applyReadTool</code> 调用 <code>ctx.tools.register(defineTool({...}))</code>，对象里的 <code>async execute(...)</code> 只是属性值，尚未运行（packages/fs/tool-fs/src/read.ts 第 77—84 行）。执行发生在模型消息出现 tool-call 块之后：工具链 <code>prepareExecution → dispatch</code>（packages/core/tools/src/index.ts 第 1493 行起）重新解析可执行工具并调用真实 <code>execute</code>。启动时注册 3 个工具、运行期执行 1 次调用，是两个不同计数。</p>
+<p><span class="badge-role badge-theory">设计原理</span>注册表让&quot;模型知道有哪些能力&quot;与&quot;能力被使用&quot;解耦。模型在请求材料里看到的是工具 schema（名称、参数契约），这只是目录；运行时准入（第 4 章的 pre-execute → ask → guard）决定某次调用是否兑现。调试&quot;提交成功但没有回答&quot;时，这个区分给出一条排查链：接纳返回了 accepted 吗→收件箱与驱动状态如何→attempt 是否失败→工具是被拒绝还是执行出错。每一层有不同的证据，不会把所有故障都归因为&quot;模型没答&quot;。</p>
+<p><span class="badge-role badge-follow">考官追问</span><code>ReactLoopAgent</code> 里的 React 是前端框架吗？ <span class="badge-role badge-points">应答要点</span>不是，指 ReAct 式&quot;推理—行动&quot;循环；判断一个类的职责要看方法、依赖和调用位置，不能靠同名联想。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q5 · 手写一个 Agent 和用现成 Harness（如 DSH）搭，本质区别是什么？</span></div><div class="qa-body">
 <p><strong>考察点</strong>：对 harness 价值的理解深度（真实面试题）。</p>
-<p><strong>回答</strong>：手写时，循环、材料组装、工具准入、状态保存、失败恢复、评测口径都要自己实现，第一版通常只覆盖顺利路径。Harness 把这些变成显式契约：输入有接纳与收件箱语义（Q1）、推进有 turn/step/attempt 边界（Q2）、动作有准入与审批（第 4 章）、事实有追加冻结与派生视图（第 3 章）、行为有回放与投影可验证（第 7 章）。代价是必须理解并遵守这些契约——自由度下降，但每个现象都能落到&quot;哪一层、什么条件、什么证据&quot;。</p>
-<p><strong>原理</strong>：本质区别不在代码量，而在&quot;变化有没有落点、行为有没有证据&quot;。手写系统的知识散落在函数和个人约定里，换人即失传；harness 把协作规则固化为注册、事件与边界，使能力替换（换模型、换文件后端）、行为复现（回放固定模型响应）、效果比较（统一计量）成为框架保证而不是个人纪律。这也是教材第 9 章&quot;持续改进&quot;的前提：没有可观察事实，改进只能是猜。</p>
-<hr>
+<p><span class="badge-role badge-ans">权威回答</span>手写时，循环、材料组装、工具准入、状态保存、失败恢复、评测口径都要自己实现，第一版通常只覆盖顺利路径。Harness 把这些变成显式契约：输入有接纳与收件箱语义（Q1）、推进有 turn/step/attempt 边界（Q2）、动作有准入与审批（第 4 章）、事实有追加冻结与派生视图（第 3 章）、行为有回放与投影可验证（第 7 章）。代价是必须理解并遵守这些契约——自由度下降，但每个现象都能落到&quot;哪一层、什么条件、什么证据&quot;。</p>
+<p><span class="badge-role badge-theory">设计原理</span>本质区别不在代码量，而在&quot;变化有没有落点、行为有没有证据&quot;。手写系统的知识散落在函数和个人约定里，换人即失传；harness 把协作规则固化为注册、事件与边界，使能力替换（换模型、换文件后端）、行为复现（回放固定模型响应）、效果比较（统一计量）成为框架保证而不是个人纪律。这也是教材第 9 章&quot;持续改进&quot;的前提：没有可观察事实，改进只能是猜。</p>
+</div></div><hr>
 <a id="chapter-02"></a>
 <p># 第 2 章｜读懂代码：类型与异步等待</p>
 <p>## 02.0 不懂所有语法，也能追一个问题</p>
@@ -332,28 +914,28 @@ const result = await submit('读取项目说明')</code></pre>
 <p>&lt;!-- references:end --&gt;</p>
 <hr>
 <h2>本章面试问答</h2>
-<blockquote>本节追问&quot;模型每一步看到什么&quot;的原理。回答引用的文件与行号可在<a href="source-excerpts.md">可选证据附录</a>复核。</blockquote>
-<h3>Q1 · 下一次模型请求由哪些材料组成？各自的进入路径为什么不同？</h3>
+<blockquote>本节追问&quot;模型每一步看到什么&quot;的原理。回答引用的文件与行号可在<a href="../source-excerpts.md">可选证据附录</a>复核。</blockquote>
+<div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q1 · 下一次模型请求由哪些材料组成？各自的进入路径为什么不同？</span></div><div class="qa-body">
 <p><strong>考察点</strong>：上下文工程是否停留在&quot;拼 prompt&quot;的直觉，还是能按来源讲清路径。</p>
-<p><strong>回答</strong>：五类材料五条路径。系统提示词：插件经 <code>SystemPrompt.section</code> 注册带名字与顺序的贡献，组装时&quot;作用域内同名项先遮蔽全局，再按确定性排序&quot;（packages/core/system-prompt/src/index.ts 第 574—590 行，参数 schema 用 <code>structuredClone</code> 复制）；动态上下文走 <code>context</code> 注册。项目指令：agent-instructions 插件挂在 <code>agent/pre-step</code> 链上，等待相关投影、按工作区与触及路径整理，再把指令消息放进领取批次之后（packages/context/agent-instructions/src/index.ts 第 332—340 行）。历史消息：由当前表层派生；用户消息：只在 <code>firstAttempt</code> 时记录一次 <code>user/message</code>（agent.ts 第 419—425 行），重试不会重复登记。</p>
-<p><strong>原理</strong>：路径不同是因为来源和信任级别不同。系统提示词描述&quot;这个 Agent 怎么行为&quot;，来自插件贡献，需要作用域与去重规则；项目指令描述&quot;这个仓库怎么工作&quot;，依赖文件观察与工作区边界，必须等投影就绪并按触及路径筛选，所以它既不是向量搜索器也不是启动时一次性改写 system 字符串；历史来自会话表层，受压缩影响。若把这些全部压成&quot;一个拼接函数&quot;，就无从回答&quot;这句话是谁在什么条件下放进来的&quot;——而这是排查提示冲突、注入与重复材料时首先要问的问题。</p>
-<p><strong>追问</strong>：为什么不能说&quot;所有项目指令都会变成 system prompt&quot;？ <strong>回答要点</strong>：本版本项目指令经前置步骤以指令消息路径进入材料；教材 2.1.8 明确列出这个误解。判断材料路径要看实现，不看直觉。</p>
-<h3>Q2 · &quot;请求冻结&quot;到底冻结了什么？它防的是什么事故？</h3>
-<p><strong>回答</strong>：驱动在 <code>prepareRequest → buildRequest</code>（agent.ts 第 547 行起）派生并冻结本次请求；模型侧对应 <code>prepareCall</code> 里 <code>deepFreeze(structuredClone(resolved.config))</code>（packages/llm/llm/src/index.ts 第 936—944 行，config 与 context 各冻结一份）。冻结意味着：本次请求引用的对象之后被共享代码修改，也不会改变已提交请求的内容；<code>firstAttempt</code> 保证用户消息只登记一次，重试沿同一请求语义进行。</p>
-<p><strong>原理</strong>：JS 的对象是引用语义。组装过程中，提示贡献、上下文投影和历史消息都是被多方持有的共享对象；如果请求在异步等待期间仍引用它们，任何一方的后续修改（插件重载、压缩提交、新消息追加）都会&quot;穿透&quot;到在途请求里，造成校验过的内容与实际发出的内容不一致——这类问题的表现是&quot;日志与请求对不上&quot;，极难定位。冻结（复制＋深冻结）在提交点做了一次快照，把&quot;可变世界&quot;与&quot;在途请求&quot;切开。它不保证下一步不引入新材料，也不保证模型输出正确；它只保证&quot;发出去的请求&quot;是可复述的事实。</p>
-<p><strong>追问</strong>：冻结与压缩的表层替换冲突吗？ <strong>回答要点</strong>：不冲突——压缩改变后续请求的派生视图，冻结只保护在途请求；教材 2.1.8：&quot;冻结一次请求就冻结整个会话&quot;是误解。</p>
-<h3>Q3 · 技能&quot;目录可见 ≠ 正文已加载&quot;在代码上怎么体现？为什么这样设计？</h3>
-<p><strong>回答</strong>：<code>SkillRegistry.list</code> 只返回摘要快照（packages/skill/skill/src/index.ts 第 470—472 行）；模型想拿正文必须调用 <code>skill</code> 工具，执行体先检查名称在当前可见摘要里、再检查 <code>isModelInvocable</code>，通过后 <code>get</code> 正文返回（packages/skill/tool-skill/src/index.ts 第 133—143 行），任一检查失败抛出明确错误。用户手势路径（第一行 <code>/name</code>）在前置步骤处理，只有 <code>isUserInvocable</code> 的技能才变成带 <code>skill-invocation</code> 来源的指令消息；未知名保持纯文本，不伪造来源（第 189—200 行）。</p>
-<p><strong>原理</strong>：这是上下文经济学。技能正文可能各有数千字节，全量预载会让多数请求背着无关材料；而只给摘要（名称＋说明）让模型保留&quot;知道自己缺什么&quot;的能力，需要时花一次工具调用精确取得。与权限的关系同样关键：读取是材料行为，不是授权行为——如果加载技能自动扩大能力，任何诱导模型读一份恶意技能的文本都能变成提权路径。所以准入仍在工具链，按需读取只改变&quot;看到了什么&quot;，不改变&quot;能做什么&quot;。</p>
-<p><strong>追问</strong>：用户消息里出现 <code>/某技能</code> 字样就一定加载正文吗？ <strong>回答要点</strong>：不是。手势检查消息来源与可调用策略；外部文本即使写着同样字符也只是普通材料（教材 2.2.3、2.2.8）。</p>
-<h3>Q4 · 压缩的触发条件、主链和失败路径分别是什么？为什么要有&quot;稳定性检查&quot;？</h3>
-<p><strong>回答</strong>：基本压缩插件监听 <code>agent/pre-step</code>，调用 <code>compactIfNeeded(agent, 'pressure', signal)</code>；配置目标错误只警告一次并继续原前置链（packages/compaction/compaction-basic/src/index.ts 第 158—175 行）。上下文溢出恢复路径先按需剪枝，再 <code>selectCompactableRange</code>，没有合适区域返回 null 放弃（第 294—301 行）。选定区域后：生成摘要 → <code>assertStable</code> 验证表层未变 → <code>commitCompactionBody</code> 提交替换 → 记录 <code>compaction/end</code> 闭合；中途出错按所处阶段记录错误链（packages/compaction/compaction-basic/src/region.ts 第 232—245 行）。</p>
-<p><strong>原理</strong>：压缩是一个跨多步异步流程去修改共享历史的操作，最大的风险是&quot;竞态覆盖&quot;：摘要生成期间，会话可能追加了新消息、发生了取消、甚至另一次压缩。如果摘要回来后不检查直接替换，就会把别人刚写入的事实覆盖成旧快照的摘要。<code>assertStable</code> 就是把&quot;读时状态&quot;与&quot;写时状态&quot;做一次乐观并发校验——与数据库的条件更新同构。失败分阶段记录（选择、摘要、提交），让&quot;没选到区域&quot;&quot;摘要失败&quot;&quot;提交时状态漂移&quot;三种完全不同的问题不会被混成一个&quot;压缩失败&quot;。另外，压缩只替换当前表层、原始事件仍在日志里，这是&quot;派生视图可重建&quot;原则（第 3 章）的应用：事实不可变，表示可替换。</p>
-<p><strong>追问</strong>：压缩、spill、截断三者怎么选？ <strong>回答要点</strong>：压缩生成有损短表示；spill 把原文移到存储并给定位符、按需取回；单纯截断可能没有恢复入口。长工具结果优先 spill（教材 2.5），历史压力才压缩（2.3）。</p>
-<h3>Q5 · spill 机制解决什么问题？它和压缩的原理差异是什么？</h3>
-<p><strong>回答</strong>：超长工具结果先整体交给存储提供方，工具结果只保留首尾预览加定位符与检索说明；本地 spill 策略在保存失败时可保留原内联结果，不宣称必定外置成功。作用域方面，每项贡献有身份、范围与位置，插件卸载只撤销自己的注册（教材 2.5）。</p>
-<p><strong>原理</strong>：spill 与压缩是两种相反的取舍。压缩用信息损失换空间，适用于&quot;旧历史大概率不再逐字需要&quot;；spill 用一次间接寻址换无损，适用于&quot;结果必须完整保留，但不值得每轮都随请求携带&quot;。两者都以&quot;原始事实另有归宿&quot;为前提：压缩的原文留在日志，spill 的原文在存储提供方——共同点是当前模型视图与完整事实分离，这正是第 3 章&quot;一份事实、多个消费方&quot;原则在空间维度的版本。</p>
-<hr>
+<p><span class="badge-role badge-ans">权威回答</span>五类材料五条路径。系统提示词：插件经 <code>SystemPrompt.section</code> 注册带名字与顺序的贡献，组装时&quot;作用域内同名项先遮蔽全局，再按确定性排序&quot;（packages/core/system-prompt/src/index.ts 第 574—590 行，参数 schema 用 <code>structuredClone</code> 复制）；动态上下文走 <code>context</code> 注册。项目指令：agent-instructions 插件挂在 <code>agent/pre-step</code> 链上，等待相关投影、按工作区与触及路径整理，再把指令消息放进领取批次之后（packages/context/agent-instructions/src/index.ts 第 332—340 行）。历史消息：由当前表层派生；用户消息：只在 <code>firstAttempt</code> 时记录一次 <code>user/message</code>（agent.ts 第 419—425 行），重试不会重复登记。</p>
+<p><span class="badge-role badge-theory">设计原理</span>路径不同是因为来源和信任级别不同。系统提示词描述&quot;这个 Agent 怎么行为&quot;，来自插件贡献，需要作用域与去重规则；项目指令描述&quot;这个仓库怎么工作&quot;，依赖文件观察与工作区边界，必须等投影就绪并按触及路径筛选，所以它既不是向量搜索器也不是启动时一次性改写 system 字符串；历史来自会话表层，受压缩影响。若把这些全部压成&quot;一个拼接函数&quot;，就无从回答&quot;这句话是谁在什么条件下放进来的&quot;——而这是排查提示冲突、注入与重复材料时首先要问的问题。</p>
+<p><span class="badge-role badge-follow">考官追问</span>为什么不能说&quot;所有项目指令都会变成 system prompt&quot;？ <span class="badge-role badge-points">应答要点</span>本版本项目指令经前置步骤以指令消息路径进入材料；教材 2.1.8 明确列出这个误解。判断材料路径要看实现，不看直觉。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q2 · &quot;请求冻结&quot;到底冻结了什么？它防的是什么事故？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span>驱动在 <code>prepareRequest → buildRequest</code>（agent.ts 第 547 行起）派生并冻结本次请求；模型侧对应 <code>prepareCall</code> 里 <code>deepFreeze(structuredClone(resolved.config))</code>（packages/llm/llm/src/index.ts 第 936—944 行，config 与 context 各冻结一份）。冻结意味着：本次请求引用的对象之后被共享代码修改，也不会改变已提交请求的内容；<code>firstAttempt</code> 保证用户消息只登记一次，重试沿同一请求语义进行。</p>
+<p><span class="badge-role badge-theory">设计原理</span>JS 的对象是引用语义。组装过程中，提示贡献、上下文投影和历史消息都是被多方持有的共享对象；如果请求在异步等待期间仍引用它们，任何一方的后续修改（插件重载、压缩提交、新消息追加）都会&quot;穿透&quot;到在途请求里，造成校验过的内容与实际发出的内容不一致——这类问题的表现是&quot;日志与请求对不上&quot;，极难定位。冻结（复制＋深冻结）在提交点做了一次快照，把&quot;可变世界&quot;与&quot;在途请求&quot;切开。它不保证下一步不引入新材料，也不保证模型输出正确；它只保证&quot;发出去的请求&quot;是可复述的事实。</p>
+<p><span class="badge-role badge-follow">考官追问</span>冻结与压缩的表层替换冲突吗？ <span class="badge-role badge-points">应答要点</span>不冲突——压缩改变后续请求的派生视图，冻结只保护在途请求；教材 2.1.8：&quot;冻结一次请求就冻结整个会话&quot;是误解。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q3 · 技能&quot;目录可见 ≠ 正文已加载&quot;在代码上怎么体现？为什么这样设计？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span><code>SkillRegistry.list</code> 只返回摘要快照（packages/skill/skill/src/index.ts 第 470—472 行）；模型想拿正文必须调用 <code>skill</code> 工具，执行体先检查名称在当前可见摘要里、再检查 <code>isModelInvocable</code>，通过后 <code>get</code> 正文返回（packages/skill/tool-skill/src/index.ts 第 133—143 行），任一检查失败抛出明确错误。用户手势路径（第一行 <code>/name</code>）在前置步骤处理，只有 <code>isUserInvocable</code> 的技能才变成带 <code>skill-invocation</code> 来源的指令消息；未知名保持纯文本，不伪造来源（第 189—200 行）。</p>
+<p><span class="badge-role badge-theory">设计原理</span>这是上下文经济学。技能正文可能各有数千字节，全量预载会让多数请求背着无关材料；而只给摘要（名称＋说明）让模型保留&quot;知道自己缺什么&quot;的能力，需要时花一次工具调用精确取得。与权限的关系同样关键：读取是材料行为，不是授权行为——如果加载技能自动扩大能力，任何诱导模型读一份恶意技能的文本都能变成提权路径。所以准入仍在工具链，按需读取只改变&quot;看到了什么&quot;，不改变&quot;能做什么&quot;。</p>
+<p><span class="badge-role badge-follow">考官追问</span>用户消息里出现 <code>/某技能</code> 字样就一定加载正文吗？ <span class="badge-role badge-points">应答要点</span>不是。手势检查消息来源与可调用策略；外部文本即使写着同样字符也只是普通材料（教材 2.2.3、2.2.8）。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q4 · 压缩的触发条件、主链和失败路径分别是什么？为什么要有&quot;稳定性检查&quot;？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span>基本压缩插件监听 <code>agent/pre-step</code>，调用 <code>compactIfNeeded(agent, 'pressure', signal)</code>；配置目标错误只警告一次并继续原前置链（packages/compaction/compaction-basic/src/index.ts 第 158—175 行）。上下文溢出恢复路径先按需剪枝，再 <code>selectCompactableRange</code>，没有合适区域返回 null 放弃（第 294—301 行）。选定区域后：生成摘要 → <code>assertStable</code> 验证表层未变 → <code>commitCompactionBody</code> 提交替换 → 记录 <code>compaction/end</code> 闭合；中途出错按所处阶段记录错误链（packages/compaction/compaction-basic/src/region.ts 第 232—245 行）。</p>
+<p><span class="badge-role badge-theory">设计原理</span>压缩是一个跨多步异步流程去修改共享历史的操作，最大的风险是&quot;竞态覆盖&quot;：摘要生成期间，会话可能追加了新消息、发生了取消、甚至另一次压缩。如果摘要回来后不检查直接替换，就会把别人刚写入的事实覆盖成旧快照的摘要。<code>assertStable</code> 就是把&quot;读时状态&quot;与&quot;写时状态&quot;做一次乐观并发校验——与数据库的条件更新同构。失败分阶段记录（选择、摘要、提交），让&quot;没选到区域&quot;&quot;摘要失败&quot;&quot;提交时状态漂移&quot;三种完全不同的问题不会被混成一个&quot;压缩失败&quot;。另外，压缩只替换当前表层、原始事件仍在日志里，这是&quot;派生视图可重建&quot;原则（第 3 章）的应用：事实不可变，表示可替换。</p>
+<p><span class="badge-role badge-follow">考官追问</span>压缩、spill、截断三者怎么选？ <span class="badge-role badge-points">应答要点</span>压缩生成有损短表示；spill 把原文移到存储并给定位符、按需取回；单纯截断可能没有恢复入口。长工具结果优先 spill（教材 2.5），历史压力才压缩（2.3）。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q5 · spill 机制解决什么问题？它和压缩的原理差异是什么？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span>超长工具结果先整体交给存储提供方，工具结果只保留首尾预览加定位符与检索说明；本地 spill 策略在保存失败时可保留原内联结果，不宣称必定外置成功。作用域方面，每项贡献有身份、范围与位置，插件卸载只撤销自己的注册（教材 2.5）。</p>
+<p><span class="badge-role badge-theory">设计原理</span>spill 与压缩是两种相反的取舍。压缩用信息损失换空间，适用于&quot;旧历史大概率不再逐字需要&quot;；spill 用一次间接寻址换无损，适用于&quot;结果必须完整保留，但不值得每轮都随请求携带&quot;。两者都以&quot;原始事实另有归宿&quot;为前提：压缩的原文留在日志，spill 的原文在存储提供方——共同点是当前模型视图与完整事实分离，这正是第 3 章&quot;一份事实、多个消费方&quot;原则在空间维度的版本。</p>
+</div></div><hr>
 <a id="chapter-03"></a>
 <p># 第 3 章｜循环与消息队列：一轮任务为什么需要多步</p>
 <p>## 03.0 回答为什么不是一次调用就结束</p>
@@ -455,28 +1037,28 @@ const result = await submit('读取项目说明')</code></pre>
 <p>&lt;!-- references:end --&gt;</p>
 <hr>
 <h2>本章面试问答</h2>
-<blockquote>本节追问记忆与持久化的原理。回答引用的文件与行号可在<a href="source-excerpts.md">可选证据附录</a>复核。</blockquote>
-<h3>Q1 · 会话记录、长期记忆、知识库为什么要分成三层？合并成一层行不行？</h3>
+<blockquote>本节追问记忆与持久化的原理。回答引用的文件与行号可在<a href="../source-excerpts.md">可选证据附录</a>复核。</blockquote>
+<div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q1 · 会话记录、长期记忆、知识库为什么要分成三层？合并成一层行不行？</span></div><div class="qa-body">
 <p><strong>考察点</strong>：是否能把&quot;存了、取了、用了&quot;三件事分开举证。</p>
-<p><strong>回答</strong>：当前会话事实是 Session 事件、消息与压缩替换记录，本次请求按当前表层派生；工作区知识是文件系统里的文档与代码，要靠工具实际读取才进入材料；跨会话外部记忆是可选 Memory MCP 服务，默认禁用，其 Reference Memory 查询是子字符串搜索，不是语义检索。三层进入下一次请求的条件完全不同（教材 3.1 表格）。</p>
-<p><strong>原理</strong>：分层对应三个不同的时间尺度与信任级别：轮内事实（刚才发生的调用与结果）、仓库知识（随代码版本演进，可能过期）、跨会话画像（需要约定保存什么、面向谁、怎么更新）。合并成一层的后果是&quot;持久化&quot;与&quot;进入上下文&quot;两个概念被偷换——磁盘上存在不等于模型看到，模型看到不等于仍然为真（README 可能已改版）。面试中判断一个人是否真做过 Agent 存储，就看他能否把持久、检索、使用三步分别拿出证据。</p>
-<p><strong>追问</strong>：有 read 工具等于实现了 RAG 吗？ <strong>回答要点</strong>：不等于。RAG 涉及索引、切分、检索与筛选；本项目官方 Memory 指南依赖外部服务，示例的文本查找不能改写成&quot;默认语义检索&quot;。</p>
+<p><span class="badge-role badge-ans">权威回答</span>当前会话事实是 Session 事件、消息与压缩替换记录，本次请求按当前表层派生；工作区知识是文件系统里的文档与代码，要靠工具实际读取才进入材料；跨会话外部记忆是可选 Memory MCP 服务，默认禁用，其 Reference Memory 查询是子字符串搜索，不是语义检索。三层进入下一次请求的条件完全不同（教材 3.1 表格）。</p>
+<p><span class="badge-role badge-theory">设计原理</span>分层对应三个不同的时间尺度与信任级别：轮内事实（刚才发生的调用与结果）、仓库知识（随代码版本演进，可能过期）、跨会话画像（需要约定保存什么、面向谁、怎么更新）。合并成一层的后果是&quot;持久化&quot;与&quot;进入上下文&quot;两个概念被偷换——磁盘上存在不等于模型看到，模型看到不等于仍然为真（README 可能已改版）。面试中判断一个人是否真做过 Agent 存储，就看他能否把持久、检索、使用三步分别拿出证据。</p>
+<p><span class="badge-role badge-follow">考官追问</span>有 read 工具等于实现了 RAG 吗？ <span class="badge-role badge-points">应答要点</span>不等于。RAG 涉及索引、切分、检索与筛选；本项目官方 Memory 指南依赖外部服务，示例的文本查找不能改写成&quot;默认语义检索&quot;。</p>
 <h3>Q2 · <code>Session.append</code> 如何建立一个&quot;事实&quot;？为什么不直接维护一个可变数组？</h3>
-<p><strong>回答</strong>：<code>append</code> 构造带 <code>seq</code>（等于日志数组下标）与时间戳的条目，数据先做快照再 <code>deepFreeze</code>，然后过两道校验：<code>validateSessionEventData</code> 检查事件数据、<code>surfaceManager.validateNext</code> 检查表层约束（packages/core/session/src/index.ts 第 744—752 行）。消息视图由 <code>deriveMessages</code> 增量派生：只遍历表层新增节点，空内容助手消息（例如只承载 usage 的 max-tokens 步骤）派生为 null、不进入对话记录，返回派生数组副本（第 869—880 行）。</p>
-<p><strong>原理</strong>：三个设计点各有原理。其一，<code>seq === 数组下标</code> 的不变量让&quot;按序号取事件&quot;&quot;按前缀截取&quot;都是直接索引，fork 的 <code>completedTurnPrefix</code> 就直接依赖它（第 10 章）。其二，冻结＋快照保证历史不可变——多方持引用的并发环境下，可变历史等于没有历史；审计、回放、投影全部建立在&quot;读到的事件永不变形&quot;上。其三，派生与存储分离：日志是事实，消息只是少数消息产出型节点的一种视图，&quot;界面每行日志一个气泡&quot;的机械映射既浪费又不准确（<code>turn/start</code> 这类过程边界事件不产生气泡）。</p>
-<p><strong>追问</strong>：<code>append</code> 返回之后，磁盘上是否已经完成物理写入？ <strong>回答要点</strong>：尚未完成。JSONL 持久化提供方监听 <code>session/event</code> 事件并将数据先压入内存写入缓冲区；后台物理写操作若遭遇异常，仅记录警告并保留缓冲区等待后续重试。只有在触发 <code>session/flush</code> 事件时，系统才会强制刷新缓冲区并等待磁盘 I/O 确认完成（参考 <code>packages/session/session-persistence-jsonl/src/storage.ts</code> 第 535—546 行）。因此，<code>append</code> 的返回值契约仅保证会话状态在内存中确立，持久化耐久性由独立的 <code>flush</code> 屏障保证。</p>
-<h3>Q3 · 投影（projection）是什么？它和消息派生的原理区别在哪里？</h3>
-<p><strong>回答</strong>：投影把有序事件按注册的消费规则折叠成可查询状态，例如 TokenMeter 注册 <code>tokenUsage</code>、<code>contextPressure</code>、<code>contextBreakdown</code> 三个投影定义，并对已读会话在 <code>session/event</code> 时主动同步（packages/llm/token-meter/src/index.ts 第 110—122 行）。领域贡献纯计算单元，宿主注册表驱动折叠；快照携带序号，说明对应日志的哪个切面。</p>
-<p><strong>原理</strong>：派生回答&quot;对话长什么样&quot;（面向模型与聊天界面），投影回答&quot;系统处于什么状态&quot;（面向查询与界面面板）。两者都是事件的函数，但折叠方向不同：消息派生保持时间序列形态，投影通常收敛成当前值（如最新待办、累计 token）。分开的意义在于：新增一种业务状态（目标、计划、团队任务板）不需要改会话核心，只要注册新投影——这是开放封闭原则在事件溯源架构里的体现。快照带序号则解决一致性问题：客户端能知道状态对应哪个事件位置，刷新后可以判断是否需要追赶。</p>
-<p><strong>追问</strong>：投影状态和持久存储是什么关系？ <strong>回答要点</strong>：投影是内存中可重建的折叠结果，真源仍是事件日志；非会话产品数据（工作区注册、定时记录）走另一类领域存储，两种落点不混用（教材 3.3）。</p>
-<h3>Q4 · 恢复（recovery）与迁移（migration）为什么必须是两件事？</h3>
-<p><strong>回答</strong>：持久文件先识别可读的规范 generation，经受支持的相邻迁移步骤转换成当前逻辑事件；只读打开在内存使用转换结果，写打开要验证并在原文件旁发布新版本文件，旧 generation 保留（教材 3.5）。恢复则针对一次运行的中断状态。</p>
-<p><strong>原理</strong>：两者失败的原因域不同。格式迁移处理&quot;数据的表示随版本演进&quot;——只要格式能解析并迁移，旧文件就能读；恢复处理&quot;运行时世界与日志的差距&quot;——格式完好不代表 PTY 进程还活着、不代表浏览器登录态可还原、不代表未结算的模型流可以凭空补完。合并处理会导致两个典型错误：把&quot;文件能打开&quot;当成&quot;任务能继续&quot;，或者为迁就运行时状态而篡改历史数据。分开之后各自的边界都能说清：迁移不承诺运行续接，恢复只使用实际留下的事实，未来格式明确拒绝而不是装成空会话。</p>
-<p><strong>追问</strong>：进程重启后能恢复哪些东西？ <strong>回答要点</strong>：持久会话事实（含投影重建、压缩替换记录）可以；PTY 原始状态、外部浏览器登录态等进程内资源不在日志里，不能假装可还原（教材 5.4、6.5）。</p>
-<h3>Q5 · 标题生成、会话查询这类&quot;派生功能&quot;的边界在哪？为什么标题失败不算任务失败？</h3>
-<p><strong>回答</strong>：会话查询是统一读取层，实时数据可用时优先实时来源，全文索引帮助找匹配但不成为真源；标题服务记录采用了哪些人类消息与哪个提供方，可用辅助模型请求生成短标题，该请求有自己的记录边界（教材 3.4）。</p>
-<p><strong>原理</strong>：判断一个功能是不是&quot;主任务&quot;，看它的失败是否影响任务事实的成立。标题是导航元数据：生成失败只损失可读性，主体回答与工具事实不受影响——所以它必须用独立的请求、独立的记录，失败也独立报告。反过来说，若标题请求与主任务共享请求边界，一次标题失败就会污染任务状态机。查询层的原理同理：索引是加速结构，真源永远是事件日志——任何&quot;搜索结果与精确读取不一致时以搜索为准&quot;的设计都会制造两种事实。</p>
-<hr>
+<p><span class="badge-role badge-ans">权威回答</span><code>append</code> 构造带 <code>seq</code>（等于日志数组下标）与时间戳的条目，数据先做快照再 <code>deepFreeze</code>，然后过两道校验：<code>validateSessionEventData</code> 检查事件数据、<code>surfaceManager.validateNext</code> 检查表层约束（packages/core/session/src/index.ts 第 744—752 行）。消息视图由 <code>deriveMessages</code> 增量派生：只遍历表层新增节点，空内容助手消息（例如只承载 usage 的 max-tokens 步骤）派生为 null、不进入对话记录，返回派生数组副本（第 869—880 行）。</p>
+<p><span class="badge-role badge-theory">设计原理</span>三个设计点各有原理。其一，<code>seq === 数组下标</code> 的不变量让&quot;按序号取事件&quot;&quot;按前缀截取&quot;都是直接索引，fork 的 <code>completedTurnPrefix</code> 就直接依赖它（第 10 章）。其二，冻结＋快照保证历史不可变——多方持引用的并发环境下，可变历史等于没有历史；审计、回放、投影全部建立在&quot;读到的事件永不变形&quot;上。其三，派生与存储分离：日志是事实，消息只是少数消息产出型节点的一种视图，&quot;界面每行日志一个气泡&quot;的机械映射既浪费又不准确（<code>turn/start</code> 这类过程边界事件不产生气泡）。</p>
+<p><span class="badge-role badge-follow">考官追问</span><code>append</code> 返回之后，磁盘上是否已经完成物理写入？ <span class="badge-role badge-points">应答要点</span>尚未完成。JSONL 持久化提供方监听 <code>session/event</code> 事件并将数据先压入内存写入缓冲区；后台物理写操作若遭遇异常，仅记录警告并保留缓冲区等待后续重试。只有在触发 <code>session/flush</code> 事件时，系统才会强制刷新缓冲区并等待磁盘 I/O 确认完成（参考 <code>packages/session/session-persistence-jsonl/src/storage.ts</code> 第 535—546 行）。因此，<code>append</code> 的返回值契约仅保证会话状态在内存中确立，持久化耐久性由独立的 <code>flush</code> 屏障保证。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q3 · 投影（projection）是什么？它和消息派生的原理区别在哪里？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span>投影把有序事件按注册的消费规则折叠成可查询状态，例如 TokenMeter 注册 <code>tokenUsage</code>、<code>contextPressure</code>、<code>contextBreakdown</code> 三个投影定义，并对已读会话在 <code>session/event</code> 时主动同步（packages/llm/token-meter/src/index.ts 第 110—122 行）。领域贡献纯计算单元，宿主注册表驱动折叠；快照携带序号，说明对应日志的哪个切面。</p>
+<p><span class="badge-role badge-theory">设计原理</span>派生回答&quot;对话长什么样&quot;（面向模型与聊天界面），投影回答&quot;系统处于什么状态&quot;（面向查询与界面面板）。两者都是事件的函数，但折叠方向不同：消息派生保持时间序列形态，投影通常收敛成当前值（如最新待办、累计 token）。分开的意义在于：新增一种业务状态（目标、计划、团队任务板）不需要改会话核心，只要注册新投影——这是开放封闭原则在事件溯源架构里的体现。快照带序号则解决一致性问题：客户端能知道状态对应哪个事件位置，刷新后可以判断是否需要追赶。</p>
+<p><span class="badge-role badge-follow">考官追问</span>投影状态和持久存储是什么关系？ <span class="badge-role badge-points">应答要点</span>投影是内存中可重建的折叠结果，真源仍是事件日志；非会话产品数据（工作区注册、定时记录）走另一类领域存储，两种落点不混用（教材 3.3）。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q4 · 恢复（recovery）与迁移（migration）为什么必须是两件事？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span>持久文件先识别可读的规范 generation，经受支持的相邻迁移步骤转换成当前逻辑事件；只读打开在内存使用转换结果，写打开要验证并在原文件旁发布新版本文件，旧 generation 保留（教材 3.5）。恢复则针对一次运行的中断状态。</p>
+<p><span class="badge-role badge-theory">设计原理</span>两者失败的原因域不同。格式迁移处理&quot;数据的表示随版本演进&quot;——只要格式能解析并迁移，旧文件就能读；恢复处理&quot;运行时世界与日志的差距&quot;——格式完好不代表 PTY 进程还活着、不代表浏览器登录态可还原、不代表未结算的模型流可以凭空补完。合并处理会导致两个典型错误：把&quot;文件能打开&quot;当成&quot;任务能继续&quot;，或者为迁就运行时状态而篡改历史数据。分开之后各自的边界都能说清：迁移不承诺运行续接，恢复只使用实际留下的事实，未来格式明确拒绝而不是装成空会话。</p>
+<p><span class="badge-role badge-follow">考官追问</span>进程重启后能恢复哪些东西？ <span class="badge-role badge-points">应答要点</span>持久会话事实（含投影重建、压缩替换记录）可以；PTY 原始状态、外部浏览器登录态等进程内资源不在日志里，不能假装可还原（教材 5.4、6.5）。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q5 · 标题生成、会话查询这类&quot;派生功能&quot;的边界在哪？为什么标题失败不算任务失败？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span>会话查询是统一读取层，实时数据可用时优先实时来源，全文索引帮助找匹配但不成为真源；标题服务记录采用了哪些人类消息与哪个提供方，可用辅助模型请求生成短标题，该请求有自己的记录边界（教材 3.4）。</p>
+<p><span class="badge-role badge-theory">设计原理</span>判断一个功能是不是&quot;主任务&quot;，看它的失败是否影响任务事实的成立。标题是导航元数据：生成失败只损失可读性，主体回答与工具事实不受影响——所以它必须用独立的请求、独立的记录，失败也独立报告。反过来说，若标题请求与主任务共享请求边界，一次标题失败就会污染任务状态机。查询层的原理同理：索引是加速结构，真源永远是事件日志——任何&quot;搜索结果与精确读取不一致时以搜索为准&quot;的设计都会制造两种事实。</p>
+</div></div><hr>
 <a id="chapter-04"></a>
 <p># 第 4 章｜沿文件读取工具追到底：模型怎样得到材料</p>
 <p>## 04.0 工具名后面还有什么</p>
@@ -566,29 +1148,29 @@ const result = await submit('读取项目说明')</code></pre>
 <p>&lt;!-- references:end --&gt;</p>
 <hr>
 <h2>本章面试问答</h2>
-<blockquote>本节追问工具系统的准入与契约原理。回答引用的文件与行号可在<a href="source-excerpts.md">可选证据附录</a>复核。</blockquote>
-<h3>Q1 · 一次 read 调用从参数到结果经过哪些步骤？每一步的失败语义有什么不同？</h3>
+<blockquote>本节追问工具系统的准入与契约原理。回答引用的文件与行号可在<a href="../source-excerpts.md">可选证据附录</a>复核。</blockquote>
+<div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q1 · 一次 read 调用从参数到结果经过哪些步骤？每一步的失败语义有什么不同？</span></div><div class="qa-body">
 <p><strong>考察点</strong>：能否把&quot;工具调用&quot;从一个名词展开成带失败分支的完整链路。</p>
-<p><strong>回答</strong>：①参数解析：<code>parseReadArgs</code> 检查非空路径、正整数 offset/limit，<code>limit</code> 超过部署上限抛错（packages/fs/tool-fs/src/read.ts 第 55—60 行）；②通用工具链准入：<code>tools/pre-execute</code> 瀑布决策 allow/reject/cancel/ask，ask 进审批，允许后过单调守卫（packages/core/tools/src/index.ts 第 1493、1504—1511 行）；③执行体：<code>resolveRegularReadTarget</code> 一次 stat 同时完成缺失观察、类型检查、大小路由与版本记录；大小未知或达到流式阈值走 <code>streamText</code>，否则 <code>readText</code>（read.ts 第 141—152 行）；④<code>buildWindow</code> 按行数、单行长度、字节上限构造窗口；⑤返回规范结果 <code>{path, offset, lines, totalLines}</code> 并发出 <code>fs/observed</code> 通知——监听器契约是同步、只做记录，没有监听器时不产生额外持久业务记录（第 154—164 行）。</p>
-<p><strong>原理</strong>：每一步的失败语义不同是刻意的。参数错误发生在任何 I/O 之前，是&quot;请求本身不成立&quot;；准入拒绝跳过工具体，是&quot;策略说不&quot;；执行体抛错则可能已经产生了部分外部动作，最终以工具错误结果呈现——所以判断副作用必须同时看进入边界（<code>bodyInvoked</code> 标志，tools/src/index.ts 第 1578—1587 行）与实际动作，不能只看最终错误标记。读取环节区分&quot;文件不存在&quot;（目标解析失败）与&quot;截断&quot;（仍是成功结果但材料不完整），因为两者对模型的意义完全不同：前者要换路径，后者要续读。一次 stat 完成多项判断则是为了缩小&quot;检查与使用之间状态变化&quot;的窗口——并发写入只能让后续受保护变更因过期失败并要求重读，而不是读到中间状态。</p>
-<p><strong>追问</strong>：read 成功等于全文进入上下文吗？ <strong>回答要点</strong>：不等于。窗口有行数/字节边界，教材 4.1.6 的 41—70 行示例说明&quot;读到哪些行&quot;要从结果字段读出，而不是从成功标志推断。</p>
-<h3>Q2 · 审批在代码里怎么记录？为什么&quot;allowed-once&quot;不能变成永久放行？</h3>
-<p><strong>回答</strong>：审批服务收到询问后：生成 <code>ApprovalRequestId(randomUUID())</code>，记录 <code>approval/asked</code>（含 id、toolName、可选 callId 与 reason），等待决定，记录 <code>approval/decided</code>（含 id 与本次结论），返回这一次的结论（packages/interaction/user-approval/src/index.ts 第 224—233 行）。询问与决定必须在开放轮次内闭合；审批服务缺失或拿不到有效授权时，不默认按允许继续。</p>
-<p><strong>原理</strong>：成对事件（asked/decided）让每次授权成为可审计的完整事实——谁被问了、问的是什么、结论是什么，回放与会话分析都能重建。一次性语义是权限最小化原理的应用：一次批准解决的是&quot;当前这个请求&quot;的风险评估，把结论外推到所有未来调用等于让一次人工决策覆盖无穷未见的输入。工程上这也是防&quot;审批疲劳&quot;被利用的：如果允许一次就永久放行，诱导用户批准一次高危操作后，后续同类操作就绕过了人工关口。</p>
-<p><strong>追问</strong>：审批和守卫（guard）、沙箱什么关系？ <strong>回答要点</strong>：守卫在审批之后仍可否决（单调，不把该拒绝的升级为允许）；沙箱限制的是进入执行后的文件效果范围。策略、审批、执行环境分别回答&quot;怎么判定&quot;&quot;这次要不要问&quot;&quot;实际能动什么&quot;（教材 4.2.4）。</p>
-<h3>Q3 · MCP 远端工具接入时，名称包装和&quot;两阶段同步&quot;各解决什么问题？</h3>
-<p><strong>回答</strong>：公开名通常是 <code>mcp__服务名__原工具名</code>；含非法字符或超长时规范化并追加 sha256 哈希前缀，避免不同原名折叠成同一个公开名（packages/mcp/mcp-client/src/tools.ts 第 81—86 行）。工具同步分两阶段：先获取完整列表、构建全部定义，再交换注册代次——先撤销旧代次，再逐个注册新定义（第 138—150 行）；获取或构建失败时不先破坏既有工具列表。</p>
-<p><strong>原理</strong>：名称包装解决&quot;命名空间碰撞&quot;：多个 MCP 服务器都可能提供同名工具，前缀隔离让扁平的工具注册表保持键唯一；哈希兜底处理服务名/工具名本身超长或含非法字符的极端情况——宁可名字难看，不可身份歧义。两阶段同步解决&quot;半组目录&quot;问题：如果边删旧边建新，中途失败的瞬间注册表处于既缺旧又缺新的状态，模型会看到残缺能力集。先构建后切换与蓝绿部署同构：新代次完整就绪才替换旧代次，失败则保留旧世界。这两处细节是&quot;外部系统接入本地契约&quot;时最容易漏的健壮性设计，面试里能主动讲出说明真读过实现。</p>
-<p><strong>追问</strong>：MCP 协议连接建立成功是否代表系统已具备知识库检索能力？ <strong>回答要点</strong>：不代表。MCP 建立连接仅完成协议层握手，后续的工具发现、Schema 校验、工具注册、资源解析到跨会话记忆，是相互独立的验收阶段（参见教材 4.3.6 节）。Memory 语义必须依赖具体 MCP Server 实现的存储契约，协议层连接本身不附带任何检索增强（RAG）或语义理解功能。</p>
-<h3>Q4 · 一个工具为什么要分 schema、render、presentationMeta 三层输出？</h3>
-<p><strong>回答</strong>：执行体返回规范 JSON 值；<code>output.schema</code> 校验结构，<code>output.render</code> 把规范值转成模型面对的文本（官方最小示例见 docs/cookbook/adding-a-tool.zh.md 第 14—27 行），<code>presentationMeta</code> 从规范值提取可持久化字段——read 工具提取 path、offset、每行 number/text、totalLines 与语言（read.ts 第 124—132 行），让支持卡片的界面能在刷新或回放时重建显示，而不需要重读文件。</p>
-<p><strong>原理</strong>：三层的本质是&quot;同一事实、三种消费形态&quot;（第 3 章原则在工具输出上的落地）：模型需要的是适合推理的文本；界面需要的是可结构化恢复的数据；契约校验需要的是机器可判定的结构。合并成一个字符串的后果：模型文本里混入界面标记会污染推理材料；界面想显示行号就得反解析文本或重读文件——回放时文件可能已经变了，presentationMeta 让历史显示不依赖当前磁盘状态。规范值居中，渲染与展示都是它的纯函数——这正是&quot;展示函数无 I/O&quot;约定能成立的原因。</p>
-<p><strong>追问</strong>：为什么不能把 React 组件直接塞进工具结果？ <strong>回答要点</strong>：规范值要可序列化、可回放；界面组件是客户端概念，混入 Host 数据会让会话事实依赖渲染环境（教材 4.4.3、4.4.5）。</p>
-<h3>Q5 · 权限预设（read-only / workspace-write / danger-full-access）定义的到底是什么边界？</h3>
-<p><strong>回答</strong>：预设把沙箱模式与审批策略组成界面选项，但两个旋钮独立：审批决定某次操作是否获准，沙箱决定进入执行后文件效果受限的范围。read-only 要求受限后端拒绝写入；workspace-write 允许规定根目录与临时区域；danger-full-access 绕过该隔离。后端报告 full 或 partial 表示承诺是否完整落实；不同平台与内核边界不同（教材 4.7）。</p>
-<p><strong>原理</strong>：把&quot;授权&quot;与&quot;效果范围&quot;分开，是因为它们防的威胁不同：审批防&quot;未经人同意的动作&quot;，沙箱防&quot;已获准动作的越界效果&quot;。预设名是产品表达，真实约束来自所选后端——一个报告 partial 的后端意味着隔离不完整，此时把三种预设当作同强度的保证就是误导。取消的边界同理：只能阻止尚未交付或响应取消的后续工作，已经发出的外部动作不可撤回——理解了&quot;效果发生在执行体内部&quot;这个事实，就明白为什么取消不等于回滚。</p>
-<p><strong>追问</strong>：为什么一次批准不永久提高任务权限？ <strong>回答要点</strong>：与 Q2 同理，最小授权；教材 4.7 明确&quot;一次批准通常只解决当前请求&quot;。</p>
-<hr>
+<p><span class="badge-role badge-ans">权威回答</span>①参数解析：<code>parseReadArgs</code> 检查非空路径、正整数 offset/limit，<code>limit</code> 超过部署上限抛错（packages/fs/tool-fs/src/read.ts 第 55—60 行）；②通用工具链准入：<code>tools/pre-execute</code> 瀑布决策 allow/reject/cancel/ask，ask 进审批，允许后过单调守卫（packages/core/tools/src/index.ts 第 1493、1504—1511 行）；③执行体：<code>resolveRegularReadTarget</code> 一次 stat 同时完成缺失观察、类型检查、大小路由与版本记录；大小未知或达到流式阈值走 <code>streamText</code>，否则 <code>readText</code>（read.ts 第 141—152 行）；④<code>buildWindow</code> 按行数、单行长度、字节上限构造窗口；⑤返回规范结果 <code>{path, offset, lines, totalLines}</code> 并发出 <code>fs/observed</code> 通知——监听器契约是同步、只做记录，没有监听器时不产生额外持久业务记录（第 154—164 行）。</p>
+<p><span class="badge-role badge-theory">设计原理</span>每一步的失败语义不同是刻意的。参数错误发生在任何 I/O 之前，是&quot;请求本身不成立&quot;；准入拒绝跳过工具体，是&quot;策略说不&quot;；执行体抛错则可能已经产生了部分外部动作，最终以工具错误结果呈现——所以判断副作用必须同时看进入边界（<code>bodyInvoked</code> 标志，tools/src/index.ts 第 1578—1587 行）与实际动作，不能只看最终错误标记。读取环节区分&quot;文件不存在&quot;（目标解析失败）与&quot;截断&quot;（仍是成功结果但材料不完整），因为两者对模型的意义完全不同：前者要换路径，后者要续读。一次 stat 完成多项判断则是为了缩小&quot;检查与使用之间状态变化&quot;的窗口——并发写入只能让后续受保护变更因过期失败并要求重读，而不是读到中间状态。</p>
+<p><span class="badge-role badge-follow">考官追问</span>read 成功等于全文进入上下文吗？ <span class="badge-role badge-points">应答要点</span>不等于。窗口有行数/字节边界，教材 4.1.6 的 41—70 行示例说明&quot;读到哪些行&quot;要从结果字段读出，而不是从成功标志推断。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q2 · 审批在代码里怎么记录？为什么&quot;allowed-once&quot;不能变成永久放行？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span>审批服务收到询问后：生成 <code>ApprovalRequestId(randomUUID())</code>，记录 <code>approval/asked</code>（含 id、toolName、可选 callId 与 reason），等待决定，记录 <code>approval/decided</code>（含 id 与本次结论），返回这一次的结论（packages/interaction/user-approval/src/index.ts 第 224—233 行）。询问与决定必须在开放轮次内闭合；审批服务缺失或拿不到有效授权时，不默认按允许继续。</p>
+<p><span class="badge-role badge-theory">设计原理</span>成对事件（asked/decided）让每次授权成为可审计的完整事实——谁被问了、问的是什么、结论是什么，回放与会话分析都能重建。一次性语义是权限最小化原理的应用：一次批准解决的是&quot;当前这个请求&quot;的风险评估，把结论外推到所有未来调用等于让一次人工决策覆盖无穷未见的输入。工程上这也是防&quot;审批疲劳&quot;被利用的：如果允许一次就永久放行，诱导用户批准一次高危操作后，后续同类操作就绕过了人工关口。</p>
+<p><span class="badge-role badge-follow">考官追问</span>审批和守卫（guard）、沙箱什么关系？ <span class="badge-role badge-points">应答要点</span>守卫在审批之后仍可否决（单调，不把该拒绝的升级为允许）；沙箱限制的是进入执行后的文件效果范围。策略、审批、执行环境分别回答&quot;怎么判定&quot;&quot;这次要不要问&quot;&quot;实际能动什么&quot;（教材 4.2.4）。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q3 · MCP 远端工具接入时，名称包装和&quot;两阶段同步&quot;各解决什么问题？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span>公开名通常是 <code>mcp__服务名__原工具名</code>；含非法字符或超长时规范化并追加 sha256 哈希前缀，避免不同原名折叠成同一个公开名（packages/mcp/mcp-client/src/tools.ts 第 81—86 行）。工具同步分两阶段：先获取完整列表、构建全部定义，再交换注册代次——先撤销旧代次，再逐个注册新定义（第 138—150 行）；获取或构建失败时不先破坏既有工具列表。</p>
+<p><span class="badge-role badge-theory">设计原理</span>名称包装解决&quot;命名空间碰撞&quot;：多个 MCP 服务器都可能提供同名工具，前缀隔离让扁平的工具注册表保持键唯一；哈希兜底处理服务名/工具名本身超长或含非法字符的极端情况——宁可名字难看，不可身份歧义。两阶段同步解决&quot;半组目录&quot;问题：如果边删旧边建新，中途失败的瞬间注册表处于既缺旧又缺新的状态，模型会看到残缺能力集。先构建后切换与蓝绿部署同构：新代次完整就绪才替换旧代次，失败则保留旧世界。这两处细节是&quot;外部系统接入本地契约&quot;时最容易漏的健壮性设计，面试里能主动讲出说明真读过实现。</p>
+<p><span class="badge-role badge-follow">考官追问</span>MCP 协议连接建立成功是否代表系统已具备知识库检索能力？ <span class="badge-role badge-points">应答要点</span>不代表。MCP 建立连接仅完成协议层握手，后续的工具发现、Schema 校验、工具注册、资源解析到跨会话记忆，是相互独立的验收阶段（参见教材 4.3.6 节）。Memory 语义必须依赖具体 MCP Server 实现的存储契约，协议层连接本身不附带任何检索增强（RAG）或语义理解功能。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q4 · 一个工具为什么要分 schema、render、presentationMeta 三层输出？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span>执行体返回规范 JSON 值；<code>output.schema</code> 校验结构，<code>output.render</code> 把规范值转成模型面对的文本（官方最小示例见 docs/cookbook/adding-a-tool.zh.md 第 14—27 行），<code>presentationMeta</code> 从规范值提取可持久化字段——read 工具提取 path、offset、每行 number/text、totalLines 与语言（read.ts 第 124—132 行），让支持卡片的界面能在刷新或回放时重建显示，而不需要重读文件。</p>
+<p><span class="badge-role badge-theory">设计原理</span>三层的本质是&quot;同一事实、三种消费形态&quot;（第 3 章原则在工具输出上的落地）：模型需要的是适合推理的文本；界面需要的是可结构化恢复的数据；契约校验需要的是机器可判定的结构。合并成一个字符串的后果：模型文本里混入界面标记会污染推理材料；界面想显示行号就得反解析文本或重读文件——回放时文件可能已经变了，presentationMeta 让历史显示不依赖当前磁盘状态。规范值居中，渲染与展示都是它的纯函数——这正是&quot;展示函数无 I/O&quot;约定能成立的原因。</p>
+<p><span class="badge-role badge-follow">考官追问</span>为什么不能把 React 组件直接塞进工具结果？ <span class="badge-role badge-points">应答要点</span>规范值要可序列化、可回放；界面组件是客户端概念，混入 Host 数据会让会话事实依赖渲染环境（教材 4.4.3、4.4.5）。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q5 · 权限预设（read-only / workspace-write / danger-full-access）定义的到底是什么边界？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span>预设把沙箱模式与审批策略组成界面选项，但两个旋钮独立：审批决定某次操作是否获准，沙箱决定进入执行后文件效果受限的范围。read-only 要求受限后端拒绝写入；workspace-write 允许规定根目录与临时区域；danger-full-access 绕过该隔离。后端报告 full 或 partial 表示承诺是否完整落实；不同平台与内核边界不同（教材 4.7）。</p>
+<p><span class="badge-role badge-theory">设计原理</span>把&quot;授权&quot;与&quot;效果范围&quot;分开，是因为它们防的威胁不同：审批防&quot;未经人同意的动作&quot;，沙箱防&quot;已获准动作的越界效果&quot;。预设名是产品表达，真实约束来自所选后端——一个报告 partial 的后端意味着隔离不完整，此时把三种预设当作同强度的保证就是误导。取消的边界同理：只能阻止尚未交付或响应取消的后续工作，已经发出的外部动作不可撤回——理解了&quot;效果发生在执行体内部&quot;这个事实，就明白为什么取消不等于回滚。</p>
+<p><span class="badge-role badge-follow">考官追问</span>为什么一次批准不永久提高任务权限？ <span class="badge-role badge-points">应答要点</span>与 Q2 同理，最小授权；教材 4.7 明确&quot;一次批准通常只解决当前请求&quot;。</p>
+</div></div><hr>
 <a id="chapter-05"></a>
 <p># 第 5 章｜会话与日志：发生过的事怎样保存和还原</p>
 <p>## 05.0 为什么不能只存最终回答</p>
@@ -683,27 +1265,27 @@ const result = await submit('读取项目说明')</code></pre>
 <p>&lt;!-- references:end --&gt;</p>
 <hr>
 <h2>本章面试问答</h2>
-<blockquote>本节追问装配、流式与恢复的原理。回答引用的文件与行号可在<a href="source-excerpts.md">可选证据附录</a>复核。</blockquote>
-<h3>Q1 · profile 如何变成一棵插件树？配置覆盖的语义为什么是&quot;整条目替换&quot;？</h3>
+<blockquote>本节追问装配、流式与恢复的原理。回答引用的文件与行号可在<a href="../source-excerpts.md">可选证据附录</a>复核。</blockquote>
+<div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q1 · profile 如何变成一棵插件树？配置覆盖的语义为什么是&quot;整条目替换&quot;？</span></div><div class="qa-body">
 <p><strong>考察点</strong>：对插件框架组合语义的掌握程度。</p>
-<p><strong>回答</strong>：CLI 解析启动模式后进入 profile 分支，把环境层、profile 名、补丁文件交给 <code>runProfile</code>（apps/cli/src/bin.ts 第 31—42 行）；<code>composeEntries</code> 把各层展开为有序数组后 <code>structuredClone</code> 并依次应用到空条目列表（packages/boot/app-boot/src/profile.ts 第 731—737 行），得到最终 Cordis 条目；<code>boot</code> 挂载配置树（packages/boot/app-boot/src/index.ts 第 972 行起）。覆盖语义：后层替换某条目时替换其整个 config，<code>{timeout:100, limit:20}</code> 被替换为 <code>{timeout:300}</code> 后，limit 不会自动继承（教材 5.2.6）。 <strong>原理</strong>：采用“顺序展开加整条目替换”保障了配置组合的确定性。若采用深层递归合并，多个配置 Patch 叠加时的字段相交逻辑极其脆弱，最终配置形态需要依赖复杂的计算规则推导，增加审计与复现排错的复杂度；整条目替换要求每一层完整表达其配置意图，后生效层显式声明所需保留的全部字段。通过 <code>structuredClone</code> 阻断跨层对象引用共享，杜绝状态污染。</p>
-<p><strong>追问</strong>：包安装了能力就启用了吗？ <strong>回答要点</strong>：安装与挂载不同；源码里有一个包不代表当前树包含它，最终看 profile 组合结果（教材 5.2.8）。</p>
+<p><span class="badge-role badge-ans">权威回答</span>CLI 解析启动模式后进入 profile 分支，把环境层、profile 名、补丁文件交给 <code>runProfile</code>（apps/cli/src/bin.ts 第 31—42 行）；<code>composeEntries</code> 把各层展开为有序数组后 <code>structuredClone</code> 并依次应用到空条目列表（packages/boot/app-boot/src/profile.ts 第 731—737 行），得到最终 Cordis 条目；<code>boot</code> 挂载配置树（packages/boot/app-boot/src/index.ts 第 972 行起）。覆盖语义：后层替换某条目时替换其整个 config，<code>{timeout:100, limit:20}</code> 被替换为 <code>{timeout:300}</code> 后，limit 不会自动继承（教材 5.2.6）。 <strong>原理</strong>：采用“顺序展开加整条目替换”保障了配置组合的确定性。若采用深层递归合并，多个配置 Patch 叠加时的字段相交逻辑极其脆弱，最终配置形态需要依赖复杂的计算规则推导，增加审计与复现排错的复杂度；整条目替换要求每一层完整表达其配置意图，后生效层显式声明所需保留的全部字段。通过 <code>structuredClone</code> 阻断跨层对象引用共享，杜绝状态污染。</p>
+<p><span class="badge-role badge-follow">考官追问</span>包安装了能力就启用了吗？ <span class="badge-role badge-points">应答要点</span>安装与挂载不同；源码里有一个包不代表当前树包含它，最终看 profile 组合结果（教材 5.2.8）。</p>
 <h3>Q2 · <code>prepareCall</code> 绑定了什么？为什么 prepared call 只能分派一次？</h3>
-<p><strong>回答</strong>：<code>prepareCall</code> 按 provider 找注册适配器，让适配器准备精确模型，<code>normalizeModelInfo</code> 归一模型能力，<code>resolveCallWithInfo</code> 用能力解析补齐调用配置，随后复制并深冻结 config 与 context（packages/llm/llm/src/index.ts 第 936—944 行）；<code>LlmCallConfig</code> 只有 provider、model、reasoningEffort、temperature、maxTokens、stop 六个字段（packages/llm/llm/src/call-config.ts 第 21—30 行）。DeepSeek 适配器产生异步片段流，超时、请求取消、传输失败各有错误分类，结束或失败时中止消费并尝试关闭迭代器。</p>
-<p><strong>原理</strong>：&quot;绑定一次、分派一次&quot;把两个易混阶段分开：准备阶段做校验与解析（可能抛错、可重做），分派阶段是唯一的一次真实调用。绑定对象携带冻结配置与重试策略，保证&quot;校验时的模型信息&quot;和&quot;发出请求时&quot;是同一份事实——如果不绑定，重试或并发路径可能在不同时刻解析出不同的模型能力（配置热更新、凭据轮换），请求行为就不可复述。这与第 2 章&quot;请求冻结&quot;是同一原理在模型层的应用：在不可逆动作（网络调用）的入口做快照。</p>
-<p><strong>追问</strong>：换模型为什么不用改上层消费者？ <strong>回答要点</strong>：协议差异归适配器；消费者依赖统一流契约，规范消息不因切换服务而重定义（教材 8.2）。</p>
-<h3>Q3 · 流式输出已经显示了一半文字，为什么这半段不能当成功消息用？</h3>
-<p><strong>回答</strong>：驱动用 <code>for await</code> 消费片段，每次迭代先检查取消信号再推送临时输出（agent.ts 第 436—443 行）；正常终结才生成并提交助手消息。失败路径：符合恢复策略的错误先记录 attempt，经 <code>agent/request-error</code> 链决定是否重试（第 505—509 行）；取消时保留了部分文本则记录带 interrupted 标记的助手消息，无保留文本则记录尝试（教材 5.3.7）。失败输出里未完成的工具提议不会被执行。</p>
-<p><strong>原理</strong>：临时片段与最终消息是两个契约。流片段的价值是低延迟反馈（页面尽早显示），但它没有终态——传输可能在任意字节后断开。若把片段当提交消息，会出现三类事故：执行了不完整的工具调用（参数可能只写了一半）；重试后同一内容出现两次（片段＋正式消息）；日志无法区分&quot;显示过&quot;与&quot;确认过&quot;。所以循环只在收到协议终态后结算：成功→提交消息；失败→记录尝试并走恢复；取消→按是否保留文本分别结算。这是&quot;乐观显示、悲观提交&quot;模式：读路径尽早，写路径保守。</p>
-<p><strong>追问</strong>：重试的退避等待算在谁的耗时里？ <strong>回答要点</strong>：教材 5.3.6 的教学拆分——400 ms 失败＋300 ms 等待＋700 ms 成功＝1400 ms 模型阶段总耗时，其中等待 300 ms；等待由重试策略（packages/llm/llm-retry/src/index.ts，第 149 行起）决定，不是&quot;所有错误永远再试一次&quot;。</p>
-<h3>Q4 · Shell 工具、子进程服务、持久终端三者的边界？退出码 0 就是成功吗？</h3>
-<p><strong>回答</strong>：Shell 工具接收模型生成的命令行字符串并交由底层执行器解析，默认缺省选项通过预处理流程补全；子进程服务（Child Process Service）则强制要求调用方显式传入参数数组、工作目录及 I/O 重定向流，直接通过 argv 发起系统调用，绕过 Shell 解释层。一次性命令在执行结束后统一回收标准输出与错误流；持久交互式终端（PTY）则维护上下文状态并支持后续输入交互，由归属 Agent 强绑定控制，禁止跨 Agent 越权访问。针对进程捕获中断信号并返回退出码 0 的边界情况，系统必须结合信号记录综合评定，禁止单纯根据退出码 0 断定任务正常完成；输出流超过阈值时保留头部截断并在末尾注入截断提示，告知模型当前获取的仅为非完整输出。</p>
-<p><strong>原理</strong>：退出码 0 的歧义说明&quot;进程退出&quot;与&quot;业务成功&quot;是两个层——信号处理、包装脚本都可能改写退出码，所以结果判断要看完整证据（退出码、信号、输出内容、超时状态），这和第 1 章&quot;accepted 不是终态&quot;是同一个原则：任何单一信号都不能替代对终态与产物的检查。PTY 的归属设计体现资源所有权原理：拥有者明确，才能回答&quot;谁可以续写、谁负责清理、会话结束谁终止&quot;；无归属的共享终端会让取消与清理无处落笔。输出环有界（环状缓冲＋消耗游标）解决长输出内存问题：生产者拥有资源，消费者按游标读取，模型游标与界面字节位置互不推进——读写速率解耦后，慢消费者不会阻塞任务，快生产者也不会撑爆内存。</p>
-<p><strong>追问</strong>：SSH 场景下这些边界怎么变？ <strong>回答要点</strong>：坐标整体移到远端（cwd、沙箱根、LSP URI），主机路径不默认可用；连接断开时未确认的动作结果要如实报告，不能自动重放可能已执行的修改（教材 5.5）。</p>
-<h3>Q5 · 设置与凭据为什么分两条管理链？</h3>
-<p><strong>回答</strong>：设置表单从可编辑配置字段生成，更新经 profile patch 保存，消费者读取当前配置；版本冲突检查防止旧页面覆盖新编辑。凭据保存引用（如环境变量名），模型适配器按请求解析引用——已轮换的值下次请求即生效，旧密钥不写入会话；空值视为缺失，不默默借用无关凭据；配置界面知道引用是否已配置、来自哪层，但拿不到秘密值（教材 5.8）。</p>
-<p><strong>原理</strong>：设置是&quot;声明状态&quot;，凭据是&quot;敏感事实&quot;，两者的暴露面完全不同。设置可展示、可回显、可比较版本；凭据一旦进入界面或日志就成了泄露面。引用间接层（环境变量名而非值）实现两点：其一，密钥轮换不需要重写任何会话或配置——解析发生在每次请求，天然支持滚动更新；其二，最小知情——界面与日志只接触引用，秘密只在适配器解析的那一瞬存在于内存。当前进程环境遮蔽本地存储值时表面写入成功但解析结果不变，所以提供方必须报告只读条件——否则用户会以为改了密钥，实际请求仍在用环境里的旧值。这两条链的区分本质是&quot;配置可公开、凭据需最小化&quot;的数据分级原则。</p>
-<hr>
+<p><span class="badge-role badge-ans">权威回答</span><code>prepareCall</code> 按 provider 找注册适配器，让适配器准备精确模型，<code>normalizeModelInfo</code> 归一模型能力，<code>resolveCallWithInfo</code> 用能力解析补齐调用配置，随后复制并深冻结 config 与 context（packages/llm/llm/src/index.ts 第 936—944 行）；<code>LlmCallConfig</code> 只有 provider、model、reasoningEffort、temperature、maxTokens、stop 六个字段（packages/llm/llm/src/call-config.ts 第 21—30 行）。DeepSeek 适配器产生异步片段流，超时、请求取消、传输失败各有错误分类，结束或失败时中止消费并尝试关闭迭代器。</p>
+<p><span class="badge-role badge-theory">设计原理</span>&quot;绑定一次、分派一次&quot;把两个易混阶段分开：准备阶段做校验与解析（可能抛错、可重做），分派阶段是唯一的一次真实调用。绑定对象携带冻结配置与重试策略，保证&quot;校验时的模型信息&quot;和&quot;发出请求时&quot;是同一份事实——如果不绑定，重试或并发路径可能在不同时刻解析出不同的模型能力（配置热更新、凭据轮换），请求行为就不可复述。这与第 2 章&quot;请求冻结&quot;是同一原理在模型层的应用：在不可逆动作（网络调用）的入口做快照。</p>
+<p><span class="badge-role badge-follow">考官追问</span>换模型为什么不用改上层消费者？ <span class="badge-role badge-points">应答要点</span>协议差异归适配器；消费者依赖统一流契约，规范消息不因切换服务而重定义（教材 8.2）。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q3 · 流式输出已经显示了一半文字，为什么这半段不能当成功消息用？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span>驱动用 <code>for await</code> 消费片段，每次迭代先检查取消信号再推送临时输出（agent.ts 第 436—443 行）；正常终结才生成并提交助手消息。失败路径：符合恢复策略的错误先记录 attempt，经 <code>agent/request-error</code> 链决定是否重试（第 505—509 行）；取消时保留了部分文本则记录带 interrupted 标记的助手消息，无保留文本则记录尝试（教材 5.3.7）。失败输出里未完成的工具提议不会被执行。</p>
+<p><span class="badge-role badge-theory">设计原理</span>临时片段与最终消息是两个契约。流片段的价值是低延迟反馈（页面尽早显示），但它没有终态——传输可能在任意字节后断开。若把片段当提交消息，会出现三类事故：执行了不完整的工具调用（参数可能只写了一半）；重试后同一内容出现两次（片段＋正式消息）；日志无法区分&quot;显示过&quot;与&quot;确认过&quot;。所以循环只在收到协议终态后结算：成功→提交消息；失败→记录尝试并走恢复；取消→按是否保留文本分别结算。这是&quot;乐观显示、悲观提交&quot;模式：读路径尽早，写路径保守。</p>
+<p><span class="badge-role badge-follow">考官追问</span>重试的退避等待算在谁的耗时里？ <span class="badge-role badge-points">应答要点</span>教材 5.3.6 的教学拆分——400 ms 失败＋300 ms 等待＋700 ms 成功＝1400 ms 模型阶段总耗时，其中等待 300 ms；等待由重试策略（packages/llm/llm-retry/src/index.ts，第 149 行起）决定，不是&quot;所有错误永远再试一次&quot;。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q4 · Shell 工具、子进程服务、持久终端三者的边界？退出码 0 就是成功吗？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span>Shell 工具接收模型生成的命令行字符串并交由底层执行器解析，默认缺省选项通过预处理流程补全；子进程服务（Child Process Service）则强制要求调用方显式传入参数数组、工作目录及 I/O 重定向流，直接通过 argv 发起系统调用，绕过 Shell 解释层。一次性命令在执行结束后统一回收标准输出与错误流；持久交互式终端（PTY）则维护上下文状态并支持后续输入交互，由归属 Agent 强绑定控制，禁止跨 Agent 越权访问。针对进程捕获中断信号并返回退出码 0 的边界情况，系统必须结合信号记录综合评定，禁止单纯根据退出码 0 断定任务正常完成；输出流超过阈值时保留头部截断并在末尾注入截断提示，告知模型当前获取的仅为非完整输出。</p>
+<p><span class="badge-role badge-theory">设计原理</span>退出码 0 的歧义说明&quot;进程退出&quot;与&quot;业务成功&quot;是两个层——信号处理、包装脚本都可能改写退出码，所以结果判断要看完整证据（退出码、信号、输出内容、超时状态），这和第 1 章&quot;accepted 不是终态&quot;是同一个原则：任何单一信号都不能替代对终态与产物的检查。PTY 的归属设计体现资源所有权原理：拥有者明确，才能回答&quot;谁可以续写、谁负责清理、会话结束谁终止&quot;；无归属的共享终端会让取消与清理无处落笔。输出环有界（环状缓冲＋消耗游标）解决长输出内存问题：生产者拥有资源，消费者按游标读取，模型游标与界面字节位置互不推进——读写速率解耦后，慢消费者不会阻塞任务，快生产者也不会撑爆内存。</p>
+<p><span class="badge-role badge-follow">考官追问</span>SSH 场景下这些边界怎么变？ <span class="badge-role badge-points">应答要点</span>坐标整体移到远端（cwd、沙箱根、LSP URI），主机路径不默认可用；连接断开时未确认的动作结果要如实报告，不能自动重放可能已执行的修改（教材 5.5）。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q5 · 设置与凭据为什么分两条管理链？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span>设置表单从可编辑配置字段生成，更新经 profile patch 保存，消费者读取当前配置；版本冲突检查防止旧页面覆盖新编辑。凭据保存引用（如环境变量名），模型适配器按请求解析引用——已轮换的值下次请求即生效，旧密钥不写入会话；空值视为缺失，不默默借用无关凭据；配置界面知道引用是否已配置、来自哪层，但拿不到秘密值（教材 5.8）。</p>
+<p><span class="badge-role badge-theory">设计原理</span>设置是&quot;声明状态&quot;，凭据是&quot;敏感事实&quot;，两者的暴露面完全不同。设置可展示、可回显、可比较版本；凭据一旦进入界面或日志就成了泄露面。引用间接层（环境变量名而非值）实现两点：其一，密钥轮换不需要重写任何会话或配置——解析发生在每次请求，天然支持滚动更新；其二，最小知情——界面与日志只接触引用，秘密只在适配器解析的那一瞬存在于内存。当前进程环境遮蔽本地存储值时表面写入成功但解析结果不变，所以提供方必须报告只读条件——否则用户会以为改了密钥，实际请求仍在用环境里的旧值。这两条链的区分本质是&quot;配置可公开、凭据需最小化&quot;的数据分级原则。</p>
+</div></div><hr>
 <a id="chapter-06"></a>
 <p># 第 6 章｜提示词与项目指令：下一次模型输入怎样形成</p>
 <p>## 06.0 回答依赖的是这次请求里的材料</p>
@@ -797,28 +1379,28 @@ const result = await submit('读取项目说明')</code></pre>
 <p>&lt;!-- references:end --&gt;</p>
 <hr>
 <h2>本章面试问答</h2>
-<blockquote>本节追问交互链路的原理。回答引用的文件与行号可在<a href="source-excerpts.md">可选证据附录</a>复核。</blockquote>
-<h3>Q1 · 提交与跟随为什么必须是两条链？合成一个&quot;发送并等待结果&quot;的接口会怎样？</h3>
+<blockquote>本节追问交互链路的原理。回答引用的文件与行号可在<a href="../source-excerpts.md">可选证据附录</a>复核。</blockquote>
+<div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q1 · 提交与跟随为什么必须是两条链？合成一个&quot;发送并等待结果&quot;的接口会怎样？</span></div><div class="qa-body">
 <p><strong>考察点</strong>：异步产品架构的理解，能否解释回显、接纳、流片段、终态为什么是四种不同事实。</p>
-<p><strong>回答</strong>：上行链：会话交互控制器先 <code>beginSubmission</code> 建立本地待提交记录（客户端暂态＋附件退役回调），再调用 Client Session 的 <code>prompt</code> 带同一 requestId 经 RPC 到 Host（packages/client/ui-conversation/src/client/service.ts 第 275—283 行；packages/api/session-controller/src/client/sessions/session.ts 第 269—277 行），返回接纳结论。下行链：<code>SessionHistoryController.follow</code> 在准备快照前先安装事件监听与缓冲，再发出快照并处理缓冲后续（packages/api/session-controller/src/history.ts 第 120 行起）；事件按序号校验连续性——早于游标的略过，跳过预期序号则报错而不是无声跳过（history.ts 第 226—232 行）。</p>
-<p><strong>原理</strong>：两条链的时间特性根本不同：提交是&quot;一次请求、一个结论&quot;，跟随是&quot;持续观察、无终点&quot;。合成一个同步接口等于让 HTTP 请求挂住整个任务生命周期——连接超时、代理断开、页面刷新都会把&quot;网络中断&quot;误成&quot;任务失败&quot;；而且服务端无法向一个可能已消失的请求推送中间进展。分离后，接纳结果回答&quot;系统收到了吗&quot;，跟随链回答&quot;进行到哪了、结果如何&quot;，两者用 requestId 与游标对齐。先装监听再取快照的顺序也是原理所在：如果先取快照再订阅，快照生成到订阅生效之间的事件会丢失；缓冲则保证事件既不重复（游标去重）也不丢失（快照前到达的先存后放）。</p>
-<p><strong>追问</strong>：快照游标 40，缓冲里依次来了 39、41、43，各怎么处理？ <strong>回答要点</strong>：39 已早于期待位置可略过；41 正常推进、期待 42；43 不能冒充 42，触发缺口处理。恢复观察需要新的有效快照与游标——检测出缺口不等于恢复完成（教材 6.1.6）。</p>
-<h3>Q2 · 桌面端为什么要有三个执行环境？启动顺序为什么是&quot;先加载页面再启动后端&quot;？</h3>
-<p><strong>回答</strong>：三个环境是 Electron 主进程（窗口与受控桌面能力）、页面（Web 产品）与独立 Node Host（共享 profile 与服务）。<code>reconcileBackend</code> 先导航到打包页面，再启动后端；已加载的文档通过 boot IPC 响应继续激活，不换文档（apps/desktop/src/main.ts 第 567—575 行）。Host 子进程消息分类处理：<code>ready</code>（带服务 URL 与 injections）、<code>platform-session</code>、<code>shutdown-complete</code>、<code>fatal</code>；收到非法 IPC 事件则判定失败并终止子进程（apps/desktop/src/host-process.ts 第 206—218 行）。业务 HTTP 转发检查请求来源（origin 必须是 <code>dsh-app://app</code>，否则 403），删除 host/origin/cookie 等头并适配认证再转发（apps/desktop/src/web-document.ts 第 77—88 行）。</p>
-<p><strong>原理</strong>：三个环境是三条信任边界：页面跑远程内容逻辑（受隔离设置约束），主进程持有 OS 能力（窗口、协议、生命周期），Host 持有业务与真实状态。合并任何一个都会放大爆炸半径——例如让页面直接调 Agent 内部方法，等于把 shell 权限交给渲染进程。先加载页面再启动后端是感知优化与正确性的平衡：窗口立刻出现（有等待界面），Host 就绪后通过注入激活客户端；&quot;窗口出现&quot;与&quot;业务可用&quot;因此是两个检查点。IPC 只承载启动与关闭等控制消息，聊天业务仍走 HTTP 与流通道——控制面与数据面分开，故障定位才能先问&quot;哪一面坏了&quot;。</p>
-<p><strong>追问</strong>：关闭主窗口等于退出应用吗？ <strong>回答要点</strong>：本版本普通主窗口关闭会隐藏并保留运行，退出应用才有任务中断检查；按外观推定进程行为是常见误读（教材 6.2.4）。</p>
-<h3>Q3 · 客户端的 Slots 与 Typert Remote 各解决什么问题？</h3>
-<p><strong>回答</strong>：Host 拥有真实状态，Client model 维护可观察镜像，UI adapter 把镜像接到视图，Slots 把功能组件装进页面——位置由某个组件明确拥有，未知位置和所有权冲突不能静默吞掉。Typert Remote 把业务方法变成类型化远程调用：请求携带端点与参数，宿主解析对象身份与调用上下文，取消走独立信号；传来的 id 是对象的传输身份，不是对象本体，解析器不可用时应失败（教材 6.3）。</p>
-<p><strong>原理</strong>：Slots 解决的是界面扩展的&quot;组合权&quot;问题：如果每个功能直接 import 别的功能的 React 组件，界面就成了一张互相依赖的网，卸载任何一个插件都可能编译失败。位置所有权让插件之间只通过&quot;声明位置＋注册内容&quot;协作，与 Host 侧的插件注册是同构思想——但两者是不同注册表（教材 6.3 特意区分客户端模块系统与模型看到的技能目录）。Typert Remote 的&quot;id 不是本体&quot;是分布式系统的基本纪律：跨边界传递的只是身份引用，权限与生命周期仍在拥有方；把它当成可随意调用的本地对象引用，就会写出&quot;拿一个 id 就以为持有服务实例&quot;的错误代码。</p>
-<p><strong>追问</strong>：轨迹图和聊天气泡为什么可以长得不一样？ <strong>回答要点</strong>：多个视图共用同一事实来源，各自决定展示结构；一个临时气泡可能在后续结算为失败尝试，渲染形态不能改写宿主事实。</p>
-<h3>Q4 · 向用户提问的工具与审批工具是一回事吗？超时后用户的回答去哪了？</h3>
-<p><strong>回答</strong>：提问工具通过用户交互服务递交一批带稳定 id 的问题，界面可显示选项、辅助说明或自由文本，再按 id 交回答案；批准型呈现的样式只影响展示，实际同意必须依据指定答案含义。阻塞式等待与带前台超时的模式不同：超时可以先交付 pending 类结果并保留可回答的问题，后来的答案另有归属（教材 6.6）。</p>
-<p><strong>原理</strong>：两者都涉及&quot;人类在环&quot;，但契约不同：审批绑定某次工具调用的准入结论（成对事件、开放轮次内闭合，第 4 章），提问是收集结构化信息，可服务多种调用方。超时语义的原理在于&quot;答案与问题实例绑定&quot;：一次交互请求已经以 pending 结算后，迟到的答案不能回写进已完成的结果——否则会产生时间倒流的一致性问题；后到的文字作为新输入进入队列，参与下一次组装。这与第 1 章&quot;已发出的模型请求不被后到输入修改&quot;是同一条时间箭头原则在人机交互上的体现。</p>
-<p><strong>追问</strong>：为什么用户稍后补充一句话不会改写已完成的请求？ <strong>回答要点</strong>：补充进入新的输入队列（followup/steer 语义）；只有尚未提交的组装才能吸收新约束。</p>
-<h3>Q5 · 语音、浏览器操作、电脑操作三项扩展的边界为什么必须分开说？</h3>
-<p><strong>回答</strong>：语音识别输入是麦克风音频，输出是编辑器文字；只有普通用户提交把最终文字放进模型任务，识别完成不会自动成为已发出的用户消息。浏览器操作启动的浏览器归确切实时 Session，跨轮次复用，但恢复或 fork 不从日志恢复登录与页面状态。电脑操作直接观察与操作桌面，多会话动作需要协调；取消不能撤销桌面已经收到的点击或按键（教材 6.5）。</p>
-<p><strong>原理</strong>：三项扩展分别引入新的输入模态、新的执行面和新的物理世界接口，各自的不确定性来源不同：语音有迟到结果与会话切换问题（选区版本决定能否插入）；浏览器有&quot;日志可回放事件、登录态不可回放&quot;的恢复边界；桌面操作的效果发生在 OS 层，取消信号只能阻止未发出的动作——物理效果不可回滚。安装了桌面壳不等于这些能力开启，它们需要显式提供方与权限；这正是&quot;能力存在&quot;与&quot;能力启用&quot;分层（第 5 章 profile 原理）在产品侧的延续。</p>
-<hr>
+<p><span class="badge-role badge-ans">权威回答</span>上行链：会话交互控制器先 <code>beginSubmission</code> 建立本地待提交记录（客户端暂态＋附件退役回调），再调用 Client Session 的 <code>prompt</code> 带同一 requestId 经 RPC 到 Host（packages/client/ui-conversation/src/client/service.ts 第 275—283 行；packages/api/session-controller/src/client/sessions/session.ts 第 269—277 行），返回接纳结论。下行链：<code>SessionHistoryController.follow</code> 在准备快照前先安装事件监听与缓冲，再发出快照并处理缓冲后续（packages/api/session-controller/src/history.ts 第 120 行起）；事件按序号校验连续性——早于游标的略过，跳过预期序号则报错而不是无声跳过（history.ts 第 226—232 行）。</p>
+<p><span class="badge-role badge-theory">设计原理</span>两条链的时间特性根本不同：提交是&quot;一次请求、一个结论&quot;，跟随是&quot;持续观察、无终点&quot;。合成一个同步接口等于让 HTTP 请求挂住整个任务生命周期——连接超时、代理断开、页面刷新都会把&quot;网络中断&quot;误成&quot;任务失败&quot;；而且服务端无法向一个可能已消失的请求推送中间进展。分离后，接纳结果回答&quot;系统收到了吗&quot;，跟随链回答&quot;进行到哪了、结果如何&quot;，两者用 requestId 与游标对齐。先装监听再取快照的顺序也是原理所在：如果先取快照再订阅，快照生成到订阅生效之间的事件会丢失；缓冲则保证事件既不重复（游标去重）也不丢失（快照前到达的先存后放）。</p>
+<p><span class="badge-role badge-follow">考官追问</span>快照游标 40，缓冲里依次来了 39、41、43，各怎么处理？ <span class="badge-role badge-points">应答要点</span>39 已早于期待位置可略过；41 正常推进、期待 42；43 不能冒充 42，触发缺口处理。恢复观察需要新的有效快照与游标——检测出缺口不等于恢复完成（教材 6.1.6）。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q2 · 桌面端为什么要有三个执行环境？启动顺序为什么是&quot;先加载页面再启动后端&quot;？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span>三个环境是 Electron 主进程（窗口与受控桌面能力）、页面（Web 产品）与独立 Node Host（共享 profile 与服务）。<code>reconcileBackend</code> 先导航到打包页面，再启动后端；已加载的文档通过 boot IPC 响应继续激活，不换文档（apps/desktop/src/main.ts 第 567—575 行）。Host 子进程消息分类处理：<code>ready</code>（带服务 URL 与 injections）、<code>platform-session</code>、<code>shutdown-complete</code>、<code>fatal</code>；收到非法 IPC 事件则判定失败并终止子进程（apps/desktop/src/host-process.ts 第 206—218 行）。业务 HTTP 转发检查请求来源（origin 必须是 <code>dsh-app://app</code>，否则 403），删除 host/origin/cookie 等头并适配认证再转发（apps/desktop/src/web-document.ts 第 77—88 行）。</p>
+<p><span class="badge-role badge-theory">设计原理</span>三个环境是三条信任边界：页面跑远程内容逻辑（受隔离设置约束），主进程持有 OS 能力（窗口、协议、生命周期），Host 持有业务与真实状态。合并任何一个都会放大爆炸半径——例如让页面直接调 Agent 内部方法，等于把 shell 权限交给渲染进程。先加载页面再启动后端是感知优化与正确性的平衡：窗口立刻出现（有等待界面），Host 就绪后通过注入激活客户端；&quot;窗口出现&quot;与&quot;业务可用&quot;因此是两个检查点。IPC 只承载启动与关闭等控制消息，聊天业务仍走 HTTP 与流通道——控制面与数据面分开，故障定位才能先问&quot;哪一面坏了&quot;。</p>
+<p><span class="badge-role badge-follow">考官追问</span>关闭主窗口等于退出应用吗？ <span class="badge-role badge-points">应答要点</span>本版本普通主窗口关闭会隐藏并保留运行，退出应用才有任务中断检查；按外观推定进程行为是常见误读（教材 6.2.4）。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q3 · 客户端的 Slots 与 Typert Remote 各解决什么问题？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span>Host 拥有真实状态，Client model 维护可观察镜像，UI adapter 把镜像接到视图，Slots 把功能组件装进页面——位置由某个组件明确拥有，未知位置和所有权冲突不能静默吞掉。Typert Remote 把业务方法变成类型化远程调用：请求携带端点与参数，宿主解析对象身份与调用上下文，取消走独立信号；传来的 id 是对象的传输身份，不是对象本体，解析器不可用时应失败（教材 6.3）。</p>
+<p><span class="badge-role badge-theory">设计原理</span>Slots 解决的是界面扩展的&quot;组合权&quot;问题：如果每个功能直接 import 别的功能的 React 组件，界面就成了一张互相依赖的网，卸载任何一个插件都可能编译失败。位置所有权让插件之间只通过&quot;声明位置＋注册内容&quot;协作，与 Host 侧的插件注册是同构思想——但两者是不同注册表（教材 6.3 特意区分客户端模块系统与模型看到的技能目录）。Typert Remote 的&quot;id 不是本体&quot;是分布式系统的基本纪律：跨边界传递的只是身份引用，权限与生命周期仍在拥有方；把它当成可随意调用的本地对象引用，就会写出&quot;拿一个 id 就以为持有服务实例&quot;的错误代码。</p>
+<p><span class="badge-role badge-follow">考官追问</span>轨迹图和聊天气泡为什么可以长得不一样？ <span class="badge-role badge-points">应答要点</span>多个视图共用同一事实来源，各自决定展示结构；一个临时气泡可能在后续结算为失败尝试，渲染形态不能改写宿主事实。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q4 · 向用户提问的工具与审批工具是一回事吗？超时后用户的回答去哪了？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span>提问工具通过用户交互服务递交一批带稳定 id 的问题，界面可显示选项、辅助说明或自由文本，再按 id 交回答案；批准型呈现的样式只影响展示，实际同意必须依据指定答案含义。阻塞式等待与带前台超时的模式不同：超时可以先交付 pending 类结果并保留可回答的问题，后来的答案另有归属（教材 6.6）。</p>
+<p><span class="badge-role badge-theory">设计原理</span>两者都涉及&quot;人类在环&quot;，但契约不同：审批绑定某次工具调用的准入结论（成对事件、开放轮次内闭合，第 4 章），提问是收集结构化信息，可服务多种调用方。超时语义的原理在于&quot;答案与问题实例绑定&quot;：一次交互请求已经以 pending 结算后，迟到的答案不能回写进已完成的结果——否则会产生时间倒流的一致性问题；后到的文字作为新输入进入队列，参与下一次组装。这与第 1 章&quot;已发出的模型请求不被后到输入修改&quot;是同一条时间箭头原则在人机交互上的体现。</p>
+<p><span class="badge-role badge-follow">考官追问</span>为什么用户稍后补充一句话不会改写已完成的请求？ <span class="badge-role badge-points">应答要点</span>补充进入新的输入队列（followup/steer 语义）；只有尚未提交的组装才能吸收新约束。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q5 · 语音、浏览器操作、电脑操作三项扩展的边界为什么必须分开说？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span>语音识别输入是麦克风音频，输出是编辑器文字；只有普通用户提交把最终文字放进模型任务，识别完成不会自动成为已发出的用户消息。浏览器操作启动的浏览器归确切实时 Session，跨轮次复用，但恢复或 fork 不从日志恢复登录与页面状态。电脑操作直接观察与操作桌面，多会话动作需要协调；取消不能撤销桌面已经收到的点击或按键（教材 6.5）。</p>
+<p><span class="badge-role badge-theory">设计原理</span>三项扩展分别引入新的输入模态、新的执行面和新的物理世界接口，各自的不确定性来源不同：语音有迟到结果与会话切换问题（选区版本决定能否插入）；浏览器有&quot;日志可回放事件、登录态不可回放&quot;的恢复边界；桌面操作的效果发生在 OS 层，取消信号只能阻止未发出的动作——物理效果不可回滚。安装了桌面壳不等于这些能力开启，它们需要显式提供方与权限；这正是&quot;能力存在&quot;与&quot;能力启用&quot;分层（第 5 章 profile 原理）在产品侧的延续。</p>
+</div></div><hr>
 <a id="chapter-07"></a>
 <p># 第 7 章｜技能的按需读取：目录可见为什么不等于正文已加载</p>
 <p>## 07.0 说明“有这本手册”与递上整本手册</p>
@@ -903,25 +1485,25 @@ const result = await submit('读取项目说明')</code></pre>
 <p>&lt;!-- references:end --&gt;</p>
 <hr>
 <h2>本章面试问答</h2>
-<blockquote>本节追问评估方法的原理。回答引用的文件与行号可在<a href="source-excerpts.md">可选证据附录</a>复核。</blockquote>
-<h3>Q1 · 回放（replay）固定了什么、没固定什么？&quot;回放通过&quot;能证明哪些命题、不能证明哪些？</h3>
+<blockquote>本节追问评估方法的原理。回答引用的文件与行号可在<a href="../source-excerpts.md">可选证据附录</a>复核。</blockquote>
+<div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q1 · 回放（replay）固定了什么、没固定什么？&quot;回放通过&quot;能证明哪些命题、不能证明哪些？</span></div><div class="qa-body">
 <p><strong>考察点</strong>：测试金字塔与证据边界的理解，是否混淆&quot;工程回归&quot;与&quot;模型质量&quot;。</p>
-<p><strong>回答</strong>：<code>deriveReplayScript</code> 从已录制事件恢复模型响应条目；录制缺少正常 finish 片段时直接抛错，要求显式 override 文件，不会把残缺录制无条件当正常回放（packages/test-support/llm-replay/src/index.ts 第 462—472 行）。<code>installLlmReplay</code> 按配置选择接入点：配置了 providers 就注册 <code>ReplayAdapter</code>，否则在 <code>llm/stream</code> 事件边界拦截（第 1101—1104 行）。回放期间真实循环、工具链、日志全部照常运行。<code>assertConsumed</code> 检查两类问题：从未绑定到会话的脚本、每个会话未消费完的条目，报&quot;fixture not fully consumed&quot;（第 1107—1120 行）。</p>
-<p><strong>原理</strong>：回放是&quot;依赖注入到模型边界&quot;的测试方法：把最贵、最不确定的依赖（真实模型）换成确定脚本，其余系统保持真实——所以它能证明固定响应下的工程行为（工具交接顺序、失败恢复路径、日志完整性），不能证明任何关于真实模型行为变化的结论（固定输出对提示词改动天然无感）。<code>assertConsumed</code> 的原理是&quot;录制—回放契约的完整性校验&quot;：真实流程少请求一次模型，意味着代码路径变了而测试没察觉（剩余脚本未被消费）；多请求则固定响应不够用。没有这个检查，&quot;断言没失败&quot;会掩盖流程漂移——这正是&quot;测试通过不等于覆盖了预期路径&quot;的具体化。残缺录制必须显式 override 的原理同理：沉默地接受残缺数据等于让测试自己决定什么算正常。</p>
-<p><strong>追问</strong>：想证明&quot;新提示词让模型更少遗漏实验性声明&quot;，用回放行吗？ <strong>回答要点</strong>：不行。固定输出由脚本决定，对提示词变化无感；需要同条件真实任务评价（教材 7.1.6）。</p>
-<h3>Q2 · 比较两个方案&quot;哪个更好&quot;，需要哪四组记录？为什么失败样本不能删？</h3>
-<p><strong>回答</strong>：任务结果、时间（提交到接纳/首段输出/终态三个钟）、请求与工具次数、各类词元用量；失败和取消要有独立状态。项目已有计量：TokenMeter 注册三个投影（packages/llm/token-meter/src/index.ts 第 110—122 行）；遥测协调器监听 <code>session/event</code> 捕获、<code>session/flush</code> 触发后端交接，回调返回 void 而不是等待 SDK 刷新——这是轮次延迟契约（packages/session/session-telemetry/src/coordinator.ts 第 104—116 行）。成本按&quot;该类别用量×对应单价&quot;求和，单价与缓存口径在真实实验时核验（教材 7.2）。</p>
-<p><strong>原理</strong>：四组记录对应四个不可互相推导的维度：结果（对不对）、时间（多快）、用量（多贵）、失败（多稳）。只用一个综合分数会把取舍藏起来——教材 7.2.6 的教学例：方案乙省 30% 用量但少通过一项，&quot;总体提升 30%&quot;是无效表述。失败样本不能删的原因是幸存者偏差：失败任务往往消耗更多时间与请求，删掉它们会同时扭曲平均耗时和用量估计，让激进方案显得又快又省。遥测回调不等刷新完成的原理则是延迟预算：观测是旁路，不能阻塞主任务轮次——观测系统的第一条纪律是不改变被观测系统的性能特征。</p>
-<p><strong>追问</strong>：通过率从 80% 到 90% 怎么表述才严谨？ <strong>回答要点</strong>：绝对差 10 个百分点，相对增幅 12.5%；口径必须注明，小样本不支撑泛化结论。</p>
-<h3>Q3 · 不变式、消息反馈、遥测三类证据的边界？为什么&quot;交接游标&quot;不是送达回执？</h3>
-<p><strong>回答</strong>：运行时不变式检查始终应成立的数据或事件关系（例如请求材料可从记录重建），失败归因到拥有包；消息反馈记录读者对某条助手消息的评价，是日志事实，默认不进入模型上下文；会话遥测按选定策略捕获日志前缀、脱敏后交给后端。OTel 按需捕获由反馈事件触发：先校验事件是规范追加的事件本体（<code>eventAt(seq) !== event</code> 则拒绝并警告），再按该序号捕获前缀（packages/session/session-telemetry-otel/src/index.ts 第 218—230 行）。</p>
-<p><strong>原理</strong>：三者的差别在&quot;谁生产、证明什么&quot;：不变式是系统自证（结构性正确），反馈是用户主观输入（体验信号），遥测是运维观察（过程与用量）。混用的典型错误是把好评当验收判据、把遥测缺失当故障不存在。交接游标只表示&quot;已交给传输层&quot;，之后的崩溃、重载都可能丢失或重复——所以接收方必须按身份去重，不能累加收到的记录得出任务数；这与第 3 章&quot;append 返回不等于落盘&quot;是同一原理：每个异步边界都有各自的确认契约，跨边界推定&quot;下一步必然发生&quot;是分布式错误的主要来源。非规范事件拒绝捕获的原理则是真源纪律：只有日志里那一条事件授权捕获对应前缀，防止用重建或伪造的事件冒充运行事实。</p>
-<p><strong>追问</strong>：收到 1000 条遥测记录能说明 1000 个任务吗？ <strong>回答要点</strong>：不能；重复与丢失都可能，去重基于适当身份，缺失要单独报告。</p>
-<h3>Q4 · &quot;测试通过&quot;与&quot;改动有效&quot;之间还差哪些环节？</h3>
-<p><strong>回答</strong>：教材 7.1.6 的四个命题对应四种检查：行窗口只返回选定范围用单元测试；失败尝试不执行工具用固定失败响应驱动真实循环；实际服务能完成协议请求需要 API 测试；修改提示词后更少遗漏需要同条件业务任务评价。评价还要统一口径：任务集、版本、模型选择、验收规则、预算一致，变更项单独记录（7.2.4）。</p>
-<p><strong>原理</strong>：每一层检查排除一类威胁：单元测试排除实现错误，回放排除工程回归，API 测试排除集成错误，任务评价才接触&quot;模型在真实分布上表现更好&quot;这个命题。跳层测试的失败模式很典型：用回放证明提示词改进（对真实模型无感），或用十遍重跑同一回放冒充质量证据（确定性输出重复十次还是确定性的）。控制变量原则来自实验设计：模型与任务同时变了，比例变化无法归因——这是第 8 章归因表的统计学前提。</p>
-<p><strong>追问</strong>：为什么不设一个&quot;综合分&quot;？ <strong>回答要点</strong>：样本不足时精确总分校准不了；教材第 7 章要求并列报告质量、时间、用量、失败，让取舍可见。</p>
-<hr>
+<p><span class="badge-role badge-ans">权威回答</span><code>deriveReplayScript</code> 从已录制事件恢复模型响应条目；录制缺少正常 finish 片段时直接抛错，要求显式 override 文件，不会把残缺录制无条件当正常回放（packages/test-support/llm-replay/src/index.ts 第 462—472 行）。<code>installLlmReplay</code> 按配置选择接入点：配置了 providers 就注册 <code>ReplayAdapter</code>，否则在 <code>llm/stream</code> 事件边界拦截（第 1101—1104 行）。回放期间真实循环、工具链、日志全部照常运行。<code>assertConsumed</code> 检查两类问题：从未绑定到会话的脚本、每个会话未消费完的条目，报&quot;fixture not fully consumed&quot;（第 1107—1120 行）。</p>
+<p><span class="badge-role badge-theory">设计原理</span>回放是&quot;依赖注入到模型边界&quot;的测试方法：把最贵、最不确定的依赖（真实模型）换成确定脚本，其余系统保持真实——所以它能证明固定响应下的工程行为（工具交接顺序、失败恢复路径、日志完整性），不能证明任何关于真实模型行为变化的结论（固定输出对提示词改动天然无感）。<code>assertConsumed</code> 的原理是&quot;录制—回放契约的完整性校验&quot;：真实流程少请求一次模型，意味着代码路径变了而测试没察觉（剩余脚本未被消费）；多请求则固定响应不够用。没有这个检查，&quot;断言没失败&quot;会掩盖流程漂移——这正是&quot;测试通过不等于覆盖了预期路径&quot;的具体化。残缺录制必须显式 override 的原理同理：沉默地接受残缺数据等于让测试自己决定什么算正常。</p>
+<p><span class="badge-role badge-follow">考官追问</span>想证明&quot;新提示词让模型更少遗漏实验性声明&quot;，用回放行吗？ <span class="badge-role badge-points">应答要点</span>不行。固定输出由脚本决定，对提示词变化无感；需要同条件真实任务评价（教材 7.1.6）。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q2 · 比较两个方案&quot;哪个更好&quot;，需要哪四组记录？为什么失败样本不能删？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span>任务结果、时间（提交到接纳/首段输出/终态三个钟）、请求与工具次数、各类词元用量；失败和取消要有独立状态。项目已有计量：TokenMeter 注册三个投影（packages/llm/token-meter/src/index.ts 第 110—122 行）；遥测协调器监听 <code>session/event</code> 捕获、<code>session/flush</code> 触发后端交接，回调返回 void 而不是等待 SDK 刷新——这是轮次延迟契约（packages/session/session-telemetry/src/coordinator.ts 第 104—116 行）。成本按&quot;该类别用量×对应单价&quot;求和，单价与缓存口径在真实实验时核验（教材 7.2）。</p>
+<p><span class="badge-role badge-theory">设计原理</span>四组记录对应四个不可互相推导的维度：结果（对不对）、时间（多快）、用量（多贵）、失败（多稳）。只用一个综合分数会把取舍藏起来——教材 7.2.6 的教学例：方案乙省 30% 用量但少通过一项，&quot;总体提升 30%&quot;是无效表述。失败样本不能删的原因是幸存者偏差：失败任务往往消耗更多时间与请求，删掉它们会同时扭曲平均耗时和用量估计，让激进方案显得又快又省。遥测回调不等刷新完成的原理则是延迟预算：观测是旁路，不能阻塞主任务轮次——观测系统的第一条纪律是不改变被观测系统的性能特征。</p>
+<p><span class="badge-role badge-follow">考官追问</span>通过率从 80% 到 90% 怎么表述才严谨？ <span class="badge-role badge-points">应答要点</span>绝对差 10 个百分点，相对增幅 12.5%；口径必须注明，小样本不支撑泛化结论。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q3 · 不变式、消息反馈、遥测三类证据的边界？为什么&quot;交接游标&quot;不是送达回执？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span>运行时不变式检查始终应成立的数据或事件关系（例如请求材料可从记录重建），失败归因到拥有包；消息反馈记录读者对某条助手消息的评价，是日志事实，默认不进入模型上下文；会话遥测按选定策略捕获日志前缀、脱敏后交给后端。OTel 按需捕获由反馈事件触发：先校验事件是规范追加的事件本体（<code>eventAt(seq) !== event</code> 则拒绝并警告），再按该序号捕获前缀（packages/session/session-telemetry-otel/src/index.ts 第 218—230 行）。</p>
+<p><span class="badge-role badge-theory">设计原理</span>三者的差别在&quot;谁生产、证明什么&quot;：不变式是系统自证（结构性正确），反馈是用户主观输入（体验信号），遥测是运维观察（过程与用量）。混用的典型错误是把好评当验收判据、把遥测缺失当故障不存在。交接游标只表示&quot;已交给传输层&quot;，之后的崩溃、重载都可能丢失或重复——所以接收方必须按身份去重，不能累加收到的记录得出任务数；这与第 3 章&quot;append 返回不等于落盘&quot;是同一原理：每个异步边界都有各自的确认契约，跨边界推定&quot;下一步必然发生&quot;是分布式错误的主要来源。非规范事件拒绝捕获的原理则是真源纪律：只有日志里那一条事件授权捕获对应前缀，防止用重建或伪造的事件冒充运行事实。</p>
+<p><span class="badge-role badge-follow">考官追问</span>收到 1000 条遥测记录能说明 1000 个任务吗？ <span class="badge-role badge-points">应答要点</span>不能；重复与丢失都可能，去重基于适当身份，缺失要单独报告。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q4 · &quot;测试通过&quot;与&quot;改动有效&quot;之间还差哪些环节？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span>教材 7.1.6 的四个命题对应四种检查：行窗口只返回选定范围用单元测试；失败尝试不执行工具用固定失败响应驱动真实循环；实际服务能完成协议请求需要 API 测试；修改提示词后更少遗漏需要同条件业务任务评价。评价还要统一口径：任务集、版本、模型选择、验收规则、预算一致，变更项单独记录（7.2.4）。</p>
+<p><span class="badge-role badge-theory">设计原理</span>每一层检查排除一类威胁：单元测试排除实现错误，回放排除工程回归，API 测试排除集成错误，任务评价才接触&quot;模型在真实分布上表现更好&quot;这个命题。跳层测试的失败模式很典型：用回放证明提示词改进（对真实模型无感），或用十遍重跑同一回放冒充质量证据（确定性输出重复十次还是确定性的）。控制变量原则来自实验设计：模型与任务同时变了，比例变化无法归因——这是第 8 章归因表的统计学前提。</p>
+<p><span class="badge-role badge-follow">考官追问</span>为什么不设一个&quot;综合分&quot;？ <span class="badge-role badge-points">应答要点</span>样本不足时精确总分校准不了；教材第 7 章要求并列报告质量、时间、用量、失败，让取舍可见。</p>
+</div></div><hr>
 <a id="chapter-08"></a>
 <p># 第 8 章｜上下文压缩：让历史变短需要付出什么</p>
 <p>## 08.0 材料越来越多，并不等于当前请求都能放下</p>
@@ -1022,24 +1604,24 @@ const result = await submit('读取项目说明')</code></pre>
 <p>&lt;!-- references:end --&gt;</p>
 <hr>
 <h2>本章面试问答</h2>
-<blockquote>本节追问模型与 Harness 职责边界的原理。回答引用的文件与行号可在<a href="source-excerpts.md">可选证据附录</a>复核。</blockquote>
-<h3>Q1 · &quot;模型好像变聪明了&quot;——面试官让你归因，你会检查哪四层？</h3>
+<blockquote>本节追问模型与 Harness 职责边界的原理。回答引用的文件与行号可在<a href="../source-excerpts.md">可选证据附录</a>复核。</blockquote>
+<div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q1 · &quot;模型好像变聪明了&quot;——面试官让你归因，你会检查哪四层？</span></div><div class="qa-body">
 <p><strong>考察点</strong>：能否区分运行时变化与权重变化，这是 Harness 工程师与调参视角的分水岭。</p>
-<p><strong>回答</strong>：按教材 8.4 的表逐层检查：①更多准确材料（提示材料、技能、读取结果）——关键事实是否进入请求、回答是否使用它；②不同动作规则（工具定义、准入或插件配置）——实际工具链与允许范围是否变化；③不同模型能力（提供方路由与模型选择）——实际模型身份、任务结果与用量；④模型参数更新——需要新权重或模型版本与独立评价，当前调用链给不出这个证据。教材 8.5 的实证结论：已核验的调用链是组装请求、选择适配器、调用模型、接收分片、形成会话事实，这条链没有提供权重更新的机制。</p>
-<p><strong>原理</strong>：归因要分层是因为四层的变化机制与验证方法完全不同：材料层看请求内容（可从会话事实重建），动作层看工具配置（可从 profile 与注册表核对），模型层看路由与凭据（可从请求日志核对身份），参数层只能靠独立评测对照新旧权重。混层归因的典型错误：把&quot;这次看到了文件内容所以答对了&quot;说成&quot;框架训练了模型&quot;——其实只是输入变了；把&quot;换了个模型答得更好&quot;归功于框架升级——其实是提供方能力差异。推理调用在数学上就是&quot;固定参数下根据输入生成&quot;，输入—输出关系的变化先查输入，是奥卡姆剃刀在工程归因里的应用。</p>
-<p><strong>追问</strong>：SFT 和 RL 为什么不在本教材展开？ <strong>回答要点</strong>：它们改变参数，属于模型开发流程；本项目教材核验的是调用边界，避免把训练技术误写成运行机制（教材第 8 章开头）。</p>
+<p><span class="badge-role badge-ans">权威回答</span>按教材 8.4 的表逐层检查：①更多准确材料（提示材料、技能、读取结果）——关键事实是否进入请求、回答是否使用它；②不同动作规则（工具定义、准入或插件配置）——实际工具链与允许范围是否变化；③不同模型能力（提供方路由与模型选择）——实际模型身份、任务结果与用量；④模型参数更新——需要新权重或模型版本与独立评价，当前调用链给不出这个证据。教材 8.5 的实证结论：已核验的调用链是组装请求、选择适配器、调用模型、接收分片、形成会话事实，这条链没有提供权重更新的机制。</p>
+<p><span class="badge-role badge-theory">设计原理</span>归因要分层是因为四层的变化机制与验证方法完全不同：材料层看请求内容（可从会话事实重建），动作层看工具配置（可从 profile 与注册表核对），模型层看路由与凭据（可从请求日志核对身份），参数层只能靠独立评测对照新旧权重。混层归因的典型错误：把&quot;这次看到了文件内容所以答对了&quot;说成&quot;框架训练了模型&quot;——其实只是输入变了；把&quot;换了个模型答得更好&quot;归功于框架升级——其实是提供方能力差异。推理调用在数学上就是&quot;固定参数下根据输入生成&quot;，输入—输出关系的变化先查输入，是奥卡姆剃刀在工程归因里的应用。</p>
+<p><span class="badge-role badge-follow">考官追问</span>SFT 和 RL 为什么不在本教材展开？ <span class="badge-role badge-points">应答要点</span>它们改变参数，属于模型开发流程；本项目教材核验的是调用边界，避免把训练技术误写成运行机制（教材第 8 章开头）。</p>
 <h3>Q2 · <code>LlmCallConfig</code> 六个字段各管什么？为什么里面没有任何&quot;学习&quot;字段？</h3>
-<p><strong>回答</strong>：provider、model 选择路由与模型；reasoningEffort 是提供方支持的推理强度选择，不是框架掌握的内部推理算法；temperature、maxTokens、stop 是请求选项（packages/llm/llm/src/call-config.ts 第 21—30 行）。它们描述本次调用的路由与选项，不含梯度、优化器或权重；上下文窗口与输入模态来自精确模型的能力解析，改界面标签不能让模型真的支持图片（教材 8.2、8.6）。</p>
-<p><strong>原理</strong>：配置字段的集合刻画了&quot;Harness 能控制的全部&quot;：路由到谁、用哪个模型、请求级选项是什么。凡是需要改参数才能实现的（例如让模型输出更稳定），在运行时的对应物只能是&quot;改输入&quot;（更清晰的材料、更强约束的工具契约）或&quot;改选择&quot;（换模型、调 temperature）——这个映射关系就是职责边界的可操作定义。reasoningEffort 的定位也说明同一件事：它只是把&quot;想要更强推理&quot;的意图转成提供方支持的选项，解释权与实现在提供方，框架不假装拥有推理算法。</p>
-<p><strong>追问</strong>：界面显示&quot;支持图片&quot;就能传图吗？ <strong>回答要点</strong>：不能。多模态要适配器会传输、界面能呈现、压缩与回放能保留意义，加一个类型名字不等于链路支持（教材 8.6）。</p>
-<h3>Q3 · 调用前的&quot;解析与冻结&quot;在模型层为什么同样必要？</h3>
-<p><strong>回答</strong>：准备调用时，运行时先找提供方注册项，向其适配器准备精确模型，再规范化模型信息与调用选项，解析后的配置被复制并深冻结；每次准备对象把模型信息、默认值与分派约定绑定起来（packages/llm/llm/src/index.ts 第 936—944 行）。下一次请求仍可能采用新的显式选择；日志中的请求头与助手提供方信息帮助重建当时用的是谁（教材 8.3）。</p>
-<p><strong>原理</strong>：模型层的冻结防的是&quot;时间差事故&quot;：从校验配置到请求真正发出之间，凭据可能轮换、配置可能热更新、模型列表可能变化——如果不冻结，校验通过的组合与实际调用的组合可能不同，重试时甚至每次都不同。冻结后每个 prepared call 是一个不可变的事实单元，&quot;当时用的谁、什么参数&quot;可以从日志精确重建，这正是第 7 章评价口径能成立的前提（比较必须知道比的是什么）。注意冻结的边界：它防扩展在这一边界改写请求，不保证提供方行为不变，也不保证输出正确——每个保证都有明确的管辖范围，这是理解任何工程契约的基本方法。</p>
-<p><strong>追问</strong>：为什么&quot;provider 重复前缀可能命中缓存&quot;不能从本项目推断？ <strong>回答要点</strong>：缓存是提供方实现；本项目只能观察请求文字与用量字段，不能宣布命中或费用下降（教材 8.6）。</p>
-<h3>Q4 · 同一任务 A 版换 B 版同时改了指令、工具和模型，怎么归因收益？</h3>
-<p><strong>回答</strong>：用第 7 章的配对口径：先固定其他条件做单变量实验，逐项开启变化；每次变化对照四层落点表（8.4）记录证据。若只能拿到整体结果，就如实报告&quot;归因未分离&quot;，不能把收益只记在最后一项变化头上。</p>
-<p><strong>原理</strong>：这是实验设计的因子分离问题：多个自变量同时变化时，观测到的差异是各因子效应的叠加（还可能有交互），任何&quot;主要功劳&quot;的叙述都是无证据的选择。工程上的解法是控制变量序列或正交实验；做不到时，诚实的做法是保留不确定性，而不是讲一个顺口的故事。这也解释了为什么第 9 章改进链要求&quot;确定问题→定位首个偏差边界→有范围的改动→复核→评价&quot;——每一步都在缩小归因模糊度。</p>
-<hr>
+<p><span class="badge-role badge-ans">权威回答</span>provider、model 选择路由与模型；reasoningEffort 是提供方支持的推理强度选择，不是框架掌握的内部推理算法；temperature、maxTokens、stop 是请求选项（packages/llm/llm/src/call-config.ts 第 21—30 行）。它们描述本次调用的路由与选项，不含梯度、优化器或权重；上下文窗口与输入模态来自精确模型的能力解析，改界面标签不能让模型真的支持图片（教材 8.2、8.6）。</p>
+<p><span class="badge-role badge-theory">设计原理</span>配置字段的集合刻画了&quot;Harness 能控制的全部&quot;：路由到谁、用哪个模型、请求级选项是什么。凡是需要改参数才能实现的（例如让模型输出更稳定），在运行时的对应物只能是&quot;改输入&quot;（更清晰的材料、更强约束的工具契约）或&quot;改选择&quot;（换模型、调 temperature）——这个映射关系就是职责边界的可操作定义。reasoningEffort 的定位也说明同一件事：它只是把&quot;想要更强推理&quot;的意图转成提供方支持的选项，解释权与实现在提供方，框架不假装拥有推理算法。</p>
+<p><span class="badge-role badge-follow">考官追问</span>界面显示&quot;支持图片&quot;就能传图吗？ <span class="badge-role badge-points">应答要点</span>不能。多模态要适配器会传输、界面能呈现、压缩与回放能保留意义，加一个类型名字不等于链路支持（教材 8.6）。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q3 · 调用前的&quot;解析与冻结&quot;在模型层为什么同样必要？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span>准备调用时，运行时先找提供方注册项，向其适配器准备精确模型，再规范化模型信息与调用选项，解析后的配置被复制并深冻结；每次准备对象把模型信息、默认值与分派约定绑定起来（packages/llm/llm/src/index.ts 第 936—944 行）。下一次请求仍可能采用新的显式选择；日志中的请求头与助手提供方信息帮助重建当时用的是谁（教材 8.3）。</p>
+<p><span class="badge-role badge-theory">设计原理</span>模型层的冻结防的是&quot;时间差事故&quot;：从校验配置到请求真正发出之间，凭据可能轮换、配置可能热更新、模型列表可能变化——如果不冻结，校验通过的组合与实际调用的组合可能不同，重试时甚至每次都不同。冻结后每个 prepared call 是一个不可变的事实单元，&quot;当时用的谁、什么参数&quot;可以从日志精确重建，这正是第 7 章评价口径能成立的前提（比较必须知道比的是什么）。注意冻结的边界：它防扩展在这一边界改写请求，不保证提供方行为不变，也不保证输出正确——每个保证都有明确的管辖范围，这是理解任何工程契约的基本方法。</p>
+<p><span class="badge-role badge-follow">考官追问</span>为什么&quot;provider 重复前缀可能命中缓存&quot;不能从本项目推断？ <span class="badge-role badge-points">应答要点</span>缓存是提供方实现；本项目只能观察请求文字与用量字段，不能宣布命中或费用下降（教材 8.6）。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q4 · 同一任务 A 版换 B 版同时改了指令、工具和模型，怎么归因收益？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span>用第 7 章的配对口径：先固定其他条件做单变量实验，逐项开启变化；每次变化对照四层落点表（8.4）记录证据。若只能拿到整体结果，就如实报告&quot;归因未分离&quot;，不能把收益只记在最后一项变化头上。</p>
+<p><span class="badge-role badge-theory">设计原理</span>这是实验设计的因子分离问题：多个自变量同时变化时，观测到的差异是各因子效应的叠加（还可能有交互），任何&quot;主要功劳&quot;的叙述都是无证据的选择。工程上的解法是控制变量序列或正交实验；做不到时，诚实的做法是保留不确定性，而不是讲一个顺口的故事。这也解释了为什么第 9 章改进链要求&quot;确定问题→定位首个偏差边界→有范围的改动→复核→评价&quot;——每一步都在缩小归因模糊度。</p>
+</div></div><hr>
 <a id="chapter-09"></a>
 <p># 第 9 章｜流式输出与重试：一次失败怎样留在同一步里</p>
 <p>## 09.0 已经出现文字，为什么仍可能失败</p>
@@ -1123,29 +1705,29 @@ const result = await submit('读取项目说明')</code></pre>
 <p>&lt;!-- references:end --&gt;</p>
 <hr>
 <h2>本章面试问答</h2>
-<blockquote>本节追问持续改进链路的原理。回答引用的文件与行号可在<a href="source-excerpts.md">可选证据附录</a>复核。</blockquote>
-<h3>Q1 · 一次&quot;总结漏掉了重要限制&quot;，怎么定位漏在哪一层？每一层的证据分别是什么？</h3>
+<blockquote>本节追问持续改进链路的原理。回答引用的文件与行号可在<a href="../source-excerpts.md">可选证据附录</a>复核。</blockquote>
+<div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q1 · 一次&quot;总结漏掉了重要限制&quot;，怎么定位漏在哪一层？每一层的证据分别是什么？</span></div><div class="qa-body">
 <p><strong>考察点</strong>：故障定位是否成体系，能否用会话事实逐层排除。</p>
-<p><strong>回答</strong>：三种可能三种证据（教材 9.1）：①文件窗口没包含限制——查 read 结果的行窗口与截断信息（<code>{path, offset, lines, totalLines}</code>，可能第 100 行的关键约束不在 41—70 行窗口里）；②压缩摘要丢了限制——查 <code>compaction/end</code> 事件与摘要内容（教材 2.3.7 的&quot;摘要乙才保留实验性声明&quot;）；③模型看到了没用——对照请求材料与最终回答。工具结果、当前消息表层、请求配置三类事实支撑区分。</p>
-<p><strong>原理</strong>：这是&quot;首个偏差边界&quot;定位法：沿着材料流（磁盘→工具→历史→请求→回答）找第一个与预期不符的环节，改动就落在那个环节。它的原理与分层循环（第 1 章）一致：每一层有自己的事实记录，所以任何现象都能二分定位；没有分层事实的系统只能整体重跑碰运气。同时它防止两类错误经验：把&quot;工具根本没执行&quot;归给模型（其实被准入拒绝了），把&quot;环境巧合的成功&quot;写成技能规则（没有版本与条件约束的&quot;经验&quot;不可复现）。</p>
-<p><strong>追问</strong>：经验落成什么产物？各自生效条件？ <strong>回答要点</strong>：文档要被读取、技能要按允许路径加载、程序要进入已启用插件版本、模型配置要解析到实际路由——&quot;文件保存在磁盘上&quot;只是第一个环节（教材 9.2 表）。</p>
+<p><span class="badge-role badge-ans">权威回答</span>三种可能三种证据（教材 9.1）：①文件窗口没包含限制——查 read 结果的行窗口与截断信息（<code>{path, offset, lines, totalLines}</code>，可能第 100 行的关键约束不在 41—70 行窗口里）；②压缩摘要丢了限制——查 <code>compaction/end</code> 事件与摘要内容（教材 2.3.7 的&quot;摘要乙才保留实验性声明&quot;）；③模型看到了没用——对照请求材料与最终回答。工具结果、当前消息表层、请求配置三类事实支撑区分。</p>
+<p><span class="badge-role badge-theory">设计原理</span>这是&quot;首个偏差边界&quot;定位法：沿着材料流（磁盘→工具→历史→请求→回答）找第一个与预期不符的环节，改动就落在那个环节。它的原理与分层循环（第 1 章）一致：每一层有自己的事实记录，所以任何现象都能二分定位；没有分层事实的系统只能整体重跑碰运气。同时它防止两类错误经验：把&quot;工具根本没执行&quot;归给模型（其实被准入拒绝了），把&quot;环境巧合的成功&quot;写成技能规则（没有版本与条件约束的&quot;经验&quot;不可复现）。</p>
+<p><span class="badge-role badge-follow">考官追问</span>经验落成什么产物？各自生效条件？ <span class="badge-role badge-points">应答要点</span>文档要被读取、技能要按允许路径加载、程序要进入已启用插件版本、模型配置要解析到实际路由——&quot;文件保存在磁盘上&quot;只是第一个环节（教材 9.2 表）。</p>
 <h3>Q2 · <code>setPluginEnabled</code> 一步&quot;启用&quot;实际做了哪些事？为什么启用成功还可能返回 &quot;overridden&quot; 警告？</h3>
-<p><strong>回答</strong>：实际实现按顺序：列出插件找到目标条目（不存在报 <code>unknown-plugin</code>）、检查 <code>readOnlyReason</code>（只读条件拒绝变更）、把启用状态写入 profile patch 文件、按运行配置处理重载（HMR 启用时重载受影响的 patch），然后重新列出插件核对当前状态；若当前状态与目标不一致且存在 HMR 上下文，返回 <code>overridden</code> 警告（packages/boot/plugin-manager/src/index.ts 第 425—434 行）。</p>
-<p><strong>原理</strong>：这五步是&quot;管理动作&quot;的标准形态：前置校验（目标存在、可写）→持久化声明（写 patch，让重启后仍生效）→应用变更（重载）→回读验证（确认世界真的变了）。回读一步的原理尤其重要：写入了期望值不等于运行时接受了它——HMR 未启用时原组合保持到重启，变更影响的是&quot;下次启动&quot;；有 HMR 时也可能被更高层配置覆盖。显式返回 <code>overridden</code> 状态，明确拆解&quot;声明&quot;与&quot;生效&quot;两层事实。</p>
-<p><strong>追问</strong>：安装成功等于行为正确吗？ <strong>回答要点</strong>：不等于；安装解决版本与启用，行为正确要靠回放回归与真实任务评价（教材 9.3、9.4）。</p>
-<h3>Q3 · 修复&quot;工具结果丢失&quot;这类缺陷，回放回归和真实评价各负责什么？</h3>
-<p><strong>回答</strong>：旧轨迹的回放可以判断：现有程序是否仍产生预期工具事件与终态、fixture 是否被完整消费（<code>assertConsumed</code>，packages/test-support/llm-replay/src/index.ts 第 1107—1120 行）。若新行为需要模型作出不同选择，冻结旧响应的回放无法判断，必须实际任务评价（教材 9.4）。</p>
-<p><strong>原理</strong>：分工由&quot;变化落在哪一层&quot;决定：程序层的回归是确定性的，固定输入下应当复现确定输出，回放恰好提供确定性；模型行为层的变化是非确定性的，必须让真实模型在新条件下重新生成。两者的置信来源不同——回放的置信来自&quot;同一输入同一输出&quot;的可重复性，任务评价的置信来自任务分布与判据的代表性。混用的两个方向都是错误：用回放证明模型变好（无感），用一次真实成功宣布修复（无分布）。完整改进链因此是：回放守工程回归，评价守业务效果，两者都过才谈采用。</p>
-<p><strong>追问</strong>：为什么失败也要留下条件记录？ <strong>回答要点</strong>：一次恢复成功不代表所有会话路径相同；完整评价需要第 7 章的多口径，不能只数&quot;成功安装次数&quot;。</p>
-<h3>Q4 · 计划模式、Todo、Goal 三个&quot;协作状态&quot;的原理差异？</h3>
-<p><strong>回答</strong>：计划模式给模型附加工作指引并在日志记录开关，是软性协作状态，不代替沙箱与审批；用户切换可能先待生效，到获接纳的步骤边界才记录。Todo 是会话待办列表，工具整值替换，&quot;completed&quot;是一项记录而不是测试证据。Goal 保存同会话持续目标与修订，继续的 Round 有连续编号与上限；阻塞表示因问题停止，不应为了&quot;正在运行&quot;的外观无限追加轮次（教材 9.6）。</p>
-<p><strong>原理</strong>：三者作用在不同的因果链上：计划模式改的是&quot;模型看到的工作指引&quot;（材料层），Todo 改的是&quot;任务的事实清单&quot;（会话事实层），Goal 改的是&quot;多轮推进的组织方式&quot;（驱动层）。共同的设计纪律是&quot;状态≠证据&quot;：待办写 completed、目标写运行中，都只是声明，与测试结果、产物检查分属两个世界——把声明当证据，就会出现&quot;卡片全绿但功能是坏的&quot;。Round 上限与阻塞语义则防止最坏的组织行为：为了不面对失败而无限续跑，把资源耗在无进展的循环里。</p>
-<p><strong>追问</strong>：为什么页面选中计划模式与&quot;当前步骤已采用&quot;有时间差？ <strong>回答要点</strong>：选择在获接纳的步骤边界才记录；界面状态与运行事实是两条链（教材 9.6、6.1）。</p>
-<h3>Q5 · Webhook runtime&quot;发起即返回&quot;的设计丢了什么？部署方必须自己补什么？</h3>
-<p><strong>回答</strong>：这个 runtime 使用发起后即返回的分派方式，自己没有持久队列、重试、去重或完成状态；相同 delivery id 再来一次可能创建重复会话；接收成功与新会话完成之间没有等号。需要可靠去重或业务完成跟踪的部署必须另外提供相应机制（教材 9.7）。</p>
-<p><strong>原理</strong>：这是&quot;至少一次&quot;与&quot;恰好一次&quot;投递的经典权衡：发起即返回让 HTTP 处理不阻塞在 Agent 任务上（快速确认、简单实现），代价是调用方无法从返回值得知任务结果，重试也无法被自动去重——恰好一次语义需要幂等键＋持久记录＋完成确认的完整闭环，runtime 没有实现就不应该假装有。外部数据&quot;经过验证&quot;也不自动成为用户授权：验证回答&quot;它来自声称的来源&quot;，授权回答&quot;它可以让系统做什么&quot;，两者是不同安全属性——受信任规则决定发起什么工作，预设与工作区边界决定能做什么。面试里能主动说出&quot;这个组件的可靠性边界在哪、缺口谁补&quot;，比背出它有什么功能更能说明工程判断力。</p>
-<p><strong>追问</strong>：Schedule 的&quot;明天九点&quot;怎么落到规范记录？ <strong>回答要点</strong>：自然语言时间需要明确解释成带时区的规范时间；浏览器当前时区不是会话永久默认值；到时投递、实际交付、模型完成提醒后的工作是三个不同事实（教材 9.7）。</p>
-<hr>
+<p><span class="badge-role badge-ans">权威回答</span>实际实现按顺序：列出插件找到目标条目（不存在报 <code>unknown-plugin</code>）、检查 <code>readOnlyReason</code>（只读条件拒绝变更）、把启用状态写入 profile patch 文件、按运行配置处理重载（HMR 启用时重载受影响的 patch），然后重新列出插件核对当前状态；若当前状态与目标不一致且存在 HMR 上下文，返回 <code>overridden</code> 警告（packages/boot/plugin-manager/src/index.ts 第 425—434 行）。</p>
+<p><span class="badge-role badge-theory">设计原理</span>这五步是&quot;管理动作&quot;的标准形态：前置校验（目标存在、可写）→持久化声明（写 patch，让重启后仍生效）→应用变更（重载）→回读验证（确认世界真的变了）。回读一步的原理尤其重要：写入了期望值不等于运行时接受了它——HMR 未启用时原组合保持到重启，变更影响的是&quot;下次启动&quot;；有 HMR 时也可能被更高层配置覆盖。显式返回 <code>overridden</code> 状态，明确拆解&quot;声明&quot;与&quot;生效&quot;两层事实。</p>
+<p><span class="badge-role badge-follow">考官追问</span>安装成功等于行为正确吗？ <span class="badge-role badge-points">应答要点</span>不等于；安装解决版本与启用，行为正确要靠回放回归与真实任务评价（教材 9.3、9.4）。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q3 · 修复&quot;工具结果丢失&quot;这类缺陷，回放回归和真实评价各负责什么？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span>旧轨迹的回放可以判断：现有程序是否仍产生预期工具事件与终态、fixture 是否被完整消费（<code>assertConsumed</code>，packages/test-support/llm-replay/src/index.ts 第 1107—1120 行）。若新行为需要模型作出不同选择，冻结旧响应的回放无法判断，必须实际任务评价（教材 9.4）。</p>
+<p><span class="badge-role badge-theory">设计原理</span>分工由&quot;变化落在哪一层&quot;决定：程序层的回归是确定性的，固定输入下应当复现确定输出，回放恰好提供确定性；模型行为层的变化是非确定性的，必须让真实模型在新条件下重新生成。两者的置信来源不同——回放的置信来自&quot;同一输入同一输出&quot;的可重复性，任务评价的置信来自任务分布与判据的代表性。混用的两个方向都是错误：用回放证明模型变好（无感），用一次真实成功宣布修复（无分布）。完整改进链因此是：回放守工程回归，评价守业务效果，两者都过才谈采用。</p>
+<p><span class="badge-role badge-follow">考官追问</span>为什么失败也要留下条件记录？ <span class="badge-role badge-points">应答要点</span>一次恢复成功不代表所有会话路径相同；完整评价需要第 7 章的多口径，不能只数&quot;成功安装次数&quot;。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q4 · 计划模式、Todo、Goal 三个&quot;协作状态&quot;的原理差异？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span>计划模式给模型附加工作指引并在日志记录开关，是软性协作状态，不代替沙箱与审批；用户切换可能先待生效，到获接纳的步骤边界才记录。Todo 是会话待办列表，工具整值替换，&quot;completed&quot;是一项记录而不是测试证据。Goal 保存同会话持续目标与修订，继续的 Round 有连续编号与上限；阻塞表示因问题停止，不应为了&quot;正在运行&quot;的外观无限追加轮次（教材 9.6）。</p>
+<p><span class="badge-role badge-theory">设计原理</span>三者作用在不同的因果链上：计划模式改的是&quot;模型看到的工作指引&quot;（材料层），Todo 改的是&quot;任务的事实清单&quot;（会话事实层），Goal 改的是&quot;多轮推进的组织方式&quot;（驱动层）。共同的设计纪律是&quot;状态≠证据&quot;：待办写 completed、目标写运行中，都只是声明，与测试结果、产物检查分属两个世界——把声明当证据，就会出现&quot;卡片全绿但功能是坏的&quot;。Round 上限与阻塞语义则防止最坏的组织行为：为了不面对失败而无限续跑，把资源耗在无进展的循环里。</p>
+<p><span class="badge-role badge-follow">考官追问</span>为什么页面选中计划模式与&quot;当前步骤已采用&quot;有时间差？ <span class="badge-role badge-points">应答要点</span>选择在获接纳的步骤边界才记录；界面状态与运行事实是两条链（教材 9.6、6.1）。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q5 · Webhook runtime&quot;发起即返回&quot;的设计丢了什么？部署方必须自己补什么？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span>这个 runtime 使用发起后即返回的分派方式，自己没有持久队列、重试、去重或完成状态；相同 delivery id 再来一次可能创建重复会话；接收成功与新会话完成之间没有等号。需要可靠去重或业务完成跟踪的部署必须另外提供相应机制（教材 9.7）。</p>
+<p><span class="badge-role badge-theory">设计原理</span>这是&quot;至少一次&quot;与&quot;恰好一次&quot;投递的经典权衡：发起即返回让 HTTP 处理不阻塞在 Agent 任务上（快速确认、简单实现），代价是调用方无法从返回值得知任务结果，重试也无法被自动去重——恰好一次语义需要幂等键＋持久记录＋完成确认的完整闭环，runtime 没有实现就不应该假装有。外部数据&quot;经过验证&quot;也不自动成为用户授权：验证回答&quot;它来自声称的来源&quot;，授权回答&quot;它可以让系统做什么&quot;，两者是不同安全属性——受信任规则决定发起什么工作，预设与工作区边界决定能做什么。面试里能主动说出&quot;这个组件的可靠性边界在哪、缺口谁补&quot;，比背出它有什么功能更能说明工程判断力。</p>
+<p><span class="badge-role badge-follow">考官追问</span>Schedule 的&quot;明天九点&quot;怎么落到规范记录？ <span class="badge-role badge-points">应答要点</span>自然语言时间需要明确解释成带时区的规范时间；浏览器当前时区不是会话永久默认值；到时投递、实际交付、模型完成提醒后的工作是三个不同事实（教材 9.7）。</p>
+</div></div><hr>
 <a id="chapter-10"></a>
 <p># 第 10 章｜插件框架与运行配置：这些部件怎样装成一个应用</p>
 <p>## 10.0 用过接口，再问谁把它装起来</p>
@@ -1236,28 +1818,28 @@ const result = await submit('读取项目说明')</code></pre>
 <p>&lt;!-- references:end --&gt;</p>
 <hr>
 <h2>本章面试问答</h2>
-<blockquote>本节追问多 Agent 协作的原理。回答引用的文件与行号可在<a href="source-excerpts.md">可选证据附录</a>复核。</blockquote>
-<h3>Q1 · spawn 与 fork 的上下文起点差在哪？&quot;取最近已完成轮次前缀&quot;这个规则为什么是对的？</h3>
+<blockquote>本节追问多 Agent 协作的原理。回答引用的文件与行号可在<a href="../source-excerpts.md">可选证据附录</a>复核。</blockquote>
+<div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q1 · spawn 与 fork 的上下文起点差在哪？&quot;取最近已完成轮次前缀&quot;这个规则为什么是对的？</span></div><div class="qa-body">
 <p><strong>考察点</strong>：子代理上下文继承的精确理解，能否区分&quot;历史一致前缀&quot;与&quot;当前进行中状态&quot;。</p>
-<p><strong>回答</strong>：spawn 把空种子交给共享驱动——子会话不继承父历史，由驱动铸 id 并标记 cwd、lineage、深度（packages/subagent/subagent-spawn-in-process/src/index.ts 第 54—59 行）。fork 用 <code>completedTurnPrefix</code>：从父事件里找最后一个 <code>turn/end</code>，截取到该位置（含）的前缀；没有已完成轮次则返回空数组（packages/subagent/subagent-fork-in-process/src/index.ts 第 48—55 行）。父代理经 Runtime 启动子任务前还有一道校验链：提供方存在、能力匹配、深度上限、输出 schema 合法（packages/subagent/subagent/src/index.ts 第 559—570 行）。</p>
-<p><strong>原理</strong>：fork 的种子必须是&quot;一致的前缀&quot;。正在进行的轮次没有终态：工具批次可能只执行了一半、助手消息可能尚未提交、压缩可能尚未闭合——把半个轮次复制给子会话，等于让子代理从一张&quot;中间状态快照&quot;开始推理，它引用的上下文在父会话里可能马上被推翻。以 <code>turn/end</code> 为界利用了第 1 章的分层事实：轮次边界是驱动确认的完成点，前缀内部自洽。<code>seq === 数组下标</code> 的不变量（第 3 章）让这个截取是一次 <code>slice</code>。空数组退化为新起点的行为也说得通：没有完成轮次就没有可继承的一致前缀，宁可少继承也不继承脏状态。</p>
-<p><strong>追问</strong>：刚在当前轮次读到的 README，fork 会带走吗？ <strong>回答要点</strong>：不会；应依赖已完成历史或显式任务材料设计交接（教材 10.1.8 的误解清单）。</p>
-<h3>Q2 · 多个子会话在同一进程里，为什么教材说这不等于隔离？会带来什么实际问题？</h3>
-<p><strong>回答</strong>：多个会话可以有独立历史和生命周期，仍运行在同一系统进程内；名称 fork 描述历史起点，与操作系统 fork 不是一件事（教材 10.1.4）。进程内 spawn 提供方把任务交给共享驱动；取消需要检查实际 provider 的生命周期与返回状态，不能假设外部子进程或远端任务必然同步终止（教材 10.1.9）。</p>
-<p><strong>原理</strong>：隔离有三个层次：逻辑隔离（独立会话、独立历史——本实现具备）、资源隔离（内存、CPU 配额——进程内共享）、故障隔离（一个会话崩溃不拖垮其他——进程内不成立）。进程内实现换来低开销与简单部署，代价是共享进程命运：死循环或内存膨胀会影响同进程所有会话。资源上限因此必须由 Runtime 与驱动显式维护（深度上限就是其中之一，防止子代理再生子代理的无限递归）。理解这一点才能正确回答&quot;多 Agent 是不是更安全/更稳&quot;：身份与历史是分开的，资源与故障不是。</p>
-<p><strong>追问</strong>：子代理成功等于父任务正确吗？ <strong>回答要点</strong>：不等于。父代理承担汇合责任：子结果按契约交付后，还要回到父任务验收条件（教材 10.1.7）。</p>
-<h3>Q3 · Agent Teams 的邮箱机制为什么要有&quot;投递确认&quot;？writeScopes 为什么不是文件锁？</h3>
-<p><strong>回答</strong>：成员快照记录持久身份（id 是 SessionId、name 是稳定标签、context 是 fresh/fork、phase 是创建阶段，packages/experimental/agent-team/src/types.ts 第 47—55 行）。消息先在 Lead 记录 queued，目标 inbox 或历史完成持久记录后再有投递确认；未确认的差额构成可恢复邮箱；投递采用 Steer 语义，运行中的目标在步骤边界接收。任务快照带 revision、ownerId、blockedBy（保持无环）与 writeScopes（types.ts 第 74—83 行）；writeScopes 只是规范化路径提示，用于重叠警告，不是文件锁（教材 10.2）。</p>
-<p><strong>原理</strong>：邮箱的原理是跨会话消息的可靠投递需要&quot;记录—确认—重放&quot;三件套：queued 是发送方声明，确认是接收方证据，两者之间的差额就是崩溃后需要恢复的部分——没有这个差额集合，恢复时既不知道哪些消息没送到，也不知道哪些已送达不能重发（重复投递会触发重复工作）。Steer 语义则保证消息进入的是步骤边界而不是打断在途请求，与第 1 章的输入时点原则一致。writeScopes 的定位来自并发控制的理论：要真正防覆盖需要互斥（锁）或事务（冲突检测＋回滚），而提示性路径范围只够做&quot;静态警告&quot;——它能在任务分派时发现两人声明了重叠区域，不能在写入瞬间阻止竞争。教材明确&quot;两位成员仍可能在共享工作区互相覆盖&quot;，这是把并发安全的责任如实划给部署方，而不是给一个虚假的安全感。</p>
-<p><strong>追问</strong>：成员 phase 是 active 就表示正在生成回答吗？ <strong>回答要点</strong>：不是。创建生命周期阶段与&quot;此刻是否运行&quot;分开记录；判定运行状态要看驱动与会话事实（教材 10.2）。</p>
-<h3>Q4 · 工作流的 phases 字段能当执行图读吗？后台 Jobs 的状态为什么不能合成一个布尔值？</h3>
-<p><strong>回答</strong>：工作流启动前先验证元数据与参数，不靠执行脚本文字猜配置；phases 是进度展示说明，不能推出执行图按标题串行推进。引擎是可替换服务，现有 PTC 实现通过共享程序运行时执行脚本；提供方选择、总 Agent 上限、执行策略与取消由引擎和消费方拥有（教材 10.4）。后台 Jobs 统一身份、拥有者、状态与输出控制；done 要等资源释放；running、stopping、completed、killed、failed 各有含义。</p>
-<p><strong>原理</strong>：phases 与执行图分离是&quot;展示与语义分离&quot;原则：进度说明面向人，执行拓扑面向引擎，把两者绑定会让展示文案变成隐式契约（改个标题就改变了行为）。任务状态不能合成布尔的原理是终态之间有本质差别：completed（正常结束、资源已释放）、killed（被强制终止，可能有未清理资源）、failed（错误结束）对恢复、清理、重试的含义不同——压成 true/false 后，&quot;要不要清理&quot;&quot;能不能重试&quot;这些后续决策失去依据。这与第 1 章&quot;accepted 不是终态&quot;、第 7 章&quot;失败要有独立状态&quot;贯穿同一条线：状态粒度决定可解释性。</p>
-<p><strong>追问</strong>：模型读输出与界面看输出的游标为什么互不推进？ <strong>回答要点</strong>：模型用运行时持有的消耗游标，界面按字节位置读取；两种消费互不干扰，输出环有界，结束时封流（教材 10.4）。</p>
-<h3>Q5 · 评估&quot;把一个任务拆给三个子代理&quot;是否值得，你会看哪些量？</h3>
-<p><strong>回答</strong>：按教材 10.1.6 的教学框架：执行区间可能重叠（200＋max(700,700)＋250＝1150 ms），但要加上交代材料、汇合检查的成本；若串行则为 1850 ms；再按第 7 章同时看质量、时间、用量、失败——重复读取可能增加用量，结果整合可能引入不一致。对&quot;读取 README 并总结&quot;这种小任务，创建多成员的组织成本可能超过收益（教材 10.3）。</p>
-<p><strong>原理</strong>：并行收益的来源只有两个：真正独立子任务的执行重叠，以及单个上下文装不下全部材料时的分工；两者都不成立时，拆分只增加协调开销（Amdahl 定理的调度成本版：串行的交代与汇合部分是上限）。所以判断拆分要用四口径而不是直觉的&quot;更快&quot;：质量上子结果是否可验证、时间上重叠是否真实发生（还要算启动与汇合）、用量上是否重复读取同一批文件、失败上子任务失败如何传播到父任务。最后回到贯穿全书的判断式：父代理说&quot;大家完成了&quot;不是证据，子会话结果、邮箱投递与任务板状态才是。</p>
-<hr>
+<p><span class="badge-role badge-ans">权威回答</span>spawn 把空种子交给共享驱动——子会话不继承父历史，由驱动铸 id 并标记 cwd、lineage、深度（packages/subagent/subagent-spawn-in-process/src/index.ts 第 54—59 行）。fork 用 <code>completedTurnPrefix</code>：从父事件里找最后一个 <code>turn/end</code>，截取到该位置（含）的前缀；没有已完成轮次则返回空数组（packages/subagent/subagent-fork-in-process/src/index.ts 第 48—55 行）。父代理经 Runtime 启动子任务前还有一道校验链：提供方存在、能力匹配、深度上限、输出 schema 合法（packages/subagent/subagent/src/index.ts 第 559—570 行）。</p>
+<p><span class="badge-role badge-theory">设计原理</span>fork 的种子必须是&quot;一致的前缀&quot;。正在进行的轮次没有终态：工具批次可能只执行了一半、助手消息可能尚未提交、压缩可能尚未闭合——把半个轮次复制给子会话，等于让子代理从一张&quot;中间状态快照&quot;开始推理，它引用的上下文在父会话里可能马上被推翻。以 <code>turn/end</code> 为界利用了第 1 章的分层事实：轮次边界是驱动确认的完成点，前缀内部自洽。<code>seq === 数组下标</code> 的不变量（第 3 章）让这个截取是一次 <code>slice</code>。空数组退化为新起点的行为也说得通：没有完成轮次就没有可继承的一致前缀，宁可少继承也不继承脏状态。</p>
+<p><span class="badge-role badge-follow">考官追问</span>刚在当前轮次读到的 README，fork 会带走吗？ <span class="badge-role badge-points">应答要点</span>不会；应依赖已完成历史或显式任务材料设计交接（教材 10.1.8 的误解清单）。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q2 · 多个子会话在同一进程里，为什么教材说这不等于隔离？会带来什么实际问题？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span>多个会话可以有独立历史和生命周期，仍运行在同一系统进程内；名称 fork 描述历史起点，与操作系统 fork 不是一件事（教材 10.1.4）。进程内 spawn 提供方把任务交给共享驱动；取消需要检查实际 provider 的生命周期与返回状态，不能假设外部子进程或远端任务必然同步终止（教材 10.1.9）。</p>
+<p><span class="badge-role badge-theory">设计原理</span>隔离有三个层次：逻辑隔离（独立会话、独立历史——本实现具备）、资源隔离（内存、CPU 配额——进程内共享）、故障隔离（一个会话崩溃不拖垮其他——进程内不成立）。进程内实现换来低开销与简单部署，代价是共享进程命运：死循环或内存膨胀会影响同进程所有会话。资源上限因此必须由 Runtime 与驱动显式维护（深度上限就是其中之一，防止子代理再生子代理的无限递归）。理解这一点才能正确回答&quot;多 Agent 是不是更安全/更稳&quot;：身份与历史是分开的，资源与故障不是。</p>
+<p><span class="badge-role badge-follow">考官追问</span>子代理成功等于父任务正确吗？ <span class="badge-role badge-points">应答要点</span>不等于。父代理承担汇合责任：子结果按契约交付后，还要回到父任务验收条件（教材 10.1.7）。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q3 · Agent Teams 的邮箱机制为什么要有&quot;投递确认&quot;？writeScopes 为什么不是文件锁？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span>成员快照记录持久身份（id 是 SessionId、name 是稳定标签、context 是 fresh/fork、phase 是创建阶段，packages/experimental/agent-team/src/types.ts 第 47—55 行）。消息先在 Lead 记录 queued，目标 inbox 或历史完成持久记录后再有投递确认；未确认的差额构成可恢复邮箱；投递采用 Steer 语义，运行中的目标在步骤边界接收。任务快照带 revision、ownerId、blockedBy（保持无环）与 writeScopes（types.ts 第 74—83 行）；writeScopes 只是规范化路径提示，用于重叠警告，不是文件锁（教材 10.2）。</p>
+<p><span class="badge-role badge-theory">设计原理</span>邮箱的原理是跨会话消息的可靠投递需要&quot;记录—确认—重放&quot;三件套：queued 是发送方声明，确认是接收方证据，两者之间的差额就是崩溃后需要恢复的部分——没有这个差额集合，恢复时既不知道哪些消息没送到，也不知道哪些已送达不能重发（重复投递会触发重复工作）。Steer 语义则保证消息进入的是步骤边界而不是打断在途请求，与第 1 章的输入时点原则一致。writeScopes 的定位来自并发控制的理论：要真正防覆盖需要互斥（锁）或事务（冲突检测＋回滚），而提示性路径范围只够做&quot;静态警告&quot;——它能在任务分派时发现两人声明了重叠区域，不能在写入瞬间阻止竞争。教材明确&quot;两位成员仍可能在共享工作区互相覆盖&quot;，这是把并发安全的责任如实划给部署方，而不是给一个虚假的安全感。</p>
+<p><span class="badge-role badge-follow">考官追问</span>成员 phase 是 active 就表示正在生成回答吗？ <span class="badge-role badge-points">应答要点</span>不是。创建生命周期阶段与&quot;此刻是否运行&quot;分开记录；判定运行状态要看驱动与会话事实（教材 10.2）。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q4 · 工作流的 phases 字段能当执行图读吗？后台 Jobs 的状态为什么不能合成一个布尔值？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span>工作流启动前先验证元数据与参数，不靠执行脚本文字猜配置；phases 是进度展示说明，不能推出执行图按标题串行推进。引擎是可替换服务，现有 PTC 实现通过共享程序运行时执行脚本；提供方选择、总 Agent 上限、执行策略与取消由引擎和消费方拥有（教材 10.4）。后台 Jobs 统一身份、拥有者、状态与输出控制；done 要等资源释放；running、stopping、completed、killed、failed 各有含义。</p>
+<p><span class="badge-role badge-theory">设计原理</span>phases 与执行图分离是&quot;展示与语义分离&quot;原则：进度说明面向人，执行拓扑面向引擎，把两者绑定会让展示文案变成隐式契约（改个标题就改变了行为）。任务状态不能合成布尔的原理是终态之间有本质差别：completed（正常结束、资源已释放）、killed（被强制终止，可能有未清理资源）、failed（错误结束）对恢复、清理、重试的含义不同——压成 true/false 后，&quot;要不要清理&quot;&quot;能不能重试&quot;这些后续决策失去依据。这与第 1 章&quot;accepted 不是终态&quot;、第 7 章&quot;失败要有独立状态&quot;贯穿同一条线：状态粒度决定可解释性。</p>
+<p><span class="badge-role badge-follow">考官追问</span>模型读输出与界面看输出的游标为什么互不推进？ <span class="badge-role badge-points">应答要点</span>模型用运行时持有的消耗游标，界面按字节位置读取；两种消费互不干扰，输出环有界，结束时封流（教材 10.4）。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q5 · 评估&quot;把一个任务拆给三个子代理&quot;是否值得，你会看哪些量？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span>按教材 10.1.6 的教学框架：执行区间可能重叠（200＋max(700,700)＋250＝1150 ms），但要加上交代材料、汇合检查的成本；若串行则为 1850 ms；再按第 7 章同时看质量、时间、用量、失败——重复读取可能增加用量，结果整合可能引入不一致。对&quot;读取 README 并总结&quot;这种小任务，创建多成员的组织成本可能超过收益（教材 10.3）。</p>
+<p><span class="badge-role badge-theory">设计原理</span>并行收益的来源只有两个：真正独立子任务的执行重叠，以及单个上下文装不下全部材料时的分工；两者都不成立时，拆分只增加协调开销（Amdahl 定理的调度成本版：串行的交代与汇合部分是上限）。所以判断拆分要用四口径而不是直觉的&quot;更快&quot;：质量上子结果是否可验证、时间上重叠是否真实发生（还要算启动与汇合）、用量上是否重复读取同一批文件、失败上子任务失败如何传播到父任务。最后回到贯穿全书的判断式：父代理说&quot;大家完成了&quot;不是证据，子会话结果、邮箱投递与任务板状态才是。</p>
+</div></div><hr>
 <a id="chapter-11"></a>
 <p># 第 11 章｜工具准入与审批：允许执行的决定在哪里发生</p>
 <p>## 11.0 提出动作不等于获准动作</p>
@@ -1347,11 +1929,11 @@ const result = await submit('读取项目说明')</code></pre>
 <p>&lt;!-- references:end --&gt;</p>
 <hr>
 <h2>本章面试问答</h2>
-<h3>Q1 · ToolGuard 的“单调性（Monotonicity）”在数学和系统安全上意味着什么？为什么只能 deny，不能 allow？</h3>
-<p><strong>回答</strong>： 在 <code>packages/core/tools/src/index.ts</code> 中，<code>ToolGuard</code> 的函数签名被严格定义为 <code>(execution: Readonly&lt;ToolExecution&gt;) =&gt; string | undefined</code>。它返回一个拒绝原因字符串（若阻止）或 <code>undefined</code>（若不阻止），根本没有返回 <code>&quot;allow&quot;</code> 的语义空间。 <strong>原理</strong>： 单调性在安全策略理论中意味着“权限只能收紧，不能越权扩大”。如果后置的守卫可以返回“放行”，则一个恶意的或编写有缺陷的第三方插件只要挂在 Guard 链条末尾，就可以推翻系统前置策略、工作区沙箱限制甚至管理员的强制拒绝决定。DSH 强制 ToolGuard 只能拥有一票否决权，任何环节判定不安全即不可逆终止，确保了全系统安全边界的数学确定性。 <strong>追问</strong>：审批事件 <code>approval/asked</code> 和 <code>approval/decided</code> 为什么必须在开放轮次（Turn）内成对闭合？ <strong>回答要点</strong>： 防止悬挂未决审批与跨轮次重放攻击。如果允许未决审批跨 Turn 甚至跨会话滞留，新轮次的上下文和操作意图已经改变，旧的审批凭据可能被误用或恶意复用，造成未授权执行。</p>
-<h3>Q2 · 准入决策、人工审批与沙箱限制三者的职责边界是什么？</h3>
-<p><strong>回答</strong>： 准入决策（Policy / Pre-execute）是规则引擎层面的前置断言；人工审批（Approval）是在高危边界引入人类操作员作为最后防线的异步交互；沙箱限制（Sandbox）是操作系统或运行时的物理隔离机制（如容器、只读文件系统、禁止网络等）。 <strong>原理</strong>： 三者构成了纵深防御。策略过滤大部分明显越界请求；高危但合规的操作由人裁决；即使代码穿透了上两层，底层的物理沙箱依然能在 OS 层面兜底拦截破坏行为。</p>
-<hr>
+<div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q1 · ToolGuard 的“单调性（Monotonicity）”在数学和系统安全上意味着什么？为什么只能 deny，不能 allow？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span> 在 <code>packages/core/tools/src/index.ts</code> 中，<code>ToolGuard</code> 的函数签名被严格定义为 <code>(execution: Readonly&lt;ToolExecution&gt;) =&gt; string | undefined</code>。它返回一个拒绝原因字符串（若阻止）或 <code>undefined</code>（若不阻止），根本没有返回 <code>&quot;allow&quot;</code> 的语义空间。 <strong>原理</strong>： 单调性在安全策略理论中意味着“权限只能收紧，不能越权扩大”。如果后置的守卫可以返回“放行”，则一个恶意的或编写有缺陷的第三方插件只要挂在 Guard 链条末尾，就可以推翻系统前置策略、工作区沙箱限制甚至管理员的强制拒绝决定。DSH 强制 ToolGuard 只能拥有一票否决权，任何环节判定不安全即不可逆终止，确保了全系统安全边界的数学确定性。 <strong>追问</strong>：审批事件 <code>approval/asked</code> 和 <code>approval/decided</code> 为什么必须在开放轮次（Turn）内成对闭合？ <span class="badge-role badge-points">应答要点</span> 防止悬挂未决审批与跨轮次重放攻击。如果允许未决审批跨 Turn 甚至跨会话滞留，新轮次的上下文和操作意图已经改变，旧的审批凭据可能被误用或恶意复用，造成未授权执行。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q2 · 准入决策、人工审批与沙箱限制三者的职责边界是什么？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span> 准入决策（Policy / Pre-execute）是规则引擎层面的前置断言；人工审批（Approval）是在高危边界引入人类操作员作为最后防线的异步交互；沙箱限制（Sandbox）是操作系统或运行时的物理隔离机制（如容器、只读文件系统、禁止网络等）。 <strong>原理</strong>： 三者构成了纵深防御。策略过滤大部分明显越界请求；高危但合规的操作由人裁决；即使代码穿透了上两层，底层的物理沙箱依然能在 OS 层面兜底拦截破坏行为。</p>
+</div></div><hr>
 <a id="chapter-12"></a>
 <p># 第 12 章｜外部服务与能力接入：连接成功不等于拥有知识库</p>
 <p>## 12.0 外部服务提供的究竟是什么</p>
@@ -1438,11 +2020,11 @@ const result = await submit('读取项目说明')</code></pre>
 <p>&lt;!-- references:end --&gt;</p>
 <hr>
 <h2>本章面试问答</h2>
-<h3>Q1 · MCP（Model Context Protocol）工具与内置工具在执行拓扑上有何根本区别？</h3>
-<p><strong>回答</strong>： 内置工具直接在当前 Node.js 进程宿主内通过 <code>ctx.fs</code> 等服务同步/异步执行；而 MCP 工具通过标准 JSON-RPC（stdio 或 SSE/HTTP）代理到外部子进程。 <strong>原理</strong>： 外部进程崩溃或挂起不会直接导致 Harness 宿主进程段错误；但其带来的网络/IPC 序列化延迟以及长连接管理是额外的开销。</p>
-<h3>Q2 · 为什么说“外部连接成功（Connection Ready）绝不等于拥有了知识库”？</h3>
-<p><strong>回答</strong>： 连接就绪仅仅表明网络链路与通信协议握手完成；知识库的检索有效性取决于 Schema 契约、文档切片召回率、相关性重排（Rerank）以及上下文装配能否精准喂入 LLM 视野。</p>
-<hr>
+<div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q1 · MCP（Model Context Protocol）工具与内置工具在执行拓扑上有何根本区别？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span> 内置工具直接在当前 Node.js 进程宿主内通过 <code>ctx.fs</code> 等服务同步/异步执行；而 MCP 工具通过标准 JSON-RPC（stdio 或 SSE/HTTP）代理到外部子进程。 <strong>原理</strong>： 外部进程崩溃或挂起不会直接导致 Harness 宿主进程段错误；但其带来的网络/IPC 序列化延迟以及长连接管理是额外的开销。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q2 · 为什么说“外部连接成功（Connection Ready）绝不等于拥有了知识库”？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span> 连接就绪仅仅表明网络链路与通信协议握手完成；知识库的检索有效性取决于 Schema 契约、文档切片召回率、相关性重排（Rerank）以及上下文装配能否精准喂入 LLM 视野。</p>
+</div></div><hr>
 <a id="chapter-13"></a>
 <p># 第 13 章｜子代理：拆分任务前先看上下文起点</p>
 <p>## 13.0 谁负责交代材料，谁负责检查结果</p>
@@ -1528,11 +2110,11 @@ const result = await submit('读取项目说明')</code></pre>
 <p>&lt;!-- references:end --&gt;</p>
 <hr>
 <h2>本章面试问答</h2>
-<h3>Q1 · 为什么从父会话派生子代理（Subagent）时，禁止“全量深拷贝历史日志”？</h3>
-<p><strong>回答</strong>： 在 <code>packages/core/session/src/fork.ts</code> 中，<code>buildForkSeed</code> 明确只截取至决策边界，并为开放步骤打上 <code>turn/end (forked)</code> 标记，生成极简的 Fork 种子。 <strong>原理</strong>： 全量深拷贝会导致上下文爆炸（Context Bloat）与 Token 费用指数级放大；更严重的是，父会话冗余的杂质信息会严重干扰子代理的专注推理，破坏局部任务的确定性。</p>
-<h3>Q2 · 子代理通信为什么优先采用基于收件箱的 Mailbox 消息机制，而不是直接共享内存？</h3>
-<p><strong>回答</strong>： 防止并发读写下的状态撕裂与脏数据写入。Mailbox 将每次跨 Agent 交互显式固化为不可变事件流，保证了审计与回放的完全确定性，天然杜绝了死锁与状态竞争。</p>
-<hr>
+<div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q1 · 为什么从父会话派生子代理（Subagent）时，禁止“全量深拷贝历史日志”？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span> 在 <code>packages/core/session/src/fork.ts</code> 中，<code>buildForkSeed</code> 明确只截取至决策边界，并为开放步骤打上 <code>turn/end (forked)</code> 标记，生成极简的 Fork 种子。 <strong>原理</strong>： 全量深拷贝会导致上下文爆炸（Context Bloat）与 Token 费用指数级放大；更严重的是，父会话冗余的杂质信息会严重干扰子代理的专注推理，破坏局部任务的确定性。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q2 · 子代理通信为什么优先采用基于收件箱的 Mailbox 消息机制，而不是直接共享内存？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span> 防止并发读写下的状态撕裂与脏数据写入。Mailbox 将每次跨 Agent 交互显式固化为不可变事件流，保证了审计与回放的完全确定性，天然杜绝了死锁与状态竞争。</p>
+</div></div><hr>
 <a id="chapter-14"></a>
 <p># 第 14 章｜网页端：提交任务与跟随结果是两条链</p>
 <p>## 14.0 一次提交，为什么页面持续变化</p>
@@ -1621,11 +2203,11 @@ const result = await submit('读取项目说明')</code></pre>
 <p>&lt;!-- references:end --&gt;</p>
 <hr>
 <h2>本章面试问答</h2>
-<h3>Q1 · 为什么 Web 客户端与 Harness 的通信必须严格实行 CQRS（读写分离）？</h3>
-<p><strong>回答</strong>： 提交任务走 RPC（写路径，由 <code>SessionCommandController</code> 保证幂等并返回 <code>accepted</code>）；接收状态走 Snapshot + Cursor 增量事件流（读路径，由 SSE/WebSocket 持续推送）。 <strong>原理</strong>： 大模型推理和工具执行是长程异步任务（耗时数秒至数分钟），如果采用传统同步 HTTP 请求挂起连接，极易发生网络超时、连接断开与重复提交事故。</p>
-<h3>Q2 · 前端在网络瞬断重连后，如何确保视图与底层事实完全一致？</h3>
-<p><strong>回答</strong>： 前端持有一个单调递增的 <code>sinceSeq</code>。重连时向服务端请求补齐 <code>sinceSeq</code> 之后的所有增量事件；若游标失效或发生压缩断裂，则全量拉取权威 Snapshot 基线并与本地视图执行原子合并。</p>
-<hr>
+<div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q1 · 为什么 Web 客户端与 Harness 的通信必须严格实行 CQRS（读写分离）？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span> 提交任务走 RPC（写路径，由 <code>SessionCommandController</code> 保证幂等并返回 <code>accepted</code>）；接收状态走 Snapshot + Cursor 增量事件流（读路径，由 SSE/WebSocket 持续推送）。 <strong>原理</strong>： 大模型推理和工具执行是长程异步任务（耗时数秒至数分钟），如果采用传统同步 HTTP 请求挂起连接，极易发生网络超时、连接断开与重复提交事故。</p>
+</div></div><div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q2 · 前端在网络瞬断重连后，如何确保视图与底层事实完全一致？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span> 前端持有一个单调递增的 <code>sinceSeq</code>。重连时向服务端请求补齐 <code>sinceSeq</code> 之后的所有增量事件；若游标失效或发生压缩断裂，则全量拉取权威 Snapshot 基线并与本地视图执行原子合并。</p>
+</div></div><hr>
 <a id="chapter-15"></a>
 <p># 第 15 章｜桌面端：窗口、页面与宿主服务怎样合作</p>
 <p>## 15.0 看见一个窗口，不代表只有一个执行环境</p>
@@ -1722,9 +2304,9 @@ const result = await submit('读取项目说明')</code></pre>
 <p>&lt;!-- references:end --&gt;</p>
 <hr>
 <h2>本章面试问答</h2>
-<h3>Q1 · 桌面端（Desktop）为什么要设计 Main、Preload 与 Renderer 三层隔离架构？</h3>
-<p><strong>回答</strong>： Renderer 是不可信的 Web 视图层，禁止直接调用 Node.js 原生 API；Preload 暴露受限的白名单 IPC 桥（<code>contextBridge</code>）；Main 进程持有真实操作系统权限并负责运行 Harness 核心。 <strong>原理</strong>： 防止注入型恶意脚本通过 Web 渲染层直接发起任意操作系统指令（如格式化磁盘或窃取密钥），确保桌面宿主的安全基线。</p>
-<hr>
+<div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q1 · 桌面端（Desktop）为什么要设计 Main、Preload 与 Renderer 三层隔离架构？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span> Renderer 是不可信的 Web 视图层，禁止直接调用 Node.js 原生 API；Preload 暴露受限的白名单 IPC 桥（<code>contextBridge</code>）；Main 进程持有真实操作系统权限并负责运行 Harness 核心。 <strong>原理</strong>： 防止注入型恶意脚本通过 Web 渲染层直接发起任意操作系统指令（如格式化磁盘或窃取密钥），确保桌面宿主的安全基线。</p>
+</div></div><hr>
 <a id="chapter-16"></a>
 <p># 第 16 章｜测试与回放：复现通过究竟证明了什么</p>
 <p>## 16.0 先把一句怀疑改成可检查命题</p>
@@ -1807,9 +2389,9 @@ const result = await submit('读取项目说明')</code></pre>
 <p>&lt;!-- references:end --&gt;</p>
 <hr>
 <h2>本章面试问答</h2>
-<h3>Q1 · 什么是无模型确定性回放（Deterministic Replay）？它的核心判定条件是什么？</h3>
-<p><strong>回答</strong>： 在 <code>@deepseek-ai/dsh-llm-replay</code> 中，回放系统拦截所有 LLM 网络调用，直接依据历史记录中的精确 Payload 匹配并回填响应，通过 <code>assertConsumed</code> 严格断言预设的每一步调用被 100% 消费。 <strong>原理</strong>： 它将原本动辄耗时数分钟且具有随机性的端到端测试，降维为 85ms 的纯本地内存级单测，不仅零 Token 消耗，而且具备 100% 确定性回归能力。</p>
-<hr>
+<div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q1 · 什么是无模型确定性回放（Deterministic Replay）？它的核心判定条件是什么？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span> 在 <code>@deepseek-ai/dsh-llm-replay</code> 中，回放系统拦截所有 LLM 网络调用，直接依据历史记录中的精确 Payload 匹配并回填响应，通过 <code>assertConsumed</code> 严格断言预设的每一步调用被 100% 消费。 <strong>原理</strong>： 它将原本动辄耗时数分钟且具有随机性的端到端测试，降维为 85ms 的纯本地内存级单测，不仅零 Token 消耗，而且具备 100% 确定性回归能力。</p>
+</div></div><hr>
 <a id="chapter-17"></a>
 <p># 第 17 章｜量化评价：同时看质量、时间、用量与失败</p>
 <p>## 17.0 比较方案，要先说清“更好”是什么</p>
@@ -1911,9 +2493,9 @@ const result = await submit('读取项目说明')</code></pre>
 <p>&lt;!-- references:end --&gt;</p>
 <hr>
 <h2>本章面试问答</h2>
-<h3>Q1 · 评估一个 AI Coding Agent 的工程表现，为什么必须同时度量“质量、时间、用量与失败”四维口径？</h3>
-<p><strong>回答</strong>： 单纯看“最终测试是否通过（质量）”会掩盖严重的工程劣质：例如一个 Agent 经历了 20 次盲目重试（高延迟）、耗费了 50 万 Token（极高成本）才侥幸通过。 <strong>原理</strong>： 真正的工业级生产力要求在质量（Pass rate）、时间（Wall clock / Latency）、用量（Token consumption &amp; KV Cache hit rate）与容错率（Failure Taxonomy）之间取得最佳帕累托最优。</p>
-<hr>
+<div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q1 · 评估一个 AI Coding Agent 的工程表现，为什么必须同时度量“质量、时间、用量与失败”四维口径？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span> 单纯看“最终测试是否通过（质量）”会掩盖严重的工程劣质：例如一个 Agent 经历了 20 次盲目重试（高延迟）、耗费了 50 万 Token（极高成本）才侥幸通过。 <strong>原理</strong>： 真正的工业级生产力要求在质量（Pass rate）、时间（Wall clock / Latency）、用量（Token consumption &amp; KV Cache hit rate）与容错率（Failure Taxonomy）之间取得最佳帕累托最优。</p>
+</div></div><hr>
 <a id="chapter-18"></a>
 <p># 第 18 章｜综合案例：已有文件工具如何接入与呈现</p>
 <p>## 18.0 回到项目已经实现的读取工具</p>
@@ -2016,9 +2598,9 @@ export function apply(ctx: Context) {
 <p>&lt;!-- references:end --&gt;</p>
 <hr>
 <h2>本章面试问答</h2>
-<h3>Q1 · read 工具输出为什么要清晰分为规范值（Schema）、模型文本（Render）和展示元数据（presentationMeta）三层？</h3>
-<p><strong>回答</strong>： 规范值负责机器校验与内部状态传递；模型文本（Render）是送入 LLM 视野的高信息密度文本；<code>presentationMeta</code> 是从规范值提取的可序列化展示卡片数据（如文件路径、行号范围、语言类型）。 <strong>原理</strong>： “同一事实，三种消费形态”。如果把三者混在一起，不仅污染模型上下文，还会导致历史回放时无法在没有物理文件的情况下恢复 UI 高亮卡片。</p>
-<hr>
+<div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q1 · read 工具输出为什么要清晰分为规范值（Schema）、模型文本（Render）和展示元数据（presentationMeta）三层？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span> 规范值负责机器校验与内部状态传递；模型文本（Render）是送入 LLM 视野的高信息密度文本；<code>presentationMeta</code> 是从规范值提取的可序列化展示卡片数据（如文件路径、行号范围、语言类型）。 <strong>原理</strong>： “同一事实，三种消费形态”。如果把三者混在一起，不仅污染模型上下文，还会导致历史回放时无法在没有物理文件的情况下恢复 UI 高亮卡片。</p>
+</div></div><hr>
 <a id="chapter-19"></a>
 <h1>第 19 章｜时空可组合性与 Cordis 原理：DeepSeek Harness 微内核的理论奠基</h1>
 <blockquote><strong>学术溯源</strong>：本章基于 DeepSeek-AI 与北京大学研究团队发表的核心理论论文： 《A Programming Paradigm for Spatiotemporal Composability》（Shi, Zhang, Cui, 2026，arXiv:2608.25512 [cs.PL]）。 该论文奠定了 DeepSeek Harness 底层微内核 <code>vendor/cordis</code> 的数理基础与核心计算模型。</blockquote>
@@ -2154,16 +2736,16 @@ INACTIVE ─────────► LOADING ─────────► A
 </ol>
 <hr>
 <h2>本章面试问答</h2>
-<h3>Q1 · 面试官：你们系统基于 Cordis 微内核构建，请问 Cordis 核心论文提出的“时空可组合性（Spatiotemporal Composability）”究竟解决了微内核插件架构的什么痛点？</h3>
-<p><strong>回答</strong>： 传统的插件架构（如 VS Code 扩展或 Spring 体系）普遍存在两大痛点： 一是<strong>时间维度的不可逆</strong>：插件在 <code>activate()</code> 时注册了大量监听器、定时器或修改了全局状态，但在卸载时，开发者手写的 <code>deactivate()</code> 容易遗漏清理代码，导致必须全量重启应用才能恢复干净环境； 二是<strong>空间维度的悬挂崩溃</strong>：当某个底层依赖服务发生热更新或被卸载时，上层依赖它的消费者无法感知，容易因持有陈旧句柄发生空指针崩溃。</p>
+<div class="qa-card"><div class="qa-header"><span class="qa-badge">面试真题</span><span class="qa-title">Q1 · 面试官：你们系统基于 Cordis 微内核构建，请问 Cordis 核心论文提出的“时空可组合性（Spatiotemporal Composability）”究竟解决了微内核插件架构的什么痛点？</span></div><div class="qa-body">
+<p><span class="badge-role badge-ans">权威回答</span> 传统的插件架构（如 VS Code 扩展或 Spring 体系）普遍存在两大痛点： 一是<strong>时间维度的不可逆</strong>：插件在 <code>activate()</code> 时注册了大量监听器、定时器或修改了全局状态，但在卸载时，开发者手写的 <code>deactivate()</code> 容易遗漏清理代码，导致必须全量重启应用才能恢复干净环境； 二是<strong>空间维度的悬挂崩溃</strong>：当某个底层依赖服务发生热更新或被卸载时，上层依赖它的消费者无法感知，容易因持有陈旧句柄发生空指针崩溃。</p>
 <p>Cordis 论文从数学上提出了时空可组合性解决方案：</p>
 <ol>
 <li><strong>时间可组合性（Temporal）</strong>：任何操作必须被约束为“产生新状态并返回自身的逆元函数（Inverse）”。卸载时由框架的逆元累加器按后进先出（LIFO）自动逆序回滚，无需手写销毁逻辑，确保副作用 100% 干净反转；</li>
 <li><strong>空间可组合性（Spatial）</strong>：引入响应式副效果（Reactive Coeffects）。组件通过 <code>inject</code> 声明类型化契约，底层服务撤离时，框架自动、级联地卸载依赖它的消费者，保证提供者的生命周期严格长于消费者，从根源上消除了悬挂调用与内存泄漏。</li>
 </ol>
-<p><strong>原理</strong>： 抽象代数中的可逆映射（Invertible Maps）与范畴论中的副效果消解（Coeffect Resolution）。将运行时的动态组装提升为由类型系统和状态机保证的严格数学演算。</p>
-<p><strong>追问</strong>：在插件卸载（<code>UNLOADING</code>）过程中，Cordis 为什么要求“先停止提供自身服务，但在下游彻底清退前依然保持资源可读”？ <strong>应答要点</strong>： 这是为了防止“释放后使用（Use-After-Free）”的破坏性竞争。如果提供者立即销毁物理资源（如直接关闭数据库连接池），依赖它的消费者在接收到卸载通告并执行自我清理时，往往需要向连接池归还正在使用的连接，直接销毁会导致消费者报错崩溃。Cordis 的两阶段卸载契约保证：先在逻辑上声明自己不再接纳新请求，等待所有已挂载的消费者优雅退场并归还资源后，最后才物理执行逆元销毁底层资源，从而实现系统级的确定性优雅停机。</p>
-<hr>
+<p><span class="badge-role badge-theory">设计原理</span> 抽象代数中的可逆映射（Invertible Maps）与范畴论中的副效果消解（Coeffect Resolution）。将运行时的动态组装提升为由类型系统和状态机保证的严格数学演算。</p>
+<p><span class="badge-role badge-follow">考官追问</span>在插件卸载（<code>UNLOADING</code>）过程中，Cordis 为什么要求“先停止提供自身服务，但在下游彻底清退前依然保持资源可读”？ <strong>应答要点</strong>： 这是为了防止“释放后使用（Use-After-Free）”的破坏性竞争。如果提供者立即销毁物理资源（如直接关闭数据库连接池），依赖它的消费者在接收到卸载通告并执行自我清理时，往往需要向连接池归还正在使用的连接，直接销毁会导致消费者报错崩溃。Cordis 的两阶段卸载契约保证：先在逻辑上声明自己不再接纳新请求，等待所有已挂载的消费者优雅退场并归还资源后，最后才物理执行逆元销毁底层资源，从而实现系统级的确定性优雅停机。</p>
+</div></div><hr>
 <a id="appendices"></a>
 <h1>附录</h1>
 <p># 附录：基础与术语随用随查</p>
@@ -2217,9 +2799,56 @@ const all = [...existing, added]</code></pre>
 <p><a href="reference-manifest.json">参考文件哈希</a> · <a href="excerpt-manifest.json">节选行号与哈希</a> · <a href="coverage.json">覆盖记录</a> · <a href="validation.json">教材检查</a></p>
 <hr>
       <footer>
-        <p>深入理解 DeepSeek Harness · 工业级实战教材 & 理论奠基 · 完整融合版</p>
+        <p>深入理解 DeepSeek Harness · 工业级实战教材 & 理论奠基 · 已冻结完备版</p>
       </footer>
     </article>
   </main>
+
+  <button id="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="返回顶部">↑</button>
+
+  
+<script>
+// Reading Progress
+window.addEventListener('scroll', () => {
+  const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const scrolled = (winScroll / height) * 100;
+  document.getElementById('reading-progress').style.width = scrolled + '%';
+  
+  // Back to top button visibility
+  const btt = document.getElementById('back-to-top');
+  if (winScroll > 400) {
+    btt.classList.add('visible');
+  } else {
+    btt.classList.remove('visible');
+  }
+});
+
+// Scrollspy for sidebar links
+const observerOptions = {
+  root: null,
+  rootMargin: '0px 0px -70% 0px',
+  threshold: 0
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const id = entry.target.getAttribute('id');
+      document.querySelectorAll('aside nav a').forEach(a => {
+        a.classList.remove('active');
+        if (a.getAttribute('href') === '#' + id) {
+          a.classList.add('active');
+        }
+      });
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('a[id^="chapter-"], a[id="appendices"], a[id="reference-index"]').forEach(el => {
+  observer.observe(el);
+});
+</script>
+
 </body>
 </html>
