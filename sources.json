@@ -1,0 +1,94 @@
+{
+  "title": "深入理解 DeepSeek Harness：从智能体基础到工程协作",
+  "created_date": "2026-10-02",
+  "updated_date": "2026-10-03",
+  "delivery_stage": "十章中文教材完整版，正文独立解释；源码与原文作为可选证据",
+  "chapter_count": 10,
+  "planned_figure_count": 40,
+  "display_language": "正文和示例图以中文为主；术语首次出现补英文对照；源码标识和原文保持原样，原文优先链接中文版",
+  "timezone": "Asia/Shanghai",
+  "learning_preference": "先整体流程，遇到 TypeScript 和异步概念时补基础",
+  "sources": [
+    {
+      "id": "dsh-source",
+      "kind": "official_git_checkout",
+      "url": "https://github.com/deepseek-ai/deepseek-harness.git",
+      "local_path": "source",
+      "branch_at_acquisition": "master",
+      "commit": "639ed015397290b3745d163aafe02ffee4aa3f84",
+      "commit_date": "2026-09-29",
+      "package_version": "0.2.0-rc.2",
+      "license": "MIT",
+      "acquired_date": "2026-10-02",
+      "acquisition": "shallow clone; no dependency installation or service launch",
+      "use": "课程实现事实、源码阅读路径和测试旁证"
+    },
+    {
+      "id": "feishu-four-axes",
+      "kind": "user_supplied_reference",
+      "url": "https://kcnjsi69cjvj.feishu.cn/wiki/AlQYwOAFDiIsANkdVrmcEoQLnne",
+      "title": "通用Agent设计方法论（四板斧）",
+      "author_display_name": "helson",
+      "accessed_date": "2026-10-02",
+      "access_method": "用户已登录的 Edge 页面，经 Kimi WebBridge 只读读取目录和滚动正文",
+      "last_modified_display": "9月27日 00:49",
+      "use": "学习问题的组织框架；不作为 DeepSeek Harness 实现证据",
+      "limits": "未逐篇读取链接子页面；嵌入画板未单独解析；未复制全文"
+    },
+    {
+      "id": "quantitative-architecture-method",
+      "kind": "publisher_reference",
+      "title": "Computer Architecture: A Quantitative Approach",
+      "authors": [
+        "John L. Hennessy",
+        "David A. Patterson"
+      ],
+      "url": "https://shop.elsevier.com/books/computer-architecture/hennessy/978-0-12-811905-1",
+      "supporting_contents_url": "https://shop.elsevier.com/books/computer-architecture/hennessy/978-0-12-383872-8",
+      "accessed_date": "2026-10-03",
+      "use": "参考量化评价、Putting It All Together 与误区体例，面向初学者改编；按用户要求不设置练习",
+      "limits": "核对出版社公开介绍与目录，未获得或复制书籍全文；未照搬硬件性能结论"
+    },
+    {
+      "id": "illustrated-llm-method",
+      "kind": "author_reference",
+      "title": "Hands-On Large Language Models（图解大模型）",
+      "authors": [
+        "Jay Alammar",
+        "Maarten Grootendorst"
+      ],
+      "url": "https://www.llm-book.com/",
+      "code_url": "https://github.com/HandsOnLLM/Hands-On-Large-Language-Models",
+      "visually_reviewed_sample_url": "https://www.llm-book.com/images/attention.png",
+      "visual_review_method": "Kimi WebBridge 在 Edge 打开公开样图并截屏观察；观察后移除本地研究截屏，不作为课程附件",
+      "accessed_date": "2026-10-03",
+      "use": "参考直觉优先、图示配合机制解释与实践的教学方法，设计原创分镜",
+      "limits": "读取作者公开页面并视觉核对 attention 样图，未逐张审阅全书图示；不宣称复刻精确字体、版式、色值；未附送书中图文"
+    },
+    {
+      "id": "ai-agent-book-structure",
+      "kind": "user_supplied_open_book",
+      "title": "深入理解 AI Agent",
+      "url": "https://bojieli.github.io/ai-agent-book/",
+      "structure_url": "https://bojieli.github.io/ai-agent-book/book/introduction/",
+      "accessed_date": "2026-10-03",
+      "use": "十章两部分的主题递进与问题组织；正文重新创作，DSH 实现以固定仓库为证据",
+      "limits": "查看公开目录、引言与十章入口/目录；不复制全书，不移植其全部能力主张，不附配套练习"
+    }
+  ],
+  "verification": {
+    "source_review": "static",
+    "runtime_execution": "not_performed",
+    "upstream_tests": "not_run",
+    "course_artifact_validation": "validation.json：十章正文、63 项子系统覆盖、40 张图、60 段可选原码、离线链接和源码哈希；不执行上游项目测试",
+    "local_cli_version_seen": "0.1.5-rc.1",
+    "local_cli_used_as_course_evidence": false
+  },
+  "figure_count": 40,
+  "source_excerpt_count": 60,
+  "exercise_sections": false,
+  "source_topic_count": 18,
+  "subsystems_explained": 63,
+  "reader_prerequisite": "少量概念即可；无需预读源码或原项目文档；不要求安装运行",
+  "scope": "完整功能架构、核心运行过程与全部已列子系统协作；不穷举配置/API 字段、每个平台后端内部或发布矩阵"
+}

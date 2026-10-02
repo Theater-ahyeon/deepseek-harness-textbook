@@ -1,0 +1,46 @@
+the same move across the POSIX interface, and reads commutativity as indistinguishability 
+through an interface rather than equality of internal states [45].
+Independence of two context-mediated iterators (Definition 30) turns on their keys alone:
+Theorem 47. Let 𝑖1 ∈ ℑ𝒜︀
+Σ(𝑆1, 𝑃1) and 𝑖2 ∈ ℑ𝒜︀
+Σ(𝑆2, 𝑃2) with 𝑃1 ∩ 𝑆2 = 𝑃2 ∩ 𝑆1 = ⌀, and let every 
+key at which operations of both occur be commutative ( Definition  44). Then 𝑖1 and 𝑖2 are 
+independent (Definition 42).
+Proof. Every iterator reach(𝑖𝑙) contains is the unit or a stage, whose forward map and yielded 
+inverses are the constituents of the operation or the set its head performs, so the generators of 
+𝔐(𝑖𝑙) are among those of the stages occurring in 𝑖𝑙, together with idΣ.
+For clause (1) of Definition 42 it is enough, by Lemma 41(1), that those generators commute 
+pairwise. Each is key-local: defined by the binding at one key alone, presence included, and 
+writing that binding alone, being the lift of an operation’s forward map or of an inverse it yields 
+(Definition 29), the extension a provision stage takes, or the restriction it yields (Definition 20). 
+Two key-local maps at distinct keys commute, each leaving what the other reads and writes as 
+it stands. This settles every pair involving a provision-stage generator, whose key lies in one 
+𝑃𝑙 and hence outside the other member’s every key by hypothesis, and every pair of operation 
+generators at distinct keys, which is Theorem 45; a pair of operation generators at one key is 
+covered by that key’s commutativity.
+For clause (2), take 𝑖′ ∈ reach(𝑖1), 𝑔 ∈ 𝔐(𝑖2), and 𝜎 ∈ Σ. The unit yields (idΣ, 𝖭𝗈𝗍𝗁𝗂𝗇𝗀) every-
+where. A provision stage at 𝑘 ∈ 𝑃1 yields the restriction at 𝑘 and its one continuation whatever 
+the state, and is defined at 𝜎 and 𝑔(𝜎) alike, its precondition reading the presence of 𝑘, which 
+every generator of 𝔐(𝑖2) leaves as it stands. An operation stage at 𝑘 ∈ 𝑆1 yields what 𝑎Σ(𝑥) 
+yields at 𝜎(𝑘), inverse and outcome; where no operation of 𝑖2 occurs at 𝑘 the generators of 
+𝔐(𝑖2) leave 𝜎(𝑘) as it stands, and where one does the key is commutative by hypothesis, and 
+independence of its operations, applied to one generator of 𝑔 at a time, yields the same inverse 
+and the same outcome at 𝑔(𝜎). Equal outcomes select one continuation, so the yields agree. □
+With every coeffect witnessed, the commutativity hypothesis of Theorem 47 is supplied 
+at every key ( Definition 46), and only the disjointness 𝑃1 ∩ 𝑆2 = 𝑃2 ∩ 𝑆1 = ⌀ remains to be 
+checked of a pair; Section 4 reads that disjointness off the two components’ declarations.
+A component’s effect function is the lift of a context-mediated iterator along the coeffect 
+projection (Definition 56), and independence transfers to that lift, whose transformations move 
+the projection alone. The assumption Section 3.4.1 leaves open is met that way, the witness of 
+each coeffect supplying the commutativity Theorem 47 consumes, and with it the temporal 
+composability of a whole system of components.
+What the decomposition divides is a computation’s commuting part from its order-sensitive 
+part. The commuting part is carried by the effects: a component performs them in whatever 
+order its task calls for, and Theorem 43 reverts them in whatever order the system finds conve-
+nient, no two components constraining each other. The order-sensitive part is carried by the 
+coeffects, since a key whose operations do not commute is one whose order has to be imposed 
+from outside the effects, and two places are available for imposing it. Within one component 
+the accumulator imposes it, reverting in LIFO order whatever the effects (Theorem 16). Across 
+components a declared coeffect imposes it, one component providing what another declares 
+and the provision preceding the declaration’s satisfaction ( Section  3.2.2). Composability is 
+30

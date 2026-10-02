@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="760" viewBox="0 0 1120 760" role="img" aria-labelledby="F14A-title F14A-desc">
+<title id="F14A-title">F14A：上行表达目标，下行观察过程</title>
+<desc id="F14A-desc">{&quot;id&quot;: &quot;F14A&quot;, &quot;title&quot;: &quot;上行表达目标，下行观察过程&quot;, &quot;kind&quot;: &quot;compare&quot;, &quot;tag&quot;: &quot;网络方向示意&quot;, &quot;left&quot;: [&quot;上行提交&quot;, &quot;编辑内容 → 客户端会话&quot;, &quot;远程调用 → 宿主入口&quot;, &quot;返回接纳结果&quot;], &quot;right&quot;: [&quot;下行跟随&quot;, &quot;宿主提供初始快照&quot;, &quot;持续事件与临时助手流&quot;, &quot;客户端状态 → 页面更新&quot;]}</desc>
+<rect width="1120" height="760" fill="white"/>
+<text x="48" y="56" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#20314B">F14A  上行表达目标，下行观察过程</text>
+<text x="48" y="97" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="400" fill="#65738A">原创教学图 · 网络方向示意</text>
+<rect x="48" y="150" width="495" height="470" rx="16" fill="#F0EBFF" stroke="#7659AA" stroke-width="2"/>
+<text x="70" y="197" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">上行提交</text>
+<text x="70" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">编辑内容 → 客户端会话</text>
+<text x="70" y="294" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">远程调用 → 宿主入口</text>
+<text x="70" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">返回接纳结果</text>
+<rect x="577" y="150" width="495" height="470" rx="16" fill="#E5F6ED" stroke="#367E5A" stroke-width="2"/>
+<text x="599" y="197" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">下行跟随</text>
+<text x="599" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">宿主提供初始快照</text>
+<text x="599" y="294" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">持续事件与临时助手流</text>
+<text x="599" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">客户端状态 → 页面更新</text>
+<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：先确认范围，再跟随标注；示意布局不代表实际耗时或比例。</text>
+</svg>

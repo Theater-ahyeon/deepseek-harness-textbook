@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="760" viewBox="0 0 1120 760" role="img" aria-labelledby="F09B-title F09B-desc">
+<title id="F09B-title">F09B：重试在当前步骤的边界内发生</title>
+<desc id="F09B-desc">{&quot;id&quot;: &quot;F09B&quot;, &quot;title&quot;: &quot;重试在当前步骤的边界内发生&quot;, &quot;kind&quot;: &quot;compare&quot;, &quot;tag&quot;: &quot;源码分支示意&quot;, &quot;left&quot;: [&quot;符合策略的失败&quot;, &quot;记录失败尝试&quot;, &quot;退避等待，可被取消&quot;, &quot;同一步开始新的模型尝试&quot;], &quot;right&quot;: [&quot;成功与取消出口&quot;, &quot;成功消息可进入工具阶段&quot;, &quot;取消有文本：中断消息&quot;, &quot;取消无文本：尝试记录&quot;]}</desc>
+<rect width="1120" height="760" fill="white"/>
+<text x="48" y="56" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#20314B">F09B  重试在当前步骤的边界内发生</text>
+<text x="48" y="97" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="400" fill="#65738A">原创教学图 · 源码分支示意</text>
+<rect x="48" y="150" width="495" height="470" rx="16" fill="#F0EBFF" stroke="#7659AA" stroke-width="2"/>
+<text x="70" y="197" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">符合策略的失败</text>
+<text x="70" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">记录失败尝试</text>
+<text x="70" y="294" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">退避等待，可被取消</text>
+<text x="70" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">同一步开始新的模型尝试</text>
+<rect x="577" y="150" width="495" height="470" rx="16" fill="#E5F6ED" stroke="#367E5A" stroke-width="2"/>
+<text x="599" y="197" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">成功与取消出口</text>
+<text x="599" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">成功消息可进入工具阶段</text>
+<text x="599" y="294" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">取消有文本：中断消息</text>
+<text x="599" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">取消无文本：尝试记录</text>
+<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：先确认范围，再跟随标注；示意布局不代表实际耗时或比例。</text>
+</svg>

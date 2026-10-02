@@ -1,0 +1,930 @@
+{
+  "commit": "639ed015397290b3745d163aafe02ffee4aa3f84",
+  "scope": "All cited core-topic files, documented subsystem references, supplementary evidence, root README and license; not a hash of every repository file",
+  "files": [
+    {
+      "path": "source/LICENSE",
+      "bytes": 1065,
+      "sha256": "ebb4f09972aee8608be255debaf78451a68e95c290f55c240dec2ecfa16ea6be",
+      "kind": "license"
+    },
+    {
+      "path": "source/README.md",
+      "bytes": 2673,
+      "sha256": "0f5516be2acde776f05572cbc8c3093c90549afe04ce118e11157d073d5d15f4",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/apps/cli/src/bin.ts",
+      "bytes": 2800,
+      "sha256": "7081b6503a635eb6c6d9c3e4619e740afe157252b246aa17acbf1a1ceec54c88",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/apps/cli/src/profile-boot.ts",
+      "bytes": 14227,
+      "sha256": "6c750b3c838e42de921bbe9816aed1d8955526c90fccaece8c06969faa9830e6",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/apps/desktop/README.zh.md",
+      "bytes": 101973,
+      "sha256": "c4b30449f5cc1a49ece2405d4ef038301f19c813ea28a45bd01b69ded547f680",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/apps/desktop/src/host-process.ts",
+      "bytes": 14849,
+      "sha256": "6b9d3e558f526b7832020fb43d6682a07a68bf2d5657f26951f50a4f3eabfa28",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/apps/desktop/src/main.ts",
+      "bytes": 67842,
+      "sha256": "1fd424f16514d82d79665e0e8a1e2448dd8636126d3a37be7fa888d883b6ea3a",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/apps/desktop/src/preload-app.ts",
+      "bytes": 5849,
+      "sha256": "cff269a4f049d276a44974c3c40008ceb9d6a0b35105a54d6605f7dcf59a64eb",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/apps/desktop/src/web-document.ts",
+      "bytes": 4752,
+      "sha256": "05ab6fd59199f1b7a7dd558e60f50e38f4df1085a70af671014c085d270e91cc",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/apps/desktop/tests/host-process.spec.ts",
+      "bytes": 12386,
+      "sha256": "b539b90d064ba2b52f2a5a2faf3a83d08911cc69f8644bc4783f17dbc98fcb86",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/apps/desktop/tests/main-startup.spec.ts",
+      "bytes": 119291,
+      "sha256": "da2062b38336914f6c5634dd9bfac9f37fa1552ceaf31ea8890581a0395219e9",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/apps/desktop/tests/web-document.spec.ts",
+      "bytes": 5420,
+      "sha256": "7b8dcccededac3bb9f978e4446a00a1cf97fb7573f73fdd47e0de842bf92539b",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/docs/agent-lifecycle.zh.md",
+      "bytes": 5975,
+      "sha256": "64a02d8cf01227494fcd56421027ca93307688d895a27232f67dac2b7abc909b",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/api-gateway.zh.md",
+      "bytes": 17535,
+      "sha256": "19a438d67db71a1996357614eb97873d6792aa94d0767619b3166e6cb9a26b36",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/architecture.zh.md",
+      "bytes": 18510,
+      "sha256": "1bd164bc5cd857a9c46e97d7927f40b6fac0217cefbbb35a5945610126b88048",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/cookbook/adding-a-tool.zh.md",
+      "bytes": 13957,
+      "sha256": "174145506dd2e857d3a3dc63d9d3449ca9abe503c4d6f304f8d92ae5edfce6ef",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/cookbook/extension-cookbook.zh.md",
+      "bytes": 11389,
+      "sha256": "0af6efe9c85b5fb45f1c6db4bd4ff2caa8e9e11656c933ea042305a1007d828e",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/cordis-primer.zh.md",
+      "bytes": 4064,
+      "sha256": "db95af7a5ac91522087705c37a2c6aedad0767952b3f3980616f4d43bdee3f34",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/event-producer-consumer.zh.md",
+      "bytes": 29628,
+      "sha256": "6fde648c8e0eeb1858c46fde536ec65d7fa657e3120f523d38cade68f6a9837e",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/persistence-catalog.zh.md",
+      "bytes": 340342,
+      "sha256": "bc21360d07498190dde6d30099c7c9c8ff6d30b6d3d3287be08729266c4fa23c",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/session-format-status.zh.md",
+      "bytes": 5259,
+      "sha256": "ac04b5703c2cbc1eb474f19a396b1f1b8fd609a9d370488d5ce6b0152c805267",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/agent-team.zh.md",
+      "bytes": 9892,
+      "sha256": "95f10ee0997cf0462c78dc15799e9a7767e7401e2c7aa694c205bf2627a84787",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/approval.zh.md",
+      "bytes": 9456,
+      "sha256": "c0b4603eb294ea226f286d26e8eee273616b42f67291b3c142626cbecf2b68b4",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/attachment.zh.md",
+      "bytes": 17766,
+      "sha256": "330c9ce4ccd443783b41a698fc68bd0e57dcff6a88d393312ae78a51a8123daf",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/boot.zh.md",
+      "bytes": 15347,
+      "sha256": "e9104afe7e16c694caf0d710d8223e67eca35093d073a70902cd2593a6bada1d",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/browser-use.zh.md",
+      "bytes": 5132,
+      "sha256": "86218cb6f5a4faab4edc78fb37134b978d796abfd4a57d40073f42120caadce7",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/client-modules.zh.md",
+      "bytes": 13720,
+      "sha256": "58a735cb4fa0a2d5378c6b70dcd0a513426bc227a381832c0fe51f1480483e16",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/client-resources.zh.md",
+      "bytes": 7493,
+      "sha256": "256fca58d7617e68b3faf442b20258006ba6eb7eb1e7b617cadf8ef67392c145",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/commands.zh.md",
+      "bytes": 10163,
+      "sha256": "c1a7fcf2789d6e1c84510549d968421c451c84be4f9c427d5917409fe51e6990",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/compaction.zh.md",
+      "bytes": 19253,
+      "sha256": "0504244bf2867538544eb108d8afc8ebe7bc1ea41d25ab634214bba39b477047",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/computer-use.zh.md",
+      "bytes": 3322,
+      "sha256": "f31a0daa27356a3db88461ad4b172c33c5c3c78d8505cd4195032882f62944a2",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/conversation.zh.md",
+      "bytes": 21272,
+      "sha256": "ab91c76261d434747de4e0e9474ad9d2dec037da3209e33c70f6ea13fa3b7d7f",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/core.zh.md",
+      "bytes": 57792,
+      "sha256": "5d9716fe982a305c31aa83097dc63a1d0dac787580f6de7ffb21d759a56756b8",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/credentials.zh.md",
+      "bytes": 25068,
+      "sha256": "92c8e94e372bfffdbc0857442ca14e57db626b83c13382a230d2bdc91969ea4a",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/deliverables.zh.md",
+      "bytes": 9232,
+      "sha256": "f827fcab7867b338dedb7ce0368f3727e93881e0b32f8d5a20f31a7fb359a8a6",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/extensions.zh.md",
+      "bytes": 16855,
+      "sha256": "68fc275444ccb3d978878a8903b94960677eebe36a4cbadf65728e64a4790607",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/feedback.zh.md",
+      "bytes": 19266,
+      "sha256": "baf754fb12009c1a3251f01e392640a5838b4b87d48a3b77bf7f6a8dcb0a27ba",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/filesystem.zh.md",
+      "bytes": 30606,
+      "sha256": "9854b51e6a99fa8621de1b0cfb2944cecd2b009ddd9a87ce6afe4212379ebdf5",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/goal.zh.md",
+      "bytes": 11721,
+      "sha256": "0a8f392c7e75279e98ecb7cdad4d765f41e2a4d383fe5b03d0cb3eef108b922b",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/invariants.zh.md",
+      "bytes": 6414,
+      "sha256": "21aee2147b60b0134cbe3d40436fd91ee3ef26b03dca7476cd081de2e23ca48f",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/jobs.zh.md",
+      "bytes": 25906,
+      "sha256": "c00b6428f94a385c780fd467939e456654866b11e8ac1a6564fcc6dfc4e1eea6",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/llm-streaming.zh.md",
+      "bytes": 64666,
+      "sha256": "b28e57e61352f8d65d0e25eec3f663d68d7c220e3c6f1fd469c72aa5ee368363",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/lsp.zh.md",
+      "bytes": 10532,
+      "sha256": "93e103250d887b93c8b24d87c903906e8fb96e9561f0cb0a8a2b342b204b4717",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/mcp.zh.md",
+      "bytes": 9125,
+      "sha256": "469be1f9d96828581197dad219ebfa2b8593322fb6bc0195c2fedee93c644354",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/office-to-pdf.zh.md",
+      "bytes": 7117,
+      "sha256": "edd66f2538a87292343b74407ae9fd8d7bacbdb6b05edeb742a3022c53bc0fe8",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/otel.zh.md",
+      "bytes": 2792,
+      "sha256": "75ad00a270b407641f95aa922c4195e464cc9a98610a25c64b58f282ac02baa1",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/permission-presets.zh.md",
+      "bytes": 10755,
+      "sha256": "e2ee3822cc13af6e3b3c598d870c2b889da4db25068b500bc62667f37a0cbb6a",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/persistence.zh.md",
+      "bytes": 26882,
+      "sha256": "fd5046d2939c397fe8fe9ad272e01a0cb0a77a1da409176e432718aec2d8a6f9",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/plan.zh.md",
+      "bytes": 7802,
+      "sha256": "3879213c864244b2adbba0ec01968342640a1b0e36bc1a7339b2f0bfb3cd6884",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/product-telemetry.zh.md",
+      "bytes": 3838,
+      "sha256": "f7dabca1eeef6d25c96e5118634849e2f50af1fc84bc79c326b0449443c877b2",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/ptc-runtime.zh.md",
+      "bytes": 12704,
+      "sha256": "37e90081fc0bafba6ec5a429155e57d91835802d03dc7547618b01f04a4ff302",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/sandbox.zh.md",
+      "bytes": 12796,
+      "sha256": "031b2b0a8e7fcd38f73fb3966ff5a1c2a4b194f7c08535ce3b18db2697cfb1ac",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/schedule.zh.md",
+      "bytes": 33236,
+      "sha256": "ba1a709e15e0507824355fc32d08fc0008cd51ce98749174239209e2f7878204",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/scope.zh.md",
+      "bytes": 3812,
+      "sha256": "5e253469cd5652ca8b5fe20596e1c97d371bbcb4ab95f351e494bfca1aed785d",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/session-projection.zh.md",
+      "bytes": 22429,
+      "sha256": "62f52c5548b4768e1d4a103376e9ca54f72e6c5c6b8af28d87c68823c94c5fe1",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/session-query.zh.md",
+      "bytes": 21565,
+      "sha256": "e48f7af0d0e047c01c1ff22058e6931cffba397743d2a85b470330bef4b06120",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/session-reference.zh.md",
+      "bytes": 10348,
+      "sha256": "3f0f335d80031d71cdb19d989d1d3f21c9e16344bbb09050119157903ed955e1",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/session-telemetry.zh.md",
+      "bytes": 12685,
+      "sha256": "d4eddb14f2cd23ecad1c68efa419e30865a08210809604e5ca46e37b1fdae57c",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/session-title.zh.md",
+      "bytes": 8677,
+      "sha256": "7f22c838ed73d6d58a69a1209d550c45c8202df624979614e607b1bc61ec94ff",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/session.zh.md",
+      "bytes": 73480,
+      "sha256": "01e0330cb6cd3a0667f21b197d3d13e3aab3ef6cb47a9a633e7ddfad75cbd06b",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/settings.zh.md",
+      "bytes": 7723,
+      "sha256": "bfa6663605568fdcee591f51f260f4a0a77436206b33f07854a850ffced2ddbc",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/shell.zh.md",
+      "bytes": 18402,
+      "sha256": "979084c6e383c5a0ddd183891aaee3148262a282d94141d85bf92cf2af567562",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/sidebar-right.zh.md",
+      "bytes": 26857,
+      "sha256": "61e7b1a92b025092a970fcf22f1d3b5890d4b8130017ba36b272c7719803bdc7",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/skills.zh.md",
+      "bytes": 24310,
+      "sha256": "d09bc88617855741f5bd7ce666567aaaa33dcae15fd8b54165a8f09fc307c1b5",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/slots.zh.md",
+      "bytes": 13134,
+      "sha256": "ee0c525a9df07a4e1ba40133042b75682cdc03ce940511f40507465904ebbf58",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/spill.zh.md",
+      "bytes": 7121,
+      "sha256": "a03313a186baee39d53fe0daae129c36bec1d58f2f9d0d8103edf5250d914f77",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/ssh.zh.md",
+      "bytes": 7948,
+      "sha256": "4957cf916fd45a3551c59ca60da60904e946c51d515a99dbf319a62e832b4c43",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/storage.zh.md",
+      "bytes": 17066,
+      "sha256": "4f2dc65a5e7c548ef90eaca1abf33587527ec480528e16be4381e79ce4baf46b",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/subagent.zh.md",
+      "bytes": 53968,
+      "sha256": "5e4506efa0d42fbd4cf1a1ea115494490b1b27f812b880a314f5567da051b303",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/subprocess.zh.md",
+      "bytes": 18783,
+      "sha256": "073477964d24d1c96e4b471175881a3a088a8e9e173348aa4e1c41579998e762",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/system-prompt.zh.md",
+      "bytes": 11340,
+      "sha256": "01b069941e965f86a612703fef3fee18ac7743db15a30c5614f1994c9f401eb7",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/terminal.zh.md",
+      "bytes": 8452,
+      "sha256": "95dbd47dfcfd42b963dac66a28fbf85d6209897b0fd2711802c2f45da17455d1",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/todo.zh.md",
+      "bytes": 1770,
+      "sha256": "4517d6265652b2a81c4bc977009b24be7fd4cda4d6d346ab56d13ba396686039",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/token-meter.zh.md",
+      "bytes": 5772,
+      "sha256": "320378b4c78881a7f3ae2a877a90dfd11479fc6a335391aec2ff5f50ba5323d4",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/tools.zh.md",
+      "bytes": 44542,
+      "sha256": "fa96fb1c41f7faeb550ef64a4e422d661c2486051dd5d8016697364759553a98",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/typert.zh.md",
+      "bytes": 21610,
+      "sha256": "38b2fb66a3d60ea15bac44136ce9bf9c33ec402e6ff08ae3084c2f5669ecadc4",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/user-questions.zh.md",
+      "bytes": 16238,
+      "sha256": "de6c3d42a10c29ed8fc14fd5e247ddaee991eb4a2cfb06ded85225c53f850f86",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/voice-input.zh.md",
+      "bytes": 9261,
+      "sha256": "b8b200ce0d5dd08da39ec106ed18ee43948ef87d38959b373eaca29b483e3452",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/web-client.zh.md",
+      "bytes": 13584,
+      "sha256": "93c2343aaa0855a2390d11a3d36c8f8c5e719b9c991550d5517a1fd09cf357cb",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/web-server.zh.md",
+      "bytes": 12340,
+      "sha256": "40df059ef7f1317df9f49cff898f43351178db24afe27443387aa29513731db5",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/web.zh.md",
+      "bytes": 12873,
+      "sha256": "56907cc2165bb0fd67c717adbaf5ad5dd1c57e841536b38fcfa4393af72a5d51",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/webhook.zh.md",
+      "bytes": 5288,
+      "sha256": "9df3cc6ae115254a4bc8ede3c0d4f7eb38fde68460ef964e4117ea557c53264d",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/workflow.zh.md",
+      "bytes": 15339,
+      "sha256": "93282477afe000050f37ec786fbfef9580f8cc6eedeb194149f0f98bd7b545ad",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/subsystems/workspace.zh.md",
+      "bytes": 37777,
+      "sha256": "2287ea129fffc5e35577b4579f12240776b14d52fa41b7cac94150b69f485dc3",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/testing.zh.md",
+      "bytes": 11297,
+      "sha256": "8eba9291a8392b10e3d7008f88ec534dad00eae2bcd193f38210010da0635975",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/tool-catalog.zh.md",
+      "bytes": 97761,
+      "sha256": "80c1d30dd5e696fa9285194e7dd78d48d259f042b3d02f551d575c6b92585a17",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/tool-execution-pipeline.zh.md",
+      "bytes": 4677,
+      "sha256": "05f74be27090ea3ef315757aec9984bbb78af5552f96dea7a63a5168757f75f6",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/user/develop/basic/tool.zh.md",
+      "bytes": 1788,
+      "sha256": "67f7985635af581a076084a565b2581a81ef7369ad4b3cd1b18b7a3285b211ce",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/docs/user/guide/mcp-memory.zh.md",
+      "bytes": 6576,
+      "sha256": "37dbbbbcdb80c5ba136afe2b17339bb7009b90c5c3f1abd4f6411debc56722b1",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/packages/api/session-controller/src/client/sessions/session.ts",
+      "bytes": 40287,
+      "sha256": "507260418c1d9666756fa43839bf15489d1114c0ea8da850f2be0869459538f5",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/api/session-controller/src/commands.ts",
+      "bytes": 28280,
+      "sha256": "e5e9b7df2ff4d3477d9005548496e5ca1c2adaa69470aa6de399e822d683c7a7",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/api/session-controller/src/history.ts",
+      "bytes": 16577,
+      "sha256": "20a2b002816817b04d7bae25e429034f79dbfa445ec2f7d90e4525a9c1652db8",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/api/session-controller/tests/assistant-stream.client.spec.ts",
+      "bytes": 9572,
+      "sha256": "64bce30f20dd575555eefd421d73049ffb9b64abd770746f596489d519f2522e",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/api/session-controller/tests/session-pending-submissions.client.spec.ts",
+      "bytes": 31531,
+      "sha256": "f23a07d0246bd1396e2368865bcdab1ade0eb8d6c14fc20930087aee082a2fc4",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/boot/app-boot/src/index.ts",
+      "bytes": 50857,
+      "sha256": "5460685d13cb1e281d01be4332854d0f493cf395b88c61bba9dc69910045ef9c",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/boot/app-boot/src/profile.ts",
+      "bytes": 33924,
+      "sha256": "30a883b090c4489b14371d947113d532ab9484d4e0f79c7a4fcddd066e24b6ab",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/boot/app-boot/tests/profile.spec.ts",
+      "bytes": 41545,
+      "sha256": "469b1a8556dfcc30bfe73588cb2c8c0eaeb790335b2aa4308f0def3337cc226d",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/boot/plugin-manager/README.zh.md",
+      "bytes": 19000,
+      "sha256": "6c6a1de52d342df6369f0d5b2daecf256637f5be113f9679ea71b7abf71a83d6",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/packages/boot/plugin-manager/src/index.ts",
+      "bytes": 44890,
+      "sha256": "09c3dfd8bb1cb777caec2f30e036461ec253ca864de5a6d7bd508049b70558ba",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/client/ui-chat/src/client/chat/ChatView.tsx",
+      "bytes": 15036,
+      "sha256": "b04d33feef8145c61b21000dcf037da244d232b4827866e56679ed360db641b7",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/client/ui-conversation/src/client/service.ts",
+      "bytes": 25422,
+      "sha256": "7e4d2488407a6c125145aa12ce733762622f6fb6089ed9b20507447d510a2845",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/compaction/compaction-basic/src/index.ts",
+      "bytes": 18054,
+      "sha256": "c298756c1d06a24593dc573e08f337f7f012675bcfaa675edb7d5368b19649f6",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/compaction/compaction-basic/src/region.ts",
+      "bytes": 23571,
+      "sha256": "295b53cc9e924f7cb2e843e0d0d296e89ead73da2aab9790282db30736e2e063",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/compaction/compaction-basic/src/summarizer.ts",
+      "bytes": 9242,
+      "sha256": "03ef6eb0b6a011530829820e30ff709c2c1b34cfa37a98c19c0037432b9d2f55",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/compaction/compaction-basic/tests/compaction-basic.spec.ts",
+      "bytes": 89970,
+      "sha256": "9de39a8931bd2bb85566a7c6083f91aea03fc9cbaa7e885e8a89cc004b566fe8",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/context/agent-instructions/src/index.ts",
+      "bytes": 15366,
+      "sha256": "bca2df91166de1b4eac099c532e6762a8f30387366097cec16a73b8078860d82",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/core/agent-loop/src/agent.ts",
+      "bytes": 28174,
+      "sha256": "9c985dd5ce3612b0a6f1833cb592930e4e390d4249821accea53064d8e42015c",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/core/agent-loop/src/inbox.ts",
+      "bytes": 9327,
+      "sha256": "70c07ea75ebcf18df353bbccf7c2aa3ecf6cb0d687b96e3520b675680c29f662",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/core/agent-loop/src/tool-calls.ts",
+      "bytes": 11591,
+      "sha256": "5c7e8d8ff0028b436efdd13e5dffa4801d2311c211c3af039e7dab705f87b303",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/core/agent-loop/tests/inbox.spec.ts",
+      "bytes": 11465,
+      "sha256": "f14a53f564af1e2131e2cef22e092ef6a48d26204ebbf55d77064a6c8eab5d7d",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/core/agent-loop/tests/loop.spec.ts",
+      "bytes": 79201,
+      "sha256": "5406dd25b067b8971f5d6df918198eb0a85d53b85d023b77c8fd2eaafcac80cf",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/core/session/src/index.ts",
+      "bytes": 60402,
+      "sha256": "711d4d071bdce9afb4ab2abcf36b5dfc79e4a956b3236aa880c8c019d73ab9e6",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/core/system-prompt/src/index.ts",
+      "bytes": 26532,
+      "sha256": "9e31442544109b3ff9be13458e826e0dcacbe31d9f59ddd96a6498ab20b1574e",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/core/tools/src/index.ts",
+      "bytes": 90679,
+      "sha256": "9107a2b6447b10c2ecb90429d7c1b80b956759e96d35230af16f5a88f5d3eccd",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/core/tools/tests/execution-mode.spec.ts",
+      "bytes": 5327,
+      "sha256": "c5b3d310db4e4003766986eb353a9c18655b92b3edd058c96dd92fbbed2b3115",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/core/tools/tests/tools.spec.ts",
+      "bytes": 112568,
+      "sha256": "50daa493965ebaeca9e0189a413303d75610110c7d95b6b4eb07f8e6e9f88f0a",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/experimental/agent-team/README.zh.md",
+      "bytes": 16440,
+      "sha256": "a9ed354fc2b555b0966c50266ac04021974e974296ba57a0b55db46b1b9dc4f9",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/packages/experimental/agent-team/src/types.ts",
+      "bytes": 7675,
+      "sha256": "8202894d958022d09d045c72782ae73a4b4c61b8ed5750d70eecbeae196f6211",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/fs/tool-fs/src/index.ts",
+      "bytes": 3584,
+      "sha256": "fde2a282c79d76fd83c0704ad2e89cd79fcabfe81aeb078859b5934b577a3585",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/fs/tool-fs/src/read.ts",
+      "bytes": 9570,
+      "sha256": "1e7d5743be73623b07cde79f2f7168f4466794c26c714b923c289cd0e155115f",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/fs/tool-fs/tests/read-render.spec.ts",
+      "bytes": 13415,
+      "sha256": "ccf5f5cbd5607eb005ec6b239169262fd5e3d70de8f0784794c6c4bc618f283d",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/interaction/user-approval/src/index.ts",
+      "bytes": 13582,
+      "sha256": "6bba9feef5257063aa41d89ddd51c31a1a474b5920c256c65d5ec2857cff1ff6",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/llm/llm-deepseek/src/adapter.ts",
+      "bytes": 8341,
+      "sha256": "68d03fbaa3dd5f04a55ff48d7cd0f2ef125077f8144977459c15432e1464cf8f",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/llm/llm-pi-ai/README.zh.md",
+      "bytes": 23408,
+      "sha256": "75d6a38c8afe995b963dbe72999c5e1ee14bbfb9af6a8e56848b7be59d3a7cb9",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/packages/llm/llm-retry/src/index.ts",
+      "bytes": 9263,
+      "sha256": "d33553781ed2118aab3b249c159fae550d359627565e4714c9ea599e474b8093",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/llm/llm-retry/tests/retry.spec.ts",
+      "bytes": 41243,
+      "sha256": "86748449e1edb71589c66c1004031dc5e0634cb3d17ae47ced57b544722b0bf4",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/llm/llm/README.zh.md",
+      "bytes": 16720,
+      "sha256": "4c4ae2cd54f0994db9300f625a4b570107c7ac7672770dd414c15d41c24ddc85",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/packages/llm/llm/src/call-config.ts",
+      "bytes": 2873,
+      "sha256": "c2ead88240db88af3199235389585d2ddc566312d8976d9648a5f5190d32e6c6",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/llm/llm/src/index.ts",
+      "bytes": 52048,
+      "sha256": "95364943b5c48dba3cb2239981a6ebe89393b55927b4d646ee72a581f23e6914",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/llm/token-meter/src/index.ts",
+      "bytes": 13533,
+      "sha256": "9d399314121785154296af650c6059bfd967a4ba6fc72299aadf8a2dce3f7ce1",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/llm/token-meter/tests/turn-usage.spec.ts",
+      "bytes": 15527,
+      "sha256": "a3239616682d9025d075f68118facb5864eb9294c118a293352950a54efdef9f",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/mcp/mcp-client/src/connection.ts",
+      "bytes": 18741,
+      "sha256": "06dc1b3a1297b8b23f6ac5c44f3ba6740716c76db71c28cfb8f14d6c0340030e",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/mcp/mcp-client/src/index.ts",
+      "bytes": 9464,
+      "sha256": "f279bd88743ca73b0d9834915d1bb31e455e21c87f4990808cfd55b273db4d1c",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/mcp/mcp-client/src/tools.ts",
+      "bytes": 20892,
+      "sha256": "59203150bda479a990afcdaf60483a35a836887926892e1074e02d0294c01af9",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/mcp/mcp-client/tests/apply.spec.ts",
+      "bytes": 17203,
+      "sha256": "b84714d412e566129258a466d617758e287986adacec345978240d0ae30c0129",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/mcp/mcp-resources/src/index.ts",
+      "bytes": 5314,
+      "sha256": "6b19614393d187629b7d273d8e8bca3d30f45cf0eac75b51493d0678eb809b65",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/session/session-persistence-jsonl/src/storage.ts",
+      "bytes": 23935,
+      "sha256": "41d6e4af01d3f613eb9d4e89e3d8ddded5070b4e73c7b3f858a61cbbd3b43b33",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/session/session-persistence-jsonl/tests/jsonl.spec.ts",
+      "bytes": 128006,
+      "sha256": "2accf256104dccacd139f49e6b146d5edd0856611e94b08adecfa1da80ac7489",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/session/session-projection/src/index.ts",
+      "bytes": 31464,
+      "sha256": "2186b62bfd59c0b5ea1413287f34e3a5be79b2162c5e0e2eb2143d7e42fea39f",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/session/session-telemetry-otel/src/index.ts",
+      "bytes": 12193,
+      "sha256": "9292d4a36dacd627de98ba136237671ce6c729ccfb0bfacf33b65f923d6c100d",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/session/session-telemetry/src/coordinator.ts",
+      "bytes": 12947,
+      "sha256": "95b54c800069ec144f66af8acaae30e07805d784abd4e21e22d584b68feae4ae",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/skill/skill-filesystem/src/index.ts",
+      "bytes": 39233,
+      "sha256": "a3fcfefcc6500f4bd7c19ba48dfa80efad312034f196f81a40d33d0d0098d315",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/skill/skill/src/index.ts",
+      "bytes": 35965,
+      "sha256": "af4fad67fb086c3f5c93aed4604830718b4535e7e59a60d680404b07ea08477c",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/skill/tool-skill/src/index.ts",
+      "bytes": 18371,
+      "sha256": "fb7b9f7558d516854ffe159803586decd1da003d7f10e04e026c4b7ca3622a1c",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/skill/tool-skill/tests/tool-skill.spec.ts",
+      "bytes": 47078,
+      "sha256": "0b4b37cd0a0bbec06220398be35ec798111c8544141cb281c083e46237b0663b",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/subagent/subagent-fork-in-process/src/index.ts",
+      "bytes": 4111,
+      "sha256": "7e6d4ca3e668541f16b660bf06e1557ae4cb069f47b98ca3b0f66751226abb03",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/subagent/subagent-in-process-driver/src/index.ts",
+      "bytes": 8730,
+      "sha256": "f341e02933336ba974c5c48b4d57aa893c80b7d0009c37489a320971efddf921",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/subagent/subagent-spawn-in-process/src/index.ts",
+      "bytes": 2695,
+      "sha256": "0401c302d49b44a779d1e6ba93f817f43a8fe67974840c432d881792ff14fe66",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/subagent/subagent-spawn-in-process/tests/subagent-spawn-in-process.spec.ts",
+      "bytes": 23612,
+      "sha256": "add9e11d6c2156fd2866e1a37d697b285c1ef9349e5a7141aa0657b1141466f5",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/subagent/subagent/src/index.ts",
+      "bytes": 29670,
+      "sha256": "3b895310cece7d2a1c49446d6dd52b29a4b6fc979cd55d09b194640dc199edda",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/subagent/tool-subagent/src/index.ts",
+      "bytes": 33392,
+      "sha256": "f7a1227d625d32dec5523d6a4f7b34dde5bba38c516a88fe08a1657679ac6aea",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/test-support/llm-replay/README.md",
+      "bytes": 13328,
+      "sha256": "d94dbf02c87b0e5404f266afce0456a5b3afdd3eec492fc84702c2bdb0376dd9",
+      "kind": "original_document"
+    },
+    {
+      "path": "source/packages/test-support/llm-replay/src/index.ts",
+      "bytes": 53258,
+      "sha256": "eee9a34c77cc5d9842e386aacd4bd32644ad356d5f68cba77a3cf2f2181d1323",
+      "kind": "source_or_test"
+    },
+    {
+      "path": "source/packages/test-support/llm-replay/tests/llm-replay.spec.ts",
+      "bytes": 100452,
+      "sha256": "4b68f4e1f537863a10bd4cde16c32c11c1348cea0d9f72f6af8332a67d19ee25",
+      "kind": "source_or_test"
+    }
+  ]
+}

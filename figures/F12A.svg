@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="760" viewBox="0 0 1120 760" role="img" aria-labelledby="F12A-title F12A-desc">
+<title id="F12A-title">F12A：外部工具进入原有执行链</title>
+<desc id="F12A-desc">{&quot;id&quot;: &quot;F12A&quot;, &quot;title&quot;: &quot;外部工具进入原有执行链&quot;, &quot;kind&quot;: &quot;flow&quot;, &quot;tag&quot;: &quot;结构示意&quot;, &quot;nodes&quot;: [[&quot;建立连接代次&quot;, &quot;配置决定外部服务&quot;, &quot;control&quot;], [&quot;发现工具定义&quot;, &quot;连接不等于发现成功&quot;, &quot;tool&quot;], [&quot;包装公开名称&quot;, &quot;规范名称与输出契约&quot;, &quot;control&quot;], [&quot;注册现有工具服务&quot;, &quot;成为可见的工具定义&quot;, &quot;tool&quot;], [&quot;模型提出调用&quot;, &quot;仍经通用准入链&quot;, &quot;model&quot;], [&quot;远端执行并返回&quot;, &quot;包装层传递参数与结果&quot;, &quot;tool&quot;]]}</desc>
+<rect width="1120" height="760" fill="white"/>
+<text x="48" y="56" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#20314B">F12A  外部工具进入原有执行链</text>
+<text x="48" y="97" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="400" fill="#65738A">原创教学图 · 结构示意</text>
+<rect x="55" y="140" width="310" height="165" rx="16" fill="#F0EBFF" stroke="#7659AA" stroke-width="2"/>
+<text x="77" y="187" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">1  建立连接代次</text>
+<text x="77" y="235" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">配置决定外部服务</text>
+<rect x="405" y="140" width="310" height="165" rx="16" fill="#E5F6ED" stroke="#367E5A" stroke-width="2"/>
+<text x="427" y="187" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">2  发现工具定义</text>
+<text x="427" y="235" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">连接不等于发现成功</text>
+<rect x="755" y="140" width="310" height="165" rx="16" fill="#F0EBFF" stroke="#7659AA" stroke-width="2"/>
+<text x="777" y="187" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">3  包装公开名称</text>
+<text x="777" y="235" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">规范名称与输出契约</text>
+<rect x="755" y="410" width="310" height="165" rx="16" fill="#E5F6ED" stroke="#367E5A" stroke-width="2"/>
+<text x="777" y="457" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">4  注册现有工具服务</text>
+<text x="777" y="505" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">成为可见的工具定义</text>
+<rect x="405" y="410" width="310" height="165" rx="16" fill="#FFF2CC" stroke="#A97F16" stroke-width="2"/>
+<text x="427" y="457" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">5  模型提出调用</text>
+<text x="427" y="505" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">仍经通用准入链</text>
+<rect x="55" y="410" width="310" height="165" rx="16" fill="#E5F6ED" stroke="#367E5A" stroke-width="2"/>
+<text x="77" y="457" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">6  远端执行并返回</text>
+<text x="77" y="505" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">包装层传递参数与结果</text>
+<polyline points="365,240 405,240" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="405.0,240.0 395.3,245.3 395.3,234.7" fill="#65738A"/>
+<text x="343.0" y="330" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" font-weight="400" fill="#20314B">能力协商</text>
+<polyline points="715,240 755,240" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="755.0,240.0 745.3,245.3 745.3,234.7" fill="#65738A"/>
+<text x="693.0" y="330" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" font-weight="400" fill="#20314B">构建定义</text>
+<polyline points="910,305 910,410" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="910.0,410.0 904.7,400.3 915.3,400.3" fill="#65738A"/>
+<text x="926" y="352" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" font-weight="400" fill="#65738A">交换注册</text>
+<polyline points="755,510 715,510" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="715.0,510.0 724.7,504.7 724.7,515.3" fill="#65738A"/>
+<text x="693.0" y="600" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" font-weight="400" fill="#20314B">请求调用</text>
+<polyline points="405,510 365,510" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="365.0,510.0 374.7,504.7 374.7,515.3" fill="#65738A"/>
+<text x="343.0" y="600" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" font-weight="400" fill="#20314B">分派远端</text>
+<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：先确认范围，再跟随标注；示意布局不代表实际耗时或比例。</text>
+</svg>

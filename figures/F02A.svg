@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="760" viewBox="0 0 1120 760" role="img" aria-labelledby="F02A-title F02A-desc">
+<title id="F02A-title">F02A：异步等待取决于返回契约</title>
+<desc id="F02A-desc">{&quot;id&quot;: &quot;F02A&quot;, &quot;title&quot;: &quot;异步等待取决于返回契约&quot;, &quot;kind&quot;: &quot;compare&quot;, &quot;tag&quot;: &quot;结构示意&quot;, &quot;left&quot;: [&quot;提交调用方&quot;, &quot;等待输入接纳所需步骤&quot;, &quot;获得接纳对象后继续&quot;, &quot;没有拿到最终总结对象&quot;], &quot;right&quot;: [&quot;智能体驱动&quot;, &quot;被唤醒后消费收件箱&quot;, &quot;继续模型与工具阶段&quot;, &quot;与调用方的等待范围不同&quot;]}</desc>
+<rect width="1120" height="760" fill="white"/>
+<text x="48" y="56" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#20314B">F02A  异步等待取决于返回契约</text>
+<text x="48" y="97" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="400" fill="#65738A">原创教学图 · 结构示意</text>
+<rect x="48" y="150" width="495" height="470" rx="16" fill="#F0EBFF" stroke="#7659AA" stroke-width="2"/>
+<text x="70" y="197" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">提交调用方</text>
+<text x="70" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">等待输入接纳所需步骤</text>
+<text x="70" y="294" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">获得接纳对象后继续</text>
+<text x="70" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">没有拿到最终总结对象</text>
+<rect x="577" y="150" width="495" height="470" rx="16" fill="#E5F6ED" stroke="#367E5A" stroke-width="2"/>
+<text x="599" y="197" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">智能体驱动</text>
+<text x="599" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">被唤醒后消费收件箱</text>
+<text x="599" y="294" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">继续模型与工具阶段</text>
+<text x="599" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">与调用方的等待范围不同</text>
+<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：先确认范围，再跟随标注；示意布局不代表实际耗时或比例。</text>
+</svg>

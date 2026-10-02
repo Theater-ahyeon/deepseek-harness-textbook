@@ -1,0 +1,56 @@
+two maps in the order that separates them. Throughout the argument, a lift applied where its 
+precondition fails produces no transition, per the convention of Section 3.2.1, so a map meeting 
+a state its key has left is read as the identity.
+Lemma 67. (Entangled steps.) Let an episode of 𝑛 open at 𝑏, and let step 𝑡 ≥ 𝑏 in the episode 
+act on an 𝑚 ≠ 𝑛 entangled with 𝑛. Then
+1. where 𝑝𝑚 ∩ (𝑑𝑛 ∪ 𝑝𝑛) ≠ ⌀, Ψ𝑡 = idΓ;
+2. otherwise 𝑔𝑡
+𝑛(Ψ𝑡(𝛾𝑡)) ≃𝐾 Ψ𝑡(𝑔𝑡
+𝑛(𝛾𝑡));
+3. where moreover 𝜃𝑡
+𝑛 = 𝖱𝖾𝗅𝗈𝖺𝖽𝗂𝗇𝗀(−, −, −), Ψ𝑡 = idΓ in either case.
+Proof. (1) A key of 𝑝𝑚 ∩ 𝑝𝑛 would put two registered provisions in conflict with the premise 
+of O-Insert, so some 𝑘 ∈ 𝑝𝑚 ∩ 𝑑𝑛, and 𝑚 is the one registered fiber whose provision carries 𝑘. 
+The premise of 𝑛’s L-Begin at 𝑏 − 1 resolves 𝑘 to an 𝖠𝖼𝗍𝗂𝗏𝖾 provider, so 𝜔𝑏
+𝑛(𝑘) = 𝑚 and 𝜃𝑏−1
+𝑚 =
+𝖠𝖼𝗍𝗂𝗏𝖾(−, −); 𝜔𝑛 holds 𝑚 for as long as the episode is open ( Lemma 59(2)) while installed𝑛 
+holds, which is relied𝑚(𝛾𝑡) at every such 𝑡. The guard therefore blocks every L-Unload of 𝑚 
+there, so 𝑚 never reaches 𝖨𝗇𝖺𝖼𝗍𝗂𝗏𝖾, and a fiber standing at 𝖠𝖼𝗍𝗂𝗏𝖾 or 𝖴𝗇𝗅𝗈𝖺𝖽𝗂𝗇𝗀 is acted on only by 
+L-Leave, O-Retire, and the blocked L-Unload, of which the first two have Ψ𝑡 = idΓ (Table 1).
+(2) Here 𝑝𝑚 ∩ (𝑑𝑛 ∪ 𝑝𝑛) = ⌀ and some 𝑘 ∈ 𝑝𝑛 ∩ 𝑑𝑚. Ψ𝑡 is one of 𝑚’s iterations or the accumula-
+tor 𝑔𝑡
+𝑚, in either case a composite of the maps Definition 56 admits for 𝑚: lifts of operation maps, 
+forward or inverse, at keys of 𝑑𝑚 ∪ 𝑝𝑚, extensions and restrictions at keys of 𝑝𝑚, instantiations, 
+and the O-Retires those yield. The constituents of 𝑔𝑡
+𝑛 are the inverses Definition 56 admits for 𝑛: 
+lifts of operation inverses at keys of 𝑑𝑛 ∪ 𝑝𝑛, restrictions at keys of 𝑝𝑛, and O-Retires. Commute 
+the constituents of Ψ𝑡 past those of 𝑔𝑡
+𝑛 one pair at a time. A pair at distinct keys is a pair of key-
+local maps and commutes; an instantiation or an O-Retire writes a fresh entry or a control field, 
+which no table map reads, and commutes with every constituent in sight; a pair of operation 
+maps at one shared key is covered by that key’s commutativity, which the witness of its coeffect 
+supplies (Definition 46), read at the tables through the lift of Definition 56. What remains is 
+an operation map of 𝑚 at a key 𝑘 ∈ 𝑝𝑛 ∩ 𝑑𝑚 against the extension or restriction of 𝑛 at 𝑘. Such 
+a map exists in Ψ𝑡 only under a committed view of 𝑚 resolving 𝑘 (Lemma 59(2)), whose L-
+Begin required an 𝖠𝖼𝗍𝗂𝗏𝖾 provider of 𝑘; the commitment pins that provider for as long as 𝑚 is 
+installed, by the argument of (1) read at 𝑚, and two registered provisions cannot share 𝑘, so 
+the provider is 𝑛 and 𝑛 was 𝖠𝖼𝗍𝗂𝗏𝖾 within the open episode. Its transition had therefore finished 
+by 𝑡, and 𝑔𝑡
+𝑛 carries the restriction at 𝑘 the extension 𝑚 resolved yielded, composed to the left of 
+𝑛’s operation inverses at 𝑘 by the LIFO order of Definition 18. On one side the operation map 
+of 𝑚 commutes leftward, past constituents at other keys and, by commutativity of 𝑘, past 𝑛’s 
+operation inverses at 𝑘, until the restriction absorbs it, a write to the value at 𝑘 followed by the 
+removal of 𝑘 being the removal alone; on the other side it meets a state 𝑔𝑡
+𝑛 has removed 𝑘 from 
+and produces no transition. Both composites therefore agree at 𝛾𝑡.
+(3) The provider case is (1). In the consumer case, a consumer of 𝑛 is not installed while 𝑛 
+is 𝖱𝖾𝗅𝗈𝖺𝖽𝗂𝗇𝗀: its commitment resolving a key to 𝑛 would have held relied𝑛 and blocked the L-
+Unload closing 𝑛’s previous episode, and a new commitment requires an 𝖠𝖼𝗍𝗂𝗏𝖾 provider. An 
+uninstalled fiber is acted on only by L-Begin and the orchestration rules; the orchestration rules 
+have Ψ𝑡 = idΓ, and L-Begin is inapplicable, the key 𝑛 provides lying outside dom(𝜎𝛾𝑡) and the 
+target of a fiber declaring it therefore ⊥. □
+With every pair so covered, the single-accumulator invariant of Theorem 7 survives the 
+interleaving, in the form that gives temporal composability its content: running an inverse 
+withdraws the fiber’s contribution and nothing else.
+45

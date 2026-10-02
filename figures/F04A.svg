@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="760" viewBox="0 0 1120 760" role="img" aria-labelledby="F04A-title F04A-desc">
+<title id="F04A-title">F04A：参数经过服务读取，成为有限结果</title>
+<desc id="F04A-desc">{&quot;id&quot;: &quot;F04A&quot;, &quot;title&quot;: &quot;参数经过服务读取，成为有限结果&quot;, &quot;kind&quot;: &quot;flow&quot;, &quot;tag&quot;: &quot;结构示意&quot;, &quot;nodes&quot;: [[&quot;读取参数&quot;, &quot;路径、起始行、行数&quot;, &quot;model&quot;], [&quot;校验与准入&quot;, &quot;形状、范围和执行许可&quot;, &quot;control&quot;], [&quot;文件服务&quot;, &quot;提供方解析目标并读文本&quot;, &quot;tool&quot;], [&quot;构造行窗口&quot;, &quot;同时考虑行、字符和字节&quot;, &quot;tool&quot;], [&quot;形成模型文本&quot;, &quot;保留来源与截断信息&quot;, &quot;model&quot;], [&quot;提交并进入后续请求&quot;, &quot;界面元数据有另一用途&quot;, &quot;log&quot;]]}</desc>
+<rect width="1120" height="760" fill="white"/>
+<text x="48" y="56" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#20314B">F04A  参数经过服务读取，成为有限结果</text>
+<text x="48" y="97" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="400" fill="#65738A">原创教学图 · 结构示意</text>
+<rect x="55" y="140" width="310" height="165" rx="16" fill="#FFF2CC" stroke="#A97F16" stroke-width="2"/>
+<text x="77" y="187" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">1  读取参数</text>
+<text x="77" y="235" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">路径、起始行、行数</text>
+<rect x="405" y="140" width="310" height="165" rx="16" fill="#F0EBFF" stroke="#7659AA" stroke-width="2"/>
+<text x="427" y="187" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">2  校验与准入</text>
+<text x="427" y="235" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">形状、范围和执行许可</text>
+<rect x="755" y="140" width="310" height="165" rx="16" fill="#E5F6ED" stroke="#367E5A" stroke-width="2"/>
+<text x="777" y="187" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">3  文件服务</text>
+<text x="777" y="235" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">提供方解析目标并读文本</text>
+<rect x="755" y="410" width="310" height="165" rx="16" fill="#E5F6ED" stroke="#367E5A" stroke-width="2"/>
+<text x="777" y="457" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">4  构造行窗口</text>
+<text x="777" y="505" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">同时考虑行、字符和字节</text>
+<rect x="405" y="410" width="310" height="165" rx="16" fill="#FFF2CC" stroke="#A97F16" stroke-width="2"/>
+<text x="427" y="457" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">5  形成模型文本</text>
+<text x="427" y="505" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">保留来源与截断信息</text>
+<rect x="55" y="410" width="310" height="165" rx="16" fill="#EDF1F5" stroke="#63758A" stroke-width="2"/>
+<text x="77" y="457" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">6  提交并进入后续请求</text>
+<text x="77" y="505" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">界面元数据有另一用途</text>
+<polyline points="365,240 405,240" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="405.0,240.0 395.3,245.3 395.3,234.7" fill="#65738A"/>
+<text x="343.0" y="330" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" font-weight="400" fill="#20314B">提交参数</text>
+<polyline points="715,240 755,240" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="755.0,240.0 745.3,245.3 745.3,234.7" fill="#65738A"/>
+<text x="693.0" y="330" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" font-weight="400" fill="#20314B">获准分派</text>
+<polyline points="910,305 910,410" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="910.0,410.0 904.7,400.3 915.3,400.3" fill="#65738A"/>
+<text x="926" y="352" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" font-weight="400" fill="#65738A">取得文本</text>
+<polyline points="755,510 715,510" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="715.0,510.0 724.7,504.7 724.7,515.3" fill="#65738A"/>
+<text x="693.0" y="600" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" font-weight="400" fill="#20314B">按契约渲染</text>
+<polyline points="405,510 365,510" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="365.0,510.0 374.7,504.7 374.7,515.3" fill="#65738A"/>
+<text x="343.0" y="600" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" font-weight="400" fill="#20314B">记录结果</text>
+<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：先确认范围，再跟随标注；示意布局不代表实际耗时或比例。</text>
+</svg>

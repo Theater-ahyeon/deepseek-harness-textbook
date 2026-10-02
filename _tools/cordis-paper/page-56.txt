@@ -1,0 +1,49 @@
+of steps and so covers the inertial ones, and Theorem 73 appeals to the aborting alternative 
+nowhere, so a host bound by inertia still quiesces. An inverse in flight calls for no counterpart 
+of inertia: the rules never decline a deactivation, 𝖴𝗇𝗅𝗈𝖺𝖽𝗂𝗇𝗀 being left by L-Unload alone with 
+no premise on the target view, and a step of another fiber falling within the accumulator’s 
+application commutes with the inverses not yet applied, by the arguments Theorem 68 rests 
+on (Definition 65, Lemma 67, Lemma 66), so an application spread over an interval reaches 
+the state the one-step application reaches, up to ≃𝐾. A deactivation may also chain straight 
+back into an activation: the accumulator runs whatever the target view has become, and from 
+𝖨𝗇𝖺𝖼𝗍𝗂𝗏𝖾 an L-Begin may immediately follow, which is the mutual chaining of reload and unload 
+in the implementation (Section 5.1.3).
+Failure. The effects a component installs reach outside the context that tracks them, and 
+a location they reach may refuse: a port already bound, a file that is not there, a peer that 
+does not answer. Refine the iterator so that an iteration may raise an error in place of yielding 
+a triple, Γ → 𝖤𝗂𝗍𝗁𝖾𝗋(Ξ, Γ × (Γ → Γ) × 𝖬𝖺𝗒𝖻𝖾(ℑ)) for a set Ξ of errors, the witness constraining 
+the 𝖱𝗂𝗀𝗁𝗍 case alone, a raise having nothing to undo. A raise exits 𝖱𝖾𝗅𝗈𝖺𝖽𝗂𝗇𝗀 by the route of an 
+aborting L-Divert whose premise on the target view is dropped, the iteration rather than the 
+environment choosing the abort: the fiber routes into 𝖴𝗇𝗅𝗈𝖺𝖽𝗂𝗇𝗀 with the accumulator built up 
+to the failing iteration, arrives at 𝖨𝗇𝖺𝖼𝗍𝗂𝗏𝖾 having installed nothing (Corollary 69), and the exit 
+writes the error as an outcome on the fiber. The outcome withholds re-entry: L-Begin is read as 
+requiring an error-free fiber, so an effect function that raised is not retried against an unchanged 
+environment, and quiet admits a failed fiber whatever its target view; the failure likewise stays 
+on the fiber rather than propagating to its parent, leaving siblings running. A retry is a revision: 
+the reinserted fiber of the Configuration paragraph starts without an outcome. Preservation 
+and recovery hold unchanged, a raise leaving by the same 𝖴𝗇𝗅𝗈𝖺𝖽𝗂𝗇𝗀 route every deactivation 
+takes. Confluence excludes failed fibers, and has to: whether an iteration raises depends on 
+the state it meets, so one schedule may fail a fiber where another completes it, and the two 
+quiescent states then differ in that fiber’s lifecycle state and, by Corollary 69, in nothing else. 
+The FAILED state of the implementation carries this outcome (Section 5.1.3).
+Isolation. Section  4.1 reads every key at one shared realm and names the relaxation a 
+calculus carrying realms would make: provisions disjoint within a realm rather than outright, 
+each declared key resolved against the realm of the fiber declaring it. For realms fixed at a fiber’s 
+insertion, the relaxed calculus is the present one read at a larger key set. Take the key set to be 
+𝐾 × 𝑅, each pair (𝑘, 𝑟) carrying the value set 𝒱︀𝑘 and the operations 𝒜︀𝑘 of its underlying key, 
+so that ≃(𝑘,𝑟) is ≃𝑘, a key commutative in the sense of Definition 44 is commutative at every 
+realm, and the coeffect at a pair inherits the witness of its underlying key ( Definition 46). A 
+fiber inserted under a realm table 𝜌 then declares and provides pairs, a key 𝑘 of its interface 
+standing for (𝑘, 𝜌(𝑘)); the last premise of O-Insert, read at pairs, is disjointness within a realm, 
+two fibers providing one key in different realms provide different pairs, and the one shared 
+realm is the diagonal (𝑘, 𝑘), a key outside dom(𝜌) resolving to its own realm ( Definition 24). 
+Keys are as atomic to the rules as names: no rule computes one, inspects its structure, or relates 
+two of them by anything but equality, so the rules and the results of Section 4.3 apply at 𝐾 × 𝑅 
+as they stand. The reading stops at isolate itself (Definition 25), which reassigns 𝜌 on a running 
+context: under the pairing a reassignment moves a declaration from one pair to another, and 
+𝑑𝑛 and 𝑝𝑛 are written once with a fiber’s entry ( Lemma 59(5)), so a fiber whose realm turns 
+at runtime is one whose interface has changed, a revision the Configuration paragraph carries. 
+Interception (Definition 26) calls for no extension: metadata adjusts how a binding is used 
+rather than what a key resolves to, is consulted when the binding is accessed, and is discarded 
+with the context that carries it, so no premise reads it and no field of a fiber holds it.
+56

@@ -1,0 +1,44 @@
+Across distinct keys the condition holds outright.
+Theorem 45. Operations at distinct keys are independent.
+Proof. Let 𝑎 lie in 𝒜︀𝑘 and 𝑎′ in 𝒜︀𝑘′ with 𝑘 ≠ 𝑘′. By Definition 29 every generator of 𝔐(𝑎Σ) is of 
+the form 𝜎 ↦ 𝜎[𝑘 ↦ 𝑢(𝜎(𝑘))] for a map 𝑢 on 𝒱︀𝑘, being either the lift of a forward map or the 
+lift of a yielded inverse, and likewise for 𝑎′ at 𝑘′. Two such maps commute, each reading and 
+writing one key alone and the two keys differing, and Lemma 41(1) extends the commutation 
+from the generators to the two monoids. For the second condition, what 𝑎Σ yields at 𝜎, inverse 
+and outcome alike, is determined by 𝜎(𝑘), which every generator of 𝔐(𝑎′Σ) leaves as it stands.□
+The condition therefore turns on the pairs at one key, and the proof of their independence 
+is made a constituent of the coeffect itself, as the proof that an inverse reverts is a constituent 
+of the effect function (Definition 8):
+Definition 46. A coeffect at 𝑘 (Definition 29) is witnessed when it carries, as a third constituent 
+beside 𝒱︀𝑘 and 𝒜︀𝑘, a proof that 𝑘 is commutative (Definition 44).
+The two witnesses are parallel: each certifies the condition its consumers would otherwise 
+have to assume, the returned inverse reverting there and the operations commuting here, 
+and each is supplied where the definition is written rather than checked where it is used. By 
+Theorem 45 the proof concerns the operations of 𝑘 alone, so the obligation falls on the compo-
+nent providing the key and on no component consuming it; the examples below are how it is 
+discharged. From here on every coeffect is witnessed, and Section 4 reads every key of 𝐾 so.
+A key whose value is a table of entries is commutative when each registration takes an 
+entry of its own, registration of a route or of an event listener being the representative case. 
+The operation draws an identifier for the entry it adds and the inverse it yields removes that 
+entry, so two registrations name two entries whatever they register: either order leaves a table 
+that answers every test alike, and either registration can be withdrawn while the other stands. 
+Replicated data types are designed to this condition and attach a unique tag to each addition 
+for this very reason, a set whose additions and removals name a bare element having no such 
+property [43]. A key whose value is an ordered chain is not commutative, since a middleware 
+inserted before another sees a different request, and neither order can be withdrawn without 
+disturbing the other.
+The allocator of the opening example divides by what its interface publishes. Where the 
+handles it hands out are compared by no operation of the key, no test observes them, so ≃𝑘 
+relates two heaps up to a renaming of handles and allocation is commutative; a renaming is an 
+equivalence the operations respect, contained in ≃𝑘 by Lemma 32(2), and it is how CompCert 
+relates the memory states of a program and of its translation [44]. Where the addresses are 
+outcomes compared by equality, the outcome of a further allocation separates the two orders of 
+allocation, and the key is not commutative. POSIX draws the same line across its own allocators: 
+mmap may return any unused address and creat may assign any unused inode, whereas open 
+is required to return the lowest available descriptor, and that requirement alone is what stops 
+two descriptor allocations from commuting [45].
+Definition 31 turns each of these divisions into a design choice. ≃𝑘 is indistinguishability 
+under the tests the operations of 𝑘 generate, so an interface publishing fewer outcomes admits 
+fewer tests and coarsens the relation, and withholding an outcome its callers do not need can 
+carry a key from one side of a division to the other. The scalable commutativity rule applies 
+29

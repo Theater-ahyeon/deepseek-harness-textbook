@@ -1,0 +1,383 @@
+{
+  "chapter_count": 10,
+  "subsystems": [
+    {
+      "subsystem": "core",
+      "book_chapter": "01",
+      "reference": "source/docs/subsystems/core.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "commands",
+      "book_chapter": "01",
+      "reference": "source/docs/subsystems/commands.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "system-prompt",
+      "book_chapter": "02",
+      "reference": "source/docs/subsystems/system-prompt.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "skills",
+      "book_chapter": "02",
+      "reference": "source/docs/subsystems/skills.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "compaction",
+      "book_chapter": "02",
+      "reference": "source/docs/subsystems/compaction.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "attachment",
+      "book_chapter": "02",
+      "reference": "source/docs/subsystems/attachment.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "session-reference",
+      "book_chapter": "02",
+      "reference": "source/docs/subsystems/session-reference.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "scope",
+      "book_chapter": "02",
+      "reference": "source/docs/subsystems/scope.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "spill",
+      "book_chapter": "02",
+      "reference": "source/docs/subsystems/spill.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "session",
+      "book_chapter": "03",
+      "reference": "source/docs/subsystems/session.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "persistence",
+      "book_chapter": "03",
+      "reference": "source/docs/subsystems/persistence.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "storage",
+      "book_chapter": "03",
+      "reference": "source/docs/subsystems/storage.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "workspace",
+      "book_chapter": "03",
+      "reference": "source/docs/subsystems/workspace.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "session-query",
+      "book_chapter": "03",
+      "reference": "source/docs/subsystems/session-query.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "session-projection",
+      "book_chapter": "03",
+      "reference": "source/docs/subsystems/session-projection.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "session-title",
+      "book_chapter": "03",
+      "reference": "source/docs/subsystems/session-title.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "tools",
+      "book_chapter": "04",
+      "reference": "source/docs/subsystems/tools.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "filesystem",
+      "book_chapter": "04",
+      "reference": "source/docs/subsystems/filesystem.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "approval",
+      "book_chapter": "04",
+      "reference": "source/docs/subsystems/approval.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "mcp",
+      "book_chapter": "04",
+      "reference": "source/docs/subsystems/mcp.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "web",
+      "book_chapter": "04",
+      "reference": "source/docs/subsystems/web.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "ptc-runtime",
+      "book_chapter": "04",
+      "reference": "source/docs/subsystems/ptc-runtime.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "sandbox",
+      "book_chapter": "04",
+      "reference": "source/docs/subsystems/sandbox.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "permission-presets",
+      "book_chapter": "04",
+      "reference": "source/docs/subsystems/permission-presets.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "boot",
+      "book_chapter": "05",
+      "reference": "source/docs/subsystems/boot.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "shell",
+      "book_chapter": "05",
+      "reference": "source/docs/subsystems/shell.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "subprocess",
+      "book_chapter": "05",
+      "reference": "source/docs/subsystems/subprocess.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "terminal",
+      "book_chapter": "05",
+      "reference": "source/docs/subsystems/terminal.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "ssh",
+      "book_chapter": "05",
+      "reference": "source/docs/subsystems/ssh.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "lsp",
+      "book_chapter": "05",
+      "reference": "source/docs/subsystems/lsp.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "settings",
+      "book_chapter": "05",
+      "reference": "source/docs/subsystems/settings.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "credentials",
+      "book_chapter": "05",
+      "reference": "source/docs/subsystems/credentials.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "web-client",
+      "book_chapter": "06",
+      "reference": "source/docs/subsystems/web-client.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "web-server",
+      "book_chapter": "06",
+      "reference": "source/docs/subsystems/web-server.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "client-modules",
+      "book_chapter": "06",
+      "reference": "source/docs/subsystems/client-modules.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "client-resources",
+      "book_chapter": "06",
+      "reference": "source/docs/subsystems/client-resources.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "slots",
+      "book_chapter": "06",
+      "reference": "source/docs/subsystems/slots.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "sidebar-right",
+      "book_chapter": "06",
+      "reference": "source/docs/subsystems/sidebar-right.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "conversation",
+      "book_chapter": "06",
+      "reference": "source/docs/subsystems/conversation.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "typert",
+      "book_chapter": "06",
+      "reference": "source/docs/subsystems/typert.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "office-to-pdf",
+      "book_chapter": "06",
+      "reference": "source/docs/subsystems/office-to-pdf.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "deliverables",
+      "book_chapter": "06",
+      "reference": "source/docs/subsystems/deliverables.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "voice-input",
+      "book_chapter": "06",
+      "reference": "source/docs/subsystems/voice-input.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "browser-use",
+      "book_chapter": "06",
+      "reference": "source/docs/subsystems/browser-use.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "computer-use",
+      "book_chapter": "06",
+      "reference": "source/docs/subsystems/computer-use.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "user-questions",
+      "book_chapter": "06",
+      "reference": "source/docs/subsystems/user-questions.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "token-meter",
+      "book_chapter": "07",
+      "reference": "source/docs/subsystems/token-meter.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "invariants",
+      "book_chapter": "07",
+      "reference": "source/docs/subsystems/invariants.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "feedback",
+      "book_chapter": "07",
+      "reference": "source/docs/subsystems/feedback.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "otel",
+      "book_chapter": "07",
+      "reference": "source/docs/subsystems/otel.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "product-telemetry",
+      "book_chapter": "07",
+      "reference": "source/docs/subsystems/product-telemetry.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "session-telemetry",
+      "book_chapter": "07",
+      "reference": "source/docs/subsystems/session-telemetry.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "llm-streaming",
+      "book_chapter": "08",
+      "reference": "source/docs/subsystems/llm-streaming.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "goal",
+      "book_chapter": "09",
+      "reference": "source/docs/subsystems/goal.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "plan",
+      "book_chapter": "09",
+      "reference": "source/docs/subsystems/plan.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "todo",
+      "book_chapter": "09",
+      "reference": "source/docs/subsystems/todo.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "schedule",
+      "book_chapter": "09",
+      "reference": "source/docs/subsystems/schedule.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "webhook",
+      "book_chapter": "09",
+      "reference": "source/docs/subsystems/webhook.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "extensions",
+      "book_chapter": "09",
+      "reference": "source/docs/subsystems/extensions.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "subagent",
+      "book_chapter": "10",
+      "reference": "source/docs/subsystems/subagent.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "agent-team",
+      "book_chapter": "10",
+      "reference": "source/docs/subsystems/agent-team.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "jobs",
+      "book_chapter": "10",
+      "reference": "source/docs/subsystems/jobs.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    },
+    {
+      "subsystem": "workflow",
+      "book_chapter": "10",
+      "reference": "source/docs/subsystems/workflow.zh.md",
+      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+    }
+  ]
+}

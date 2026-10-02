@@ -1,0 +1,52 @@
+4.2.3.  Confinement
+With instantiation the one exception in hand, the discipline an effect function is held to can be 
+given. It bounds what an application of an iteration writes, so that the rule applying it accounts 
+for every other change, and what it reads, so that a fiber sees the coeffects it declared and no 
+more of the registry. Bounding the writes is what lets Section 4.3 read Table 1 as a complete 
+inventory of them.
+Definition 55. A map 𝑓 : Γ → Γ is confined to 𝑛 when for every 𝛾 ∈ Γ with 𝑛 ∈ dom(𝐹𝛾), writing 
+𝛿 = 𝑓(𝛾),
+1. (Writes.) dom(𝐹𝛿) = dom(𝐹𝛾), 𝛿(𝑚) and 𝛾(𝑚) differ at most in 𝜎𝑚|𝑑𝑛
+ for every 𝑚 ∈
+dom(𝐹𝛾) with 𝑚 ≠ 𝑛, and 𝛿(𝑛) and 𝛾(𝑛) differ in 𝜎 alone;
+2. (Reads.) two states agreeing on 𝜎𝑛 and on the restrictions 𝜎𝑚|𝑑𝑛
+ for every 𝑚 ∈ dom(𝐹𝛾) 
+are carried by 𝑓 to states agreeing on the same two.
+An effect function 𝑒 is confined to 𝑛 when every iterator 𝑖 ∈ reach(𝑒) either instantiates a compo-
+nent (Definition 52) or has both its state map pr1 ∘ 𝑖 and every inverse it yields confined to 𝑛.
+An instantiation writes the entry O-Insert writes, at the one name it draws, and nothing else; 
+the O-Retire it yields as its inverse writes the 𝜏 of that name and nothing else. An application 
+of either kind therefore writes no control field of a fiber already present, save that one 𝜏, and 
+reads none at all.
+Clause (1) permits a write outside the fiber’s own table, and there is exactly one kind: the 
+value at a declared key lives in the provider’s table, so a component operating on a coeffect 
+it declared moves 𝜎𝑚|𝑑𝑛
+ for the 𝑚 providing it. Clause (2) is why a component may read the 
+values it declared as well: an effect function that reads no table but 𝜎𝑛 would be unable to use 
+its own coeffects. What it may neither read nor write is a table outside the two declarations, any 
+control field, or anything no table holds, which is what keeps a component from branching on 
+the lifecycle state of a fiber it did not declare.
+The context paradigm fixes the form of an effect function — a sequence of stages, each 
+a coeffect operation, a provision, or an instantiation — and confinement is a consequence of 
+that form.
+Definition 56. A stage of Definition 30 lifts along the coeffect projection : it acts on the one table 
+that holds the binding at its key, over every fiber and not the 𝖠𝖼𝗍𝗂𝗏𝖾 ones alone as Definition 51 
+reads the tables, an extension landing in the table of the fiber acting, and it leaves the rest of the 
+state as it stands. The context-mediated iterators for 𝑛 form the least set ℑ𝒜︀
+Γ(𝑛) of iterators on Γ 
+that contains the unit and, each continuation drawn from 𝖭𝗈𝗍𝗁𝗂𝗇𝗀 and the members, contains 
+three iteration forms: the lift of an operation stage at a key of 𝑑𝑛 ∪ 𝑝𝑛, the lift of a provision 
+stage at a key of 𝑝𝑛, and an instantiation (Definition 52). Every fiber’s effect function is required 
+to lie in ℑ𝒜︀
+Γ(𝑛) at that fiber.
+Lemma 57. A member of ℑ𝒜︀
+Γ(𝑛) is confined to 𝑛, and it lies in ℑ𝑑𝑛∪𝑝𝑛
+Γ  (Definition 37) at the 
+projection Definition 51 fixes, which is the witness Definition 48 requires of it.
+Proof. For confinement, by induction on the construction. An instantiation is the exception 
+Definition 55 carves out. The lift of a stage at 𝑘 writes the binding at 𝑘 and nothing else: at 𝑘 ∈
+𝑝𝑛 that binding lies in 𝜎𝑛, by disjointness of provisions, and at 𝑘 ∈ 𝑑𝑛 it lies in some 𝜎𝑚|𝑑𝑛
+, 
+which is clause (1); the inverse it yields, the lift of the operation’s inverse or the restriction at 
+𝑘 ∈ 𝑝𝑛, writes the same binding or removes it from 𝜎𝑛. For clause (2), a stage reads the binding 
+38

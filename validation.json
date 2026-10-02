@@ -1,0 +1,39 @@
+{
+  "edition": "self_contained_ten_chapter_edition",
+  "chapter_count": 10,
+  "source_topic_count": 18,
+  "subsystems_explained": 63,
+  "exercise_sections": false,
+  "source_reading_required": false,
+  "figure_count": 40,
+  "figure_formats": [
+    "SVG",
+    "PNG"
+  ],
+  "source_excerpts_checked": 60,
+  "markdown_files_checked": 36,
+  "local_links_checked": 858,
+  "reader_inline_svg_count": 40,
+  "reader_local_links_checked": 78,
+  "reader_remote_runtime_dependencies": false,
+  "reference_hashes_checked": 154,
+  "source_commit": "639ed015397290b3745d163aafe02ffee4aa3f84",
+  "tracked_source_changes": false,
+  "errors": [],
+  "source_review": "static",
+  "upstream_tests_run": false,
+  "project_runtime_started": false,
+  "visual_review": "Representative diagrams inspected; not every browser or upstream feature tested",
+  "browser_review": {
+    "browser": "Microsoft Edge",
+    "delivery": "file URL; offline HTML",
+    "chapter_navigation_count": 10,
+    "inline_svg_count": 40,
+    "desktop_viewport_width": 1912,
+    "mobile_viewport_width": 390,
+    "mobile_document_scroll_width": 375,
+    "mobile_diagram_scroll_width": 760,
+    "broken_images": 0,
+    "notes": "Desktop preface and mobile first-diagram screenshots inspected; not every browser tested"
+  }
+}

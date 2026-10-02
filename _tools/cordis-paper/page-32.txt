@@ -1,0 +1,46 @@
+Definition 49. Fix a set 𝔑 of fiber names. A fiber instantiating the component (𝑑, 𝑝, 𝑒) ∈ ℭΓ is a 
+tuple ⟨𝑑, 𝑝, 𝑒, 𝜋, 𝜎, 𝜏, 𝜃⟩, where
+• 𝑑 : 𝔇Γ, 𝑝 : 𝔓Γ, and 𝑒 : ℑ𝑑∪𝑝
+Γ  are the coeffect specification, provision, and effect function of 
+Definition 48;
+• 𝜋 : 𝔑 ∪ {𝗋𝗈𝗈𝗍} is the parent, the fiber this one was instantiated under, or the root marker 
+𝗋𝗈𝗈𝗍;
+• 𝜎 : Σ is the fiber’s own coeffect table (Definition 19), empty until it activates and written 
+by its effects as they run;
+• 𝜏 : {⊥, ⊤} is the retirement flag, ⊥ in a fresh fiber and ⊤ once the orchestrator has retired 
+the fiber;
+• 𝜃 : ΘΓ is the lifecycle state:
+ΘΓ ≔ 𝖨𝗇𝖺𝖼𝗍𝗂𝗏𝖾 | 𝖱𝖾𝗅𝗈𝖺𝖽𝗂𝗇𝗀(𝑖, 𝑔, 𝜔) | 𝖠𝖼𝗍𝗂𝗏𝖾(𝑔, 𝜔) | 𝖴𝗇𝗅𝗈𝖺𝖽𝗂𝗇𝗀(𝑔, 𝜔) (43)
+where 𝑖 : ℑ𝑑∪𝑝
+Γ  is the remaining effect iterator, 𝑔 : Γ → Γ the accumulator built so far, and 
+𝜔 : 𝑑 → 𝔑 the committed view.
+A fiber is installed when its lifecycle state carries an accumulator and a committed view:
+installed𝑛(𝛾) ≔ 𝜃𝑛 ≠ 𝖨𝗇𝖺𝖼𝗍𝗂𝗏𝖾 (44)
+and an installed fiber resolves 𝑘 to 𝑚 when 𝜔𝑛(𝑘) = 𝑚.
+A transition is what moves a fiber from one lifecycle state to another, and between transitions 
+the fiber rests at one of the two settled states, 𝖨𝗇𝖺𝖼𝗍𝗂𝗏𝖾 or 𝖠𝖼𝗍𝗂𝗏𝖾, contributing nothing at the first 
+and its effects at the second. A transition runs in one of two directions: an activation executes 𝑒, 
+accumulating side effects on the context, and a deactivation applies the accumulator to recover 
+the context. A transition in a real runtime is spread over an interval rather than taken in one 
+step, so each direction has a state of its own that the fiber occupies while the transition runs, 
+𝖱𝖾𝗅𝗈𝖺𝖽𝗂𝗇𝗀 for an activation and 𝖴𝗇𝗅𝗈𝖺𝖽𝗂𝗇𝗀 for a deactivation. The committed view 𝜔 sends each 
+key the fiber declares to the name of the fiber that provided it when the transition committed. 
+Section 4.2 draws the four states as a state machine ( Figure 1) and supplies the rules on its 
+edges.
+Registry. A state holds its fibers under their names, and both the identity of a fiber and the 
+coeffect context of Section 3.2 are read off that arrangement.
+Definition 50. Write 𝔉Γ for the set of fibers over Γ. A state 𝛾 ∈ Γ carries a registry
+𝐹𝛾 : 𝔑 ⇀ 𝔉Γ (45)
+a finite partial function whose parent pointers form a tree rooted at 𝗋𝗈𝗈𝗍, together with whatever 
+else in Γ no fiber’s 𝜎 names. We write 𝛾(𝑛) for 𝐹𝛾(𝑛), and abbreviate a field of 𝛾(𝑛) by 
+subscripting it with 𝑛 where the state is clear, so that 𝑑𝑛, 𝑝𝑛, 𝑒𝑛, 𝜋𝑛, 𝜎𝑛, 𝜏𝑛, 𝜃𝑛 are the fields of 
+Definition 49 and 𝑔𝑛, 𝜔𝑛 the accumulator and committed view that 𝜃𝑛 carries; 𝛾[𝜃𝑛 ↦ 𝜃′], 𝛾[𝑛 ↦
+⟨⋯⟩], and 𝛾 ∖ 𝑛 are the states differing from 𝛾 in one field, one fiber, and the presence of one 
+fiber respectively.
+A fiber’s name is what gives it an identity that survives its own mutation: every rule below 
+rewrites the lifecycle state of one fiber and leaves the others alone, so the rule has to say which 
+one, and two fields refer to fibers rather than describe them, the parent 𝜋 and the committed 
+view 𝜔. Names are atoms: no rule computes one, inspects its structure, or relates two of them 
+by anything but equality, and introducing a fiber simply draws one not already in use. This is 
+the discipline of dynamically created local names [40], used here for fiber identity.
+32

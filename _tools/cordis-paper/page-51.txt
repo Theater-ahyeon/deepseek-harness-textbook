@@ -1,0 +1,43 @@
+4.3.5.  Confluence
+The results so far are about individual fibers. The property that characterizes the system as a 
+whole is that its dynamic history leaves no trace: whatever sequence of activations and deacti-
+vations a running system has been through, the state it quiesces at is the one the same insertions 
+and retirements would have produced had each component that ends up active been loaded 
+once, in dependency order, and none ever unloaded. The lifecycle relation is confluent, and the 
+normal form it converges on is the statically assembled one. This is the analogue, for dynamic 
+composition, of the consistency with a from-scratch evaluation that change propagation estab-
+lishes for incremental computation [47].
+The claim is about ⟶ alone. Orchestration steps are inputs, and two sequences given 
+different inputs land in different places for no interesting reason; what is at issue is whether 
+the lifecycle rules, which are nondeterministic in which fiber steps next and in which exit a 
+𝖱𝖾𝗅𝗈𝖺𝖽𝗂𝗇𝗀 fiber takes, can be made to disagree. Which fiber provides a key is not among the 
+choices, a key having one possible provider (Definition 50), so the schedule picks orders and 
+exits and nothing else.
+Three lemmas are needed first. The first fixes the set of fibers that end up 𝖠𝖼𝗍𝗂𝗏𝖾 without 
+reference to any sequence of steps, which is what makes it a function of the input rather than 
+of the schedule.
+Definition 74. A fiber is supported at 𝛾 when it is not retired, the fiber instantiating it is 
+supported, and every key it declares is provided by a supported fiber. The support relation on 
+dom(𝐹𝛾) is the union of the two relations those clauses read,
+𝑚 ⊲ 𝑛 ≔ 𝑚 ≺ 𝑛 ∨ 𝜋𝑛 = 𝑚 (61)
+and where it is well founded (Lemma 75) we write 𝐴 for the support set, the fibers supported 
+at 𝛾:
+𝑛 ∈ 𝐴 ≔ ¬𝜏𝑛 ∧ (𝜋𝑛 = 𝗋𝗈𝗈𝗍 ∨ 𝜋𝑛 ∈ 𝐴) ∧ ∀𝑘 ∈ 𝑑𝑛. ∃𝑚 ∈ 𝐴. 𝑘 ∈ 𝑝𝑚 (62)
+where 𝜋𝑛 = 𝗋𝗈𝗈𝗍 marks a fiber the orchestrator inserted and 𝜋𝑛 otherwise the fiber whose 
+activation instantiates 𝑛. The clauses read no field but 𝜏, 𝜋, 𝑑, 𝑝. Both halves relate a fiber to 
+one immediately below it, a parent rather than an ancestor and a direct provider rather than a 
+transitive one, since that is what the clauses read; where the results below want an order they 
+take the transitive closure, whose minimal elements, maximal elements, and linearizations are 
+those of ⊲.
+The clauses refer to 𝐴 itself, so the definition is a recursion along ⊲, and it is the following 
+that makes it one with a solution.
+Lemma 75. (Support is well founded.) Let ≺ be acyclic and let 𝛾 be reached by a sequence of 
+steps. Then ⊲ is well founded, and 𝐴 is the one solution of Definition 74, a function of 𝜏, 𝜋, 𝑑, 
+and 𝑝 alone.
+Proof. Order the names of dom(𝐹𝛾) by the index of the O-Insert that introduced each, which 
+Definition  58 supplies by starting the sequence at an empty registry. The parent half of ⊲ 
+descends in that index: an O-Insert has 𝜋 ∈ dom(𝐹𝛾) as a premise, so a parent pointer names a 
+fiber introduced earlier, and iterating it reaches the whole ancestry of a name in finitely many 
+steps. A cycle therefore has to use ≺, and since ≺ is acyclic it has to mix the two, which needs 
+some 𝑚 to declare a key that a fiber of 𝑚’s own subtree may provide. Such a fiber is instantiated 
+51

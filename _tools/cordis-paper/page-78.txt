@@ -1,0 +1,45 @@
+second-class and confined to their lexical scope, and recovering first-class use through boxing, 
+which lifts that restriction by tracking captured capabilities in types; Cordis instead disciplines 
+effects at runtime, aiming at complete resource recovery on component removal; Section 6.7 
+takes up what a language that made the context second class in this sense would offer.
+Reversible effect semantics. A parallel line gives effects a reversible semantics rather than 
+an interpretive one. Heunen et al. [89] model side effects in a reversible setting by adapting 
+Hughes’ arrows to dagger arrows and inverse arrows, capturing effects such as serialization 
+and mutable store whose operations admit inverses. This is the formal account closest to our 
+revertible effects: both pair each effect with the means to undo it rather than discharging it 
+through a handler. The two differ in where reversibility resides, and in how much of it they 
+demand. Heunen et al. work in a denotational, categorical setting where reversibility is a global 
+property, guaranteed by construction since every computation is invertible, and the inverse is 
+two-sided and recovered from the categorical structure. Cordis tracks inverses at runtime and 
+requires less of them: not that the whole computation be reversible, but that each atomic effect 
+admit a one-sided inverse, supplied by the caller at the point of application rather than derived, 
+from which the inverse of any composite follows by composition (Section 3.1).
+Graded types as unified effects and coeffects.  Orchard et al. [90] proposed graded modal 
+types as an umbrella notion encompassing both effect reasoning (via graded monads) and co -
+effect reasoning (via graded comonads), realized in the Granule language, demonstrating that 
+a single type system can track both what a computation does and what it needs; more recent 
+work extends coeffects to imperative Java-like languages [91, 92] and to call-by-push-value 
+[93]. All of these operate at the type level: effects and coeffects are static annotations checked at 
+compile time over lexically fixed scopes. Our contribution is orthogonal to this analysis: we lift 
+the same two notions to runtime mechanisms, which lets Cordis handle dynamic composition. 
+Temporal retraction and spatial dependency are re-resolved as the set of loaded components 
+evolves, instead of being settled once over a fixed program text.
+7.2.  Programming Paradigms
+The context paradigm ( Section  3.3) mediates every effect and coeffect through an explicit 
+context. This section first compares it with the functional and imperative treatments of side 
+effects, and then with two established paradigms, one sharing our terminology and the other 
+our treatment of crosscutting concerns.
+Explicit threading and implicit mutation. Purely functional languages make effects explicit 
+in types: the State monad 𝑆 → (𝐴, 𝑆) [23] threads the environment through every computa -
+tion, securing equational reasoning at the cost of the threading itself, every function on the 
+call path accepting and returning the state whether or not it touches it; the monadic effect 
+systems of Section 7.1 are this pole in industrial form. Imperative languages leave effects and 
+dependencies implicit at the call site, so reading what a call does to the system means reading its 
+implementation transitively, and moving or removing a call may silently break distant invari-
+ants. The context paradigm takes the traceability of the first treatment and the ergonomics of 
+the second: effects and coeffects pass through a context the component holds, so each operation 
+is attributable to the context it was invoked on and hence to the component, and everything else 
+stays ordinary host code. The paradigm is in this sense an overlay, realizable atop a language of 
+either style: it fixes each operation’s denotation and leaves its realization to the host language, 
+in place where the host mutates and derived where it stays pure (Definition 23).
+78

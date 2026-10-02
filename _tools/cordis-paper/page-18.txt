@@ -1,0 +1,43 @@
+3.2.2.  Specification and Notification
+The preceding definitions describe how individual dependencies are registered and accessed. 
+Accessing an absent dependency, however, is a runtime failure. A component should therefore 
+activate only once all the dependencies it declares are present, rather than accessing them opti-
+mistically and failing when one is missing. This raises two questions: whether a component’s 
+declared dependencies are jointly satisfied, and how the system should respond when that 
+status changes. The coeffect context Σ carries a natural observational structure that makes both 
+questions tractable: for any coeffect specification 𝑑 ⊆ 𝐾, define the satisfaction predicate:
+𝜎 ⊧ 𝑑 ≔ ∀𝑘 ∈ 𝑑. 𝑘 ∈ dom(𝜎) (22)
+This predicate is decidable (since dom(𝜎) is finite). Since all mutations to 𝜎 pass through 
+effect functions (whose inverses recover the previous domain), changes to satisfaction are 
+detectable at each effect boundary. This is the algebraic basis of reactivity: the effect system 
+guarantees that every coeffect change is observed.
+Definition 21. A coeffect specification is:
+𝔇Σ ≔ 𝖲𝖾𝗍(𝐾) (23)
+representing the set of dependencies a component declares from the environment.
+What makes this specification reactive is how it classifies state transitions. Any effect that 
+transforms 𝜎 to 𝜎′ can be classified by a specification 𝑑 ∈ 𝔇Σ according to whether 𝑑’s satis-
+faction status is altered:
+Definition 22. Given a coeffect specification 𝑑 ⊆ 𝐾 and states 𝜎, 𝜎′ ∈ Σ, define:
+notify𝑑(𝜎, 𝜎′) ≔
+{
+activating if 𝜎 ⊭ 𝑑 ∧ 𝜎′ ⊧ 𝑑
+deactivating if 𝜎 ⊧ 𝑑 ∧ 𝜎′ ⊭ 𝑑
+neutral otherwise
+(24)
+An activating transition triggers the execution of the component’s effects, tracked as Sec-
+tion 3.1 prescribes, and a deactivating transition triggers recovery by applying the accumulator. 
+The activation and deactivation so triggered receive their operational semantics in Section 4.
+What set and notify deliver together is local spatial composability, local in the same sense as 
+before, the guarantee being read of one component’s coeffects taken by themselves. We take that 
+to be the following criterion: a component activates only at a state satisfying its specification, 
+so it never reads a binding that is absent, and every change to the context is classified against 
+that specification, so a loss of satisfaction is detected where it happens and drives a deactiva -
+tion. Both halves are immediate from the definitions above, satisfaction being a precondition 
+checked where the component would activate and notify𝑑 being defined at every transition; 
+one direction of the coeffect ordering comes with the first half, a component activating only 
+after the components that provide its declared keys. Two things the criterion leaves out, and 
+both arrive once several components are in play: withdrawing a binding only after the deacti-
+vations it causes have finished, and keeping the bindings an activation reads unmoved while 
+the activation runs. Both are conditions on other components rather than on the one acting, so 
+they belong to the global form of the guarantee, which Section 4.3.3 establishes.
+18

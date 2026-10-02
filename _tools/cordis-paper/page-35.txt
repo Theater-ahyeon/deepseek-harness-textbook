@@ -1,0 +1,42 @@
+single-source discipline is imposed: a key has one possible provider because the orchestrator 
+may not admit a second component declaring it.
+Instantiation. A component may instantiate another while installing its effects, which is 
+what a plugin host does when a plugin loads plugins of its own. The rules so far leave the 
+registry to the orchestration rules alone, so such an instantiation has nowhere to happen. One 
+primitive gives it somewhere.
+Definition 52. An iteration of 𝑒𝑛 may instantiate a component (𝑑, 𝑝, 𝑒) ∈ ℭΓ. In place of a state 
+map it takes the O-Insert of that component with 𝜋 = 𝑛, and it yields as its inverse the O-Retire 
+of the fiber so instantiated. The rule draws the name, subject to the freshness premise of O-
+Insert, and hands it to the effect function.
+The inverse retires rather than removes, and the reason is that an inverse has to apply 
+wherever it is reached. O-Remove carries premises, so an inverse built from it can fail to: a 
+parent whose child is still 𝖠𝖼𝗍𝗂𝗏𝖾 could not run its accumulator, and no rule would move the 
+child, since Definition 53 does not read the fiber tree. O-Retire has 𝑛 ∈ dom(𝐹𝛾) as its only 
+premise. The entry it leaves behind at the state the instantiation was taken is retired, 𝖨𝗇𝖺𝖼𝗍𝗂𝗏𝖾, 
+and holds an empty table, which is the vestigial entry of Lemma 62: it differs from the absence 
+of the fiber in control fields alone, and no rule tells the two apart.
+Retiring a child sets 𝜏 and so takes its target view to ⊥, after which the ordinary rules carry 
+it back to 𝖨𝗇𝖺𝖼𝗍𝗂𝗏𝖾. The parent is not made to wait, O-Retire being unconditional, so L-Unload 
+applies to the parent whether or not the child has left. A grandchild is reached one level at a 
+time, the child’s own accumulator retiring what the child instantiated. Theorem 73 covers this 
+cascade and the one the guard of Section 4.2.2 imposes along coeffects together.
+4.2.2.  Lifecycle
+The six lifecycle rules divide by the direction they move a fiber in: an activation carries a fiber 
+toward a target view it does not yet hold, and a deactivation carries one away from a committed 
+view that is no longer its target.
+Target views. The rules compare each fiber against a target, namely whether it ought to 
+be running and against which resolution of its dependencies. The target is not a property of 
+the fiber alone, since the keys a fiber declares are resolved against the whole state, so it is a 
+predicate on that state.
+Definition 53. The target view of 𝑛 at 𝛾 maps each declared key to its provider, so it is a total 
+map 𝑑𝑛 → 𝔑, and is ⊥ when 𝑛 ought not to be running at all:
+target𝑛(𝛾) ≔ {⊥ if 𝜏𝑛 ∨ ¬(𝛾 ⊧ 𝑑𝑛)
+(𝑘 ∈ 𝑑𝑛) ↦ provider𝑘(𝛾) otherwise (48)
+A state is quiescent when every fiber has settled at its target view, no transition left in progress:
+quiet(𝛾) ≔ ∀𝑛 ∈ dom(𝐹𝛾).
+{
+target𝑛(𝛾) = ⊥ if 𝜃𝑛 = 𝖨𝗇𝖺𝖼𝗍𝗂𝗏𝖾
+target𝑛(𝛾) = 𝜔𝑛 if 𝜃𝑛 = 𝖠𝖼𝗍𝗂𝗏𝖾(−, 𝜔𝑛)
+⊥ otherwise
+(49)
+35

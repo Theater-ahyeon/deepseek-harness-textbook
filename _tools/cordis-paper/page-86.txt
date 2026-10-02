@@ -1,0 +1,41 @@
+[39] M. Fowler, “Inversion of Control Containers and the Dependency Injection pattern.” 
+[Online]. Available: https://martinfowler.com/articles/injection.html
+[40] A. M. Pitts and I. D. B. Stark, “Observable Properties of Higher Order Functions that 
+Dynamically Create Local Names, or What's New?,” in Mathematical Foundations of 
+Computer Science 1993 (MFCS 1993) , in Lecture Notes in Computer Science, vol. 711. 
+Springer,  1993, pp. 122–141. doi: 10.1007/3-540-57182-5\_8.
+[41] G. D. Plotkin, “LCF Considered as a Programming Language,” Theoretical Computer 
+Science, vol. 5, no. 3, pp. 223–255, 1977, doi: 10.1016/0304-3975(77)90044-5.
+[42] D. R. Ghica, K. Muroya, and T. Waugh Ambridge, “ A Robust Graph-Based Approach to 
+Observational Equivalence,” Logical Methods in Computer Science , vol. 21, no. 2, p. 8:1–
+8:95, 2025, doi: 10.46298/LMCS-21(2:8)2025.
+[43] M. Shapiro, N. Preguiça, C. Baquero, and M. Zawirski, “ A Comprehensive Study of 
+Convergent and Commutative Replicated Data Types,” technical report RR-7506, 2011.
+[44] X. Leroy and S. Blazy, “Formal Verification of a C-like Memory Model and Its Uses for 
+Verifying Program Transformations,” Journal of Automated Reasoning, vol. 41, no. 1, pp. 
+1–31, 2008, doi: 10.1007/s10817-008-9099-0.
+[45] A. T. Clements, M. F. Kaashoek, N. Zeldovich, R. T. Morris, and E. Kohler, “The 
+Scalable Commutativity Rule: Designing Scalable Software for Multicore Processors,” 
+in Proceedings of the 24th ACM Symposium on Operating Systems Principles,  2013, pp. 1–17. 
+doi: 10.1145/2517349.2522712.
+[46] A. W. Mazurkiewicz, “Trace Theory,” in Petri Nets: Applications and Relationships to Other 
+Models of Concurrency, Advances in Petri Nets 1986, Part II, in Lecture Notes in Computer 
+Science, vol. 255. Springer,  1987, pp. 279–324. doi: 10.1007/3-540-17906-2_30.
+[47] U. A. Acar, G. E. Blelloch, and R. Harper, “ Adaptive functional programming,” ACM 
+Transactions on Programming Languages and Systems , vol. 28, no. 6, pp. 990–1034, 2006, 
+doi: 10.1145/1186632.1186634.
+[48] webpack, “Hot Module Replacement.” [Online]. Available: https://webpack.js.org/api/
+hot-module-replacement/
+[49] Vite, “HMR API.” [Online]. Available: https://vite.dev/guide/api-hmr
+[50] E. N. (M. Elnozahy, L. Alvisi, Y.-M. Wang, and D. B. Johnson, “ A Survey of Rollback-
+Recovery Protocols in Message-Passing Systems,” ACM Computing Surveys, vol. 34, no. 
+3, pp. 375–408, 2002, doi: 10.1145/568522.568525.
+[51] H. Garcia-Molina and K. Salem, “Sagas,” in Proceedings of the 1987 ACM SIGMOD 
+International Conference on Management of Data, in SIGMOD '87.  1987, pp. 249–259. doi: 
+10.1145/38713.38742.
+[52] OSGi Alliance, OSGi Core Release 8. OSGi Alliance, 2020. [Online].  Available: https://
+docs.osgi.org/specification/osgi.core/8.0.0/
+[53] J. Kramer and J. Magee, “The Evolving Philosophers Problem: Dynamic Change Man -
+agement,” IEEE Transactions on Software Engineering, vol. 16, no. 11, pp. 1293–1306, 1990, 
+doi: 10.1109/32.60317.
+86

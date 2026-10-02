@@ -1,0 +1,42 @@
+by an activation of 𝑚 or of one of 𝑚’s descendants, hence at a step after the L-Begin of 𝑚; that 
+L-Begin has 𝛾 ⊧ 𝑑𝑚 as a premise, so a fiber providing the key is 𝖠𝖼𝗍𝗂𝗏𝖾 already before it, and 
+clause (2) of Definition 63 leaves the key no second possible provider. The fiber that would 
+close the cycle is therefore never introduced, and the edge is absent from dom(𝐹𝛾). A well-
+founded recursion has one solution, and the clauses read the four fields alone. □
+The last clause reads 𝑝, the keys a component may provide, whereas the target reads 
+dom(𝜎𝛾), the keys its fibers have installed, and Definition 48 relates the two by dom(𝜎𝑛) ⊆
+𝑝𝑛 alone. The support set therefore over-approximates the 𝖠𝖼𝗍𝗂𝗏𝖾 fibers in general, and the 
+condition that closes the gap is the following.
+Definition 76. A component (𝑑, 𝑝, 𝑒) is total on its provision when an activation of it that finishes 
+has installed every key of 𝑝, so that dom(𝜎𝑛) = 𝑝𝑛 at every 𝖠𝖼𝗍𝗂𝗏𝖾 fiber instantiating it.
+This is a condition on the components alone, mentioning no lifecycle state and no step, and 
+independence (Lemma 66) already bounds how far it can fail: were a component to install a key 
+only at context states another component’s effects reach, its forward map would not commute 
+with that component’s, so the keys a fiber installs are fixed by its component rather than by the 
+schedule. What totality adds is that the fixed set is all of 𝑝 rather than a proper subset of it.
+Lemma 77. (Support at quiescence.) Let ≺ be acyclic, let quiet(𝛾), and let every component of 
+𝛾 be total on its provision (Definition 76). Then the support set is the set of 𝖠𝖼𝗍𝗂𝗏𝖾 fibers:
+𝐴 = {𝑛 : 𝜃𝑛 = 𝖠𝖼𝗍𝗂𝗏𝖾(−, −)} (63)
+Proof. Write 𝐴′ for the right-hand side. The quiet of Definition 53 leaves 𝖨𝗇𝖺𝖼𝗍𝗂𝗏𝖾 and 𝖠𝖼𝗍𝗂𝗏𝖾 as 
+the only states and reads
+𝑛 ∈ 𝐴′ ⟺ target𝑛(𝛾) ≠ ⊥
+By Definition 53 the right side holds exactly when ¬𝜏𝑛 and every 𝑘 ∈ 𝑑𝑛 lies in dom(𝜎𝛾), and 
+dom(𝜎𝛾) = ⋃𝑚∈𝐴′ 𝑝𝑚 by Definition 76. The middle clause is the one the target no longer carries, 
+and instantiation supplies it: a fiber with 𝜋𝑛 ≠ 𝗋𝗈𝗈𝗍 is instantiated only by an activation of 𝜋𝑛, 
+and if 𝜋𝑛 ∉ 𝐴′ then 𝜋𝑛 is not 𝖠𝖼𝗍𝗂𝗏𝖾, so its accumulator has run and retired 𝑛 by Definition 52, 
+giving 𝜏𝑛. Hence 𝐴′ satisfies the clauses of Definition  74, and Lemma  75 gives them one 
+solution, so 𝐴 = 𝐴′. □
+Lemma 78. (Transposition.) Let 𝐹 𝑡 be well formed and let steps 𝑡 and 𝑡 + 1 act on distinct 
+fibers 𝑚 and 𝑛.
+1. If both apply an activation rule, namely L-Begin, L-Iter, or L-Finish, 𝑒𝑚 and 𝑒𝑛 are 
+independent (Definition 65), and step 𝑡 + 1 is applicable at 𝛾𝑡, then step 𝑡 is applicable 
+at the state step 𝑡 + 1 produces from 𝛾𝑡, and the two orders reach the same 𝛾𝑡+2.
+2. If step 𝑡 applies an activation rule at 𝑚, step 𝑡 + 1 an orchestration rule at 𝑛, and step 𝑡 
+does not instantiate 𝑛, then the same holds of the two.
+Proof. For (1), by Table 1 the step of 𝑚 writes 𝜃𝑚 and, within Ψ𝑡 ∈ 𝔐(𝑒𝑚), the tables at keys 
+of 𝑑𝑚 ∪ 𝑝𝑚. It therefore leaves 𝜃𝑛 and 𝑖𝑛 alone, and by clause (2) of Definition 42 leaves the 
+inverse and the continuation that 𝑖𝑛 yields alone as well, so only the premises of step 𝑡 + 1 that 
+mention target𝑛 remain to be checked. Its retirement half cannot fall, no activation rule writing 
+a 𝜏. Its resolution half cannot move either: target𝑛 reads lifecycle states and table domains, of 
+which Ψ𝑡 moves dom(𝜎𝑚) alone (Lemma 59(1)); step 𝑡 + 1 being applicable at 𝛾𝑡 puts every 
+52

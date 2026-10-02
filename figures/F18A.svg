@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="760" viewBox="0 0 1120 760" role="img" aria-labelledby="F18A-title F18A-desc">
+<title id="F18A-title">F18A：能力设计接入与卸载的生命周期</title>
+<desc id="F18A-desc">{&quot;id&quot;: &quot;F18A&quot;, &quot;title&quot;: &quot;能力设计接入与卸载的生命周期&quot;, &quot;kind&quot;: &quot;flow&quot;, &quot;tag&quot;: &quot;扩展生命周期示意&quot;, &quot;nodes&quot;: [[&quot;读取工具的既有契约&quot;, &quot;输入、范围、结果与失败&quot;, &quot;control&quot;], [&quot;配置挂载插件&quot;, &quot;所需服务必须满足&quot;, &quot;control&quot;], [&quot;注册工具定义&quot;, &quot;说明、参数、执行与输出&quot;, &quot;tool&quot;], [&quot;调用复用已有链&quot;, &quot;准入、执行、规范结果&quot;, &quot;tool&quot;], [&quot;记录并供后续使用&quot;, &quot;会话与页面分别消费&quot;, &quot;log&quot;], [&quot;卸载撤销注册&quot;, &quot;不承诺外部动作自动回滚&quot;, &quot;control&quot;]]}</desc>
+<rect width="1120" height="760" fill="white"/>
+<text x="48" y="56" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#20314B">F18A  能力设计接入与卸载的生命周期</text>
+<text x="48" y="97" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="400" fill="#65738A">原创教学图 · 扩展生命周期示意</text>
+<rect x="55" y="140" width="310" height="165" rx="16" fill="#F0EBFF" stroke="#7659AA" stroke-width="2"/>
+<text x="77" y="187" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">1  读取工具的既有契约</text>
+<text x="77" y="235" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">输入、范围、结果与失败</text>
+<rect x="405" y="140" width="310" height="165" rx="16" fill="#F0EBFF" stroke="#7659AA" stroke-width="2"/>
+<text x="427" y="187" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">2  配置挂载插件</text>
+<text x="427" y="235" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">所需服务必须满足</text>
+<rect x="755" y="140" width="310" height="165" rx="16" fill="#E5F6ED" stroke="#367E5A" stroke-width="2"/>
+<text x="777" y="187" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">3  注册工具定义</text>
+<text x="777" y="235" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">说明、参数、执行与输出</text>
+<rect x="755" y="410" width="310" height="165" rx="16" fill="#E5F6ED" stroke="#367E5A" stroke-width="2"/>
+<text x="777" y="457" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">4  调用复用已有链</text>
+<text x="777" y="505" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">准入、执行、规范结果</text>
+<rect x="405" y="410" width="310" height="165" rx="16" fill="#EDF1F5" stroke="#63758A" stroke-width="2"/>
+<text x="427" y="457" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">5  记录并供后续使用</text>
+<text x="427" y="505" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">会话与页面分别消费</text>
+<rect x="55" y="410" width="310" height="165" rx="16" fill="#F0EBFF" stroke="#7659AA" stroke-width="2"/>
+<text x="77" y="457" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">6  卸载撤销注册</text>
+<text x="77" y="505" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">不承诺外部动作自动回滚</text>
+<polyline points="365,240 405,240" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="405.0,240.0 395.3,245.3 395.3,234.7" fill="#65738A"/>
+<text x="343.0" y="330" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" font-weight="400" fill="#20314B">选择接口</text>
+<polyline points="715,240 755,240" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="755.0,240.0 745.3,245.3 745.3,234.7" fill="#65738A"/>
+<text x="693.0" y="330" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" font-weight="400" fill="#20314B">满足依赖</text>
+<polyline points="910,305 910,410" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="910.0,410.0 904.7,400.3 915.3,400.3" fill="#65738A"/>
+<text x="926" y="352" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" font-weight="400" fill="#65738A">提出调用</text>
+<polyline points="755,510 715,510" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="715.0,510.0 724.7,504.7 724.7,515.3" fill="#65738A"/>
+<text x="693.0" y="600" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" font-weight="400" fill="#20314B">结果提交</text>
+<polyline points="405,510 365,510" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="365.0,510.0 374.7,504.7 374.7,515.3" fill="#65738A"/>
+<text x="343.0" y="600" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" font-weight="400" fill="#20314B">结束生命周期</text>
+<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：先确认范围，再跟随标注；示意布局不代表实际耗时或比例。</text>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="760" viewBox="0 0 1120 760" role="img" aria-labelledby="F07B-title F07B-desc">
+<title id="F07B-title">F07B：按需取得与全部加载的材料量</title>
+<desc id="F07B-desc">{&quot;id&quot;: &quot;F07B&quot;, &quot;title&quot;: &quot;按需取得与全部加载的材料量&quot;, &quot;kind&quot;: &quot;compare&quot;, &quot;tag&quot;: &quot;教学假设 · 字节&quot;, &quot;left&quot;: [&quot;全部加载：10600&quot;, &quot;目录：600&quot;, &quot;正文：2000＋3000＋5000&quot;, &quot;与当前任务无关的正文也进入&quot;], &quot;right&quot;: [&quot;只取一份：2600&quot;, &quot;目录：600；正文：2000&quot;, &quot;差额：8000 字节&quot;, &quot;没有据此宣称计费节省&quot;]}</desc>
+<rect width="1120" height="760" fill="white"/>
+<text x="48" y="56" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#20314B">F07B  按需取得与全部加载的材料量</text>
+<text x="48" y="97" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="400" fill="#65738A">原创教学图 · 教学假设 · 字节</text>
+<rect x="48" y="150" width="495" height="470" rx="16" fill="#F0EBFF" stroke="#7659AA" stroke-width="2"/>
+<text x="70" y="197" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">全部加载：10600</text>
+<text x="70" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">目录：600</text>
+<text x="70" y="294" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">正文：2000＋3000＋5000</text>
+<text x="70" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">与当前任务无关的正文也进入</text>
+<rect x="577" y="150" width="495" height="470" rx="16" fill="#E5F6ED" stroke="#367E5A" stroke-width="2"/>
+<text x="599" y="197" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">只取一份：2600</text>
+<text x="599" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">目录：600；正文：2000</text>
+<text x="599" y="294" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">差额：8000 字节</text>
+<text x="599" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">没有据此宣称计费节省</text>
+<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：先确认范围，再跟随标注；示意布局不代表实际耗时或比例。</text>
+</svg>

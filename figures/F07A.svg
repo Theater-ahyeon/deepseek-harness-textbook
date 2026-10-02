@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="760" viewBox="0 0 1120 760" role="img" aria-labelledby="F07A-title F07A-desc">
+<title id="F07A-title">F07A：技能目录、读取许可与正文分开</title>
+<desc id="F07A-desc">{&quot;id&quot;: &quot;F07A&quot;, &quot;title&quot;: &quot;技能目录、读取许可与正文分开&quot;, &quot;kind&quot;: &quot;flow&quot;, &quot;tag&quot;: &quot;模型调用路径&quot;, &quot;nodes&quot;: [[&quot;发现技能候选&quot;, &quot;文件提供方或其他提供方&quot;, &quot;tool&quot;], [&quot;发布可用目录&quot;, &quot;名称和摘要，不是全文&quot;, &quot;control&quot;], [&quot;模型选择技能&quot;, &quot;检查当前模型调用许可&quot;, &quot;model&quot;], [&quot;按名称取得正文&quot;, &quot;读取胜出候选的定义&quot;, &quot;tool&quot;], [&quot;返回技能材料&quot;, &quot;正文成为工具结果&quot;, &quot;log&quot;], [&quot;后续请求使用&quot;, &quot;加载不等于执行授权&quot;, &quot;model&quot;]]}</desc>
+<rect width="1120" height="760" fill="white"/>
+<text x="48" y="56" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#20314B">F07A  技能目录、读取许可与正文分开</text>
+<text x="48" y="97" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="400" fill="#65738A">原创教学图 · 模型调用路径</text>
+<rect x="55" y="140" width="310" height="165" rx="16" fill="#E5F6ED" stroke="#367E5A" stroke-width="2"/>
+<text x="77" y="187" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">1  发现技能候选</text>
+<text x="77" y="235" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">文件提供方或其他提供方</text>
+<rect x="405" y="140" width="310" height="165" rx="16" fill="#F0EBFF" stroke="#7659AA" stroke-width="2"/>
+<text x="427" y="187" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">2  发布可用目录</text>
+<text x="427" y="235" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">名称和摘要，不是全文</text>
+<rect x="755" y="140" width="310" height="165" rx="16" fill="#FFF2CC" stroke="#A97F16" stroke-width="2"/>
+<text x="777" y="187" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">3  模型选择技能</text>
+<text x="777" y="235" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">检查当前模型调用许可</text>
+<rect x="755" y="410" width="310" height="165" rx="16" fill="#E5F6ED" stroke="#367E5A" stroke-width="2"/>
+<text x="777" y="457" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">4  按名称取得正文</text>
+<text x="777" y="505" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">读取胜出候选的定义</text>
+<rect x="405" y="410" width="310" height="165" rx="16" fill="#EDF1F5" stroke="#63758A" stroke-width="2"/>
+<text x="427" y="457" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">5  返回技能材料</text>
+<text x="427" y="505" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">正文成为工具结果</text>
+<rect x="55" y="410" width="310" height="165" rx="16" fill="#FFF2CC" stroke="#A97F16" stroke-width="2"/>
+<text x="77" y="457" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">6  后续请求使用</text>
+<text x="77" y="505" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">加载不等于执行授权</text>
+<polyline points="365,240 405,240" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="405.0,240.0 395.3,245.3 395.3,234.7" fill="#65738A"/>
+<text x="343.0" y="330" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" font-weight="400" fill="#20314B">摘要整理</text>
+<polyline points="715,240 755,240" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="755.0,240.0 745.3,245.3 745.3,234.7" fill="#65738A"/>
+<text x="693.0" y="330" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" font-weight="400" fill="#20314B">查找名称</text>
+<polyline points="910,305 910,410" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="910.0,410.0 904.7,400.3 915.3,400.3" fill="#65738A"/>
+<text x="926" y="352" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" font-weight="400" fill="#65738A">验证许可</text>
+<polyline points="755,510 715,510" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="715.0,510.0 724.7,504.7 724.7,515.3" fill="#65738A"/>
+<text x="693.0" y="600" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" font-weight="400" fill="#20314B">交付正文</text>
+<polyline points="405,510 365,510" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="365.0,510.0 374.7,504.7 374.7,515.3" fill="#65738A"/>
+<text x="343.0" y="600" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" font-weight="400" fill="#20314B">再入请求</text>
+<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：先确认范围，再跟随标注；示意布局不代表实际耗时或比例。</text>
+</svg>

@@ -1,0 +1,49 @@
+𝑔′(Δ) = (𝛾, 𝜑 ∘ 𝑔 ∘ 𝑓) (16)
+The state is recovered exactly. The accumulator is restored as well, equivalently effectΓ(𝑒) ∈
+𝔈∗
+𝜕Γ, if and only if 𝑔 ∘ 𝑓 = idΓ; and in every case (𝜑 ∘ 𝑔 ∘ 𝑓)(𝛾) = 𝜑(𝛾), so the soundness invariant 
+is preserved.
+Proof. By Definition 12, Δ = (𝛿, 𝜑 ∘ 𝑔) and 𝑔′ = trackΓ(𝑔, 𝑓), so
+𝑔′(Δ) = (𝑔(𝛿), 𝜑 ∘ 𝑔 ∘ 𝑓) = (𝛾, 𝜑 ∘ 𝑔 ∘ 𝑓)
+using 𝑔(𝛿) = 𝛾. Membership in 𝔈∗
+𝜕Γ requires this to equal (𝛾, 𝜑) at every input; taking 𝜑 = idΓ 
+turns the equality of accumulators into 𝑔 ∘ 𝑓 = idΓ, and that condition conversely gives the 
+equality of accumulators for every 𝜑. Finally (𝜑 ∘ 𝑔 ∘ 𝑓)(𝛾) = 𝜑(𝑔(𝛿)) = 𝜑(𝛾). □
+The lower triangle therefore closes only when the inverse witnessed at 𝛾 reverts 𝑓 at 
+every state, so effectΓ does not carry 𝔈∗
+Γ into 𝔈∗
+𝜕Γ. What holds in every case is agreement 
+at 𝛾: recoverΓ(𝑔′(Δ)) = recoverΓ(𝛾, 𝜑), which is the whole of what Theorem 7 assumes of an 
+accumulator, so reverting leaves the recovery target untouched.
+3.1.3.  Effect Iterators
+What a component loads by is not one effect but a sequence of them, and what its unloading 
+reverts is the whole sequence. Reverting effects in the reverse order of application requires 
+nothing further, because each inverse then meets the state its own application produced:
+Theorem 16. Let 𝑒1, ⋯, 𝑒𝑛 ∈ 𝔈∗
+Γ be applied in order from (𝛾0, idΓ) and reverted in the reverse 
+order. Then
+1. each revert recovers the context state its application ran against;
+2. every intermediate state satisfies the soundness invariant.
+Proof. Each step is an application or a revert. An application carries (𝛾, 𝜑) to (𝛿, 𝜑 ∘ 𝑔) with 
+𝑔(𝛿) = 𝛾, so it preserves 𝜑(𝛾) by Theorem 7, whose hypothesis is exactly the witness of 𝔈∗
+Γ. 
+Reverting in the reverse order hands each inverse the state its own application produced, so by 
+Theorem 15 that revert recovers the preceding state exactly and preserves 𝜑(𝛾) as well; neither 
+conclusion depends on the accumulator the inverse receives. □
+The sequence itself deserves a reification. An effect iterator performs it one effect at a time, 
+each of whose iterations yields the modified context, an inverse, and a continuation:
+Definition 17. Define the effect iterator ℑΓ and witnessed effect iterator ℑ∗
+Γ as the following 
+recursive types:
+ℑΓ ≔ 𝜇ℑ. Γ → Γ × (Γ → Γ) × 𝖬𝖺𝗒𝖻𝖾(ℑ)
+ℑ∗
+Γ ≔ 𝜇ℑ. (𝑒 : Γ → Γ × (Γ → Γ) × 𝖬𝖺𝗒𝖻𝖾(ℑ))
+× ((𝛾 : Γ) → (𝛿 : Γ) → (𝑔 : Γ → Γ) → (𝑜 : 𝖬𝖺𝗒𝖻𝖾(ℑ)) → ((𝛿, 𝑔, 𝑜) = 𝑒(𝛾) → 𝑔(𝛿) = 𝛾))
+(17)
+where 𝑒(𝛾) yields a triple (𝛿, 𝑔, 𝑜) representing:
+• 𝛿 is the new context;
+• 𝑔 is the inverse function of the current effect;
+• 𝑜 indicates the continuation:
+‣ 𝖭𝗈𝗍𝗁𝗂𝗇𝗀 signals iteration termination;
+‣ 𝖩𝗎𝗌𝗍(𝑖) provides the next iteration.
+15

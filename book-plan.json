@@ -1,0 +1,19 @@
+{
+  "title": "深入理解 DeepSeek Harness：从智能体基础到工程协作",
+  "structure_reference": "https://bojieli.github.io/ai-agent-book/book/introduction/",
+  "chapter_count": 10,
+  "source_topic_count": 18,
+  "exercise_sections": false,
+  "chapters": [
+    {"id":"01","part":"第一部分：理解与构建 Agent","title":"Agent 基础：一条任务怎样运转","topics":["01","02","03"]},
+    {"id":"02","part":"第一部分：理解与构建 Agent","title":"上下文工程：模型每一步究竟看到什么","topics":["06","07","08"]},
+    {"id":"03","part":"第一部分：理解与构建 Agent","title":"记忆与知识：会话记录、材料获取和外部记忆","topics":["05"]},
+    {"id":"04","part":"第一部分：理解与构建 Agent","title":"工具：从调用契约到受控执行","topics":["04","11","12","18"]},
+    {"id":"05","part":"第一部分：理解与构建 Agent","title":"Coding Agent 与运行框架：插件装配和故障恢复","topics":["10","09"]},
+    {"id":"06","part":"第一部分：理解与构建 Agent","title":"交互：网页、桌面与异步观察","topics":["14","15"]},
+    {"id":"07","part":"第二部分：评价、改进与协作","title":"Agent 评估：回放、质量与工程指标","topics":["16","17"]},
+    {"id":"08","part":"第二部分：评价、改进与协作","title":"模型与 Harness：后训练主题在本项目中的边界","topics":[]},
+    {"id":"09","part":"第二部分：评价、改进与协作","title":"持续改进：从运行证据到可验证的新版本","topics":[]},
+    {"id":"10","part":"第二部分：评价、改进与协作","title":"多 Agent 协作：子代理与实验性团队","topics":["13"]}
+  ]
+}

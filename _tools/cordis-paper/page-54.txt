@@ -1,0 +1,53 @@
+of 𝑑𝑚 at 𝑚’s L-Begin either. The second reads 𝑛 only through the values of 𝜔𝑛, and deleting the 
+episode can only make relied false, which relaxes the guard on L-Unload rather than blocking 
+it. What such a step reads of a name of 𝑅 is covered by the invariant. □
+Theorem 80. (Confluence.) Let a sequence of steps reach a quiescent 𝛾𝑇 , let every component 
+be total on its provision (Definition 76), and let 𝐴 be as in Definition 74. Then
+1. (Canonical form.) 𝛾𝑇  is reached, up to the names whose entries the reduction withdraws, 
+from 𝛾0 by a sequence that takes the same orchestration steps in their original order, 
+those at a fiber the orchestrator inserted preceding every lifecycle step and each of the rest 
+following the step that instantiated the fiber it acts on, and that takes, for an enumeration 
+𝑛1, …, 𝑛𝑘 of 𝐴 linearizing ⊲, one episode of each 𝑛𝑖 in that order.
+2. (Confluence.) Any two such sequences from 𝛾0 taking the same orchestration steps reach 
+states related, after a renaming as in Lemma 61, by the ≃ of Definition 58 and hence 
+by ≃𝐾.
+Proof. For (1), the episodes of the sequence are of two kinds: those that close and those still 
+open at 𝛾𝑇 , which by quiet𝑇  and Lemma 77 are one episode of each fiber of 𝐴.
+Closing episodes go first, by induction on their number.  At each stage pick a closing episode of a 
+fiber 𝑛 that is ⊲-maximal among the fibers whose episodes still close; one exists by Lemma 75 
+and the finiteness of 𝑁. The three hypotheses of Lemma 79 are then met. No 𝑚 with 𝑛 ≺ 𝑚 has 
+a closing episode, by maximality. And no fiber 𝑛 instantiates during [𝑏, 𝑢] has an episode: such 
+a fiber is retired by the accumulator that ran at 𝑢 (Definition 52) and by Lemma 59(5) stays 
+retired, so its target view is ⊥ and Lemma 77 puts it outside 𝐴, whence it has no episode open 
+at 𝛾𝑇 ; and ⊲ relates it to 𝑛 through its parent pointer, so by maximality it has no closing one 
+either. The lemma removes the episode, together with the steps of the names it instantiated, 
+leaving 𝛾𝑇  where it was up to those names. The measure drops by one, so no closing episode 
+remains.
+A fiber outside 𝐴 takes no lifecycle step.  It has no open episode at 𝛾𝑇 , by Lemma 77 and quiet𝑇 , 
+and no closing one now remains, so it has no episode at all and is 𝖨𝗇𝖺𝖼𝗍𝗂𝗏𝖾 throughout; L-Begin 
+is the only rule that applies there, and applying it would open an episode.
+Orchestration steps go next. An orchestration step at a fiber the orchestrator inserted moves one 
+place earlier past a lifecycle step of a different fiber by Lemma 78(2), which applies because 
+a step of a fiber of 𝐴 instantiates no such name: instantiations draw fresh names, whereas the 
+name here is one an O-Insert of the original sequence introduced. With a lifecycle step of the 
+same fiber there is nothing to exchange, an O-Insert of 𝑛 already preceding every step of 𝑛 and 
+an O-Retire or O-Remove of 𝑛 applying only outside 𝐴, which takes no lifecycle step. Moving 
+each to the front in turn preserves their relative order. An orchestration step at a fiber some 
+activation instantiated cannot go to the front, its premises requiring that fiber to be present, so 
+it stays where the instantiation put it; it acts outside 𝐴 by the paragraph above and therefore 
+commutes with everything between it and the instantiation by the same clause of Lemma 78.
+Episodes are sorted and made contiguous, by induction on |𝐴|. Let 𝑛1 be ⊲-minimal in 𝐴. Then 𝑑𝑛1
+=
+⌀ and 𝜋𝑛1
+= 𝗋𝗈𝗈𝗍, since Definition 74 puts a provider of a key of 𝑑𝑛1
+ and the fiber instantiating 
+𝑛1 in 𝐴 while ⊲ puts both below 𝑛1. So target𝑛1
+ reads no field of another fiber and, no orches-
+tration step remaining to write 𝜏𝑛1
+ and no fiber below 𝑛1 remaining to retire it, is constant. 
+Every step acting on 𝑛1 is an activation step, no episode closing, and its remaining premises 
+read 𝜃𝑛1
+ and 𝑖𝑛1
+, which by Table 1 only 𝑛1 writes; each is therefore applicable at every earlier 
+state, and Lemma 78 moves it one place earlier without moving the endpoint. Its independence 
+54

@@ -1,0 +1,48 @@
+hypothesis is met because no fiber entangled with 𝑛1 takes a step in the region crossed — 𝑑𝑛1
+=
+⌀ leaves 𝑛1 no provider, and a fiber declaring a key of 𝑝𝑛1
+ has target ⊥ until 𝑛1 is 𝖠𝖼𝗍𝗂𝗏𝖾, so its 
+steps all follow the last step of 𝑛1 — and Lemma 66 makes every other pair independent. The 
+number of steps of other fibers preceding a step of 𝑛1 drops by one at each application, so the 
+episode of 𝑛1 becomes an initial contiguous block. The argument repeats on 𝐴 ∖ {𝑛1} over the 
+suffix that follows the block, where 𝑛1 is 𝖠𝖼𝗍𝗂𝗏𝖾 throughout and takes no further step, so it too 
+contributes a constant target; the providers a later 𝑛𝑗 declares lie in earlier blocks and take no 
+step in the suffix, so the entanglement argument above holds at every stage. The enumeration 
+this produces linearizes ⊲ by construction.
+For (2), both sequences reduce by (1) to a canonical one, and the two reductions run over the 
+same 𝐴 up to a renaming. Definition 74 reads 𝜏, 𝜋, 𝑑, and 𝑝, of which the last three are written 
+once with a fiber’s entry (Lemma 59(5)), so what has to be seen is that the same names come 
+into existence carrying the same 𝑑, 𝑝, and 𝜋, and that the same names are retired. Insertions the 
+two sequences share by hypothesis. Instantiations they share as well: an activation of a fiber 
+of 𝐴 instantiates, at each of its iterations, the component the iterator names there, which the 
+interleaved steps hold fixed — clause (2) of Definition 42 for a fiber not entangled with the 
+activating one ( Lemma 66), and Lemma 67(3) leaving an entangled fiber no Ψ ≠ idΓ while 
+the activation runs — so the tree of instantiations below an 𝐴-fiber is a function of that fiber’s 
+component; the names those instantiations draw are not shared, and it is here that Lemma 61 
+is applied, matching the two trees by a bijection. And a retirement is either an orchestration 
+step, shared, or the O-Retire an accumulator takes, which retires exactly the names the same 
+activation instantiated. Two enumerations linearizing ⊲ differ by transpositions of incompa -
+rable episodes; Lemma 78 leaves each endpoint unchanged up to the ≃ of Definition 58, and 
+Lemma 60 carries the steps that follow across that relation, so the two canonical sequences 
+agree. With the termination of Theorem 73, the lifecycle relation therefore has unique normal 
+forms. □
+The theorem is what licenses reasoning about a Cordis application as though it were 
+statically assembled. An orchestrator that adds a component, removes it, replaces a provider, 
+and undoes the replacement is guaranteed to arrive at the state it would have obtained by 
+writing the final composition down at the outset, and a component author reasoning about 
+which coeffects are in scope may reason about the quiescent state alone. It also delimits the 
+guarantee: it speaks of the state, not of the emissions the system produced along the way, which 
+is the distinction Section 6.1 draws between an acquisition, tracked inside the boundary, and 
+an emission, which crosses it.
+4.4.  Extensions
+We give four extensions of the calculus, each realized by the implementation of Section 5 and 
+each leaving the results of Section 4.3 intact.
+Asynchrony. The rules are synchronous: the state map Ψ𝑡 of a step ( Definition  58) is 
+applied whole at that step, and the environment moves only between one map and the next. 
+In an asynchronous host the iterations and the inverses yield futures, so a map in flight runs to 
+completion whether or not it is still wanted, and the aborting alternative of L-Divert is not one 
+such a host can offer. Such a host is inertial: of L-Divert it takes the landing alternative alone, 
+and a fiber whose target view turns during an iteration deactivates after that iteration lands, 
+from 𝖴𝗇𝗅𝗈𝖺𝖽𝗂𝗇𝗀, holding the inverse it produced. Inertia is therefore a restriction on which 
+alternative of L-Divert a host may take; every result of Section 4.3 quantifies over all sequences 
+55

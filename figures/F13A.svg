@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="760" viewBox="0 0 1120 760" role="img" aria-labelledby="F13A-title F13A-desc">
+<title id="F13A-title">F13A：子会话的起点要明确交代</title>
+<desc id="F13A-desc">{&quot;id&quot;: &quot;F13A&quot;, &quot;title&quot;: &quot;子会话的起点要明确交代&quot;, &quot;kind&quot;: &quot;compare&quot;, &quot;tag&quot;: &quot;当前进程内提供方&quot;, &quot;left&quot;: [&quot;新建方式&quot;, &quot;新子会话，不继承父历史&quot;, &quot;任务材料需要显式交代&quot;, &quot;父子关联不等于共享历史&quot;], &quot;right&quot;: [&quot;继承方式&quot;, &quot;最近完成轮次为止的前缀&quot;, &quot;不复制进行中的轮次&quot;, &quot;没有完成轮次时可为空种子&quot;]}</desc>
+<rect width="1120" height="760" fill="white"/>
+<text x="48" y="56" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#20314B">F13A  子会话的起点要明确交代</text>
+<text x="48" y="97" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="400" fill="#65738A">原创教学图 · 当前进程内提供方</text>
+<rect x="48" y="150" width="495" height="470" rx="16" fill="#F0EBFF" stroke="#7659AA" stroke-width="2"/>
+<text x="70" y="197" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">新建方式</text>
+<text x="70" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">新子会话，不继承父历史</text>
+<text x="70" y="294" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">任务材料需要显式交代</text>
+<text x="70" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">父子关联不等于共享历史</text>
+<rect x="577" y="150" width="495" height="470" rx="16" fill="#E5F6ED" stroke="#367E5A" stroke-width="2"/>
+<text x="599" y="197" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">继承方式</text>
+<text x="599" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">最近完成轮次为止的前缀</text>
+<text x="599" y="294" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">不复制进行中的轮次</text>
+<text x="599" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">没有完成轮次时可为空种子</text>
+<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：先确认范围，再跟随标注；示意布局不代表实际耗时或比例。</text>
+</svg>

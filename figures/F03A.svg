@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="760" viewBox="0 0 1120 760" role="img" aria-labelledby="F03A-title F03A-desc">
+<title id="F03A-title">F03A：轮次里面有步骤，步骤里面有尝试</title>
+<desc id="F03A-desc">{&quot;id&quot;: &quot;F03A&quot;, &quot;title&quot;: &quot;轮次里面有步骤，步骤里面有尝试&quot;, &quot;kind&quot;: &quot;nested&quot;, &quot;tag&quot;: &quot;教学轨迹&quot;, &quot;outer&quot;: &quot;一轮任务&quot;, &quot;inner&quot;: [[&quot;第一步&quot;, &quot;尝试一失败 → 恢复 → 尝试二成功&quot;, &quot;读取工具执行，结果进入历史&quot;], [&quot;第二步&quot;, &quot;尝试三成功，生成总结&quot;, &quot;没有工具调用，进入停止判断&quot;]], &quot;note&quot;: &quot;此例：一轮、两步、三次模型尝试、一次工具调用&quot;}</desc>
+<rect width="1120" height="760" fill="white"/>
+<text x="48" y="56" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#20314B">F03A  轮次里面有步骤，步骤里面有尝试</text>
+<text x="48" y="97" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="400" fill="#65738A">原创教学图 · 教学轨迹</text>
+<rect x="48" y="135" width="1024" height="505" rx="16" fill="#F0EBFF" stroke="#7659AA" stroke-width="2"/>
+<text x="75" y="183" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="25" font-weight="700" fill="#20314B">一轮任务</text>
+<rect x="75" y="220" width="465" height="280" rx="16" fill="#FFF2CC" stroke="#A97F16" stroke-width="2"/>
+<text x="97" y="267" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">第一步</text>
+<text x="97" y="315" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">尝试一失败 → 恢复 → 尝试二成功</text>
+<text x="97" y="364" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">读取工具执行，结果进入历史</text>
+<rect x="570" y="220" width="465" height="280" rx="16" fill="#FFF2CC" stroke="#A97F16" stroke-width="2"/>
+<text x="592" y="267" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">第二步</text>
+<text x="592" y="315" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">尝试三成功，生成总结</text>
+<text x="592" y="364" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">没有工具调用，进入停止判断</text>
+<text x="75" y="573" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="700" fill="#20314B">此例：一轮、两步、三次模型尝试、一次工具调用</text>
+<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：先确认范围，再跟随标注；示意布局不代表实际耗时或比例。</text>
+</svg>

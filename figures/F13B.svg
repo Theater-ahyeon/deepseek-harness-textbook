@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="760" viewBox="0 0 1120 760" role="img" aria-labelledby="F13B-title F13B-desc">
+<title id="F13B-title">F13B：拆分多出交代与汇合责任</title>
+<desc id="F13B-desc">{&quot;id&quot;: &quot;F13B&quot;, &quot;title&quot;: &quot;拆分多出交代与汇合责任&quot;, &quot;kind&quot;: &quot;columns&quot;, &quot;tag&quot;: &quot;教学流程 · 无时间比例&quot;, &quot;columns&quot;: [[&quot;启动与交代&quot;, &quot;给出目标与必要材料&quot;, &quot;选择起点和能力&quot;, &quot;有时间与材料代价&quot;], [&quot;子任务执行&quot;, &quot;可能重叠，也可能串行&quot;, &quot;各自返回结果或失败&quot;, &quot;独立会话不等于独立进程&quot;], [&quot;父任务汇合&quot;, &quot;检查来源与矛盾&quot;, &quot;形成最终产物&quot;, &quot;多代理不自动保证质量&quot;]]}</desc>
+<rect width="1120" height="760" fill="white"/>
+<text x="48" y="56" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#20314B">F13B  拆分多出交代与汇合责任</text>
+<text x="48" y="97" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="400" fill="#65738A">原创教学图 · 教学流程 · 无时间比例</text>
+<rect x="55" y="150" width="310" height="470" rx="16" fill="#E9F2FF" stroke="#3469A8" stroke-width="2"/>
+<text x="77" y="197" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">启动与交代</text>
+<text x="77" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">给出目标与必要材料</text>
+<text x="77" y="294" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">选择起点和能力</text>
+<text x="77" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">有时间与材料代价</text>
+<rect x="405" y="150" width="310" height="470" rx="16" fill="#F0EBFF" stroke="#7659AA" stroke-width="2"/>
+<text x="427" y="197" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">子任务执行</text>
+<text x="427" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">可能重叠，也可能串行</text>
+<text x="427" y="294" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">各自返回结果或失败</text>
+<text x="427" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">独立会话不等于独立进程</text>
+<rect x="755" y="150" width="310" height="470" rx="16" fill="#E5F6ED" stroke="#367E5A" stroke-width="2"/>
+<text x="777" y="197" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">父任务汇合</text>
+<text x="777" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">检查来源与矛盾</text>
+<text x="777" y="294" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">形成最终产物</text>
+<text x="777" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">多代理不自动保证质量</text>
+<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：先确认范围，再跟随标注；示意布局不代表实际耗时或比例。</text>
+</svg>

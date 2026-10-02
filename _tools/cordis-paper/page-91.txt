@@ -1,0 +1,42 @@
+[111] M. Herlihy and J. E. B. Moss, “Transactional Memory: Architectural Support for Lock-
+Free Data Structures,” in Proceedings of the 20th Annual International Symposium on 
+Computer Architecture, in ISCA '93.  1993, pp. 289–300. doi: 10.1145/165123.165164.
+[112] R. Landauer, “Irreversibility and Heat Generation in the Computing Process,” IBM Jour-
+nal of Research and Development, vol. 5, no. 3, pp. 183–191, 1961, doi: 10.1147/rd.53.0183.
+[113] C. H. Bennett, “Logical Reversibility of Computation,” IBM Journal of Research and Devel-
+opment, vol. 17, no. 6, pp. 525–532, 1973, doi: 10.1147/rd.176.0525.
+[114] T. Yokoyama and R. Glück, “ A Reversible Programming Language and its Invertible 
+Self-Interpreter,” in Proceedings of the 2007 ACM SIGPLAN Workshop on Partial Evalua -
+tion and Semantics-Based Program Manipulation , in PEPM '07.  2007, pp. 144–153. doi: 
+10.1145/1244381.1244404.
+[115] V . Danos and J. Krivine, “Reversible Communicating Systems,” in CONCUR 2004 — 
+Concurrency Theory, 15th International Conference, in Lecture Notes in Computer Science, 
+vol. 3170. Springer,  2004, pp. 292–307. doi: 10.1007/978-3-540-28644-8_19.
+[116] I. Phillips and I. Ulidowski, “Reversing Algebraic Process Calculi,” in Foundations of 
+Software Science and Computation Structures, 9th International Conference (FOSSACS 2006), 
+in Lecture Notes in Computer Science, vol. 3921. Springer,  2006, pp. 246–260. doi: 
+10.1007/11690634_17.
+[117] P . Wadler, “Linear Types Can Change the World!,” in Programming Concepts and Methods: 
+Proceedings of the IFIP Working Group 2.2/2.3 Working Conference , North-Holland,  1990, 
+pp. 561–581. [Online].  Available: https://homepages.inf.ed.ac.uk/wadler/papers/
+linear/linear.ps
+[118] D. Kim and M. C. Rinard, “Verification of Semantic Commutativity Conditions and 
+Inverse Operations on Linked Data Structures,” in Proceedings of the 32nd ACM SIGPLAN 
+Conference on Programming Language Design and Implementation,  2011, pp. 528–541. doi: 
+10.1145/1993498.1993561.
+[119] A. Lenharth, V . S. Adve, and S. T. King, “Recovery domains: an organizing principle 
+for recoverable operating systems,” in Proceedings of the 14th International Conference on 
+Architectural Support for Programming Languages and Operating Systems (ASPLOS), ACM,  
+2009, pp. 49–60. doi: 10.1145/1508244.1508251.
+[120] C. Walls, Spring in Action , 6th ed. Manning Publications, 2022. [Online].  Available: 
+https://www.manning.com/books/spring-in-action-sixth-edition
+[121] C. Escoffier, R. S. Hall, and P . Lalanda, “iPOJO: an Extensible Service-Oriented Compo-
+nent Framework,” in IEEE International Conference on Services Computing,  2007, pp. 474–
+481. doi: 10.1109/SCC.2007.74.
+[122] H. Cervantes and R. S. Hall, “ Autonomous Adaptation to Dynamic Availability Using a 
+Service-Oriented Component Model,” in Proceedings of the 26th International Conference 
+on Software Engineering, in ICSE '04.  2004, pp. 614–623. doi: 10.1109/ICSE.2004.1317483.
+[123] C. Elliott and P . Hudak, “Functional Reactive Animation,” in Proceedings of the Second 
+ACM SIGPLAN International Conference on Functional Programming, in ICFP '97.  1997, pp. 
+263–273. doi: 10.1145/258948.258973.
+91

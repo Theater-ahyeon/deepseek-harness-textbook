@@ -1,0 +1,43 @@
+it; and a fiber may be removed as soon as it is 𝖨𝗇𝖺𝖼𝗍𝗂𝗏𝖾, without a separate check that nobody 
+depends on it.
+4.3.2.  Temporal Composability
+Local temporal composability reverts one sequence of effects with one accumulator ( Sec-
+tion 3.1.2). The registry holds one accumulator per fiber and the fibers interleave: between the 
+moment 𝑛 composes an inverse onto 𝑔𝑛 and the moment 𝑔𝑛 runs, other fibers have moved the 
+state. Whether 𝑔𝑛 still undoes what it was built to undo there is what the global form of the 
+guarantee asserts, and the condition it turns on is that the intervening steps commute with 𝑔𝑛.
+Definition 65. Two iterators 𝑖, 𝑗 over Γ are independent when they are so in the sense of 
+Definition  42, reading ≃ on maps, triples, and continuations as Definition  34 does, and an 
+instantiating iteration (Definition 52) as agreement of the component it names. Fibers 𝑚 and 𝑛 
+are entangled when one’s provision meets the other’s declarations, 𝑝𝑚 ∩ (𝑑𝑛 ∪ 𝑝𝑛) ≠ ⌀ or 𝑝𝑛 ∩
+(𝑑𝑚 ∪ 𝑝𝑚) ≠ ⌀. A sequence of steps is pairwise independent when for every two names 𝑚 ≠ 𝑛 it 
+ever holds — one for each fiber the orchestrator inserts and each fiber an iteration instantiates — 
+either 𝑒𝑚 and 𝑒𝑛 are independent, or 𝑚 and 𝑛 are entangled and every key at which operations 
+of both occur is commutative (Definition 44).
+Independence in this sense is what trace theory takes as primitive: commuting actions gen-
+erate an equivalence on sequences under which reordering two adjacent independent actions 
+preserves the endpoint [46], and Lemma 78 is that reordering for these rules. Quantifying over 
+names rather than iterators is what keeps two fibers of one component in scope: such a pair 
+requires that component’s effect function to be independent of itself, which is to require that 
+𝔐(𝑖) be commutative. Clause (1) of Definition 42 is what Theorem 68 uses and clause (2) what 
+Theorem 80 needs in addition: reordering the steps of two fibers evaluates an iterator at a state 
+the other fiber moved, and commuting the maps does not by itself say that the iterator yields 
+the same inverse and the same continuation there. Checking clause (1) calls for no more than 
+the iterations themselves, since Lemma 41(1) carries commutation from the generators to the 
+monoids they generate.
+The paradigm supplies both disjuncts:
+Lemma 66. (Pairwise independence.) Every sequence of steps is pairwise independent.
+Proof. Every key is commutative, its coeffect carrying the proof as its witness ( Definition 46), 
+which settles the second disjunct at an entangled pair. A pair that is not entangled has each 
+member’s provision outside the other’s every key, which is the hypothesis 𝑃1 ∩ 𝑆2 = 𝑃2 ∩ 𝑆1 =
+⌀ of Theorem  47 read at the underlying members of Definition  30, so those members are 
+independent, the commutativity of every shared operation key again supplied by the witness; 
+independence transfers along the lift of Definition 56, whose transformations move the tables 
+as the stages move the projection, an instantiating iteration adding an entry no table map reads. 
+Two fibers of one component fall under the same two cases, Theorem 47 holding at 𝑖1 = 𝑖2 as 
+well. □
+Entangled fibers are the pairs independence cannot cover, and could not be expected to: a 
+consumer’s operation acts on the very value the provider’s extension installs, so the two orders 
+differ at every state the binding is absent from, whichever equivalence the difference is read up 
+to. What stands in for independence there is the rules themselves, which never interleave the 
+44

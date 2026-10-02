@@ -1,0 +1,165 @@
+"""Build a self-contained ten-chapter textbook, with evidence in an appendix."""
+import hashlib
+import html
+import json
+import re
+import runpy
+from pathlib import Path
+from book_sections import OPENINGS, EXTRAS, ENDINGS
+from module_explanations import SUPPLEMENTS, COVERAGE
+from recaps import RECAPS
+
+ROOT=Path(__file__).resolve().parents[1]
+QA_DIR=ROOT/'_tools'/'interview_qa'
+INTERVIEW_QA={p.stem:p.read_text(encoding='utf-8').strip() for p in sorted(QA_DIR.glob('[0-9][0-9].md'))}
+CROSS_QA=(QA_DIR/'cross.md').read_text(encoding='utf-8').strip()
+legacy=runpy.run_path(str(ROOT/'_tools/build_book.py'))
+render,css=legacy['render'],legacy['css']
+css += "\n@media(max-width:600px){figure{overflow-x:auto;max-width:calc(100% + 24px)}figure svg{min-width:760px}h4{font-size:18px;line-height:1.6;margin:27px 0 12px}}"
+plan=json.loads((ROOT/'book-plan.json').read_text(encoding='utf-8'))
+topics=json.loads((ROOT/'course-plan.json').read_text(encoding='utf-8'))
+topic_map={c['id']:c for c in topics['chapters']}
+commit=topics['commit']
+major_of={tid:int(c['id']) for c in plan['chapters'] for tid in c['topics']}
+evidence=['# 可选证据附录：原码节选与完整阅读路线\n','正文已独立解释项目。这份附录用于复核实现，不是读懂教材的前置要求。节选来自固定提交 '+commit+'，保留原码，省略邻近上下文。\n']
+records=json.loads((ROOT/'excerpt-manifest.json').read_text(encoding='utf-8'))['excerpts']
+for tid,c in topic_map.items():
+    body=(ROOT/'chapters'/f'{tid}.md').read_text(encoding='utf-8')
+    block=re.search(r'<!-- evidence:start -->(.*?)<!-- evidence:end -->',body,re.S).group(1)
+    evidence.append(f'<a id="evidence-{tid}"></a>\n\n## 专题 {tid}｜{c["title"]}\n'+block.replace('](../',']('))
+
+extra_specs={
+'08':[
+ ('packages/llm/llm/src/call-config.ts',21,30,'调用配置的范围','这些字段选择模型与请求选项，不是模型权重。'),
+ ('packages/llm/llm/src/index.ts',936,944,'准备并冻结解析配置','先找注册适配器，再解析模型与调用配置，复制并冻结。')],
+'09':[
+ ('packages/boot/plugin-manager/src/index.ts',425,434,'启用条目的实际变更','先检查目标与可写条件，再写 patch、重载并观察当前状态。'),
+ ('packages/test-support/llm-replay/src/index.ts',1107,1120,'完整消费回放的检查','未绑定脚本和未消费调用都会形成问题，不能把提前结束当作完整回归。')],
+'10':[
+ ('packages/experimental/agent-team/src/types.ts',47,55,'团队成员持久身份','Session 标识、标签、上下文起点与创建阶段分别记录。'),
+ ('packages/experimental/agent-team/src/types.ts',74,83,'任务完整快照','修订、所有者、阻塞关系与路径提示进入任务记录。')],
+}
+extra_links={}
+for cid,specs in extra_specs.items():
+    evidence.append(f'<a id="book-evidence-{cid}"></a>\n\n## 教材第 {int(cid)} 章：补充实现证据\n')
+    for file,start,end,label,explanation in specs:
+        lines=(ROOT/'source'/file).read_text(encoding='utf-8').splitlines()
+        quote='\n'.join(lines[start-1:end])
+        evidence.append(f'**{label}。** {explanation}\n\n[本地完整文件](source/{file})，第 {start}—{end} 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/{commit}/{file}#L{start})。\n\n```ts\n{quote}\n```\n')
+        records.append({'chapter':None,'book_chapter':cid,'file':'source/'+file,'start':start,'end':end,'excerpt_sha256':hashlib.sha256(quote.encode()).hexdigest()})
+    extra_links[cid]=f'[可选实现证据](../source-excerpts.md#book-evidence-{cid})'
+(ROOT/'source-excerpts.md').write_text('\n'.join(evidence),encoding='utf-8')
+(ROOT/'excerpt-manifest.json').write_text(json.dumps({'commit':commit,'excerpts':records},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+
+zh_numbers={'一':1,'二':2,'三':3,'四':4,'五':5,'六':6,'七':7,'八':8,'九':9,'十':10,'十一':11,'十二':12,'十三':13,'十四':14,'十五':15,'十六':16,'十七':17,'十八':18}
+def crossref(match):
+    raw=match.group(1)
+    num=int(raw) if raw.isdigit() else zh_numbers.get(raw)
+    return f'第 {major_of[f"{num:02}"]} 章' if num and f'{num:02}' in major_of else match.group(0)
+
+def transform_topic(tid,major,index):
+    original=(ROOT/'chapters'/f'{tid}.md').read_text(encoding='utf-8')
+    text=original.split('\n',1)[1]
+    text=re.sub(r'## '+tid+r'\.4 [^\n]+\n.*?(?=\n## '+tid+r'\.5)', '## '+tid+'.4 把机制连成因果关系\n\n'+RECAPS[tid]+'\n',text,flags=re.S)
+    # Remove code-heavy implementation routes from the explanatory main text.
+    text=re.sub(r'<!-- evidence:start -->.*?<!-- evidence:end -->',f'上面的过程按材料、进入条件与结果组织。需要核对原实现时，可查[可选证据附录](../source-excerpts.md#evidence-{tid})；继续阅读不需要打开它。',text,flags=re.S)
+    text=re.sub(r'<!-- references:start -->.*?<!-- references:end -->','',text,flags=re.S)
+    text=text.replace('前九章不断使用','前文不断使用').replace('前置为前十七章。','相关契约在本章前面已经分别解释。')
+    text=text.replace('打开源码后，你可能看见', '本节用简短示意解释')
+    text=text.replace('读正常返回前，必须先看这些较早的分支。', '这些较早结束的条件，与正常接纳路径有不同结果。')
+    text=text.replace('目标是写一个可复现比较', '本节解释比较怎样才可复现')
+    text=text.replace('阅读原码应检查来源和注入边界', '材料的真实来源和注入边界决定其含义')
+    text=text.replace('是否重建跟随，要继续看客户端连接生命周期。', '恢复观察需要新的有效快照与游标；检测出缺口本身不代表恢复已经完成。')
+    text=text.replace('内部结构在真实源码中是：\n\n```ts\ninterface ReadInput {\n  filePath: string\n  offset: number\n  limit: number\n}\n```', '内部输入可以用三项数据理解：路径字符串 filePath、起始行数字 offset、最大行数 limit。类型只规定它们的形状，真正读取仍由执行体完成。')
+    text=text.replace('原指南与真实工具各怎样参考','最小示例与实际文件服务怎样分工')
+    # Earlier topic-order transitions are invalid after regrouping into ten chapters.
+    text=re.sub(r'下一章[^。]*。','',text)
+    text=re.sub(r'前置(?:知识)?(?:为|是|只有)[^。]*。','',text)
+    text=re.sub(r'第\s*([0-9]+|[一二三四五六七八九十]+)\s*章',crossref,text)
+    text=text.replace('第一章', '第 1 章').replace('本章','本节')
+    text=re.sub(r'## '+tid+r'\.4 [^\n]+','## '+tid+'.4 机制回顾与证据边界',text)
+    text=re.sub(r'^## '+tid+r'\.(\d+) (.*)',lambda m:f'### {major}.{index}.{int(m.group(1))+1} '+m.group(2),text,flags=re.M)
+    return f'<a id="topic-{tid}"></a>\n\n## {major}.{index} {topic_map[tid]["title"]}\n'+text.strip()+'\n'
+
+BOOK_DIR=ROOT/'book'
+BOOK_DIR.mkdir(exist_ok=True)
+chapter_bodies=[]
+for c in plan['chapters']:
+    cid=c['id']; major=int(cid)
+    parts=[f'# 第 {major} 章｜{c["title"]}\n',OPENINGS[cid]+'\n']
+    # Start new chapters with their concrete orientation sections.
+    if cid in ('03','05','08','09'):parts.append(EXTRAS.get(cid,'')+'\n')
+    offset=1 if cid in ('03','05') else 0
+    for index,tid in enumerate(c['topics'],1):parts.append(transform_topic(tid,major,index+offset))
+    if cid=='10':parts.append(EXTRAS[cid]+'\n')
+    parts.append(SUPPLEMENTS.get(cid,'')+'\n')
+    text='\n'.join(parts)
+    for ecid,link in extra_links.items():text=text.replace(f'<!-- extra-evidence-{ecid} -->',link+'。正文所述机制已完整解释，原码仅用于复核。')
+    text+=f'\n## 本章小结\n\n{ENDINGS[cid]}\n'
+    text+='\n## 本章面试问答\n\n'+INTERVIEW_QA[cid]+'\n'
+    text+=f'\n[全书目录](../tutorial.md) · [可选参考证据](../reference-index.md)\n'
+    (BOOK_DIR/f'{cid}.md').write_text(text,encoding='utf-8')
+    chapter_bodies.append((c,text))
+
+preface='''# 深入理解 DeepSeek Harness
+
+## 从智能体基础到工程协作
+
+> 中文项目教材完整版 · 十章 · 2026-10-03 · 不设练习 · 每章附源码级面试问答
+
+## 引言：不读源码，也能顺着正文理解项目
+
+这本教材面向只了解少量大模型与编程概念的读者。正文负责解释项目的职责、结构、运行过程、可选能力、状态、失败与协作；不要求先读 TypeScript 源码或官方文档，也不要求先安装依赖。需要的类型、异步与进程基础在出现时补充。
+
+贯穿场景是“读取 README.md，说明项目用途并总结三点”。先用这项任务看清模型、材料与动作怎样合作，再扩展到编辑代码、执行命令、文件预览、语音、定时、外部触发与多 Agent。核心机制较详细地展开，可选提供方按功能、输入输出、启用条件与生命周期解释。正文不逐字段替代配置/API 手册，不逐行复述平台后端。
+
+全书采用两部分、十章的主线，参考[《深入理解 AI Agent》的引言与全书结构](https://bojieli.github.io/ai-agent-book/book/introduction/)：先解释构建 Agent 的六个方向，再解释评价、模型边界、持续改进与协作四个方向。参考书的模型后训练主题在这里转为模型调用与 Harness 职责边界，避免把训练技术误写成项目已有的运行机制。
+
+章内保留机制、取舍、综合案例和常见误读的组织方式，参考[《计算机体系结构：量化研究方法》公开介绍](https://shop.elsevier.com/books/computer-architecture/hennessy/978-0-12-811905-1)。原创中文图示参考[《图解大模型》](https://www.llm-book.com/)先建立直觉、再解释机制的表达方式。没有复制三本参考书的正文或配图。教学数字均用来解释计数与比较，不是项目实测。
+
+每章末尾设有“本章面试问答”：把该章机制改写成面试官会追问的问题，给出可对照源码的回答，并解释机制背后的设计原理与下一层追问；全书末尾另有跨章综合问答。这些问答是正文的延伸阅读，只使用正文与已核验节选解释过的机制，不引入新的实现声明，也不取代对真实运行证据的检查。
+
+## 阅读顺序与名词
+
+按第 1—10 章顺序阅读即可。遇到小结时先把握谁提供材料、谁执行动作、结果怎样进入下一步；无需记住每个英文标识。源码标识仅用于准确区分真实概念，例如 Session 是会话，turn 是轮次，step 是步骤，attempt 是一次模型尝试。
+
+十章正文整合了 18 个已核验的核心源码专题，并补充整个子系统目录的功能与协作解释。图号 F01—F18 保留专题标识，便于维护，图号不等于新版教材章号。源码专题原稿与行号放在可选附件，初学者可完全略过。
+
+原始文档、源码与 MIT 许可保留在 source。实现依据是固定提交 `639ed015397290b3745d163aafe02ffee4aa3f84`，根包版本 `0.2.0-rc.2`。本书区分静态实现解释与真实运行证据；本次未运行项目、上游测试或付费模型实验。
+
+## 全书目录
+
+'''
+book=[preface]
+for c,_ in chapter_bodies:book.append(f'- [第 {int(c["id"])} 章｜{c["title"]}](#chapter-{c["id"]})')
+book.append('\n[离线图文阅读版](reader.html) · [术语附录](appendices.md) · [可选证据索引](reference-index.md)\n')
+part=None
+for c,body in chapter_bodies:
+    if c['part']!=part:
+        part=c['part'];book.append('\n## '+part+'\n')
+    text=re.sub(r'^(#{1,5}) ',lambda m:'#'+m.group(1)+' ',body,flags=re.M).replace('](../','](')
+    book.append(f'\n<a id="chapter-{c["id"]}"></a>\n\n'+text)
+book.append('\n## 全书综合面试问答（跨章压力题）\n\n'+CROSS_QA+'\n')
+book.append('''\n## 后记：从一个任务看懂整个运行框架
+
+一条任务把全部职责连接起来：应用载体选择配置，插件提供能力，入口接纳输入，循环组织材料与动作，模型生成提议，工具受控执行，会话保存事实，界面观察和呈现，评价判断结果，改进形成新的产物，多 Agent 在相同边界上协作。
+
+读懂项目依赖于明确具体现象对应的系统职责与状态边界。页面关闭、工具出错、材料过长、外部提醒、成员失联，各自具有确切的触发条件与推进流程。正文阐述了这些因果逻辑；原始资料仅在需要核实实时接口或进行框架定制开发时查阅。
+''')
+book_text='\n'.join(book)
+(ROOT/'tutorial.md').write_text(book_text,encoding='utf-8')
+nav=''.join(f'<a href="#chapter-{c["id"]}"><span>{int(c["id"]):02}</span>{html.escape(c["title"])}</a>' for c,_ in chapter_bodies)
+body=render(book_text)+'<h2>附录：随用随查</h2>'+render((ROOT/'appendices.md').read_text(encoding='utf-8'))
+document=f'<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>深入理解 DeepSeek Harness · 中文项目教材</title><style>{css}</style></head><body id="top"><aside><h2>深入理解 DSH</h2><p>中文项目教材 · 十章<br>按顺序阅读 · 不设练习 · 含面试问答</p><nav>{nav}</nav><a href="reference-index.md">可选证据附录</a><a href="tutorial.md">Markdown 全文</a></aside><main><article>{body}<footer>固定版本 · 原创中文讲解与图示 · 原码仅作可选证据</footer></article></main></body></html>'
+(ROOT/'reader.html').write_text(document,encoding='utf-8')
+
+coverage=[]
+for cid,names in COVERAGE.items():
+    for name in names:
+        path=ROOT/'source/docs/subsystems'/f'{name}.zh.md'
+        if not path.is_file():raise ValueError('Missing subsystem reference: '+name)
+        coverage.append({'subsystem':name,'book_chapter':cid,'reference':path.relative_to(ROOT).as_posix(),'depth':'正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现'})
+documented={p.stem[:-3] for p in (ROOT/'source/docs/subsystems').glob('*.zh.md') if p.name!='README.zh.md'}
+if documented!={x['subsystem'] for x in coverage}:raise ValueError('Coverage mismatch: '+str(documented.symmetric_difference({x['subsystem'] for x in coverage})))
+(ROOT/'coverage.json').write_text(json.dumps({'chapter_count':10,'subsystems':coverage},ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+print(json.dumps({'book_chapters':10,'source_topics':18,'subsystems':len(coverage),'source_excerpts':len(records),'chinese_characters':len(re.findall(r'[\u4e00-\u9fff]',book_text)),'book_chars':len(book_text)},ensure_ascii=False))

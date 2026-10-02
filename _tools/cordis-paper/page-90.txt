@@ -1,0 +1,41 @@
+[97] G. Kiczales et al. , “ Aspect-Oriented Programming,” in ECOOP'97 — Object-Oriented 
+Programming, 11th European Conference, in Lecture Notes in Computer Science, vol. 1241. 
+Springer,  1997, pp. 220–242. doi: 10.1007/BFb0053381.
+[98] G. Kiczales, E. Hilsdale, J. Hugunin, M. Kersten, J. Palm, and W. G. Griswold, “ An 
+Overview of AspectJ,” in ECOOP 2001 — Object-Oriented Programming, 15th European 
+Conference, in Lecture Notes in Computer Science, vol. 2072. Springer,  2001, pp. 327–353. 
+doi: 10.1007/3-540-45337-7_18.
+[99] A. Popovici, T. Gross, and G. Alonso, “Dynamic Weaving for Aspect-Oriented Program-
+ming,” in Proceedings of the 1st International Conference on Aspect-Oriented Software 
+Development (AOSD 2002), ACM,  2002, pp. 141–147. doi: 10.1145/508386.508404.
+[100] J. Bonér, “What Are the Key Issues for Commercial AOP Use: How Does AspectWerkz 
+Address Them?,” in Proceedings of the 3rd International Conference on Aspect-Oriented 
+Software Development (AOSD 2004), ACM,  2004, pp. 5–6. doi: 10.1145/976270.976273.
+[101] M. Hicks, J. T. Moore, and S. Nettles, “Dynamic Software Updating,” in Proceedings of 
+the ACM SIGPLAN 2001 Conference on Programming Language Design and Implementation, 
+in PLDI '01.  2001, pp. 13–23. doi: 10.1145/378795.378798.
+[102] G. Stoyle, M. Hicks, G. Bierman, P . Sewell, and I. Neamtiu, “Mutatis Mutandis: Safe 
+and Predictable Dynamic Software Updating,” in Proceedings of the 32nd ACM SIGPLAN-
+SIGACT Symposium on Principles of Programming Languages, in POPL '05.  2005, pp. 183–
+194. doi: 10.1145/1040305.1040321.
+[103] C. M. Hayden, K. Saur, E. K. Smith, and M. Hicks, “Kitsune: Efficient, General-Purpose 
+Dynamic Software Updating for C,” ACM Trans. Program. Lang. Syst., vol. 36, no. 4, 2014, 
+doi: 10.1145/2629460.
+[104] M. Overeem, M. Spoor, and S. Jansen, “The Dark Side of Event Sourcing: Managing 
+Data Conversion,” in IEEE 24th International Conference on Software Analysis, Evolution 
+and Reengineering, in SANER '17.  2017, pp. 193–204. doi: 10.1109/SANER.2017.7884621.
+[105] E. Gamma, R. Helm, R. Johnson, and J. Vlissides, Design Patterns: Elements of Reusable 
+Object-Oriented Software. Boston, MA: Addison-Wesley, 1994.
+[106] D. Leijen, “ Algebraic Effect Handlers with Resources and Deep Finalization,” technical 
+report MSR-TR-2018-10, Apr. 2018. [Online].  Available: https://www.microsoft.com/
+en-us/research/publication/algebraic-effect-handlers-resources-deep-finalization/
+[107] M. Fowler, “Event Sourcing.” 2005.
+[108] J. Lee, J. Ahn, and K. Yi, “React-tRace: A Semantics for Understanding React Hooks,” 
+Proc. ACM Program. Lang., vol. 9, no. OOPSLA2, pp. 471–498, 2025, doi: 10.1145/3763067.
+[109] N. Shavit and D. Touitou, “Software Transactional Memory,” in Proceedings of the Four-
+teenth Annual ACM Symposium on Principles of Distributed Computing, in PODC '95.  1995, 
+pp. 204–213. doi: 10.1145/224964.224987.
+[110] T. Harris, S. Marlow, S. Peyton Jones, and M. Herlihy, “Composable Memory Transac -
+tions,” in Proceedings of the Tenth ACM SIGPLAN Symposium on Principles and Practice of 
+Parallel Programming, in PPoPP '05.  2005, pp. 48–60. doi: 10.1145/1065944.1065952.
+90

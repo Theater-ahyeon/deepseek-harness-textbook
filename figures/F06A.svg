@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="760" viewBox="0 0 1120 760" role="img" aria-labelledby="F06A-title F06A-desc">
+<title id="F06A-title">F06A：材料从不同生产路径进入请求</title>
+<desc id="F06A-desc">{&quot;id&quot;: &quot;F06A&quot;, &quot;title&quot;: &quot;材料从不同生产路径进入请求&quot;, &quot;kind&quot;: &quot;fan&quot;, &quot;tag&quot;: &quot;结构示意&quot;, &quot;origin&quot;: [&quot;本步请求材料&quot;, &quot;组装、进入决定、提交与派生&quot;], &quot;columns&quot;: [[&quot;提示贡献&quot;, &quot;有序段落与运行时上下文&quot;, &quot;由提示词服务组装&quot;], [&quot;项目指令&quot;, &quot;按工作区及触及路径准备&quot;, &quot;经前置步骤加入消息&quot;], [&quot;会话历史&quot;, &quot;当前表层派生消息&quot;, &quot;包含可见工具结果&quot;]], &quot;reverse&quot;: true}</desc>
+<rect width="1120" height="760" fill="white"/>
+<text x="48" y="56" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#20314B">F06A  材料从不同生产路径进入请求</text>
+<text x="48" y="97" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="400" fill="#65738A">原创教学图 · 结构示意</text>
+<rect x="340" y="125" width="440" height="140" rx="16" fill="#EDF1F5" stroke="#63758A" stroke-width="2"/>
+<text x="362" y="172" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">本步请求材料</text>
+<text x="362" y="220" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">组装、进入决定、提交与派生</text>
+<rect x="55" y="340" width="310" height="290" rx="16" fill="#FFF2CC" stroke="#A97F16" stroke-width="2"/>
+<text x="77" y="387" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">提示贡献</text>
+<text x="77" y="435" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">有序段落与运行时上下文</text>
+<text x="77" y="484" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">由提示词服务组装</text>
+<polyline points="210,340 210,300 560,300 560,265" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="560.0,265.0 565.3,274.7 554.7,274.7" fill="#65738A"/>
+<rect x="405" y="340" width="310" height="290" rx="16" fill="#F0EBFF" stroke="#7659AA" stroke-width="2"/>
+<text x="427" y="387" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">项目指令</text>
+<text x="427" y="435" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">按工作区及触及路径准备</text>
+<text x="427" y="484" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">经前置步骤加入消息</text>
+<polyline points="560,340 560,300 560,300 560,265" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="560.0,265.0 565.3,274.7 554.7,274.7" fill="#65738A"/>
+<rect x="755" y="340" width="310" height="290" rx="16" fill="#E5F6ED" stroke="#367E5A" stroke-width="2"/>
+<text x="777" y="387" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">会话历史</text>
+<text x="777" y="435" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">当前表层派生消息</text>
+<text x="777" y="484" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">包含可见工具结果</text>
+<polyline points="910,340 910,300 560,300 560,265" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="560.0,265.0 565.3,274.7 554.7,274.7" fill="#65738A"/>
+<text x="48" y="282" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="400" fill="#65738A">材料汇合</text>
+<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：先确认范围，再跟随标注；示意布局不代表实际耗时或比例。</text>
+</svg>

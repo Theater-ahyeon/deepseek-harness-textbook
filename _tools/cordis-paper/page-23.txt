@@ -1,0 +1,44 @@
+• Components at different levels of the hierarchy are independently loadable and unload-
+able; a parent context aggregates and manages the effects of all its children, enabling 
+arbitrarily nested composition.
+3.3.2.  Observational Equivalence
+The recovery guarantee of Section 3.1 asserts an equality of states ( Theorem 7), which is an 
+idealization, because the physical state cannot be recovered as it stood. For example, free 
+releases a block to the allocator without restoring the layout the heap had before malloc; and 
+a generative name is not restored by the inverse that discards it, since the next creation draws 
+a fresh one [40]. The equalities of Section 3 are therefore to be read up to an equivalence ≃, 
+and we take ≃ to be an observational equivalence: two states are related when no observer can 
+distinguish them. Comparing behavior rather than representation is the established route to 
+program equivalence [41], and the relation such a comparison yields depends on what the 
+observer is given to work with [42]. What an observer of a context is given is the coeffects it 
+carries, and what an observer of a value is given is the operations of its key ( Definition 29), 
+so the relation at each key is generated from those operations, and the relation on a context is 
+assembled from the relations at its keys. Both constructions are the business of this subsection, 
+and quotienting by the result is what makes the independence of Section 3.4.1 attainable.
+An observer of a value runs the operations of its key and reads their outcomes.
+Definition 31. Let 𝑉  carry a set 𝒜︀ of operations in the sense of Definition 29. A test over 𝒜︀ 
+is a finite word whose letters are forward maps and yielded inverses of the effect functions 
+𝑎(𝑥), over every 𝑎 ∈ 𝒜︀ and every argument 𝑥 : 𝑋𝑎, each letter applied to the value the letters 
+before it left; its outcomes are those the letters that are forward maps yield along the way, and 
+it is undefined where a precondition fails. Values 𝑣, 𝑣′ : 𝑉  are indistinguishable, written 𝑣 ≈𝒜︀ 𝑣′, 
+when every test over 𝒜︀ is defined at both or at neither and yields the same outcomes at both. 
+The equivalence at a key is indistinguishability under its own operations:
+≃𝑘 ≔ ≈𝒜︀𝑘
+(33)
+An operation respects an equivalence when, at related values, it is defined at both or at 
+neither and, where defined, yields related successors, inverses carrying related values to related 
+values, and equal outcomes.
+Lemma 32. Each ≃𝑘 is an equivalence that every operation of 𝒜︀𝑘 respects, and it is the coarsest 
+such relation. That is,
+1. ≈𝒜︀ is an equivalence, and every operation of 𝒜︀ respects it;
+2. every equivalence that every operation of 𝒜︀ respects is contained in ≈𝒜︀.
+Proof.
+1. Agreement of tests, in definedness and in outcomes, is reflexive, symmetric, and transi -
+tive. Let 𝑣 ≈𝒜︀ 𝑣′ and let 𝑎 ∈ 𝒜︀ be applied to an argument. Prefixing a test by one letter 
+is again a test, so the values the forward map reaches are indistinguishable, as are the 
+values any one yielded inverse reaches from indistinguishable arguments; the one-letter 
+test gives definedness at both or neither and equality of the outcome.
+2. Let 𝑅 be such an equivalence and 𝑣𝑅𝑣′. Each letter of a test is a forward map or a yielded 
+inverse of an operation, and respect carries 𝑅 along either, keeping the values reached 
+related and the outcomes equal at every letter. Hence every test agrees at 𝑣 and 𝑣′. □
+23

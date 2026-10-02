@@ -1,0 +1,49 @@
+enforces it by draining in-flight requests before unloading a provider. Dynamic software 
+updating (DSU) then migrates state forward through hand-written transformation functions: 
+Hicks et al.‘s general-purpose DSU for C [101], Stoyle et al.’s type-safe update points via 
+con-freeness analysis [102], and Hayden et al.‘s Kitsune [103] all map old-version data to new-
+version representations, inheriting heap objects, open files, and connections in place while 
+re-initializing whatever is left unmigrated. The same discipline extends to persistent state: 
+Overeem et al. [104] convert a running event store’s data between schema versions through 
+hand-written upgrade operations while keeping the system available. Erlang/OTP [15] takes 
+the same stance at the process level, migrating state through code_change/3 and recovering 
+from faults by restarting supervised processes rather than reverting their effects; JavaScript’s 
+Hot Module Replacement (e.g., webpack [48], Vite [49]) does the same at the module level, 
+handing state forward through the module.hot or import.meta.hot API across a reload. Com -
+pared with Cordis’s module replacement (Section 5.2), these approaches migrate in-memory 
+state more gracefully: Cordis reverts the old component’s tracked effects and reapplies the new 
+component’s from a clean slate, so a component’s own in-memory state does not survive a 
+reload unless placed in a longer-lived dependency, and layering DSU-style forward migration 
+atop revertible effects is future work. Cordis’s approach is nonetheless more general in two 
+respects: it needs no hand-written migration functions of the kind DSU and HMR require, and 
+it supports unloading a component entirely and recovering its resources, not merely updating 
+one in place.
+Developer-authored recovery. A second family recovers a component’s effects through 
+cleanup or compensation logic that the developer writes by hand. Plugin lifecycle conventions 
+(e.g., OSGi [52], Eclipse’s extension points, IntelliJ and VSCode) delegate cleanup to developer-
+written unload callbacks; the Command pattern [105] encapsulates an operation together with 
+an undo method for undo/redo stacks; the saga model [51] structures a long-lived transaction 
+as steps each paired with a compensating action; algebraic effect handlers can attach finalizers 
+that run on teardown [106]; and event sourcing [107] retracts state by appending compensating 
+events rather than executing an inverse at all. In all of them the inverse is an unenforced duty, 
+decoupled from the operation, so that a forgotten one leaks resources silently (as documented 
+empirically in Section 1.2.1). React’s useEffect hook [108] comes closest to pairing an effect 
+with its inverse structurally, returning a cleanup the runtime invokes before each re-execution 
+and on unmount. Its shortfall is composability: a hook may be called only at the top level of 
+a component or another hook, never inside a conditional, loop, or nested function, and its 
+effect body accepts neither an async function nor an iterator. Effects thus cannot be assembled 
+from other effects or interleaved with control flow, leaving nothing from which a composite 
+inverse could be derived. Cordis effects carry no such restriction: they are ordinary operations 
+that compose freely and may run asynchronously, and require a hand-written inverse only for 
+each atomic effect, from which the inverse of any composite is derived by composition, so that 
+assembling existing effects requires writing no inverses at all. This structural pairing of every 
+effect with its inverse makes complete recovery an invariant of the system rather than a matter 
+of developer discipline.
+Statically scoped reversal.  A third family reverses effects automatically, by construction, 
+but confines reversal to a scope fixed in advance. Software transactional memory [109, 110], 
+descended from hardware transactional memory [111], records a read/write log so that a 
+group of memory operations either commits or aborts, rolling memory back to its pre-trans -
+action state. Reversible computing, from Landauer and Bennett’s thermodynamic analyses 
+[112, 113] to reversible languages such as Janus [114], goes further and makes every step of a 
+whole computation globally invertible. Reversible process calculi build backtracking into the 
+80

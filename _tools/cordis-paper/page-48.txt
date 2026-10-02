@@ -1,0 +1,57 @@
+For (2), the L-Begin at 𝑏′ − 1 writes 𝜔𝑏′
+𝑚 = target𝑏′−1
+𝑚 , whose values are providers, so 𝜃𝑏′
+𝑛 =
+𝖠𝖼𝗍𝗂𝗏𝖾(−, −); the L-Begin at 𝑏 − 1 leaves 𝜃𝑏
+𝑛 = 𝖱𝖾𝗅𝗈𝖺𝖽𝗂𝗇𝗀(−, −, −), so 𝑏 ≠ 𝑏′ and hence 𝑏 < 𝑏′, 
+both episodes opening by Definition 58. Let [𝑏, 𝑢] close and suppose 𝑢 ≤ 𝑢′. Then 𝑢 ∈ [𝑏′, 𝑢′], 
+so installed𝑢
+𝑚 and, by (1), 𝜔𝑢
+𝑚(𝑘) = 𝑛; that is relied𝑢
+𝑛, which the L-Unload at 𝑢 denies. Hence 
+𝑢′ < 𝑢.
+For (3), 𝑛 is the provider of 𝑘 at 𝛾𝑏′
+, so 𝑘 ∈ dom(𝜎𝑏′
+𝑛 ). No L-Unload of 𝑛 falls in [𝑏′, 𝑢′]: where 
+[𝑏, 𝑢] closes it falls at 𝑢 > 𝑢′ by (2), and where it does not, Lemma  59(4) leaves 𝑛 with no 
+L-Unload at all. Since 𝜃𝑏′
+𝑛 = 𝖠𝖼𝗍𝗂𝗏𝖾(−, −), Table 1 therefore leaves L-Leave as the only rule 𝑛 
+can be acted on by within [𝑏′, 𝑢′], and its Ψ𝑡 is idΓ, so 𝑛 withdraws nothing and dom(𝜎𝑛) is 
+constant there by Lemma 59(1). What a step of another fiber may move is values at keys its 
+own declarations name (Definition 56), so a write to 𝜎𝑛(𝑘) is an operation at 𝑘 of a fiber with 
+𝑘 in its specification. □
+A transition spread over steps could otherwise install effects computed against a resolu -
+tion that has changed under it, and two premises prevent that. L-Iter and L-Finish carry 
+target𝑛(𝛾) = 𝜔, so a transition proceeds only while its committed view is still its target view, 
+and L-Divert carries the negation, so any change to the target view takes the fiber out of the 
+transition. The two directions of change are not distinguished: a component whose dependency 
+has gone and one whose dependency has been replaced leave by the same route, because a 
+target view that has become ⊥ and one that has become some other fiber are equally unequal 
+to 𝜔.
+The landing alternative of L-Divert is what stops this from being a guarantee about every 
+step: the iteration it lands installs an effect computed against a resolution that no longer holds. 
+What the rules deliver is therefore a disjunction, and the second branch is what makes the 
+first safe.
+Theorem 71. (Resolution coherence.) Let an episode [𝑏, 𝑢] of 𝑛 open at 𝑏 with 𝜔𝑏
+𝑛 = 𝜔. Then 
+𝜃𝑛 is 𝖱𝖾𝗅𝗈𝖺𝖽𝗂𝗇𝗀(−, −, −) on an initial interval [𝑏, 𝑟] of the episode, and every iteration of the 
+transition runs against the one resolution 𝜔:
+∀𝑡 ∈ [𝑏, 𝑟]. step𝑡 ∈ {L-Iter(𝑛), L-Finish(𝑛)} ⇒ target𝑡
+𝑛 = 𝜔 (58)
+Where the fiber leaves that interval, so that 𝑟 < 𝑢, exactly one of the following holds:
+1. step𝑟 = L-Finish(𝑛) and 𝜃𝑟+1
+𝑛 = 𝖠𝖼𝗍𝗂𝗏𝖾(−, 𝜔);
+2. step𝑟 = L-Divert(𝑛), and the episode closes at some 𝑢 > 𝑟 with 𝛾𝑢+1 ≃𝐾 (Ψ𝑡𝑙 ∘ ⋯ ∘
+Ψ𝑡1)(𝛾𝑏) as in Corollary 69.
+Proof. The L-Begin at 𝑏 − 1 writes 𝖱𝖾𝗅𝗈𝖺𝖽𝗂𝗇𝗀, and by Table 1 it is the one rule leading into that 
+lifecycle state; its premise 𝜃𝑛 = 𝖨𝗇𝖺𝖼𝗍𝗂𝗏𝖾 and Lemma  59(4) put any second application of it 
+outside the episode. So 𝖱𝖾𝗅𝗈𝖺𝖽𝗂𝗇𝗀 occupies an initial interval [𝑏, 𝑟] of [𝑏, 𝑢] and is not re-entered. 
+The first claim is then the premise target𝑛(𝛾) = 𝜔′ that Table  1 gives L-Iter and L-Finish, 
+together with 𝜔′ = 𝜔 by Lemma 59(2).
+For the dichotomy, step𝑟 is a rule whose premise has 𝜃𝑛 = 𝖱𝖾𝗅𝗈𝖺𝖽𝗂𝗇𝗀(−, −, −) and whose 
+conclusion does not, of which Table 1 offers L-Finish and L-Divert; the first lands in 𝖠𝖼𝗍𝗂𝗏𝖾(−, 𝜔) 
+and the second in 𝖴𝗇𝗅𝗈𝖺𝖽𝗂𝗇𝗀(−, 𝜔), from which Lemma 59(4) makes an L-Unload the only exit 
+and Corollary 69 supplies the equation. The iteration a landing L-Divert contributes is one of 𝑛’s 
+own, hence among the maps that accumulator withdraws. Where instead 𝑟 = 𝑢, the sequence 
+ends with the transition still in flight and the first claim is all that is asserted. □
+48

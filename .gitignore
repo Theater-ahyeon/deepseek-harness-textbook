@@ -1,0 +1,12 @@
+# Node / Environment
+node_modules/
+.cache/
+dist/
+build/
+*.log
+.DS_Store
+Thumbs.db
+
+# Large binaries or temporary caches
+*.tmp
+source/node_modules/

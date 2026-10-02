@@ -1,0 +1,45 @@
+The keys of both declarations are read off the tables rather than off 𝜎𝛾, and the witness 
+condition is why: a binding a transition has written stays in the fiber’s table before the fiber is 
+𝖠𝖼𝗍𝗂𝗏𝖾, and that binding is what the inverse is held to remove, so the projection the witness is 
+read at has to hold it wherever the fiber’s lifecycle stands. The same reading keeps the relation 
+where the control fields cannot move it: a write to a lifecycle state can move a table into or out 
+of 𝜎𝛾 with every binding left as it stands, whereas 𝜎𝑆
+𝛾  moves only where some binding does. 
+What the witness is thereby held to restore is the two declarations and nothing else.
+4.2.  The Calculus
+This section gives the calculus: nine rules generating two relations. An orchestration rule, 
+prefixed O- and written 𝛾 ⇒ 𝛿, is an action the orchestrator may perform; its premises say when 
+the action is legal, not when it occurs. A lifecycle rule, prefixed L- and written 𝛾 ⟶ 𝛿, is a step 
+the system takes unprompted whenever its premises hold. A sequence of steps interleaves the 
+two. Eight of the nine lie on the edges of Figure 1; O-Retire writes the retirement flag alone 
+and applies at every lifecycle state, so it would be a self-loop at each of the four nodes, and the 
+figure omits it.
+O-Insert
+O-Remove
+L-Begin L-Finish
+L-LeaveL-Unload
+L-Iter
+L-Divert𝖨𝗇𝖺𝖼𝗍𝗂𝗏𝖾 𝖠𝖼𝗍𝗂𝗏𝖾
+𝖱𝖾𝗅𝗈𝖺𝖽𝗂𝗇𝗀
+𝖴𝗇𝗅𝗈𝖺𝖽𝗂𝗇𝗀
+Figure 1 | The component lifecycle, with the empty node marking a fiber absent from the registry
+4.2.1.  Orchestration
+Insertion and retirement are the only external inputs: the orchestrator requests that a fiber exist 
+or stop existing, and never sets its lifecycle state directly.
+𝑛 ∉ dom(𝐹𝛾) 𝜋 ∈ dom(𝐹𝛾) ∪ {𝗋𝗈𝗈𝗍} (𝑑, 𝑝, 𝑒) ∈ ℭΓ ∀𝑚 ∈ dom(𝐹𝛾). 𝑝 ∩ 𝑝𝑚 = ⌀
+𝛾 ⇒ 𝛾[𝑛 ↦ ⟨𝑑, 𝑝, 𝑒, 𝜋, ⌀, ⊥, 𝖨𝗇𝖺𝖼𝗍𝗂𝗏𝖾⟩]
+O-Insert
+𝑛 ∈ dom(𝐹𝛾)
+𝛾 ⇒ 𝛾[𝜏𝑛 ↦ ⊤]
+O-Retire
+𝜏𝑛 = ⊤ 𝜃𝑛 = 𝖨𝗇𝖺𝖼𝗍𝗂𝗏𝖾 𝜎𝑛 = ⌀ ∀𝑚. 𝜋𝑚 ≠ 𝑛
+𝛾 ⇒ 𝛾 ∖ 𝑛
+O-Remove
+O-Retire is unconditional on the fiber’s state because retiring is a request, and the lifecycle 
+rules are what carry it out. Retirement is separated from removal for the same reason: a 
+retired fiber that is still 𝖠𝖼𝗍𝗂𝗏𝖾 must first be deactivated, and removing it earlier would discard 
+the accumulator and leak. The premise ∀𝑚. 𝜋𝑚 ≠ 𝑛 keeps the tree well-formed by removing 
+children before their parent, and 𝜎𝑛 = ⌀ admits only an entry holding no bindings, so that a 
+removal discards none: a deactivation leaves the entry so ( Corollary 69), and it is what lets 
+Theorem 68 count a removal as no change to the tables. The last premise of O-Insert is where the 
+34

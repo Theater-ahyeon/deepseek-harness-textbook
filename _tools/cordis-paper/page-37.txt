@@ -1,0 +1,48 @@
+𝜃𝑛 = 𝖱𝖾𝗅𝗈𝖺𝖽𝗂𝗇𝗀(𝑖, 𝑔, 𝜔) target𝑛(𝛾) ≠ 𝜔 (𝛿, ℎ) = (𝛾, idΓ) ∨ 𝑖(𝛾) = (𝛿, ℎ, −)
+𝛾 ⟶ 𝛿[𝜃𝑛 ↦ 𝖴𝗇𝗅𝗈𝖺𝖽𝗂𝗇𝗀(𝑔 ∘ ℎ, 𝜔)]
+L-Divert
+𝜃𝑛 = 𝖠𝖼𝗍𝗂𝗏𝖾(𝑔, 𝜔) target𝑛(𝛾) ≠ 𝜔
+𝛾 ⟶ 𝛾[𝜃𝑛 ↦ 𝖴𝗇𝗅𝗈𝖺𝖽𝗂𝗇𝗀(𝑔, 𝜔)]
+L-Leave
+𝜃𝑛 = 𝖴𝗇𝗅𝗈𝖺𝖽𝗂𝗇𝗀(𝑔, 𝜔) ¬ relied𝑛(𝛾) 𝑔(𝛾) = 𝛿
+𝛾 ⟶ 𝛿[𝜃𝑛 ↦ 𝖨𝗇𝖺𝖼𝗍𝗂𝗏𝖾]
+L-Unload
+L-Divert may fall between any two consecutive iterations of a transition, routing the fiber 
+into 𝖴𝗇𝗅𝗈𝖺𝖽𝗂𝗇𝗀 with the inverses accumulated so far rather than applying them on the spot. 
+Routing through 𝖠𝖼𝗍𝗂𝗏𝖾 instead would let the fiber provide its coeffects for the length of one 
+step and oblige its dependents to activate against a component that is already leaving. The first 
+of L-Divert’s two alternatives aborts the iteration the fiber is holding, which only an iteration 
+boundary makes possible, so the granularity at which a divert may fall is that of the iterator; 
+the second lets that iteration land, serving the host Section 4.4 admits, in which an iteration in 
+flight cannot be declined.
+L-Leave records the decision to deactivate without acting on it, which stops the fiber 
+providing its coeffects while leaving its own committed view and everyone else’s intact. L-
+Unload applies the accumulator, discards the committed view, and leaves the fiber 𝖨𝗇𝖺𝖼𝗍𝗂𝗏𝖾; it is 
+the only rule in the calculus that applies an accumulator, an L-Divert routing here rather than 
+applying one of its own.
+The two requirements are then carried by different parts of the form: the consumer’s 
+reading by the committed view, which L-Unload discards as its last act, and the deferral of the 
+withdrawal by the premise ¬ relied𝑛(𝛾), which we call the guard and which holds a provider’s 
+withdrawal back until every consumer that resolves a key to 𝑛 has gone. For a fiber L-Divert 
+takes out of its first transition the guard is vacuous, a fiber that has never been 𝖠𝖼𝗍𝗂𝗏𝖾 providing 
+nothing and appearing in no committed view. Theorem 70 establishes both requirements.
+The guard is imposed per binding rather than per fiber: relied𝑛(𝛾) tests whether some 
+committed view names 𝑛, so a fiber that declares none of 𝑛’s keys is no obstacle, and neither 
+is one that resolved a key of 𝑛’s in another realm ( Section  3.2.3). Under the single-source 
+discipline of O-Insert the per-binding reading coincides with the coarser test ∃𝑚 ≠ 𝑛, 𝑘 ∈
+𝑑𝑚. installed𝑚(𝛾) ∧ 𝑘 ∈ 𝑝𝑛, a key having one possible provider there.
+A guard of this kind ordinarily deadlocks. What keeps it from doing so is 𝖴𝗇𝗅𝗈𝖺𝖽𝗂𝗇𝗀 together 
+with 𝜎𝛾 being the union over 𝖠𝖼𝗍𝗂𝗏𝖾 fibers alone: once L-Leave or L-Divert has marked 𝑛, its 
+table leaves 𝜎𝛾, so no target view can name 𝑛 any longer, and every consumer that committed 
+to 𝑛 is itself on its way out. Theorem 73 turns that into the claim that the guard always releases.
+The guard orders deactivations along coeffects and not along the fiber tree: a parent may 
+run its inverse while a child of it is still 𝖴𝗇𝗅𝗈𝖺𝖽𝗂𝗇𝗀, since relied speaks only of committed views. 
+Parent and child are accordingly ordered more weakly than Theorem 70 orders a provider and 
+its consumer, and a parent and a child whose effects meet at a shared key are governed by the 
+pairwise independence of Lemma 66 instead.
+The rules are nondeterministic: several fibers may hold a committed view differing from 
+their target view, and the relation commits to no order among them. They are also reactive 
+only, in that no rule mentions a scheduler; the steps are any sequence of rule applications, so 
+a theorem proved over all such sequences holds for every scheduling policy a runtime might 
+adopt.
+37

@@ -1,0 +1,44 @@
+get : (𝑘 : 𝐾) → Σiso ⇀ 𝒱︀𝜌(𝑘)
+get = 𝑘 ↦ (𝜌, 𝜎) ↦ 𝜎(𝜌(𝑘))
+set : (𝑘 : 𝐾) × 𝒱︀𝜌(𝑘) → Σiso ⇀ Σiso × (Σiso ⇀ Σiso)
+set = (𝑘, 𝑣) ↦ (𝜌, 𝜎) ↦ ((𝜌, 𝜎[𝜌(𝑘) ↦ 𝑣]), 𝜆(𝜌′, 𝜎′).(𝜌′, 𝜎′ ∖ 𝜌′(𝑘)))
+isolate : 𝐾 × 𝑅 → Σiso → Σiso
+isolate = (𝑘, 𝑟) ↦ (𝜌, 𝜎) ↦ (𝜌[𝑘 ↦ 𝑟], 𝜎)
+(26)
+where get and set carry the preconditions of Definition 20 transported along 𝜌, namely 𝜌(𝑘) ∈
+dom(𝜎) and 𝜌(𝑘) ∉ dom(𝜎). The context that isolate(𝑘, 𝑟) derives assigns the realm 𝑟 to 𝑘 and 
+inherits the dependency table unchanged, so a key already isolated is reassigned rather than 
+refused.
+The coeffect isolation mechanism essentially implements a runtime ad-hoc polymorphism 
+system. Through isolation realm identifiers, the same dependency key can resolve to entirely 
+different values in different contexts, and this polymorphism can be dynamically adjusted 
+at runtime. Compared to traditional dependency injection, coeffect isolation provides finer-
+grained control, enabling customized isolation for specific components; set remains an effect 
+function (𝔈∗
+Σiso) and thus inherits revertibility, whereas isolate needs none, deriving a context 
+instead of writing the shared table.
+Coeffect Interception. The second mechanism, coeffect interception, attaches cross-cutting 
+metadata to dependency access, adding behavior without modifying the dependency value. 
+This metadata can be either context-carried or component-declared, so we extend both the 
+coeffect context and the coeffect specification:
+Definition 26. Define the coeffect context and specification with interception as:
+Σinter ≔ ((𝑘 : 𝐾) → ℳ︀𝑘) × ((𝑘 : 𝐾) ⇀ (ℳ︀𝑘 → 𝒱︀𝑘))
+𝔇inter ≔ (𝑘 : 𝐾) ⇀ ℳ︀𝑘
+(27)
+The context Σinter is a pair (𝜄, 𝜎): 𝜄 is the context-carried metadata installed on the context itself, 
+empty (𝜖𝑘) by default; and 𝜎 maps each key 𝑘 to a provider function from metadata ℳ︀𝑘 to value 
+𝒱︀𝑘. A specification 𝑑 ∈ 𝔇inter carries the component-declared metadata, assigning each key its 
+metadata 𝑑(𝑘), with dom(𝑑) serving as the dependency set. Each key equips its metadata with 
+a monoid (ℳ︀𝑘, ⊕𝑘, 𝜖𝑘): the merge ⊕𝑘 is associative with identity 𝜖𝑘 (the empty metadata).
+Definition 27. The get, set, and intercept operations on Σinter are:
+get : (𝑘 : 𝐾) × ℳ︀𝑘 → Σinter ⇀ 𝒱︀𝑘
+get = (𝑘, 𝜇) ↦ (𝜄, 𝜎) ↦ 𝜎(𝑘)(𝜇 ⊕𝑘 𝜄(𝑘))
+set : (𝑘 : 𝐾) × (ℳ︀𝑘 → 𝒱︀𝑘) → Σinter ⇀ Σinter × (Σinter ⇀ Σinter)
+set = (𝑘, 𝜓) ↦ (𝜄, 𝜎) ↦ ((𝜄, 𝜎[𝑘 ↦ 𝜓]), 𝜆(𝜄′, 𝜎′).(𝜄′, 𝜎′ ∖ 𝑘))
+intercept : (𝑘 : 𝐾) × ℳ︀𝑘 → Σinter → Σinter
+intercept = (𝑘, 𝜈) ↦ (𝜄, 𝜎) ↦ (𝜄[𝑘 ↦ 𝜄(𝑘) ⊕𝑘 𝜈], 𝜎)
+(28)
+where get and set carry the preconditions of Definition 20 on the provider table, namely 𝑘 ∈
+dom(𝜎) and 𝑘 ∉ dom(𝜎). The context that intercept(𝑘, 𝜈) derives merges 𝜈 onto the metadata 
+inherited at 𝑘 and inherits the provider table unchanged.
+20

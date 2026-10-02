@@ -1,0 +1,50 @@
+Each fiber owning a table means the coeffect context is derived rather than stored: it is what 
+the active fibers jointly provide.
+𝜎𝛾 ≔ ⋃{𝜎𝑚 | 𝑚 ∈ dom(𝐹𝛾), 𝜃𝑚 = 𝖠𝖼𝗍𝗂𝗏𝖾(−, −)} (46)
+The union is well defined because a fiber’s own table holds only the keys of its provision, 
+dom(𝜎𝑛) ⊆ 𝑝𝑛 (Definition 48), and the provisions of distinct fibers are disjoint, O-Insert admit-
+ting no fiber whose provision meets an existing one (Section 4.2.1), so each 𝑘 ∈ dom(𝜎𝛾) lies in 
+the table of exactly one 𝖠𝖼𝗍𝗂𝗏𝖾 fiber, whose name we write provider𝑘(𝛾) ∈ 𝔑 and call the provider 
+of 𝑘. Each key therefore has one possible provider, fixed by the provisions and not by the state. 
+No rule writes a table directly: the bindings a fiber provides are the provision stages its own 
+effect function performs, which land in 𝜎𝑛 and so are already part of the state 𝑒𝑛 returns, and 
+they leave again with the accumulator, and the operations it performs at a declared key act on 
+the value its provider’s table holds (Definition 56). An effect function is built from such stages 
+and from nothing else, so a location no key binds is one no fiber touches.
+The disjointness the union rests on is where this chapter parts company with Section 3.2.3, 
+and it simplifies the formalization rather than the systems it models. The isolation of Defin-
+ition 24 lets one key resolve through a realm table, so that two fibers may provide the same 
+key in different realms; a calculus carrying realms would relax disjointness to disjointness 
+within a realm, resolving a declared key against the realm of the fiber declaring it (Section 4.4 
+supplies that reading). We read every key at one shared realm instead, and a system that 
+wants several providers of one key keeps two routes: realms, and the broker of Section 6.2, one 
+fiber providing the key and dispatching among implementations registered with it. Within the 
+calculus, the disjointness restricts how often a component may be instantiated: one with a non-
+empty provision has one fiber at a time, so the many instantiations below are of components 
+providing nothing, which is the common case of a component that only consumes, or that 
+instantiates others.
+With 𝜎𝛾 in hand, the satisfaction relation of Section 3.2.2 applies unchanged, 𝛾 ⊧ 𝑑 abbrevi-
+ating 𝜎𝛾 ⊧ 𝑑. A key lies in dom(𝜎𝛾) exactly when some 𝖠𝖼𝗍𝗂𝗏𝖾 fiber has installed it, its provision 
+being the keys it may install rather than the ones it has, so 𝛾 ⊧ 𝑑 already requires that every 
+declared key have an 𝖠𝖼𝗍𝗂𝗏𝖾 provider. Taking the union over 𝖠𝖼𝗍𝗂𝗏𝖾 fibers alone is what lets 
+a fiber cease to provide before it has withdrawn anything, which Section 4.2.2 turns into the 
+ordering discipline, and it fixes how a transition in progress reads: a 𝖱𝖾𝗅𝗈𝖺𝖽𝗂𝗇𝗀 or 𝖴𝗇𝗅𝗈𝖺𝖽𝗂𝗇𝗀 fiber 
+reads its coeffects through the 𝜔 it holds and provides none of its own, so a key its transition 
+has already written is not yet one a dependent may activate against.
+The two declarations of Definition  48 are the two directions of one interface, 𝑑 what a 
+component reads from the environment and 𝑝 what it writes to it, and the superscript on the 
+effect function’s type holds the witness to that interface. A fiber holds its own bindings whether 
+or not they are published, so the projection the witness is read at is a second reading of the 
+same tables.
+Definition 51. Write
+𝜎𝑆
+𝛾 ≔ ⋃{𝜎𝑚|𝑆 | 𝑚 ∈ dom(𝐹𝛾)} (47)
+for the bindings the registry records at a set 𝑆 ⊆ 𝐾 of keys, over every fiber and not the 𝖠𝖼𝗍𝗂𝗏𝖾 
+ones alone; disjointness of provisions makes it a function, and 𝜎𝛾 is the restriction of 𝜎𝐾
+𝛾  to the 
+𝖠𝖼𝗍𝗂𝗏𝖾 fibers. This is the coeffect projection Definition 33 is read at throughout this section, so 
+that 𝛾 ≃𝑆 𝛿 is 𝜎𝑆
+𝛾 ≃ 𝜎𝑆
+𝛿  and ℑ𝑆
+Γ (Definition 37) is the effect functions witnessed at those keys.
+33

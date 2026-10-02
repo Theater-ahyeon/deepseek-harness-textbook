@@ -1,0 +1,431 @@
+{
+  "commit": "639ed015397290b3745d163aafe02ffee4aa3f84",
+  "excerpts": [
+    {
+      "chapter": "01",
+      "file": "source/packages/api/session-controller/src/commands.ts",
+      "start": 329,
+      "end": 335,
+      "excerpt_sha256": "df9508f64cab980b1b83d1925420aef67f1d5e618a68ea4f3d1d4de5d93ec29c"
+    },
+    {
+      "chapter": "01",
+      "file": "source/packages/core/agent-loop/src/agent.ts",
+      "start": 163,
+      "end": 169,
+      "excerpt_sha256": "f49f1ca4cf9a44ab859896cba69e310492bdc0a3bad4104a3aae25d0934add3e"
+    },
+    {
+      "chapter": "01",
+      "file": "source/packages/core/agent-loop/src/tool-calls.ts",
+      "start": 263,
+      "end": 266,
+      "excerpt_sha256": "e42f6877041eecfac66444e8b0a3ffa89971ab06c4678e99ef734059752d0a4a"
+    },
+    {
+      "chapter": "02",
+      "file": "source/packages/api/session-controller/src/commands.ts",
+      "start": 311,
+      "end": 317,
+      "excerpt_sha256": "9d301c4338544a6bc120fc2115f7393e27657855c60b84f13dafb098665715b8"
+    },
+    {
+      "chapter": "02",
+      "file": "source/packages/api/session-controller/src/commands.ts",
+      "start": 363,
+      "end": 376,
+      "excerpt_sha256": "69ee055cf508c061ba9ced85e41947a228bc14c5a060f986a6968bce448ae4d3"
+    },
+    {
+      "chapter": "02",
+      "file": "source/packages/fs/tool-fs/src/read.ts",
+      "start": 77,
+      "end": 84,
+      "excerpt_sha256": "701754b444e0ccaed1c4e9785fc9ad3acc77c9381d8e34847e8cf8a6ead66a0b"
+    },
+    {
+      "chapter": "03",
+      "file": "source/packages/core/agent-loop/src/agent.ts",
+      "start": 163,
+      "end": 173,
+      "excerpt_sha256": "4f986a5f9ee0405ea7c7f1edcab31daafb6f9ea3a7860623753c9d0c82df0534"
+    },
+    {
+      "chapter": "03",
+      "file": "source/packages/core/agent-loop/src/agent.ts",
+      "start": 303,
+      "end": 319,
+      "excerpt_sha256": "2c862136195c7ecef7f94fc3cb885da9dd22c53fc5165544e5c49a7cf2493977"
+    },
+    {
+      "chapter": "03",
+      "file": "source/packages/core/agent-loop/src/agent.ts",
+      "start": 530,
+      "end": 538,
+      "excerpt_sha256": "f46675a63f7f0dcdc8b5833f9ba802df108c6387549830dcdad67c89a38f482f"
+    },
+    {
+      "chapter": "04",
+      "file": "source/packages/fs/tool-fs/src/read.ts",
+      "start": 55,
+      "end": 60,
+      "excerpt_sha256": "da34f008d67f77797c0a79fd0489778e5ca202dd1ec9b33844de41b68be9f711"
+    },
+    {
+      "chapter": "04",
+      "file": "source/packages/fs/tool-fs/src/read.ts",
+      "start": 141,
+      "end": 152,
+      "excerpt_sha256": "ab938e5af52b8deef090aadda32610976f7dfefcdf1b7f39ab0d1b7db7eb6d7c"
+    },
+    {
+      "chapter": "04",
+      "file": "source/packages/fs/tool-fs/src/read.ts",
+      "start": 154,
+      "end": 164,
+      "excerpt_sha256": "049d72573d651ef6ac819e3a7bf34acb7cd5eb3e27842a000d7fa4bd017a44c8"
+    },
+    {
+      "chapter": "05",
+      "file": "source/packages/core/session/src/index.ts",
+      "start": 744,
+      "end": 752,
+      "excerpt_sha256": "90afb132a58060eec1b67c9d255abb66e59fd9f922c1036b90d7e05fee9342b7"
+    },
+    {
+      "chapter": "05",
+      "file": "source/packages/core/session/src/index.ts",
+      "start": 869,
+      "end": 880,
+      "excerpt_sha256": "7ef02fff276d65ac106ee967c8ac1132f025338f30f9c1a25c818c4997f5d7bb"
+    },
+    {
+      "chapter": "05",
+      "file": "source/packages/session/session-persistence-jsonl/src/storage.ts",
+      "start": 535,
+      "end": 546,
+      "excerpt_sha256": "fc28bf208c5bc8c4a1c17822bb0b07b50204c82e433dd2cc777deed1a87735f2"
+    },
+    {
+      "chapter": "06",
+      "file": "source/packages/core/system-prompt/src/index.ts",
+      "start": 574,
+      "end": 590,
+      "excerpt_sha256": "c6a4ec997805244892ae89c1079094333ace060116eddcc62c60a3100cc70c24"
+    },
+    {
+      "chapter": "06",
+      "file": "source/packages/context/agent-instructions/src/index.ts",
+      "start": 332,
+      "end": 340,
+      "excerpt_sha256": "dd9106ae23be4e4c05068b73c1c2634dcc2f0a14cb280bf73fc55ab027f0f3ca"
+    },
+    {
+      "chapter": "06",
+      "file": "source/packages/core/agent-loop/src/agent.ts",
+      "start": 419,
+      "end": 425,
+      "excerpt_sha256": "b1a3fc1799035bf24939ce917dfe6eb3468d07cfe600e8f016e8168a954193ff"
+    },
+    {
+      "chapter": "07",
+      "file": "source/packages/skill/skill/src/index.ts",
+      "start": 470,
+      "end": 472,
+      "excerpt_sha256": "02939c5d07600e23c08f10eadc465123d7de7c4703a8d51ea890432fea26e71f"
+    },
+    {
+      "chapter": "07",
+      "file": "source/packages/skill/tool-skill/src/index.ts",
+      "start": 133,
+      "end": 143,
+      "excerpt_sha256": "9d012925986b516d2b33e2d2ed527b43d9156166e61eb0b05df10972e002824b"
+    },
+    {
+      "chapter": "07",
+      "file": "source/packages/skill/tool-skill/src/index.ts",
+      "start": 189,
+      "end": 200,
+      "excerpt_sha256": "28f49a2e30f44be2e1b4cd0557ef1e4acd226e26114f1148fbb554aa94e982cf"
+    },
+    {
+      "chapter": "08",
+      "file": "source/packages/compaction/compaction-basic/src/index.ts",
+      "start": 158,
+      "end": 175,
+      "excerpt_sha256": "0a2be3c8bf3660eab4b3ae026e6dbf005f0a2569fd81f459658244e3c6d7235b"
+    },
+    {
+      "chapter": "08",
+      "file": "source/packages/compaction/compaction-basic/src/index.ts",
+      "start": 294,
+      "end": 301,
+      "excerpt_sha256": "ee8636a375f1c3ec012d37b270861b7dd921586f0e205897742719111bbeba34"
+    },
+    {
+      "chapter": "08",
+      "file": "source/packages/compaction/compaction-basic/src/region.ts",
+      "start": 232,
+      "end": 245,
+      "excerpt_sha256": "4550c65003ec6cddf723da00d43115d666fcc712af162b42dda67277579b9267"
+    },
+    {
+      "chapter": "09",
+      "file": "source/packages/llm/llm/src/index.ts",
+      "start": 936,
+      "end": 941,
+      "excerpt_sha256": "cb041b617e1c8eef4f4cb3344b7bd3db91ac1cb6c5007725cf22cea216981644"
+    },
+    {
+      "chapter": "09",
+      "file": "source/packages/core/agent-loop/src/agent.ts",
+      "start": 436,
+      "end": 443,
+      "excerpt_sha256": "32a9ca0bbe1aa96f26a22aab5d5c2e160fa9a5f6760a442c03dcb75d2d13688c"
+    },
+    {
+      "chapter": "09",
+      "file": "source/packages/core/agent-loop/src/agent.ts",
+      "start": 505,
+      "end": 509,
+      "excerpt_sha256": "0bae018eab905c1e60649080b17bf0f781c00c780342085b9b703e39849efb1b"
+    },
+    {
+      "chapter": "10",
+      "file": "source/apps/cli/src/bin.ts",
+      "start": 31,
+      "end": 42,
+      "excerpt_sha256": "c29aa55bfa9de50c56b6547e390b7c2442233d1caf6b570e7d7e9fdec02918d6"
+    },
+    {
+      "chapter": "10",
+      "file": "source/packages/boot/app-boot/src/profile.ts",
+      "start": 731,
+      "end": 737,
+      "excerpt_sha256": "c1750b8afddf44927d31923157d32728cff705dac7507c57a8480aa307a6b080"
+    },
+    {
+      "chapter": "10",
+      "file": "source/packages/fs/tool-fs/src/index.ts",
+      "start": 54,
+      "end": 64,
+      "excerpt_sha256": "de7102ea7d57a0469cfbfcb3b8a01c88af0017ed8a3e4cf7f0ec4b87a9875f8b"
+    },
+    {
+      "chapter": "11",
+      "file": "source/packages/core/tools/src/index.ts",
+      "start": 1504,
+      "end": 1511,
+      "excerpt_sha256": "afd6b6fb67cf8a962d92cf8dabfd063c37c85c858da312d6f087aa075545f5e7"
+    },
+    {
+      "chapter": "11",
+      "file": "source/packages/interaction/user-approval/src/index.ts",
+      "start": 224,
+      "end": 233,
+      "excerpt_sha256": "cbf872d82d316b92e21660db7edb1de17da8844194d26bd9194c1936f691f72e"
+    },
+    {
+      "chapter": "11",
+      "file": "source/packages/core/tools/src/index.ts",
+      "start": 1578,
+      "end": 1587,
+      "excerpt_sha256": "cd828543572e437c648fc8c73a5b009ab7a9b55caecb6267ef7cd894073f9699"
+    },
+    {
+      "chapter": "12",
+      "file": "source/packages/mcp/mcp-client/src/tools.ts",
+      "start": 81,
+      "end": 86,
+      "excerpt_sha256": "1f03f54562ba7344c1d3b8572034a5a6bf0da2fe530a7900162f40a11617d4e3"
+    },
+    {
+      "chapter": "12",
+      "file": "source/packages/mcp/mcp-client/src/tools.ts",
+      "start": 138,
+      "end": 150,
+      "excerpt_sha256": "931d6d83096df53f0558bd6e091a30e22e68cb05fe4f6398927525ca7403bf5f"
+    },
+    {
+      "chapter": "12",
+      "file": "source/packages/mcp/mcp-client/src/tools.ts",
+      "start": 229,
+      "end": 236,
+      "excerpt_sha256": "cb8af5b7bb26481d33eb55cc52fd9b3334b3e9e7e320252a9779703f289a499e"
+    },
+    {
+      "chapter": "13",
+      "file": "source/packages/subagent/subagent/src/index.ts",
+      "start": 559,
+      "end": 570,
+      "excerpt_sha256": "f757e198707fc91d15bd8d35c7379548c355c6f27628a8f63e15b6cb0ad7eef9"
+    },
+    {
+      "chapter": "13",
+      "file": "source/packages/subagent/subagent-spawn-in-process/src/index.ts",
+      "start": 54,
+      "end": 59,
+      "excerpt_sha256": "cd015f6d29b842e732232092e71d7279f644140177cc99dcaded80c2d1c5d7c6"
+    },
+    {
+      "chapter": "13",
+      "file": "source/packages/subagent/subagent-fork-in-process/src/index.ts",
+      "start": 48,
+      "end": 55,
+      "excerpt_sha256": "8d3dae537c9af1b72e3974b601386a16ce261f88ae48a12de075acd651f7ba05"
+    },
+    {
+      "chapter": "14",
+      "file": "source/packages/client/ui-conversation/src/client/service.ts",
+      "start": 275,
+      "end": 283,
+      "excerpt_sha256": "a690298dc602e21d8af20344dbfbdcc06c09f719c60a1287e0ea85728de81a8d"
+    },
+    {
+      "chapter": "14",
+      "file": "source/packages/api/session-controller/src/client/sessions/session.ts",
+      "start": 269,
+      "end": 277,
+      "excerpt_sha256": "f10f39c73c8341a7554a8f39f85c3c051a76b00b2d1a7bd3b532e455e2d84158"
+    },
+    {
+      "chapter": "14",
+      "file": "source/packages/api/session-controller/src/history.ts",
+      "start": 226,
+      "end": 232,
+      "excerpt_sha256": "9829a357f68b3820e455eddb9e7dd627b45163043f44c164f0a86ba6091ef828"
+    },
+    {
+      "chapter": "15",
+      "file": "source/apps/desktop/src/main.ts",
+      "start": 567,
+      "end": 575,
+      "excerpt_sha256": "ef76ae563f268de959d4fe87380f276b47f45664f05ac1ddcbf7338dde9fdda4"
+    },
+    {
+      "chapter": "15",
+      "file": "source/apps/desktop/src/host-process.ts",
+      "start": 206,
+      "end": 218,
+      "excerpt_sha256": "47d6486b871350a06ef6e243d7ba2e60e5865254f43f7e4f4125648c14b12928"
+    },
+    {
+      "chapter": "15",
+      "file": "source/apps/desktop/src/web-document.ts",
+      "start": 77,
+      "end": 88,
+      "excerpt_sha256": "2d95f379bddf5b1b5790921306bd9f53345d2feae75ce90f3b27462807126644"
+    },
+    {
+      "chapter": "16",
+      "file": "source/packages/test-support/llm-replay/src/index.ts",
+      "start": 462,
+      "end": 472,
+      "excerpt_sha256": "36aba7a7d43b9a9fb65b9707a495efe9f49660c8cb1d914c040fa07c3fb7697a"
+    },
+    {
+      "chapter": "16",
+      "file": "source/packages/test-support/llm-replay/src/index.ts",
+      "start": 1101,
+      "end": 1104,
+      "excerpt_sha256": "968a92e55287eecd02b3760e7c273af68cf1f70d968e6eabb239c6e604579b36"
+    },
+    {
+      "chapter": "16",
+      "file": "source/packages/test-support/llm-replay/src/index.ts",
+      "start": 1107,
+      "end": 1115,
+      "excerpt_sha256": "f1759435ed4aebb35d4986c56a5c4117194519121f3a323a7446931c3b951e75"
+    },
+    {
+      "chapter": "17",
+      "file": "source/packages/llm/token-meter/src/index.ts",
+      "start": 110,
+      "end": 122,
+      "excerpt_sha256": "7d8ebfcb26c5ed82797364ba71a035439bc9b9d0f5aeba0e81143b6263d882a6"
+    },
+    {
+      "chapter": "17",
+      "file": "source/packages/session/session-telemetry/src/coordinator.ts",
+      "start": 104,
+      "end": 116,
+      "excerpt_sha256": "1824392fdc41017688599e71634a6c1313951cf6d2d19bfebf44e1e7264ebd6b"
+    },
+    {
+      "chapter": "17",
+      "file": "source/packages/session/session-telemetry-otel/src/index.ts",
+      "start": 218,
+      "end": 230,
+      "excerpt_sha256": "24cba9e611024a6eaa997933dd13073bba697c11e98772b1b559b22481965cc7"
+    },
+    {
+      "chapter": "18",
+      "file": "source/docs/cookbook/adding-a-tool.zh.md",
+      "start": 14,
+      "end": 27,
+      "excerpt_sha256": "2c6ed4774ec74d43c35d869b2f8bb24fdb7e5f97166dac0f010dbe264cfc4349"
+    },
+    {
+      "chapter": "18",
+      "file": "source/packages/fs/tool-fs/src/read.ts",
+      "start": 137,
+      "end": 150,
+      "excerpt_sha256": "ba407ba22c1a35e432244cf750d3c4010cd784825ef194a692413fba325899d9"
+    },
+    {
+      "chapter": "18",
+      "file": "source/packages/fs/tool-fs/src/read.ts",
+      "start": 124,
+      "end": 132,
+      "excerpt_sha256": "3c6941fcb090db6d0e4fcd6101a7129b27b2edafb093cb7c4bae5d8fe4b65415"
+    },
+    {
+      "chapter": null,
+      "book_chapter": "08",
+      "file": "source/packages/llm/llm/src/call-config.ts",
+      "start": 21,
+      "end": 30,
+      "excerpt_sha256": "3a1e9678264a072f3b1d02a8c0f3953c81f92beb367b449ebcbca7a6b5885200"
+    },
+    {
+      "chapter": null,
+      "book_chapter": "08",
+      "file": "source/packages/llm/llm/src/index.ts",
+      "start": 936,
+      "end": 944,
+      "excerpt_sha256": "097232a6dabd44014ceed73fc13a8d4033625f53ad3bc229de8aeaa081f7858e"
+    },
+    {
+      "chapter": null,
+      "book_chapter": "09",
+      "file": "source/packages/boot/plugin-manager/src/index.ts",
+      "start": 425,
+      "end": 434,
+      "excerpt_sha256": "6b443cfd3b60dd6480b2640713de0182706976315592ae26a039187bfe045417"
+    },
+    {
+      "chapter": null,
+      "book_chapter": "09",
+      "file": "source/packages/test-support/llm-replay/src/index.ts",
+      "start": 1107,
+      "end": 1120,
+      "excerpt_sha256": "5a01aef1f73878e2aeb786d70bdb1d5d7a4ecb3b528c48790e77fe8f7a5fecbb"
+    },
+    {
+      "chapter": null,
+      "book_chapter": "10",
+      "file": "source/packages/experimental/agent-team/src/types.ts",
+      "start": 47,
+      "end": 55,
+      "excerpt_sha256": "a1d2889472ea5ad3fb8807a2817ef7e923d6e18317555b2c1fd7cd3241d32dba"
+    },
+    {
+      "chapter": null,
+      "book_chapter": "10",
+      "file": "source/packages/experimental/agent-team/src/types.ts",
+      "start": 74,
+      "end": 83,
+      "excerpt_sha256": "b809846535057b4a6f347f428b11fdcce04e4874b6ee2cb82e196264a2883773"
+    }
+  ]
+}
