@@ -91,7 +91,7 @@
 
 **接纳入口。** 目标被解析后，已识别请求直接返回 accepted；这不是最终回答。
 
-来源：[实际文件](../source/packages/api/session-controller/src/commands.ts)，第 329—335 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/api/session-controller/src/commands.ts#L329)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/api/session-controller/src/commands.ts)，第 329—335 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/api/session-controller/src/commands.ts#L329)。节选保留原码，省略邻近上下文。
 
 ```ts
     const agent = await this.resolveAgent(request.sessionId)
@@ -105,7 +105,7 @@
 
 **输入交接。** 两种方法都调用 send，但目标队列不同；执行细节在第三章。
 
-来源：[实际文件](../source/packages/core/agent-loop/src/agent.ts)，第 163—169 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L163)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/core/agent-loop/src/agent.ts)，第 163—169 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L163)。节选保留原码，省略邻近上下文。
 
 ```ts
   followup(input: UserMessage): void {
@@ -119,7 +119,7 @@
 
 **调用事实。** 这里追加的是工具调用事实，并返回它的序号，结果会与调用关联。
 
-来源：[实际文件](../source/packages/core/agent-loop/src/tool-calls.ts)，第 263—266 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/tool-calls.ts#L263)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/core/agent-loop/src/tool-calls.ts)，第 263—266 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/tool-calls.ts#L263)。节选保留原码，省略邻近上下文。
 
 ```ts
 function appendToolCall(session: Session, turn: number, step: number, block: ToolCallBlock): SessionSeq {
@@ -130,9 +130,9 @@ function appendToolCall(session: Session, turn: number, step: number, block: Too
 
 **完整阅读路线。** 路线区分启动前置、执行主链与提供方对照，不把它们误连为一次同步调用。
 
-1. [packages/api/session-controller/src/commands.ts](../source/packages/api/session-controller/src/commands.ts)，`SessionCommandController.prompt`。输入：用户内容、requestId 与会话；输出/交接：校验后向 Agent 排入输入；输出接纳结果。[固定提交第 311 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/api/session-controller/src/commands.ts#L311)。
-2. [packages/core/agent-loop/src/agent.ts](../source/packages/core/agent-loop/src/agent.ts)，`send / followup / steer；turn / step`。输入：已排入的输入；输出/交接：驱动消费输入并组织模型与工具阶段。[固定提交第 154 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L154)。
-3. [packages/core/agent-loop/src/tool-calls.ts](../source/packages/core/agent-loop/src/tool-calls.ts)，`executeToolCalls`。输入：成功助手消息里的工具调用；输出/交接：产生有序提交的工具调用与结果；后续步骤可读取结果。[固定提交第 60 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/tool-calls.ts#L60)。
+1. [packages/api/session-controller/src/commands.ts](source/packages/api/session-controller/src/commands.ts)，`SessionCommandController.prompt`。输入：用户内容、requestId 与会话；输出/交接：校验后向 Agent 排入输入；输出接纳结果。[固定提交第 311 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/api/session-controller/src/commands.ts#L311)。
+2. [packages/core/agent-loop/src/agent.ts](source/packages/core/agent-loop/src/agent.ts)，`send / followup / steer；turn / step`。输入：已排入的输入；输出/交接：驱动消费输入并组织模型与工具阶段。[固定提交第 154 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L154)。
+3. [packages/core/agent-loop/src/tool-calls.ts](source/packages/core/agent-loop/src/tool-calls.ts)，`executeToolCalls`。输入：成功助手消息里的工具调用；输出/交接：产生有序提交的工具调用与结果；后续步骤可读取结果。[固定提交第 60 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/tool-calls.ts#L60)。
 
 <!-- evidence:end -->
 
@@ -178,14 +178,14 @@ function appendToolCall(session: Session, turn: number, step: number, block: Too
 
 原项目文档用于复核，优先保留已有中文版：
 
-- [docs/architecture.zh.md](../source/docs/architecture.zh.md)
-- [docs/agent-lifecycle.zh.md](../source/docs/agent-lifecycle.zh.md)
+- [docs/architecture.zh.md](source/docs/architecture.zh.md)
+- [docs/agent-lifecycle.zh.md](source/docs/agent-lifecycle.zh.md)
 
 行为旁证为测试源码，未在本次执行：
 
-- [packages/core/agent-loop/tests/loop.spec.ts](../source/packages/core/agent-loop/tests/loop.spec.ts)
+- [packages/core/agent-loop/tests/loop.spec.ts](source/packages/core/agent-loop/tests/loop.spec.ts)
 
-[全书参考索引](../reference-index.md) · [术语与语法速查](../appendices.md)
+[全书参考索引](#reference-index) · [术语与语法速查](#appendices)
 
 <!-- references:end -->
 
@@ -294,7 +294,7 @@ Promise 可以理解为“将来兑现或失败的一次结果”。`async` 函�
 
 **方法签名与校验。** 签名承诺异步接纳值；有效内容检查仍会在运行时失败。
 
-来源：[实际文件](../source/packages/api/session-controller/src/commands.ts)，第 311—317 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/api/session-controller/src/commands.ts#L311)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/api/session-controller/src/commands.ts)，第 311—317 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/api/session-controller/src/commands.ts#L311)。节选保留原码，省略邻近上下文。
 
 ```ts
   async prompt(request: SessionPromptRequest): Promise<SessionPromptValue> {
@@ -308,7 +308,7 @@ Promise 可以理解为“将来兑现或失败的一次结果”。`async` 函�
 
 **排队与返回。** 调用 followup/steer 后返回接纳值，没有等待最终模型总结。
 
-来源：[实际文件](../source/packages/api/session-controller/src/commands.ts)，第 363—376 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/api/session-controller/src/commands.ts#L363)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/api/session-controller/src/commands.ts)，第 363—376 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/api/session-controller/src/commands.ts#L363)。节选保留原码，省略邻近上下文。
 
 ```ts
         using binding = this.ctx.fileUploads.bindPrompt(agent, admission.receiptIds, request.requestId)
@@ -329,7 +329,7 @@ Promise 可以理解为“将来兑现或失败的一次结果”。`async` 函�
 
 **注册定义。** register 收到工具定义；对象中的 execute 要等具体调用才执行。
 
-来源：[实际文件](../source/packages/fs/tool-fs/src/read.ts)，第 77—84 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/fs/tool-fs/src/read.ts#L77)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/fs/tool-fs/src/read.ts)，第 77—84 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/fs/tool-fs/src/read.ts#L77)。节选保留原码，省略邻近上下文。
 
 ```ts
   ctx.tools.register(defineTool({
@@ -344,9 +344,9 @@ Promise 可以理解为“将来兑现或失败的一次结果”。`async` 函�
 
 **完整阅读路线。** 路线区分启动前置、执行主链与提供方对照，不把它们误连为一次同步调用。
 
-1. [packages/api/session-controller/src/commands.ts](../source/packages/api/session-controller/src/commands.ts)，`SessionCommandController.prompt`。输入：带类型的请求对象；输出/交接：验证分支与接纳结果；转入消息队列。[固定提交第 311 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/api/session-controller/src/commands.ts#L311)。
-2. [packages/core/agent-loop/src/agent.ts](../source/packages/core/agent-loop/src/agent.ts)，`send / followup / steer`。输入：输入内容与进入方式；输出/交接：将输入放入 inbox；驱动消费是另一段行为。[固定提交第 154 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L154)。
-3. [packages/fs/tool-fs/src/read.ts](../source/packages/fs/tool-fs/src/read.ts)，`applyReadTool`。输入：具备工具服务的上下文；输出/交接：注册 read 定义和 execute 回调；此时没有用户文件读取结果。[固定提交第 68 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/fs/tool-fs/src/read.ts#L68)。
+1. [packages/api/session-controller/src/commands.ts](source/packages/api/session-controller/src/commands.ts)，`SessionCommandController.prompt`。输入：带类型的请求对象；输出/交接：验证分支与接纳结果；转入消息队列。[固定提交第 311 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/api/session-controller/src/commands.ts#L311)。
+2. [packages/core/agent-loop/src/agent.ts](source/packages/core/agent-loop/src/agent.ts)，`send / followup / steer`。输入：输入内容与进入方式；输出/交接：将输入放入 inbox；驱动消费是另一段行为。[固定提交第 154 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L154)。
+3. [packages/fs/tool-fs/src/read.ts](source/packages/fs/tool-fs/src/read.ts)，`applyReadTool`。输入：具备工具服务的上下文；输出/交接：注册 read 定义和 execute 回调；此时没有用户文件读取结果。[固定提交第 68 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/fs/tool-fs/src/read.ts#L68)。
 
 <!-- evidence:end -->
 
@@ -384,10 +384,10 @@ Promise 可以理解为“将来兑现或失败的一次结果”。`async` 函�
 
 原项目文档用于复核，优先保留已有中文版：
 
-- [docs/subsystems/commands.zh.md](../source/docs/subsystems/commands.zh.md)
-- [docs/user/develop/basic/tool.zh.md](../source/docs/user/develop/basic/tool.zh.md)
+- [docs/subsystems/commands.zh.md](source/docs/subsystems/commands.zh.md)
+- [docs/user/develop/basic/tool.zh.md](source/docs/user/develop/basic/tool.zh.md)
 
-[全书参考索引](../reference-index.md) · [术语与语法速查](../appendices.md)
+[全书参考索引](#reference-index) · [术语与语法速查](#appendices)
 
 <!-- references:end -->
 
@@ -485,7 +485,7 @@ Promise 可以理解为“将来兑现或失败的一次结果”。`async` 函�
 
 **进入时点。** 比较 next-turn、next-step 以及最后一个布尔值，理解目标与唤醒。
 
-来源：[实际文件](../source/packages/core/agent-loop/src/agent.ts)，第 163—173 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L163)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/core/agent-loop/src/agent.ts)，第 163—173 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L163)。节选保留原码，省略邻近上下文。
 
 ```ts
   followup(input: UserMessage): void {
@@ -503,7 +503,7 @@ Promise 可以理解为“将来兑现或失败的一次结果”。`async` 函�
 
 **轮次与前置拒绝。** 先记录轮次开始，再询问前置决定；拒绝可以发生在模型步骤进入之前。
 
-来源：[实际文件](../source/packages/core/agent-loop/src/agent.ts)，第 303—319 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L303)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/core/agent-loop/src/agent.ts)，第 303—319 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L303)。节选保留原码，省略邻近上下文。
 
 ```ts
     const turn = phase.turn + 1
@@ -527,7 +527,7 @@ Promise 可以理解为“将来兑现或失败的一次结果”。`async` 函�
 
 **工具与继续。** 没有工具调用时返回完成；否则执行批次并根据 concluded 决定本步继续结果。
 
-来源：[实际文件](../source/packages/core/agent-loop/src/agent.ts)，第 530—538 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L530)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/core/agent-loop/src/agent.ts)，第 530—538 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L530)。节选保留原码，省略邻近上下文。
 
 ```ts
         if (finish.kind === 'max-tokens') return { kind: 'max-tokens' }
@@ -543,11 +543,11 @@ Promise 可以理解为“将来兑现或失败的一次结果”。`async` 函�
 
 **完整阅读路线。** 路线区分启动前置、执行主链与提供方对照，不把它们误连为一次同步调用。
 
-1. [packages/core/agent-loop/src/agent.ts](../source/packages/core/agent-loop/src/agent.ts)，`followup / steer / inject`。输入：输入和进入方式；输出/交接：更新 inbox 并按方式触发驱动。[固定提交第 154 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L154)。
-2. [packages/core/agent-loop/src/inbox.ts](../source/packages/core/agent-loop/src/inbox.ts)，`mutate`。输入：插入、领取或删除的变更；输出/交接：先更新投影状态，再通知观察者。[固定提交第 198 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/inbox.ts#L198)。
-3. [packages/core/agent-loop/src/agent.ts](../source/packages/core/agent-loop/src/agent.ts)，`wakeDriver → kick → turn`。输入：待处理输入；输出/交接：开放轮次并领取输入；进入 preStep。[固定提交第 214 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L214)。
-4. [packages/core/agent-loop/src/agent.ts](../source/packages/core/agent-loop/src/agent.ts)，`preStep → step`。输入：被领取的输入与已装配材料；输出/交接：准入后执行步骤；模型成功分支走工具阶段。[固定提交第 267 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L267)。
-5. [packages/core/agent-loop/src/tool-calls.ts](../source/packages/core/agent-loop/src/tool-calls.ts)，`executeToolCalls`。输入：工具调用批次；输出/交接：完成工具阶段，返回驱动决定继续或停止。[固定提交第 60 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/tool-calls.ts#L60)。
+1. [packages/core/agent-loop/src/agent.ts](source/packages/core/agent-loop/src/agent.ts)，`followup / steer / inject`。输入：输入和进入方式；输出/交接：更新 inbox 并按方式触发驱动。[固定提交第 154 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L154)。
+2. [packages/core/agent-loop/src/inbox.ts](source/packages/core/agent-loop/src/inbox.ts)，`mutate`。输入：插入、领取或删除的变更；输出/交接：先更新投影状态，再通知观察者。[固定提交第 198 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/inbox.ts#L198)。
+3. [packages/core/agent-loop/src/agent.ts](source/packages/core/agent-loop/src/agent.ts)，`wakeDriver → kick → turn`。输入：待处理输入；输出/交接：开放轮次并领取输入；进入 preStep。[固定提交第 214 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L214)。
+4. [packages/core/agent-loop/src/agent.ts](source/packages/core/agent-loop/src/agent.ts)，`preStep → step`。输入：被领取的输入与已装配材料；输出/交接：准入后执行步骤；模型成功分支走工具阶段。[固定提交第 267 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L267)。
+5. [packages/core/agent-loop/src/tool-calls.ts](source/packages/core/agent-loop/src/tool-calls.ts)，`executeToolCalls`。输入：工具调用批次；输出/交接：完成工具阶段，返回驱动决定继续或停止。[固定提交第 60 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/tool-calls.ts#L60)。
 
 <!-- evidence:end -->
 
@@ -585,15 +585,15 @@ Promise 可以理解为“将来兑现或失败的一次结果”。`async` 函�
 
 原项目文档用于复核，优先保留已有中文版：
 
-- [docs/agent-lifecycle.zh.md](../source/docs/agent-lifecycle.zh.md)
-- [docs/subsystems/core.zh.md](../source/docs/subsystems/core.zh.md)
+- [docs/agent-lifecycle.zh.md](source/docs/agent-lifecycle.zh.md)
+- [docs/subsystems/core.zh.md](source/docs/subsystems/core.zh.md)
 
 行为旁证为测试源码，未在本次执行：
 
-- [packages/core/agent-loop/tests/loop.spec.ts](../source/packages/core/agent-loop/tests/loop.spec.ts)
-- [packages/core/agent-loop/tests/inbox.spec.ts](../source/packages/core/agent-loop/tests/inbox.spec.ts)
+- [packages/core/agent-loop/tests/loop.spec.ts](source/packages/core/agent-loop/tests/loop.spec.ts)
+- [packages/core/agent-loop/tests/inbox.spec.ts](source/packages/core/agent-loop/tests/inbox.spec.ts)
 
-[全书参考索引](../reference-index.md) · [术语与语法速查](../appendices.md)
+[全书参考索引](#reference-index) · [术语与语法速查](#appendices)
 
 <!-- references:end -->
 
@@ -689,7 +689,7 @@ Promise 可以理解为“将来兑现或失败的一次结果”。`async` 函�
 
 **参数解析。** 起始行和数量补默认，非空路径与上限仍有显式检查。
 
-来源：[实际文件](../source/packages/fs/tool-fs/src/read.ts)，第 55—60 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/fs/tool-fs/src/read.ts#L55)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/fs/tool-fs/src/read.ts)，第 55—60 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/fs/tool-fs/src/read.ts#L55)。节选保留原码，省略邻近上下文。
 
 ```ts
 export function parseReadArgs(args: { file_path: string; offset?: number; limit?: number }, maxLimit: number): ReadInput {
@@ -702,7 +702,7 @@ export function parseReadArgs(args: { file_path: string; offset?: number; limit?
 
 **服务与窗口。** 路径先解析；大或大小未知的文件使用流，随后按多项限制构造窗口。
 
-来源：[实际文件](../source/packages/fs/tool-fs/src/read.ts)，第 141—152 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/fs/tool-fs/src/read.ts#L141)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/fs/tool-fs/src/read.ts)，第 141—152 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/fs/tool-fs/src/read.ts#L141)。节选保留原码，省略邻近上下文。
 
 ```ts
       const { target, info } = await resolveRegularReadTarget(ctx, exec, input.filePath)
@@ -721,7 +721,7 @@ export function parseReadArgs(args: { file_path: string; offset?: number; limit?
 
 **规范结果与通知。** 返回的是有边界的结构化值，观察通知另有用途，模型文本由输出契约生成。
 
-来源：[实际文件](../source/packages/fs/tool-fs/src/read.ts)，第 154—164 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/fs/tool-fs/src/read.ts#L154)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/fs/tool-fs/src/read.ts)，第 154—164 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/fs/tool-fs/src/read.ts#L154)。节选保留原码，省略邻近上下文。
 
 ```ts
       const outcome = {
@@ -739,10 +739,10 @@ export function parseReadArgs(args: { file_path: string; offset?: number; limit?
 
 **完整阅读路线。** 路线区分启动前置、执行主链与提供方对照，不把它们误连为一次同步调用。
 
-1. [packages/fs/tool-fs/src/index.ts](../source/packages/fs/tool-fs/src/index.ts)，`apply`。输入：插件配置与注入的工具/文件服务；输出/交接：调用 applyReadTool 注册能力；这是启动前置。[固定提交第 54 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/fs/tool-fs/src/index.ts#L54)。
-2. [packages/fs/tool-fs/src/read.ts](../source/packages/fs/tool-fs/src/read.ts)，`parseReadArgs / applyReadTool`。输入：工具定义与模型参数；输出/交接：校验参数，确定 execute 的文件读取与呈现契约。[固定提交第 55 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/fs/tool-fs/src/read.ts#L55)。
-3. [packages/core/agent-loop/src/tool-calls.ts](../source/packages/core/agent-loop/src/tool-calls.ts)，`executeToolCalls`。输入：成功消息的工具调用；输出/交接：交给工具服务，按序记录调用和结果。[固定提交第 60 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/tool-calls.ts#L60)。
-4. [packages/core/tools/src/index.ts](../source/packages/core/tools/src/index.ts)，`prepareExecution → dispatch`。输入：工具名、参数与执行上下文；输出/交接：准入后调用已注册执行体；返回规范结果。[固定提交第 1493 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/tools/src/index.ts#L1493)。
+1. [packages/fs/tool-fs/src/index.ts](source/packages/fs/tool-fs/src/index.ts)，`apply`。输入：插件配置与注入的工具/文件服务；输出/交接：调用 applyReadTool 注册能力；这是启动前置。[固定提交第 54 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/fs/tool-fs/src/index.ts#L54)。
+2. [packages/fs/tool-fs/src/read.ts](source/packages/fs/tool-fs/src/read.ts)，`parseReadArgs / applyReadTool`。输入：工具定义与模型参数；输出/交接：校验参数，确定 execute 的文件读取与呈现契约。[固定提交第 55 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/fs/tool-fs/src/read.ts#L55)。
+3. [packages/core/agent-loop/src/tool-calls.ts](source/packages/core/agent-loop/src/tool-calls.ts)，`executeToolCalls`。输入：成功消息的工具调用；输出/交接：交给工具服务，按序记录调用和结果。[固定提交第 60 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/tool-calls.ts#L60)。
+4. [packages/core/tools/src/index.ts](source/packages/core/tools/src/index.ts)，`prepareExecution → dispatch`。输入：工具名、参数与执行上下文；输出/交接：准入后调用已注册执行体；返回规范结果。[固定提交第 1493 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/tools/src/index.ts#L1493)。
 
 <!-- evidence:end -->
 
@@ -778,14 +778,14 @@ export function parseReadArgs(args: { file_path: string; offset?: number; limit?
 
 原项目文档用于复核，优先保留已有中文版：
 
-- [docs/tool-catalog.zh.md](../source/docs/tool-catalog.zh.md)
-- [docs/subsystems/filesystem.zh.md](../source/docs/subsystems/filesystem.zh.md)
+- [docs/tool-catalog.zh.md](source/docs/tool-catalog.zh.md)
+- [docs/subsystems/filesystem.zh.md](source/docs/subsystems/filesystem.zh.md)
 
 行为旁证为测试源码，未在本次执行：
 
-- [packages/fs/tool-fs/tests/read-render.spec.ts](../source/packages/fs/tool-fs/tests/read-render.spec.ts)
+- [packages/fs/tool-fs/tests/read-render.spec.ts](source/packages/fs/tool-fs/tests/read-render.spec.ts)
 
-[全书参考索引](../reference-index.md) · [术语与语法速查](../appendices.md)
+[全书参考索引](#reference-index) · [术语与语法速查](#appendices)
 
 <!-- references:end -->
 
@@ -884,7 +884,7 @@ flush 是持久化等待边界：调用者要求提供方完成其约定的排�
 
 **稳定事件。** 条目包含序号与时间，并经过冻结和约束检查。
 
-来源：[实际文件](../source/packages/core/session/src/index.ts)，第 744—752 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/session/src/index.ts#L744)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/core/session/src/index.ts)，第 744—752 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/session/src/index.ts#L744)。节选保留原码，省略邻近上下文。
 
 ```ts
     const event = deepFreeze({
@@ -900,7 +900,7 @@ flush 是持久化等待边界：调用者要求提供方完成其约定的排�
 
 **消息派生。** 当前表层节点产生相应消息；方法返回消息数组副本，不是整份日志。
 
-来源：[实际文件](../source/packages/core/session/src/index.ts)，第 869—880 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/session/src/index.ts#L869)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/core/session/src/index.ts)，第 869—880 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/session/src/index.ts#L869)。节选保留原码，省略邻近上下文。
 
 ```ts
     for (const seq of nodes.slice(this.derivedNodes)) {
@@ -919,7 +919,7 @@ flush 是持久化等待边界：调用者要求提供方完成其约定的排�
 
 **事件写入与刷新。** 事件监听排队，flush 监听等待缓冲排空与 writer 刷新。
 
-来源：[实际文件](../source/packages/session/session-persistence-jsonl/src/storage.ts)，第 535—546 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/session/session-persistence-jsonl/src/storage.ts#L535)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/session/session-persistence-jsonl/src/storage.ts)，第 535—546 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/session/session-persistence-jsonl/src/storage.ts#L535)。节选保留原码，省略邻近上下文。
 
 ```ts
     ctx.on('session/event', (session: Session, event) => {
@@ -938,10 +938,10 @@ flush 是持久化等待边界：调用者要求提供方完成其约定的排�
 
 **完整阅读路线。** 路线区分启动前置、执行主链与提供方对照，不把它们误连为一次同步调用。
 
-1. [packages/core/session/src/index.ts](../source/packages/core/session/src/index.ts)，`Session.append`。输入：新事件；输出/交接：更新内存事实并通知；观察不同消费方。[固定提交第 722 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/session/src/index.ts#L722)。
-2. [packages/core/session/src/index.ts](../source/packages/core/session/src/index.ts)，`deriveMessages`。输入：事件日志；输出/交接：输出模型消息视图；是派生路径而非落盘步骤。[固定提交第 860 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/session/src/index.ts#L860)。
-3. [packages/session/session-projection/src/index.ts](../source/packages/session/session-projection/src/index.ts)，`投影注册与事件消费`。输入：会话事件与投影定义；输出/交接：更新可供 stateOf 查询的状态。[固定提交第 199 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/session/session-projection/src/index.ts#L199)。
-4. [packages/session/session-persistence-jsonl/src/storage.ts](../source/packages/session/session-persistence-jsonl/src/storage.ts)，`enqueueLive / flush`。输入：监听到的持久事件；输出/交接：排队写入；flush 等待队列完成，失败有自己的处理。[固定提交第 274 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/session/session-persistence-jsonl/src/storage.ts#L274)。
+1. [packages/core/session/src/index.ts](source/packages/core/session/src/index.ts)，`Session.append`。输入：新事件；输出/交接：更新内存事实并通知；观察不同消费方。[固定提交第 722 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/session/src/index.ts#L722)。
+2. [packages/core/session/src/index.ts](source/packages/core/session/src/index.ts)，`deriveMessages`。输入：事件日志；输出/交接：输出模型消息视图；是派生路径而非落盘步骤。[固定提交第 860 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/session/src/index.ts#L860)。
+3. [packages/session/session-projection/src/index.ts](source/packages/session/session-projection/src/index.ts)，`投影注册与事件消费`。输入：会话事件与投影定义；输出/交接：更新可供 stateOf 查询的状态。[固定提交第 199 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/session/session-projection/src/index.ts#L199)。
+4. [packages/session/session-persistence-jsonl/src/storage.ts](source/packages/session/session-persistence-jsonl/src/storage.ts)，`enqueueLive / flush`。输入：监听到的持久事件；输出/交接：排队写入；flush 等待队列完成，失败有自己的处理。[固定提交第 274 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/session/session-persistence-jsonl/src/storage.ts#L274)。
 
 <!-- evidence:end -->
 
@@ -977,15 +977,15 @@ flush 是持久化等待边界：调用者要求提供方完成其约定的排�
 
 原项目文档用于复核，优先保留已有中文版：
 
-- [docs/persistence-catalog.zh.md](../source/docs/persistence-catalog.zh.md)
-- [docs/session-format-status.zh.md](../source/docs/session-format-status.zh.md)
-- [docs/event-producer-consumer.zh.md](../source/docs/event-producer-consumer.zh.md)
+- [docs/persistence-catalog.zh.md](source/docs/persistence-catalog.zh.md)
+- [docs/session-format-status.zh.md](source/docs/session-format-status.zh.md)
+- [docs/event-producer-consumer.zh.md](source/docs/event-producer-consumer.zh.md)
 
 行为旁证为测试源码，未在本次执行：
 
-- [packages/session/session-persistence-jsonl/tests/jsonl.spec.ts](../source/packages/session/session-persistence-jsonl/tests/jsonl.spec.ts)
+- [packages/session/session-persistence-jsonl/tests/jsonl.spec.ts](source/packages/session/session-persistence-jsonl/tests/jsonl.spec.ts)
 
-[全书参考索引](../reference-index.md) · [术语与语法速查](../appendices.md)
+[全书参考索引](#reference-index) · [术语与语法速查](#appendices)
 
 <!-- references:end -->
 
@@ -1079,7 +1079,7 @@ flush 是持久化等待边界：调用者要求提供方完成其约定的排�
 
 **作用域与工具贡献。** 先合并作用域里的贡献，再取得可见工具 schema；参数在组装中被复制。
 
-来源：[实际文件](../source/packages/core/system-prompt/src/index.ts)，第 574—590 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/system-prompt/src/index.ts#L574)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/core/system-prompt/src/index.ts)，第 574—590 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/system-prompt/src/index.ts#L574)。节选保留原码，省略邻近上下文。
 
 ```ts
     // Scoped sections shadow globals before the deterministic order sort.
@@ -1103,7 +1103,7 @@ flush 是持久化等待边界：调用者要求提供方完成其约定的排�
 
 **指令消息进入。** 需要的指令材料按进入批次的位置插入，不是简单读文件后直接改系统字符串。
 
-来源：[实际文件](../source/packages/context/agent-instructions/src/index.ts)，第 332—340 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/context/agent-instructions/src/index.ts#L332)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/context/agent-instructions/src/index.ts)，第 332—340 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/context/agent-instructions/src/index.ts#L332)。节选保留原码，省略邻近上下文。
 
 ```ts
     for (const message of pending) agent.inbox.remove(message.id)
@@ -1119,7 +1119,7 @@ flush 是持久化等待边界：调用者要求提供方完成其约定的排�
 
 **首次提交。** firstAttempt 控制用户消息只在本步第一次提交；后面据日志构造请求。
 
-来源：[实际文件](../source/packages/core/agent-loop/src/agent.ts)，第 419—425 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L419)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/core/agent-loop/src/agent.ts)，第 419—425 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L419)。节选保留原码，省略邻近上下文。
 
 ```ts
       if (firstAttempt) {
@@ -1133,10 +1133,10 @@ flush 是持久化等待边界：调用者要求提供方完成其约定的排�
 
 **完整阅读路线。** 路线区分启动前置、执行主链与提供方对照，不把它们误连为一次同步调用。
 
-1. [packages/core/system-prompt/src/index.ts](../source/packages/core/system-prompt/src/index.ts)，`SystemPrompt.section / context / assemble`。输入：注册的有序贡献；输出/交接：产生已渲染组装；先读契约与组装。[固定提交第 405 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/system-prompt/src/index.ts#L405)。
-2. [packages/context/agent-instructions/src/index.ts](../source/packages/context/agent-instructions/src/index.ts)，`apply → compose`。输入：项目范围与指令文件；输出/交接：贡献对应材料；作为上一项的生产方回查。[固定提交第 84 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/context/agent-instructions/src/index.ts#L84)。
-3. [packages/core/agent-loop/src/agent.ts](../source/packages/core/agent-loop/src/agent.ts)，`preStep`。输入：待进入步骤与提示材料；输出/交接：组装及准入后的步骤输入。[固定提交第 267 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L267)。
-4. [packages/core/agent-loop/src/agent.ts](../source/packages/core/agent-loop/src/agent.ts)，`prepareRequest → buildRequest`。输入：已准备调用、Session 日志与材料；输出/交接：提交并冻结发给模型的请求。[固定提交第 547 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L547)。
+1. [packages/core/system-prompt/src/index.ts](source/packages/core/system-prompt/src/index.ts)，`SystemPrompt.section / context / assemble`。输入：注册的有序贡献；输出/交接：产生已渲染组装；先读契约与组装。[固定提交第 405 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/system-prompt/src/index.ts#L405)。
+2. [packages/context/agent-instructions/src/index.ts](source/packages/context/agent-instructions/src/index.ts)，`apply → compose`。输入：项目范围与指令文件；输出/交接：贡献对应材料；作为上一项的生产方回查。[固定提交第 84 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/context/agent-instructions/src/index.ts#L84)。
+3. [packages/core/agent-loop/src/agent.ts](source/packages/core/agent-loop/src/agent.ts)，`preStep`。输入：待进入步骤与提示材料；输出/交接：组装及准入后的步骤输入。[固定提交第 267 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L267)。
+4. [packages/core/agent-loop/src/agent.ts](source/packages/core/agent-loop/src/agent.ts)，`prepareRequest → buildRequest`。输入：已准备调用、Session 日志与材料；输出/交接：提交并冻结发给模型的请求。[固定提交第 547 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L547)。
 
 <!-- evidence:end -->
 
@@ -1172,14 +1172,14 @@ flush 是持久化等待边界：调用者要求提供方完成其约定的排�
 
 原项目文档用于复核，优先保留已有中文版：
 
-- [docs/architecture.zh.md](../source/docs/architecture.zh.md)
-- [docs/agent-lifecycle.zh.md](../source/docs/agent-lifecycle.zh.md)
+- [docs/architecture.zh.md](source/docs/architecture.zh.md)
+- [docs/agent-lifecycle.zh.md](source/docs/agent-lifecycle.zh.md)
 
 行为旁证为测试源码，未在本次执行：
 
-- [packages/core/agent-loop/tests/loop.spec.ts](../source/packages/core/agent-loop/tests/loop.spec.ts)
+- [packages/core/agent-loop/tests/loop.spec.ts](source/packages/core/agent-loop/tests/loop.spec.ts)
 
-[全书参考索引](../reference-index.md) · [术语与语法速查](../appendices.md)
+[全书参考索引](#reference-index) · [术语与语法速查](#appendices)
 
 <!-- references:end -->
 
@@ -1273,7 +1273,7 @@ DSH 区分目录摘要与完整定义。本章追它们怎样发现、读取与�
 
 **摘要列表。** list 返回 snapshot 的摘要，不返回每份完整正文。
 
-来源：[实际文件](../source/packages/skill/skill/src/index.ts)，第 470—472 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/skill/skill/src/index.ts#L470)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/skill/skill/src/index.ts)，第 470—472 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/skill/skill/src/index.ts#L470)。节选保留原码，省略邻近上下文。
 
 ```ts
   async list(options: SkillViewOptions = {}): Promise<SkillSummary[]> {
@@ -1283,7 +1283,7 @@ DSH 区分目录摘要与完整定义。本章追它们怎样发现、读取与�
 
 **模型工具路径。** 先查可见摘要和模型调用许可，再取得正文；读取失败有明确分支。
 
-来源：[实际文件](../source/packages/skill/tool-skill/src/index.ts)，第 133—143 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/skill/tool-skill/src/index.ts#L133)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/skill/tool-skill/src/index.ts)，第 133—143 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/skill/tool-skill/src/index.ts#L133)。节选保留原码，省略邻近上下文。
 
 ```ts
       const lookup = { cwd: exec.agent?.session.header.cwd, signal: exec.signal, scope: exec.agent }
@@ -1301,7 +1301,7 @@ DSH 区分目录摘要与完整定义。本章追它们怎样发现、读取与�
 
 **直接用户路径。** 允许用户调用的完整定义变成带 skill-invocation 来源的指令消息。
 
-来源：[实际文件](../source/packages/skill/tool-skill/src/index.ts)，第 189—200 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/skill/tool-skill/src/index.ts#L189)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/skill/tool-skill/src/index.ts)，第 189—200 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/skill/tool-skill/src/index.ts#L189)。节选保留原码，省略邻近上下文。
 
 ```ts
       const skill = await ctx.skills.get(name, lookup)
@@ -1320,9 +1320,9 @@ DSH 区分目录摘要与完整定义。本章追它们怎样发现、读取与�
 
 **完整阅读路线。** 路线区分启动前置、执行主链与提供方对照，不把它们误连为一次同步调用。
 
-1. [packages/skill/skill/src/index.ts](../source/packages/skill/skill/src/index.ts)，`SkillRegistry.registerProvider / list / get`。输入：提供方与技能名；输出/交接：定义目录与正文契约。[固定提交第 356 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/skill/skill/src/index.ts#L356)。
-2. [packages/skill/skill-filesystem/src/index.ts](../source/packages/skill/skill-filesystem/src/index.ts)，`FileSystemSkillProvider.list / get`。输入：文件目录或指定名称；输出/交接：返回技能描述或正文；是注册表的具体提供方。[固定提交第 150 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/skill/skill-filesystem/src/index.ts#L150)。
-3. [packages/skill/tool-skill/src/index.ts](../source/packages/skill/tool-skill/src/index.ts)，`apply；execute`。输入：技能服务及模型给出的名称；输出/交接：先贡献目录，调用时 get 正文并返回工具结果。[固定提交第 77 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/skill/tool-skill/src/index.ts#L77)。
+1. [packages/skill/skill/src/index.ts](source/packages/skill/skill/src/index.ts)，`SkillRegistry.registerProvider / list / get`。输入：提供方与技能名；输出/交接：定义目录与正文契约。[固定提交第 356 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/skill/skill/src/index.ts#L356)。
+2. [packages/skill/skill-filesystem/src/index.ts](source/packages/skill/skill-filesystem/src/index.ts)，`FileSystemSkillProvider.list / get`。输入：文件目录或指定名称；输出/交接：返回技能描述或正文；是注册表的具体提供方。[固定提交第 150 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/skill/skill-filesystem/src/index.ts#L150)。
+3. [packages/skill/tool-skill/src/index.ts](source/packages/skill/tool-skill/src/index.ts)，`apply；execute`。输入：技能服务及模型给出的名称；输出/交接：先贡献目录，调用时 get 正文并返回工具结果。[固定提交第 77 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/skill/tool-skill/src/index.ts#L77)。
 
 <!-- evidence:end -->
 
@@ -1358,14 +1358,14 @@ DSH 区分目录摘要与完整定义。本章追它们怎样发现、读取与�
 
 原项目文档用于复核，优先保留已有中文版：
 
-- [docs/subsystems/skills.zh.md](../source/docs/subsystems/skills.zh.md)
-- [docs/tool-catalog.zh.md](../source/docs/tool-catalog.zh.md)
+- [docs/subsystems/skills.zh.md](source/docs/subsystems/skills.zh.md)
+- [docs/tool-catalog.zh.md](source/docs/tool-catalog.zh.md)
 
 行为旁证为测试源码，未在本次执行：
 
-- [packages/skill/tool-skill/tests/tool-skill.spec.ts](../source/packages/skill/tool-skill/tests/tool-skill.spec.ts)
+- [packages/skill/tool-skill/tests/tool-skill.spec.ts](source/packages/skill/tool-skill/tests/tool-skill.spec.ts)
 
-[全书参考索引](../reference-index.md) · [术语与语法速查](../appendices.md)
+[全书参考索引](#reference-index) · [术语与语法速查](#appendices)
 
 <!-- references:end -->
 
@@ -1453,7 +1453,7 @@ DSH 区分目录摘要与完整定义。本章追它们怎样发现、读取与�
 
 **压力触发。** 前置链尝试压缩，失败会记录警告并继续；不能把警告解释成压缩已成功。
 
-来源：[实际文件](../source/packages/compaction/compaction-basic/src/index.ts)，第 158—175 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/compaction/compaction-basic/src/index.ts#L158)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/compaction/compaction-basic/src/index.ts)，第 158—175 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/compaction/compaction-basic/src/index.ts#L158)。节选保留原码，省略邻近上下文。
 
 ```ts
     ctx.on('agent/pre-step', async (
@@ -1478,7 +1478,7 @@ DSH 区分目录摘要与完整定义。本章追它们怎样发现、读取与�
 
 **区域选择。** 溢出路径在可选剪枝后选择可压缩范围，没有范围则返回 null。
 
-来源：[实际文件](../source/packages/compaction/compaction-basic/src/index.ts)，第 294—301 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/compaction/compaction-basic/src/index.ts#L294)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/compaction/compaction-basic/src/index.ts)，第 294—301 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/compaction/compaction-basic/src/index.ts#L294)。节选保留原码，省略邻近上下文。
 
 ```ts
     if (trigger === 'context-overflow') {
@@ -1493,7 +1493,7 @@ DSH 区分目录摘要与完整定义。本章追它们怎样发现、读取与�
 
 **稳定性与提交。** 摘要后先检查稳定性，再提交压缩体并闭合；失败路径记录错误结束。
 
-来源：[实际文件](../source/packages/compaction/compaction-basic/src/region.ts)，第 232—245 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/compaction/compaction-basic/src/region.ts#L232)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/compaction/compaction-basic/src/region.ts)，第 232—245 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/compaction/compaction-basic/src/region.ts#L232)。节选保留原码，省略邻近上下文。
 
 ```ts
     if (options.owner === null) signal?.throwIfAborted()
@@ -1514,10 +1514,10 @@ DSH 区分目录摘要与完整定义。本章追它们怎样发现、读取与�
 
 **完整阅读路线。** 路线区分启动前置、执行主链与提供方对照，不把它们误连为一次同步调用。
 
-1. [packages/compaction/compaction-basic/src/index.ts](../source/packages/compaction/compaction-basic/src/index.ts)，`事件绑定 → compactIfNeeded`。输入：pre-step 或请求错误及上下文条件；输出/交接：判断是否进入压缩流程。[固定提交第 148 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/compaction/compaction-basic/src/index.ts#L148)。
-2. [packages/compaction/compaction-basic/src/region.ts](../source/packages/compaction/compaction-basic/src/region.ts)，`区域选择与 compactSurfaceRegion`。输入：可压缩历史区域；输出/交接：确定范围并组织表层替换流程。[固定提交第 117 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/compaction/compaction-basic/src/region.ts#L117)。
-3. [packages/compaction/compaction-basic/src/summarizer.ts](../source/packages/compaction/compaction-basic/src/summarizer.ts)，`summarizeWithLlm`。输入：选定历史材料；输出/交接：通过 LLM 取得摘要；由区域流程消费。[固定提交第 120 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/compaction/compaction-basic/src/summarizer.ts#L120)。
-4. [packages/core/session/src/index.ts](../source/packages/core/session/src/index.ts)，`deriveMessages`。输入：含表层替换事实的日志；输出/交接：重建后续模型使用的消息视图。[固定提交第 860 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/session/src/index.ts#L860)。
+1. [packages/compaction/compaction-basic/src/index.ts](source/packages/compaction/compaction-basic/src/index.ts)，`事件绑定 → compactIfNeeded`。输入：pre-step 或请求错误及上下文条件；输出/交接：判断是否进入压缩流程。[固定提交第 148 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/compaction/compaction-basic/src/index.ts#L148)。
+2. [packages/compaction/compaction-basic/src/region.ts](source/packages/compaction/compaction-basic/src/region.ts)，`区域选择与 compactSurfaceRegion`。输入：可压缩历史区域；输出/交接：确定范围并组织表层替换流程。[固定提交第 117 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/compaction/compaction-basic/src/region.ts#L117)。
+3. [packages/compaction/compaction-basic/src/summarizer.ts](source/packages/compaction/compaction-basic/src/summarizer.ts)，`summarizeWithLlm`。输入：选定历史材料；输出/交接：通过 LLM 取得摘要；由区域流程消费。[固定提交第 120 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/compaction/compaction-basic/src/summarizer.ts#L120)。
+4. [packages/core/session/src/index.ts](source/packages/core/session/src/index.ts)，`deriveMessages`。输入：含表层替换事实的日志；输出/交接：重建后续模型使用的消息视图。[固定提交第 860 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/session/src/index.ts#L860)。
 
 <!-- evidence:end -->
 
@@ -1555,14 +1555,14 @@ DSH 区分目录摘要与完整定义。本章追它们怎样发现、读取与�
 
 原项目文档用于复核，优先保留已有中文版：
 
-- [docs/subsystems/compaction.zh.md](../source/docs/subsystems/compaction.zh.md)
-- [docs/user/guide/mcp-memory.zh.md](../source/docs/user/guide/mcp-memory.zh.md)
+- [docs/subsystems/compaction.zh.md](source/docs/subsystems/compaction.zh.md)
+- [docs/user/guide/mcp-memory.zh.md](source/docs/user/guide/mcp-memory.zh.md)
 
 行为旁证为测试源码，未在本次执行：
 
-- [packages/compaction/compaction-basic/tests/compaction-basic.spec.ts](../source/packages/compaction/compaction-basic/tests/compaction-basic.spec.ts)
+- [packages/compaction/compaction-basic/tests/compaction-basic.spec.ts](source/packages/compaction/compaction-basic/tests/compaction-basic.spec.ts)
 
-[全书参考索引](../reference-index.md) · [术语与语法速查](../appendices.md)
+[全书参考索引](#reference-index) · [术语与语法速查](#appendices)
 
 <!-- references:end -->
 
@@ -1653,7 +1653,7 @@ for await (const part of outputStream) {
 
 **绑定调用。** 服务找到 provider 注册并准备适配器调用，再解析和冻结配置。
 
-来源：[实际文件](../source/packages/llm/llm/src/index.ts)，第 936—941 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/llm/llm/src/index.ts#L936)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/llm/llm/src/index.ts)，第 936—941 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/llm/llm/src/index.ts#L936)。节选保留原码，省略邻近上下文。
 
 ```ts
   async prepareCall(config: LlmCallConfig, signal?: AbortSignal): Promise<PreparedLlmCall> {
@@ -1666,7 +1666,7 @@ for await (const part of outputStream) {
 
 **片段消费。** 临时流在逐次取消检查中推进，不等同于最终消息提交。
 
-来源：[实际文件](../source/packages/core/agent-loop/src/agent.ts)，第 436—443 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L436)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/core/agent-loop/src/agent.ts)，第 436—443 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L436)。节选保留原码，省略邻近上下文。
 
 ```ts
         const stream = preparedCall?.stream(request) ?? this.loopCtx.llm.stream(request)
@@ -1681,7 +1681,7 @@ for await (const part of outputStream) {
 
 **重试边界。** 只有错误恢复返回 retry 才 continue 当前尝试循环，否则抛出错误。
 
-来源：[实际文件](../source/packages/core/agent-loop/src/agent.ts)，第 505—509 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L505)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/core/agent-loop/src/agent.ts)，第 505—509 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L505)。节选保留原码，省略邻近上下文。
 
 ```ts
           signal.throwIfAborted()
@@ -1693,11 +1693,11 @@ for await (const part of outputStream) {
 
 **完整阅读路线。** 路线区分启动前置、执行主链与提供方对照，不把它们误连为一次同步调用。
 
-1. [packages/core/agent-loop/src/agent.ts](../source/packages/core/agent-loop/src/agent.ts)，`prepareRequest`。输入：本步的材料与取消信号；输出/交接：进入 LLM prepared call 准备。[固定提交第 547 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L547)。
-2. [packages/llm/llm/src/index.ts](../source/packages/llm/llm/src/index.ts)，`prepareCall`。输入：模型配置与 signal；输出/交接：找到并绑定 provider；输出调用能力。[固定提交第 936 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/llm/llm/src/index.ts#L936)。
-3. [packages/llm/llm-deepseek/src/adapter.ts](../source/packages/llm/llm-deepseek/src/adapter.ts)，`DeepSeekAdapter.prepareCall / stream`。输入：配置、材料及已绑定调用；输出/交接：产生模型流；作为具体提供方阅读。[固定提交第 20 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/llm/llm-deepseek/src/adapter.ts#L20)。
-4. [packages/core/agent-loop/src/agent.ts](../source/packages/core/agent-loop/src/agent.ts)，`step 与 for-await 分支`。输入：chunks、错误或取消；输出/交接：提交消息或 attempt；失败走 request-error。[固定提交第 398 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L398)。
-5. [packages/llm/llm-retry/src/index.ts](../source/packages/llm/llm-retry/src/index.ts)，`退避与 recover`。输入：错误及重试上下文；输出/交接：返回重试动作或保留原错误；策略不属于固定循环。[固定提交第 149 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/llm/llm-retry/src/index.ts#L149)。
+1. [packages/core/agent-loop/src/agent.ts](source/packages/core/agent-loop/src/agent.ts)，`prepareRequest`。输入：本步的材料与取消信号；输出/交接：进入 LLM prepared call 准备。[固定提交第 547 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L547)。
+2. [packages/llm/llm/src/index.ts](source/packages/llm/llm/src/index.ts)，`prepareCall`。输入：模型配置与 signal；输出/交接：找到并绑定 provider；输出调用能力。[固定提交第 936 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/llm/llm/src/index.ts#L936)。
+3. [packages/llm/llm-deepseek/src/adapter.ts](source/packages/llm/llm-deepseek/src/adapter.ts)，`DeepSeekAdapter.prepareCall / stream`。输入：配置、材料及已绑定调用；输出/交接：产生模型流；作为具体提供方阅读。[固定提交第 20 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/llm/llm-deepseek/src/adapter.ts#L20)。
+4. [packages/core/agent-loop/src/agent.ts](source/packages/core/agent-loop/src/agent.ts)，`step 与 for-await 分支`。输入：chunks、错误或取消；输出/交接：提交消息或 attempt；失败走 request-error。[固定提交第 398 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L398)。
+5. [packages/llm/llm-retry/src/index.ts](source/packages/llm/llm-retry/src/index.ts)，`退避与 recover`。输入：错误及重试上下文；输出/交接：返回重试动作或保留原错误；策略不属于固定循环。[固定提交第 149 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/llm/llm-retry/src/index.ts#L149)。
 
 <!-- evidence:end -->
 
@@ -1733,15 +1733,15 @@ for await (const part of outputStream) {
 
 原项目文档用于复核，优先保留已有中文版：
 
-- [docs/subsystems/llm-streaming.zh.md](../source/docs/subsystems/llm-streaming.zh.md)
-- [docs/agent-lifecycle.zh.md](../source/docs/agent-lifecycle.zh.md)
+- [docs/subsystems/llm-streaming.zh.md](source/docs/subsystems/llm-streaming.zh.md)
+- [docs/agent-lifecycle.zh.md](source/docs/agent-lifecycle.zh.md)
 
 行为旁证为测试源码，未在本次执行：
 
-- [packages/llm/llm-retry/tests/retry.spec.ts](../source/packages/llm/llm-retry/tests/retry.spec.ts)
-- [packages/core/agent-loop/tests/loop.spec.ts](../source/packages/core/agent-loop/tests/loop.spec.ts)
+- [packages/llm/llm-retry/tests/retry.spec.ts](source/packages/llm/llm-retry/tests/retry.spec.ts)
+- [packages/core/agent-loop/tests/loop.spec.ts](source/packages/core/agent-loop/tests/loop.spec.ts)
 
-[全书参考索引](../reference-index.md) · [术语与语法速查](../appendices.md)
+[全书参考索引](#reference-index) · [术语与语法速查](#appendices)
 
 <!-- references:end -->
 
@@ -1838,7 +1838,7 @@ CLI 解析启动方式与参数，profile 模式进入 `runProfile`。运行器�
 
 **启动入口。** profile 模式把选择、补丁和参数交给共享运行器。
 
-来源：[实际文件](../source/apps/cli/src/bin.ts)，第 31—42 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/apps/cli/src/bin.ts#L31)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/apps/cli/src/bin.ts)，第 31—42 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/apps/cli/src/bin.ts#L31)。节选保留原码，省略邻近上下文。
 
 ```ts
   switch (invocation.mode) {
@@ -1857,7 +1857,7 @@ CLI 解析启动方式与参数，profile 模式进入 `runProfile`。运行器�
 
 **顺序组合。** 层数组按顺序展开后应用到空条目列表，不是随意改变合并顺序。
 
-来源：[实际文件](../source/packages/boot/app-boot/src/profile.ts)，第 731—737 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/boot/app-boot/src/profile.ts#L731)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/boot/app-boot/src/profile.ts)，第 731—737 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/boot/app-boot/src/profile.ts#L731)。节选保留原码，省略邻近上下文。
 
 ```ts
 export function composeEntries(
@@ -1871,7 +1871,7 @@ export function composeEntries(
 
 **消费者插件。** 文件插件通过上下文服务契约建立工具；具体服务由应用树满足。
 
-来源：[实际文件](../source/packages/fs/tool-fs/src/index.ts)，第 54—64 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/fs/tool-fs/src/index.ts#L54)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/fs/tool-fs/src/index.ts)，第 54—64 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/fs/tool-fs/src/index.ts#L54)。节选保留原码，省略邻近上下文。
 
 ```ts
 export function apply(ctx: Context, config: Config): void {
@@ -1889,10 +1889,10 @@ export function apply(ctx: Context, config: Config): void {
 
 **完整阅读路线。** 路线区分启动前置、执行主链与提供方对照，不把它们误连为一次同步调用。
 
-1. [apps/cli/src/bin.ts](../source/apps/cli/src/bin.ts)，`runCli`。输入：CLI 参数；输出/交接：解析启动模式并转入 profile runner。[固定提交第 26 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/apps/cli/src/bin.ts#L26)。
-2. [apps/cli/src/profile-boot.ts](../source/apps/cli/src/profile-boot.ts)，`runProfile`。输入：profile 名称与 patches；输出/交接：取得 profile 配置，准备运行应用。[固定提交第 244 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/apps/cli/src/profile-boot.ts#L244)。
-3. [packages/boot/app-boot/src/profile.ts](../source/packages/boot/app-boot/src/profile.ts)，`loadProfile → composeEntries`。输入：profile 和依次叠加的层；输出/交接：输出最终 Cordis entries。[固定提交第 704 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/boot/app-boot/src/profile.ts#L704)。
-4. [packages/boot/app-boot/src/index.ts](../source/packages/boot/app-boot/src/index.ts)，`boot`。输入：已组合条目；输出/交接：挂载配置树；服务可由插件贡献。[固定提交第 972 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/boot/app-boot/src/index.ts#L972)。
+1. [apps/cli/src/bin.ts](source/apps/cli/src/bin.ts)，`runCli`。输入：CLI 参数；输出/交接：解析启动模式并转入 profile runner。[固定提交第 26 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/apps/cli/src/bin.ts#L26)。
+2. [apps/cli/src/profile-boot.ts](source/apps/cli/src/profile-boot.ts)，`runProfile`。输入：profile 名称与 patches；输出/交接：取得 profile 配置，准备运行应用。[固定提交第 244 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/apps/cli/src/profile-boot.ts#L244)。
+3. [packages/boot/app-boot/src/profile.ts](source/packages/boot/app-boot/src/profile.ts)，`loadProfile → composeEntries`。输入：profile 和依次叠加的层；输出/交接：输出最终 Cordis entries。[固定提交第 704 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/boot/app-boot/src/profile.ts#L704)。
+4. [packages/boot/app-boot/src/index.ts](source/packages/boot/app-boot/src/index.ts)，`boot`。输入：已组合条目；输出/交接：挂载配置树；服务可由插件贡献。[固定提交第 972 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/boot/app-boot/src/index.ts#L972)。
 
 <!-- evidence:end -->
 
@@ -1928,15 +1928,15 @@ export function apply(ctx: Context, config: Config): void {
 
 原项目文档用于复核，优先保留已有中文版：
 
-- [docs/cordis-primer.zh.md](../source/docs/cordis-primer.zh.md)
-- [docs/architecture.zh.md](../source/docs/architecture.zh.md)
-- [docs/subsystems/boot.zh.md](../source/docs/subsystems/boot.zh.md)
+- [docs/cordis-primer.zh.md](source/docs/cordis-primer.zh.md)
+- [docs/architecture.zh.md](source/docs/architecture.zh.md)
+- [docs/subsystems/boot.zh.md](source/docs/subsystems/boot.zh.md)
 
 行为旁证为测试源码，未在本次执行：
 
-- [packages/boot/app-boot/tests/profile.spec.ts](../source/packages/boot/app-boot/tests/profile.spec.ts)
+- [packages/boot/app-boot/tests/profile.spec.ts](source/packages/boot/app-boot/tests/profile.spec.ts)
 
-[全书参考索引](../reference-index.md) · [术语与语法速查](../appendices.md)
+[全书参考索引](#reference-index) · [术语与语法速查](#appendices)
 
 <!-- references:end -->
 
@@ -2030,7 +2030,7 @@ export function apply(ctx: Context, config: Config): void {
 
 **前置与询问。** 先运行前置决策，只有 ask 才进入审批服务路径。
 
-来源：[实际文件](../source/packages/core/tools/src/index.ts)，第 1504—1511 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/tools/src/index.ts#L1504)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/core/tools/src/index.ts)，第 1504—1511 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/tools/src/index.ts#L1504)。节选保留原码，省略邻近上下文。
 
 ```ts
       const carrier = scopeTarget(this, exec.agent)
@@ -2045,7 +2045,7 @@ export function apply(ctx: Context, config: Config): void {
 
 **审批事实。** 询问与决定成对记录；返回的是本次 outcome。
 
-来源：[实际文件](../source/packages/interaction/user-approval/src/index.ts)，第 224—233 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/interaction/user-approval/src/index.ts#L224)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/interaction/user-approval/src/index.ts)，第 224—233 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/interaction/user-approval/src/index.ts#L224)。节选保留原码，省略邻近上下文。
 
 ```ts
     const id = ApprovalRequestId(randomUUID())
@@ -2062,7 +2062,7 @@ export function apply(ctx: Context, config: Config): void {
 
 **真实执行体。** bodyInvoked 与 execute 指出实际进入点；执行抛错被转为工具错误。
 
-来源：[实际文件](../source/packages/core/tools/src/index.ts)，第 1578—1587 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/tools/src/index.ts#L1578)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/core/tools/src/index.ts)，第 1578—1587 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/tools/src/index.ts#L1578)。节选保留原码，省略邻近上下文。
 
 ```ts
       const tool = this.resolveExecution(exec.name, exec.agent, exec.parent !== undefined)
@@ -2079,10 +2079,10 @@ export function apply(ctx: Context, config: Config): void {
 
 **完整阅读路线。** 路线区分启动前置、执行主链与提供方对照，不把它们误连为一次同步调用。
 
-1. [packages/core/agent-loop/src/tool-calls.ts](../source/packages/core/agent-loop/src/tool-calls.ts)，`executeToolCalls`。输入：工具批次；输出/交接：记录调用并交给工具服务。[固定提交第 60 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/tool-calls.ts#L60)。
-2. [packages/core/tools/src/index.ts](../source/packages/core/tools/src/index.ts)，`prepareExecution`。输入：调用与策略上下文；输出/交接：pre → 可选 ask → guard；进入或跳过工具体。[固定提交第 1493 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/tools/src/index.ts#L1493)。
-3. [packages/interaction/user-approval/src/index.ts](../source/packages/interaction/user-approval/src/index.ts)，`审批请求`。输入：需要一次回答的审批内容；输出/交接：取得回答并产生相关事实；是 ask 分支的提供方。[固定提交第 215 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/interaction/user-approval/src/index.ts#L215)。
-4. [packages/core/tools/src/index.ts](../source/packages/core/tools/src/index.ts)，`dispatch 与 post-execute`。输入：获准调用或拒绝结果；输出/交接：执行及后处理，形成模型面对的最终结果。[固定提交第 1564 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/tools/src/index.ts#L1564)。
+1. [packages/core/agent-loop/src/tool-calls.ts](source/packages/core/agent-loop/src/tool-calls.ts)，`executeToolCalls`。输入：工具批次；输出/交接：记录调用并交给工具服务。[固定提交第 60 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/tool-calls.ts#L60)。
+2. [packages/core/tools/src/index.ts](source/packages/core/tools/src/index.ts)，`prepareExecution`。输入：调用与策略上下文；输出/交接：pre → 可选 ask → guard；进入或跳过工具体。[固定提交第 1493 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/tools/src/index.ts#L1493)。
+3. [packages/interaction/user-approval/src/index.ts](source/packages/interaction/user-approval/src/index.ts)，`审批请求`。输入：需要一次回答的审批内容；输出/交接：取得回答并产生相关事实；是 ask 分支的提供方。[固定提交第 215 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/interaction/user-approval/src/index.ts#L215)。
+4. [packages/core/tools/src/index.ts](source/packages/core/tools/src/index.ts)，`dispatch 与 post-execute`。输入：获准调用或拒绝结果；输出/交接：执行及后处理，形成模型面对的最终结果。[固定提交第 1564 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/tools/src/index.ts#L1564)。
 
 <!-- evidence:end -->
 
@@ -2120,15 +2120,15 @@ export function apply(ctx: Context, config: Config): void {
 
 原项目文档用于复核，优先保留已有中文版：
 
-- [docs/tool-execution-pipeline.zh.md](../source/docs/tool-execution-pipeline.zh.md)
-- [docs/subsystems/approval.zh.md](../source/docs/subsystems/approval.zh.md)
+- [docs/tool-execution-pipeline.zh.md](source/docs/tool-execution-pipeline.zh.md)
+- [docs/subsystems/approval.zh.md](source/docs/subsystems/approval.zh.md)
 
 行为旁证为测试源码，未在本次执行：
 
-- [packages/core/tools/tests/tools.spec.ts](../source/packages/core/tools/tests/tools.spec.ts)
-- [packages/core/tools/tests/execution-mode.spec.ts](../source/packages/core/tools/tests/execution-mode.spec.ts)
+- [packages/core/tools/tests/tools.spec.ts](source/packages/core/tools/tests/tools.spec.ts)
+- [packages/core/tools/tests/execution-mode.spec.ts](source/packages/core/tools/tests/execution-mode.spec.ts)
 
-[全书参考索引](../reference-index.md) · [术语与语法速查](../appendices.md)
+[全书参考索引](#reference-index) · [术语与语法速查](#appendices)
 
 <!-- references:end -->
 
@@ -2191,7 +2191,7 @@ MCP 客户端插件根据配置建立连接，并在具体连接代次里进行�
 
 **名称包装。** 简单名字直接拼接，其他情况会规范化并添加哈希。
 
-来源：[实际文件](../source/packages/mcp/mcp-client/src/tools.ts)，第 81—86 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/mcp/mcp-client/src/tools.ts#L81)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/mcp/mcp-client/src/tools.ts)，第 81—86 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/mcp/mcp-client/src/tools.ts#L81)。节选保留原码，省略邻近上下文。
 
 ```ts
 export function publicToolName(serverName: string, rawName: string): string {
@@ -2204,7 +2204,7 @@ export function publicToolName(serverName: string, rawName: string): string {
 
 **远端调用与注册。** 包装回调调用原远端工具名；之后把新定义注册到现有 Tools。
 
-来源：[实际文件](../source/packages/mcp/mcp-client/src/tools.ts)，第 138—150 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/mcp/mcp-client/src/tools.ts#L138)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/mcp/mcp-client/src/tools.ts)，第 138—150 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/mcp/mcp-client/src/tools.ts#L138)。节选保留原码，省略邻近上下文。
 
 ```ts
       call: (args, execution) => client.callTool(
@@ -2224,7 +2224,7 @@ export function publicToolName(serverName: string, rawName: string): string {
 
 **工具契约。** 远端说明、参数、输出和执行体进入普通 ToolDefinition 结构。
 
-来源：[实际文件](../source/packages/mcp/mcp-client/src/tools.ts)，第 229—236 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/mcp/mcp-client/src/tools.ts#L229)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/mcp/mcp-client/src/tools.ts)，第 229—236 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/mcp/mcp-client/src/tools.ts#L229)。节选保留原码，省略邻近上下文。
 
 ```ts
   const { name, rawName, description, inputSchema } = options
@@ -2239,10 +2239,10 @@ export function publicToolName(serverName: string, rawName: string): string {
 
 **完整阅读路线。** 路线区分启动前置、执行主链与提供方对照，不把它们误连为一次同步调用。
 
-1. [packages/mcp/mcp-client/src/index.ts](../source/packages/mcp/mcp-client/src/index.ts)，`apply`。输入：MCP 服务配置；输出/交接：准备连接、发现与能力注册。[固定提交第 154 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/mcp/mcp-client/src/index.ts#L154)。
-2. [packages/mcp/mcp-client/src/connection.ts](../source/packages/mcp/mcp-client/src/connection.ts)，`startConnection → connectGeneration`。输入：服务器连接配置；输出/交接：形成连接代次并进入能力发现。[固定提交第 127 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/mcp/mcp-client/src/connection.ts#L127)。
-3. [packages/mcp/mcp-client/src/tools.ts](../source/packages/mcp/mcp-client/src/tools.ts)，`publicToolName / syncTools / createMcpToolDef`。输入：服务名与远端工具定义；输出/交接：包装名称和执行体，注册为现有 Tools 能力。[固定提交第 81 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/mcp/mcp-client/src/tools.ts#L81)。
-4. [packages/mcp/mcp-resources/src/index.ts](../source/packages/mcp/mcp-resources/src/index.ts)，`资源插件入口`。输入：资源能力与上下文；输出/交接：独立资源接口；对照工具接入，不假定统一 ctx.mcp 服务。[固定提交第 47 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/mcp/mcp-resources/src/index.ts#L47)。
+1. [packages/mcp/mcp-client/src/index.ts](source/packages/mcp/mcp-client/src/index.ts)，`apply`。输入：MCP 服务配置；输出/交接：准备连接、发现与能力注册。[固定提交第 154 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/mcp/mcp-client/src/index.ts#L154)。
+2. [packages/mcp/mcp-client/src/connection.ts](source/packages/mcp/mcp-client/src/connection.ts)，`startConnection → connectGeneration`。输入：服务器连接配置；输出/交接：形成连接代次并进入能力发现。[固定提交第 127 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/mcp/mcp-client/src/connection.ts#L127)。
+3. [packages/mcp/mcp-client/src/tools.ts](source/packages/mcp/mcp-client/src/tools.ts)，`publicToolName / syncTools / createMcpToolDef`。输入：服务名与远端工具定义；输出/交接：包装名称和执行体，注册为现有 Tools 能力。[固定提交第 81 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/mcp/mcp-client/src/tools.ts#L81)。
+4. [packages/mcp/mcp-resources/src/index.ts](source/packages/mcp/mcp-resources/src/index.ts)，`资源插件入口`。输入：资源能力与上下文；输出/交接：独立资源接口；对照工具接入，不假定统一 ctx.mcp 服务。[固定提交第 47 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/mcp/mcp-resources/src/index.ts#L47)。
 
 <!-- evidence:end -->
 
@@ -2278,14 +2278,14 @@ export function publicToolName(serverName: string, rawName: string): string {
 
 原项目文档用于复核，优先保留已有中文版：
 
-- [docs/subsystems/mcp.zh.md](../source/docs/subsystems/mcp.zh.md)
-- [docs/user/guide/mcp-memory.zh.md](../source/docs/user/guide/mcp-memory.zh.md)
+- [docs/subsystems/mcp.zh.md](source/docs/subsystems/mcp.zh.md)
+- [docs/user/guide/mcp-memory.zh.md](source/docs/user/guide/mcp-memory.zh.md)
 
 行为旁证为测试源码，未在本次执行：
 
-- [packages/mcp/mcp-client/tests/apply.spec.ts](../source/packages/mcp/mcp-client/tests/apply.spec.ts)
+- [packages/mcp/mcp-client/tests/apply.spec.ts](source/packages/mcp/mcp-client/tests/apply.spec.ts)
 
-[全书参考索引](../reference-index.md) · [术语与语法速查](../appendices.md)
+[全书参考索引](#reference-index) · [术语与语法速查](#appendices)
 
 <!-- references:end -->
 
@@ -2343,7 +2343,7 @@ export function publicToolName(serverName: string, rawName: string): string {
 
 **运行校验。** Runtime 选择提供方并检查能力、深度与输出契约后启动。
 
-来源：[实际文件](../source/packages/subagent/subagent/src/index.ts)，第 559—570 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/subagent/subagent/src/index.ts#L559)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/subagent/subagent/src/index.ts)，第 559—570 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/subagent/subagent/src/index.ts#L559)。节选保留原码，省略邻近上下文。
 
 ```ts
   async start(name: string, request: SubagentStartRequest): Promise<SubagentRun> {
@@ -2362,7 +2362,7 @@ export function publicToolName(serverName: string, rawName: string): string {
 
 **新起点。** 空种子表示不继承父历史，交给共享进程内驱动运行。
 
-来源：[实际文件](../source/packages/subagent/subagent-spawn-in-process/src/index.ts)，第 54—59 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/subagent/subagent-spawn-in-process/src/index.ts#L54)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/subagent/subagent-spawn-in-process/src/index.ts)，第 54—59 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/subagent/subagent-spawn-in-process/src/index.ts#L54)。节选保留原码，省略邻近上下文。
 
 ```ts
   start(request: ResolvedSubagentStartRequest) {
@@ -2375,7 +2375,7 @@ export function publicToolName(serverName: string, rawName: string): string {
 
 **完成前缀。** 最后一个 turn/end 决定种子边界；没有已完成轮次时返回空数组。
 
-来源：[实际文件](../source/packages/subagent/subagent-fork-in-process/src/index.ts)，第 48—55 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/subagent/subagent-fork-in-process/src/index.ts#L48)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/subagent/subagent-fork-in-process/src/index.ts)，第 48—55 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/subagent/subagent-fork-in-process/src/index.ts#L48)。节选保留原码，省略邻近上下文。
 
 ```ts
 function completedTurnPrefix(parent: Agent): SessionEvent[] {
@@ -2390,11 +2390,11 @@ function completedTurnPrefix(parent: Agent): SessionEvent[] {
 
 **完整阅读路线。** 路线区分启动前置、执行主链与提供方对照，不把它们误连为一次同步调用。
 
-1. [packages/subagent/tool-subagent/src/index.ts](../source/packages/subagent/tool-subagent/src/index.ts)，`apply；execute；start / startContinuable`。输入：任务与工具配置；输出/交接：请求 Runtime 建立一次性或可继续运行。[固定提交第 313 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/subagent/tool-subagent/src/index.ts#L313)。
-2. [packages/subagent/subagent/src/index.ts](../source/packages/subagent/subagent/src/index.ts)，`SubagentRuntime`。输入：提供方名称与能力要求；输出/交接：校验后分派并管理句柄。[固定提交第 200 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/subagent/subagent/src/index.ts#L200)。
-3. [packages/subagent/subagent-spawn-in-process/src/index.ts](../source/packages/subagent/subagent-spawn-in-process/src/index.ts)，`start`。输入：spawn 请求；输出/交接：建立独立子 Session，进入 in-process driver。[固定提交第 54 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/subagent/subagent-spawn-in-process/src/index.ts#L54)。
-4. [packages/subagent/subagent-in-process-driver/src/index.ts](../source/packages/subagent/subagent-in-process-driver/src/index.ts)，`startInProcessRun`。输入：子 Session 与运行参数；输出/交接：驱动子代理执行并交付运行结果。[固定提交第 104 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/subagent/subagent-in-process-driver/src/index.ts#L104)。
-5. [packages/subagent/subagent-fork-in-process/src/index.ts](../source/packages/subagent/subagent-fork-in-process/src/index.ts)，`completedTurnPrefix`。输入：父历史；输出/交接：作为 fork 分支对照，取得已完成前缀。[固定提交第 47 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/subagent/subagent-fork-in-process/src/index.ts#L47)。
+1. [packages/subagent/tool-subagent/src/index.ts](source/packages/subagent/tool-subagent/src/index.ts)，`apply；execute；start / startContinuable`。输入：任务与工具配置；输出/交接：请求 Runtime 建立一次性或可继续运行。[固定提交第 313 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/subagent/tool-subagent/src/index.ts#L313)。
+2. [packages/subagent/subagent/src/index.ts](source/packages/subagent/subagent/src/index.ts)，`SubagentRuntime`。输入：提供方名称与能力要求；输出/交接：校验后分派并管理句柄。[固定提交第 200 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/subagent/subagent/src/index.ts#L200)。
+3. [packages/subagent/subagent-spawn-in-process/src/index.ts](source/packages/subagent/subagent-spawn-in-process/src/index.ts)，`start`。输入：spawn 请求；输出/交接：建立独立子 Session，进入 in-process driver。[固定提交第 54 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/subagent/subagent-spawn-in-process/src/index.ts#L54)。
+4. [packages/subagent/subagent-in-process-driver/src/index.ts](source/packages/subagent/subagent-in-process-driver/src/index.ts)，`startInProcessRun`。输入：子 Session 与运行参数；输出/交接：驱动子代理执行并交付运行结果。[固定提交第 104 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/subagent/subagent-in-process-driver/src/index.ts#L104)。
+5. [packages/subagent/subagent-fork-in-process/src/index.ts](source/packages/subagent/subagent-fork-in-process/src/index.ts)，`completedTurnPrefix`。输入：父历史；输出/交接：作为 fork 分支对照，取得已完成前缀。[固定提交第 47 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/subagent/subagent-fork-in-process/src/index.ts#L47)。
 
 <!-- evidence:end -->
 
@@ -2430,13 +2430,13 @@ function completedTurnPrefix(parent: Agent): SessionEvent[] {
 
 原项目文档用于复核，优先保留已有中文版：
 
-- [docs/subsystems/subagent.zh.md](../source/docs/subsystems/subagent.zh.md)
+- [docs/subsystems/subagent.zh.md](source/docs/subsystems/subagent.zh.md)
 
 行为旁证为测试源码，未在本次执行：
 
-- [packages/subagent/subagent-spawn-in-process/tests/subagent-spawn-in-process.spec.ts](../source/packages/subagent/subagent-spawn-in-process/tests/subagent-spawn-in-process.spec.ts)
+- [packages/subagent/subagent-spawn-in-process/tests/subagent-spawn-in-process.spec.ts](source/packages/subagent/subagent-spawn-in-process/tests/subagent-spawn-in-process.spec.ts)
 
-[全书参考索引](../reference-index.md) · [术语与语法速查](../appendices.md)
+[全书参考索引](#reference-index) · [术语与语法速查](#appendices)
 
 <!-- references:end -->
 
@@ -2494,7 +2494,7 @@ function completedTurnPrefix(parent: Agent): SessionEvent[] {
 
 **本地提交记录。** 这段建立暂态提交，并协调附件退役；不代表服务器已经完成任务。
 
-来源：[实际文件](../source/packages/client/ui-conversation/src/client/service.ts)，第 275—283 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/client/ui-conversation/src/client/service.ts#L275)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/client/ui-conversation/src/client/service.ts)，第 275—283 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/client/ui-conversation/src/client/service.ts#L275)。节选保留原码，省略邻近上下文。
 
 ```ts
     const submission = session.beginSubmission({
@@ -2510,7 +2510,7 @@ function completedTurnPrefix(parent: Agent): SessionEvent[] {
 
 **上行提交。** 客户端带同一请求标识、目标会话和内容进行远程调用。
 
-来源：[实际文件](../source/packages/api/session-controller/src/client/sessions/session.ts)，第 269—277 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/api/session-controller/src/client/sessions/session.ts#L269)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/api/session-controller/src/client/sessions/session.ts)，第 269—277 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/api/session-controller/src/client/sessions/session.ts#L269)。节选保留原码，省略邻近上下文。
 
 ```ts
     if (this.address === undefined) {
@@ -2526,7 +2526,7 @@ function completedTurnPrefix(parent: Agent): SessionEvent[] {
 
 **连续性检查。** 旧事件可略过，但未来事件跳过预期序号时会报错。
 
-来源：[实际文件](../source/packages/api/session-controller/src/history.ts)，第 226—232 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/api/session-controller/src/history.ts#L226)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/api/session-controller/src/history.ts)，第 226—232 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/api/session-controller/src/history.ts#L226)。节选保留原码，省略邻近上下文。
 
 ```ts
         const expectedSeq = SessionSeq(nextOffset)
@@ -2540,11 +2540,11 @@ function completedTurnPrefix(parent: Agent): SessionEvent[] {
 
 **完整阅读路线。** 路线区分启动前置、执行主链与提供方对照，不把它们误连为一次同步调用。
 
-1. [packages/client/ui-conversation/src/client/service.ts](../source/packages/client/ui-conversation/src/client/service.ts)，`ConversationController.sendSession`。输入：编辑内容与当前会话；输出/交接：本地提交回显，并请求 Client Session.prompt。[固定提交第 229 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/client/ui-conversation/src/client/service.ts#L229)。
-2. [packages/api/session-controller/src/client/sessions/session.ts](../source/packages/api/session-controller/src/client/sessions/session.ts)，`Session.prompt`。输入：带 requestId 的提交；输出/交接：经 RPC 到 Host prompt；Host 再进入第 01 章入口。[固定提交第 254 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/api/session-controller/src/client/sessions/session.ts#L254)。
-3. [packages/api/session-controller/src/history.ts](../source/packages/api/session-controller/src/history.ts)，`SessionHistoryController.follow`。输入：会话与订阅请求；输出/交接：输出初始快照、持久事件及助手流。[固定提交第 120 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/api/session-controller/src/history.ts#L120)。
-4. [packages/api/session-controller/src/client/sessions/session.ts](../source/packages/api/session-controller/src/client/sessions/session.ts)，`acceptEventChange`。输入：follow 收到的变化；输出/交接：合并客户端会话与提交状态。[固定提交第 646 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/api/session-controller/src/client/sessions/session.ts#L646)。
-5. [packages/client/ui-chat/src/client/chat/ChatView.tsx](../source/packages/client/ui-chat/src/client/chat/ChatView.tsx)，`ChatView`。输入：会话分组、节点与顺序快照；输出/交接：订阅变化并显示过程。[固定提交第 101 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/client/ui-chat/src/client/chat/ChatView.tsx#L101)。
+1. [packages/client/ui-conversation/src/client/service.ts](source/packages/client/ui-conversation/src/client/service.ts)，`ConversationController.sendSession`。输入：编辑内容与当前会话；输出/交接：本地提交回显，并请求 Client Session.prompt。[固定提交第 229 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/client/ui-conversation/src/client/service.ts#L229)。
+2. [packages/api/session-controller/src/client/sessions/session.ts](source/packages/api/session-controller/src/client/sessions/session.ts)，`Session.prompt`。输入：带 requestId 的提交；输出/交接：经 RPC 到 Host prompt；Host 再进入第 01 章入口。[固定提交第 254 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/api/session-controller/src/client/sessions/session.ts#L254)。
+3. [packages/api/session-controller/src/history.ts](source/packages/api/session-controller/src/history.ts)，`SessionHistoryController.follow`。输入：会话与订阅请求；输出/交接：输出初始快照、持久事件及助手流。[固定提交第 120 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/api/session-controller/src/history.ts#L120)。
+4. [packages/api/session-controller/src/client/sessions/session.ts](source/packages/api/session-controller/src/client/sessions/session.ts)，`acceptEventChange`。输入：follow 收到的变化；输出/交接：合并客户端会话与提交状态。[固定提交第 646 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/api/session-controller/src/client/sessions/session.ts#L646)。
+5. [packages/client/ui-chat/src/client/chat/ChatView.tsx](source/packages/client/ui-chat/src/client/chat/ChatView.tsx)，`ChatView`。输入：会话分组、节点与顺序快照；输出/交接：订阅变化并显示过程。[固定提交第 101 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/client/ui-chat/src/client/chat/ChatView.tsx#L101)。
 
 <!-- evidence:end -->
 
@@ -2582,16 +2582,16 @@ README 任务正在读取时刷新，页面应依据新快照和后续事实恢�
 
 原项目文档用于复核，优先保留已有中文版：
 
-- [docs/api-gateway.zh.md](../source/docs/api-gateway.zh.md)
-- [docs/subsystems/conversation.zh.md](../source/docs/subsystems/conversation.zh.md)
-- [docs/subsystems/client-modules.zh.md](../source/docs/subsystems/client-modules.zh.md)
+- [docs/api-gateway.zh.md](source/docs/api-gateway.zh.md)
+- [docs/subsystems/conversation.zh.md](source/docs/subsystems/conversation.zh.md)
+- [docs/subsystems/client-modules.zh.md](source/docs/subsystems/client-modules.zh.md)
 
 行为旁证为测试源码，未在本次执行：
 
-- [packages/api/session-controller/tests/session-pending-submissions.client.spec.ts](../source/packages/api/session-controller/tests/session-pending-submissions.client.spec.ts)
-- [packages/api/session-controller/tests/assistant-stream.client.spec.ts](../source/packages/api/session-controller/tests/assistant-stream.client.spec.ts)
+- [packages/api/session-controller/tests/session-pending-submissions.client.spec.ts](source/packages/api/session-controller/tests/session-pending-submissions.client.spec.ts)
+- [packages/api/session-controller/tests/assistant-stream.client.spec.ts](source/packages/api/session-controller/tests/assistant-stream.client.spec.ts)
 
-[全书参考索引](../reference-index.md) · [术语与语法速查](../appendices.md)
+[全书参考索引](#reference-index) · [术语与语法速查](#appendices)
 
 <!-- references:end -->
 
@@ -2649,7 +2649,7 @@ README 任务正在读取时刷新，页面应依据新快照和后续事实恢�
 
 **启动先后。** 先导航到应用文档，再启动后端；已有文档经 boot 响应继续。
 
-来源：[实际文件](../source/apps/desktop/src/main.ts)，第 567—575 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/apps/desktop/src/main.ts#L567)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/apps/desktop/src/main.ts)，第 567—575 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/apps/desktop/src/main.ts#L567)。节选保留原码，省略邻近上下文。
 
 ```ts
   const reconcileBackend = (): Promise<void> => {
@@ -2665,7 +2665,7 @@ README 任务正在读取时刷新，页面应依据新快照和后续事实恢�
 
 **宿主消息。** ready、shutdown-complete 与 fatal 分别处理，不是所有消息都是聊天内容。
 
-来源：[实际文件](../source/apps/desktop/src/host-process.ts)，第 206—218 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/apps/desktop/src/host-process.ts#L206)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/apps/desktop/src/host-process.ts)，第 206—218 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/apps/desktop/src/host-process.ts#L206)。节选保留原码，省略邻近上下文。
 
 ```ts
     child.on('message', (message: unknown) => {
@@ -2685,7 +2685,7 @@ README 任务正在读取时刷新，页面应依据新快照和后续事实恢�
 
 **业务转发。** 检查来源后映射路径并适配认证，再执行 HTTP 请求。
 
-来源：[实际文件](../source/apps/desktop/src/web-document.ts)，第 77—88 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/apps/desktop/src/web-document.ts#L77)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/apps/desktop/src/web-document.ts)，第 77—88 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/apps/desktop/src/web-document.ts#L77)。节选保留原码，省略邻近上下文。
 
 ```ts
 export async function forwardWebRequest(request: Request, host: string, cookie: string): Promise<Response> {
@@ -2704,11 +2704,11 @@ export async function forwardWebRequest(request: Request, host: string, cookie: 
 
 **完整阅读路线。** 路线区分启动前置、执行主链与提供方对照，不把它们误连为一次同步调用。
 
-1. [apps/desktop/src/main.ts](../source/apps/desktop/src/main.ts)，`窗口配置；reconcileBackend（约 567 行）`。输入：启动参数和窗口状态；输出/交接：先加载页面，再调用 Host.start；隔离配置说明边界。[固定提交第 229 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/apps/desktop/src/main.ts#L229)。
-2. [apps/desktop/src/host-process.ts](../source/apps/desktop/src/host-process.ts)，`DesktopHostProcess.start`。输入：Host 启动配置；输出/交接：spawn 并处理就绪 IPC。[固定提交第 186 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/apps/desktop/src/host-process.ts#L186)。
-3. [apps/desktop/src/main.ts](../source/apps/desktop/src/main.ts)，`protocol.handle 与 boot 注入`。输入：renderer 请求与启动状态；输出/交接：本地静态资源或转发 Host；把流信息交给页面。[固定提交第 662 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/apps/desktop/src/main.ts#L662)。
-4. [apps/desktop/src/web-document.ts](../source/apps/desktop/src/web-document.ts)，`forwardWebRequest`。输入：业务 HTTP 请求；输出/交接：来源检查与认证适配后返回响应。[固定提交第 77 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/apps/desktop/src/web-document.ts#L77)。
-5. [apps/desktop/src/preload-app.ts](../source/apps/desktop/src/preload-app.ts)，`目录选择与 ready 桥`。输入：有限桌面动作；输出/交接：交付受控桌面能力；对照业务网络链。[固定提交第 77 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/apps/desktop/src/preload-app.ts#L77)。
+1. [apps/desktop/src/main.ts](source/apps/desktop/src/main.ts)，`窗口配置；reconcileBackend（约 567 行）`。输入：启动参数和窗口状态；输出/交接：先加载页面，再调用 Host.start；隔离配置说明边界。[固定提交第 229 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/apps/desktop/src/main.ts#L229)。
+2. [apps/desktop/src/host-process.ts](source/apps/desktop/src/host-process.ts)，`DesktopHostProcess.start`。输入：Host 启动配置；输出/交接：spawn 并处理就绪 IPC。[固定提交第 186 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/apps/desktop/src/host-process.ts#L186)。
+3. [apps/desktop/src/main.ts](source/apps/desktop/src/main.ts)，`protocol.handle 与 boot 注入`。输入：renderer 请求与启动状态；输出/交接：本地静态资源或转发 Host；把流信息交给页面。[固定提交第 662 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/apps/desktop/src/main.ts#L662)。
+4. [apps/desktop/src/web-document.ts](source/apps/desktop/src/web-document.ts)，`forwardWebRequest`。输入：业务 HTTP 请求；输出/交接：来源检查与认证适配后返回响应。[固定提交第 77 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/apps/desktop/src/web-document.ts#L77)。
+5. [apps/desktop/src/preload-app.ts](source/apps/desktop/src/preload-app.ts)，`目录选择与 ready 桥`。输入：有限桌面动作；输出/交接：交付受控桌面能力；对照业务网络链。[固定提交第 77 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/apps/desktop/src/preload-app.ts#L77)。
 
 <!-- evidence:end -->
 
@@ -2744,16 +2744,16 @@ README 总结在桌面上仍经历相同的核心循环、工具与会话事实�
 
 原项目文档用于复核，优先保留已有中文版：
 
-- [apps/desktop/README.zh.md](../source/apps/desktop/README.zh.md)
-- [docs/architecture.zh.md](../source/docs/architecture.zh.md)
+- [apps/desktop/README.zh.md](source/apps/desktop/README.zh.md)
+- [docs/architecture.zh.md](source/docs/architecture.zh.md)
 
 行为旁证为测试源码，未在本次执行：
 
-- [apps/desktop/tests/host-process.spec.ts](../source/apps/desktop/tests/host-process.spec.ts)
-- [apps/desktop/tests/web-document.spec.ts](../source/apps/desktop/tests/web-document.spec.ts)
-- [apps/desktop/tests/main-startup.spec.ts](../source/apps/desktop/tests/main-startup.spec.ts)
+- [apps/desktop/tests/host-process.spec.ts](source/apps/desktop/tests/host-process.spec.ts)
+- [apps/desktop/tests/web-document.spec.ts](source/apps/desktop/tests/web-document.spec.ts)
+- [apps/desktop/tests/main-startup.spec.ts](source/apps/desktop/tests/main-startup.spec.ts)
 
-[全书参考索引](../reference-index.md) · [术语与语法速查](../appendices.md)
+[全书参考索引](#reference-index) · [术语与语法速查](#appendices)
 
 <!-- references:end -->
 
@@ -2807,7 +2807,7 @@ Renderer 是不可信的 Web 视图层，禁止直接调用 Node.js 原生 API�
 
 **脚本派生。** 缺少 finish 的已录制调用需要额外处理，不自动成为正常回放。
 
-来源：[实际文件](../source/packages/test-support/llm-replay/src/index.ts)，第 462—472 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/test-support/llm-replay/src/index.ts#L462)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/test-support/llm-replay/src/index.ts)，第 462—472 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/test-support/llm-replay/src/index.ts#L462)。节选保留原码，省略邻近上下文。
 
 ```ts
 export function deriveReplayScript(events: SessionEvent[]): ReplayEntry[] {
@@ -2825,7 +2825,7 @@ export function deriveReplayScript(events: SessionEvent[]): ReplayEntry[] {
 
 **接入选择。** providers 配置决定使用 ReplayAdapter 还是 llm/stream 拦截。
 
-来源：[实际文件](../source/packages/test-support/llm-replay/src/index.ts)，第 1101—1104 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/test-support/llm-replay/src/index.ts#L1101)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/test-support/llm-replay/src/index.ts)，第 1101—1104 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/test-support/llm-replay/src/index.ts#L1101)。节选保留原码，省略邻近上下文。
 
 ```ts
   const providers = config.providers ?? []
@@ -2836,7 +2836,7 @@ export function deriveReplayScript(events: SessionEvent[]): ReplayEntry[] {
 
 **消费检查。** 检查未绑定脚本及未消费响应，才能发现流程请求数与录制不一致。
 
-来源：[实际文件](../source/packages/test-support/llm-replay/src/index.ts)，第 1107—1115 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/test-support/llm-replay/src/index.ts#L1107)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/test-support/llm-replay/src/index.ts)，第 1107—1115 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/test-support/llm-replay/src/index.ts#L1107)。节选保留原码，省略邻近上下文。
 
 ```ts
     assertConsumed(): void {
@@ -2852,9 +2852,9 @@ export function deriveReplayScript(events: SessionEvent[]): ReplayEntry[] {
 
 **完整阅读路线。** 路线区分启动前置、执行主链与提供方对照，不把它们误连为一次同步调用。
 
-1. [packages/test-support/llm-replay/src/index.ts](../source/packages/test-support/llm-replay/src/index.ts)，`deriveReplayScript`。输入：已录制会话；输出/交接：生成模型响应脚本。[固定提交第 462 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/test-support/llm-replay/src/index.ts#L462)。
-2. [packages/test-support/llm-replay/src/index.ts](../source/packages/test-support/llm-replay/src/index.ts)，`installLlmReplay`。输入：脚本与 provider 配置；输出/交接：安装 ReplayAdapter 或流拦截，固定模型输出。[固定提交第 1031 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/test-support/llm-replay/src/index.ts#L1031)。
-3. [packages/core/agent-loop/src/agent.ts](../source/packages/core/agent-loop/src/agent.ts)，`step`。输入：固定模型响应与真实循环状态；输出/交接：执行工具和日志流程；由测试断言验证行为。[固定提交第 398 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L398)。
+1. [packages/test-support/llm-replay/src/index.ts](source/packages/test-support/llm-replay/src/index.ts)，`deriveReplayScript`。输入：已录制会话；输出/交接：生成模型响应脚本。[固定提交第 462 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/test-support/llm-replay/src/index.ts#L462)。
+2. [packages/test-support/llm-replay/src/index.ts](source/packages/test-support/llm-replay/src/index.ts)，`installLlmReplay`。输入：脚本与 provider 配置；输出/交接：安装 ReplayAdapter 或流拦截，固定模型输出。[固定提交第 1031 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/test-support/llm-replay/src/index.ts#L1031)。
+3. [packages/core/agent-loop/src/agent.ts](source/packages/core/agent-loop/src/agent.ts)，`step`。输入：固定模型响应与真实循环状态；输出/交接：执行工具和日志流程；由测试断言验证行为。[固定提交第 398 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L398)。
 
 <!-- evidence:end -->
 
@@ -2890,14 +2890,14 @@ export function deriveReplayScript(events: SessionEvent[]): ReplayEntry[] {
 
 原项目文档用于复核，优先保留已有中文版：
 
-- [docs/testing.zh.md](../source/docs/testing.zh.md)
-- [packages/test-support/llm-replay/README.md](../source/packages/test-support/llm-replay/README.md)
+- [docs/testing.zh.md](source/docs/testing.zh.md)
+- [packages/test-support/llm-replay/README.md](source/packages/test-support/llm-replay/README.md)
 
 行为旁证为测试源码，未在本次执行：
 
-- [packages/test-support/llm-replay/tests/llm-replay.spec.ts](../source/packages/test-support/llm-replay/tests/llm-replay.spec.ts)
+- [packages/test-support/llm-replay/tests/llm-replay.spec.ts](source/packages/test-support/llm-replay/tests/llm-replay.spec.ts)
 
-[全书参考索引](../reference-index.md) · [术语与语法速查](../appendices.md)
+[全书参考索引](#reference-index) · [术语与语法速查](#appendices)
 
 <!-- references:end -->
 
@@ -2953,7 +2953,7 @@ TokenMeter 注册 tokenUsage、contextPressure 与 contextBreakdown 等投影。
 
 **用量投影。** 注册三个相应用量/压力视图，并按需要同步。
 
-来源：[实际文件](../source/packages/llm/token-meter/src/index.ts)，第 110—122 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/llm/token-meter/src/index.ts#L110)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/llm/token-meter/src/index.ts)，第 110—122 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/llm/token-meter/src/index.ts#L110)。节选保留原码，省略邻近上下文。
 
 ```ts
   constructor(ctx: Context, config: TokenMeterConfig = {}) {
@@ -2973,7 +2973,7 @@ TokenMeter 注册 tokenUsage、contextPressure 与 contextBreakdown 等投影。
 
 **遥测观察。** 事件与 flush 触发后端交接；回调如何等待有独立契约。
 
-来源：[实际文件](../source/packages/session/session-telemetry/src/coordinator.ts)，第 104—116 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/session/session-telemetry/src/coordinator.ts#L104)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/session/session-telemetry/src/coordinator.ts)，第 104—116 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/session/session-telemetry/src/coordinator.ts#L104)。节选保留原码，省略邻近上下文。
 
 ```ts
       ctx.on('session/event', (session, event) => {
@@ -2993,7 +2993,7 @@ TokenMeter 注册 tokenUsage、contextPressure 与 contextBreakdown 等投影。
 
 **反馈捕获。** 按需模式只由符合条件的实际事件触发对应历史前缀捕获。
 
-来源：[实际文件](../source/packages/session/session-telemetry-otel/src/index.ts)，第 218—230 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/session/session-telemetry-otel/src/index.ts#L218)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/session/session-telemetry-otel/src/index.ts)，第 218—230 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/session/session-telemetry-otel/src/index.ts#L218)。节选保留原码，省略邻近上下文。
 
 ```ts
     const coordinator = new SessionTelemetryCoordinator(ctx, backend, {
@@ -3013,9 +3013,9 @@ TokenMeter 注册 tokenUsage、contextPressure 与 contextBreakdown 等投影。
 
 **完整阅读路线。** 路线区分启动前置、执行主链与提供方对照，不把它们误连为一次同步调用。
 
-1. [packages/llm/token-meter/src/index.ts](../source/packages/llm/token-meter/src/index.ts)，`TokenMeter 与用量投影`。输入：会话及模型相关事件；输出/交接：更新 tokenUsage / contextPressure / contextBreakdown。[固定提交第 101 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/llm/token-meter/src/index.ts#L101)。
-2. [packages/session/session-telemetry/src/coordinator.ts](../source/packages/session/session-telemetry/src/coordinator.ts)，`SessionTelemetryCoordinator`。输入：会话生命周期、事件、flush 和错误；输出/交接：交给注册的后端；与用量投影是不同消费路径。[固定提交第 75 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/session/session-telemetry/src/coordinator.ts#L75)。
-3. [packages/session/session-telemetry-otel/src/index.ts](../source/packages/session/session-telemetry-otel/src/index.ts)，`按需捕获与反馈触发`。输入：后端配置与事件；输出/交接：形成 OTel logs 导出；不推断未实现的评测能力。[固定提交第 218 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/session/session-telemetry-otel/src/index.ts#L218)。
+1. [packages/llm/token-meter/src/index.ts](source/packages/llm/token-meter/src/index.ts)，`TokenMeter 与用量投影`。输入：会话及模型相关事件；输出/交接：更新 tokenUsage / contextPressure / contextBreakdown。[固定提交第 101 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/llm/token-meter/src/index.ts#L101)。
+2. [packages/session/session-telemetry/src/coordinator.ts](source/packages/session/session-telemetry/src/coordinator.ts)，`SessionTelemetryCoordinator`。输入：会话生命周期、事件、flush 和错误；输出/交接：交给注册的后端；与用量投影是不同消费路径。[固定提交第 75 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/session/session-telemetry/src/coordinator.ts#L75)。
+3. [packages/session/session-telemetry-otel/src/index.ts](source/packages/session/session-telemetry-otel/src/index.ts)，`按需捕获与反馈触发`。输入：后端配置与事件；输出/交接：形成 OTel logs 导出；不推断未实现的评测能力。[固定提交第 218 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/session/session-telemetry-otel/src/index.ts#L218)。
 
 <!-- evidence:end -->
 
@@ -3053,16 +3053,16 @@ TokenMeter 注册 tokenUsage、contextPressure 与 contextBreakdown 等投影。
 
 原项目文档用于复核，优先保留已有中文版：
 
-- [docs/testing.zh.md](../source/docs/testing.zh.md)
-- [docs/subsystems/token-meter.zh.md](../source/docs/subsystems/token-meter.zh.md)
-- [docs/subsystems/otel.zh.md](../source/docs/subsystems/otel.zh.md)
-- [docs/subsystems/session-telemetry.zh.md](../source/docs/subsystems/session-telemetry.zh.md)
+- [docs/testing.zh.md](source/docs/testing.zh.md)
+- [docs/subsystems/token-meter.zh.md](source/docs/subsystems/token-meter.zh.md)
+- [docs/subsystems/otel.zh.md](source/docs/subsystems/otel.zh.md)
+- [docs/subsystems/session-telemetry.zh.md](source/docs/subsystems/session-telemetry.zh.md)
 
 行为旁证为测试源码，未在本次执行：
 
-- [packages/llm/token-meter/tests/turn-usage.spec.ts](../source/packages/llm/token-meter/tests/turn-usage.spec.ts)
+- [packages/llm/token-meter/tests/turn-usage.spec.ts](source/packages/llm/token-meter/tests/turn-usage.spec.ts)
 
-[全书参考索引](../reference-index.md) · [术语与语法速查](../appendices.md)
+[全书参考索引](#reference-index) · [术语与语法速查](#appendices)
 
 <!-- references:end -->
 
@@ -3124,7 +3124,7 @@ Host 工具呈现与网页专用卡片是另一层工作。规范值不应夹入
 
 **官方最小工具。** name/inject/apply 与参数、输出契约共同组成最小注册形态。
 
-来源：[实际文件](../source/docs/cookbook/adding-a-tool.zh.md)，第 14—27 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/docs/cookbook/adding-a-tool.zh.md#L14)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/docs/cookbook/adding-a-tool.zh.md)，第 14—27 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/docs/cookbook/adding-a-tool.zh.md#L14)。节选保留原码，省略邻近上下文。
 
 ```ts
 export const name = 'my-tool'
@@ -3145,7 +3145,7 @@ export function apply(ctx: Context) {
 
 **真实读取实现。** 已注册执行体使用文件服务，并兑现窗口和取消约定。
 
-来源：[实际文件](../source/packages/fs/tool-fs/src/read.ts)，第 137—150 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/fs/tool-fs/src/read.ts#L137)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/fs/tool-fs/src/read.ts)，第 137—150 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/fs/tool-fs/src/read.ts#L137)。节选保留原码，省略邻近上下文。
 
 ```ts
     async execute(args, exec) {
@@ -3166,7 +3166,7 @@ export function apply(ctx: Context) {
 
 **可回放展示材料。** 呈现元数据从规范结果提取，不靠回放时再读取文件。
 
-来源：[实际文件](../source/packages/fs/tool-fs/src/read.ts)，第 124—132 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/fs/tool-fs/src/read.ts#L124)。节选保留原码，省略邻近上下文。
+来源：[实际文件](source/packages/fs/tool-fs/src/read.ts)，第 124—132 行；[固定提交](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/fs/tool-fs/src/read.ts#L124)。节选保留原码，省略邻近上下文。
 
 ```ts
       presentationMeta: (_args, value) => {
@@ -3182,10 +3182,10 @@ export function apply(ctx: Context) {
 
 **完整阅读路线。** 路线区分启动前置、执行主链与提供方对照，不把它们误连为一次同步调用。
 
-1. [docs/cookbook/adding-a-tool.zh.md](../source/docs/cookbook/adding-a-tool.zh.md)，`最小工具结构`。输入：能力需求与输入输出契约；输出/交接：确定 name / inject / apply / defineTool 的职责。[固定提交第 1 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/docs/cookbook/adding-a-tool.zh.md#L1)。
-2. [packages/fs/tool-fs/src/index.ts](../source/packages/fs/tool-fs/src/index.ts)，`apply`。输入：配置与注入服务；输出/交接：以已有文件插件核对注册和生命周期。[固定提交第 54 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/fs/tool-fs/src/index.ts#L54)。
-3. [packages/fs/tool-fs/src/read.ts](../source/packages/fs/tool-fs/src/read.ts)，`applyReadTool`。输入：read 的 schema、execute 与呈现；输出/交接：核对真实工具如何兑现契约。[固定提交第 68 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/fs/tool-fs/src/read.ts#L68)。
-4. [docs/cookbook/extension-cookbook.zh.md](../source/docs/cookbook/extension-cookbook.zh.md)，`扩展点选择`。输入：需要扩展的层；输出/交接：定位能力接口；把 Host 工具与 UI 扩展分开。[固定提交第 1 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/docs/cookbook/extension-cookbook.zh.md#L1)。
+1. [docs/cookbook/adding-a-tool.zh.md](source/docs/cookbook/adding-a-tool.zh.md)，`最小工具结构`。输入：能力需求与输入输出契约；输出/交接：确定 name / inject / apply / defineTool 的职责。[固定提交第 1 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/docs/cookbook/adding-a-tool.zh.md#L1)。
+2. [packages/fs/tool-fs/src/index.ts](source/packages/fs/tool-fs/src/index.ts)，`apply`。输入：配置与注入服务；输出/交接：以已有文件插件核对注册和生命周期。[固定提交第 54 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/fs/tool-fs/src/index.ts#L54)。
+3. [packages/fs/tool-fs/src/read.ts](source/packages/fs/tool-fs/src/read.ts)，`applyReadTool`。输入：read 的 schema、execute 与呈现；输出/交接：核对真实工具如何兑现契约。[固定提交第 68 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/fs/tool-fs/src/read.ts#L68)。
+4. [docs/cookbook/extension-cookbook.zh.md](source/docs/cookbook/extension-cookbook.zh.md)，`扩展点选择`。输入：需要扩展的层；输出/交接：定位能力接口；把 Host 工具与 UI 扩展分开。[固定提交第 1 行](https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/docs/cookbook/extension-cookbook.zh.md#L1)。
 
 <!-- evidence:end -->
 
@@ -3223,14 +3223,14 @@ export function apply(ctx: Context) {
 
 原项目文档用于复核，优先保留已有中文版：
 
-- [docs/cookbook/adding-a-tool.zh.md](../source/docs/cookbook/adding-a-tool.zh.md)
-- [docs/cookbook/extension-cookbook.zh.md](../source/docs/cookbook/extension-cookbook.zh.md)
+- [docs/cookbook/adding-a-tool.zh.md](source/docs/cookbook/adding-a-tool.zh.md)
+- [docs/cookbook/extension-cookbook.zh.md](source/docs/cookbook/extension-cookbook.zh.md)
 
 行为旁证为测试源码，未在本次执行：
 
-- [packages/fs/tool-fs/tests/read-render.spec.ts](../source/packages/fs/tool-fs/tests/read-render.spec.ts)
+- [packages/fs/tool-fs/tests/read-render.spec.ts](source/packages/fs/tool-fs/tests/read-render.spec.ts)
 
-[全书参考索引](../reference-index.md) · [术语与语法速查](../appendices.md)
+[全书参考索引](#reference-index) · [术语与语法速查](#appendices)
 
 <!-- references:end -->
 
@@ -3521,6 +3521,68 @@ try/catch 区分普通与异常路径，finally 用于两种情况下都执行�
 项目架构先看 [架构说明](source/docs/architecture.zh.md)，插件概念看 [Cordis 入门](source/docs/cordis-primer.zh.md)，过程关系看 [轮次与步骤生命周期](source/docs/agent-lifecycle.zh.md)，工具边界看 [工具流水线](source/docs/tool-execution-pipeline.zh.md)，验证方式看 [测试指南](source/docs/testing.zh.md)。逐章材料见 [参考索引](reference-index.md)。
 
 正文已经解释核心运行链以及官方目录中 63 项子系统的功能、协作与主要边界，包括可选执行、语音、定时、团队与 SDK 载体。深入修改项目时，精确 API/配置字段、每个平台沙箱内部、所有后端实现与发布矩阵仍需查相应版本手册；这些细节不作为本教材阅读前提。
+
+
+---
+
+
+<a id="reference-index"></a>
+
+# 全书参考索引
+
+# 可选证据索引
+
+正文已经独立解释项目，这份索引用于复核或深入修改，不是阅读前提。原文、源码、测试和 MIT 许可均保留在固定仓库副本。测试只作源码旁证，本次未执行。
+
+固定提交：`639ed015397290b3745d163aafe02ffee4aa3f84`；根包 `0.2.0-rc.2`。
+
+## 按新版十章查阅
+
+| 教材 | 文档化子系统参考 |
+| --- | --- |
+| [第 1 章：Agent 基础：一条任务怎样运转](tutorial.md#chapter-01) | [核心](source/docs/subsystems/core.zh.md)<br>[用户命令](source/docs/subsystems/commands.zh.md) |
+| [第 2 章：上下文工程：模型每一步究竟看到什么](tutorial.md#chapter-02) | [系统提示词组装](source/docs/subsystems/system-prompt.zh.md)<br>[Skills](source/docs/subsystems/skills.zh.md)<br>[压缩（compaction）](source/docs/subsystems/compaction.zh.md)<br>[持久附件](source/docs/subsystems/attachment.zh.md)<br>[会话引用](source/docs/subsystems/session-reference.zh.md)<br>[作用域注册](source/docs/subsystems/scope.zh.md)<br>[spill 存储](source/docs/subsystems/spill.zh.md) |
+| [第 3 章：记忆与知识：会话记录、材料获取和外部记忆](tutorial.md#chapter-03) | [会话](source/docs/subsystems/session.zh.md)<br>[会话持久化](source/docs/subsystems/persistence.zh.md)<br>[存储](source/docs/subsystems/storage.zh.md)<br>[工作区](source/docs/subsystems/workspace.zh.md)<br>[会话查询](source/docs/subsystems/session-query.zh.md)<br>[会话投影](source/docs/subsystems/session-projection.zh.md)<br>[会话标题](source/docs/subsystems/session-title.zh.md) |
+| [第 4 章：工具：从调用契约到受控执行](tutorial.md#chapter-04) | [工具](source/docs/subsystems/tools.zh.md)<br>[文件系统](source/docs/subsystems/filesystem.zh.md)<br>[用户审批](source/docs/subsystems/approval.zh.md)<br>[MCP](source/docs/subsystems/mcp.zh.md)<br>[Web 访问](source/docs/subsystems/web.zh.md)<br>[PTC 运行时](source/docs/subsystems/ptc-runtime.zh.md)<br>[进程沙箱](source/docs/subsystems/sandbox.zh.md)<br>[权限预设](source/docs/subsystems/permission-presets.zh.md) |
+| [第 5 章：Coding Agent 与运行框架：插件装配和故障恢复](tutorial.md#chapter-05) | [Profile 管理](source/docs/subsystems/boot.zh.md)<br>[Shell 执行器](source/docs/subsystems/shell.zh.md)<br>[子进程](source/docs/subsystems/subprocess.zh.md)<br>[持久 PTY 会话](source/docs/subsystems/terminal.zh.md)<br>[SSH](source/docs/subsystems/ssh.zh.md)<br>[LSP 导航](source/docs/subsystems/lsp.zh.md)<br>[插件配置表单](source/docs/subsystems/settings.zh.md)<br>[用户凭据](source/docs/subsystems/credentials.zh.md) |
+| [第 6 章：交互：网页、桌面与异步观察](tutorial.md#chapter-06) | [Web Client 架构](source/docs/subsystems/web-client.zh.md)<br>[HTTP 服务器](source/docs/subsystems/web-server.zh.md)<br>[Client 模块](source/docs/subsystems/client-modules.zh.md)<br>[客户端资源](source/docs/subsystems/client-resources.zh.md)<br>[Web Client Slots](source/docs/subsystems/slots.zh.md)<br>[右侧 Sidebar](source/docs/subsystems/sidebar-right.zh.md)<br>[Conversation 组装](source/docs/subsystems/conversation.zh.md)<br>[Typert 远程调用](source/docs/subsystems/typert.zh.md)<br>[Office 转 PDF](source/docs/subsystems/office-to-pdf.zh.md)<br>[产出物](source/docs/subsystems/deliverables.zh.md)<br>[语音输入](source/docs/subsystems/voice-input.zh.md)<br>[浏览器操作](source/docs/subsystems/browser-use.zh.md)<br>[计算机操作](source/docs/subsystems/computer-use.zh.md)<br>[用户交互](source/docs/subsystems/user-questions.zh.md) |
+| [第 7 章：Agent 评估：回放、质量与工程指标](tutorial.md#chapter-07) | [Token 计量](source/docs/subsystems/token-meter.zh.md)<br>[运行时不变式](source/docs/subsystems/invariants.zh.md)<br>[消息反馈](source/docs/subsystems/feedback.zh.md)<br>[OTel 上报](source/docs/subsystems/otel.zh.md)<br>[产品埋点](source/docs/subsystems/product-telemetry.zh.md)<br>[遥测（telemetry）](source/docs/subsystems/session-telemetry.zh.md) |
+| [第 8 章：模型与 Harness：后训练主题在本项目中的边界](tutorial.md#chapter-08) | [LLM（大语言模型）流式输出](source/docs/subsystems/llm-streaming.zh.md) |
+| [第 9 章：持续改进：从运行证据到可验证的新版本](tutorial.md#chapter-09) | [同会话目标](source/docs/subsystems/goal.zh.md)<br>[计划模式](source/docs/subsystems/plan.zh.md)<br>[Todo](source/docs/subsystems/todo.zh.md)<br>[宿主级 Schedule](source/docs/subsystems/schedule.zh.md)<br>[Webhook runtime](source/docs/subsystems/webhook.zh.md)<br>[扩展](source/docs/subsystems/extensions.zh.md) |
+| [第 10 章：多 Agent 协作：子代理与实验性团队](tutorial.md#chapter-10) | [Subagent](source/docs/subsystems/subagent.zh.md)<br>[Agent Teams](source/docs/subsystems/agent-team.zh.md)<br>[后台任务运行时](source/docs/subsystems/jobs.zh.md)<br>[工作流](source/docs/subsystems/workflow.zh.md) |
+
+## 精选原码与原始专题
+
+[60 段原码节选及完整路径](source-excerpts.md)供核对。18 个专题内部编号保留，仅用于维护，教材以十章顺序阅读。
+
+| 专题 | 教材所在章 | 完整参考 |
+| --- | --- |
+| [专题 01：从一句话到一个结果：智能体运行框架究竟做什么](tutorial.md#topic-01) | 第 1 章 | [architecture.zh.md](source/docs/architecture.zh.md)<br>[agent-lifecycle.zh.md](source/docs/agent-lifecycle.zh.md) |
+| [专题 02：读懂代码：类型与异步等待](tutorial.md#topic-02) | 第 1 章 | [commands.zh.md](source/docs/subsystems/commands.zh.md)<br>[tool.zh.md](source/docs/user/develop/basic/tool.zh.md) |
+| [专题 03：循环与消息队列：一轮任务为什么需要多步](tutorial.md#topic-03) | 第 1 章 | [agent-lifecycle.zh.md](source/docs/agent-lifecycle.zh.md)<br>[core.zh.md](source/docs/subsystems/core.zh.md) |
+| [专题 04：沿文件读取工具追到底：模型怎样得到材料](tutorial.md#topic-04) | 第 4 章 | [tool-catalog.zh.md](source/docs/tool-catalog.zh.md)<br>[filesystem.zh.md](source/docs/subsystems/filesystem.zh.md) |
+| [专题 05：会话与日志：发生过的事怎样保存和还原](tutorial.md#topic-05) | 第 3 章 | [persistence-catalog.zh.md](source/docs/persistence-catalog.zh.md)<br>[session-format-status.zh.md](source/docs/session-format-status.zh.md)<br>[event-producer-consumer.zh.md](source/docs/event-producer-consumer.zh.md) |
+| [专题 06：提示词与项目指令：下一次模型输入怎样形成](tutorial.md#topic-06) | 第 2 章 | [architecture.zh.md](source/docs/architecture.zh.md)<br>[agent-lifecycle.zh.md](source/docs/agent-lifecycle.zh.md) |
+| [专题 07：技能的按需读取：目录可见为什么不等于正文已加载](tutorial.md#topic-07) | 第 2 章 | [skills.zh.md](source/docs/subsystems/skills.zh.md)<br>[tool-catalog.zh.md](source/docs/tool-catalog.zh.md) |
+| [专题 08：上下文压缩：让历史变短需要付出什么](tutorial.md#topic-08) | 第 2 章 | [compaction.zh.md](source/docs/subsystems/compaction.zh.md)<br>[mcp-memory.zh.md](source/docs/user/guide/mcp-memory.zh.md) |
+| [专题 09：流式输出与重试：一次失败怎样留在同一步里](tutorial.md#topic-09) | 第 5 章 | [llm-streaming.zh.md](source/docs/subsystems/llm-streaming.zh.md)<br>[agent-lifecycle.zh.md](source/docs/agent-lifecycle.zh.md) |
+| [专题 10：插件框架与运行配置：这些部件怎样装成一个应用](tutorial.md#topic-10) | 第 5 章 | [cordis-primer.zh.md](source/docs/cordis-primer.zh.md)<br>[architecture.zh.md](source/docs/architecture.zh.md)<br>[boot.zh.md](source/docs/subsystems/boot.zh.md) |
+| [专题 11：工具准入与审批：允许执行的决定在哪里发生](tutorial.md#topic-11) | 第 4 章 | [tool-execution-pipeline.zh.md](source/docs/tool-execution-pipeline.zh.md)<br>[approval.zh.md](source/docs/subsystems/approval.zh.md) |
+| [专题 12：外部服务与能力接入：连接成功不等于拥有知识库](tutorial.md#topic-12) | 第 4 章 | [mcp.zh.md](source/docs/subsystems/mcp.zh.md)<br>[mcp-memory.zh.md](source/docs/user/guide/mcp-memory.zh.md) |
+| [专题 13：子代理：拆分任务前先看上下文起点](tutorial.md#topic-13) | 第 10 章 | [subagent.zh.md](source/docs/subsystems/subagent.zh.md) |
+| [专题 14：网页端：提交任务与跟随结果是两条链](tutorial.md#topic-14) | 第 6 章 | [api-gateway.zh.md](source/docs/api-gateway.zh.md)<br>[conversation.zh.md](source/docs/subsystems/conversation.zh.md)<br>[client-modules.zh.md](source/docs/subsystems/client-modules.zh.md) |
+| [专题 15：桌面端：窗口、页面与宿主服务怎样合作](tutorial.md#topic-15) | 第 6 章 | [README.zh.md](source/apps/desktop/README.zh.md)<br>[architecture.zh.md](source/docs/architecture.zh.md) |
+| [专题 16：测试与回放：复现通过究竟证明了什么](tutorial.md#topic-16) | 第 7 章 | [testing.zh.md](source/docs/testing.zh.md)<br>[README.md](source/packages/test-support/llm-replay/README.md) |
+| [专题 17：量化评价：同时看质量、时间、用量与失败](tutorial.md#topic-17) | 第 7 章 | [testing.zh.md](source/docs/testing.zh.md)<br>[token-meter.zh.md](source/docs/subsystems/token-meter.zh.md)<br>[otel.zh.md](source/docs/subsystems/otel.zh.md)<br>[session-telemetry.zh.md](source/docs/subsystems/session-telemetry.zh.md) |
+| [专题 18：综合案例：已有文件工具如何接入与呈现](tutorial.md#topic-18) | 第 4 章 | [adding-a-tool.zh.md](source/docs/cookbook/adding-a-tool.zh.md)<br>[extension-cookbook.zh.md](source/docs/cookbook/extension-cookbook.zh.md) |
+
+## 证据与复用
+
+原始文档说明契约，源码说明实现分支，测试源码说明断言方式；真实运行效果需运行证据支持，不能互相替代。教学图与假设数字是本教材原创解释，不作为项目实测。
+
+分享包保留完整 source 目录及 [MIT 许可](source/LICENSE)，仅省略 Git 元数据。参考书只保留公开链接与结构方法说明，未打包其正文或插图。
+
+[参考文件哈希](reference-manifest.json) · [节选行号与哈希](excerpt-manifest.json) · [覆盖记录](coverage.json) · [教材检查](validation.json)
 
 
 ---
