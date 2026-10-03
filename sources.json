@@ -2,10 +2,10 @@
   "title": "深入理解 DeepSeek Harness：从智能体基础到工程协作",
   "created_date": "2026-10-02",
   "updated_date": "2026-10-03",
-  "delivery_stage": "十章中文教材完整版，正文独立解释；源码与原文作为可选证据",
-  "chapter_count": 10,
-  "planned_figure_count": 40,
-  "display_language": "正文和示例图以中文为主；术语首次出现补英文对照；源码标识和原文保持原样，原文优先链接中文版",
+  "delivery_stage": "十九章中文重构版：原理正文、逐行源码研读、理解题与答案",
+  "chapter_count": 19,
+  "planned_figure_count": 42,
+  "display_language": "正文与关系说明用中文；项目名称、组件名称、论文术语与源码标识保留原文，首次出现用中文解释。",
   "timezone": "Asia/Shanghai",
   "learning_preference": "先整体流程，遇到 TypeScript 和异步概念时补基础",
   "sources": [
@@ -46,7 +46,7 @@
       "url": "https://shop.elsevier.com/books/computer-architecture/hennessy/978-0-12-811905-1",
       "supporting_contents_url": "https://shop.elsevier.com/books/computer-architecture/hennessy/978-0-12-383872-8",
       "accessed_date": "2026-10-03",
-      "use": "参考量化评价、Putting It All Together 与误区体例，面向初学者改编；按用户要求不设置练习",
+      "use": "参考量化评价、综合机制与误区体例；依本次要求增加理解题与参考回答",
       "limits": "核对出版社公开介绍与目录，未获得或复制书籍全文；未照搬硬件性能结论"
     },
     {
@@ -72,23 +72,34 @@
       "url": "https://bojieli.github.io/ai-agent-book/",
       "structure_url": "https://bojieli.github.io/ai-agent-book/book/introduction/",
       "accessed_date": "2026-10-03",
-      "use": "十章两部分的主题递进与问题组织；正文重新创作，DSH 实现以固定仓库为证据",
-      "limits": "查看公开目录、引言与十章入口/目录；不复制全书，不移植其全部能力主张，不附配套练习"
+      "use": "参考基础到工程协作的主题递进与问题组织；阅读版参考白底三栏、章节目录、标题层级与章节速览卡片，十九章正文独立创作",
+      "limits": "查看公开目录、引言、首页与第一章，并在 Edge 核对排版；实现证据来自固定仓库，未复制参考书正文或主题源码"
+    },
+    {
+      "id": "cordis-paper-v1",
+      "kind": "primary_research_paper",
+      "title": "A Programming Paradigm for Spatiotemporal Composability",
+      "url": "https://arxiv.org/abs/2608.25512",
+      "version": "v1",
+      "accessed_date": "2026-10-03",
+      "use": "第十九章效果、独立性、生命周期与边界；实际章节定位见 19.11",
+      "limits": "阅读并解释列明部分，不声称核验全部形式证明；不在分享包复制原文 PDF"
     }
   ],
   "verification": {
     "source_review": "static",
     "runtime_execution": "not_performed",
     "upstream_tests": "not_run",
-    "course_artifact_validation": "validation.json：十章正文、63 项子系统覆盖、40 张图、60 段可选原码、离线链接和源码哈希；不执行上游项目测试",
+    "course_artifact_validation": "validation.json 的本次实际计数与错误列表；旧十章核验不沿用",
     "local_cli_version_seen": "0.1.5-rc.1",
     "local_cli_used_as_course_evidence": false
   },
-  "figure_count": 40,
-  "source_excerpt_count": 60,
-  "exercise_sections": false,
-  "source_topic_count": 18,
+  "figure_count": 42,
+  "source_excerpt_count": 27,
+  "exercise_sections": true,
+  "source_topic_count": 19,
   "subsystems_explained": 63,
-  "reader_prerequisite": "少量概念即可；无需预读源码或原项目文档；不要求安装运行",
-  "scope": "完整功能架构、核心运行过程与全部已列子系统协作；不穷举配置/API 字段、每个平台后端内部或发布矩阵"
+  "reader_prerequisite": "普通电脑操作；正文补基础；无需预读源码",
+  "scope": "十九章核心主链与补充子系统约定；核验范围见 evidence-index.md 和 revision/status.json",
+  "naming_policy": "revision/naming-policy.md"
 }

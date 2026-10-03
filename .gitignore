@@ -1,12 +1,11 @@
-# Node / Environment
 node_modules/
-.cache/
-dist/
-build/
+__pycache__/
+*.pyc
+archive/
+.mimosa/
+.video_agent/
+.env
+.env.*
+!.env.example
+!.env.*.example
 *.log
-.DS_Store
-Thumbs.db
-
-# Large binaries or temporary caches
-*.tmp
-source/node_modules/

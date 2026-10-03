@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1120" height="760" viewBox="0 0 1120 760" role="img" aria-labelledby="F12B-title F12B-desc">
 <title id="F12B-title">F12B：能力验收必须逐项给证据</title>
-<desc id="F12B-desc">{&quot;id&quot;: &quot;F12B&quot;, &quot;title&quot;: &quot;能力验收必须逐项给证据&quot;, &quot;kind&quot;: &quot;columns&quot;, &quot;tag&quot;: &quot;教学验收表&quot;, &quot;columns&quot;: [[&quot;连接与工具&quot;, &quot;连接：通过&quot;, &quot;工具发现：通过&quot;, &quot;实际调用还要检查&quot;], [&quot;资源读取&quot;, &quot;尚未声明资源能力&quot;, &quot;没有读取成功证据&quot;, &quot;不能从连接状态补填&quot;], [&quot;跨会话记忆&quot;, &quot;存储与查询契约未验证&quot;, &quot;不能推断向量检索&quot;, &quot;也不是默认内置能力&quot;]]}</desc>
+<desc id="F12B-desc">{&quot;id&quot;: &quot;F12B&quot;, &quot;title&quot;: &quot;能力验收必须逐项给证据&quot;, &quot;kind&quot;: &quot;columns&quot;, &quot;tag&quot;: &quot;教学验收表&quot;, &quot;columns&quot;: [[&quot;连接与工具&quot;, &quot;连接：通过&quot;, &quot;工具发现：通过&quot;, &quot;继续发起实际工具调用&quot;], [&quot;资源读取&quot;, &quot;尚未声明资源能力&quot;, &quot;没有读取成功证据&quot;, &quot;需独立资源接口与读取结果&quot;], [&quot;跨 Session 记忆&quot;, &quot;存储与查询契约未验证&quot;, &quot;检索方法由服务器实现&quot;, &quot;存储与查询独立接入&quot;]]}</desc>
 <rect width="1120" height="760" fill="white"/>
 <text x="48" y="56" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#20314B">F12B  能力验收必须逐项给证据</text>
 <text x="48" y="97" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="400" fill="#65738A">原创教学图 · 教学验收表</text>
@@ -8,16 +8,16 @@
 <text x="77" y="197" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">连接与工具</text>
 <text x="77" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">连接：通过</text>
 <text x="77" y="294" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">工具发现：通过</text>
-<text x="77" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">实际调用还要检查</text>
+<text x="77" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">继续发起实际工具调用</text>
 <rect x="405" y="150" width="310" height="470" rx="16" fill="#F0EBFF" stroke="#7659AA" stroke-width="2"/>
 <text x="427" y="197" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">资源读取</text>
 <text x="427" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">尚未声明资源能力</text>
 <text x="427" y="294" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">没有读取成功证据</text>
-<text x="427" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">不能从连接状态补填</text>
+<text x="427" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">需独立资源接口与读取结果</text>
 <rect x="755" y="150" width="310" height="470" rx="16" fill="#E5F6ED" stroke="#367E5A" stroke-width="2"/>
-<text x="777" y="197" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">跨会话记忆</text>
+<text x="777" y="197" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">跨 Session 记忆</text>
 <text x="777" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">存储与查询契约未验证</text>
-<text x="777" y="294" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">不能推断向量检索</text>
-<text x="777" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">也不是默认内置能力</text>
-<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：先确认范围，再跟随标注；示意布局不代表实际耗时或比例。</text>
+<text x="777" y="294" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">检索方法由服务器实现</text>
+<text x="777" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">存储与查询独立接入</text>
+<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：并排各栏表示不同职责或范围，按栏内说明逐项比较。</text>
 </svg>

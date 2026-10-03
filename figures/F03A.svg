@@ -15,5 +15,5 @@
 <text x="592" y="315" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">尝试三成功，生成总结</text>
 <text x="592" y="364" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">没有工具调用，进入停止判断</text>
 <text x="75" y="573" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="21" font-weight="700" fill="#20314B">此例：一轮、两步、三次模型尝试、一次工具调用</text>
-<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：先确认范围，再跟随标注；示意布局不代表实际耗时或比例。</text>
+<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：外框表示整体任务，内框表示其中的步骤与尝试。</text>
 </svg>

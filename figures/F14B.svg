@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1120" height="760" viewBox="0 0 1120 760" role="img" aria-labelledby="F14B-title F14B-desc">
 <title id="F14B-title">F14B：快照加后续变化构成观察状态</title>
-<desc id="F14B-desc">{&quot;id&quot;: &quot;F14B&quot;, &quot;title&quot;: &quot;快照加后续变化构成观察状态&quot;, &quot;kind&quot;: &quot;flow&quot;, &quot;tag&quot;: &quot;源码接口示意&quot;, &quot;nodes&quot;: [[&quot;先监听并缓冲&quot;, &quot;避免快照准备期间漏变化&quot;, &quot;control&quot;], [&quot;提供初始快照&quot;, &quot;状态、游标与可用流信息&quot;, &quot;log&quot;], [&quot;处理后续变化&quot;, &quot;旧序号可略过&quot;, &quot;log&quot;], [&quot;检查事件连续性&quot;, &quot;缺口报错，不静默跳过&quot;, &quot;control&quot;], [&quot;更新客户端状态&quot;, &quot;协调暂态与服务器事实&quot;, &quot;user&quot;], [&quot;视图订阅并显示&quot;, &quot;临时流不等于全部持久记录&quot;, &quot;user&quot;]]}</desc>
+<desc id="F14B-desc">{&quot;id&quot;: &quot;F14B&quot;, &quot;title&quot;: &quot;快照加后续变化构成观察状态&quot;, &quot;kind&quot;: &quot;flow&quot;, &quot;tag&quot;: &quot;源码接口示意&quot;, &quot;nodes&quot;: [[&quot;先监听并缓冲&quot;, &quot;避免快照准备期间漏变化&quot;, &quot;control&quot;], [&quot;提供初始快照&quot;, &quot;状态、游标与可用流信息&quot;, &quot;log&quot;], [&quot;处理后续变化&quot;, &quot;旧序号可略过&quot;, &quot;log&quot;], [&quot;检查事件连续性&quot;, &quot;缺口报错，不静默跳过&quot;, &quot;control&quot;], [&quot;更新客户端状态&quot;, &quot;协调暂态与服务器事实&quot;, &quot;user&quot;], [&quot;视图订阅并显示&quot;, &quot;持久事件与临时流分别结算&quot;, &quot;user&quot;]]}</desc>
 <rect width="1120" height="760" fill="white"/>
 <text x="48" y="56" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#20314B">F14B  快照加后续变化构成观察状态</text>
 <text x="48" y="97" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="400" fill="#65738A">原创教学图 · 源码接口示意</text>
@@ -21,7 +21,7 @@
 <text x="427" y="505" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">协调暂态与服务器事实</text>
 <rect x="55" y="410" width="310" height="165" rx="16" fill="#E9F2FF" stroke="#3469A8" stroke-width="2"/>
 <text x="77" y="457" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">6  视图订阅并显示</text>
-<text x="77" y="505" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">临时流不等于全部持久记录</text>
+<text x="77" y="505" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">持久事件与临时流分别结算</text>
 <polyline points="365,240 405,240" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
 <polygon points="405.0,240.0 395.3,245.3 395.3,234.7" fill="#65738A"/>
 <text x="343.0" y="330" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" font-weight="400" fill="#20314B">建立游标</text>
@@ -37,5 +37,5 @@
 <polyline points="405,510 365,510" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
 <polygon points="365.0,510.0 374.7,504.7 374.7,515.3" fill="#65738A"/>
 <text x="343.0" y="600" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" font-weight="400" fill="#20314B">通知视图</text>
-<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：先确认范围，再跟随标注；示意布局不代表实际耗时或比例。</text>
+<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：从节点 1 开始，沿箭头追踪处理顺序与数据变化。</text>
 </svg>

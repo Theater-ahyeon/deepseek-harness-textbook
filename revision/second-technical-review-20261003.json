@@ -1,0 +1,143 @@
+{
+  "commit": "639ed015397290b3745d163aafe02ffee4aa3f84",
+  "method": "static source verification",
+  "runtime_tests": false,
+  "findings": [
+    {
+      "finding": "read 有界保存窗口，但扫描全部输入计数",
+      "chapters": [
+        4
+      ],
+      "source": [
+        {
+          "path": "source/packages/fs/tool-fs/src/read-render.ts",
+          "start": 78,
+          "end": 142,
+          "sha256": "6cbfef74371572bcb37b890b8f8ab3b718410652444c249d9ce4daee75a16e4c"
+        }
+      ]
+    },
+    {
+      "finding": "压缩标记与提交按次追加，失败不回滚此前全部事件",
+      "chapters": [
+        8
+      ],
+      "source": [
+        {
+          "path": "source/packages/compaction/compaction-basic/src/region.ts",
+          "start": 173,
+          "end": 278,
+          "sha256": "755a4a3e6f00bf277ebb228a91c6bc69a8fd58f483f49b68627d7e2b58c61025"
+        },
+        {
+          "path": "source/packages/compaction/compaction-basic/src/region.ts",
+          "start": 471,
+          "end": 521,
+          "sha256": "b0b04b1b1112e6a34e2d6f0e325f028ad4b594e3ad146a9d543f1fff97ead573"
+        }
+      ]
+    },
+    {
+      "finding": "流消费异常与 finish 失败走不同入口",
+      "chapters": [
+        9
+      ],
+      "source": [
+        {
+          "path": "source/packages/core/agent-loop/src/agent.ts",
+          "start": 433,
+          "end": 514,
+          "sha256": "abad81e2cbe25d25d1e5d37136abdd545718e58ef6ff66022b53bb80371db82c"
+        }
+      ]
+    },
+    {
+      "finding": "MCP 准备失败保留旧注册；交换失败清空新注册而不复原旧代次",
+      "chapters": [
+        12
+      ],
+      "source": [
+        {
+          "path": "source/packages/mcp/mcp-client/src/tools.ts",
+          "start": 91,
+          "end": 162,
+          "sha256": "d21306848dfc9ef446bc02e8cb27b53c86af987828f443c19a8513f721b4b530"
+        }
+      ]
+    },
+    {
+      "finding": "进程内 Subagent 复用创建流程，每个子任务拥有独立 Agent",
+      "chapters": [
+        13
+      ],
+      "source": [
+        {
+          "path": "source/packages/subagent/subagent-in-process-driver/src/index.ts",
+          "start": 105,
+          "end": 212,
+          "sha256": "1ca1d385021413d518c1e25124dde4325e1979a9aecd874e972ec16c3c55c692"
+        },
+        {
+          "path": "source/packages/subagent/subagent-fork-in-process/src/index.ts",
+          "start": 48,
+          "end": 55,
+          "sha256": "8d3dae537c9af1b72e3974b601386a16ce261f88ae48a12de075acd651f7ba05"
+        }
+      ]
+    },
+    {
+      "finding": "Host 检查事件缺口；resync 对应历史来源地址替换",
+      "chapters": [
+        14
+      ],
+      "source": [
+        {
+          "path": "source/packages/api/session-controller/src/history.ts",
+          "start": 218,
+          "end": 242,
+          "sha256": "8a2e70e7cfaef83ac46bd48830886a7dc7328473f9e3d0d272c100d688929c07"
+        },
+        {
+          "path": "source/packages/api/session-controller/src/client/sessions/session.ts",
+          "start": 483,
+          "end": 498,
+          "sha256": "06ac8610f3e979a68209e34eebcf5e689a6c1378f90f81d390339fe26dd51e61"
+        },
+        {
+          "path": "source/packages/api/session-controller/src/client/sessions/session.ts",
+          "start": 538,
+          "end": 552,
+          "sha256": "cd362846d50446c5eb18ddbe0722961d9cebd3389bb300570b26523467f54c13"
+        }
+      ]
+    },
+    {
+      "finding": "工具前置策略完成后再执行 guard",
+      "chapters": [
+        11
+      ],
+      "source": [
+        {
+          "path": "source/packages/core/tools/src/index.ts",
+          "start": 1493,
+          "end": 1538,
+          "sha256": "2735dcaa8bbb9823051e2f00d20d81a941e1b57159f9bfd495787e9a0d547894"
+        }
+      ]
+    },
+    {
+      "finding": "项目指令从工具结果收集路径，在步骤结束后更新并由前置链等待",
+      "chapters": [
+        6
+      ],
+      "source": [
+        {
+          "path": "source/packages/context/agent-instructions/src/index.ts",
+          "start": 296,
+          "end": 359,
+          "sha256": "26687fd082c9bf556ab86361bdd29b8732d0cc1e5db87807c18c3231f1e5eefe"
+        }
+      ]
+    }
+  ]
+}

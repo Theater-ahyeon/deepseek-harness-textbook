@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1120" height="760" viewBox="0 0 1120 760" role="img" aria-labelledby="F16A-title F16A-desc">
 <title id="F16A-title">F16A：回放固定响应，仍执行工程过程</title>
-<desc id="F16A-desc">{&quot;id&quot;: &quot;F16A&quot;, &quot;title&quot;: &quot;回放固定响应，仍执行工程过程&quot;, &quot;kind&quot;: &quot;flow&quot;, &quot;tag&quot;: &quot;结构示意&quot;, &quot;nodes&quot;: [[&quot;已录制会话事实&quot;, &quot;检查终结信息是否完整&quot;, &quot;log&quot;], [&quot;派生响应脚本&quot;, &quot;必要时显式处理异常录制&quot;, &quot;control&quot;], [&quot;接入模型边界&quot;, &quot;适配器或流拦截&quot;, &quot;model&quot;], [&quot;运行真实循环&quot;, &quot;工具与会话仍参与&quot;, &quot;control&quot;], [&quot;检查行为断言&quot;, &quot;不要只看屏幕文字&quot;, &quot;tool&quot;], [&quot;检查脚本消费&quot;, &quot;固定依赖限制结论范围&quot;, &quot;log&quot;]]}</desc>
+<desc id="F16A-desc">{&quot;id&quot;: &quot;F16A&quot;, &quot;title&quot;: &quot;回放固定响应，仍执行工程过程&quot;, &quot;kind&quot;: &quot;flow&quot;, &quot;tag&quot;: &quot;结构示意&quot;, &quot;nodes&quot;: [[&quot;已录制 Session 事实&quot;, &quot;检查终结信息是否完整&quot;, &quot;log&quot;], [&quot;派生响应脚本&quot;, &quot;必要时显式处理异常录制&quot;, &quot;control&quot;], [&quot;接入模型边界&quot;, &quot;适配器或流拦截&quot;, &quot;model&quot;], [&quot;运行真实循环&quot;, &quot;工具与 Session 仍参与&quot;, &quot;control&quot;], [&quot;检查行为断言&quot;, &quot;断言请求、结果与事件顺序&quot;, &quot;tool&quot;], [&quot;检查脚本消费&quot;, &quot;核对响应是否全部消费&quot;, &quot;log&quot;]]}</desc>
 <rect width="1120" height="760" fill="white"/>
 <text x="48" y="56" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#20314B">F16A  回放固定响应，仍执行工程过程</text>
 <text x="48" y="97" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="400" fill="#65738A">原创教学图 · 结构示意</text>
 <rect x="55" y="140" width="310" height="165" rx="16" fill="#EDF1F5" stroke="#63758A" stroke-width="2"/>
-<text x="77" y="187" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">1  已录制会话事实</text>
+<text x="77" y="187" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">1  已录制 Session 事实</text>
 <text x="77" y="235" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">检查终结信息是否完整</text>
 <rect x="405" y="140" width="310" height="165" rx="16" fill="#F0EBFF" stroke="#7659AA" stroke-width="2"/>
 <text x="427" y="187" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">2  派生响应脚本</text>
@@ -15,13 +15,13 @@
 <text x="777" y="235" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">适配器或流拦截</text>
 <rect x="755" y="410" width="310" height="165" rx="16" fill="#F0EBFF" stroke="#7659AA" stroke-width="2"/>
 <text x="777" y="457" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">4  运行真实循环</text>
-<text x="777" y="505" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">工具与会话仍参与</text>
+<text x="777" y="505" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">工具与 Session 仍参与</text>
 <rect x="405" y="410" width="310" height="165" rx="16" fill="#E5F6ED" stroke="#367E5A" stroke-width="2"/>
 <text x="427" y="457" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">5  检查行为断言</text>
-<text x="427" y="505" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">不要只看屏幕文字</text>
+<text x="427" y="505" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">断言请求、结果与事件顺序</text>
 <rect x="55" y="410" width="310" height="165" rx="16" fill="#EDF1F5" stroke="#63758A" stroke-width="2"/>
 <text x="77" y="457" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">6  检查脚本消费</text>
-<text x="77" y="505" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">固定依赖限制结论范围</text>
+<text x="77" y="505" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">核对响应是否全部消费</text>
 <polyline points="365,240 405,240" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
 <polygon points="405.0,240.0 395.3,245.3 395.3,234.7" fill="#65738A"/>
 <text x="343.0" y="330" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" font-weight="400" fill="#20314B">还原响应</text>
@@ -37,5 +37,5 @@
 <polyline points="405,510 365,510" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
 <polygon points="365.0,510.0 374.7,504.7 374.7,515.3" fill="#65738A"/>
 <text x="343.0" y="600" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" font-weight="400" fill="#20314B">检查消费</text>
-<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：先确认范围，再跟随标注；示意布局不代表实际耗时或比例。</text>
+<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：从节点 1 开始，沿箭头追踪处理顺序与数据变化。</text>
 </svg>

@@ -1,21 +1,22 @@
 {
   "path": "E:\\agentcoding\\DeepSeek-Harness-中文教材完整版.zip",
-  "entry_count": 14229,
-  "uncompressed_bytes": 124735371,
-  "zip_bytes": 44906031,
-  "sha256": "cbbcd6a16487d44183bbb6871656f9370ec570236a784e889cfb03b6dafff2f9",
-  "integrity_check": "passed",
+  "entrypoint": "reader.html",
+  "entry_count": 14260,
+  "sha256": "5427788f0d649f6534c9370938a4aae4d3c347446ec80c7b738adc183809af1e",
+  "zip_bytes": 44926907,
+  "chapter_count": 19,
   "source_commit": "639ed015397290b3745d163aafe02ffee4aa3f84",
-  "entrypoint": "DeepSeek-Harness-中文教材/reader.html",
-  "chapter_count": 10,
-  "figure_count": 40,
-  "source_excerpts": 60,
-  "subsystems_explained": 63,
-  "exercise_sections": false,
-  "includes_original_source": true,
-  "excludes": [
+  "annotated_excerpts": 27,
+  "exercise_sections": true,
+  "package_byte_comparison": "all_selected_files_match",
+  "source_selection": "Git-tracked files in the pinned snapshot",
+  "excluded": [
     ".git",
-    "course authoring tools",
-    "historical outlines"
+    "node_modules",
+    "_tools",
+    "archive",
+    "historical drafts",
+    "untracked source artifacts",
+    "paper PDF"
   ]
 }

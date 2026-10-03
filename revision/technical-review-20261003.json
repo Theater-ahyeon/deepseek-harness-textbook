@@ -1,0 +1,235 @@
+{
+  "commit": "639ed015397290b3745d163aafe02ffee4aa3f84",
+  "method": "static source review",
+  "runtime_tests": false,
+  "findings": [
+    {
+      "finding": "输入检查发生在哪里",
+      "chapters": [
+        4,
+        11,
+        18
+      ],
+      "explanation": "工具执行先经过 ToolRuntime 准入，再由 defineTool 的包装函数检查 schema，read 执行体解析参数和默认值。",
+      "source": [
+        {
+          "path": "source/packages/core/tools/src/index.ts",
+          "start": 1493,
+          "end": 1538,
+          "sha256": "2735dcaa8bbb9823051e2f00d20d81a941e1b57159f9bfd495787e9a0d547894"
+        },
+        {
+          "path": "source/packages/core/tools/src/schema.ts",
+          "start": 577,
+          "end": 600,
+          "sha256": "edd72f9de5663adf3bb6007ffc60a96b41b7dca349720e7cd2a7d9a68f8cdfb0"
+        },
+        {
+          "path": "source/packages/fs/tool-fs/src/read.ts",
+          "start": 137,
+          "end": 163,
+          "sha256": "1580fa100e40283b2e439c73fbd5569b257e8566e80e8c9b183b56c576f91c49"
+        }
+      ]
+    },
+    {
+      "finding": "输出与展示错误怎样处理",
+      "chapters": [
+        18
+      ],
+      "explanation": "schema、render 和顶层 presentationMeta 错误进入工具错误链；Web Client 从原始事件派生卡片。Host 的 presentCall/presentResult 留给本地消费方。",
+      "source": [
+        {
+          "path": "source/packages/core/tools/src/index.ts",
+          "start": 1831,
+          "end": 1853,
+          "sha256": "c956c29021e5d0477dfbad8f3ba917f79fbf43f1b42340e41df6a28bb464d9b6"
+        },
+        {
+          "path": "source/packages/core/tools/src/schema.ts",
+          "start": 609,
+          "end": 632,
+          "sha256": "490c91ad0c0528f832680f6162bbfe95d237bde10181a5f3eaf31d681e185a5b"
+        }
+      ]
+    },
+    {
+      "finding": "JSONL 的持久写入与回退",
+      "chapters": [
+        5
+      ],
+      "explanation": "存储监听器先缓冲；writer 写入包含文件同步。写入或同步失败后截回原长度并同步，回退失败报告组合错误。",
+      "source": [
+        {
+          "path": "source/packages/session/session-persistence-jsonl/src/storage.ts",
+          "start": 187,
+          "end": 211,
+          "sha256": "28caebc8596c07ba91fbe8b1c03d9736d9db39e5349f402614c98825a181fa26"
+        },
+        {
+          "path": "source/packages/session/session-persistence-jsonl/src/index.ts",
+          "start": 1320,
+          "end": 1361,
+          "sha256": "763f61e5946a1f6d6d2f7fec35a41bdf84d8ff2e121be4bb6479b866812be3e1"
+        }
+      ]
+    },
+    {
+      "finding": "压缩选区保留调用配对",
+      "chapters": [
+        8
+      ],
+      "explanation": "选区从首个非 system 节点开始，保留近期尾部，并检查选区两端配对平衡；尚未关闭的步骤留在选区之外。",
+      "source": [
+        {
+          "path": "source/packages/compaction/compaction-basic/src/region.ts",
+          "start": 107,
+          "end": 154,
+          "sha256": "451b6474f36f11747a0668a1cd184622928d24c4f57c7826bcd28920a3add4e9"
+        },
+        {
+          "path": "source/packages/compaction/compaction-basic/src/region.ts",
+          "start": 337,
+          "end": 357,
+          "sha256": "f821e5cd6fc96ccd149658918b5ca1ede245a1d9a6b6ac301d42023017d19d4a"
+        }
+      ]
+    },
+    {
+      "finding": "模型输出上限的停止顺序",
+      "chapters": [
+        3,
+        9
+      ],
+      "explanation": "max-tokens 是输出上限。循环先保存助手消息，再在提取和执行 Tool Call 之前返回停止原因。",
+      "source": [
+        {
+          "path": "source/packages/core/agent-loop/src/agent.ts",
+          "start": 512,
+          "end": 538,
+          "sha256": "4e283589eda1bb225b7589963b8094c9e0a6620d25040101811768f342265047"
+        }
+      ]
+    },
+    {
+      "finding": "config 按字段整体覆盖",
+      "chapters": [
+        10
+      ],
+      "explanation": "补丁按 id 定位，并直接给条目字段赋值；config 是整个字段。insert 立即加入索引，后续补丁可修改新条目。",
+      "source": [
+        {
+          "path": "source/vendor/include/src/index.ts",
+          "start": 57,
+          "end": 127,
+          "sha256": "f5f3fde297fea062bff0b508af532d71b68996437b1f415a8b19ec922721a465"
+        }
+      ]
+    },
+    {
+      "finding": "事件缺口由 Host 检查",
+      "chapters": [
+        14
+      ],
+      "explanation": "SessionHistoryController 先监听、缓冲、获取快照，再检查事件序号。缺口抛出 gateway/internal，finally 释放监听器。",
+      "source": [
+        {
+          "path": "source/packages/api/session-controller/src/history.ts",
+          "start": 120,
+          "end": 239,
+          "sha256": "c7602cde6070bd3cdd3a5713e8503308f263da7aacbf1aab2f3783584c9a989c"
+        }
+      ]
+    },
+    {
+      "finding": "客户端历史重建与控制流分开",
+      "chapters": [
+        14
+      ],
+      "explanation": "resync 关闭旧历史来源并重新 open；投影状态由独立重连的控制流维护。此方法在地址替换时触发。",
+      "source": [
+        {
+          "path": "source/packages/api/session-controller/src/client/sessions/session.ts",
+          "start": 483,
+          "end": 498,
+          "sha256": "06ac8610f3e979a68209e34eebcf5e689a6c1378f90f81d390339fe26dd51e61"
+        },
+        {
+          "path": "source/packages/api/session-controller/src/client/sessions/session.ts",
+          "start": 538,
+          "end": 552,
+          "sha256": "cd362846d50446c5eb18ddbe0722961d9cebd3389bb300570b26523467f54c13"
+        }
+      ]
+    },
+    {
+      "finding": "回放缺失终结与 override",
+      "chapters": [
+        16
+      ],
+      "explanation": "缺少 finish 的录制无法直接派生响应；整份数组可替换脚本，patches 在可派生脚本上修改指定位置。",
+      "source": [
+        {
+          "path": "source/packages/test-support/llm-replay/src/index.ts",
+          "start": 450,
+          "end": 473,
+          "sha256": "c87973f7eed34469cdfe80d065adcd70e212933458674f62a89a287a5deb7a8e"
+        },
+        {
+          "path": "source/packages/test-support/llm-replay/src/index.ts",
+          "start": 757,
+          "end": 797,
+          "sha256": "89f699779f4019204bc244670a4c1dc66fe3a08596b12777b3d4f754763a7061"
+        }
+      ]
+    },
+    {
+      "finding": "Cordis 同层释放的执行方式",
+      "chapters": [
+        19
+      ],
+      "explanation": "同层 disposer 映射为异步任务，再由 Promise.all 等待。每项错误独立捕获并记录。",
+      "source": [
+        {
+          "path": "source/vendor/cordis/src/fiber.ts",
+          "start": 675,
+          "end": 686,
+          "sha256": "8268990ba934eb54a88d56e5883118c0eb251a87eca8381b5a201a7f001090aa"
+        }
+      ]
+    },
+    {
+      "finding": "Web Client 直接派生工具卡片",
+      "chapters": [
+        18
+      ],
+      "explanation": "Conversation 配对原始事件，ToolCallTree 按名称分派 keyed slot；readCardModel 校验调用、metadata 和输出格式，不匹配时返回 null。",
+      "source": [
+        {
+          "path": "source/packages/client/ui-tool/src/client/tool/ToolCallTree.tsx",
+          "start": 49,
+          "end": 63,
+          "sha256": "102d11be55d9b618021531ed350d358df7950576a25e048d9d35cdb5f54fce52"
+        },
+        {
+          "path": "source/packages/client/ui-tool/src/client/tool/models/read-card-model.ts",
+          "start": 37,
+          "end": 119,
+          "sha256": "40dbe104ec61f2673067ea5484a4240f4b71a55a1b6dda1eeb9582e1272668cb"
+        },
+        {
+          "path": "source/packages/client/ui-tool/src/client/tool/toolviews/read-row.tsx",
+          "start": 14,
+          "end": 30,
+          "sha256": "2693206c748691b753e0e048dd4bfedf20f2f3bb0c3f6019c1a3fea5ece64f03"
+        },
+        {
+          "path": "source/.agents/notes/implemented/architecture/2026-08-23-client-derived-tool-presentation.zh.md",
+          "start": 21,
+          "end": 35,
+          "sha256": "1750561d94659853ef23db32a49ef9bb92f0644b7125ed2620422b759f26bc92"
+        }
+      ]
+    }
+  ]
+}

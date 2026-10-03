@@ -1,0 +1,15 @@
+{
+  "title": "深入理解 DeepSeek Harness",
+  "edition": "nineteen_chapter_zero_code_rewrite",
+  "entrypoint": "reader.html",
+  "chapter_count": 19,
+  "source_commit": "639ed015397290b3745d163aafe02ffee4aa3f84",
+  "package_version": "0.2.0-rc.2",
+  "cordis_version": "4.0.4",
+  "canonical": "book/*.md",
+  "source_excerpt_count": 27,
+  "validation": "validation.json",
+  "reference_index": "reference-index.md",
+  "history_excluded": true,
+  "maintenance_tools": "仅保留在制作方本地 _tools；此包为学习阅读版"
+}

@@ -1,15 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1120" height="760" viewBox="0 0 1120 760" role="img" aria-labelledby="F05A-title F05A-desc">
 <title id="F05A-title">F05A：相同事实可以产生不同视图</title>
-<desc id="F05A-desc">{&quot;id&quot;: &quot;F05A&quot;, &quot;title&quot;: &quot;相同事实可以产生不同视图&quot;, &quot;kind&quot;: &quot;fan&quot;, &quot;tag&quot;: &quot;结构示意&quot;, &quot;origin&quot;: [&quot;会话事件&quot;, &quot;消息、调用、结果、过程边界&quot;], &quot;columns&quot;: [[&quot;模型消息&quot;, &quot;按当前表层派生&quot;, &quot;供后续请求使用&quot;], [&quot;界面与状态&quot;, &quot;投影消费相应事件&quot;, &quot;显示顺序与运行过程&quot;], [&quot;持久记录&quot;, &quot;存储监听并排队写入&quot;, &quot;用于后续恢复与复核&quot;]]}</desc>
+<desc id="F05A-desc">{&quot;id&quot;: &quot;F05A&quot;, &quot;title&quot;: &quot;相同事实可以产生不同视图&quot;, &quot;kind&quot;: &quot;fan&quot;, &quot;tag&quot;: &quot;结构示意&quot;, &quot;origin&quot;: [&quot;Session 事件&quot;, &quot;消息、调用、结果、过程边界&quot;], &quot;columns&quot;: [[&quot;模型消息&quot;, &quot;按当前 Surface 派生&quot;, &quot;供后续请求使用&quot;], [&quot;界面与状态&quot;, &quot;投影消费相应事件&quot;, &quot;显示顺序与运行过程&quot;], [&quot;持久记录&quot;, &quot;存储监听并排队写入&quot;, &quot;用于后续恢复与复核&quot;]]}</desc>
 <rect width="1120" height="760" fill="white"/>
 <text x="48" y="56" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#20314B">F05A  相同事实可以产生不同视图</text>
 <text x="48" y="97" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="400" fill="#65738A">原创教学图 · 结构示意</text>
 <rect x="340" y="125" width="440" height="140" rx="16" fill="#EDF1F5" stroke="#63758A" stroke-width="2"/>
-<text x="362" y="172" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">会话事件</text>
+<text x="362" y="172" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">Session 事件</text>
 <text x="362" y="220" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">消息、调用、结果、过程边界</text>
 <rect x="55" y="340" width="310" height="290" rx="16" fill="#FFF2CC" stroke="#A97F16" stroke-width="2"/>
 <text x="77" y="387" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">模型消息</text>
-<text x="77" y="435" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">按当前表层派生</text>
+<text x="77" y="435" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">按当前 Surface 派生</text>
 <text x="77" y="484" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">供后续请求使用</text>
 <polyline points="560,265 560,300 210,300 210,340" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
 <polygon points="210.0,340.0 204.7,330.3 215.3,330.3" fill="#65738A"/>
@@ -26,5 +26,5 @@
 <polyline points="560,265 560,300 910,300 910,340" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
 <polygon points="910.0,340.0 904.7,330.3 915.3,330.3" fill="#65738A"/>
 <text x="48" y="282" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="400" fill="#65738A">按用途消费</text>
-<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：先确认范围，再跟随标注；示意布局不代表实际耗时或比例。</text>
+<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：沿汇合或分支箭头，追踪同一材料的来源与消费方式。</text>
 </svg>

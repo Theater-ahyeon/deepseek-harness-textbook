@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>实现证据索引</title><style>:root{--ink:#2c3e50;--muted:#697586;--line:#e6eaef;--accent:#2f855a;--link:#2764cf;--header:58px;--font:"Noto Sans SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:#fff;color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.8}button,input{font:inherit}button{cursor:pointer}a{color:var(--link);text-decoration:none;overflow-wrap:anywhere}a:hover{text-decoration:underline}button:focus-visible,a:focus-visible,input:focus-visible,main:focus-visible{outline:2px solid var(--link);outline-offset:3px}[hidden]{display:none!important}.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.skip-link{position:fixed;top:-80px;left:12px;padding:8px 16px;z-index:30;background:white}.skip-link:focus{top:8px}
+.site-header{position:sticky;top:0;z-index:10;height:var(--header);background:#fff;border-bottom:1px solid var(--line)}.header-inner{height:100%;max-width:1512px;margin:auto;padding:0 28px;display:flex;align-items:center;gap:22px}.brand{display:flex;align-items:center;gap:13px;flex-shrink:0;color:var(--ink);font-size:18px;font-weight:650;white-space:nowrap}.brand:hover{text-decoration:none}.brand svg{width:28px;height:28px;stroke:#6a46a8;fill:none;stroke-width:1.7;stroke-linejoin:round}.header-context{color:var(--muted);font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.search-button{margin-left:auto;display:flex;align-items:center;gap:10px;flex-shrink:0;min-width:240px;padding:6px 13px;background:#f5f7f9;border:1px solid transparent;border-radius:4px;text-align:left;color:var(--muted);font-size:14px}.search-button:hover{border-color:#d2d9e2}.search-button svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8}.search-button kbd{margin-left:auto;color:#88929e;font:12px Consolas,monospace;border:1px solid #dce2e8;padding:0 5px;border-radius:3px}.icon-button{border:0;background:transparent;padding:6px;color:var(--ink);font-size:22px;line-height:1.2}.menu-button{display:none}
+.book-layout{max-width:1512px;margin:auto;display:grid;grid-template-columns:280px minmax(0,1fr) 220px;gap:32px;padding:30px 28px 0}.book-sidebar,.toc-sidebar{position:sticky;top:88px;align-self:start;max-height:calc(100vh - 114px);overflow:auto;scrollbar-width:thin;font-size:14px;line-height:1.55;padding-bottom:24px}.book-sidebar{border-right:1px solid var(--line);padding-right:22px}.sidebar-title{display:block;color:var(--ink);font-size:15px;font-weight:650}.sidebar-subtitle{color:var(--muted);font-size:12px;margin:7px 0 20px}.book-sidebar nav a{display:block;color:var(--ink);padding:9px 10px;border-left:2px solid transparent;margin:2px 0}.book-sidebar nav a:hover{background:#f7f9fb;text-decoration:none}.book-sidebar nav a.active{color:var(--accent);border-left-color:var(--accent);background:#f2f8f4}.nav-label{display:block;margin:19px 10px 8px;font-size:12px;color:var(--muted);font-weight:600}.toc-title{font-weight:650;color:#82909e;font-size:13px;margin:2px 0 12px}.toc-sidebar nav{border-left:1px solid var(--line)}.toc-sidebar a{display:block;color:var(--muted);font-size:13px;line-height:1.6;padding:5px 0 5px 14px;margin-left:-1px;border-left:2px solid transparent}.toc-sidebar a.subheading{padding-left:24px;font-size:12px}.toc-sidebar a.active{color:var(--accent);border-left-color:var(--accent)}.toc-sidebar a:hover{color:var(--link);text-decoration:none}
+main{min-width:0;padding:0 0 28px}.reading-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--muted);font-size:12px;padding:0 0 16px;border-bottom:1px solid var(--line);margin-bottom:32px}.reading-options{display:flex;align-items:center;gap:15px;flex-shrink:0}.reading-options label{display:flex;align-items:center;gap:5px;cursor:pointer}.reading-options input{accent-color:var(--accent)}.reading-options button{border:0;background:transparent;color:var(--link);padding:0;font-size:12px}.toc-button{display:none}article{font-size:16px;line-height:1.85;overflow-wrap:break-word}h1,h2,h3,h4{line-height:1.45;font-weight:600;color:var(--ink);scroll-margin-top:92px}h1{font-size:34px;letter-spacing:-.4px;margin:0 0 30px}h2{font-size:26px;margin:48px 0 22px;padding-bottom:10px;border-bottom:1px solid var(--line)}h3{font-size:21px;margin:34px 0 16px}h4{font-size:18px;margin:28px 0 12px}p{margin:0 0 21px}li{margin:6px 0}ul,ol{padding-left:25px;margin:18px 0 24px}strong{font-weight:650}hr{border:0;border-top:1px solid var(--line);margin:36px 0}a[id]{scroll-margin-top:92px}.heading-link{font-size:.65em;margin-left:8px;opacity:0;vertical-align:middle;color:#8695a3}.heading-link:focus,h1:hover .heading-link,h2:hover .heading-link,h3:hover .heading-link{opacity:1}code{font-family:Consolas,"SFMono-Regular",monospace;font-size:.9em;background:#f1f3f5;color:#476582;border-radius:3px;padding:2px 5px;overflow-wrap:anywhere}pre{position:relative;background:#f6f8fa;color:#34495e;padding:20px;overflow:auto;font-size:14px;line-height:1.7;border:1px solid var(--line);border-radius:4px;margin:24px 0}pre code{padding:0;background:none;color:inherit;white-space:pre;overflow-wrap:normal}.code-copy{position:absolute;right:8px;top:8px;padding:3px 8px;font-size:11px;background:#fff;border:1px solid #dce2e8;border-radius:3px;color:var(--muted)}figure{margin:32px 0;overflow-x:auto}figure img{display:block;width:100%;min-width:620px;height:auto}figcaption{font-size:13px;color:var(--muted);text-align:center;margin:12px 0 4px}table{border-collapse:collapse;width:100%;font-size:14px;line-height:1.75}th,td{border:1px solid var(--line);padding:11px 14px;text-align:left;vertical-align:top}th{background:#f5f7f9;font-weight:600}tr:nth-child(even){background:#fbfcfd}.table-wrap{overflow:auto;margin:26px 0;border-radius:3px}blockquote{margin:24px 0;padding:14px 20px;background:#f6f8fb;border-left:3px solid #7f9ab7}blockquote p:last-child{margin-bottom:0}.source-section{border-top:2px solid #dce7ef;margin-top:40px}.hide-source .source-section{display:none}.book-section{scroll-margin-top:90px}.book-section+[hidden]{display:none}.home-section>h1{text-align:center;font-size:37px;margin:38px 0 30px}.home-section>p:first-of-type{font-size:17px;line-height:1.9}.chapter-overview{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:4px;overflow:hidden;margin:28px 0 44px}.chapter-card{padding:18px 20px;color:var(--ink);border-bottom:1px solid var(--line);border-right:1px solid var(--line)}.chapter-card:nth-child(even){border-right:0}.chapter-card:hover{background:#f7f9fb;text-decoration:none}.chapter-card strong{display:block;font-size:17px;line-height:1.6;margin-bottom:8px}.chapter-card span{display:block;font-size:13px;line-height:1.8;color:var(--muted)}.chapter-number{color:var(--accent)}.page-turns{display:grid;grid-template-columns:1fr 1fr;gap:20px;border-top:1px solid var(--line);margin-top:56px;padding:24px 0}.page-turns a{color:var(--ink);line-height:1.6}.page-turns a:last-child{text-align:right}.page-turns small{display:block;color:var(--muted);font-size:12px;margin-bottom:4px}.page-turns span{font-size:15px;font-weight:600}.page-footer{border-top:1px solid var(--line);padding:20px 0;margin-top:28px;display:flex;justify-content:space-between;gap:12px;font-size:12px;color:var(--muted)}
+dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1px solid var(--line);border-radius:8px;color:var(--ink);box-shadow:0 16px 60px #15243833}dialog::backdrop{background:#1c2c4070}.search-heading{display:flex;align-items:center;justify-content:space-between}.search-heading h2{font-size:21px;margin:0 0 18px;border:0;padding:0}.search-field input{width:100%;padding:12px 14px;border:1px solid #c7d2df;border-radius:4px;font-size:16px;background:white;color:var(--ink)}#search-status{font-size:12px;color:var(--muted);margin:12px 0}#search-results a{display:block;padding:15px 4px;border-top:1px solid var(--line);color:var(--ink)}#search-results a:hover{background:#f7f9fb;text-decoration:none}#search-results strong{display:block;font-size:15px;margin:4px 0}#search-results small{color:var(--accent);font-size:12px}#search-results p{font-size:13px;color:var(--muted);margin:0}mark{background:#fff1ae;color:inherit}.noscript-note{background:#f6f8fb;padding:12px;font-size:13px}.drawer-backdrop{position:fixed;inset:58px 0 0;background:#17283b55;z-index:12}
+@media(min-width:1500px){.book-layout{grid-template-columns:280px minmax(0,850px) 220px;gap:42px}}
+@media(max-width:1190px){.book-layout{grid-template-columns:240px minmax(0,1fr);gap:30px}.toc-sidebar{display:none;position:fixed;top:108px;right:24px;background:white;padding:18px;width:280px;max-height:70vh;border:1px solid var(--line);border-radius:4px;box-shadow:0 8px 28px #1524381a;z-index:11}.toc-sidebar.open{display:block}.toc-button{display:inline-block}.header-context{max-width:280px}}
+@media(max-width:800px){.header-inner{padding:0 16px;gap:12px}.menu-button{display:block}.brand{font-size:16px;gap:9px}.brand svg{width:23px;height:23px}.header-context{display:none}.search-button{min-width:0;padding:7px;margin-left:auto;background:transparent}.search-button span,.search-button kbd{display:none}.search-button svg{width:22px;height:22px}.book-layout{display:block;padding:22px 20px 0}.book-sidebar{display:none;position:fixed;top:58px;left:0;bottom:0;width:min(320px,85vw);max-height:none;background:#fff;padding:24px 20px;z-index:13;border-right:1px solid var(--line)}.book-sidebar.open{display:block}.reading-toolbar{font-size:11px;margin-bottom:25px;gap:8px}.reading-options{gap:11px}.reading-options button{font-size:11px}.reading-options label{font-size:11px}#reading-context{max-width:80px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}h1{font-size:28px;margin-bottom:24px}h2{font-size:23px;margin-top:36px}h3{font-size:19px}article{font-size:15px;line-height:1.9}.home-section>h1{font-size:30px;margin-top:24px}.home-section>p:first-of-type{font-size:15px}.chapter-overview{grid-template-columns:1fr}.chapter-card{border-right:0;padding:17px}.chapter-card strong{font-size:16px}figure{margin:26px 0}table{min-width:620px}pre{font-size:12px;padding:16px}.page-turns{gap:16px}.page-turns span{font-size:13px}.page-footer{font-size:11px}.toc-sidebar{right:20px;top:104px;width:min(300px,calc(100vw - 40px))}dialog{padding:18px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+@media print{.site-header,.book-sidebar,.toc-sidebar,.reading-toolbar,.page-turns,.page-footer,.code-copy,.heading-link{display:none!important}.book-layout{display:block;padding:0}main{padding:0}article{font-size:11pt}.book-section[hidden]{display:block!important}.hide-source .source-section{display:block}pre{white-space:pre-wrap}pre code{white-space:pre-wrap}figure img{min-width:0}.table-wrap,figure{overflow:visible}h1,h2,h3{break-after:avoid}figure,pre{break-inside:avoid}}
+</style></head>
+<body id="top">
+<a class="skip-link" href="#content">跳到正文</a>
+<header class="site-header">
+  <div class="header-inner">
+    <button class="icon-button menu-button" id="menu-button" aria-label="打开全书目录" aria-expanded="false" aria-controls="book-sidebar">☰</button>
+    <a class="brand" href="reader.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1Z M12 6v14"/></svg><span>DeepSeek Harness</span></a>
+    <span class="header-context" id="header-context">中文教材</span>
+    <button class="search-button" id="search-button" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg><span>搜索本书</span><kbd>/</kbd></button>
+  </div>
+</header>
+<div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
+<div class="book-layout">
+  <aside class="book-sidebar" id="book-sidebar" aria-label="全书目录">
+    <a class="sidebar-title" href="reader.html">深入理解 DeepSeek Harness</a>
+    <p class="sidebar-subtitle">中文教材 · 原理与实现</p>
+    <nav id="book-nav" aria-label="章节导航"><a href="reader.html">全书导读</a><span class="nav-label">随用随查</span><a href="appendices.html">语法与数据基础</a><a href="subsystems.html">补充能力</a><a href="glossary.html">术语索引</a><a href="evidence.html">实现证据</a><a href="references.html">原项目文档</a></nav>
+  </aside>
+  <main id="content" tabindex="-1">
+    <div class="reading-toolbar"><span id="reading-context">开始阅读</span><div class="reading-options"><label><input id="source-toggle" type="checkbox">隐藏源码研读</label><button id="reading-mode" type="button" hidden>全文阅读</button><button class="toc-button" id="toc-button" type="button" aria-expanded="false" aria-controls="page-toc">本页目录</button></div></div>
+    <article id="book-content"><h1 id="heading-1">实现证据索引</h1>
+<p>固定提交：<code>639ed015397290b3745d163aafe02ffee4aa3f84</code>。访问与静态核验日期：2026-10-03。根包：0.2.0-rc.2；Cordis：4.0.4。</p>
+<p>正文使用短编号。这里记录路径、原文件行号和节选摘要。代码保持原文；中文解释在代码外，不伪装成上游作者的注释。没有运行项目或上游测试。</p>
+<a id="e01a"></a>
+<h2 id="heading-2">E01A · 接纳时的身份与来源</h2>
+<p>位置：<a href="source/packages/api/session-controller/src/commands.ts">source/packages/api/session-controller/src/commands.ts</a>，原文件 329—335 行。</p>
+<p>版本链接：<a href="https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/api/session-controller/src/commands.ts#L329">固定提交定位</a>。</p>
+<p>正文：<a href="reader.html#e01a">第 1 章</a>。SHA-256：<code>df9508f64cab980b1b83d1925420aef67f1d5e618a68ea4f3d1d4de5d93ec29c</code>。</p>
+<p>证据等级：真实实现节选。</p>
+<a id="e01b"></a>
+<h2 id="heading-3">E01B · 记录工具提议，而不是宣布完成</h2>
+<p>位置：<a href="source/packages/core/agent-loop/src/tool-calls.ts">source/packages/core/agent-loop/src/tool-calls.ts</a>，原文件 263—266 行。</p>
+<p>版本链接：<a href="https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/tool-calls.ts#L263">固定提交定位</a>。</p>
+<p>正文：<a href="reader.html#e01b">第 1 章</a>。SHA-256：<code>e42f6877041eecfac66444e8b0a3ffa89971ab06c4678e99ef734059752d0a4a</code>。</p>
+<p>证据等级：真实实现节选。</p>
+<a id="e02a"></a>
+<h2 id="heading-4">E02A · async 返回的结果由方法契约决定</h2>
+<p>位置：<a href="source/packages/api/session-controller/src/commands.ts">source/packages/api/session-controller/src/commands.ts</a>，原文件 311—318 行。</p>
+<p>版本链接：<a href="https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/api/session-controller/src/commands.ts#L311">固定提交定位</a>。</p>
+<p>正文：<a href="reader.html#e02a">第 2 章</a>。SHA-256：<code>4a725a0a69d39dc0b0f23e6d7b0e693a3b4e92aef3ff17527808685be3954413</code>。</p>
+<p>证据等级：真实实现节选。</p>
+<a id="e03a"></a>
+<h2 id="heading-5">E03A · 领取时组合两类待处理输入</h2>
+<p>位置：<a href="source/packages/core/agent-loop/src/inbox.ts">source/packages/core/agent-loop/src/inbox.ts</a>，原文件 109—114 行。</p>
+<p>版本链接：<a href="https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/inbox.ts#L109">固定提交定位</a>。</p>
+<p>正文：<a href="reader.html#e03a">第 3 章</a>。SHA-256：<code>66a316e130d9fab1ede5bc38d0937b8c0621ffba5fffc4cb58d7d841db3cbdaf</code>。</p>
+<p>证据等级：真实实现节选。</p>
+<a id="e04a"></a>
+<h2 id="heading-6">E04A · 参数默认值与错误分支</h2>
+<p>位置：<a href="source/packages/fs/tool-fs/src/read.ts">source/packages/fs/tool-fs/src/read.ts</a>，原文件 55—61 行。</p>
+<p>版本链接：<a href="https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/fs/tool-fs/src/read.ts#L55">固定提交定位</a>。</p>
+<p>正文：<a href="reader.html#e04a">第 4 章</a>。SHA-256：<code>0571fb8c96d3b6a97c6e3a7d5b3354de08ecdb8b5e9357d2bab902b9c068619a</code>。</p>
+<p>证据等级：真实实现节选。</p>
+<a id="e04b"></a>
+<h2 id="heading-7">E04B · 大小信息决定文本取得方式</h2>
+<p>位置：<a href="source/packages/fs/tool-fs/src/read.ts">source/packages/fs/tool-fs/src/read.ts</a>，原文件 141—152 行。</p>
+<p>版本链接：<a href="https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/fs/tool-fs/src/read.ts#L141">固定提交定位</a>。</p>
+<p>正文：<a href="reader.html#e04b">第 4 章</a>。SHA-256：<code>ab938e5af52b8deef090aadda32610976f7dfefcdf1b7f39ab0d1b7db7eb6d7c</code>。</p>
+<p>证据等级：真实实现节选。</p>
+<a id="e05a"></a>
+<h2 id="heading-8">E05A · 事件对象建立与验证</h2>
+<p>位置：<a href="source/packages/core/session/src/index.ts">source/packages/core/session/src/index.ts</a>，原文件 744—752 行。</p>
+<p>版本链接：<a href="https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/session/src/index.ts#L744">固定提交定位</a>。</p>
+<p>正文：<a href="reader.html#e05a">第 5 章</a>。SHA-256：<code>90afb132a58060eec1b67c9d255abb66e59fd9f922c1036b90d7e05fee9342b7</code>。</p>
+<p>证据等级：真实实现节选。</p>
+<a id="e05b"></a>
+<h2 id="heading-9">E05B · 后台写入与持久化等待</h2>
+<p>位置：<a href="source/packages/session/session-persistence-jsonl/src/storage.ts">source/packages/session/session-persistence-jsonl/src/storage.ts</a>，原文件 535—547 行。</p>
+<p>版本链接：<a href="https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/session/session-persistence-jsonl/src/storage.ts#L535">固定提交定位</a>。</p>
+<p>正文：<a href="reader.html#e05b">第 5 章</a>。SHA-256：<code>f5c9f19720259576ec7236da0673f9928813c34560e15146ac4e1f36f4d8459c</code>。</p>
+<p>证据等级：真实实现节选。</p>
+<a id="e06a"></a>
+<h2 id="heading-10">E06A · 项目指令进入本步消息</h2>
+<p>位置：<a href="source/packages/context/agent-instructions/src/index.ts">source/packages/context/agent-instructions/src/index.ts</a>，原文件 332—340 行。</p>
+<p>版本链接：<a href="https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/context/agent-instructions/src/index.ts#L332">固定提交定位</a>。</p>
+<p>正文：<a href="reader.html#e06a">第 6 章</a>。SHA-256：<code>dd9106ae23be4e4c05068b73c1c2634dcc2f0a14cb280bf73fc55ab027f0f3ca</code>。</p>
+<p>证据等级：真实实现节选。</p>
+<a id="e07a"></a>
+<h2 id="heading-11">E07A · 读取正文前的可见性和入口检查</h2>
+<p>位置：<a href="source/packages/skill/tool-skill/src/index.ts">source/packages/skill/tool-skill/src/index.ts</a>，原文件 133—144 行。</p>
+<p>版本链接：<a href="https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/skill/tool-skill/src/index.ts#L133">固定提交定位</a>。</p>
+<p>正文：<a href="reader.html#e07a">第 7 章</a>。SHA-256：<code>d05d09dbab2d88dab8c9f0f011a7a737c936d026959e78baccb250e19b0cb848</code>。</p>
+<p>证据等级：真实实现节选。</p>
+<a id="e08a"></a>
+<h2 id="heading-12">E08A · 提交前稳定性检查与结束记录</h2>
+<p>位置：<a href="source/packages/compaction/compaction-basic/src/region.ts">source/packages/compaction/compaction-basic/src/region.ts</a>，原文件 232—238 行。</p>
+<p>版本链接：<a href="https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/compaction/compaction-basic/src/region.ts#L232">固定提交定位</a>。</p>
+<p>正文：<a href="reader.html#e08a">第 8 章</a>。SHA-256：<code>b756e27f37f6ff8ae7550878ca0d148e629a06dec762f920ec1324e3302d0115</code>。</p>
+<p>证据等级：真实实现节选。</p>
+<a id="e09a"></a>
+<h2 id="heading-13">E09A · 配置复制与冻结</h2>
+<p>位置：<a href="source/packages/llm/llm/src/index.ts">source/packages/llm/llm/src/index.ts</a>，原文件 937—944 行。</p>
+<p>版本链接：<a href="https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/llm/llm/src/index.ts#L937">固定提交定位</a>。</p>
+<p>正文：<a href="reader.html#e09a">第 9 章</a>。SHA-256：<code>6b60157d8a23d05df618d232b37407e5020efd99f46f5468df319e15cb6b6b7d</code>。</p>
+<p>证据等级：真实实现节选。</p>
+<a id="e09b"></a>
+<h2 id="heading-14">E09B · 失败以后是否再尝试</h2>
+<p>位置：<a href="source/packages/core/agent-loop/src/agent.ts">source/packages/core/agent-loop/src/agent.ts</a>，原文件 505—509 行。</p>
+<p>版本链接：<a href="https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/agent-loop/src/agent.ts#L505">固定提交定位</a>。</p>
+<p>正文：<a href="reader.html#e09b">第 9 章</a>。SHA-256：<code>0bae018eab905c1e60649080b17bf0f781c00c780342085b9b703e39849efb1b</code>。</p>
+<p>证据等级：真实实现节选。</p>
+<a id="e10a"></a>
+<h2 id="heading-15">E10A · 配置层交给条目补丁规则</h2>
+<p>位置：<a href="source/packages/boot/app-boot/src/profile.ts">source/packages/boot/app-boot/src/profile.ts</a>，原文件 731—738 行。</p>
+<p>版本链接：<a href="https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/boot/app-boot/src/profile.ts#L731">固定提交定位</a>。</p>
+<p>正文：<a href="reader.html#e10a">第 10 章</a>。SHA-256：<code>7d873d19bd8dcfb63585828c757e15379971d03312007e9de06d7f57b7e1b413</code>。</p>
+<p>证据等级：真实实现节选。</p>
+<a id="e11a"></a>
+<h2 id="heading-16">E11A · 准入链与可选询问</h2>
+<p>位置：<a href="source/packages/core/tools/src/index.ts">source/packages/core/tools/src/index.ts</a>，原文件 1504—1511 行。</p>
+<p>版本链接：<a href="https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/core/tools/src/index.ts#L1504">固定提交定位</a>。</p>
+<p>正文：<a href="reader.html#e11a">第 11 章</a>。SHA-256：<code>afd6b6fb67cf8a962d92cf8dabfd063c37c85c858da312d6f087aa075545f5e7</code>。</p>
+<p>证据等级：真实实现节选。</p>
+<a id="e11b"></a>
+<h2 id="heading-17">E11B · 一次审批怎样留下关联记录</h2>
+<p>位置：<a href="source/packages/interaction/user-approval/src/index.ts">source/packages/interaction/user-approval/src/index.ts</a>，原文件 224—233 行。</p>
+<p>版本链接：<a href="https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/interaction/user-approval/src/index.ts#L224">固定提交定位</a>。</p>
+<p>正文：<a href="reader.html#e11b">第 11 章</a>。SHA-256：<code>cbf872d82d316b92e21660db7edb1de17da8844194d26bd9194c1936f691f72e</code>。</p>
+<p>证据等级：真实实现节选。</p>
+<a id="e12a"></a>
+<h2 id="heading-18">E12A · stdio 与 HTTP 的不同执行边界</h2>
+<p>位置：<a href="source/packages/mcp/mcp-client/src/transport.ts">source/packages/mcp/mcp-client/src/transport.ts</a>，原文件 31—46 行。</p>
+<p>版本链接：<a href="https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/mcp/mcp-client/src/transport.ts#L31">固定提交定位</a>。</p>
+<p>正文：<a href="reader.html#e12a">第 12 章</a>。SHA-256：<code>f2a51ac6bf584f0d4de856f7afb8674067f4f7adfe9cd5f4feeaaddce2093f7d</code>。</p>
+<p>证据等级：真实实现节选。</p>
+<a id="e13a"></a>
+<h2 id="heading-19">E13A · 进程内 fork 取到哪里</h2>
+<p>位置：<a href="source/packages/subagent/subagent-fork-in-process/src/index.ts">source/packages/subagent/subagent-fork-in-process/src/index.ts</a>，原文件 48—55 行。</p>
+<p>版本链接：<a href="https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/subagent/subagent-fork-in-process/src/index.ts#L48">固定提交定位</a>。</p>
+<p>正文：<a href="reader.html#e13a">第 13 章</a>。SHA-256：<code>8d3dae537c9af1b72e3974b601386a16ce261f88ae48a12de075acd651f7ba05</code>。</p>
+<p>证据等级：真实实现节选。</p>
+<a id="e14a"></a>
+<h2 id="heading-20">E14A · 跟随时发现重复与缺口</h2>
+<p>位置：<a href="source/packages/api/session-controller/src/history.ts">source/packages/api/session-controller/src/history.ts</a>，原文件 226—232 行。</p>
+<p>版本链接：<a href="https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/api/session-controller/src/history.ts#L226">固定提交定位</a>。</p>
+<p>正文：<a href="reader.html#e14a">第 14 章</a>。SHA-256：<code>9829a357f68b3820e455eddb9e7dd627b45163043f44c164f0a86ba6091ef828</code>。</p>
+<p>证据等级：真实实现节选。</p>
+<a id="e15a"></a>
+<h2 id="heading-21">E15A · 真正启动 Host 子进程的位置</h2>
+<p>位置：<a href="source/apps/desktop/src/host-process.ts">source/apps/desktop/src/host-process.ts</a>，原文件 188—201 行。</p>
+<p>版本链接：<a href="https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/apps/desktop/src/host-process.ts#L188">固定提交定位</a>。</p>
+<p>正文：<a href="reader.html#e15a">第 15 章</a>。SHA-256：<code>7a2808013c50da9b9f701f08ed1795c88a46bbd3331c1d7913678f85acbe7d17</code>。</p>
+<p>证据等级：真实实现节选。</p>
+<a id="e16a"></a>
+<h2 id="heading-22">E16A · 消费按位置推进</h2>
+<p>位置：<a href="source/packages/test-support/llm-replay/src/index.ts">source/packages/test-support/llm-replay/src/index.ts</a>，原文件 1064—1068 行。</p>
+<p>版本链接：<a href="https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/test-support/llm-replay/src/index.ts#L1064">固定提交定位</a>。</p>
+<p>正文：<a href="reader.html#e16a">第 16 章</a>。SHA-256：<code>a9f577f03bad1c79999a054886fe4b39c706d3ea9ebd21097885aaf7bf14e305</code>。</p>
+<p>证据等级：真实实现节选。</p>
+<a id="e16b"></a>
+<h2 id="heading-23">E16B · 有路由时与无路由时的接入</h2>
+<p>位置：<a href="source/packages/test-support/llm-replay/src/index.ts">source/packages/test-support/llm-replay/src/index.ts</a>，原文件 1101—1104 行。</p>
+<p>版本链接：<a href="https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/test-support/llm-replay/src/index.ts#L1101">固定提交定位</a>。</p>
+<p>正文：<a href="reader.html#e16b">第 16 章</a>。SHA-256：<code>968a92e55287eecd02b3760e7c273af68cf1f70d968e6eabb239c6e604579b36</code>。</p>
+<p>证据等级：真实实现节选。</p>
+<a id="e17a"></a>
+<h2 id="heading-24">E17A · 三项计量视图的注册</h2>
+<p>位置：<a href="source/packages/llm/token-meter/src/index.ts">source/packages/llm/token-meter/src/index.ts</a>，原文件 114—116 行。</p>
+<p>版本链接：<a href="https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/llm/token-meter/src/index.ts#L114">固定提交定位</a>。</p>
+<p>正文：<a href="reader.html#e17a">第 17 章</a>。SHA-256：<code>4c1dad11d5845b97e86d8e5beb6c7143c3fff5f729dd8ea2c05a77ba93247cbf</code>。</p>
+<p>证据等级：真实实现节选。</p>
+<a id="e18a"></a>
+<h2 id="heading-25">E18A · 卡片资料从规范值派生</h2>
+<p>位置：<a href="source/packages/fs/tool-fs/src/read.ts">source/packages/fs/tool-fs/src/read.ts</a>，原文件 124—133 行。</p>
+<p>版本链接：<a href="https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/packages/fs/tool-fs/src/read.ts#L124">固定提交定位</a>。</p>
+<p>正文：<a href="reader.html#e18a">第 18 章</a>。SHA-256：<code>d8cbbfa4de003d804f56f8ff61c5c6a396e9e42e70b1255e12f2163732716aa1</code>。</p>
+<p>证据等级：真实实现节选。</p>
+<a id="e19a"></a>
+<h2 id="heading-26">E19A · 作者提供资源释放逻辑</h2>
+<p>位置：<a href="source/docs/cordis-tutorial/02-lifecycle-and-effects.zh.md">source/docs/cordis-tutorial/02-lifecycle-and-effects.zh.md</a>，原文件 20—26 行。</p>
+<p>版本链接：<a href="https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/docs/cordis-tutorial/02-lifecycle-and-effects.zh.md#L20">固定提交定位</a>。</p>
+<p>正文：<a href="reader.html#e19a">第 19 章</a>。SHA-256：<code>9a3763c8b3db919d4392ae0a18e5e08bd0122d8813103c5cd5def14a70fc4664</code>。</p>
+<p>证据等级：仓库官方教程示例，不是生产运行记录。</p>
+<a id="e19b"></a>
+<h2 id="heading-27">E19B · 服务名称作用域隔离</h2>
+<p>位置：<a href="source/vendor/cordis/src/context.ts">source/vendor/cordis/src/context.ts</a>，原文件 121—125 行。</p>
+<p>版本链接：<a href="https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/vendor/cordis/src/context.ts#L121">固定提交定位</a>。</p>
+<p>正文：<a href="reader.html#e19b">第 19 章</a>。SHA-256：<code>ce17bf1a2b6cefc62bd332f4151c2ee2f9449f87a7d99e323a5d6c9c78ae4c40</code>。</p>
+<p>证据等级：真实实现节选。</p>
+<a id="e19c"></a>
+<h2 id="heading-28">E19C · 同层资源释放并发等待</h2>
+<p>位置：<a href="source/vendor/cordis/src/fiber.ts">source/vendor/cordis/src/fiber.ts</a>，原文件 675—686 行。</p>
+<p>版本链接：<a href="https://github.com/deepseek-ai/deepseek-harness/blob/639ed015397290b3745d163aafe02ffee4aa3f84/vendor/cordis/src/fiber.ts#L675">固定提交定位</a>。</p>
+<p>正文：<a href="reader.html#e19c">第 19 章</a>。SHA-256：<code>8268990ba934eb54a88d56e5883118c0eb251a87eca8381b5a201a7f001090aa</code>。</p>
+<p>证据等级：真实实现节选。</p>
+<a id="s01"></a>
+<h2 id="heading-29">S01 · 团队名册、任务板与消息交接</h2>
+<p>本条是正文行为核验，未额外添加代码块。对应补充能力中 Agent Teams 的完整过程，依据固定提交的真实实现；不等于所有团队路径已运行测试。</p>
+<div class="table-wrap"><table>
+<tr><th>文件</th><th>核验对象</th><th>定位</th></tr>
+<tr><td><a href="source/packages/experimental/agent-team/src/types.ts">types.ts</a></td><td>TeamMemberSnapshot、TeamTaskSnapshot、TeamMessageSnapshot</td><td>成员阶段、任务修订与范围、稳定消息身份</td></tr>
+<tr><td><a href="source/packages/experimental/agent-team/src/mailbox.ts">mailbox.ts</a></td><td>sendAdmitted、serializeDispatch、dispatchOnce、checkpointDelivered、recoverFor</td><td>先记 queued，同目标交接顺序，目标持久接收后确认，以及恢复</td></tr>
+<tr><td><a href="source/docs/subsystems/agent-team.zh.md">任务约定</a></td><td>官方团队契约</td><td>范围重叠提示与业务完成的限制</td></tr>
+</table></div>
+<a id="s02"></a>
+<h2 id="heading-30">S02 · 有界工具池、屏障与顺序提交</h2>
+<p>对应第三章的双工具推演，依据固定提交的 <a href="source/packages/core/agent-loop/src/tool-calls.ts">tool-calls.ts</a>：executeToolCalls 第 59—103 行建立模型顺序的计划并逐组处理；runGroup 第 126—246 行管理数量上限、结果槽、提交位置、重新分类和取消收尾。特别核对 commitReady、startCall 与 fillPool，区分前置准备、实际执行与结果后处理的顺序。本节为源码行为分析，没有声称双工具例子已运行。</p>
+<a id="s03"></a>
+<h2 id="heading-31">S03 · 工具输出与 Web 卡片的两条路径</h2>
+<p>对应第十八章。ToolRuntime 构造模型内容与持久 metadata；Session page/follow 下发原始事件；Web Client 按调用身份配对，再按工具名选择 renderer。readCardModel 校验参数、meta 和模型结果格式，生成 ReadBlock 数据。</p>
+<div class="table-wrap"><table>
+<tr><th>实现入口</th><th>处理过程</th></tr>
+<tr><td><a href="source/packages/core/tools/src/index.ts">ToolRuntime</a> 第 1831—1853 行</td><td>规范值快照、输出校验、render 与顶层 presentationMeta</td></tr>
+<tr><td><a href="source/packages/client/ui-tool/src/client/tool/ToolCallTree.tsx">ToolCallTree</a> 第 49—63 行</td><td>按工具名称分发 keyed slot，缺少 renderer 时使用 GenericToolCard</td></tr>
+<tr><td><a href="source/packages/client/ui-tool/src/client/tool/models/read-card-model.ts">read-card-model</a></td><td>检查原始调用、窗口 metadata 和文件结果格式，生成卡片数据或返回 null</td></tr>
+<tr><td><a href="source/packages/client/ui-tool/src/client/tool/toolviews/read-row.tsx">ReadRow</a></td><td>注册 read renderer 并调用 readCardModel</td></tr>
+<tr><td><a href="source/.agents/notes/implemented/architecture/2026-08-23-client-derived-tool-presentation.zh.md">已实施的展示架构决策</a></td><td>原始 journal、Host 本地 presenter 与 Web renderer 的职责</td></tr>
+</table></div></article>
+    <nav class="page-turns" id="page-turns" aria-label="前后章节" hidden></nav>
+    <footer class="page-footer"><span>深入理解 DeepSeek Harness · 中文教材</span><a href="#top" id="back-top">回到顶部 ↑</a></footer>
+  </main>
+  <aside class="toc-sidebar" id="page-toc" aria-label="本页目录"><div class="toc-title">本页目录</div><nav id="toc-nav" aria-label="本页小节"></nav></aside>
+</div>
+<dialog id="search-dialog" aria-labelledby="search-title">
+  <div class="search-heading"><h2 id="search-title">搜索本书</h2><button class="icon-button" id="search-close" aria-label="关闭搜索">×</button></div>
+  <label class="search-field"><span class="visually-hidden">搜索关键词</span><input id="search-input" type="search" placeholder="输入概念、工具名称或章节标题" autocomplete="off"></label>
+  <p id="search-status" role="status">搜索当前阅读文件的正文和标题</p>
+  <div id="search-results"></div>
+</dialog>
+<noscript><div class="noscript-note">当前显示全文。浏览器启用 JavaScript 后可按章阅读和搜索。</div></noscript>
+<script>(() => {
+  'use strict';
+  const $ = selector => document.querySelector(selector);
+  const content = $('#book-content');
+  const blocks = [...content.querySelectorAll(':scope > .book-section')];
+  const chapterBlocks = blocks.filter(e => e.dataset.chapter);
+  const reader = chapterBlocks.length > 0;
+  const navLinks = [...$('#book-nav').querySelectorAll('a')];
+  const toc = $('#toc-nav');
+  const mode = $('#reading-mode');
+  const sourceToggle = $('#source-toggle');
+  const dialog = $('#search-dialog');
+  const searchInput = $('#search-input');
+  let full = false;
+  let current = blocks[0] || content;
+  let tocHeadings = [];
+  let lastOpener = null;
+  let scrollQueued = false;
+  const escapeHTML = value => value.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const plainHeading = element => element?.dataset.title || element?.textContent.replace(/¶$/, '').trim() || '';
+  const headingOf = block => plainHeading(block.querySelector('h1'));
+  const shortTitle = block => headingOf(block).split('｜').pop();
+  function fragment() { try { return decodeURIComponent(location.hash.slice(1)); } catch { return location.hash.slice(1); } }
+  function closeDrawer() {
+    $('#book-sidebar').classList.remove('open');
+    $('#drawer-backdrop').hidden = true;
+    $('#menu-button').setAttribute('aria-expanded', 'false');
+  }
+  function closeToc() { $('#page-toc').classList.remove('open'); $('#toc-button').setAttribute('aria-expanded', 'false'); }
+  function setCurrent(block) {
+    current = block;
+    for (const a of navLinks) {
+      const active = reader ? (a.getAttribute('href') === '#' + block.id || (!block.dataset.chapter && block.id === 'book-home' && a.getAttribute('href') === '#book-home')) : a.pathname === location.pathname;
+      a.classList.toggle('active', active);
+      if (active) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+    }
+    $('#reading-context').textContent = block.dataset.chapter ? '第 ' + Number(block.dataset.chapter) + ' 章' : reader ? '全书导读' : '随用随查';
+    $('#header-context').textContent = reader ? shortTitle(block) : document.title;
+    document.title = reader && block.dataset.chapter ? shortTitle(block) + ' · DeepSeek Harness' : document.documentElement.dataset.pageTitle;
+    updateToc();
+    updateTurns();
+  }
+  function updateToc() {
+    tocHeadings = [...current.querySelectorAll('h2[id],h3[id]')].filter(h => !(sourceToggle.checked && h.closest('.source-section')));
+    toc.replaceChildren();
+    for (const h of tocHeadings) {
+      const a = document.createElement('a');
+      a.href = '#' + h.id; a.textContent = plainHeading(h);
+      if (h.tagName === 'H3') a.className = 'subheading';
+      toc.append(a);
+    }
+    markToc();
+  }
+  function markToc() {
+    let active = tocHeadings[0];
+    for (const h of tocHeadings) if (h.getBoundingClientRect().top <= 150) active = h;
+    for (const a of toc.children) {
+      const on = a.hash === '#' + active?.id;
+      a.classList.toggle('active', on);
+      if (on) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current');
+    }
+  }
+  function updateTurns() {
+    const turns = $('#page-turns');
+    if (!reader) return;
+    turns.hidden = false;
+    const index = blocks.indexOf(current);
+    turns.replaceChildren();
+    for (const [next, label] of [[blocks[index - 1], '← 上一章'], [blocks[index + 1], '下一章 →']]) {
+      if (!next) { turns.append(document.createElement('span')); continue; }
+      const a = document.createElement('a'); a.href = '#' + next.id;
+      const small = document.createElement('small'); small.textContent = label;
+      const title = document.createElement('span'); title.textContent = next.dataset.chapter ? '第 ' + Number(next.dataset.chapter) + ' 章 · ' + shortTitle(next) : '全书导读';
+      a.append(small, title); turns.append(a);
+    }
+  }
+  function showTarget(scroll = true) {
+    const id = fragment();
+    const target = id ? document.getElementById(id) : null;
+    const block = target?.closest('.book-section') || (id === 'content' || id === 'top' ? current : blocks[0]) || content;
+    if (reader) for (const b of blocks) b.hidden = !full && b !== block;
+    if (target?.closest('.source-section') && sourceToggle.checked) {
+      sourceToggle.checked = false; document.body.classList.remove('hide-source');
+    }
+    setCurrent(block);
+    closeDrawer(); closeToc();
+    if (scroll) requestAnimationFrame(() => {
+      if (target && id !== 'top') target.scrollIntoView({block:'start', behavior:'instant'});
+      else window.scrollTo({top:0, behavior:'instant'});
+    });
+  }
+  document.documentElement.dataset.pageTitle = document.title;
+  for (const h of content.querySelectorAll('h1[id],h2[id],h3[id]')) {
+    h.dataset.title = h.textContent;
+    const a = document.createElement('a'); a.className = 'heading-link'; a.href = '#' + h.id; a.textContent = '¶'; a.setAttribute('aria-label', '链接到：' + h.textContent); h.append(a);
+  }
+  sourceToggle.addEventListener('change', () => { document.body.classList.toggle('hide-source', sourceToggle.checked); updateToc(); });
+  if (reader) {
+    mode.hidden = false;
+    mode.addEventListener('click', () => {
+      const anchor = current;
+      full = !full;
+      mode.textContent = full ? '按章阅读' : '全文阅读';
+      mode.setAttribute('aria-pressed', String(full));
+      for (const b of blocks) b.hidden = !full && b !== anchor;
+      updateToc();
+      requestAnimationFrame(() => anchor.scrollIntoView({block:'start',behavior:'instant'}));
+    });
+  }
+  window.addEventListener('hashchange', () => showTarget());
+  window.addEventListener('scroll', () => {
+    if (scrollQueued) return;
+    scrollQueued = true;
+    requestAnimationFrame(() => {
+      if (reader && full) {
+        let active = blocks[0];
+        for (const b of blocks) if (b.getBoundingClientRect().top <= 160) active = b;
+        if (active !== current) setCurrent(active);
+      }
+      markToc(); scrollQueued = false;
+    });
+  }, {passive:true});
+  $('#book-nav').addEventListener('click', e => { if (e.target.closest('a')) closeDrawer(); });
+  toc.addEventListener('click', e => { if (e.target.closest('a')) closeToc(); });
+  $('#menu-button').addEventListener('click', () => {
+    const open = $('#book-sidebar').classList.toggle('open');
+    $('#menu-button').setAttribute('aria-expanded', String(open));
+    $('#drawer-backdrop').hidden = !open;
+    if (open) (navLinks.find(a => a.classList.contains('active')) || navLinks[0])?.focus();
+  });
+  $('#drawer-backdrop').addEventListener('click', closeDrawer);
+  $('#toc-button').addEventListener('click', () => {
+    const open = $('#page-toc').classList.toggle('open'); $('#toc-button').setAttribute('aria-expanded', String(open));
+  });
+  $('#back-top').addEventListener('click', e => { e.preventDefault(); window.scrollTo({top:0,behavior:'instant'}); });
+  const searchRows = [];
+  for (const block of (reader ? blocks : [content])) {
+    let heading = block.querySelector('h1')?.id;
+    for (const node of block.querySelectorAll('h1,h2,h3,p,li,td')) {
+      if (node.matches('h1,h2,h3')) heading = node.id;
+      if (node.closest('.chapter-overview') || node.closest('table') && node.cellIndex === undefined) continue;
+      const text = node.textContent.replace(/¶$/, '').trim();
+      if (text.length < 2) continue;
+      searchRows.push({text, lower:text.toLocaleLowerCase(), target:heading || block.id, title:heading ? plainHeading(document.getElementById(heading)) : headingOf(block), chapter:reader ? shortTitle(block) : document.title, section:node.closest('.source-section') !== null, heading:node.matches('h1,h2,h3')});
+    }
+  }
+  function highlight(text, terms) {
+    const longest = [...terms].sort((a,b) => b.length-a.length);
+    const pattern = new RegExp(longest.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|'), 'giu');
+    let last = 0, result = '';
+    for (const hit of text.matchAll(pattern)) { result += escapeHTML(text.slice(last, hit.index)) + '<mark>' + escapeHTML(hit[0]) + '</mark>'; last = hit.index + hit[0].length; }
+    return result + escapeHTML(text.slice(last));
+  }
+  function search() {
+    const value = searchInput.value.trim();
+    const results = $('#search-results'); results.replaceChildren();
+    if (!value) { $('#search-status').textContent = '搜索当前阅读文件的正文和标题'; return; }
+    const terms = value.toLocaleLowerCase().split(/\s+/).filter(Boolean);
+    const seen = new Set();
+    const rows = searchRows.filter(r => terms.every(t => r.lower.includes(t))).sort((a,b) => Number(b.heading)-Number(a.heading)).filter(r => {const key=r.target+'|'+r.text;if(seen.has(key))return false;seen.add(key);return true;});
+    $('#search-status').textContent = rows.length ? '找到 ' + rows.length + ' 处匹配' + (rows.length > 60 ? '，显示前 60 处' : '') : '没有找到匹配内容，试试工具名称或更短的关键词。';
+    for (const r of rows.slice(0,60)) {
+      const at = Math.max(0, r.lower.indexOf(terms[0])-35);
+      const snippet = (at ? '…' : '') + r.text.slice(at,at+160) + (r.text.length>at+160 ? '…' : '');
+      const a = document.createElement('a'); a.href = '#' + r.target;
+      a.innerHTML = '<small>' + escapeHTML(r.chapter) + (r.section ? ' · 源码研读' : '') + '</small><strong>' + highlight(r.title,terms) + '</strong><p>' + highlight(snippet,terms) + '</p>';
+      a.addEventListener('click', () => { dialog.close(); if(location.hash === a.hash) showTarget(); });
+      results.append(a);
+    }
+  }
+  function openSearch() { lastOpener = document.activeElement; closeDrawer(); closeToc(); dialog.showModal(); searchInput.focus(); }
+  $('#search-button').addEventListener('click', openSearch);
+  $('#search-close').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('close', () => lastOpener?.focus());
+  dialog.addEventListener('click', e => { const r=dialog.getBoundingClientRect(); if(e.target===dialog&&(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom))dialog.close(); });
+  searchInput.addEventListener('input', search);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { closeDrawer(); closeToc(); }
+    if (e.key === '/' && !dialog.open && !e.ctrlKey && !e.metaKey && !e.altKey && !e.target.closest('input,textarea,[contenteditable]')) { e.preventDefault(); openSearch(); }
+  });
+  showTarget();
+})();
+</script>
+</body></html>

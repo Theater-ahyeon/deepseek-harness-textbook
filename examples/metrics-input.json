@@ -1,0 +1,29 @@
+{
+  "kind": "教学假设：用于复算第十七章的评价示例；不是实际模型实验",
+  "samples": {
+    "A": [
+      {"id":"task-01","passed":true,"tokens":2000},
+      {"id":"task-02","passed":true,"tokens":2000},
+      {"id":"task-03","passed":true,"tokens":2000},
+      {"id":"task-04","passed":true,"tokens":2000},
+      {"id":"task-05","passed":true,"tokens":2000},
+      {"id":"task-06","passed":true,"tokens":2000},
+      {"id":"task-07","passed":true,"tokens":2000},
+      {"id":"task-08","passed":true,"tokens":2000},
+      {"id":"task-09","passed":true,"tokens":2000},
+      {"id":"task-10","passed":false,"tokens":2000}
+    ],
+    "B": [
+      {"id":"task-01","passed":true,"tokens":1400},
+      {"id":"task-02","passed":true,"tokens":1400},
+      {"id":"task-03","passed":true,"tokens":1400},
+      {"id":"task-04","passed":true,"tokens":1400},
+      {"id":"task-05","passed":true,"tokens":1400},
+      {"id":"task-06","passed":true,"tokens":1400},
+      {"id":"task-07","passed":true,"tokens":1400},
+      {"id":"task-08","passed":true,"tokens":1400},
+      {"id":"task-09","passed":false,"tokens":1400},
+      {"id":"task-10","passed":false,"tokens":1400}
+    ]
+  }
+}

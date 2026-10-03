@@ -2,430 +2,1247 @@
   "commit": "639ed015397290b3745d163aafe02ffee4aa3f84",
   "excerpts": [
     {
-      "chapter": "01",
-      "file": "source/packages/api/session-controller/src/commands.ts",
+      "chapter": 1,
+      "title": "接纳时的身份与来源",
+      "path": "source/packages/api/session-controller/src/commands.ts",
       "start": 329,
       "end": 335,
+      "task": "位置是 prompt 已通过前面的输入检查之后。已知请求有 Session 标识和请求标识，本段观察怎样定位 Agent、识别重复输入并建立来源对象；后续附件、排队和接纳返回不在此节选中。",
+      "trace": "相同请求标识已经被识别时，第二行直接返回接纳对象。新标识继续建立来源；这只准备消息元数据，尚未读取 README，也没有生成最终答案。",
+      "explanations": [
+        [
+          "const 保存一次结果，await 等待 resolveAgent",
+          "按请求的 Session 标识获取本次接收输入的 Agent 对象。"
+        ],
+        [
+          "if 判断条件，return 提前结束方法",
+          "已识别的 requestId 不再排入一次，返回已有接纳确认。"
+        ],
+        [
+          "冒号声明类型，花括号开始对象",
+          "source 将保存本次用户消息的来源字段。"
+        ],
+        [
+          "字符串属性 kind",
+          "将来源类别记为 user，区别于其他消息来源。"
+        ],
+        [
+          "点号读取属性，属性赋值",
+          "把入口的请求标识记成 rpcId，供后续关联使用。"
+        ],
+        [
+          "三点号展开对象，三元表达式选择分支",
+          "未提供时区不增加字段；提供时加入规范化的时区值。"
+        ],
+        [
+          "结束对象字面量",
+          "source 建立完成，后续创建用户消息时使用它。"
+        ]
+      ],
+      "id": "E01A",
       "excerpt_sha256": "df9508f64cab980b1b83d1925420aef67f1d5e618a68ea4f3d1d4de5d93ec29c"
     },
     {
-      "chapter": "01",
-      "file": "source/packages/core/agent-loop/src/agent.ts",
-      "start": 163,
-      "end": 169,
-      "excerpt_sha256": "f49f1ca4cf9a44ab859896cba69e310492bdc0a3bad4104a3aae25d0934add3e"
-    },
-    {
-      "chapter": "01",
-      "file": "source/packages/core/agent-loop/src/tool-calls.ts",
+      "chapter": 1,
+      "title": "记录工具提议，而不是宣布完成",
+      "path": "source/packages/core/agent-loop/src/tool-calls.ts",
       "start": 263,
       "end": 266,
+      "task": "这是 executeToolCalls 使用的调用记录辅助函数。参数已经包含 Session、轮次、步骤和一个工具调用块。本段观察保存哪些关联信息以及返回什么。",
+      "trace": "假设当前日志长度为 9，追加的调用得到 9 号。函数返回这个序号，随后结果可关联它；本函数没有等待文件读取，也没有执行存储 flush。",
+      "explanations": [
+        [
+          "function 定义函数，冒号给参数与返回值标注类型",
+          "调用者交入本次工具调用所属的 Session 和推进位置。"
+        ],
+        [
+          "const 接收方法返回的事件，对象简写使用同名参数",
+          "把调用身份、名称、参数和所属 turn/step 追加到 Session 记录。"
+        ],
+        [
+          "return 读取事件的 seq",
+          "返回刚创建的序号，供结果与调用关联。"
+        ],
+        [
+          "右花括号结束函数",
+          "记录辅助函数到此结束，真实工具动作在调用者的后续路径中。"
+        ]
+      ],
+      "id": "E01B",
       "excerpt_sha256": "e42f6877041eecfac66444e8b0a3ffa89971ab06c4678e99ef734059752d0a4a"
     },
     {
-      "chapter": "02",
-      "file": "source/packages/api/session-controller/src/commands.ts",
+      "chapter": 2,
+      "title": "async 返回的结果由方法契约决定",
+      "path": "source/packages/api/session-controller/src/commands.ts",
       "start": 311,
-      "end": 317,
-      "excerpt_sha256": "9d301c4338544a6bc120fc2115f7393e27657855c60b84f13dafb098665715b8"
+      "end": 318,
+      "task": "这是 prompt 方法开头，不是完整方法。request 是入口交入的请求对象；先观察输入不合法时怎样结束。后续时区、附件、消息入队与 accepted 返回在第 1 章主链中解释。",
+      "trace": "请求只有空白文字且无附件时，条件成立，构造并抛出 RemoteError，调用方等待失败。有效内容跳过这段拒绝，继续后面的接纳处理。",
+      "explanations": [
+        [
+          "async 标记异步方法，Promise 标注将来结果的类型",
+          "prompt 接收入口请求，结果契约是 SessionPromptValue，不是最终总结。"
+        ],
+        [
+          "if 与感叹号分别表示判断和取反",
+          "内容不符合要求时进入拒绝分支。"
+        ],
+        [
+          "throw 抛出一个 new 创建的错误对象",
+          "中断当前接纳路径，将失败返回调用方。"
+        ],
+        [
+          "第一个字符串实参",
+          "指定远程错误类别 gateway/bad-request。"
+        ],
+        [
+          "第二个字符串实参",
+          "说明至少需要非空白文字或一个附件。"
+        ],
+        [
+          "空对象实参",
+          "本错误不附加更多结构化细节。"
+        ],
+        [
+          "右圆括号结束构造调用",
+          "RemoteError 的参数已传完，throw 生效。"
+        ],
+        [
+          "右花括号结束 if 分支",
+          "有效请求不执行本分支，方法其余逻辑继续。"
+        ]
+      ],
+      "id": "E02A",
+      "excerpt_sha256": "4a725a0a69d39dc0b0f23e6d7b0e693a3b4e92aef3ff17527808685be3954413"
     },
     {
-      "chapter": "02",
-      "file": "source/packages/api/session-controller/src/commands.ts",
-      "start": 363,
-      "end": 376,
-      "excerpt_sha256": "69ee055cf508c061ba9ced85e41947a228bc14c5a060f986a6968bce448ae4d3"
+      "chapter": 3,
+      "title": "领取时组合两类待处理输入",
+      "path": "source/packages/core/agent-loop/src/inbox.ts",
+      "start": 109,
+      "end": 114,
+      "task": "本段是 Inbox.claim 完整方法。target 指当前是否是新轮次边界，turn 指领取所属轮次。mutate 在这里移除对应列表项并返回被取出的消息；重点是两类列表的领取差异。",
+      "trace": "next-step 中有 B，next-turn 中有 C。target 为 next-step 时返回 B、保留 C；target 为 next-turn 时先取全部步骤输入，再取一项轮次输入。每项领取还发出对应通知。",
+      "explanations": [
+        [
+          "方法接收边界和轮次，并返回消息数组",
+          "调用者是准备下一步骤的驱动。"
+        ],
+        [
+          "const 保存 mutate 返回值，length 表示列表项数",
+          "先取走当前全部 next-step 输入，保存为 claimed。"
+        ],
+        [
+          "if 比较 target，push 与展开追加数组成员",
+          "新轮次边界才再取一项 next-turn 输入，拼到领取批次后。"
+        ],
+        [
+          "for...of 遍历领取结果，emit 发出事件",
+          "让观察者知道每条消息被哪一轮领取，而不是直接执行模型。"
+        ],
+        [
+          "return 返回数组",
+          "前置处理可使用这批消息形成本步材料。"
+        ],
+        [
+          "右花括号结束方法",
+          "领取动作完成，模型请求仍属于后续步骤。"
+        ]
+      ],
+      "id": "E03A",
+      "excerpt_sha256": "66a316e130d9fab1ede5bc38d0937b8c0621ffba5fffc4cb58d7d841db3cbdaf"
     },
     {
-      "chapter": "02",
-      "file": "source/packages/fs/tool-fs/src/read.ts",
-      "start": 77,
-      "end": 84,
-      "excerpt_sha256": "701754b444e0ccaed1c4e9785fc9ad3acc77c9381d8e34847e8cf8a6ead66a0b"
-    },
-    {
-      "chapter": "03",
-      "file": "source/packages/core/agent-loop/src/agent.ts",
-      "start": 163,
-      "end": 173,
-      "excerpt_sha256": "4f986a5f9ee0405ea7c7f1edcab31daafb6f9ea3a7860623753c9d0c82df0534"
-    },
-    {
-      "chapter": "03",
-      "file": "source/packages/core/agent-loop/src/agent.ts",
-      "start": 303,
-      "end": 319,
-      "excerpt_sha256": "2c862136195c7ecef7f94fc3cb885da9dd22c53fc5165544e5c49a7cf2493977"
-    },
-    {
-      "chapter": "03",
-      "file": "source/packages/core/agent-loop/src/agent.ts",
-      "start": 530,
-      "end": 538,
-      "excerpt_sha256": "f46675a63f7f0dcdc8b5833f9ba802df108c6387549830dcdad67c89a38f482f"
-    },
-    {
-      "chapter": "04",
-      "file": "source/packages/fs/tool-fs/src/read.ts",
+      "chapter": 4,
+      "title": "参数默认值与错误分支",
+      "path": "source/packages/fs/tool-fs/src/read.ts",
       "start": 55,
-      "end": 60,
-      "excerpt_sha256": "da34f008d67f77797c0a79fd0489778e5ca202dd1ec9b33844de41b68be9f711"
+      "end": 61,
+      "task": "这是 parseReadArgs 完整函数。调用者把模型提交的外部参数和配置上限交进来；本次观察缺省值与不合法值怎样区别处理。",
+      "trace": "file_path 为 README.md、offset 缺省、limit 为 2 时，内部输入是 filePath=README.md、offset=1、limit=2；limit=0 由正整数解析拒绝，超过 maxLimit 则走第五行。",
+      "explanations": [
+        [
+          "export 让别的模块可用，function 定义操作，问号表示可缺省",
+          "接收外部路径与可选窗口参数，返回内部 ReadInput。"
+        ],
+        [
+          "trim 去首尾空白，if 与 throw 建立错误分支",
+          "空白路径不能进入文件解析和读取。"
+        ],
+        [
+          "三元表达式根据 undefined 选值",
+          "未提供 offset 用 1，提供了则检查正整数。"
+        ],
+        [
+          "同样的三元选择",
+          "未提供 limit 用当前上限，明确提供的值必须合法。"
+        ],
+        [
+          "大于号比较，模板字符串插入上限",
+          "超出允许窗口行数时拒绝，而不是静默变成任意读取。"
+        ],
+        [
+          "对象返回，显式改写属性名",
+          "外部 file_path 对应内部 filePath，其余采用解析后的值。"
+        ],
+        [
+          "结束函数",
+          "调用者拿到规范输入后继续真实读取。"
+        ]
+      ],
+      "id": "E04A",
+      "excerpt_sha256": "0571fb8c96d3b6a97c6e3a7d5b3354de08ecdb8b5e9357d2bab902b9c068619a"
     },
     {
-      "chapter": "04",
-      "file": "source/packages/fs/tool-fs/src/read.ts",
+      "chapter": 4,
+      "title": "大小信息决定文本获取方式",
+      "path": "source/packages/fs/tool-fs/src/read.ts",
       "start": 141,
       "end": 152,
+      "task": "位置在 read 的执行体内，参数已经解析。target 保存后端解析的目标，info 保存文件信息，caps 是本次读取限制，exec.signal 是取消信号。后续 outcome 和结果返回在正文中说明。",
+      "trace": "大小小于流式阈值时获取完整文本作为一个批次；大小未知或达到阈值时获取文本流。两种输入都交给 buildWindow，再按起始行和限制构造结果。",
+      "explanations": [
+        [
+          "await 等待解析，花括号解构返回对象",
+          "获取符合普通文件读取要求的目标和信息。"
+        ],
+        [
+          "原注释说明选路条件",
+          "文件大或者大小未知时采用流式读取。"
+        ],
+        [
+          "原注释说明未知大小的风险",
+          "避免先缓存任意大文件。"
+        ],
+        [
+          "const 与逻辑或组成判断",
+          "按左侧条件选中流式或整读的结果，存入 chunks。"
+        ],
+        [
+          "问号分支等待 streamText",
+          "获取后端文本流，并传入同一取消信号。"
+        ],
+        [
+          "冒号分支与数组字面量",
+          "一次读获取到文本后包装成一个批次供窗口处理。"
+        ],
+        [
+          "await 等待窗口构造函数",
+          "把获取文字的方式与窗口选择分开。"
+        ],
+        [
+          "第一个实参",
+          "把文本批次或流交给窗口构造器。"
+        ],
+        [
+          "对象实参列出边界",
+          "传入行范围、单行长度和字节上限。"
+        ],
+        [
+          "第三个实参",
+          "传入可显示的路径用于结果表达。"
+        ],
+        [
+          "结束函数调用",
+          "window 是经过窗口规则处理的结果，尚需构造最终规范值。"
+        ]
+      ],
+      "id": "E04B",
       "excerpt_sha256": "ab938e5af52b8deef090aadda32610976f7dfefcdf1b7f39ab0d1b7db7eb6d7c"
     },
     {
-      "chapter": "04",
-      "file": "source/packages/fs/tool-fs/src/read.ts",
-      "start": 154,
-      "end": 164,
-      "excerpt_sha256": "049d72573d651ef6ac819e3a7bf34acb7cd5eb3e27842a000d7fa4bd017a44c8"
-    },
-    {
-      "chapter": "05",
-      "file": "source/packages/core/session/src/index.ts",
+      "chapter": 5,
+      "title": "事件对象建立与验证",
+      "path": "source/packages/core/session/src/index.ts",
       "start": 744,
       "end": 752,
+      "task": "这是 Session.append 中已经获取可序列化副本之后的节选。重点观察序号、时间、数据副本和校验；后续加入日志、发布通知、返回事件是另一段逻辑。",
+      "trace": "已有 9 项日志时，新事件的 seq 为 9。类型检查、序号建立和冻结不会自行执行工具动作；校验失败会阻止按正常路径追加。",
+      "explanations": [
+        [
+          "const 保存 deepFreeze 返回值，对象开始",
+          "将已准备的事件字段组织并冻结，保持记录稳定。"
+        ],
+        [
+          "属性简写",
+          "保存调用者指定的事件类别。"
+        ],
+        [
+          "读取 length 后包装序号",
+          "按日志当前位置建立连续的 Session 事件序号。"
+        ],
+        [
+          "方法调用获取当前时间",
+          "保存记录时间，不以时间替代序号。"
+        ],
+        [
+          "显式属性赋值",
+          "采用之前建立的 dataSnapshot，而不是继续共享原输入对象。"
+        ],
+        [
+          "展开对象，as 说明类型",
+          "加入已建立副本的 Surface 意图和来源关联字段。"
+        ],
+        [
+          "结束对象与冻结调用，类型断言",
+          "把结果作为当前事件类型处理；类型断言本身不作磁盘写入。"
+        ],
+        [
+          "调用事件数据校验",
+          "检查事件字段符合该类型的运行约束。"
+        ],
+        [
+          "调用 Surface 管理者的校验",
+          "检查这条事件能否按当前消息视图规则追加。"
+        ]
+      ],
+      "id": "E05A",
       "excerpt_sha256": "90afb132a58060eec1b67c9d255abb66e59fd9f922c1036b90d7e05fee9342b7"
     },
     {
-      "chapter": "05",
-      "file": "source/packages/core/session/src/index.ts",
-      "start": 869,
-      "end": 880,
-      "excerpt_sha256": "7ef02fff276d65ac106ee967c8ac1132f025338f30f9c1a25c818c4997f5d7bb"
-    },
-    {
-      "chapter": "05",
-      "file": "source/packages/session/session-persistence-jsonl/src/storage.ts",
+      "chapter": 5,
+      "title": "后台写入与持久化等待",
+      "path": "source/packages/session/session-persistence-jsonl/src/storage.ts",
       "start": 535,
-      "end": 546,
-      "excerpt_sha256": "fc28bf208c5bc8c4a1c17822bb0b07b50204c82e433dd2cc777deed1a87735f2"
+      "end": 547,
+      "task": "这两项监听由 JSONL 存储组件注册。回调在收到相应 Session 事件时执行；不是注册当场立即写入。重点区分 enqueueLive 与等待 drainLive/flush。",
+      "trace": "新事件发出后，如果有写入者则排入后台缓冲；后台失败会记录警告并保留缓冲事件。显式 flush 的处理获取同一写入者，先排空实时缓冲，再等待刷新。",
+      "explanations": [
+        [
+          "on 注册事件回调，箭头函数接收 Session 与事件",
+          "订阅 Session 新事实，稍后发生事件才进入函数体。"
+        ],
+        [
+          "可选调用与回调参数",
+          "有对应 writer 才排入实时写入队列，并设置失败处理。"
+        ],
+        [
+          "模板字符串和 warn 调用",
+          "后台写入失败时记录 Session 与错误，提示缓冲事件仍保留。"
+        ],
+        [
+          "结束 enqueueLive 的错误回调",
+          "失败处理定义结束，不是把错误转成成功写入。"
+        ],
+        [
+          "结束新事件监听器",
+          "登记的监听器继续等待后续事件。"
+        ],
+        [
+          "注册另一项监听",
+          "session/flush 是要求等待持久化边界的事件。"
+        ],
+        [
+          "const 获取 Map 中的 writer",
+          "Map 是按键查值的集合；这里按当前 Session 身份找到它的存储写入者。"
+        ],
+        [
+          "if 与 return",
+          "没有 writer 时本监听不承担刷新工作。"
+        ],
+        [
+          "async 箭头函数立即调用并返回 Promise",
+          "把内部异步排空任务交给等待 flush 的调用者。"
+        ],
+        [
+          "await 排空实时缓冲",
+          "先等待已经排入的实时事件处理完。"
+        ],
+        [
+          "await 等待刷新",
+          "再等待写入者完成其刷新契约。"
+        ],
+        [
+          "结束函数并立即调用",
+          "向外返回这次等待任务。"
+        ],
+        [
+          "结束 flush 监听器注册",
+          "之后 Session 服务可收集并等待这些刷新监听者。"
+        ]
+      ],
+      "id": "E05B",
+      "excerpt_sha256": "f5c9f19720259576ec7236da0673f9928813c34560e15146ac4e1f36f4d8459c"
     },
     {
-      "chapter": "06",
-      "file": "source/packages/core/system-prompt/src/index.ts",
-      "start": 574,
-      "end": 590,
-      "excerpt_sha256": "c6a4ec997805244892ae89c1079094333ace060116eddcc62c60a3100cc70c24"
-    },
-    {
-      "chapter": "06",
-      "file": "source/packages/context/agent-instructions/src/index.ts",
+      "chapter": 6,
+      "title": "项目指令进入本步消息",
+      "path": "source/packages/context/agent-instructions/src/index.ts",
       "start": 332,
       "end": 340,
+      "task": "位置是前置指令处理已经算出 desired 之后。pending 是待清理指令，decision 保存准备中的消息批次，messages 是已领取输入。重点观察去重和插入位置；指令文件的发现过程见本章前面的讲解。",
+      "trace": "desired 已经包含在批次时，返回原决定；需要新指令时，找到最后一条已领取输入，把 desired 放在它之后，返回新的批次对象。",
+      "explanations": [
+        [
+          "for...of 遍历 pending 并调用 remove",
+          "先从 Agent Inbox 移除不再保留的待处理指令消息。"
+        ],
+        [
+          "if、逻辑或与 some 检查",
+          "没有新指令或已经有等价内容时，不重复插入。"
+        ],
+        [
+          "return 返回既有决定",
+          "本分支保持当前批次不变。"
+        ],
+        [
+          "结束 if 分支",
+          "只有需要新增内容的情况继续。"
+        ],
+        [
+          "原注释说明插入相对位置",
+          "指令放在领取输入之后。"
+        ],
+        [
+          "原注释说明后续追加的运行材料",
+          "直接输入在前，驱动后补的运行上下文在后。"
+        ],
+        [
+          "findLastIndex 与 includes",
+          "在决定的消息数组里找到最后一条属于领取批次的输入。"
+        ],
+        [
+          "toSpliced 建立新数组",
+          "在该位置之后插入 desired，不原地改写旧数组。"
+        ],
+        [
+          "展开对象并替换 messages",
+          "返回新的前置决定，供本步请求组装使用。"
+        ]
+      ],
+      "id": "E06A",
       "excerpt_sha256": "dd9106ae23be4e4c05068b73c1c2634dcc2f0a14cb280bf73fc55ab027f0f3ca"
     },
     {
-      "chapter": "06",
-      "file": "source/packages/core/agent-loop/src/agent.ts",
-      "start": 419,
-      "end": 425,
-      "excerpt_sha256": "b1a3fc1799035bf24939ce917dfe6eb3468d07cfe600e8f016e8168a954193ff"
-    },
-    {
-      "chapter": "07",
-      "file": "source/packages/skill/skill/src/index.ts",
-      "start": 470,
-      "end": 472,
-      "excerpt_sha256": "02939c5d07600e23c08f10eadc465123d7de7c4703a8d51ea890432fea26e71f"
-    },
-    {
-      "chapter": "07",
-      "file": "source/packages/skill/tool-skill/src/index.ts",
+      "chapter": 7,
+      "title": "读取正文前的可见性和入口检查",
+      "path": "source/packages/skill/tool-skill/src/index.ts",
       "start": 133,
-      "end": 143,
-      "excerpt_sha256": "9d012925986b516d2b33e2d2ed527b43d9156166e61eb0b05df10972e002824b"
+      "end": 144,
+      "task": "这是 Skill 读取工具执行体中的节选。args.name 是请求的名称，exec 提供 Agent 与取消信号；重点区分目录查询、模型调用条件与获取正文。后续结果构造不在本段。",
+      "trace": "目录中没有名称时第一个分支抛错；有名称但不允许模型调用时第二个分支抛错；都通过才调用 get，之后还要处理定义已消失等情况。",
+      "explanations": [
+        [
+          "对象和可选属性访问",
+          "把 Session 工作目录、取消信号和 Agent 范围组合成查询条件。"
+        ],
+        [
+          "await 后 find，箭头函数比较名称",
+          "获取该范围目录并选中请求名称的摘要。"
+        ],
+        [
+          "if 取反判断",
+          "没有摘要时进入错误分支。"
+        ],
+        [
+          "throw 构造错误与模板文字",
+          "名称未知或已不可用时中断读取；反引号串里的 ${…} 会替换成具体名称。"
+        ],
+        [
+          "结束第一个 if",
+          "找到摘要后继续下一项条件检查。"
+        ],
+        [
+          "函数调用与取反",
+          "检查摘要是否允许模型通过这个入口调用。"
+        ],
+        [
+          "throw 抛出入口限制错误",
+          "可见但不可由模型调用的 Skill 不能继续加载。"
+        ],
+        [
+          "结束第二个 if",
+          "通过入口条件才继续。"
+        ],
+        [
+          "await get",
+          "向 Skill 服务获取完整定义，不能把目录摘要当作正文。"
+        ],
+        [
+          "if 检查加载结果",
+          "目录查询以后定义仍可能消失。"
+        ],
+        [
+          "throw 抛出已不可用错误",
+          "没有正文时停止，不编造 Skill 内容。"
+        ],
+        [
+          "结束最后一个 if",
+          "有效定义交给后续渲染和结果处理。"
+        ]
+      ],
+      "id": "E07A",
+      "excerpt_sha256": "d05d09dbab2d88dab8c9f0f011a7a737c936d026959e78baccb250e19b0cb848"
     },
     {
-      "chapter": "07",
-      "file": "source/packages/skill/tool-skill/src/index.ts",
-      "start": 189,
-      "end": 200,
-      "excerpt_sha256": "28f49a2e30f44be2e1b4cd0557ef1e4acd226e26114f1148fbb554aa94e982cf"
-    },
-    {
-      "chapter": "08",
-      "file": "source/packages/compaction/compaction-basic/src/index.ts",
-      "start": 158,
-      "end": 175,
-      "excerpt_sha256": "0a2be3c8bf3660eab4b3ae026e6dbf005f0a2569fd81f459658244e3c6d7235b"
-    },
-    {
-      "chapter": "08",
-      "file": "source/packages/compaction/compaction-basic/src/index.ts",
-      "start": 294,
-      "end": 301,
-      "excerpt_sha256": "ee8636a375f1c3ec012d37b270861b7dd921586f0e205897742719111bbeba34"
-    },
-    {
-      "chapter": "08",
-      "file": "source/packages/compaction/compaction-basic/src/region.ts",
+      "chapter": 8,
+      "title": "提交前稳定性检查与结束记录",
+      "path": "source/packages/compaction/compaction-basic/src/region.ts",
       "start": 232,
-      "end": 245,
-      "excerpt_sha256": "4550c65003ec6cddf723da00d43115d666fcc712af162b42dda67277579b9267"
+      "end": 238,
+      "task": "这是摘要已经生成后的提交路径，不是整个压缩函数。dependencies、session 和 summarized 保存本次准备依据，lifecycle 保存本次压缩身份；外层 catch 还会记录失败阶段和关闭记录。",
+      "trace": "稳定性检查不通过时，正常提交不会继续；通过后提交摘要，追加 compaction/end，再建立完整结果。压力触发、无可用选区和失败收尾的流程见本章前面的讲解。",
+      "explanations": [
+        [
+          "if 与可选方法调用",
+          "这段提交没有归属（owner 为空）时先响应取消，避免继续正常提交。"
+        ],
+        [
+          "调用检查函数",
+          "确认摘要依据与当前 Session 仍满足稳定条件。"
+        ],
+        [
+          "字符串赋值",
+          "将失败归因阶段切到 commit，供外层异常处理使用。"
+        ],
+        [
+          "const 保存提交结果",
+          "把已准备的摘要交给 Session 提交操作。"
+        ],
+        [
+          "布尔状态赋值",
+          "标记已经进入关闭压缩记录的阶段。"
+        ],
+        [
+          "追加事件并保存返回值",
+          "记录本次 compaction/end，形成对应生命周期终结。"
+        ],
+        [
+          "布尔状态赋值",
+          "标记关闭记录已完成，避免外层再次按未关闭状态处理。"
+        ]
+      ],
+      "id": "E08A",
+      "excerpt_sha256": "b756e27f37f6ff8ae7550878ca0d148e629a06dec762f920ec1324e3302d0115"
     },
     {
-      "chapter": "09",
-      "file": "source/packages/llm/llm/src/index.ts",
-      "start": 936,
-      "end": 941,
-      "excerpt_sha256": "cb041b617e1c8eef4f4cb3344b7bd3db91ac1cb6c5007725cf22cea216981644"
+      "chapter": 9,
+      "title": "配置复制与冻结",
+      "path": "source/packages/llm/llm/src/index.ts",
+      "start": 937,
+      "end": 944,
+      "task": "这是 prepareCall 方法内部的准备片段。config 已指明 Provider 与模型，registration 找到其适配器；重点是解析后的配置怎样变成独立副本，而不是本段就已经消费模型输出。",
+      "trace": "原 config 后续被别处修改时，已复制并冻结的 resolvedConfig 不跟着变化。没有 resolved.context 时保持缺省；有则同样建立冻结副本。实际网络流在后续执行阶段获取。",
+      "explanations": [
+        [
+          "const 与属性读取",
+          "按 config.provider 查找已登记的 Provider 适配器。"
+        ],
+        [
+          "await 适配器准备操作",
+          "获取该路由的模型准备信息，带入取消信号。"
+        ],
+        [
+          "函数调用与属性读取",
+          "将适配器模型信息规范成项目使用的形式。"
+        ],
+        [
+          "函数调用",
+          "结合模型信息解析本次调用配置与上下文。"
+        ],
+        [
+          "structuredClone 与 deepFreeze 嵌套调用",
+          "先复制配置再冻结，隔开共享可变输入。"
+        ],
+        [
+          "三元表达式开始",
+          "判断本次解析结果是否包含随调用携带的附加 context（上下文材料）。"
+        ],
+        [
+          "问号分支",
+          "未提供就保持 undefined，不凭空添加内容。"
+        ],
+        [
+          "冒号分支",
+          "有 context 时复制并冻结，形成同样稳定的请求准备资料。"
+        ]
+      ],
+      "id": "E09A",
+      "excerpt_sha256": "6b60157d8a23d05df618d232b37407e5020efd99f46f5468df319e15cb6b6b7d"
     },
     {
-      "chapter": "09",
-      "file": "source/packages/core/agent-loop/src/agent.ts",
-      "start": 436,
-      "end": 443,
-      "excerpt_sha256": "32a9ca0bbe1aa96f26a22aab5d5c2e160fa9a5f6760a442c03dcb75d2d13688c"
-    },
-    {
-      "chapter": "09",
-      "file": "source/packages/core/agent-loop/src/agent.ts",
+      "chapter": 9,
+      "title": "失败以后是否再尝试",
+      "path": "source/packages/core/agent-loop/src/agent.ts",
       "start": 505,
       "end": 509,
+      "task": "位置在失败已经登记、恢复链已经返回 action 之后。本段处于尝试循环内；重点是没有 retry 时怎样结束，以及 continue 返回哪个循环。",
+      "trace": "action 没有值或 kind 不是 retry，就抛出模型错误；kind 为 retry 且未取消，才进入同一步骤的下一次尝试，不进入本次失败响应的成功工具阶段。",
+      "explanations": [
+        [
+          "调用信号检查",
+          "已经取消时先停止，不被重试行动覆盖。"
+        ],
+        [
+          "可选属性与不等比较",
+          "只有明确的 retry 才允许正常进入下一尝试。"
+        ],
+        [
+          "throw 与 new",
+          "用失败消息、代码和详情构造 LlmError，交给上层错误路径。"
+        ],
+        [
+          "结束 if 分支",
+          "retry 情况跳过抛错。"
+        ],
+        [
+          "continue",
+          "回到尝试循环下一轮，而不是完成本轮用户任务。"
+        ]
+      ],
+      "id": "E09B",
       "excerpt_sha256": "0bae018eab905c1e60649080b17bf0f781c00c780342085b9b703e39849efb1b"
     },
     {
-      "chapter": "10",
-      "file": "source/apps/cli/src/bin.ts",
-      "start": 31,
-      "end": 42,
-      "excerpt_sha256": "c29aa55bfa9de50c56b6547e390b7c2442233d1caf6b570e7d7e9fdec02918d6"
-    },
-    {
-      "chapter": "10",
-      "file": "source/packages/boot/app-boot/src/profile.ts",
+      "chapter": 10,
+      "title": "配置层交给条目补丁规则",
+      "path": "source/packages/boot/app-boot/src/profile.ts",
       "start": 731,
-      "end": 737,
-      "excerpt_sha256": "c1750b8afddf44927d31923157d32728cff705dac7507c57a8480aa307a6b080"
+      "end": 738,
+      "task": "这是 composeEntries 完整函数。layers 是启动阶段获取的配置层集合，warn 是可替换的警告回调；重点看展平、复制和真正执行合成规则的位置。",
+      "trace": "多层条目先展平并复制，再交给 applyEntryPatches。applyEntryPatches 按 id 定位目标并直接覆盖字段；同一目标的后层补丁覆盖前层值。",
+      "explanations": [
+        [
+          "export 与 function",
+          "公开配置合成操作供启动程序调用。"
+        ],
+        [
+          "readonly 嵌套数组与默认箭头函数",
+          "接收多层补丁，未给警告处理时采用空操作。"
+        ],
+        [
+          "返回类型与函数体开始",
+          "合成结果是 EntryOptions 数组。"
+        ],
+        [
+          "flat、structuredClone 与回调",
+          "展平并复制层数据，再交给条目补丁函数，以空条目集为起点。"
+        ],
+        [
+          "let 初始化计数",
+          "当前警告格式替换从第 0 个附加参数开始。"
+        ],
+        [
+          "replace 正则与 JSON.stringify",
+          "将警告中的占位符换成参数的可读表示，再通知 warn。"
+        ],
+        [
+          "结束回调与补丁调用",
+          "applyEntryPatches 的结果作为本函数结果返回。"
+        ],
+        [
+          "结束函数",
+          "加载器随后依据合成条目装配插件。"
+        ]
+      ],
+      "id": "E10A",
+      "excerpt_sha256": "7d873d19bd8dcfb63585828c757e15379971d03312007e9de06d7f57b7e1b413"
     },
     {
-      "chapter": "10",
-      "file": "source/packages/fs/tool-fs/src/index.ts",
-      "start": 54,
-      "end": 64,
-      "excerpt_sha256": "de7102ea7d57a0469cfbfcb3b8a01c88af0017ed8a3e4cf7f0ec4b87a9875f8b"
-    },
-    {
-      "chapter": "11",
-      "file": "source/packages/core/tools/src/index.ts",
+      "chapter": 11,
+      "title": "准入链与可选询问",
+      "path": "source/packages/core/tools/src/index.ts",
       "start": 1504,
       "end": 1511,
+      "task": "这是 prepareExecution 中创建执行上下文之后的节选。exec 描述本次调用，carrier 确定服务派发范围；观察前置决定与审批分支，后续守卫和实际分派不在本段。",
+      "trace": "gate 为 ask 时等待 serviceAsk；allow 或 deny 则保留当前决定，不走询问。没有前置处理改写默认值时采用 allow，但仍需经过后续守卫与实际环境约束。",
+      "explanations": [
+        [
+          "const 保存范围选择结果",
+          "按工具服务与本次 Agent 确定派发范围。"
+        ],
+        [
+          "await waterfall",
+          "等待前置处理链给出本次准入决定。"
+        ],
+        [
+          "调用实参",
+          "指定范围、事件名和执行上下文，处理者据此判断。"
+        ],
+        [
+          "箭头函数创建已成功完成的 Promise",
+          "无人提出不同决定时提供默认 allow。"
+        ],
+        [
+          "结束前置调用",
+          "gate 保存处理链最终决定。"
+        ],
+        [
+          "比较类别并开始三元选择",
+          "只有 ask 需要询问路径。"
+        ],
+        [
+          "await serviceAsk",
+          "等待一次审批并获取包括取消状态的结果。"
+        ],
+        [
+          "对象分支",
+          "其他决定直接进入后续处理，同时标记本分支没有审批取消。"
+        ]
+      ],
+      "id": "E11A",
       "excerpt_sha256": "afd6b6fb67cf8a962d92cf8dabfd063c37c85c858da312d6f087aa075545f5e7"
     },
     {
-      "chapter": "11",
-      "file": "source/packages/interaction/user-approval/src/index.ts",
+      "chapter": 11,
+      "title": "一次审批怎样留下关联记录",
+      "path": "source/packages/interaction/user-approval/src/index.ts",
       "start": 224,
       "end": 233,
+      "task": "这是审批服务已经获取可记录 Session 之后的正常路径。req 保存工具和调用信息；重点是同一个审批标识怎样关联 asked 和 decided。取消或失败处理还需依 decide 和上层调用契约理解。",
+      "trace": "审批标识生成以后，先记录 asked，再等待 decide。正常返回的 outcome 被记录到同一标识的 decided 并返回工具链；这不是未来所有调用的永久许可。",
+      "explanations": [
+        [
+          "const、randomUUID 与身份包装",
+          "生成本次审批独有的 id。"
+        ],
+        [
+          "调用 append 并开始对象",
+          "记录一次 approval/asked 事实。"
+        ],
+        [
+          "对象属性简写",
+          "保存审批身份。"
+        ],
+        [
+          "属性读取",
+          "保存被询问的工具名称。"
+        ],
+        [
+          "条件展开",
+          "有调用标识时加入，以便关联具体工具请求。"
+        ],
+        [
+          "条件展开",
+          "有原因时记录本次询问原因。"
+        ],
+        [
+          "结束对象和追加调用",
+          "asked 事实已交给 Session 记录。"
+        ],
+        [
+          "await 等待决定",
+          "暂停本审批路径，等待相应决策结果。"
+        ],
+        [
+          "追加另一个事件",
+          "用同一 id 记录 outcome，闭合正常决策路径。"
+        ],
+        [
+          "return",
+          "将本次结论返回准入链。"
+        ]
+      ],
+      "id": "E11B",
       "excerpt_sha256": "cbf872d82d316b92e21660db7edb1de17da8844194d26bd9194c1936f691f72e"
     },
     {
-      "chapter": "11",
-      "file": "source/packages/core/tools/src/index.ts",
-      "start": 1578,
-      "end": 1587,
-      "excerpt_sha256": "cd828543572e437c648fc8c73a5b009ab7a9b55caecb6267ef7cd894073f9699"
+      "chapter": 12,
+      "title": "stdio 与 HTTP 的不同执行边界",
+      "path": "source/packages/mcp/mcp-client/src/transport.ts",
+      "start": 31,
+      "end": 46,
+      "task": "这是 createTransport 完整函数。config 已通过配置解析，transport 决定选哪一种连接；重点是命令与 URL 分别交给谁处理。",
+      "trace": "stdio 配置交给子进程传输；HTTP 配置交给 URL 传输。返回的是传输对象，后续客户端还需完成连接、发现与工具注册，不是本函数已经检索到了资料。",
+      "explanations": [
+        [
+          "export function 与类型标注",
+          "按配置创建一项 MCP 传输对象。"
+        ],
+        [
+          "switch 选择分支",
+          "用 transport 字段决定执行方式。"
+        ],
+        [
+          "case 字符串标签",
+          "进入标准输入输出传输分支。"
+        ],
+        [
+          "return new 与对象参数",
+          "创建并返回会启动子进程的传输。"
+        ],
+        [
+          "command 字段赋值",
+          "使用配置指定的可执行命令。"
+        ],
+        [
+          "args 字段赋值",
+          "把命令参数交给传输实现。"
+        ],
+        [
+          "调用环境构造函数",
+          "按项目规则准备子进程环境。"
+        ],
+        [
+          "cwd 字段赋值",
+          "指定子进程工作目录。"
+        ],
+        [
+          "结束构造调用",
+          "stdio 分支返回传输，不再进入 HTTP 分支。"
+        ],
+        [
+          "第二个 case",
+          "进入 Streamable HTTP 分支。"
+        ],
+        [
+          "return new",
+          "创建按 HTTP 访问服务的传输。"
+        ],
+        [
+          "new URL",
+          "解析配置里的服务地址，不是启动本机命令。"
+        ],
+        [
+          "对象嵌套",
+          "将配置请求头交给 HTTP 请求初始化设置。"
+        ],
+        [
+          "结束构造调用",
+          "返回 HTTP 传输对象。"
+        ],
+        [
+          "结束 switch",
+          "两种受支持配置分支已经说明。"
+        ],
+        [
+          "结束函数",
+          "连接和能力发现由后续客户端逻辑完成。"
+        ]
+      ],
+      "id": "E12A",
+      "excerpt_sha256": "f2a51ac6bf584f0d4de856f7afb8674067f4f7adfe9cd5f4feeaaddce2093f7d"
     },
     {
-      "chapter": "12",
-      "file": "source/packages/mcp/mcp-client/src/tools.ts",
-      "start": 81,
-      "end": 86,
-      "excerpt_sha256": "1f03f54562ba7344c1d3b8572034a5a6bf0da2fe530a7900162f40a11617d4e3"
-    },
-    {
-      "chapter": "12",
-      "file": "source/packages/mcp/mcp-client/src/tools.ts",
-      "start": 138,
-      "end": 150,
-      "excerpt_sha256": "931d6d83096df53f0558bd6e091a30e22e68cb05fe4f6398927525ca7403bf5f"
-    },
-    {
-      "chapter": "12",
-      "file": "source/packages/mcp/mcp-client/src/tools.ts",
-      "start": 229,
-      "end": 236,
-      "excerpt_sha256": "cb8af5b7bb26481d33eb55cc52fd9b3334b3e9e7e320252a9779703f289a499e"
-    },
-    {
-      "chapter": "13",
-      "file": "source/packages/subagent/subagent/src/index.ts",
-      "start": 559,
-      "end": 570,
-      "excerpt_sha256": "f757e198707fc91d15bd8d35c7379548c355c6f27628a8f63e15b6cb0ad7eef9"
-    },
-    {
-      "chapter": "13",
-      "file": "source/packages/subagent/subagent-spawn-in-process/src/index.ts",
-      "start": 54,
-      "end": 59,
-      "excerpt_sha256": "cd015f6d29b842e732232092e71d7279f644140177cc99dcaded80c2d1c5d7c6"
-    },
-    {
-      "chapter": "13",
-      "file": "source/packages/subagent/subagent-fork-in-process/src/index.ts",
+      "chapter": 13,
+      "title": "进程内 fork 取到哪里",
+      "path": "source/packages/subagent/subagent-fork-in-process/src/index.ts",
       "start": 48,
       "end": 55,
+      "task": "这是 completedTurnPrefix 完整辅助函数。parent 是父 Agent；重点观察事件边界，而不是猜测 fork 与操作系统进程复制相同。",
+      "trace": "事件中最后的 turn/end 为 20 号时，返回开头到 20 号的全部事件；21 号以后属于当前未完成部分，不在种子里。没有 turn/end 时返回空数组。",
+      "explanations": [
+        [
+          "function 和参数类型",
+          "从父 Agent 计算可继承的完成轮次前缀。"
+        ],
+        [
+          "原 lint 注释",
+          "说明本处暂时采用现有历史读取接口，不是运行逻辑。"
+        ],
+        [
+          "const 保存快照",
+          "获取当前父 Session 的事件数组。"
+        ],
+        [
+          "findLast 和箭头判断",
+          "从末尾找最后一个 turn/end 事件。"
+        ],
+        [
+          "if 与提前 return",
+          "没有完成轮次时不继承历史。"
+        ],
+        [
+          "原注释解释序号关系",
+          "追加契约保证 seq 与数组下标对应，所以可用来切片。"
+        ],
+        [
+          "slice 的不包含结束位置规则",
+          "加 1 使边界事件也被保留，返回整个前缀而非摘要。"
+        ],
+        [
+          "结束辅助函数",
+          "Provider 随后用这份起点创建子 Session。"
+        ]
+      ],
+      "id": "E13A",
       "excerpt_sha256": "8d3dae537c9af1b72e3974b601386a16ce261f88ae48a12de075acd651f7ba05"
     },
     {
-      "chapter": "14",
-      "file": "source/packages/client/ui-conversation/src/client/service.ts",
-      "start": 275,
-      "end": 283,
-      "excerpt_sha256": "a690298dc602e21d8af20344dbfbdcc06c09f719c60a1287e0ea85728de81a8d"
-    },
-    {
-      "chapter": "14",
-      "file": "source/packages/api/session-controller/src/client/sessions/session.ts",
-      "start": 269,
-      "end": 277,
-      "excerpt_sha256": "f10f39c73c8341a7554a8f39f85c3c051a76b00b2d1a7bd3b532e455e2d84158"
-    },
-    {
-      "chapter": "14",
-      "file": "source/packages/api/session-controller/src/history.ts",
+      "chapter": 14,
+      "title": "跟随时发现重复与缺口",
+      "path": "source/packages/api/session-controller/src/history.ts",
       "start": 226,
       "end": 232,
+      "task": "这是跟随消费循环内的节选，item 是当前缓冲事件，nextOffset 是下一个需要的位置。yield 是把一项结果交给流的消费者，后续可再继续生成下一项。",
+      "trace": "预期 41 时收到 39 就略过；收到 41 则推进到 42 并送出结果；收到 43 时抛错。此处检测缺口，没有在这几行中自动补齐缺失事件。",
+      "explanations": [
+        [
+          "const 与序号包装",
+          "把当前消费位置转成期待的 Session 事件序号。"
+        ],
+        [
+          "小于比较和 continue",
+          "跳过已经早于期待位置的重复或旧事件。"
+        ],
+        [
+          "不等比较",
+          "剩余事件若不是恰好期待的一项，就是缺口。"
+        ],
+        [
+          "throw 构造远程错误",
+          "报告跳过了哪个序号，不无声继续。"
+        ],
+        [
+          "结束 if",
+          "连续事件才能进入后面推进。"
+        ],
+        [
+          "赋值和加 1",
+          "消费当前位置以后，期待下一项。"
+        ],
+        [
+          "yield 调用转换函数",
+          "把当前事实转成协议条目交给跟随消费者。"
+        ]
+      ],
+      "id": "E14A",
       "excerpt_sha256": "9829a357f68b3820e455eddb9e7dd627b45163043f44c164f0a86ba6091ef828"
     },
     {
-      "chapter": "15",
-      "file": "source/apps/desktop/src/main.ts",
-      "start": 567,
-      "end": 575,
-      "excerpt_sha256": "ef76ae563f268de959d4fe87380f276b47f45664f05ac1ddcbf7338dde9fdda4"
+      "chapter": 15,
+      "title": "真正启动 Host 子进程的位置",
+      "path": "source/apps/desktop/src/host-process.ts",
+      "start": 188,
+      "end": 201,
+      "task": "这是 DesktopHostProcess.start 内部的子进程启动节选。this.node 是所选 Node 程序，runtimeDir 与 projectDir 是已准备的目录；本段观察入口、参数与通信管道。ready/fatal 消息处理属于后续路径。",
+      "trace": "Main 的管理对象调用 spawn，启动 dsh-desktop-host 的 Node 子进程。当前项目目录成为子进程工作目录，管道和 IPC 供宿主观察输出与启动消息；spawn 返回并不等于收到 ready。",
+      "explanations": [
+        [
+          "const 与 join 拼接路径",
+          "定位运行包中 desktop-host 的入口文件。"
+        ],
+        [
+          "spawn 调用和参数数组开始",
+          "以指定 Node 程序启动独立子进程。"
+        ],
+        [
+          "字符串参数",
+          "给 Node 启用该入口需要的内部能力选项。"
+        ],
+        [
+          "条件数组展开",
+          "只有配置检查端口时才增加调试参数。"
+        ],
+        [
+          "数组成员",
+          "把 Host 入口交给 Node 执行。"
+        ],
+        [
+          "数组成员",
+          "传入运行包目录。"
+        ],
+        [
+          "数组成员",
+          "传入当前项目目录。"
+        ],
+        [
+          "空值合并和 join",
+          "显式主运行环境优先，否则使用约定的默认目录。"
+        ],
+        [
+          "条件展开",
+          "存在包管理器信息时追加其命令与 Node 目录。"
+        ],
+        [
+          "结束参数数组，开始 spawn 选项",
+          "下面是进程环境，不是工具参数。"
+        ],
+        [
+          "cwd 选项",
+          "子进程从当前项目目录运行。"
+        ],
+        [
+          "环境构造函数",
+          "根据所选 Node 与配置准备 Host 环境。"
+        ],
+        [
+          "stdio 数组",
+          "不使用标准输入，捕获输出与错误，并开启 IPC。"
+        ],
+        [
+          "结束 spawn 调用",
+          "获取子进程句柄，后续管理其 ready、失败与退出。"
+        ]
+      ],
+      "id": "E15A",
+      "excerpt_sha256": "7a2808013c50da9b9f701f08ed1795c88a46bbd3331c1d7913678f85acbe7d17"
     },
     {
-      "chapter": "15",
-      "file": "source/apps/desktop/src/host-process.ts",
-      "start": 206,
-      "end": 218,
-      "excerpt_sha256": "47d6486b871350a06ef6e243d7ba2e60e5865254f43f7e4f4125648c14b12928"
+      "chapter": 16,
+      "title": "消费按位置推进",
+      "path": "source/packages/test-support/llm-replay/src/index.ts",
+      "start": 1064,
+      "end": 1068,
+      "task": "本段在 replay 已依据 Session 找到或建立绑定状态之后。state 保存该 Session 的脚本数组和游标；重点看这次选择响应的依据。后续生成器负责脚本耗尽等错误。",
+      "trace": "cursor 为 0 时本次取 entries[0]，随后 cursor 变为 1；下次取 entries[1]。这些行没有按请求 Payload 查找等价条目。",
+      "explanations": [
+        [
+          "const 保存同一状态对象",
+          "后面的生成器使用本次已经绑定的 Session 状态。"
+        ],
+        [
+          "const 保存数量",
+          "捕获目前已绑定的脚本数量，用于错误说明。"
+        ],
+        [
+          "读取数组 length",
+          "保存录制脚本总数，便于报告未录制 Session。"
+        ],
+        [
+          "后缀自增",
+          "先取旧游标作为 index，再把本 Session 游标增加 1。"
+        ],
+        [
+          "方括号按下标取值，联合类型允许 undefined",
+          "选择当前位置响应；越界由后续生成器报错。"
+        ]
+      ],
+      "id": "E16A",
+      "excerpt_sha256": "a9f577f03bad1c79999a054886fe4b39c706d3ea9ebd21097885aaf7bf14e305"
     },
     {
-      "chapter": "15",
-      "file": "source/apps/desktop/src/web-document.ts",
-      "start": 77,
-      "end": 88,
-      "excerpt_sha256": "2d95f379bddf5b1b5790921306bd9f53345d2feae75ce90f3b27462807126644"
-    },
-    {
-      "chapter": "16",
-      "file": "source/packages/test-support/llm-replay/src/index.ts",
-      "start": 462,
-      "end": 472,
-      "excerpt_sha256": "36aba7a7d43b9a9fb65b9707a495efe9f49660c8cb1d914c040fa07c3fb7697a"
-    },
-    {
-      "chapter": "16",
-      "file": "source/packages/test-support/llm-replay/src/index.ts",
+      "chapter": 16,
+      "title": "有路由时与无路由时的接入",
+      "path": "source/packages/test-support/llm-replay/src/index.ts",
       "start": 1101,
       "end": 1104,
+      "task": "本段在回放脚本已经加载后安装模型替身。providers 是回放配置的 Provider 目录，dispose 是以后移除替身的释放函数。",
+      "trace": "providers 非空时登记路由适配器；为空时登记 llm/stream 拦截回调。对应路由的模型调用由 replay 返回；工具和文件服务继续采用测试配置中的实现。",
+      "explanations": [
+        [
+          "空值合并与数组字面量",
+          "缺省目录采用空数组。"
+        ],
+        [
+          "const 与长度判断",
+          "依据是否指定 Provider 目录选择安装方式。"
+        ],
+        [
+          "map、箭头函数和适配器构造",
+          "提取 Provider 身份并注册对应回放适配器。"
+        ],
+        [
+          "on 与回调",
+          "另一分支在流接口拦截，把请求交给同一 replay 函数。"
+        ]
+      ],
+      "id": "E16B",
       "excerpt_sha256": "968a92e55287eecd02b3760e7c273af68cf1f70d968e6eabb239c6e604579b36"
     },
     {
-      "chapter": "16",
-      "file": "source/packages/test-support/llm-replay/src/index.ts",
-      "start": 1107,
-      "end": 1115,
-      "excerpt_sha256": "f1759435ed4aebb35d4986c56a5c4117194519121f3a323a7446931c3b951e75"
-    },
-    {
-      "chapter": "17",
-      "file": "source/packages/llm/token-meter/src/index.ts",
-      "start": 110,
-      "end": 122,
-      "excerpt_sha256": "7d8ebfcb26c5ed82797364ba71a035439bc9b9d0f5aeba0e81143b6263d882a6"
-    },
-    {
-      "chapter": "17",
-      "file": "source/packages/session/session-telemetry/src/coordinator.ts",
-      "start": 104,
+      "chapter": 17,
+      "title": "三项计量视图的注册",
+      "path": "source/packages/llm/token-meter/src/index.ts",
+      "start": 114,
       "end": 116,
-      "excerpt_sha256": "1824392fdc41017688599e71634a6c1313951cf6d2d19bfebf44e1e7264ebd6b"
+      "task": "这是 TokenMeter 构造期间的三项注册。register 把投影定义交给管理者，不是在这三行中已经测量所有 Session；后续读取和事件观察推动相应状态。",
+      "trace": "装入计量组件后，消费者可以按需请求用量、压力与材料组成视图。注册数量为三项，不等于运行过三次模型请求。",
+      "explanations": [
+        [
+          "调用投影注册方法",
+          "登记 tokenUsage 的计算与读取定义，供查询模型用量。"
+        ],
+        [
+          "同一方法接收另一项定义",
+          "登记 contextPressure 视图，供观察上下文容量压力。"
+        ],
+        [
+          "同一方法接收第三项定义",
+          "登记 contextBreakdown 视图，供解释材料由哪些部分组成。"
+        ]
+      ],
+      "id": "E17A",
+      "excerpt_sha256": "4c1dad11d5845b97e86d8e5beb6c7143c3fff5f729dd8ea2c05a77ba93247cbf"
     },
     {
-      "chapter": "17",
-      "file": "source/packages/session/session-telemetry-otel/src/index.ts",
-      "start": 218,
-      "end": 230,
-      "excerpt_sha256": "24cba9e611024a6eaa997933dd13073bba697c11e98772b1b559b22481965cc7"
-    },
-    {
-      "chapter": "18",
-      "file": "source/docs/cookbook/adding-a-tool.zh.md",
-      "start": 14,
-      "end": 27,
-      "excerpt_sha256": "2c6ed4774ec74d43c35d869b2f8bb24fdb7e5f97166dac0f010dbe264cfc4349"
-    },
-    {
-      "chapter": "18",
-      "file": "source/packages/fs/tool-fs/src/read.ts",
-      "start": 137,
-      "end": 150,
-      "excerpt_sha256": "ba407ba22c1a35e432244cf750d3c4010cd784825ef194a692413fba325899d9"
-    },
-    {
-      "chapter": "18",
-      "file": "source/packages/fs/tool-fs/src/read.ts",
+      "chapter": 18,
+      "title": "卡片资料从规范值派生",
+      "path": "source/packages/fs/tool-fs/src/read.ts",
       "start": 124,
-      "end": 132,
-      "excerpt_sha256": "3c6941fcb090db6d0e4fcd6101a7129b27b2edafb093cb7c4bae5d8fe4b65415"
+      "end": 133,
+      "task": "这是 read 输出定义中的 presentationMeta 函数属性。value 已是读取规范值，_args 是这里未使用的参数。观察怎样形成可序列化展示对象；模型文本 render 是同一输出定义的另一项职责。",
+      "trace": "路径、起始行、每行编号与文字及总行数形成卡片资料。文件扩展名能识别语言时增加 lang；无法识别就不增加。后续界面可以读取保存的元数据，不必再次读文件来重建这个窗口。",
+      "explanations": [
+        [
+          "属性和箭头函数",
+          "输出层稍后用规范值调用本函数，注册时不立即执行。"
+        ],
+        [
+          "const 与函数调用",
+          "依据结果路径推断展示语言。"
+        ],
+        [
+          "return 与对象开始",
+          "建立要保存的展示资料。"
+        ],
+        [
+          "属性读取",
+          "保留结果里的显示路径。"
+        ],
+        [
+          "属性读取",
+          "保留本次窗口的起始行。"
+        ],
+        [
+          "map、解构和对象返回",
+          "逐行只提取编号与文字，形成新的可保存数组。"
+        ],
+        [
+          "属性读取",
+          "保留结果中的完整行数信息。"
+        ],
+        [
+          "条件展开",
+          "可识别语言时才加入 lang 字段。"
+        ],
+        [
+          "结束对象",
+          "本次展示资料建立完成。"
+        ],
+        [
+          "结束函数属性",
+          "这些资料交给输出和保存链，不是一个 React 组件。"
+        ]
+      ],
+      "id": "E18A",
+      "excerpt_sha256": "d8cbbfa4de003d804f56f8ff61c5c6a396e9e42e70b1255e12f2163732716aa1"
     },
     {
-      "chapter": null,
-      "book_chapter": "08",
-      "file": "source/packages/llm/llm/src/call-config.ts",
-      "start": 21,
-      "end": 30,
-      "excerpt_sha256": "3a1e9678264a072f3b1d02a8c0f3953c81f92beb367b449ebcbca7a6b5885200"
+      "chapter": 19,
+      "title": "作者提供资源释放逻辑",
+      "path": "source/docs/cordis-tutorial/02-lifecycle-and-effects.zh.md",
+      "start": 20,
+      "end": 26,
+      "task": "这是仓库官方 Cordis 教程中 heartbeat 的 effect 片段，属于真实文档示例，不是生产 Agent 的计时器。本次观察逆操作从哪里来。",
+      "trace": "装入时创建定时器，effect 记录回调返回的释放函数。卸载时框架调用作者写下的 clearInterval；它没有从 setInterval 自动推导这行代码。",
+      "explanations": [
+        [
+          "effect 接收函数并开始资源获取",
+          "把本次定时器生命周期登记给所属插件。"
+        ],
+        [
+          "const、setInterval 与回调",
+          "保存定时器句柄，每 200 毫秒调用日志回调。"
+        ],
+        [
+          "return 返回另一个函数",
+          "把释放动作作为值交给 Cordis，以后卸载时才调用。"
+        ],
+        [
+          "clearInterval 调用",
+          "作者使用已捕获的 timer 句柄停止该计时器。"
+        ],
+        [
+          "日志调用",
+          "在实际清理时给出教程观察输出。"
+        ],
+        [
+          "结束返回的释放函数",
+          "本次逆操作定义完成。"
+        ],
+        [
+          "结束资源获取函数与 effect 调用",
+          "框架获得并登记释放函数。"
+        ]
+      ],
+      "id": "E19A",
+      "excerpt_sha256": "9a3763c8b3db919d4392ae0a18e5e08bd0122d8813103c5cd5def14a70fc4664"
     },
     {
-      "chapter": null,
-      "book_chapter": "08",
-      "file": "source/packages/llm/llm/src/index.ts",
-      "start": 936,
-      "end": 944,
-      "excerpt_sha256": "097232a6dabd44014ceed73fc13a8d4033625f53ad3bc229de8aeaa081f7858e"
+      "chapter": 19,
+      "title": "服务名称作用域隔离",
+      "path": "source/vendor/cordis/src/context.ts",
+      "start": 121,
+      "end": 125,
+      "task": "这是 Context.isolate 完整方法。name 是要隔离的服务名称，label 可让多个上下文共享同一个服务作用域标签；重点观察返回的对象是否是操作系统沙箱。",
+      "trace": "不提供 label 时为指定服务建立新 Symbol 标签，其他继承关系仍保留；传相同 label 可加入同一服务作用域。没有创建进程、容器或文件权限边界。",
+      "explanations": [
+        [
+          "方法、可选参数与 symbol 类型",
+          "指定哪个服务名称使用独立解析标签。"
+        ],
+        [
+          "Object.create",
+          "建立继承父作用域表的新表，而不是复制整个宿主环境。"
+        ],
+        [
+          "下标赋值与空值合并",
+          "为指定名称使用提供的标签或一个新 Symbol（语言内置的生成不重复值的工具，适合当标签）。"
+        ],
+        [
+          "return、extend 与计算属性",
+          "返回带新作用域表的派生 Context。"
+        ],
+        [
+          "结束方法",
+          "隔离针对服务解析；物理执行边界需要另外的机制。"
+        ]
+      ],
+      "id": "E19B",
+      "excerpt_sha256": "ce17bf1a2b6cefc62bd332f4151c2ee2f9449f87a7d99e323a5d6c9c78ae4c40"
     },
     {
-      "chapter": null,
-      "book_chapter": "09",
-      "file": "source/packages/boot/plugin-manager/src/index.ts",
-      "start": 425,
-      "end": 434,
-      "excerpt_sha256": "6b443cfd3b60dd6480b2640713de0182706976315592ae26a039187bfe045417"
-    },
-    {
-      "chapter": null,
-      "book_chapter": "09",
-      "file": "source/packages/test-support/llm-replay/src/index.ts",
-      "start": 1107,
-      "end": 1120,
-      "excerpt_sha256": "5a01aef1f73878e2aeb786d70bdb1d5d7a4ecb3b528c48790e77fe8f7a5fecbb"
-    },
-    {
-      "chapter": null,
-      "book_chapter": "10",
-      "file": "source/packages/experimental/agent-team/src/types.ts",
-      "start": 47,
-      "end": 55,
-      "excerpt_sha256": "a1d2889472ea5ad3fb8807a2817ef7e923d6e18317555b2c1fd7cd3241d32dba"
-    },
-    {
-      "chapter": null,
-      "book_chapter": "10",
-      "file": "source/packages/experimental/agent-team/src/types.ts",
-      "start": 74,
-      "end": 83,
-      "excerpt_sha256": "b809846535057b4a6f347f428b11fdcce04e4874b6ee2cb82e196264a2883773"
+      "chapter": 19,
+      "title": "同层资源释放并发等待",
+      "path": "source/vendor/cordis/src/fiber.ts",
+      "start": 675,
+      "end": 686,
+      "task": "这是 Fiber._unload 的释放开头。_disposables 保存所属 Fiber 的释放函数；本段之后还会清 store 并更新状态。观察 Promise.all 与逐个异常处理，不把论文的抽象回滚顺序直接套成这里的串行执行。",
+      "trace": "多个释放函数被映射成异步任务，再统一等待。某项失败会记录错误；其他项仍被调用。严格顺序的资源需要在同一个释放动作中依次等待，不能依赖同层异步释放逐项完成。",
+      "explanations": [
+        [
+          "private async 方法声明",
+          "内部卸载过程返回可等待的结果。"
+        ],
+        [
+          "Promise.all、clear 与 map",
+          "取出已登记的释放动作，分别启动异步处理并等待整组。"
+        ],
+        [
+          "try",
+          "每项释放有独立异常处理范围。"
+        ],
+        [
+          "await 与传入的异步函数",
+          "组合释放错误的诊断信息。"
+        ],
+        [
+          "await 已成功完成的 Promise",
+          "先经过一个异步等待边界再继续此释放任务。"
+        ],
+        [
+          "new Error 赋给诊断对象",
+          "保存本次释放位置的信息。"
+        ],
+        [
+          "await runDisposable",
+          "实际调用并等待这一项作者或注册 API 提供的释放动作。"
+        ],
+        [
+          "结束诊断回调并传入栈提供者",
+          "为错误关联所属插件的外层调用信息。"
+        ],
+        [
+          "catch 接收失败原因",
+          "某项释放失败转入记录分支。"
+        ],
+        [
+          "logger.error",
+          "记录该项释放失败，保留诊断信息；其他释放任务继续执行。"
+        ],
+        [
+          "结束 catch",
+          "该项处理结束。"
+        ],
+        [
+          "结束 map 与 Promise.all",
+          "等待这一组并发释放处理收尾，随后进入 store 和状态清理。"
+        ]
+      ],
+      "id": "E19C",
+      "excerpt_sha256": "8268990ba934eb54a88d56e5883118c0eb251a87eca8381b5a201a7f001090aa"
     }
   ]
 }

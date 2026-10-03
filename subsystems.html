@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>补充能力：沿同一运行主线理解其余子系统</title><style>:root{--ink:#2c3e50;--muted:#697586;--line:#e6eaef;--accent:#2f855a;--link:#2764cf;--header:58px;--font:"Noto Sans SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:#fff;color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.8}button,input{font:inherit}button{cursor:pointer}a{color:var(--link);text-decoration:none;overflow-wrap:anywhere}a:hover{text-decoration:underline}button:focus-visible,a:focus-visible,input:focus-visible,main:focus-visible{outline:2px solid var(--link);outline-offset:3px}[hidden]{display:none!important}.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.skip-link{position:fixed;top:-80px;left:12px;padding:8px 16px;z-index:30;background:white}.skip-link:focus{top:8px}
+.site-header{position:sticky;top:0;z-index:10;height:var(--header);background:#fff;border-bottom:1px solid var(--line)}.header-inner{height:100%;max-width:1512px;margin:auto;padding:0 28px;display:flex;align-items:center;gap:22px}.brand{display:flex;align-items:center;gap:13px;flex-shrink:0;color:var(--ink);font-size:18px;font-weight:650;white-space:nowrap}.brand:hover{text-decoration:none}.brand svg{width:28px;height:28px;stroke:#6a46a8;fill:none;stroke-width:1.7;stroke-linejoin:round}.header-context{color:var(--muted);font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.search-button{margin-left:auto;display:flex;align-items:center;gap:10px;flex-shrink:0;min-width:240px;padding:6px 13px;background:#f5f7f9;border:1px solid transparent;border-radius:4px;text-align:left;color:var(--muted);font-size:14px}.search-button:hover{border-color:#d2d9e2}.search-button svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8}.search-button kbd{margin-left:auto;color:#88929e;font:12px Consolas,monospace;border:1px solid #dce2e8;padding:0 5px;border-radius:3px}.icon-button{border:0;background:transparent;padding:6px;color:var(--ink);font-size:22px;line-height:1.2}.menu-button{display:none}
+.book-layout{max-width:1512px;margin:auto;display:grid;grid-template-columns:280px minmax(0,1fr) 220px;gap:32px;padding:30px 28px 0}.book-sidebar,.toc-sidebar{position:sticky;top:88px;align-self:start;max-height:calc(100vh - 114px);overflow:auto;scrollbar-width:thin;font-size:14px;line-height:1.55;padding-bottom:24px}.book-sidebar{border-right:1px solid var(--line);padding-right:22px}.sidebar-title{display:block;color:var(--ink);font-size:15px;font-weight:650}.sidebar-subtitle{color:var(--muted);font-size:12px;margin:7px 0 20px}.book-sidebar nav a{display:block;color:var(--ink);padding:9px 10px;border-left:2px solid transparent;margin:2px 0}.book-sidebar nav a:hover{background:#f7f9fb;text-decoration:none}.book-sidebar nav a.active{color:var(--accent);border-left-color:var(--accent);background:#f2f8f4}.nav-label{display:block;margin:19px 10px 8px;font-size:12px;color:var(--muted);font-weight:600}.toc-title{font-weight:650;color:#82909e;font-size:13px;margin:2px 0 12px}.toc-sidebar nav{border-left:1px solid var(--line)}.toc-sidebar a{display:block;color:var(--muted);font-size:13px;line-height:1.6;padding:5px 0 5px 14px;margin-left:-1px;border-left:2px solid transparent}.toc-sidebar a.subheading{padding-left:24px;font-size:12px}.toc-sidebar a.active{color:var(--accent);border-left-color:var(--accent)}.toc-sidebar a:hover{color:var(--link);text-decoration:none}
+main{min-width:0;padding:0 0 28px}.reading-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--muted);font-size:12px;padding:0 0 16px;border-bottom:1px solid var(--line);margin-bottom:32px}.reading-options{display:flex;align-items:center;gap:15px;flex-shrink:0}.reading-options label{display:flex;align-items:center;gap:5px;cursor:pointer}.reading-options input{accent-color:var(--accent)}.reading-options button{border:0;background:transparent;color:var(--link);padding:0;font-size:12px}.toc-button{display:none}article{font-size:16px;line-height:1.85;overflow-wrap:break-word}h1,h2,h3,h4{line-height:1.45;font-weight:600;color:var(--ink);scroll-margin-top:92px}h1{font-size:34px;letter-spacing:-.4px;margin:0 0 30px}h2{font-size:26px;margin:48px 0 22px;padding-bottom:10px;border-bottom:1px solid var(--line)}h3{font-size:21px;margin:34px 0 16px}h4{font-size:18px;margin:28px 0 12px}p{margin:0 0 21px}li{margin:6px 0}ul,ol{padding-left:25px;margin:18px 0 24px}strong{font-weight:650}hr{border:0;border-top:1px solid var(--line);margin:36px 0}a[id]{scroll-margin-top:92px}.heading-link{font-size:.65em;margin-left:8px;opacity:0;vertical-align:middle;color:#8695a3}.heading-link:focus,h1:hover .heading-link,h2:hover .heading-link,h3:hover .heading-link{opacity:1}code{font-family:Consolas,"SFMono-Regular",monospace;font-size:.9em;background:#f1f3f5;color:#476582;border-radius:3px;padding:2px 5px;overflow-wrap:anywhere}pre{position:relative;background:#f6f8fa;color:#34495e;padding:20px;overflow:auto;font-size:14px;line-height:1.7;border:1px solid var(--line);border-radius:4px;margin:24px 0}pre code{padding:0;background:none;color:inherit;white-space:pre;overflow-wrap:normal}.code-copy{position:absolute;right:8px;top:8px;padding:3px 8px;font-size:11px;background:#fff;border:1px solid #dce2e8;border-radius:3px;color:var(--muted)}figure{margin:32px 0;overflow-x:auto}figure img{display:block;width:100%;min-width:620px;height:auto}figcaption{font-size:13px;color:var(--muted);text-align:center;margin:12px 0 4px}table{border-collapse:collapse;width:100%;font-size:14px;line-height:1.75}th,td{border:1px solid var(--line);padding:11px 14px;text-align:left;vertical-align:top}th{background:#f5f7f9;font-weight:600}tr:nth-child(even){background:#fbfcfd}.table-wrap{overflow:auto;margin:26px 0;border-radius:3px}blockquote{margin:24px 0;padding:14px 20px;background:#f6f8fb;border-left:3px solid #7f9ab7}blockquote p:last-child{margin-bottom:0}.source-section{border-top:2px solid #dce7ef;margin-top:40px}.hide-source .source-section{display:none}.book-section{scroll-margin-top:90px}.book-section+[hidden]{display:none}.home-section>h1{text-align:center;font-size:37px;margin:38px 0 30px}.home-section>p:first-of-type{font-size:17px;line-height:1.9}.chapter-overview{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:4px;overflow:hidden;margin:28px 0 44px}.chapter-card{padding:18px 20px;color:var(--ink);border-bottom:1px solid var(--line);border-right:1px solid var(--line)}.chapter-card:nth-child(even){border-right:0}.chapter-card:hover{background:#f7f9fb;text-decoration:none}.chapter-card strong{display:block;font-size:17px;line-height:1.6;margin-bottom:8px}.chapter-card span{display:block;font-size:13px;line-height:1.8;color:var(--muted)}.chapter-number{color:var(--accent)}.page-turns{display:grid;grid-template-columns:1fr 1fr;gap:20px;border-top:1px solid var(--line);margin-top:56px;padding:24px 0}.page-turns a{color:var(--ink);line-height:1.6}.page-turns a:last-child{text-align:right}.page-turns small{display:block;color:var(--muted);font-size:12px;margin-bottom:4px}.page-turns span{font-size:15px;font-weight:600}.page-footer{border-top:1px solid var(--line);padding:20px 0;margin-top:28px;display:flex;justify-content:space-between;gap:12px;font-size:12px;color:var(--muted)}
+dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1px solid var(--line);border-radius:8px;color:var(--ink);box-shadow:0 16px 60px #15243833}dialog::backdrop{background:#1c2c4070}.search-heading{display:flex;align-items:center;justify-content:space-between}.search-heading h2{font-size:21px;margin:0 0 18px;border:0;padding:0}.search-field input{width:100%;padding:12px 14px;border:1px solid #c7d2df;border-radius:4px;font-size:16px;background:white;color:var(--ink)}#search-status{font-size:12px;color:var(--muted);margin:12px 0}#search-results a{display:block;padding:15px 4px;border-top:1px solid var(--line);color:var(--ink)}#search-results a:hover{background:#f7f9fb;text-decoration:none}#search-results strong{display:block;font-size:15px;margin:4px 0}#search-results small{color:var(--accent);font-size:12px}#search-results p{font-size:13px;color:var(--muted);margin:0}mark{background:#fff1ae;color:inherit}.noscript-note{background:#f6f8fb;padding:12px;font-size:13px}.drawer-backdrop{position:fixed;inset:58px 0 0;background:#17283b55;z-index:12}
+@media(min-width:1500px){.book-layout{grid-template-columns:280px minmax(0,850px) 220px;gap:42px}}
+@media(max-width:1190px){.book-layout{grid-template-columns:240px minmax(0,1fr);gap:30px}.toc-sidebar{display:none;position:fixed;top:108px;right:24px;background:white;padding:18px;width:280px;max-height:70vh;border:1px solid var(--line);border-radius:4px;box-shadow:0 8px 28px #1524381a;z-index:11}.toc-sidebar.open{display:block}.toc-button{display:inline-block}.header-context{max-width:280px}}
+@media(max-width:800px){.header-inner{padding:0 16px;gap:12px}.menu-button{display:block}.brand{font-size:16px;gap:9px}.brand svg{width:23px;height:23px}.header-context{display:none}.search-button{min-width:0;padding:7px;margin-left:auto;background:transparent}.search-button span,.search-button kbd{display:none}.search-button svg{width:22px;height:22px}.book-layout{display:block;padding:22px 20px 0}.book-sidebar{display:none;position:fixed;top:58px;left:0;bottom:0;width:min(320px,85vw);max-height:none;background:#fff;padding:24px 20px;z-index:13;border-right:1px solid var(--line)}.book-sidebar.open{display:block}.reading-toolbar{font-size:11px;margin-bottom:25px;gap:8px}.reading-options{gap:11px}.reading-options button{font-size:11px}.reading-options label{font-size:11px}#reading-context{max-width:80px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}h1{font-size:28px;margin-bottom:24px}h2{font-size:23px;margin-top:36px}h3{font-size:19px}article{font-size:15px;line-height:1.9}.home-section>h1{font-size:30px;margin-top:24px}.home-section>p:first-of-type{font-size:15px}.chapter-overview{grid-template-columns:1fr}.chapter-card{border-right:0;padding:17px}.chapter-card strong{font-size:16px}figure{margin:26px 0}table{min-width:620px}pre{font-size:12px;padding:16px}.page-turns{gap:16px}.page-turns span{font-size:13px}.page-footer{font-size:11px}.toc-sidebar{right:20px;top:104px;width:min(300px,calc(100vw - 40px))}dialog{padding:18px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+@media print{.site-header,.book-sidebar,.toc-sidebar,.reading-toolbar,.page-turns,.page-footer,.code-copy,.heading-link{display:none!important}.book-layout{display:block;padding:0}main{padding:0}article{font-size:11pt}.book-section[hidden]{display:block!important}.hide-source .source-section{display:block}pre{white-space:pre-wrap}pre code{white-space:pre-wrap}figure img{min-width:0}.table-wrap,figure{overflow:visible}h1,h2,h3{break-after:avoid}figure,pre{break-inside:avoid}}
+</style></head>
+<body id="top">
+<a class="skip-link" href="#content">跳到正文</a>
+<header class="site-header">
+  <div class="header-inner">
+    <button class="icon-button menu-button" id="menu-button" aria-label="打开全书目录" aria-expanded="false" aria-controls="book-sidebar">☰</button>
+    <a class="brand" href="reader.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1Z M12 6v14"/></svg><span>DeepSeek Harness</span></a>
+    <span class="header-context" id="header-context">中文教材</span>
+    <button class="search-button" id="search-button" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg><span>搜索本书</span><kbd>/</kbd></button>
+  </div>
+</header>
+<div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
+<div class="book-layout">
+  <aside class="book-sidebar" id="book-sidebar" aria-label="全书目录">
+    <a class="sidebar-title" href="reader.html">深入理解 DeepSeek Harness</a>
+    <p class="sidebar-subtitle">中文教材 · 原理与实现</p>
+    <nav id="book-nav" aria-label="章节导航"><a href="reader.html">全书导读</a><span class="nav-label">随用随查</span><a href="appendices.html">语法与数据基础</a><a href="subsystems.html">补充能力</a><a href="glossary.html">术语索引</a><a href="evidence.html">实现证据</a><a href="references.html">原项目文档</a></nav>
+  </aside>
+  <main id="content" tabindex="-1">
+    <div class="reading-toolbar"><span id="reading-context">开始阅读</span><div class="reading-options"><label><input id="source-toggle" type="checkbox">隐藏源码研读</label><button id="reading-mode" type="button" hidden>全文阅读</button><button class="toc-button" id="toc-button" type="button" aria-expanded="false" aria-controls="page-toc">本页目录</button></div></div>
+    <article id="book-content"><h1 id="heading-1">补充能力：沿同一运行主线理解其余子系统</h1>
+<p>本附录沿材料、存储、执行环境、产品和运行治理五条线，介绍主线之外的子系统。各节说明输入、处理过程与结果，原项目文档和实现入口列在文末索引中。</p>
+<p>阅读每项能力时，先找输入来自哪里，再看它做了什么，最后追踪结果怎样回到 Session、工具或客户端。这样就能把不同的子系统接回前面的运行主线。</p>
+<h2 id="heading-2">用一张地图认识整个仓库</h2>
+<figure><img loading="lazy" src="figures/F21A.svg" alt="整个项目的三组合作职责"><figcaption>整个项目的三组合作职责 · <a href="figures/F21A.svg">查看原图</a></figcaption></figure>
+<p>图 F21A 并列列出运行与材料、能力与动作、产品与治理三组职责。先在图中找到某项能力，再沿下面的小节理解它与其他部件的联系。</p>
+<p>可以把项目理解为六层。最内侧是 Session 事实与 Agent 运行；围绕它是模型、材料和工具；再外侧是文件、进程、检索等 Provider；宿主接口把这些能力交给客户端；网页与桌面形成用户产品；测试、计量与发布支撑版本维护。</p>
+<p>插件体系把这些层装进同一个应用，各层仍通过明确接口协作。例如删除工作区分组只修改注册记录，用户目录由文件服务管理；模型提出命令后，工具链检查准入，进程 Provider 负责执行。</p>
+<p>前九章研究运行与材料，第十至十五章研究装配、边界与产品，第十六至十八章研究验证和综合案例，第十九章研究 Cordis 理论。主线采用简单读取任务，使初学者先看懂闭环；补充小节再解释编辑、执行、远程环境、语音、定时与协作。读者不需要先阅读源文件，也不需要先运行项目。</p>
+<h2 id="heading-3">附件与 Session 引用怎样变成模型材料</h2>
+<p>上传图片不是把浏览器临时 URL 永久塞进对话。浏览器临时地址只在当前环境有效，刷新或换进程可能失效。附件服务先校验并保存二进制对象，成功后才发布不可变引用；Session 记录保存引用与元数据，图片字节由附件 Provider 管理。这样恢复和 fork 可以共享已有对象，而不是重复复制整张图。</p>
+<p>图片进入模型前，附件处理链根据所选模型的尺寸与编码约束生成请求版本。附件存储负责保存图片，模型路由决定是否接受图片输入。通用文件另有暂存与提交路径，正文需要由相应读取操作展开。</p>
+<p>Session 引用把先前对话的快照加入当前任务。Session 标识确定来源，标题用于显示。准备过程捕获当时的消息 Surface，并记录原始序号和格式版本，后续请求使用这份快照。来源 Session 继续变化时，要重新取材才能获得新增内容。文件候选补全则返回路径，正文由后续读取获取。</p>
+<p>例如选择“昨天的调查”再问“继续总结”，框架按来源 Session 标识获取可读材料。来源不可读、预算不足、自引用或取消时，准备过程返回对应结果。材料保留来源身份，用户请求则继续沿提交入口表达本次任务要求。</p>
+<h2 id="heading-4">材料的作用域与超长结果</h2>
+<p>作用域可以理解为“这项贡献对谁可见，并由谁负责撤销”。全局工具或提示片段可被多位 Agent 使用，某个 Agent 专属条目只影响对应身份；插件卸载要撤销自己的注册，不能移除其他贡献方的条目。作用域对象身份与显示名字分开，因此重名不代表同一个拥有者。</p>
+<p>文件、搜索或跨 Session 引用返回过长文字时，spill 机制把完整文本交给存储 Provider，返回定位符和检索说明。工具结果可以保留首尾预览，附上全文位置。定位符有本地路径、远端地址和其他句柄等形式，消费方按对应 Provider 提供的取回方式读取。</p>
+<p>三种处理方式改变的内容不同：spill 外置原文并提供取回入口；压缩用较短表示代替原文；截断只保留选定部分。本地 spill 保存失败时，可退回原来的内联结果，让调用方继续获得材料。</p>
+<h2 id="heading-5">非 Session 存储：工作区和产品状态怎样保存</h2>
+<p>JSON 把对象、数组、文字与数字等数据写成可交换的文本；SQLite 是在本地数据库文件中管理记录的系统。一个“领域”在这里指某类业务数据，例如工作区注册或定时提醒。领域 API 是其他程序操作这类数据的方法入口，不是任意读取底层文件的权限。</p>
+<p>Session 日志用于运行事实；工作区目录注册、定时记录等产品数据，使用另一类领域存储。存储枢纽只是注册后端与数据形式的入口，本身不做文件读写。JSON 与 SQLite 后端提供不同介质，领域层声明记录结构与版本，业务包通过领域 API 操作自己的数据。</p>
+<p>工作区注册保存规范目录路径、标题和有序 Session 账本，并检查账本中的 Session 是否具有对应 cwd。目录身份由规范路径确定：符号链接指向同一目录时，共用对应注册关系。删除注册解除分组，用户目录、文件、实时 Session 与日志继续保留。</p>
+<p>各领域独立选择已挂载的存储后端。后端负责一次写入，领域拥有者维护多次业务更新的顺序和恢复规则。启动所需服务缺失时返回不可用状态；空列表则表示读取成功、当前没有记录。</p>
+<h2 id="heading-6">查询、投影和标题是三种派生用途</h2>
+<p>Session 查询提供统一的历史读取层，实时来源可用时优先读取它。全文索引帮助定位匹配记录，查询结果保留来源与观察条件；需要精确内容时，再读取对应 Session 记录。</p>
+<p>投影把有序事件折叠成某种业务状态，例如最新待办、计划状态、目标或团队任务板。领域贡献纯计算单元，宿主注册表驱动折叠，再向客户端提供完整视图。客户端接收的状态是成品值，不要求每个 UI 自己重做一遍所有领域事件逻辑。快照携带序号，说明它对应日志中的哪个切面。</p>
+<p>标题用于 Session 导航。标题服务记录所用的人类消息和 Provider，通过辅助模型请求生成短标题；这个请求独立记录自己的结果。用户修改标题更新导航资料，主体任务沿原有运行链继续推进。</p>
+<h2 id="heading-7">恢复与迁移：旧格式怎样继续读取</h2>
+<p>持久文件格式会演进。系统先识别可读的规范 generation，再通过受支持的相邻迁移步骤转换成当前逻辑事件。只读打开在内存中使用转换结果；写打开验证结果后，在原文件旁发布新的版本文件，并保留已提交的旧 generation。</p>
+<p>迁移转换数据表示，恢复处理运行中断后留下的状态。打开 Session 时，系统从已保存事件恢复事实，再确认写入权和继续位置；遇到未来格式或不支持的历史输入，则明确返回错误。</p>
+<p>重新打开对话时，Session 记录恢复消息和运行事实。浏览器登录、PTY 进程和外部桌面状态保存在各自环境中，由对应 Provider 查询和管理。</p>
+<h2 id="heading-8">文件修改、搜索与网页获取</h2>
+<p>读取与修改都经过文件服务。read 提供有限窗口，write 提交完整新内容，edit 按约束修改已有文本。工具链检查目标、执行策略与取消状态；挂载文件观察策略时，还会要求先建立当前观察，再允许相关修改。</p>
+<p>glob 按路径模式发现文件，grep 按内容匹配查找，返回的候选帮助决定下一步读哪些文件。结果数和文字量各有上限，超量结果可经 spill 保存。LSP 用定义、引用和实现等关系提供语义导航，帮助区分文字相同而含义不同的位置。</p>
+<p>Web 搜索接收查询，返回来源列表；网页抓取接收地址，返回 HTTP 状态与有大小上限的正文。多条查询可以拆成独立请求，由所选 Provider 执行检索。抓取收到 404 或 500 时，响应本身已经到达，但目标资源分别处于不存在或服务器错误状态。</p>
+<p>外部网页、文件和代码注释作为带来源的材料进入请求。用户通过任务入口表达要求，工具链继续检查调用准入；材料中的命令式文字仍按其来源处理。</p>
+<h2 id="heading-9">MCP 资源与程序化工具调用</h2>
+<p>URI（Uniform Resource Identifier，统一资源标识符）为资源提供一个可识别的地址或名称。例如一个服务器公开某份文档的标识，客户端还要发送读取请求才能得到正文。程序化工具调用的英文名称是 Programmatic Tool Calling，简称 PTC。</p>
+<p>MCP 工具承载远端动作，MCP 资源承载远端材料。资源列表用于发现 URI，模板列表用于发现可参数化的资源入口，读取请求获取具体正文；每项请求分别检查自己的调用条件并返回结果。</p>
+<p>程序化工具调用（PTC）则改变组织方式：模型提交一段程序，通过运行时绑定调用已有工具。绑定类似程序可用的异步函数入口，其参数与结果走可传输的 JSON 约定；它不是把整套 Host 对象直接交给程序随便操作。</p>
+<p>在相应工具模式中，run_code 承载外层程序，嵌套调用重新进入已有工具准入与结果链。程序可以组织循环或并发，但并发安全性、上限、输出预算和取消仍受运行机制约束。程序成功、某个嵌套工具成功与整个业务任务成功分别需要判断。</p>
+<p>普通 Tool Call 由模型逐次提出动作；PTC 在一次外层调用中，用程序组织多项动作。循环与并发可以减少模型来回组织工具的次数，程序错误与嵌套调用则增加了诊断环节。评价时，将外层请求次数、实际工具次数、用量和产物质量一起记录。</p>
+<h2 id="heading-10">审批、权限预设与真正的执行约束</h2>
+<p>权限预设把沙箱模式与审批策略组成便于选择的界面选项。这两个旋钮仍独立：审批决定某次操作是否获准，沙箱决定进入执行后文件效果受到什么限制。预设名称是产品表达，实际限制来自具体后端。</p>
+<p>read-only 要求受限后端拒绝写入，workspace-write 允许规定根目录与临时区域，danger-full-access 绕过该文件隔离。后端以 full 或 partial 报告文件约束的实现程度。网络访问和进程可见性由各自执行环境的机制控制。</p>
+<p>批准结果进入当前调用的准入链。取消信号阻止尚未开始或能响应取消的后续工作；已经交给浏览器、桌面或外部系统的动作，后续状态由对应服务处理。</p>
+<h2 id="heading-11">Shell、子进程与持久终端</h2>
+<p>Shell 是解释命令文字并组织执行的程序，例如 PowerShell。argv 是交给可执行程序的一组参数值；cwd 是 current working directory，即本次工作的起始目录。PTY 是 pseudoterminal，伪终端，它为程序提供类似交互终端的输入输出环境，使后续输入能够接上同一个运行中的 shell。</p>
+<p>Shell 工具把模型命令交给执行器；子进程服务提供更底层的创建、标准流与终止能力。Shell 请求可以省略部分选项，再由解析步骤形成明确规格；子进程规格则要求调用方显式给出参数、目录和流处理方式。直接 argv 不经过 shell 解释，与把文字交给 Bash 或 PowerShell 是不同执行入口。</p>
+<p>一次性运行收集输出后返回；持久 PTY 保留 shell 状态，供后续输入继续使用。terminal_send 在静默或等待超时后可先返回，此时 shell 仍可能运行。终端按实际 Agent 身份检查归属，Session 记录工具交接与有界结果，进程环境保存 PTY 状态。</p>
+<p>退出码、超时、主动取消和系统中断分别记录。例如进程捕获中断后返回 0，结果仍要保留中断事实，才能解释它为何结束。标准输出超出上限时，框架保留截断后的文本和恢复提示。具体 Provider 负责回收进程资源，并为当前执行注入 DSH_* 托管变量，以当前上下文重新建立这些变量。</p>
+<h2 id="heading-12">远程执行与语义导航</h2>
+<p>SSH（Secure Shell）是一种建立受保护远程连接的协议；例如在主机上的框架请求另一台机器读取其工作目录。LSP（Language Server Protocol，语言服务器协议）让编辑与分析程序向语言服务器询问代码的定义、引用等关系。这里的语义是代码中的含义与关联，不只是文字是否相同。</p>
+<p>SSH Provider 把文件和进程执行坐标移到远端，Harness、模型传输与 Session 存储可继续留在主机。此时 cwd、可执行文件、沙箱根和语言服务器 URI 都指向远端环境。主机路径不能默认在远端可用，配套文件与子进程 Provider 必须处于一致坐标。</p>
+<p>SSH 传输请求，远端沙箱实施文件约束。连接断开时，框架报告尚未确认的结果；重试修改前，需要确认远端是否已经执行。远程文件预览还需要客户端资源层支持相同坐标，才能把远端文件接到 GUI。</p>
+<p>LSP 在项目中提供定义跳转、引用查找、实现跳转与悬停等语义查询。工具选择对应语言 Provider，将面向读者的光标坐标转成协议坐标，再请求语言服务器。没有匹配 Provider 时报告不可用；查询成功但没有匹配关系时才返回空结果。</p>
+<h2 id="heading-13">CLI、Headless、SDK 与 ACP 是不同载体</h2>
+<p>CLI（Command-Line Interface，命令行界面）接收终端中的命令与选项。SDK（Software Development Kit，软件开发工具包）给其他程序提供调用接口。Headless 指无需图形界面的运行方式；GUI（Graphical User Interface）指窗口、按钮等图形界面。ACP（Agent Client Protocol）约定客户端与 Agent 的交互协议。各入口启用哪些服务，由所选 profile 决定。</p>
+<p>CLI 选择具名 profile，再启动共享运行机制。Web profile 提供浏览器产品；headless 承载不带 GUI 服务器的一次性运行；sdk 提供程序调用服务器；acp 提供 Agent Client Protocol 接口。sdk-minimal 使用独立的显式组合，所需能力直接写在自己的配置树中。</p>
+<p>TypeScript SDK 与 Python SDK 都是 Harness 客户端，使用 profile 和有序 patch 表达组合。Python 运行时分发包含对应平台的 CLI，客户端经该入口调用既有循环、插件和权限机制。</p>
+<p>这些载体复用模型、Session 和工具服务：协议传输请求并映射身份，服务执行动作，客户端观察结果。各 profile 分别选择服务集合和 HMR 设置，因此同一能力在不同入口下有各自的启用配置。</p>
+<h2 id="heading-14">一项能力怎样从源文件成为产品</h2>
+<p>构建是把源文件处理成程序能够加载的产物；发布是把一个已选版本分发出去。npm 是 JavaScript 生态中的包管理工具与分发入口，OS 是 operating system，即操作系统。原生组件使用特定系统与处理器的运行能力，因此 Windows 与另一平台的同名包不一定能互换。</p>
+<p>仓库采用多包组织，每个包声明类型、服务、Provider 或消费方。构建把 TypeScript 与前端资源变成可加载产物，包依赖保证运行时找到所需模块；发布分发版本，profile 选择启用条目。仅有源文件、仅构建成功、已安装和已启用都是不同状态。</p>
+<p>桌面发行版携带匹配的生产运行时与独立 desktop profile；npm CLI 和桌面可以共享产品数据，各自维护包与启用配置。原生扩展还按 OS 和处理器架构选择匹配版本。</p>
+<p>工程检查覆盖类型与包边界、工具和配置目录同步、文档类型等价、应用入口分类及测试。发布流程继续完成分发、签名和安装验证，把已检查版本交付给使用者。</p>
+<h2 id="heading-15">设置和凭据为什么分开管理</h2>
+<p>设置表单从可编辑配置字段生成，页面更新通过 profile patch 保存，消费者在实际操作时读取当前配置。普通构建期字段不会自动出现在动态表单中；多实例插件依靠各自条目 id 拥有不同命名空间。版本冲突检查防止旧页面覆盖较新的编辑。</p>
+<p>凭据配置保存引用，例如一个环境变量名，实际秘密由凭据 Provider 管理。模型适配器按请求解析引用，因此已轮换的值可以用于下一次请求，不需要把旧密钥写入每条 Session。空值视为缺失，不应默默借用另一套无关凭据。</p>
+<p>配置界面显示凭据引用是否已配置、来自哪一层和是否可编辑，秘密值由凭据 Provider 解析。当前进程环境覆盖本地存储值时，Provider 按该优先级报告只读条件。模型路由在实际请求时解析所需凭据，账号登录状态另由对应 Host 管理。</p>
+<h2 id="heading-16">浏览器界面为什么也由插件组成</h2>
+<p>Client model 是客户端保存的可观察状态对象，UI adapter 是把这些状态接到界面的一层程序，Slots 是界面预留的内容插入位置。比如宿主新增一条消息，客户端镜像更新，适配层让聊天区域重新显示；并不是宿主直接修改浏览器中的每个按钮。</p>
+<p>Host 拥有真实状态，Client model 维护可观察镜像，UI adapter 把镜像接到视图，Slots 将功能组件装进页面。客户端模块系统扫描包声明，形成启动图并加载资源；这和模型看到的 skill 目录不是同一种注册表。</p>
+<p>Slots 是由组件拥有的插入位置。功能插件向已声明位置注册内容，框架按数量和作用域规则组合渲染；位置未知或所有权冲突时进入错误处理。位置与类型约定让功能插件接入页面，而无须直接引用另一个功能的内部 React 组件。</p>
+<p>Typert Remote 把业务方法变成类型化远程调用：请求携带端点与参数，宿主解析相应对象身份和调用上下文，取消通过独立信号承载。传来的 id 是对象的传输身份，不是任意对象本体；解析器不可用时应失败，不能把 JSON 值当作拥有实际权限的服务实例。</p>
+<p>Conversation 将持久事件和 Client-only 临时条目组织成聊天、轨迹等视图。视图共用事实来源，各自选择展示结构。流式生成时先显示临时内容，终结后再根据 Host 记录结算为助手消息、失败尝试或中断状态。</p>
+<h2 id="heading-17">文件预览、右侧面板与交付卡片</h2>
+<p>文件预览是让人查看文件的产品能力。Office 指文档、表格或演示文件等办公材料，PDF 是保持页面布局的文档格式。转换得到预览页与把文件交给模型，是两条不同的数据路径。</p>
+<p>客户端资源模型用带协议的地址描述可读取、更新的资源。例如 Session 文件地址同时标识文件与归属范围。资源 Provider 解析地址，检查权限和可用性，再完成读取或更新，并返回相应状态。</p>
+<p>右侧面板保存各 Session 的标签与布局，将文件、目录或产品页面停靠、分栏或浮出。恢复布局后，文件资源重新读取当前内容，内置页面则按自己的导航地址加载。</p>
+<p>Office 预览先由消费者确认读取授权，再把有界的源文件交给转换服务形成 PDF。结果可以报告缺失字体并复用相同内容的转换；预览转换本身不创建模型工具或 Session 消息。用户看到了 Office 内容，与模型取得该内容也是两项不同观察。</p>
+<p>present 工具记录声明交付的文件，界面据此显示产物。工作区改动摘要比较轮次前后的 Git 或文件观察快照；由实时 Host 保存的摘要随该运行实例存在。文件交付记录、改动摘要和产物检查分别提供路径、差异和质量信息。</p>
+<h2 id="heading-18">语音、浏览器操作与电脑操作</h2>
+<p>语音识别的输入是麦克风录制的音频，输出是编辑器中的文字。浏览器拥有录音与草稿，Host Provider 转写；选区版本、Session 切换与插件释放决定迟到结果还能否插入。只有普通用户提交把最终文字放进模型任务，所以识别完成不会自动成为已经发出的用户消息。</p>
+<p>浏览器操作 Provider 可以启动或附加浏览器。启动的浏览器归确切实时 Session，跨轮次复用，但恢复或 fork 不从日志恢复登录与页面状态；附加的外部浏览器清理时通常断开连接，外部浏览器仍由原拥有者维护。相应 Provider 为实验性且需显式启用。</p>
+<p>电脑操作扩展支持屏幕截取与桌面交互，可通过原生 Cua Driver 或外置 MCP Provider 接入。注册服务 Provider 后，服务不会为单一 Session 独占桌面，多 Session 并发访问需引入显式锁或排队机制。屏幕截图能否进入模型上下文，取决于附件存储配额与多模态路由策略；对正在执行的桌面动作发起取消，无法回滚操作系统已经接收并执行的物理鼠标点击或键盘输入。</p>
+<p>语音扩展把音频转成输入文字，浏览器扩展管理网页操作，电脑操作扩展管理桌面动作。三项能力分别挂载 Provider，使用各自的资源归属和生命周期。</p>
+<h2 id="heading-19">向用户提问如何参与运行</h2>
+<p>材料不足或需要人类决定时，提问工具递交一批带稳定 id 的问题。UI 显示选项、说明或自由文本，再按 id 将答案返回请求方。批准型问题根据指定答案表达同意，呈现样式负责显示。</p>
+<p>阻塞模式等待答案再返回；带前台超时的模式先返回 pending，并保留仍可回答的问题。稍后回答按问题身份交接给后续输入。预选项只是界面默认选择，用户实际提交后才形成答案。</p>
+<h2 id="heading-20">不变式、反馈与遥测各提供什么证据</h2>
+<p>不变式是程序在规定条件下始终满足的关系，例如结果能够关联对应调用。遥测把选定运行信息交给观测系统。OTel 是 OpenTelemetry 的常用简称，提供组织与传输观测数据的机制；span 记录一段操作及其时间关系。业务包决定采集哪些操作，再通过共享通道上报。</p>
+<p>运行时不变式检查数据或事件之间应保持的关系，例如请求材料是否能从记录重建。注册表按包与过滤条件安装检查，失败时归因到拥有包。每项检查都要对应具体、可观察的关系，才能定位问题。</p>
+<p>消息反馈保存对某条助手消息的评价与备注，Session 反馈保存整段交互的意见。反馈作为日志事实保存，默认留在评价通道。并发编辑按版本检查，防止旧页面覆盖新反馈；任务检查另按预先规定的要求评价产物。</p>
+<p>Session 遥测捕获选定且获授权的日志前缀，脱敏后交给后端。交接游标记录本地交接进度；崩溃、重载和重试会影响实际送达。接收方按 Session 与记录身份去重，再统计任务和事件数量。</p>
+<p>OTel 提供共享上报通道。产品埋点显式选择产品事件，Session 上报另有采集策略和队列；Web 与桌面各自配置采集。理解观测链时，先查业务包选了哪些数据，再追踪它们如何进入上报服务。</p>
+<p>评价记录可以同时包含日志、遥测、用户反馈和产物检查：日志还原动作，遥测补充时间与运行状态，反馈描述用户体验，产物检查核对任务要求。将它们关联到同一个任务，才能解释一次运行的结果。</p>
+<h2 id="heading-21">模型路由、缓存与推理选项</h2>
+<p>模型元数据描述模型能力，例如支持哪些输入、上下文容量多大。缓存保存可复用的计算结果；KV Cache 中的 K、V 分别指 Key 和 Value，是模型计算中的中间数据。Harness 准备请求材料，模型服务负责自己的缓存实现和命中判断。</p>
+<p>模型元数据说明具体模型的上下文容量、输入模态和选项支持。reasoningEffort 是 Provider 提供的推理强度选项，适配器把界面选项映射成协议字段，按所选模型解析可用值。</p>
+<p>重复前缀能否复用缓存，由 Provider 的缓存条件决定。压缩和配置变化会改变请求前缀；评价缓存效果时，分别记录请求内容、本地 token 估计、Provider 报告的缓存用量和实际计费类别。</p>
+<p>多模态数据沿整条链传递：模型适配器编码并传输，UI 展示，压缩保留后续所需信息，持久化和回放保存可恢复的表示。新增一种模态时，要把这些环节一起接通，才能完成从输入到恢复的过程。</p>
+<h2 id="heading-22">计划、待办与持续目标怎样区分</h2>
+<p>Todo 记录待办项，Goal 保存持续推进的目标，Round 表示围绕该目标的一次后续推进。Round 可以包含多个 turn 和 step，和第 3 章单个工具步骤处于不同的组织层次。</p>
+<p>计划模式为模型增加工作指引，并把开关写入日志。用户在运行中切换时，选择先进入待生效状态，在获接纳的步骤边界记录并用于后续请求。工具调用继续经过原有准入和执行环境。</p>
+<p>Todo 保存 Session 待办列表，工具整体替换该列表，界面显示各项状态。Goal 保存同一 Session 的持续目标和修订，消费策略组织后续 Round。目标记录说明要做什么，实时运行状态说明当前推进到了哪里。</p>
+<p>目标修改检查修订号，后续 Round 使用连续编号并受上限约束。目标被标记为阻塞后，推进停止，等待阻塞条件解除；恢复时再按目标状态继续。</p>
+<h2 id="heading-23">Schedule 与 Webhook：不是每项任务都由当前页面发起</h2>
+<p>Schedule 是由宿主按时间触发的安排。Webhook 是外部系统在事件发生时向预定入口投递信息，例如某个仓库更新后通知服务。cron 用字段表达周期性时间规则；实际时刻还要结合时区解析。</p>
+<figure><img loading="lazy" src="figures/F22A.svg" alt="触发工作与证明工作完成分开观察"><figcaption>触发工作与证明工作完成分开观察 · <a href="figures/F22A.svg">查看原图</a></figcaption></figure>
+<p>图 F22A 左侧是在原 Session 到时投递的提醒，右侧是外部 Webhook 创建的工作。两种入口分别完成时间触发和外部事件接入，投递后的任务都进入普通运行流程。</p>
+<p>Schedule 在独立领域存储中保存提醒，与目标 Session 绑定。时间可能是带偏移量的绝对时刻，也可能是指定时区的每天、每周或 cron 规则。浏览器当前时区不是永久 Session 默认值；自然语言“明天九点”需要明确解释，再形成规范时间记录。</p>
+<p>到时提醒投递到原 Session，未加载的 Session 也按其生命周期接收。启用定时扩展后，宿主保存提醒记录，到时执行投递，再由 Agent 处理输入。active、投递成功和任务完成分别记录在对应阶段。</p>
+<p>Webhook 从外部系统接收已验证交付。Provider 负责身份验证，受信任规则判断是否发起工作，runtime 可在指定工作区创建普通根 Session。外部数据经过验证并不自动成为任意用户授权，预设与工作区仍由受信任规则决定。</p>
+<p>这个 runtime 发起分派后即返回，任务继续在新 Session 中运行。持久队列、重试、去重和完成跟踪属于接入层需要组织的工作；例如相同 delivery id 再次到达时，应先查接收记录，再决定是否创建 Session。</p>
+<h2 id="heading-24">扩展与版本治理怎样衔接</h2>
+<p>扩展系统用带版本的 Cordis 包提供 Host 或浏览器能力，并公开可查询的运行时元数据。能力注册后，作用域、依赖和生命周期决定哪些 Session 可用。动态代码交给指定 Host 与后端执行，资源访问按该执行环境的权限控制。</p>
+<p>版本治理关联材料版本、插件版本、配置、模型选择和运行结果。类型与文档检查核对接口，回放检查固定工程过程，真实任务评价比较产物；选定版本后，再完成签名、安装和运行验证。</p>
+<p>一次改进沿这条链推进：定位问题，修改对应产物，确认新版本在目标配置中生效，按同一任务要求比较结果，再决定采用或撤回。配置和权限决定其中哪些步骤由程序执行、哪些交给人处理。</p>
+<h2 id="heading-25">工作流与后台 Jobs 怎样承载协作</h2>
+<p>工作流按程序规则组织多项处理，Job 记录一项后台工作的身份和状态。工作流安排启动与汇合，Jobs 管理资源、输出和取消，最终产物再按业务要求检查。</p>
+<p>工作流先验证元数据和参数，再执行编排脚本，启动具有父 Agent 归属的子任务并收集结果。phases 为界面提供进度说明；实际启动、等待和分支顺序由脚本决定。</p>
+<p>工作流引擎是可替换服务，现有 PTC 实现通过共享程序运行时执行相应脚本。脚本可组织子任务，但 Provider 选择、总 Agent 上限、执行策略与取消仍由引擎和消费方拥有。子任务成功、脚本返回值与整个业务结果仍分别有含义。</p>
+<p>后台 Jobs 把长时间命令、终端操作与 Subagent 等统一成身份、拥有者、状态和输出控制。生产方拥有实际资源，运行时拥有访问与生命周期记录；done 要等资源释放，而不只是“工作内容算完了”。running、stopping、completed、killed 与 failed 不能合成一个布尔值。</p>
+<p>模型按运行期消费游标读取输出，前端观察者按绝对字节偏移拉取，两者各自推进。输出缓冲有容量上限，完成时关闭数据流；结果交付型任务在首次完整读取时交出产物。生产方另外报告进程收尾，消费者另外记录读取位置，由此区分停止输出、资源释放和产物已读取。</p>
+<p>后台 Jobs 让长工作在前台调用返回后继续运行，并保留所属 Session、输出读取和取消路径。Session 日志保存任务交接事实，执行环境持有进程资源；恢复时沿两条记录分别确认工作状态。</p>
+<h2 id="heading-26">Agent Teams：共享任务板怎样与独立 Session 合作</h2>
+<p>Agent Teams 是本项目的实验性团队协作能力，需显式装配。Lead 指根 Session 中的带队者，teammate 指拥有自己 Session 的成员。roster 是成员名册，task board 是共享任务板，mailbox 是成员之间传递消息的邮箱。共享的是明确记录的团队状态，而不是让所有成员随意读写同一个模型上下文。<a href="evidence.html#s01">S01</a> 对照本节源码。</p>
+<p>沿读取任务看一个拆分例子：Lead 把“读 README”交给甲，把“核对包版本”交给乙，然后整合资料。成员记录保存身份、描述、Provider、fresh 或 fork 的材料来源，以及 provisioning、active 或 failed 阶段。provisioning 表示创建中，active 表示成员已可用，failed 表示创建失败；是否正在处理任务则读取实时 Session 状态。</p>
+<p>任务板每项任务保存身份、主题、描述、状态、revision、ownerId、blockedBy 和 writeScopes。revision 每次修改递增，旧修订进入冲突处理；ownerId 指领取者，blockedBy 列出前置任务，writeScopes 声明预期修改范围。例如总结任务依赖甲和乙的资料任务，要等前置任务符合条件后才能领取。</p>
+<p>writeScopes 提示修改范围是否重叠。甲和乙需要写同一文件时，Lead 可以拆分职责或安排顺序，并在整合时检查冲突。成员把任务标记为 completed 后，Lead 检查返回的资料，再形成总结。</p>
+<p>再看甲向 Lead 发送材料。发送方先交入目标与消息内容，邮箱检查成员身份、目标、待投递数量和消息大小。在根 Session 的日志事务中建立稳定 messageId，并把 queued 事件写入、等待持久化，再组织投递。同一目标的投递按该邮箱记录顺序进入；不同目标仍可各自推进。</p>
+<div class="table-wrap"><table>
+<tr><th>阶段</th><th>改变了什么</th><th>能证明什么</th></tr>
+<tr><td>根 Session 记 queued</td><td>保存消息身份、发送者、目标和内容</td><td>团队已经接纳这项待投递消息</td></tr>
+<tr><td>目标接纳</td><td>目标 Session 得到带团队来源的输入</td><td>输入已交接；目标未必已经完成阅读</td></tr>
+<tr><td>目标记录持久化</td><td>确认相应 messageId 的接收事实</td><td>可以为送达建立持久证据</td></tr>
+<tr><td>根 Session 记 delivered</td><td>保存这一身份的送达边</td><td>不再把它当作待投递；不表示业务任务完成</td></tr>
+<tr><td>后续结果</td><td>成员实际处理并交出资料</td><td>Lead 还需按任务要求检查内容</td></tr>
+</table></div>
+<p>投递时，邮箱检查目标已有的接收身份；恢复时，重新尝试未送达记录。失败消息继续保持 queued。实时目标先 flush 接收记录，再在根 Session 写入 delivered；目标未在内存中时，检查持久接收记录或走子 Session 交接。整个过程用同一 messageId 关联排队、接收和送达。</p>
+<p>团队名册说明由谁工作，任务板组织依赖和领取，邮箱传递材料并保存送达状态。Lead 通过这些记录追踪进展、处理范围重叠，并在汇合时核对成员结果。</p>
+<h2 id="heading-27">调整运行材料与训练模型是两层变化</h2>
+<p>模型权重是模型内部用于计算的数值参数。Harness 在一次请求中提供指令、历史和工具结果，模型按已有权重计算输出。修改 profile、Skill 正文或压缩策略，改变的是运行配置与请求材料；训练则通过优化过程更新权重。</p>
+<figure><img loading="lazy" src="figures/F19A.svg" alt="模型运行材料与参数训练的两层变化"><figcaption>模型运行材料与参数训练的两层变化 · <a href="figures/F19A.svg">查看原图</a></figcaption></figure>
+<p>图 F19A 左侧是运行时变化：提示、历史、工具结果和模型选择影响本次输出。右侧是模型训练：数据和训练目标进入优化过程，得到新权重版本。沿左右两栏，可以确定一次改动落在请求材料还是模型参数上。</p>
+<p>例如把 Skill 中“读取项目”改成“读取 README 并注明行范围”，更新的是材料版本；更换模型路由，更新的是模型选择；另行训练并生成新权重，才是模型参数更新。三类改动分别保存版本，再用相同任务评价结果。</p>
+<h2 id="heading-28">一次改进怎样形成可核对的证据</h2>
+<figure><img loading="lazy" src="figures/F20A.svg" alt="运行证据支持版本改进的过程"><figcaption>运行证据支持版本改进的过程 · <a href="figures/F20A.svg">查看原图</a></figcaption></figure>
+<p>图 F20A 展示用运行证据改进版本的过程：记录条件和轨迹，定位首次偏差，选择更新产物，确认新版本启用，再检查工程行为和实际任务结果。例如读取范围丢失时，先修改结果表达或 Skill 指引，再检查同一任务的总结。</p>
+<p>假设旧回答把十行读取结果说成整个 README，日志确认 read 只返回十行。修订应让工具结果保留行范围，并让总结按实际材料表述。随后用相同任务检查新结果；比较时间与用量时，同时记录模型、输入和配置。</p>
+<p>将 Session 事件、工具结果、回放、反馈与产物检查关联起来，就能沿任务追踪改动的效果，并为采用新版本提供依据。</p>
+<h2 id="heading-29">证据定位</h2>
+<p>各能力的固定文档路径、主线关联和实现入口见 <a href="coverage.json">子系统覆盖表</a> 与 <a href="references.html">原项目文档索引</a>。</p></article>
+    <nav class="page-turns" id="page-turns" aria-label="前后章节" hidden></nav>
+    <footer class="page-footer"><span>深入理解 DeepSeek Harness · 中文教材</span><a href="#top" id="back-top">回到顶部 ↑</a></footer>
+  </main>
+  <aside class="toc-sidebar" id="page-toc" aria-label="本页目录"><div class="toc-title">本页目录</div><nav id="toc-nav" aria-label="本页小节"></nav></aside>
+</div>
+<dialog id="search-dialog" aria-labelledby="search-title">
+  <div class="search-heading"><h2 id="search-title">搜索本书</h2><button class="icon-button" id="search-close" aria-label="关闭搜索">×</button></div>
+  <label class="search-field"><span class="visually-hidden">搜索关键词</span><input id="search-input" type="search" placeholder="输入概念、工具名称或章节标题" autocomplete="off"></label>
+  <p id="search-status" role="status">搜索当前阅读文件的正文和标题</p>
+  <div id="search-results"></div>
+</dialog>
+<noscript><div class="noscript-note">当前显示全文。浏览器启用 JavaScript 后可按章阅读和搜索。</div></noscript>
+<script>(() => {
+  'use strict';
+  const $ = selector => document.querySelector(selector);
+  const content = $('#book-content');
+  const blocks = [...content.querySelectorAll(':scope > .book-section')];
+  const chapterBlocks = blocks.filter(e => e.dataset.chapter);
+  const reader = chapterBlocks.length > 0;
+  const navLinks = [...$('#book-nav').querySelectorAll('a')];
+  const toc = $('#toc-nav');
+  const mode = $('#reading-mode');
+  const sourceToggle = $('#source-toggle');
+  const dialog = $('#search-dialog');
+  const searchInput = $('#search-input');
+  let full = false;
+  let current = blocks[0] || content;
+  let tocHeadings = [];
+  let lastOpener = null;
+  let scrollQueued = false;
+  const escapeHTML = value => value.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const plainHeading = element => element?.dataset.title || element?.textContent.replace(/¶$/, '').trim() || '';
+  const headingOf = block => plainHeading(block.querySelector('h1'));
+  const shortTitle = block => headingOf(block).split('｜').pop();
+  function fragment() { try { return decodeURIComponent(location.hash.slice(1)); } catch { return location.hash.slice(1); } }
+  function closeDrawer() {
+    $('#book-sidebar').classList.remove('open');
+    $('#drawer-backdrop').hidden = true;
+    $('#menu-button').setAttribute('aria-expanded', 'false');
+  }
+  function closeToc() { $('#page-toc').classList.remove('open'); $('#toc-button').setAttribute('aria-expanded', 'false'); }
+  function setCurrent(block) {
+    current = block;
+    for (const a of navLinks) {
+      const active = reader ? (a.getAttribute('href') === '#' + block.id || (!block.dataset.chapter && block.id === 'book-home' && a.getAttribute('href') === '#book-home')) : a.pathname === location.pathname;
+      a.classList.toggle('active', active);
+      if (active) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+    }
+    $('#reading-context').textContent = block.dataset.chapter ? '第 ' + Number(block.dataset.chapter) + ' 章' : reader ? '全书导读' : '随用随查';
+    $('#header-context').textContent = reader ? shortTitle(block) : document.title;
+    document.title = reader && block.dataset.chapter ? shortTitle(block) + ' · DeepSeek Harness' : document.documentElement.dataset.pageTitle;
+    updateToc();
+    updateTurns();
+  }
+  function updateToc() {
+    tocHeadings = [...current.querySelectorAll('h2[id],h3[id]')].filter(h => !(sourceToggle.checked && h.closest('.source-section')));
+    toc.replaceChildren();
+    for (const h of tocHeadings) {
+      const a = document.createElement('a');
+      a.href = '#' + h.id; a.textContent = plainHeading(h);
+      if (h.tagName === 'H3') a.className = 'subheading';
+      toc.append(a);
+    }
+    markToc();
+  }
+  function markToc() {
+    let active = tocHeadings[0];
+    for (const h of tocHeadings) if (h.getBoundingClientRect().top <= 150) active = h;
+    for (const a of toc.children) {
+      const on = a.hash === '#' + active?.id;
+      a.classList.toggle('active', on);
+      if (on) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current');
+    }
+  }
+  function updateTurns() {
+    const turns = $('#page-turns');
+    if (!reader) return;
+    turns.hidden = false;
+    const index = blocks.indexOf(current);
+    turns.replaceChildren();
+    for (const [next, label] of [[blocks[index - 1], '← 上一章'], [blocks[index + 1], '下一章 →']]) {
+      if (!next) { turns.append(document.createElement('span')); continue; }
+      const a = document.createElement('a'); a.href = '#' + next.id;
+      const small = document.createElement('small'); small.textContent = label;
+      const title = document.createElement('span'); title.textContent = next.dataset.chapter ? '第 ' + Number(next.dataset.chapter) + ' 章 · ' + shortTitle(next) : '全书导读';
+      a.append(small, title); turns.append(a);
+    }
+  }
+  function showTarget(scroll = true) {
+    const id = fragment();
+    const target = id ? document.getElementById(id) : null;
+    const block = target?.closest('.book-section') || (id === 'content' || id === 'top' ? current : blocks[0]) || content;
+    if (reader) for (const b of blocks) b.hidden = !full && b !== block;
+    if (target?.closest('.source-section') && sourceToggle.checked) {
+      sourceToggle.checked = false; document.body.classList.remove('hide-source');
+    }
+    setCurrent(block);
+    closeDrawer(); closeToc();
+    if (scroll) requestAnimationFrame(() => {
+      if (target && id !== 'top') target.scrollIntoView({block:'start', behavior:'instant'});
+      else window.scrollTo({top:0, behavior:'instant'});
+    });
+  }
+  document.documentElement.dataset.pageTitle = document.title;
+  for (const h of content.querySelectorAll('h1[id],h2[id],h3[id]')) {
+    h.dataset.title = h.textContent;
+    const a = document.createElement('a'); a.className = 'heading-link'; a.href = '#' + h.id; a.textContent = '¶'; a.setAttribute('aria-label', '链接到：' + h.textContent); h.append(a);
+  }
+  sourceToggle.addEventListener('change', () => { document.body.classList.toggle('hide-source', sourceToggle.checked); updateToc(); });
+  if (reader) {
+    mode.hidden = false;
+    mode.addEventListener('click', () => {
+      const anchor = current;
+      full = !full;
+      mode.textContent = full ? '按章阅读' : '全文阅读';
+      mode.setAttribute('aria-pressed', String(full));
+      for (const b of blocks) b.hidden = !full && b !== anchor;
+      updateToc();
+      requestAnimationFrame(() => anchor.scrollIntoView({block:'start',behavior:'instant'}));
+    });
+  }
+  window.addEventListener('hashchange', () => showTarget());
+  window.addEventListener('scroll', () => {
+    if (scrollQueued) return;
+    scrollQueued = true;
+    requestAnimationFrame(() => {
+      if (reader && full) {
+        let active = blocks[0];
+        for (const b of blocks) if (b.getBoundingClientRect().top <= 160) active = b;
+        if (active !== current) setCurrent(active);
+      }
+      markToc(); scrollQueued = false;
+    });
+  }, {passive:true});
+  $('#book-nav').addEventListener('click', e => { if (e.target.closest('a')) closeDrawer(); });
+  toc.addEventListener('click', e => { if (e.target.closest('a')) closeToc(); });
+  $('#menu-button').addEventListener('click', () => {
+    const open = $('#book-sidebar').classList.toggle('open');
+    $('#menu-button').setAttribute('aria-expanded', String(open));
+    $('#drawer-backdrop').hidden = !open;
+    if (open) (navLinks.find(a => a.classList.contains('active')) || navLinks[0])?.focus();
+  });
+  $('#drawer-backdrop').addEventListener('click', closeDrawer);
+  $('#toc-button').addEventListener('click', () => {
+    const open = $('#page-toc').classList.toggle('open'); $('#toc-button').setAttribute('aria-expanded', String(open));
+  });
+  $('#back-top').addEventListener('click', e => { e.preventDefault(); window.scrollTo({top:0,behavior:'instant'}); });
+  const searchRows = [];
+  for (const block of (reader ? blocks : [content])) {
+    let heading = block.querySelector('h1')?.id;
+    for (const node of block.querySelectorAll('h1,h2,h3,p,li,td')) {
+      if (node.matches('h1,h2,h3')) heading = node.id;
+      if (node.closest('.chapter-overview') || node.closest('table') && node.cellIndex === undefined) continue;
+      const text = node.textContent.replace(/¶$/, '').trim();
+      if (text.length < 2) continue;
+      searchRows.push({text, lower:text.toLocaleLowerCase(), target:heading || block.id, title:heading ? plainHeading(document.getElementById(heading)) : headingOf(block), chapter:reader ? shortTitle(block) : document.title, section:node.closest('.source-section') !== null, heading:node.matches('h1,h2,h3')});
+    }
+  }
+  function highlight(text, terms) {
+    const longest = [...terms].sort((a,b) => b.length-a.length);
+    const pattern = new RegExp(longest.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|'), 'giu');
+    let last = 0, result = '';
+    for (const hit of text.matchAll(pattern)) { result += escapeHTML(text.slice(last, hit.index)) + '<mark>' + escapeHTML(hit[0]) + '</mark>'; last = hit.index + hit[0].length; }
+    return result + escapeHTML(text.slice(last));
+  }
+  function search() {
+    const value = searchInput.value.trim();
+    const results = $('#search-results'); results.replaceChildren();
+    if (!value) { $('#search-status').textContent = '搜索当前阅读文件的正文和标题'; return; }
+    const terms = value.toLocaleLowerCase().split(/\s+/).filter(Boolean);
+    const seen = new Set();
+    const rows = searchRows.filter(r => terms.every(t => r.lower.includes(t))).sort((a,b) => Number(b.heading)-Number(a.heading)).filter(r => {const key=r.target+'|'+r.text;if(seen.has(key))return false;seen.add(key);return true;});
+    $('#search-status').textContent = rows.length ? '找到 ' + rows.length + ' 处匹配' + (rows.length > 60 ? '，显示前 60 处' : '') : '没有找到匹配内容，试试工具名称或更短的关键词。';
+    for (const r of rows.slice(0,60)) {
+      const at = Math.max(0, r.lower.indexOf(terms[0])-35);
+      const snippet = (at ? '…' : '') + r.text.slice(at,at+160) + (r.text.length>at+160 ? '…' : '');
+      const a = document.createElement('a'); a.href = '#' + r.target;
+      a.innerHTML = '<small>' + escapeHTML(r.chapter) + (r.section ? ' · 源码研读' : '') + '</small><strong>' + highlight(r.title,terms) + '</strong><p>' + highlight(snippet,terms) + '</p>';
+      a.addEventListener('click', () => { dialog.close(); if(location.hash === a.hash) showTarget(); });
+      results.append(a);
+    }
+  }
+  function openSearch() { lastOpener = document.activeElement; closeDrawer(); closeToc(); dialog.showModal(); searchInput.focus(); }
+  $('#search-button').addEventListener('click', openSearch);
+  $('#search-close').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('close', () => lastOpener?.focus());
+  dialog.addEventListener('click', e => { const r=dialog.getBoundingClientRect(); if(e.target===dialog&&(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom))dialog.close(); });
+  searchInput.addEventListener('input', search);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { closeDrawer(); closeToc(); }
+    if (e.key === '/' && !dialog.open && !e.ctrlKey && !e.metaKey && !e.altKey && !e.target.closest('input,textarea,[contenteditable]')) { e.preventDefault(); openSearch(); }
+  });
+  showTarget();
+})();
+</script>
+</body></html>

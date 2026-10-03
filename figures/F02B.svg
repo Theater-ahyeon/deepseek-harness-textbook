@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1120" height="760" viewBox="0 0 1120 760" role="img" aria-labelledby="F02B-title F02B-desc">
 <title id="F02B-title">F02B：注册与执行由不同触发点推动</title>
-<desc id="F02B-desc">{&quot;id&quot;: &quot;F02B&quot;, &quot;title&quot;: &quot;注册与执行由不同触发点推动&quot;, &quot;kind&quot;: &quot;compare&quot;, &quot;tag&quot;: &quot;结构示意&quot;, &quot;left&quot;: [&quot;启动时：注册&quot;, &quot;保存说明、参数与回调&quot;, &quot;注册表知道工具存在&quot;, &quot;没有立即读取用户文件&quot;], &quot;right&quot;: [&quot;调用时：执行&quot;, &quot;查找定义、检查调用&quot;, &quot;进入已注册的执行体&quot;, &quot;取得结果并进入后续处理&quot;]}</desc>
+<desc id="F02B-desc">{&quot;id&quot;: &quot;F02B&quot;, &quot;title&quot;: &quot;注册与执行由不同触发点推动&quot;, &quot;kind&quot;: &quot;compare&quot;, &quot;tag&quot;: &quot;结构示意&quot;, &quot;left&quot;: [&quot;启动时：注册&quot;, &quot;保存说明、参数与回调&quot;, &quot;注册表知道工具存在&quot;, &quot;等待后续工具调用触发读取&quot;], &quot;right&quot;: [&quot;调用时：执行&quot;, &quot;查找定义、检查调用&quot;, &quot;进入已注册的执行体&quot;, &quot;获取结果并进入后续处理&quot;]}</desc>
 <rect width="1120" height="760" fill="white"/>
 <text x="48" y="56" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#20314B">F02B  注册与执行由不同触发点推动</text>
 <text x="48" y="97" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="400" fill="#65738A">原创教学图 · 结构示意</text>
@@ -8,11 +8,11 @@
 <text x="70" y="197" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">启动时：注册</text>
 <text x="70" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">保存说明、参数与回调</text>
 <text x="70" y="294" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">注册表知道工具存在</text>
-<text x="70" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">没有立即读取用户文件</text>
+<text x="70" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">等待后续工具调用触发读取</text>
 <rect x="577" y="150" width="495" height="470" rx="16" fill="#E5F6ED" stroke="#367E5A" stroke-width="2"/>
 <text x="599" y="197" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">调用时：执行</text>
 <text x="599" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">查找定义、检查调用</text>
 <text x="599" y="294" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">进入已注册的执行体</text>
-<text x="599" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">取得结果并进入后续处理</text>
-<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：先确认范围，再跟随标注；示意布局不代表实际耗时或比例。</text>
+<text x="599" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">获取结果并进入后续处理</text>
+<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：对照左右两栏，比较它们的输入、职责和结果。</text>
 </svg>

@@ -1,0 +1,86 @@
+{
+  "sourceCommit": "639ed015397290b3745d163aafe02ffee4aa3f84",
+  "method": "actual source functions; simulated Session/Projection persistence seam; no Host or model calls",
+  "runtime": {
+    "node": "v24.13.0",
+    "executor": "tsx"
+  },
+  "source": [
+    {
+      "path": "source/packages/fs/tool-fs/src/read-render.ts",
+      "sha256": "72bcf4a70fd3e0908d4aa3869e0fbd6ee63b05ad790af65951af0c5db9edba84"
+    },
+    {
+      "path": "source/packages/core/agent-loop/src/inbox.ts",
+      "sha256": "70c07ea75ebcf18df353bbccf7c2aa3ecf6cb0d687b96e3520b675680c29f662"
+    }
+  ],
+  "cases": [
+    {
+      "id": "E01-window-and-chunk-boundary",
+      "observation": {
+        "lines": [
+          {
+            "number": 2,
+            "text": "two"
+          },
+          {
+            "number": 3,
+            "text": "three"
+          }
+        ],
+        "totalLines": 4,
+        "truncatedByBytes": false
+      }
+    },
+    {
+      "id": "E02-byte-cap-keeps-scanning",
+      "observation": {
+        "lines": [
+          {
+            "number": 1,
+            "text": "alpha"
+          }
+        ],
+        "totalLines": 4,
+        "truncatedByBytes": true,
+        "scannedChunks": 2
+      }
+    },
+    {
+      "id": "E03-utf8-byte-cap",
+      "observation": {
+        "lines": [],
+        "totalLines": 2,
+        "truncatedByBytes": true
+      }
+    },
+    {
+      "id": "E04-empty-and-past-eof",
+      "observation": {
+        "empty": {
+          "lines": [],
+          "totalLines": 0,
+          "truncatedByBytes": false
+        },
+        "outOfRangeError": "FS_NOT_FOUND"
+      }
+    },
+    {
+      "id": "E05-inbox-boundary-selection",
+      "observation": {
+        "stepClaims": 2,
+        "turnClaims": 1,
+        "pendingTurns": 1
+      }
+    },
+    {
+      "id": "E06-inbox-rejects-duplicate-before-append",
+      "observation": {
+        "eventsBefore": 6,
+        "eventsAfter": 6,
+        "pendingTurns": 1
+      }
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="380" viewBox="0 0 1040 380">
+<rect width="1040" height="380" fill="#f5f9fb"/>
+<text x="32" y="49" font-family="Microsoft YaHei,sans-serif" font-size="27" fill="#243a4a">图 19A · 资源获取与 disposer 的交接</text>
+<rect x="30" y="120" width="220" height="135" rx="12" fill="#e5f1f6" stroke="#bed5df" stroke-width="2"/>
+<text x="140.0" y="158" font-family="Microsoft YaHei,sans-serif" font-size="22" fill="#243a4a" text-anchor="middle">作者申请资源</text>
+<text x="140.0" y="185" font-family="Microsoft YaHei,sans-serif" font-size="18" fill="#243a4a" text-anchor="middle">得到定时器句柄</text>
+<rect x="285" y="120" width="220" height="135" rx="12" fill="#fff1d9" stroke="#bed5df" stroke-width="2"/>
+<text x="395.0" y="158" font-family="Microsoft YaHei,sans-serif" font-size="22" fill="#243a4a" text-anchor="middle">作者返回 disposer</text>
+<text x="395.0" y="185" font-family="Microsoft YaHei,sans-serif" font-size="18" fill="#243a4a" text-anchor="middle">记住本次资源</text>
+<rect x="540" y="120" width="220" height="135" rx="12" fill="#e7f4ec" stroke="#bed5df" stroke-width="2"/>
+<text x="650.0" y="158" font-family="Microsoft YaHei,sans-serif" font-size="22" fill="#243a4a" text-anchor="middle">Cordis 登记动作</text>
+<text x="650.0" y="185" font-family="Microsoft YaHei,sans-serif" font-size="18" fill="#243a4a" text-anchor="middle">归属当前 Fiber</text>
+<rect x="795" y="120" width="220" height="135" rx="12" fill="#eeeafa" stroke="#bed5df" stroke-width="2"/>
+<text x="905.0" y="158" font-family="Microsoft YaHei,sans-serif" font-size="22" fill="#243a4a" text-anchor="middle">卸载时调用</text>
+<text x="905.0" y="185" font-family="Microsoft YaHei,sans-serif" font-size="18" fill="#243a4a" text-anchor="middle">执行作者提供的动作</text>
+<path d="M250 188 L285 188" stroke="#367d96" stroke-width="3" fill="none"/>
+<path d="M285 188 l-9 -6 l0 12 Z" fill="#367d96"/>
+<path d="M505 188 L540 188" stroke="#367d96" stroke-width="3" fill="none"/>
+<path d="M540 188 l-9 -6 l0 12 Z" fill="#367d96"/>
+<path d="M760 188 L795 188" stroke="#367d96" stroke-width="3" fill="none"/>
+<path d="M795 188 l-9 -6 l0 12 Z" fill="#367d96"/>
+<text x="32" y="338" font-family="Microsoft YaHei,sans-serif" font-size="18" fill="#243a4a">作者编写资源释放动作，Cordis 负责登记并在卸载时调用。</text>
+</svg>

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1120" height="760" viewBox="0 0 1120 760" role="img" aria-labelledby="F06B-title F06B-desc">
 <title id="F06B-title">F06B：重复材料增加长度，未增加事实</title>
-<desc id="F06B-desc">{&quot;id&quot;: &quot;F06B&quot;, &quot;title&quot;: &quot;重复材料增加长度，未增加事实&quot;, &quot;kind&quot;: &quot;compare&quot;, &quot;tag&quot;: &quot;教学假设 · 字节&quot;, &quot;left&quot;: [&quot;基础请求：4000 字节&quot;, &quot;工具指导：800&quot;, &quot;项目规则：600；用户目标：200&quot;, &quot;历史材料：2400&quot;], &quot;right&quot;: [&quot;重复后：4600 字节&quot;, &quot;再加入同一规则：600&quot;, &quot;材料增量：15%&quot;, &quot;不能直接换算词元或费用&quot;]}</desc>
+<desc id="F06B-desc">{&quot;id&quot;: &quot;F06B&quot;, &quot;title&quot;: &quot;重复材料增加长度，未增加事实&quot;, &quot;kind&quot;: &quot;compare&quot;, &quot;tag&quot;: &quot;教学假设 · 字节&quot;, &quot;left&quot;: [&quot;基础请求：4000 字节&quot;, &quot;工具指导：800&quot;, &quot;项目规则：600；用户目标：200&quot;, &quot;历史材料：2400&quot;], &quot;right&quot;: [&quot;重复后：4600 字节&quot;, &quot;再加入同一规则：600&quot;, &quot;材料增量：15%&quot;, &quot;token 与计费用量另行统计&quot;]}</desc>
 <rect width="1120" height="760" fill="white"/>
 <text x="48" y="56" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#20314B">F06B  重复材料增加长度，未增加事实</text>
 <text x="48" y="97" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="400" fill="#65738A">原创教学图 · 教学假设 · 字节</text>
@@ -13,6 +13,6 @@
 <text x="599" y="197" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">重复后：4600 字节</text>
 <text x="599" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">再加入同一规则：600</text>
 <text x="599" y="294" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">材料增量：15%</text>
-<text x="599" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">不能直接换算词元或费用</text>
-<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：先确认范围，再跟随标注；示意布局不代表实际耗时或比例。</text>
+<text x="599" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">token 与计费用量另行统计</text>
+<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：对照左右两栏，比较它们的输入、职责和结果。</text>
 </svg>

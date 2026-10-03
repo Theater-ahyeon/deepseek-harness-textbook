@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1120" height="760" viewBox="0 0 1120 760" role="img" aria-labelledby="F17A-title F17A-desc">
 <title id="F17A-title">F17A：一次任务要留下多种评价记录</title>
-<desc id="F17A-desc">{&quot;id&quot;: &quot;F17A&quot;, &quot;title&quot;: &quot;一次任务要留下多种评价记录&quot;, &quot;kind&quot;: &quot;columns&quot;, &quot;tag&quot;: &quot;测量方案 · 非实测&quot;, &quot;columns&quot;: [[&quot;过程时间&quot;, &quot;提交、接纳、首段、终态&quot;, &quot;同一起点与明确单位&quot;, &quot;失败取消单独记录&quot;], [&quot;用量与次数&quot;, &quot;输入输出词元、尝试数&quot;, &quot;标提供方报告或估算&quot;, &quot;计费类别不能混算&quot;], [&quot;质量与失败&quot;, &quot;预定义产物检查&quot;, &quot;保留失败与缺失值&quot;, &quot;不能只挑成功样本&quot;]]}</desc>
+<desc id="F17A-desc">{&quot;id&quot;: &quot;F17A&quot;, &quot;title&quot;: &quot;一次任务要留下多种评价记录&quot;, &quot;kind&quot;: &quot;columns&quot;, &quot;tag&quot;: &quot;测量方案 · 非实测&quot;, &quot;columns&quot;: [[&quot;过程时间&quot;, &quot;提交、接纳、首段、终态&quot;, &quot;同一起点与明确单位&quot;, &quot;失败取消单独记录&quot;], [&quot;用量与次数&quot;, &quot;输入输出 token、尝试数&quot;, &quot;标 Provider 报告或估算&quot;, &quot;计费类别不能混算&quot;], [&quot;质量与失败&quot;, &quot;预定义产物检查&quot;, &quot;保留失败与缺失值&quot;, &quot;成功、失败与缺失共同统计&quot;]]}</desc>
 <rect width="1120" height="760" fill="white"/>
 <text x="48" y="56" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#20314B">F17A  一次任务要留下多种评价记录</text>
 <text x="48" y="97" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="400" fill="#65738A">原创教学图 · 测量方案 · 非实测</text>
@@ -11,13 +11,13 @@
 <text x="77" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">失败取消单独记录</text>
 <rect x="405" y="150" width="310" height="470" rx="16" fill="#F0EBFF" stroke="#7659AA" stroke-width="2"/>
 <text x="427" y="197" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">用量与次数</text>
-<text x="427" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">输入输出词元、尝试数</text>
-<text x="427" y="294" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">标提供方报告或估算</text>
+<text x="427" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">输入输出 token、尝试数</text>
+<text x="427" y="294" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">标 Provider 报告或估算</text>
 <text x="427" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">计费类别不能混算</text>
 <rect x="755" y="150" width="310" height="470" rx="16" fill="#E5F6ED" stroke="#367E5A" stroke-width="2"/>
 <text x="777" y="197" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">质量与失败</text>
 <text x="777" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">预定义产物检查</text>
 <text x="777" y="294" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">保留失败与缺失值</text>
-<text x="777" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">不能只挑成功样本</text>
-<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：先确认范围，再跟随标注；示意布局不代表实际耗时或比例。</text>
+<text x="777" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">成功、失败与缺失共同统计</text>
+<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：并排各栏表示不同职责或范围，按栏内说明逐项比较。</text>
 </svg>

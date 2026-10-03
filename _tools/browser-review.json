@@ -1,0 +1,60 @@
+{
+  "desktop": {
+    "width": 1440,
+    "documentWidth": 1425,
+    "chapterAnchors": 19,
+    "chapterLinks": 19,
+    "chapterCards": 19,
+    "chaptersVisited": 19,
+    "fullTextVisibleSections": 20,
+    "sourceBefore": 19,
+    "sourceHidden": 0,
+    "codeVisibleWhenHidden": 0,
+    "sourceRestored": 19,
+    "searchResults": 5,
+    "searchTarget": "#heading-116",
+    "searchChapter": "chapter-08",
+    "searchTargetTop": 92.078125,
+    "sourceLinkRevealsContent": true,
+    "images": 38,
+    "imagesLoaded": 38,
+    "tableRowsConsistent": true
+  },
+  "mobile": {
+    "width": 390,
+    "documentWidth": 390,
+    "articleWidth": 350,
+    "drawerClosed": true,
+    "chapter19Reachable": true,
+    "chapter19HeadingTop": 89.796875,
+    "tocClosedAfterSelection": true,
+    "tocTargetTop": 92.3125,
+    "searchResults": 15,
+    "backToTop": true,
+    "imagesLoaded": 38,
+    "horizontalFigureContainers": 2
+  },
+  "supplement": {
+    "width": 390,
+    "documentWidth": 390,
+    "articleWidth": 350,
+    "images": 4,
+    "toc": 28,
+    "tableRowsConsistent": true,
+    "activePage": "subsystems.html"
+  },
+  "addedEvidenceLinks": {
+    "calculationLink": "examples/calculation-results.json",
+    "sampleLink": "examples/metrics-input.json",
+    "experimentLink": "examples/README.md"
+  },
+  "review_date": "2026-10-03",
+  "method": "Real Edge: final edition desktop interactions and added evidence links; mobile and supplement layout unchanged and previously verified",
+  "restored_focus_and_viewport_emulation": true,
+  "content_delta": [
+    "book/16.md: executable evidence link",
+    "book/17.md: calculation provenance links"
+  ],
+  "reader_sha256": "5752b6d43b3933bcf2e8d2a5c27218abaf1fe7b1ffef2ce2d398676e50a8d6db",
+  "supplement_sha256": "6735a374ab1fbaac6f7758209c16acecbdd56473e27acc7bd442478f422faecd"
+}

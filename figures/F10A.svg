@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1120" height="760" viewBox="0 0 1120 760" role="img" aria-labelledby="F10A-title F10A-desc">
 <title id="F10A-title">F10A：最终配置来自有顺序的应用层</title>
-<desc id="F10A-desc">{&quot;id&quot;: &quot;F10A&quot;, &quot;title&quot;: &quot;最终配置来自有顺序的应用层&quot;, &quot;kind&quot;: &quot;flow&quot;, &quot;tag&quot;: &quot;配置顺序&quot;, &quot;nodes&quot;: [[&quot;组合包按声明顺序&quot;, &quot;提供基础条目与能力&quot;, &quot;control&quot;], [&quot;运行配置补丁&quot;, &quot;本配置自己的修改&quot;, &quot;control&quot;], [&quot;用户目录补丁&quot;, &quot;用户级修改&quot;, &quot;control&quot;], [&quot;命令行补丁&quot;, &quot;本次显式覆盖&quot;, &quot;control&quot;], [&quot;最终插件树&quot;, &quot;条目挂载并注入依赖&quot;, &quot;tool&quot;], [&quot;可用服务与能力&quot;, &quot;不能从包存在推断启用&quot;, &quot;tool&quot;]]}</desc>
+<desc id="F10A-desc">{&quot;id&quot;: &quot;F10A&quot;, &quot;title&quot;: &quot;最终配置来自有顺序的应用层&quot;, &quot;kind&quot;: &quot;flow&quot;, &quot;tag&quot;: &quot;配置顺序&quot;, &quot;nodes&quot;: [[&quot;组合包按声明顺序&quot;, &quot;提供基础条目与能力&quot;, &quot;control&quot;], [&quot;运行配置补丁&quot;, &quot;本配置自己的修改&quot;, &quot;control&quot;], [&quot;用户目录补丁&quot;, &quot;用户级修改&quot;, &quot;control&quot;], [&quot;命令行补丁&quot;, &quot;本次显式覆盖&quot;, &quot;control&quot;], [&quot;最终插件树&quot;, &quot;条目挂载并注入依赖&quot;, &quot;tool&quot;], [&quot;可用服务与能力&quot;, &quot;按配置树确认已挂载能力&quot;, &quot;tool&quot;]]}</desc>
 <rect width="1120" height="760" fill="white"/>
 <text x="48" y="56" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#20314B">F10A  最终配置来自有顺序的应用层</text>
 <text x="48" y="97" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="400" fill="#65738A">原创教学图 · 配置顺序</text>
@@ -21,7 +21,7 @@
 <text x="427" y="505" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">条目挂载并注入依赖</text>
 <rect x="55" y="410" width="310" height="165" rx="16" fill="#E5F6ED" stroke="#367E5A" stroke-width="2"/>
 <text x="77" y="457" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">6  可用服务与能力</text>
-<text x="77" y="505" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">不能从包存在推断启用</text>
+<text x="77" y="505" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">按配置树确认已挂载能力</text>
 <polyline points="365,240 405,240" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
 <polygon points="405.0,240.0 395.3,245.3 395.3,234.7" fill="#65738A"/>
 <text x="343.0" y="330" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" font-weight="400" fill="#20314B">依次应用</text>
@@ -37,5 +37,5 @@
 <polyline points="405,510 365,510" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
 <polygon points="365.0,510.0 374.7,504.7 374.7,515.3" fill="#65738A"/>
 <text x="343.0" y="600" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" font-weight="400" fill="#20314B">挂载贡献</text>
-<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：先确认范围，再跟随标注；示意布局不代表实际耗时或比例。</text>
+<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：从节点 1 开始，沿箭头追踪处理顺序与数据变化。</text>
 </svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1040" height="380" viewBox="0 0 1040 380">
+<rect width="1040" height="380" fill="#f5f9fb"/>
+<text x="32" y="49" font-family="Microsoft YaHei,sans-serif" font-size="27" fill="#243a4a">图 19B · Context 的服务作用域与共享宿主环境</text>
+<rect x="30" y="95" width="270" height="155" rx="12" fill="#e5f1f6" stroke="#bed5df" stroke-width="2"/>
+<text x="165.0" y="133" font-family="Microsoft YaHei,sans-serif" font-size="22" fill="#243a4a" text-anchor="middle">Context 甲</text>
+<text x="165.0" y="160" font-family="Microsoft YaHei,sans-serif" font-size="18" fill="#243a4a" text-anchor="middle">文件服务名 → 标签甲</text>
+<text x="165.0" y="191" font-family="Microsoft YaHei,sans-serif" font-size="18" fill="#243a4a" text-anchor="middle">其他能力仍按继承解析</text>
+<rect x="390" y="95" width="260" height="155" rx="12" fill="#fff1d9" stroke="#bed5df" stroke-width="2"/>
+<text x="520.0" y="133" font-family="Microsoft YaHei,sans-serif" font-size="22" fill="#243a4a" text-anchor="middle">Context 乙</text>
+<text x="520.0" y="160" font-family="Microsoft YaHei,sans-serif" font-size="18" fill="#243a4a" text-anchor="middle">文件服务名 → 标签乙</text>
+<text x="520.0" y="191" font-family="Microsoft YaHei,sans-serif" font-size="18" fill="#243a4a" text-anchor="middle">继承其他服务解析</text>
+<rect x="740" y="95" width="270" height="155" rx="12" fill="#e7f4ec" stroke="#bed5df" stroke-width="2"/>
+<text x="875.0" y="133" font-family="Microsoft YaHei,sans-serif" font-size="22" fill="#243a4a" text-anchor="middle">对应服务实现</text>
+<text x="875.0" y="160" font-family="Microsoft YaHei,sans-serif" font-size="18" fill="#243a4a" text-anchor="middle">按标签解析能力</text>
+<text x="875.0" y="191" font-family="Microsoft YaHei,sans-serif" font-size="18" fill="#243a4a" text-anchor="middle">宿主资源边界另行管理</text>
+<path d="M300 165 L390 165" stroke="#367d96" stroke-width="3" fill="none"/>
+<path d="M390 165 l-9 -6 l0 12 Z" fill="#367d96"/>
+<text x="345.0" y="150" font-family="Microsoft YaHei,sans-serif" font-size="16" fill="#243a4a" text-anchor="middle">派生</text>
+<path d="M650 165 L740 165" stroke="#367d96" stroke-width="3" fill="none"/>
+<path d="M740 165 l-9 -6 l0 12 Z" fill="#367d96"/>
+<text x="695.0" y="150" font-family="Microsoft YaHei,sans-serif" font-size="16" fill="#243a4a" text-anchor="middle">解析</text>
+<text x="32" y="338" font-family="Microsoft YaHei,sans-serif" font-size="18" fill="#243a4a">Context 按服务标签选择实现；各作用域共用同一个宿主进程。</text>
+</svg>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>@@TITLE@@</title><style>@@CSS@@</style></head>
+<body id="top">
+<a class="skip-link" href="#content">跳到正文</a>
+<header class="site-header">
+  <div class="header-inner">
+    <button class="icon-button menu-button" id="menu-button" aria-label="打开全书目录" aria-expanded="false" aria-controls="book-sidebar">☰</button>
+    <a class="brand" href="reader.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1Z M12 6v14"/></svg><span>DeepSeek Harness</span></a>
+    <span class="header-context" id="header-context">中文教材</span>
+    <button class="search-button" id="search-button" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg><span>搜索本书</span><kbd>/</kbd></button>
+  </div>
+</header>
+<div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
+<div class="book-layout">
+  <aside class="book-sidebar" id="book-sidebar" aria-label="全书目录">
+    <a class="sidebar-title" href="reader.html">深入理解 DeepSeek Harness</a>
+    <p class="sidebar-subtitle">中文教材 · 原理与实现</p>
+    <nav id="book-nav" aria-label="章节导航">@@NAV@@</nav>
+  </aside>
+  <main id="content" tabindex="-1">
+    <div class="reading-toolbar"><span id="reading-context">开始阅读</span><div class="reading-options"><label><input id="source-toggle" type="checkbox">隐藏源码研读</label><button id="reading-mode" type="button" hidden>全文阅读</button><button class="toc-button" id="toc-button" type="button" aria-expanded="false" aria-controls="page-toc">本页目录</button></div></div>
+    <article id="book-content">@@CONTENT@@</article>
+    <nav class="page-turns" id="page-turns" aria-label="前后章节" hidden></nav>
+    <footer class="page-footer"><span>深入理解 DeepSeek Harness · 中文教材</span><a href="#top" id="back-top">回到顶部 ↑</a></footer>
+  </main>
+  <aside class="toc-sidebar" id="page-toc" aria-label="本页目录"><div class="toc-title">本页目录</div><nav id="toc-nav" aria-label="本页小节"></nav></aside>
+</div>
+<dialog id="search-dialog" aria-labelledby="search-title">
+  <div class="search-heading"><h2 id="search-title">搜索本书</h2><button class="icon-button" id="search-close" aria-label="关闭搜索">×</button></div>
+  <label class="search-field"><span class="visually-hidden">搜索关键词</span><input id="search-input" type="search" placeholder="输入概念、工具名称或章节标题" autocomplete="off"></label>
+  <p id="search-status" role="status">搜索当前阅读文件的正文和标题</p>
+  <div id="search-results"></div>
+</dialog>
+<noscript><div class="noscript-note">当前显示全文。浏览器启用 JavaScript 后可按章阅读和搜索。</div></noscript>
+<script>@@SCRIPT@@</script>
+</body></html>

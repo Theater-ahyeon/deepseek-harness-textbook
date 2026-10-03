@@ -1,0 +1,30 @@
+{
+  "commit": "639ed015397290b3745d163aafe02ffee4aa3f84",
+  "claims": [
+    "S01",
+    "S02"
+  ],
+  "kind": "static behavior review; not executed",
+  "files": [
+    {
+      "path": "source/packages/experimental/agent-team/src/types.ts",
+      "sha256": "8202894d958022d09d045c72782ae73a4b4c61b8ed5750d70eecbeae196f6211"
+    },
+    {
+      "path": "source/packages/experimental/agent-team/src/mailbox.ts",
+      "sha256": "671d502e8f34444acd5818dc4c4e55f592e4ddfb3b69e7aaf8d12b3f5bf3cb51"
+    },
+    {
+      "path": "source/packages/experimental/agent-team/src/task-board.ts",
+      "sha256": "dbae88511a6371d1e3d9f7767a48f05f92a1830919aa8b81b1fdb7f3b637c8b0"
+    },
+    {
+      "path": "source/packages/experimental/agent-team/src/task-view.ts",
+      "sha256": "d7292d7919225ac96496f29b448044d1337268759e092e2bcfb37804b83773b8"
+    },
+    {
+      "path": "source/packages/core/agent-loop/src/tool-calls.ts",
+      "sha256": "5c7e8d8ff0028b436efdd13e5dffa4801d2311c211c3af039e7dab705f87b303"
+    }
+  ]
+}

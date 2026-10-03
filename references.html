@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>原项目文档参考索引</title><style>:root{--ink:#2c3e50;--muted:#697586;--line:#e6eaef;--accent:#2f855a;--link:#2764cf;--header:58px;--font:"Noto Sans SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:#fff;color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.8}button,input{font:inherit}button{cursor:pointer}a{color:var(--link);text-decoration:none;overflow-wrap:anywhere}a:hover{text-decoration:underline}button:focus-visible,a:focus-visible,input:focus-visible,main:focus-visible{outline:2px solid var(--link);outline-offset:3px}[hidden]{display:none!important}.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.skip-link{position:fixed;top:-80px;left:12px;padding:8px 16px;z-index:30;background:white}.skip-link:focus{top:8px}
+.site-header{position:sticky;top:0;z-index:10;height:var(--header);background:#fff;border-bottom:1px solid var(--line)}.header-inner{height:100%;max-width:1512px;margin:auto;padding:0 28px;display:flex;align-items:center;gap:22px}.brand{display:flex;align-items:center;gap:13px;flex-shrink:0;color:var(--ink);font-size:18px;font-weight:650;white-space:nowrap}.brand:hover{text-decoration:none}.brand svg{width:28px;height:28px;stroke:#6a46a8;fill:none;stroke-width:1.7;stroke-linejoin:round}.header-context{color:var(--muted);font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.search-button{margin-left:auto;display:flex;align-items:center;gap:10px;flex-shrink:0;min-width:240px;padding:6px 13px;background:#f5f7f9;border:1px solid transparent;border-radius:4px;text-align:left;color:var(--muted);font-size:14px}.search-button:hover{border-color:#d2d9e2}.search-button svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8}.search-button kbd{margin-left:auto;color:#88929e;font:12px Consolas,monospace;border:1px solid #dce2e8;padding:0 5px;border-radius:3px}.icon-button{border:0;background:transparent;padding:6px;color:var(--ink);font-size:22px;line-height:1.2}.menu-button{display:none}
+.book-layout{max-width:1512px;margin:auto;display:grid;grid-template-columns:280px minmax(0,1fr) 220px;gap:32px;padding:30px 28px 0}.book-sidebar,.toc-sidebar{position:sticky;top:88px;align-self:start;max-height:calc(100vh - 114px);overflow:auto;scrollbar-width:thin;font-size:14px;line-height:1.55;padding-bottom:24px}.book-sidebar{border-right:1px solid var(--line);padding-right:22px}.sidebar-title{display:block;color:var(--ink);font-size:15px;font-weight:650}.sidebar-subtitle{color:var(--muted);font-size:12px;margin:7px 0 20px}.book-sidebar nav a{display:block;color:var(--ink);padding:9px 10px;border-left:2px solid transparent;margin:2px 0}.book-sidebar nav a:hover{background:#f7f9fb;text-decoration:none}.book-sidebar nav a.active{color:var(--accent);border-left-color:var(--accent);background:#f2f8f4}.nav-label{display:block;margin:19px 10px 8px;font-size:12px;color:var(--muted);font-weight:600}.toc-title{font-weight:650;color:#82909e;font-size:13px;margin:2px 0 12px}.toc-sidebar nav{border-left:1px solid var(--line)}.toc-sidebar a{display:block;color:var(--muted);font-size:13px;line-height:1.6;padding:5px 0 5px 14px;margin-left:-1px;border-left:2px solid transparent}.toc-sidebar a.subheading{padding-left:24px;font-size:12px}.toc-sidebar a.active{color:var(--accent);border-left-color:var(--accent)}.toc-sidebar a:hover{color:var(--link);text-decoration:none}
+main{min-width:0;padding:0 0 28px}.reading-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--muted);font-size:12px;padding:0 0 16px;border-bottom:1px solid var(--line);margin-bottom:32px}.reading-options{display:flex;align-items:center;gap:15px;flex-shrink:0}.reading-options label{display:flex;align-items:center;gap:5px;cursor:pointer}.reading-options input{accent-color:var(--accent)}.reading-options button{border:0;background:transparent;color:var(--link);padding:0;font-size:12px}.toc-button{display:none}article{font-size:16px;line-height:1.85;overflow-wrap:break-word}h1,h2,h3,h4{line-height:1.45;font-weight:600;color:var(--ink);scroll-margin-top:92px}h1{font-size:34px;letter-spacing:-.4px;margin:0 0 30px}h2{font-size:26px;margin:48px 0 22px;padding-bottom:10px;border-bottom:1px solid var(--line)}h3{font-size:21px;margin:34px 0 16px}h4{font-size:18px;margin:28px 0 12px}p{margin:0 0 21px}li{margin:6px 0}ul,ol{padding-left:25px;margin:18px 0 24px}strong{font-weight:650}hr{border:0;border-top:1px solid var(--line);margin:36px 0}a[id]{scroll-margin-top:92px}.heading-link{font-size:.65em;margin-left:8px;opacity:0;vertical-align:middle;color:#8695a3}.heading-link:focus,h1:hover .heading-link,h2:hover .heading-link,h3:hover .heading-link{opacity:1}code{font-family:Consolas,"SFMono-Regular",monospace;font-size:.9em;background:#f1f3f5;color:#476582;border-radius:3px;padding:2px 5px;overflow-wrap:anywhere}pre{position:relative;background:#f6f8fa;color:#34495e;padding:20px;overflow:auto;font-size:14px;line-height:1.7;border:1px solid var(--line);border-radius:4px;margin:24px 0}pre code{padding:0;background:none;color:inherit;white-space:pre;overflow-wrap:normal}.code-copy{position:absolute;right:8px;top:8px;padding:3px 8px;font-size:11px;background:#fff;border:1px solid #dce2e8;border-radius:3px;color:var(--muted)}figure{margin:32px 0;overflow-x:auto}figure img{display:block;width:100%;min-width:620px;height:auto}figcaption{font-size:13px;color:var(--muted);text-align:center;margin:12px 0 4px}table{border-collapse:collapse;width:100%;font-size:14px;line-height:1.75}th,td{border:1px solid var(--line);padding:11px 14px;text-align:left;vertical-align:top}th{background:#f5f7f9;font-weight:600}tr:nth-child(even){background:#fbfcfd}.table-wrap{overflow:auto;margin:26px 0;border-radius:3px}blockquote{margin:24px 0;padding:14px 20px;background:#f6f8fb;border-left:3px solid #7f9ab7}blockquote p:last-child{margin-bottom:0}.source-section{border-top:2px solid #dce7ef;margin-top:40px}.hide-source .source-section{display:none}.book-section{scroll-margin-top:90px}.book-section+[hidden]{display:none}.home-section>h1{text-align:center;font-size:37px;margin:38px 0 30px}.home-section>p:first-of-type{font-size:17px;line-height:1.9}.chapter-overview{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:4px;overflow:hidden;margin:28px 0 44px}.chapter-card{padding:18px 20px;color:var(--ink);border-bottom:1px solid var(--line);border-right:1px solid var(--line)}.chapter-card:nth-child(even){border-right:0}.chapter-card:hover{background:#f7f9fb;text-decoration:none}.chapter-card strong{display:block;font-size:17px;line-height:1.6;margin-bottom:8px}.chapter-card span{display:block;font-size:13px;line-height:1.8;color:var(--muted)}.chapter-number{color:var(--accent)}.page-turns{display:grid;grid-template-columns:1fr 1fr;gap:20px;border-top:1px solid var(--line);margin-top:56px;padding:24px 0}.page-turns a{color:var(--ink);line-height:1.6}.page-turns a:last-child{text-align:right}.page-turns small{display:block;color:var(--muted);font-size:12px;margin-bottom:4px}.page-turns span{font-size:15px;font-weight:600}.page-footer{border-top:1px solid var(--line);padding:20px 0;margin-top:28px;display:flex;justify-content:space-between;gap:12px;font-size:12px;color:var(--muted)}
+dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1px solid var(--line);border-radius:8px;color:var(--ink);box-shadow:0 16px 60px #15243833}dialog::backdrop{background:#1c2c4070}.search-heading{display:flex;align-items:center;justify-content:space-between}.search-heading h2{font-size:21px;margin:0 0 18px;border:0;padding:0}.search-field input{width:100%;padding:12px 14px;border:1px solid #c7d2df;border-radius:4px;font-size:16px;background:white;color:var(--ink)}#search-status{font-size:12px;color:var(--muted);margin:12px 0}#search-results a{display:block;padding:15px 4px;border-top:1px solid var(--line);color:var(--ink)}#search-results a:hover{background:#f7f9fb;text-decoration:none}#search-results strong{display:block;font-size:15px;margin:4px 0}#search-results small{color:var(--accent);font-size:12px}#search-results p{font-size:13px;color:var(--muted);margin:0}mark{background:#fff1ae;color:inherit}.noscript-note{background:#f6f8fb;padding:12px;font-size:13px}.drawer-backdrop{position:fixed;inset:58px 0 0;background:#17283b55;z-index:12}
+@media(min-width:1500px){.book-layout{grid-template-columns:280px minmax(0,850px) 220px;gap:42px}}
+@media(max-width:1190px){.book-layout{grid-template-columns:240px minmax(0,1fr);gap:30px}.toc-sidebar{display:none;position:fixed;top:108px;right:24px;background:white;padding:18px;width:280px;max-height:70vh;border:1px solid var(--line);border-radius:4px;box-shadow:0 8px 28px #1524381a;z-index:11}.toc-sidebar.open{display:block}.toc-button{display:inline-block}.header-context{max-width:280px}}
+@media(max-width:800px){.header-inner{padding:0 16px;gap:12px}.menu-button{display:block}.brand{font-size:16px;gap:9px}.brand svg{width:23px;height:23px}.header-context{display:none}.search-button{min-width:0;padding:7px;margin-left:auto;background:transparent}.search-button span,.search-button kbd{display:none}.search-button svg{width:22px;height:22px}.book-layout{display:block;padding:22px 20px 0}.book-sidebar{display:none;position:fixed;top:58px;left:0;bottom:0;width:min(320px,85vw);max-height:none;background:#fff;padding:24px 20px;z-index:13;border-right:1px solid var(--line)}.book-sidebar.open{display:block}.reading-toolbar{font-size:11px;margin-bottom:25px;gap:8px}.reading-options{gap:11px}.reading-options button{font-size:11px}.reading-options label{font-size:11px}#reading-context{max-width:80px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}h1{font-size:28px;margin-bottom:24px}h2{font-size:23px;margin-top:36px}h3{font-size:19px}article{font-size:15px;line-height:1.9}.home-section>h1{font-size:30px;margin-top:24px}.home-section>p:first-of-type{font-size:15px}.chapter-overview{grid-template-columns:1fr}.chapter-card{border-right:0;padding:17px}.chapter-card strong{font-size:16px}figure{margin:26px 0}table{min-width:620px}pre{font-size:12px;padding:16px}.page-turns{gap:16px}.page-turns span{font-size:13px}.page-footer{font-size:11px}.toc-sidebar{right:20px;top:104px;width:min(300px,calc(100vw - 40px))}dialog{padding:18px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+@media print{.site-header,.book-sidebar,.toc-sidebar,.reading-toolbar,.page-turns,.page-footer,.code-copy,.heading-link{display:none!important}.book-layout{display:block;padding:0}main{padding:0}article{font-size:11pt}.book-section[hidden]{display:block!important}.hide-source .source-section{display:block}pre{white-space:pre-wrap}pre code{white-space:pre-wrap}figure img{min-width:0}.table-wrap,figure{overflow:visible}h1,h2,h3{break-after:avoid}figure,pre{break-inside:avoid}}
+</style></head>
+<body id="top">
+<a class="skip-link" href="#content">跳到正文</a>
+<header class="site-header">
+  <div class="header-inner">
+    <button class="icon-button menu-button" id="menu-button" aria-label="打开全书目录" aria-expanded="false" aria-controls="book-sidebar">☰</button>
+    <a class="brand" href="reader.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1Z M12 6v14"/></svg><span>DeepSeek Harness</span></a>
+    <span class="header-context" id="header-context">中文教材</span>
+    <button class="search-button" id="search-button" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg><span>搜索本书</span><kbd>/</kbd></button>
+  </div>
+</header>
+<div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
+<div class="book-layout">
+  <aside class="book-sidebar" id="book-sidebar" aria-label="全书目录">
+    <a class="sidebar-title" href="reader.html">深入理解 DeepSeek Harness</a>
+    <p class="sidebar-subtitle">中文教材 · 原理与实现</p>
+    <nav id="book-nav" aria-label="章节导航"><a href="reader.html">全书导读</a><span class="nav-label">随用随查</span><a href="appendices.html">语法与数据基础</a><a href="subsystems.html">补充能力</a><a href="glossary.html">术语索引</a><a href="evidence.html">实现证据</a><a href="references.html">原项目文档</a></nav>
+  </aside>
+  <main id="content" tabindex="-1">
+    <div class="reading-toolbar"><span id="reading-context">开始阅读</span><div class="reading-options"><label><input id="source-toggle" type="checkbox">隐藏源码研读</label><button id="reading-mode" type="button" hidden>全文阅读</button><button class="toc-button" id="toc-button" type="button" aria-expanded="false" aria-controls="page-toc">本页目录</button></div></div>
+    <article id="book-content"><h1 id="heading-1">原项目文档参考索引</h1>
+<p>教材正文与源码研读已在分章稿中。以下原文是可选复核证据，不作为读者继续阅读的前提。所有本地路径来自固定快照；测试源码是行为旁证，本次未运行。</p>
+<h2 id="heading-2">按十九章查阅</h2>
+<div class="table-wrap"><table>
+<tr><th>章节</th><th>实现研读</th></tr>
+<tr><td><a href="reader.html#chapter-01">第 1 章 · 从一句话到一个结果：智能体运行框架究竟做什么</a></td><td><a href="evidence.html#e01a">E01A</a>、<a href="evidence.html#e01b">E01B</a></td></tr>
+<tr><td><a href="reader.html#chapter-02">第 2 章 · 读懂代码：类型与异步等待</a></td><td><a href="evidence.html#e02a">E02A</a></td></tr>
+<tr><td><a href="reader.html#chapter-03">第 3 章 · 循环与消息队列：一轮任务为什么需要多步</a></td><td><a href="evidence.html#e03a">E03A</a></td></tr>
+<tr><td><a href="reader.html#chapter-04">第 4 章 · 沿文件读取工具追到底：模型怎样得到材料</a></td><td><a href="evidence.html#e04a">E04A</a>、<a href="evidence.html#e04b">E04B</a></td></tr>
+<tr><td><a href="reader.html#chapter-05">第 5 章 · 会话与日志：发生过的事怎样保存和还原</a></td><td><a href="evidence.html#e05a">E05A</a>、<a href="evidence.html#e05b">E05B</a></td></tr>
+<tr><td><a href="reader.html#chapter-06">第 6 章 · 提示词与项目指令：下一次模型输入怎样形成</a></td><td><a href="evidence.html#e06a">E06A</a></td></tr>
+<tr><td><a href="reader.html#chapter-07">第 7 章 · 技能的按需读取：目录可见为什么不等于正文已加载</a></td><td><a href="evidence.html#e07a">E07A</a></td></tr>
+<tr><td><a href="reader.html#chapter-08">第 8 章 · 上下文压缩：让历史变短需要付出什么</a></td><td><a href="evidence.html#e08a">E08A</a></td></tr>
+<tr><td><a href="reader.html#chapter-09">第 9 章 · 流式输出与重试：一次失败怎样留在同一步里</a></td><td><a href="evidence.html#e09a">E09A</a>、<a href="evidence.html#e09b">E09B</a></td></tr>
+<tr><td><a href="reader.html#chapter-10">第 10 章 · 插件框架与运行配置：这些部件怎样装成一个应用</a></td><td><a href="evidence.html#e10a">E10A</a></td></tr>
+<tr><td><a href="reader.html#chapter-11">第 11 章 · 工具准入与审批：允许执行的决定在哪里发生</a></td><td><a href="evidence.html#e11a">E11A</a>、<a href="evidence.html#e11b">E11B</a></td></tr>
+<tr><td><a href="reader.html#chapter-12">第 12 章 · 外部服务与能力接入：连接成功不等于拥有知识库</a></td><td><a href="evidence.html#e12a">E12A</a></td></tr>
+<tr><td><a href="reader.html#chapter-13">第 13 章 · 子代理：拆分任务前先看上下文起点</a></td><td><a href="evidence.html#e13a">E13A</a></td></tr>
+<tr><td><a href="reader.html#chapter-14">第 14 章 · 网页端：提交任务与跟随结果是两条链</a></td><td><a href="evidence.html#e14a">E14A</a></td></tr>
+<tr><td><a href="reader.html#chapter-15">第 15 章 · 桌面端：窗口、页面与宿主服务怎样合作</a></td><td><a href="evidence.html#e15a">E15A</a></td></tr>
+<tr><td><a href="reader.html#chapter-16">第 16 章 · 测试与回放：复现通过究竟证明了什么</a></td><td><a href="evidence.html#e16a">E16A</a>、<a href="evidence.html#e16b">E16B</a></td></tr>
+<tr><td><a href="reader.html#chapter-17">第 17 章 · 量化评价：同时看质量、时间、用量与失败</a></td><td><a href="evidence.html#e17a">E17A</a></td></tr>
+<tr><td><a href="reader.html#chapter-18">第 18 章 · 综合案例：已有文件工具如何接入与呈现</a></td><td><a href="evidence.html#e18a">E18A</a></td></tr>
+<tr><td><a href="reader.html#chapter-19">第 19 章 · Cordis 与时空可组合性：论文契约怎样落到运行框架</a></td><td><a href="evidence.html#e19a">E19A</a>、<a href="evidence.html#e19b">E19B</a>、<a href="evidence.html#e19c">E19C</a></td></tr>
+</table></div>
+<h2 id="heading-3">官方子系统资料</h2>
+<div class="table-wrap"><table>
+<tr><th>子系统</th><th>关联主线</th><th>固定快照文档</th></tr>
+<tr><td>core</td><td>第 3 章及补充附录</td><td><a href="source/docs/subsystems/core.zh.md">core.zh.md</a></td></tr>
+<tr><td>commands</td><td>第 1 章及补充附录</td><td><a href="source/docs/subsystems/commands.zh.md">commands.zh.md</a></td></tr>
+<tr><td>system-prompt</td><td>第 6 章及补充附录</td><td><a href="source/docs/subsystems/system-prompt.zh.md">system-prompt.zh.md</a></td></tr>
+<tr><td>skills</td><td>第 7 章及补充附录</td><td><a href="source/docs/subsystems/skills.zh.md">skills.zh.md</a></td></tr>
+<tr><td>compaction</td><td>第 8 章及补充附录</td><td><a href="source/docs/subsystems/compaction.zh.md">compaction.zh.md</a></td></tr>
+<tr><td>attachment</td><td>第 6 章及补充附录</td><td><a href="source/docs/subsystems/attachment.zh.md">attachment.zh.md</a></td></tr>
+<tr><td>session-reference</td><td>第 6 章及补充附录</td><td><a href="source/docs/subsystems/session-reference.zh.md">session-reference.zh.md</a></td></tr>
+<tr><td>scope</td><td>第 6 章及补充附录</td><td><a href="source/docs/subsystems/scope.zh.md">scope.zh.md</a></td></tr>
+<tr><td>spill</td><td>第 6 章及补充附录</td><td><a href="source/docs/subsystems/spill.zh.md">spill.zh.md</a></td></tr>
+<tr><td>session</td><td>第 5 章及补充附录</td><td><a href="source/docs/subsystems/session.zh.md">session.zh.md</a></td></tr>
+<tr><td>persistence</td><td>第 5 章及补充附录</td><td><a href="source/docs/subsystems/persistence.zh.md">persistence.zh.md</a></td></tr>
+<tr><td>storage</td><td>第 5 章及补充附录</td><td><a href="source/docs/subsystems/storage.zh.md">storage.zh.md</a></td></tr>
+<tr><td>workspace</td><td>第 5 章及补充附录</td><td><a href="source/docs/subsystems/workspace.zh.md">workspace.zh.md</a></td></tr>
+<tr><td>session-query</td><td>第 5 章及补充附录</td><td><a href="source/docs/subsystems/session-query.zh.md">session-query.zh.md</a></td></tr>
+<tr><td>session-projection</td><td>第 5 章及补充附录</td><td><a href="source/docs/subsystems/session-projection.zh.md">session-projection.zh.md</a></td></tr>
+<tr><td>session-title</td><td>第 5 章及补充附录</td><td><a href="source/docs/subsystems/session-title.zh.md">session-title.zh.md</a></td></tr>
+<tr><td>tools</td><td>第 4 章及补充附录</td><td><a href="source/docs/subsystems/tools.zh.md">tools.zh.md</a></td></tr>
+<tr><td>filesystem</td><td>第 4 章及补充附录</td><td><a href="source/docs/subsystems/filesystem.zh.md">filesystem.zh.md</a></td></tr>
+<tr><td>approval</td><td>第 11 章及补充附录</td><td><a href="source/docs/subsystems/approval.zh.md">approval.zh.md</a></td></tr>
+<tr><td>mcp</td><td>第 12 章及补充附录</td><td><a href="source/docs/subsystems/mcp.zh.md">mcp.zh.md</a></td></tr>
+<tr><td>web</td><td>第 12 章及补充附录</td><td><a href="source/docs/subsystems/web.zh.md">web.zh.md</a></td></tr>
+<tr><td>ptc-runtime</td><td>第 11 章及补充附录</td><td><a href="source/docs/subsystems/ptc-runtime.zh.md">ptc-runtime.zh.md</a></td></tr>
+<tr><td>sandbox</td><td>第 11 章及补充附录</td><td><a href="source/docs/subsystems/sandbox.zh.md">sandbox.zh.md</a></td></tr>
+<tr><td>permission-presets</td><td>第 11 章及补充附录</td><td><a href="source/docs/subsystems/permission-presets.zh.md">permission-presets.zh.md</a></td></tr>
+<tr><td>boot</td><td>第 10 章及补充附录</td><td><a href="source/docs/subsystems/boot.zh.md">boot.zh.md</a></td></tr>
+<tr><td>shell</td><td>第 10 章及补充附录</td><td><a href="source/docs/subsystems/shell.zh.md">shell.zh.md</a></td></tr>
+<tr><td>subprocess</td><td>第 10 章及补充附录</td><td><a href="source/docs/subsystems/subprocess.zh.md">subprocess.zh.md</a></td></tr>
+<tr><td>terminal</td><td>第 10 章及补充附录</td><td><a href="source/docs/subsystems/terminal.zh.md">terminal.zh.md</a></td></tr>
+<tr><td>ssh</td><td>第 10 章及补充附录</td><td><a href="source/docs/subsystems/ssh.zh.md">ssh.zh.md</a></td></tr>
+<tr><td>lsp</td><td>第 10 章及补充附录</td><td><a href="source/docs/subsystems/lsp.zh.md">lsp.zh.md</a></td></tr>
+<tr><td>settings</td><td>第 10 章及补充附录</td><td><a href="source/docs/subsystems/settings.zh.md">settings.zh.md</a></td></tr>
+<tr><td>credentials</td><td>第 10 章及补充附录</td><td><a href="source/docs/subsystems/credentials.zh.md">credentials.zh.md</a></td></tr>
+<tr><td>web-client</td><td>第 14 章及补充附录</td><td><a href="source/docs/subsystems/web-client.zh.md">web-client.zh.md</a></td></tr>
+<tr><td>web-server</td><td>第 14 章及补充附录</td><td><a href="source/docs/subsystems/web-server.zh.md">web-server.zh.md</a></td></tr>
+<tr><td>client-modules</td><td>第 14 章及补充附录</td><td><a href="source/docs/subsystems/client-modules.zh.md">client-modules.zh.md</a></td></tr>
+<tr><td>client-resources</td><td>第 14 章及补充附录</td><td><a href="source/docs/subsystems/client-resources.zh.md">client-resources.zh.md</a></td></tr>
+<tr><td>slots</td><td>第 14 章及补充附录</td><td><a href="source/docs/subsystems/slots.zh.md">slots.zh.md</a></td></tr>
+<tr><td>sidebar-right</td><td>第 14 章及补充附录</td><td><a href="source/docs/subsystems/sidebar-right.zh.md">sidebar-right.zh.md</a></td></tr>
+<tr><td>conversation</td><td>第 14 章及补充附录</td><td><a href="source/docs/subsystems/conversation.zh.md">conversation.zh.md</a></td></tr>
+<tr><td>typert</td><td>第 14 章及补充附录</td><td><a href="source/docs/subsystems/typert.zh.md">typert.zh.md</a></td></tr>
+<tr><td>office-to-pdf</td><td>第 14 章及补充附录</td><td><a href="source/docs/subsystems/office-to-pdf.zh.md">office-to-pdf.zh.md</a></td></tr>
+<tr><td>deliverables</td><td>第 14 章及补充附录</td><td><a href="source/docs/subsystems/deliverables.zh.md">deliverables.zh.md</a></td></tr>
+<tr><td>voice-input</td><td>第 14 章及补充附录</td><td><a href="source/docs/subsystems/voice-input.zh.md">voice-input.zh.md</a></td></tr>
+<tr><td>browser-use</td><td>第 14 章及补充附录</td><td><a href="source/docs/subsystems/browser-use.zh.md">browser-use.zh.md</a></td></tr>
+<tr><td>computer-use</td><td>第 14 章及补充附录</td><td><a href="source/docs/subsystems/computer-use.zh.md">computer-use.zh.md</a></td></tr>
+<tr><td>user-questions</td><td>第 14 章及补充附录</td><td><a href="source/docs/subsystems/user-questions.zh.md">user-questions.zh.md</a></td></tr>
+<tr><td>token-meter</td><td>第 17 章及补充附录</td><td><a href="source/docs/subsystems/token-meter.zh.md">token-meter.zh.md</a></td></tr>
+<tr><td>invariants</td><td>第 17 章及补充附录</td><td><a href="source/docs/subsystems/invariants.zh.md">invariants.zh.md</a></td></tr>
+<tr><td>feedback</td><td>第 17 章及补充附录</td><td><a href="source/docs/subsystems/feedback.zh.md">feedback.zh.md</a></td></tr>
+<tr><td>otel</td><td>第 17 章及补充附录</td><td><a href="source/docs/subsystems/otel.zh.md">otel.zh.md</a></td></tr>
+<tr><td>product-telemetry</td><td>第 17 章及补充附录</td><td><a href="source/docs/subsystems/product-telemetry.zh.md">product-telemetry.zh.md</a></td></tr>
+<tr><td>session-telemetry</td><td>第 17 章及补充附录</td><td><a href="source/docs/subsystems/session-telemetry.zh.md">session-telemetry.zh.md</a></td></tr>
+<tr><td>llm-streaming</td><td>第 9 章及补充附录</td><td><a href="source/docs/subsystems/llm-streaming.zh.md">llm-streaming.zh.md</a></td></tr>
+<tr><td>goal</td><td>第 18 章及补充附录</td><td><a href="source/docs/subsystems/goal.zh.md">goal.zh.md</a></td></tr>
+<tr><td>plan</td><td>第 18 章及补充附录</td><td><a href="source/docs/subsystems/plan.zh.md">plan.zh.md</a></td></tr>
+<tr><td>todo</td><td>第 18 章及补充附录</td><td><a href="source/docs/subsystems/todo.zh.md">todo.zh.md</a></td></tr>
+<tr><td>schedule</td><td>第 18 章及补充附录</td><td><a href="source/docs/subsystems/schedule.zh.md">schedule.zh.md</a></td></tr>
+<tr><td>webhook</td><td>第 18 章及补充附录</td><td><a href="source/docs/subsystems/webhook.zh.md">webhook.zh.md</a></td></tr>
+<tr><td>extensions</td><td>第 18 章及补充附录</td><td><a href="source/docs/subsystems/extensions.zh.md">extensions.zh.md</a></td></tr>
+<tr><td>subagent</td><td>第 13 章及补充附录</td><td><a href="source/docs/subsystems/subagent.zh.md">subagent.zh.md</a></td></tr>
+<tr><td>agent-team</td><td>第 13 章及补充附录</td><td><a href="source/docs/subsystems/agent-team.zh.md">agent-team.zh.md</a></td></tr>
+<tr><td>jobs</td><td>第 13 章及补充附录</td><td><a href="source/docs/subsystems/jobs.zh.md">jobs.zh.md</a></td></tr>
+<tr><td>workflow</td><td>第 13 章及补充附录</td><td><a href="source/docs/subsystems/workflow.zh.md">workflow.zh.md</a></td></tr>
+</table></div>
+<h2 id="heading-4">架构、工具链与教程</h2>
+<p><a href="source/docs/architecture.zh.md">架构</a> · <a href="source/docs/agent-lifecycle.zh.md">运行生命周期</a> · <a href="source/docs/tool-execution-pipeline.zh.md">工具执行链</a> · <a href="source/docs/cordis-primer.zh.md">Cordis 入门</a></p>
+<h2 id="heading-5">固定版本</h2>
+<p><code>639ed015397290b3745d163aafe02ffee4aa3f84</code>；根包 0.2.0-rc.2；Cordis 4.0.4。核验日期 2026-10-03。实现定位和节选摘要见 <a href="evidence.html">证据索引</a>。</p></article>
+    <nav class="page-turns" id="page-turns" aria-label="前后章节" hidden></nav>
+    <footer class="page-footer"><span>深入理解 DeepSeek Harness · 中文教材</span><a href="#top" id="back-top">回到顶部 ↑</a></footer>
+  </main>
+  <aside class="toc-sidebar" id="page-toc" aria-label="本页目录"><div class="toc-title">本页目录</div><nav id="toc-nav" aria-label="本页小节"></nav></aside>
+</div>
+<dialog id="search-dialog" aria-labelledby="search-title">
+  <div class="search-heading"><h2 id="search-title">搜索本书</h2><button class="icon-button" id="search-close" aria-label="关闭搜索">×</button></div>
+  <label class="search-field"><span class="visually-hidden">搜索关键词</span><input id="search-input" type="search" placeholder="输入概念、工具名称或章节标题" autocomplete="off"></label>
+  <p id="search-status" role="status">搜索当前阅读文件的正文和标题</p>
+  <div id="search-results"></div>
+</dialog>
+<noscript><div class="noscript-note">当前显示全文。浏览器启用 JavaScript 后可按章阅读和搜索。</div></noscript>
+<script>(() => {
+  'use strict';
+  const $ = selector => document.querySelector(selector);
+  const content = $('#book-content');
+  const blocks = [...content.querySelectorAll(':scope > .book-section')];
+  const chapterBlocks = blocks.filter(e => e.dataset.chapter);
+  const reader = chapterBlocks.length > 0;
+  const navLinks = [...$('#book-nav').querySelectorAll('a')];
+  const toc = $('#toc-nav');
+  const mode = $('#reading-mode');
+  const sourceToggle = $('#source-toggle');
+  const dialog = $('#search-dialog');
+  const searchInput = $('#search-input');
+  let full = false;
+  let current = blocks[0] || content;
+  let tocHeadings = [];
+  let lastOpener = null;
+  let scrollQueued = false;
+  const escapeHTML = value => value.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const plainHeading = element => element?.dataset.title || element?.textContent.replace(/¶$/, '').trim() || '';
+  const headingOf = block => plainHeading(block.querySelector('h1'));
+  const shortTitle = block => headingOf(block).split('｜').pop();
+  function fragment() { try { return decodeURIComponent(location.hash.slice(1)); } catch { return location.hash.slice(1); } }
+  function closeDrawer() {
+    $('#book-sidebar').classList.remove('open');
+    $('#drawer-backdrop').hidden = true;
+    $('#menu-button').setAttribute('aria-expanded', 'false');
+  }
+  function closeToc() { $('#page-toc').classList.remove('open'); $('#toc-button').setAttribute('aria-expanded', 'false'); }
+  function setCurrent(block) {
+    current = block;
+    for (const a of navLinks) {
+      const active = reader ? (a.getAttribute('href') === '#' + block.id || (!block.dataset.chapter && block.id === 'book-home' && a.getAttribute('href') === '#book-home')) : a.pathname === location.pathname;
+      a.classList.toggle('active', active);
+      if (active) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+    }
+    $('#reading-context').textContent = block.dataset.chapter ? '第 ' + Number(block.dataset.chapter) + ' 章' : reader ? '全书导读' : '随用随查';
+    $('#header-context').textContent = reader ? shortTitle(block) : document.title;
+    document.title = reader && block.dataset.chapter ? shortTitle(block) + ' · DeepSeek Harness' : document.documentElement.dataset.pageTitle;
+    updateToc();
+    updateTurns();
+  }
+  function updateToc() {
+    tocHeadings = [...current.querySelectorAll('h2[id],h3[id]')].filter(h => !(sourceToggle.checked && h.closest('.source-section')));
+    toc.replaceChildren();
+    for (const h of tocHeadings) {
+      const a = document.createElement('a');
+      a.href = '#' + h.id; a.textContent = plainHeading(h);
+      if (h.tagName === 'H3') a.className = 'subheading';
+      toc.append(a);
+    }
+    markToc();
+  }
+  function markToc() {
+    let active = tocHeadings[0];
+    for (const h of tocHeadings) if (h.getBoundingClientRect().top <= 150) active = h;
+    for (const a of toc.children) {
+      const on = a.hash === '#' + active?.id;
+      a.classList.toggle('active', on);
+      if (on) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current');
+    }
+  }
+  function updateTurns() {
+    const turns = $('#page-turns');
+    if (!reader) return;
+    turns.hidden = false;
+    const index = blocks.indexOf(current);
+    turns.replaceChildren();
+    for (const [next, label] of [[blocks[index - 1], '← 上一章'], [blocks[index + 1], '下一章 →']]) {
+      if (!next) { turns.append(document.createElement('span')); continue; }
+      const a = document.createElement('a'); a.href = '#' + next.id;
+      const small = document.createElement('small'); small.textContent = label;
+      const title = document.createElement('span'); title.textContent = next.dataset.chapter ? '第 ' + Number(next.dataset.chapter) + ' 章 · ' + shortTitle(next) : '全书导读';
+      a.append(small, title); turns.append(a);
+    }
+  }
+  function showTarget(scroll = true) {
+    const id = fragment();
+    const target = id ? document.getElementById(id) : null;
+    const block = target?.closest('.book-section') || (id === 'content' || id === 'top' ? current : blocks[0]) || content;
+    if (reader) for (const b of blocks) b.hidden = !full && b !== block;
+    if (target?.closest('.source-section') && sourceToggle.checked) {
+      sourceToggle.checked = false; document.body.classList.remove('hide-source');
+    }
+    setCurrent(block);
+    closeDrawer(); closeToc();
+    if (scroll) requestAnimationFrame(() => {
+      if (target && id !== 'top') target.scrollIntoView({block:'start', behavior:'instant'});
+      else window.scrollTo({top:0, behavior:'instant'});
+    });
+  }
+  document.documentElement.dataset.pageTitle = document.title;
+  for (const h of content.querySelectorAll('h1[id],h2[id],h3[id]')) {
+    h.dataset.title = h.textContent;
+    const a = document.createElement('a'); a.className = 'heading-link'; a.href = '#' + h.id; a.textContent = '¶'; a.setAttribute('aria-label', '链接到：' + h.textContent); h.append(a);
+  }
+  sourceToggle.addEventListener('change', () => { document.body.classList.toggle('hide-source', sourceToggle.checked); updateToc(); });
+  if (reader) {
+    mode.hidden = false;
+    mode.addEventListener('click', () => {
+      const anchor = current;
+      full = !full;
+      mode.textContent = full ? '按章阅读' : '全文阅读';
+      mode.setAttribute('aria-pressed', String(full));
+      for (const b of blocks) b.hidden = !full && b !== anchor;
+      updateToc();
+      requestAnimationFrame(() => anchor.scrollIntoView({block:'start',behavior:'instant'}));
+    });
+  }
+  window.addEventListener('hashchange', () => showTarget());
+  window.addEventListener('scroll', () => {
+    if (scrollQueued) return;
+    scrollQueued = true;
+    requestAnimationFrame(() => {
+      if (reader && full) {
+        let active = blocks[0];
+        for (const b of blocks) if (b.getBoundingClientRect().top <= 160) active = b;
+        if (active !== current) setCurrent(active);
+      }
+      markToc(); scrollQueued = false;
+    });
+  }, {passive:true});
+  $('#book-nav').addEventListener('click', e => { if (e.target.closest('a')) closeDrawer(); });
+  toc.addEventListener('click', e => { if (e.target.closest('a')) closeToc(); });
+  $('#menu-button').addEventListener('click', () => {
+    const open = $('#book-sidebar').classList.toggle('open');
+    $('#menu-button').setAttribute('aria-expanded', String(open));
+    $('#drawer-backdrop').hidden = !open;
+    if (open) (navLinks.find(a => a.classList.contains('active')) || navLinks[0])?.focus();
+  });
+  $('#drawer-backdrop').addEventListener('click', closeDrawer);
+  $('#toc-button').addEventListener('click', () => {
+    const open = $('#page-toc').classList.toggle('open'); $('#toc-button').setAttribute('aria-expanded', String(open));
+  });
+  $('#back-top').addEventListener('click', e => { e.preventDefault(); window.scrollTo({top:0,behavior:'instant'}); });
+  const searchRows = [];
+  for (const block of (reader ? blocks : [content])) {
+    let heading = block.querySelector('h1')?.id;
+    for (const node of block.querySelectorAll('h1,h2,h3,p,li,td')) {
+      if (node.matches('h1,h2,h3')) heading = node.id;
+      if (node.closest('.chapter-overview') || node.closest('table') && node.cellIndex === undefined) continue;
+      const text = node.textContent.replace(/¶$/, '').trim();
+      if (text.length < 2) continue;
+      searchRows.push({text, lower:text.toLocaleLowerCase(), target:heading || block.id, title:heading ? plainHeading(document.getElementById(heading)) : headingOf(block), chapter:reader ? shortTitle(block) : document.title, section:node.closest('.source-section') !== null, heading:node.matches('h1,h2,h3')});
+    }
+  }
+  function highlight(text, terms) {
+    const longest = [...terms].sort((a,b) => b.length-a.length);
+    const pattern = new RegExp(longest.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|'), 'giu');
+    let last = 0, result = '';
+    for (const hit of text.matchAll(pattern)) { result += escapeHTML(text.slice(last, hit.index)) + '<mark>' + escapeHTML(hit[0]) + '</mark>'; last = hit.index + hit[0].length; }
+    return result + escapeHTML(text.slice(last));
+  }
+  function search() {
+    const value = searchInput.value.trim();
+    const results = $('#search-results'); results.replaceChildren();
+    if (!value) { $('#search-status').textContent = '搜索当前阅读文件的正文和标题'; return; }
+    const terms = value.toLocaleLowerCase().split(/\s+/).filter(Boolean);
+    const seen = new Set();
+    const rows = searchRows.filter(r => terms.every(t => r.lower.includes(t))).sort((a,b) => Number(b.heading)-Number(a.heading)).filter(r => {const key=r.target+'|'+r.text;if(seen.has(key))return false;seen.add(key);return true;});
+    $('#search-status').textContent = rows.length ? '找到 ' + rows.length + ' 处匹配' + (rows.length > 60 ? '，显示前 60 处' : '') : '没有找到匹配内容，试试工具名称或更短的关键词。';
+    for (const r of rows.slice(0,60)) {
+      const at = Math.max(0, r.lower.indexOf(terms[0])-35);
+      const snippet = (at ? '…' : '') + r.text.slice(at,at+160) + (r.text.length>at+160 ? '…' : '');
+      const a = document.createElement('a'); a.href = '#' + r.target;
+      a.innerHTML = '<small>' + escapeHTML(r.chapter) + (r.section ? ' · 源码研读' : '') + '</small><strong>' + highlight(r.title,terms) + '</strong><p>' + highlight(snippet,terms) + '</p>';
+      a.addEventListener('click', () => { dialog.close(); if(location.hash === a.hash) showTarget(); });
+      results.append(a);
+    }
+  }
+  function openSearch() { lastOpener = document.activeElement; closeDrawer(); closeToc(); dialog.showModal(); searchInput.focus(); }
+  $('#search-button').addEventListener('click', openSearch);
+  $('#search-close').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('close', () => lastOpener?.focus());
+  dialog.addEventListener('click', e => { const r=dialog.getBoundingClientRect(); if(e.target===dialog&&(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom))dialog.close(); });
+  searchInput.addEventListener('input', search);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { closeDrawer(); closeToc(); }
+    if (e.key === '/' && !dialog.open && !e.ctrlKey && !e.metaKey && !e.altKey && !e.target.closest('input,textarea,[contenteditable]')) { e.preventDefault(); openSearch(); }
+  });
+  showTarget();
+})();
+</script>
+</body></html>

@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1120" height="760" viewBox="0 0 1120 760" role="img" aria-labelledby="F18B-title F18B-desc">
 <title id="F18B-title">F18B：按职责解释完整任务，而非只背名字</title>
-<desc id="F18B-desc">{&quot;id&quot;: &quot;F18B&quot;, &quot;title&quot;: &quot;按职责解释完整任务，而非只背名字&quot;, &quot;kind&quot;: &quot;columns&quot;, &quot;tag&quot;: &quot;已有读取工具的契约对照&quot;, &quot;columns&quot;: [[&quot;目标与材料&quot;, &quot;输入接纳、提示与技能&quot;, &quot;历史、文件结果与摘要&quot;, &quot;知道材料从哪里来&quot;], [&quot;执行与事实&quot;, &quot;配置、循环、工具准入&quot;, &quot;模型尝试和子任务&quot;, &quot;知道动作和状态边界&quot;], [&quot;产品与验证&quot;, &quot;提交、跟随与桌面承载&quot;, &quot;回放、质量与用量&quot;, &quot;知道证据能支持什么&quot;]]}</desc>
+<desc id="F18B-desc">{&quot;id&quot;: &quot;F18B&quot;, &quot;title&quot;: &quot;按职责解释完整任务，而非只背名字&quot;, &quot;kind&quot;: &quot;columns&quot;, &quot;tag&quot;: &quot;已有读取工具的契约对照&quot;, &quot;columns&quot;: [[&quot;目标与材料&quot;, &quot;输入接纳、提示与 Skill&quot;, &quot;历史、文件结果与摘要&quot;, &quot;知道材料从哪里来&quot;], [&quot;执行与事实&quot;, &quot;配置、循环、工具准入&quot;, &quot;模型尝试和子任务&quot;, &quot;知道动作和状态边界&quot;], [&quot;产品与验证&quot;, &quot;提交、跟随与桌面承载&quot;, &quot;回放、质量与用量&quot;, &quot;知道证据能支持什么&quot;]]}</desc>
 <rect width="1120" height="760" fill="white"/>
 <text x="48" y="56" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#20314B">F18B  按职责解释完整任务，而非只背名字</text>
 <text x="48" y="97" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="400" fill="#65738A">原创教学图 · 已有读取工具的契约对照</text>
 <rect x="55" y="150" width="310" height="470" rx="16" fill="#E9F2FF" stroke="#3469A8" stroke-width="2"/>
 <text x="77" y="197" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">目标与材料</text>
-<text x="77" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">输入接纳、提示与技能</text>
+<text x="77" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">输入接纳、提示与 Skill</text>
 <text x="77" y="294" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">历史、文件结果与摘要</text>
 <text x="77" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">知道材料从哪里来</text>
 <rect x="405" y="150" width="310" height="470" rx="16" fill="#F0EBFF" stroke="#7659AA" stroke-width="2"/>
@@ -19,5 +19,5 @@
 <text x="777" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">提交、跟随与桌面承载</text>
 <text x="777" y="294" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">回放、质量与用量</text>
 <text x="777" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">知道证据能支持什么</text>
-<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：先确认范围，再跟随标注；示意布局不代表实际耗时或比例。</text>
+<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：并排各栏表示不同职责或范围，按栏内说明逐项比较。</text>
 </svg>

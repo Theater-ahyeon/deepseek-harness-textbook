@@ -1,383 +1,509 @@
 {
-  "chapter_count": 10,
+  "chapter_count": 19,
   "subsystems": [
     {
       "subsystem": "core",
-      "book_chapter": "01",
+      "book_chapter": "03",
       "reference": "source/docs/subsystems/core.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "commands",
       "book_chapter": "01",
       "reference": "source/docs/subsystems/commands.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "system-prompt",
-      "book_chapter": "02",
+      "book_chapter": "06",
       "reference": "source/docs/subsystems/system-prompt.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "skills",
-      "book_chapter": "02",
+      "book_chapter": "07",
       "reference": "source/docs/subsystems/skills.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "compaction",
-      "book_chapter": "02",
+      "book_chapter": "08",
       "reference": "source/docs/subsystems/compaction.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "attachment",
-      "book_chapter": "02",
+      "book_chapter": "06",
       "reference": "source/docs/subsystems/attachment.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "session-reference",
-      "book_chapter": "02",
+      "book_chapter": "06",
       "reference": "source/docs/subsystems/session-reference.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "scope",
-      "book_chapter": "02",
+      "book_chapter": "06",
       "reference": "source/docs/subsystems/scope.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "spill",
-      "book_chapter": "02",
+      "book_chapter": "06",
       "reference": "source/docs/subsystems/spill.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "session",
-      "book_chapter": "03",
+      "book_chapter": "05",
       "reference": "source/docs/subsystems/session.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "persistence",
-      "book_chapter": "03",
+      "book_chapter": "05",
       "reference": "source/docs/subsystems/persistence.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "storage",
-      "book_chapter": "03",
+      "book_chapter": "05",
       "reference": "source/docs/subsystems/storage.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "workspace",
-      "book_chapter": "03",
+      "book_chapter": "05",
       "reference": "source/docs/subsystems/workspace.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "session-query",
-      "book_chapter": "03",
+      "book_chapter": "05",
       "reference": "source/docs/subsystems/session-query.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "session-projection",
-      "book_chapter": "03",
+      "book_chapter": "05",
       "reference": "source/docs/subsystems/session-projection.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "session-title",
-      "book_chapter": "03",
+      "book_chapter": "05",
       "reference": "source/docs/subsystems/session-title.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "tools",
       "book_chapter": "04",
       "reference": "source/docs/subsystems/tools.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "filesystem",
       "book_chapter": "04",
       "reference": "source/docs/subsystems/filesystem.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "approval",
-      "book_chapter": "04",
+      "book_chapter": "11",
       "reference": "source/docs/subsystems/approval.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "mcp",
-      "book_chapter": "04",
+      "book_chapter": "12",
       "reference": "source/docs/subsystems/mcp.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "web",
-      "book_chapter": "04",
+      "book_chapter": "12",
       "reference": "source/docs/subsystems/web.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "ptc-runtime",
-      "book_chapter": "04",
+      "book_chapter": "11",
       "reference": "source/docs/subsystems/ptc-runtime.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "sandbox",
-      "book_chapter": "04",
+      "book_chapter": "11",
       "reference": "source/docs/subsystems/sandbox.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "permission-presets",
-      "book_chapter": "04",
+      "book_chapter": "11",
       "reference": "source/docs/subsystems/permission-presets.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "boot",
-      "book_chapter": "05",
+      "book_chapter": "10",
       "reference": "source/docs/subsystems/boot.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "shell",
-      "book_chapter": "05",
+      "book_chapter": "10",
       "reference": "source/docs/subsystems/shell.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "subprocess",
-      "book_chapter": "05",
+      "book_chapter": "10",
       "reference": "source/docs/subsystems/subprocess.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "terminal",
-      "book_chapter": "05",
+      "book_chapter": "10",
       "reference": "source/docs/subsystems/terminal.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "ssh",
-      "book_chapter": "05",
+      "book_chapter": "10",
       "reference": "source/docs/subsystems/ssh.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "lsp",
-      "book_chapter": "05",
+      "book_chapter": "10",
       "reference": "source/docs/subsystems/lsp.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "settings",
-      "book_chapter": "05",
+      "book_chapter": "10",
       "reference": "source/docs/subsystems/settings.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "credentials",
-      "book_chapter": "05",
+      "book_chapter": "10",
       "reference": "source/docs/subsystems/credentials.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "web-client",
-      "book_chapter": "06",
+      "book_chapter": "14",
       "reference": "source/docs/subsystems/web-client.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "web-server",
-      "book_chapter": "06",
+      "book_chapter": "14",
       "reference": "source/docs/subsystems/web-server.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "client-modules",
-      "book_chapter": "06",
+      "book_chapter": "14",
       "reference": "source/docs/subsystems/client-modules.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "client-resources",
-      "book_chapter": "06",
+      "book_chapter": "14",
       "reference": "source/docs/subsystems/client-resources.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "slots",
-      "book_chapter": "06",
+      "book_chapter": "14",
       "reference": "source/docs/subsystems/slots.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "sidebar-right",
-      "book_chapter": "06",
+      "book_chapter": "14",
       "reference": "source/docs/subsystems/sidebar-right.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "conversation",
-      "book_chapter": "06",
+      "book_chapter": "14",
       "reference": "source/docs/subsystems/conversation.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "typert",
-      "book_chapter": "06",
+      "book_chapter": "14",
       "reference": "source/docs/subsystems/typert.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "office-to-pdf",
-      "book_chapter": "06",
+      "book_chapter": "14",
       "reference": "source/docs/subsystems/office-to-pdf.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "deliverables",
-      "book_chapter": "06",
+      "book_chapter": "14",
       "reference": "source/docs/subsystems/deliverables.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "voice-input",
-      "book_chapter": "06",
+      "book_chapter": "14",
       "reference": "source/docs/subsystems/voice-input.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "browser-use",
-      "book_chapter": "06",
+      "book_chapter": "14",
       "reference": "source/docs/subsystems/browser-use.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "computer-use",
-      "book_chapter": "06",
+      "book_chapter": "14",
       "reference": "source/docs/subsystems/computer-use.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "user-questions",
-      "book_chapter": "06",
+      "book_chapter": "14",
       "reference": "source/docs/subsystems/user-questions.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "token-meter",
-      "book_chapter": "07",
+      "book_chapter": "17",
       "reference": "source/docs/subsystems/token-meter.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "invariants",
-      "book_chapter": "07",
+      "book_chapter": "17",
       "reference": "source/docs/subsystems/invariants.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "feedback",
-      "book_chapter": "07",
+      "book_chapter": "17",
       "reference": "source/docs/subsystems/feedback.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "otel",
-      "book_chapter": "07",
+      "book_chapter": "17",
       "reference": "source/docs/subsystems/otel.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "product-telemetry",
-      "book_chapter": "07",
+      "book_chapter": "17",
       "reference": "source/docs/subsystems/product-telemetry.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "session-telemetry",
-      "book_chapter": "07",
+      "book_chapter": "17",
       "reference": "source/docs/subsystems/session-telemetry.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "llm-streaming",
-      "book_chapter": "08",
+      "book_chapter": "09",
       "reference": "source/docs/subsystems/llm-streaming.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "goal",
-      "book_chapter": "09",
+      "book_chapter": "18",
       "reference": "source/docs/subsystems/goal.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "plan",
-      "book_chapter": "09",
+      "book_chapter": "18",
       "reference": "source/docs/subsystems/plan.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "todo",
-      "book_chapter": "09",
+      "book_chapter": "18",
       "reference": "source/docs/subsystems/todo.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "schedule",
-      "book_chapter": "09",
+      "book_chapter": "18",
       "reference": "source/docs/subsystems/schedule.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "webhook",
-      "book_chapter": "09",
+      "book_chapter": "18",
       "reference": "source/docs/subsystems/webhook.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "extensions",
-      "book_chapter": "09",
+      "book_chapter": "18",
       "reference": "source/docs/subsystems/extensions.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "subagent",
-      "book_chapter": "10",
+      "book_chapter": "13",
       "reference": "source/docs/subsystems/subagent.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "agent-team",
-      "book_chapter": "10",
+      "book_chapter": "13",
       "reference": "source/docs/subsystems/agent-team.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "jobs",
-      "book_chapter": "10",
+      "book_chapter": "13",
       "reference": "source/docs/subsystems/jobs.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     },
     {
       "subsystem": "workflow",
-      "book_chapter": "10",
+      "book_chapter": "13",
       "reference": "source/docs/subsystems/workflow.zh.md",
-      "depth": "正文解释功能、协作与主要边界；不穷举全部配置字段和平台实现"
+      "depth": "正文与补充附录解释功能、协作、过程和主要边界；不把每个平台实现都声称为已审计",
+      "supplement": "subsystems.md",
+      "evidence_level": "fixed_snapshot_documentation; annotated implementation excerpts indexed separately"
     }
   ]
 }

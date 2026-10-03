@@ -1,0 +1,70 @@
+{
+  "tool": "calculations",
+  "implementation": "local Python CLI; Decimal, precision=40",
+  "input_kind": "教学假设：用于复算第十七章的评价示例；不是实际模型实验",
+  "variables": {
+    "A_tasks": "10",
+    "A_passed": "9",
+    "A_tokens": "20000",
+    "B_tasks": "10",
+    "B_passed": "8",
+    "B_tokens": "14000"
+  },
+  "results": {
+    "A_pass_percent": {
+      "expression": "A_passed / A_tasks * 100",
+      "value": "90.0",
+      "rounded_integer": "90",
+      "unit": "%"
+    },
+    "B_pass_percent": {
+      "expression": "B_passed / B_tasks * 100",
+      "value": "80.0",
+      "rounded_integer": "80",
+      "unit": "%"
+    },
+    "token_reduction_percent": {
+      "expression": "(A_tokens - B_tokens) / A_tokens * 100",
+      "value": "30.0",
+      "rounded_integer": "30",
+      "unit": "%"
+    },
+    "pass_drop_percentage_points": {
+      "expression": "(A_passed / A_tasks - B_passed / B_tasks) * 100",
+      "value": "10.0",
+      "rounded_integer": "10",
+      "unit": "百分点"
+    },
+    "relative_gain_B_to_A_percent": {
+      "expression": "((A_passed / A_tasks) / (B_passed / B_tasks) - 1) * 100",
+      "value": "12.500",
+      "rounded_integer": "13",
+      "unit": "%"
+    },
+    "A_tokens_per_pass": {
+      "expression": "A_tokens / A_passed",
+      "value": "2222.222222222222222222222222222222222222",
+      "rounded_integer": "2222",
+      "unit": "token / 通过任务"
+    },
+    "B_tokens_per_pass": {
+      "expression": "B_tokens / B_passed",
+      "value": "1750",
+      "rounded_integer": "1750",
+      "unit": "token / 通过任务"
+    }
+  },
+  "input_sha256": "704a73ed9a99ee9b7698aa0cdacd363547a7ad6c6d8118bb71b3f28fedfb21fe",
+  "source_experiments": {
+    "cases_checked": 6,
+    "input_sha256": "8d48502cc852678c446aface99f672a5661b76826c7cde517f8c220e5a4fbbc6",
+    "case_ids": [
+      "E01-window-and-chunk-boundary",
+      "E02-byte-cap-keeps-scanning",
+      "E03-utf8-byte-cap",
+      "E04-empty-and-past-eof",
+      "E05-inbox-boundary-selection",
+      "E06-inbox-rejects-duplicate-before-append"
+    ]
+  }
+}

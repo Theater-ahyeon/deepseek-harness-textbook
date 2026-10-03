@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1120" height="760" viewBox="0 0 1120 760" role="img" aria-labelledby="F11A-title F11A-desc">
 <title id="F11A-title">F11A：准入之后才进入真实执行体</title>
-<desc id="F11A-desc">{&quot;id&quot;: &quot;F11A&quot;, &quot;title&quot;: &quot;准入之后才进入真实执行体&quot;, &quot;kind&quot;: &quot;flow&quot;, &quot;tag&quot;: &quot;简化工具流水线&quot;, &quot;nodes&quot;: [[&quot;记录开始的调用&quot;, &quot;先有调用事实&quot;, &quot;log&quot;], [&quot;前置决策&quot;, &quot;允许、询问、拒绝或取消&quot;, &quot;control&quot;], [&quot;可选审批与守卫&quot;, &quot;需要审批才询问；仍可否决&quot;, &quot;control&quot;], [&quot;获准执行体&quot;, &quot;拒绝路径跳过这一框&quot;, &quot;tool&quot;], [&quot;后置与结果规范化&quot;, &quot;执行错误也进入结果处理&quot;, &quot;control&quot;], [&quot;记录最终结果&quot;, &quot;错误不自动说明未执行&quot;, &quot;log&quot;]]}</desc>
+<desc id="F11A-desc">{&quot;id&quot;: &quot;F11A&quot;, &quot;title&quot;: &quot;准入之后才进入真实执行体&quot;, &quot;kind&quot;: &quot;flow&quot;, &quot;tag&quot;: &quot;简化工具流水线&quot;, &quot;nodes&quot;: [[&quot;记录开始的调用&quot;, &quot;先有调用事实&quot;, &quot;log&quot;], [&quot;前置决策&quot;, &quot;允许、询问、拒绝或取消&quot;, &quot;control&quot;], [&quot;可选审批与守卫&quot;, &quot;需要审批才询问；仍可否决&quot;, &quot;control&quot;], [&quot;获准执行体&quot;, &quot;拒绝路径跳过这一框&quot;, &quot;tool&quot;], [&quot;后置与结果规范化&quot;, &quot;执行错误也进入结果处理&quot;, &quot;control&quot;], [&quot;记录最终结果&quot;, &quot;关联准入决定与执行结果&quot;, &quot;log&quot;]]}</desc>
 <rect width="1120" height="760" fill="white"/>
 <text x="48" y="56" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#20314B">F11A  准入之后才进入真实执行体</text>
 <text x="48" y="97" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="400" fill="#65738A">原创教学图 · 简化工具流水线</text>
@@ -21,7 +21,7 @@
 <text x="427" y="505" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">执行错误也进入结果处理</text>
 <rect x="55" y="410" width="310" height="165" rx="16" fill="#EDF1F5" stroke="#63758A" stroke-width="2"/>
 <text x="77" y="457" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">6  记录最终结果</text>
-<text x="77" y="505" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">错误不自动说明未执行</text>
+<text x="77" y="505" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">关联准入决定与执行结果</text>
 <polyline points="365,240 405,240" fill="none" stroke="#65738A" stroke-width="3" stroke-linejoin="round"/>
 <polygon points="405.0,240.0 395.3,245.3 395.3,234.7" fill="#65738A"/>
 <text x="343.0" y="330" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" font-weight="400" fill="#20314B">准备调用</text>
@@ -40,5 +40,5 @@
 <polyline points="1065,230 1095,230 1095,655 560,655 560,575" fill="none" stroke="#BB5348" stroke-width="3" stroke-linejoin="round"/>
 <polygon points="560.0,575.0 565.3,584.7 554.7,584.7" fill="#BB5348"/>
 <text x="790" y="638" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="15" font-weight="400" fill="#BB5348">拒绝：跳过执行体</text>
-<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：先确认范围，再跟随标注；示意布局不代表实际耗时或比例。</text>
+<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：从节点 1 开始，沿箭头追踪处理顺序与数据变化。</text>
 </svg>

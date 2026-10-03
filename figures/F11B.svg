@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1120" height="760" viewBox="0 0 1120 760" role="img" aria-labelledby="F11B-title F11B-desc">
 <title id="F11B-title">F11B：策略、审批与执行环境不是一层</title>
-<desc id="F11B-desc">{&quot;id&quot;: &quot;F11B&quot;, &quot;title&quot;: &quot;策略、审批与执行环境不是一层&quot;, &quot;kind&quot;: &quot;columns&quot;, &quot;tag&quot;: &quot;职责对照&quot;, &quot;columns&quot;: [[&quot;策略判断&quot;, &quot;这次调用应怎样处理&quot;, &quot;可允许、拒绝或要求询问&quot;, &quot;不是实际动作本身&quot;], [&quot;一次审批&quot;, &quot;取得本次确认结论&quot;, &quot;允许一次不等于永久许可&quot;, &quot;仍需后续守卫检查&quot;], [&quot;执行环境&quot;, &quot;实际能访问什么范围&quot;, &quot;取决于具体提供方与配置&quot;, &quot;不能按弹窗推断系统隔离&quot;]]}</desc>
+<desc id="F11B-desc">{&quot;id&quot;: &quot;F11B&quot;, &quot;title&quot;: &quot;策略、审批与执行环境不是一层&quot;, &quot;kind&quot;: &quot;columns&quot;, &quot;tag&quot;: &quot;职责对照&quot;, &quot;columns&quot;: [[&quot;策略判断&quot;, &quot;这次调用应怎样处理&quot;, &quot;可允许、拒绝或要求询问&quot;, &quot;形成本次准入决定&quot;], [&quot;一次审批&quot;, &quot;取得本次确认结论&quot;, &quot;批准结果关联本次调用&quot;, &quot;后续守卫继续检查&quot;], [&quot;执行环境&quot;, &quot;实际能访问什么范围&quot;, &quot;取决于具体 Provider 与配置&quot;, &quot;后端实施实际文件约束&quot;]]}</desc>
 <rect width="1120" height="760" fill="white"/>
 <text x="48" y="56" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#20314B">F11B  策略、审批与执行环境不是一层</text>
 <text x="48" y="97" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="17" font-weight="400" fill="#65738A">原创教学图 · 职责对照</text>
@@ -8,16 +8,16 @@
 <text x="77" y="197" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">策略判断</text>
 <text x="77" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">这次调用应怎样处理</text>
 <text x="77" y="294" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">可允许、拒绝或要求询问</text>
-<text x="77" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">不是实际动作本身</text>
+<text x="77" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">形成本次准入决定</text>
 <rect x="405" y="150" width="310" height="470" rx="16" fill="#F0EBFF" stroke="#7659AA" stroke-width="2"/>
 <text x="427" y="197" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">一次审批</text>
 <text x="427" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">取得本次确认结论</text>
-<text x="427" y="294" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">允许一次不等于永久许可</text>
-<text x="427" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">仍需后续守卫检查</text>
+<text x="427" y="294" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">批准结果关联本次调用</text>
+<text x="427" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">后续守卫继续检查</text>
 <rect x="755" y="150" width="310" height="470" rx="16" fill="#E5F6ED" stroke="#367E5A" stroke-width="2"/>
 <text x="777" y="197" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#20314B">执行环境</text>
 <text x="777" y="245" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">实际能访问什么范围</text>
-<text x="777" y="294" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">取决于具体提供方与配置</text>
-<text x="777" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">不能按弹窗推断系统隔离</text>
-<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：先确认范围，再跟随标注；示意布局不代表实际耗时或比例。</text>
+<text x="777" y="294" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">取决于具体 Provider 与配置</text>
+<text x="777" y="343" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#20314B">后端实施实际文件约束</text>
+<text x="48" y="726" font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif" font-size="16" font-weight="400" fill="#65738A">读图：并排各栏表示不同职责或范围，按栏内说明逐项比较。</text>
 </svg>
