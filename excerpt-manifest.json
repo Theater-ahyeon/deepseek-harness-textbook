@@ -7,8 +7,8 @@
       "path": "source/packages/api/session-controller/src/commands.ts",
       "start": 329,
       "end": 335,
-      "task": "位置是 prompt 已通过前面的输入检查之后。已知请求有 Session 标识和请求标识，本段观察怎样定位 Agent、识别重复输入并建立来源对象；后续附件、排队和接纳返回不在此节选中。",
-      "trace": "相同请求标识已经被识别时，第二行直接返回接纳对象。新标识继续建立来源；这只准备消息元数据，尚未读取 README，也没有生成最终答案。",
+      "task": "节选位于 prompt 的输入校验之后。请求已包含 Session 标识和请求标识，代码据此定位 Agent、识别重复输入并构造消息来源对象。后续流程继续处理附件、消息排队和接纳回执。",
+      "trace": "已识别的请求标识直接得到接纳回执；新标识则继续建立用户消息的来源信息，随后进入附件处理、排队和回执返回。",
       "explanations": [
         [
           "const 保存一次结果，await 等待 resolveAgent",
@@ -44,12 +44,12 @@
     },
     {
       "chapter": 1,
-      "title": "记录工具提议，而不是宣布完成",
+      "title": "工具调用的关联记录",
       "path": "source/packages/core/agent-loop/src/tool-calls.ts",
       "start": 263,
       "end": 266,
-      "task": "这是 executeToolCalls 使用的调用记录辅助函数。参数已经包含 Session、轮次、步骤和一个工具调用块。本段观察保存哪些关联信息以及返回什么。",
-      "trace": "假设当前日志长度为 9，追加的调用得到 9 号。函数返回这个序号，随后结果可关联它；本函数没有等待文件读取，也没有执行存储 flush。",
+      "task": "appendToolCall 是 executeToolCalls 使用的记录辅助函数。输入包含 Session、turn、step 和工具调用块；函数把调用信息追加到 Session 内存日志，并返回用于关联结果的事件序号。",
+      "trace": "当前日志有 9 项时，新调用得到序号 9。函数返回该序号，供后续结果关联；调用者接着推进工具执行，存储写入由 Session 的监听器另行处理。",
       "explanations": [
         [
           "function 定义函数，冒号给参数与返回值标注类型",
@@ -77,12 +77,12 @@
       "path": "source/packages/api/session-controller/src/commands.ts",
       "start": 311,
       "end": 318,
-      "task": "这是 prompt 方法开头，不是完整方法。request 是入口交入的请求对象；先观察输入不合法时怎样结束。后续时区、附件、消息入队与 accepted 返回在第 1 章主链中解释。",
+      "task": "节选是 prompt 方法开头的输入校验。request 是入口接收的请求对象，内容不合法时方法抛出错误。时区、附件、消息入队与 accepted 返回位于后续逻辑，其主流程见第 1 章。",
       "trace": "请求只有空白文字且无附件时，条件成立，构造并抛出 RemoteError，调用方等待失败。有效内容跳过这段拒绝，继续后面的接纳处理。",
       "explanations": [
         [
-          "async 标记异步方法，Promise 标注将来结果的类型",
-          "prompt 接收入口请求，结果契约是 SessionPromptValue，不是最终总结。"
+          "async 标记异步方法，Promise 标注结果类型",
+          "prompt 的返回契约是 SessionPromptValue，调用方由此获得接纳回执。"
         ],
         [
           "if 与感叹号分别表示判断和取反",
@@ -139,7 +139,7 @@
         ],
         [
           "for...of 遍历领取结果，emit 发出事件",
-          "让观察者知道每条消息被哪一轮领取，而不是直接执行模型。"
+          "发布每条消息所属轮次的领取通知，供界面等观察者更新状态。"
         ],
         [
           "return 返回数组",
@@ -160,7 +160,7 @@
       "start": 55,
       "end": 61,
       "task": "这是 parseReadArgs 完整函数。调用者把模型提交的外部参数和配置上限交进来；本次观察缺省值与不合法值怎样区别处理。",
-      "trace": "file_path 为 README.md、offset 缺省、limit 为 2 时，内部输入是 filePath=README.md、offset=1、limit=2；limit=0 由正整数解析拒绝，超过 maxLimit 则走第五行。",
+      "trace": "file_path 为 README.md、offset 缺省、limit 为 2 时，内部输入是 filePath=README.md、offset=1、limit=2；limit=0 由正整数解析拒绝，超过 maxLimit 则走原文件第 59 行。",
       "explanations": [
         [
           "export 让别的模块可用，function 定义操作，问号表示可缺省",
@@ -180,7 +180,7 @@
         ],
         [
           "大于号比较，模板字符串插入上限",
-          "超出允许窗口行数时拒绝，而不是静默变成任意读取。"
+          "limit 超过配置的窗口行数上限时，抛出参数错误。"
         ],
         [
           "对象返回，显式改写属性名",
@@ -188,7 +188,7 @@
         ],
         [
           "结束函数",
-          "调用者拿到规范输入后继续真实读取。"
+          "返回规范化输入，供执行体继续解析目标并读取。"
         ]
       ],
       "id": "E04A",
@@ -200,7 +200,7 @@
       "path": "source/packages/fs/tool-fs/src/read.ts",
       "start": 141,
       "end": 152,
-      "task": "位置在 read 的执行体内，参数已经解析。target 保存后端解析的目标，info 保存文件信息，caps 是本次读取限制，exec.signal 是取消信号。后续 outcome 和结果返回在正文中说明。",
+      "task": "位置在 read 的执行体内，参数已经解析。target 保存后端解析的目标，info 保存文件信息，caps 是本次读取限制，exec.signal 是取消信号，ctx 是携带各项服务的 Context 对象。后续 outcome 和结果返回在正文中说明。",
       "trace": "大小小于流式阈值时获取完整文本作为一个批次；大小未知或达到阈值时获取文本流。两种输入都交给 buildWindow，再按起始行和限制构造结果。",
       "explanations": [
         [
@@ -258,7 +258,7 @@
       "start": 744,
       "end": 752,
       "task": "这是 Session.append 中已经获取可序列化副本之后的节选。重点观察序号、时间、数据副本和校验；后续加入日志、发布通知、返回事件是另一段逻辑。",
-      "trace": "已有 9 项日志时，新事件的 seq 为 9。类型检查、序号建立和冻结不会自行执行工具动作；校验失败会阻止按正常路径追加。",
+      "trace": "已有 9 项日志时，新事件的 seq 为 9。方法先冻结并校验事件；校验失败就抛错，通过后才加入日志、发布通知。",
       "explanations": [
         [
           "const 保存 deepFreeze 返回值，对象开始",
@@ -278,7 +278,7 @@
         ],
         [
           "显式属性赋值",
-          "采用之前建立的 dataSnapshot，而不是继续共享原输入对象。"
+          "使用已生成的 dataSnapshot 副本，隔离调用方对原始输入的后续修改。"
         ],
         [
           "展开对象，as 说明类型",
@@ -306,7 +306,7 @@
       "path": "source/packages/session/session-persistence-jsonl/src/storage.ts",
       "start": 535,
       "end": 547,
-      "task": "这两项监听由 JSONL 存储组件注册。回调在收到相应 Session 事件时执行；不是注册当场立即写入。重点区分 enqueueLive 与等待 drainLive/flush。",
+      "task": "JSONL 存储组件注册两项事件监听。session/event 到达时将事件排入后台缓冲；session/flush 到达时等待缓冲排空并完成刷新。注册调用保存回调，具体事件触发回调执行。",
       "trace": "新事件发出后，如果有写入者则排入后台缓冲；后台失败会记录警告并保留缓冲事件。显式 flush 的处理获取同一写入者，先排空实时缓冲，再等待刷新。",
       "explanations": [
         [
@@ -323,7 +323,7 @@
         ],
         [
           "结束 enqueueLive 的错误回调",
-          "失败处理定义结束，不是把错误转成成功写入。"
+          "回调负责记录后台写入错误，缓冲事件仍保留以供后续处理。"
         ],
         [
           "结束新事件监听器",
@@ -371,7 +371,7 @@
       "path": "source/packages/context/agent-instructions/src/index.ts",
       "start": 332,
       "end": 340,
-      "task": "位置是前置指令处理已经算出 desired 之后。pending 是待清理指令，decision 保存准备中的消息批次，messages 是已领取输入。重点观察去重和插入位置；指令文件的发现过程见本章前面的讲解。",
+      "task": "位置是前置指令处理已经算出 desired 之后。desired 是这一步要插入的指令消息；pending 是待清理指令，decision 保存准备中的消息批次，messages 是已领取输入。重点观察去重和插入位置；指令文件的发现过程见本章前面的讲解。",
       "trace": "desired 已经包含在批次时，返回原决定；需要新指令时，找到最后一条已领取输入，把 desired 放在它之后，返回新的批次对象。",
       "explanations": [
         [
@@ -481,7 +481,7 @@
       "path": "source/packages/compaction/compaction-basic/src/region.ts",
       "start": 232,
       "end": 238,
-      "task": "这是摘要已经生成后的提交路径，不是整个压缩函数。dependencies、session 和 summarized 保存本次准备依据，lifecycle 保存本次压缩身份；外层 catch 还会记录失败阶段和关闭记录。",
+      "task": "节选位于摘要生成后的提交阶段。dependencies、session 和 summarized 保存准备依据，lifecycle 标识本次压缩，startEvent 关联开始事件。owner 为空时先检查取消信号，再校验稳定性并提交。外层 catch 根据失败阶段处理错误与结束记录。",
       "trace": "稳定性检查不通过时，正常提交不会继续；通过后提交摘要，追加 compaction/end，再建立完整结果。压力触发、无可用选区和失败收尾的流程见本章前面的讲解。",
       "explanations": [
         [
@@ -522,7 +522,7 @@
       "path": "source/packages/llm/llm/src/index.ts",
       "start": 937,
       "end": 944,
-      "task": "这是 prepareCall 方法内部的准备片段。config 已指明 Provider 与模型，registration 找到其适配器；重点是解析后的配置怎样变成独立副本，而不是本段就已经消费模型输出。",
+      "task": "节选位于 prepareCall 的配置准备阶段。config 指定 Provider 与模型，registration 提供适配器。代码解析配置并建立独立冻结副本，网络调用和流消费位于后续执行阶段。",
       "trace": "原 config 后续被别处修改时，已复制并冻结的 resolvedConfig 不跟着变化。没有 resolved.context 时保持缺省；有则同样建立冻结副本。实际网络流在后续执行阶段获取。",
       "explanations": [
         [
@@ -567,7 +567,7 @@
       "path": "source/packages/core/agent-loop/src/agent.ts",
       "start": 505,
       "end": 509,
-      "task": "位置在失败已经登记、恢复链已经返回 action 之后。本段处于尝试循环内；重点是没有 retry 时怎样结束，以及 continue 返回哪个循环。",
+      "task": "位置在失败已经登记、恢复链已经返回 action 之后。本段处于尝试循环内；finish 保存本次尝试的失败终结信息。重点是没有 retry 时怎样结束，以及 continue 返回哪个循环。",
       "trace": "action 没有值或 kind 不是 retry，就抛出模型错误；kind 为 retry 且未取消，才进入同一步骤的下一次尝试，不进入本次失败响应的成功工具阶段。",
       "explanations": [
         [
@@ -588,7 +588,7 @@
         ],
         [
           "continue",
-          "回到尝试循环下一轮，而不是完成本轮用户任务。"
+          "进入当前步骤的下一次模型尝试，保持 turn 与 step 不变。"
         ]
       ],
       "id": "E09B",
@@ -596,7 +596,7 @@
     },
     {
       "chapter": 10,
-      "title": "配置层交给条目补丁规则",
+      "title": "配置层与条目补丁的合成",
       "path": "source/packages/boot/app-boot/src/profile.ts",
       "start": 731,
       "end": 738,
@@ -691,7 +691,7 @@
       "start": 224,
       "end": 233,
       "task": "这是审批服务已经获取可记录 Session 之后的正常路径。req 保存工具和调用信息；重点是同一个审批标识怎样关联 asked 和 decided。取消或失败处理还需依 decide 和上层调用契约理解。",
-      "trace": "审批标识生成以后，先记录 asked，再等待 decide。正常返回的 outcome 被记录到同一标识的 decided 并返回工具链；这不是未来所有调用的永久许可。",
+      "trace": "生成审批标识后，先记录 asked，再等待 decide。返回的 outcome 记入同一标识的 decided，并交给这次调用的准入链；下一次调用重新进入自己的准入流程。",
       "explanations": [
         [
           "const、randomUUID 与身份包装",
@@ -744,7 +744,7 @@
       "start": 31,
       "end": 46,
       "task": "这是 createTransport 完整函数。config 已通过配置解析，transport 决定选哪一种连接；重点是命令与 URL 分别交给谁处理。",
-      "trace": "stdio 配置交给子进程传输；HTTP 配置交给 URL 传输。返回的是传输对象，后续客户端还需完成连接、发现与工具注册，不是本函数已经检索到了资料。",
+      "trace": "stdio 配置创建子进程传输，HTTP 配置创建 URL 传输。客户端随后用返回的对象连接服务，发现能力并注册工具。",
       "explanations": [
         [
           "export function 与类型标注",
@@ -792,7 +792,7 @@
         ],
         [
           "new URL",
-          "解析配置里的服务地址，不是启动本机命令。"
+          "将配置的服务地址解析成 HTTP 传输使用的 URL 对象。"
         ],
         [
           "对象嵌套",
@@ -820,7 +820,7 @@
       "path": "source/packages/subagent/subagent-fork-in-process/src/index.ts",
       "start": 48,
       "end": 55,
-      "task": "这是 completedTurnPrefix 完整辅助函数。parent 是父 Agent；重点观察事件边界，而不是猜测 fork 与操作系统进程复制相同。",
+      "task": "completedTurnPrefix 从 parent 所指父 Agent 的日志中计算可继承前缀。代码以最近 turn/end 为边界，截取相应的 Session 事件；子 Agent 的创建位于 Provider 的后续逻辑。",
       "trace": "事件中最后的 turn/end 为 20 号时，返回开头到 20 号的全部事件；21 号以后属于当前未完成部分，不在种子里。没有 turn/end 时返回空数组。",
       "explanations": [
         [
@@ -829,7 +829,7 @@
         ],
         [
           "原 lint 注释",
-          "说明本处暂时采用现有历史读取接口，不是运行逻辑。"
+          "说明当前历史读取接口的弃用警告处理及后续迁移安排。"
         ],
         [
           "const 保存快照",
@@ -866,7 +866,7 @@
       "start": 226,
       "end": 232,
       "task": "这是跟随消费循环内的节选，item 是当前缓冲事件，nextOffset 是下一个需要的位置。yield 是把一项结果交给流的消费者，后续可再继续生成下一项。",
-      "trace": "预期 41 时收到 39 就略过；收到 41 则推进到 42 并送出结果；收到 43 时抛错。此处检测缺口，没有在这几行中自动补齐缺失事件。",
+      "trace": "Host 预期 41 时略过 39，收到 41 后发送该项并将预期推进到 42；随后收到 43，就抛出 gateway/internal，结束跟随。客户端的历史来源地址替换由 resync 关闭旧来源并重新 open，投影状态由独立控制流维护。",
       "explanations": [
         [
           "const 与序号包装",
@@ -878,11 +878,11 @@
         ],
         [
           "不等比较",
-          "剩余事件若不是恰好期待的一项，就是缺口。"
+          "事件序号高于预期位置时，判定流中存在缺口。"
         ],
         [
           "throw 构造远程错误",
-          "报告跳过了哪个序号，不无声继续。"
+          "报告缺失序号并中断当前跟随流。"
         ],
         [
           "结束 if",
@@ -907,7 +907,7 @@
       "start": 188,
       "end": 201,
       "task": "这是 DesktopHostProcess.start 内部的子进程启动节选。this.node 是所选 Node 程序，runtimeDir 与 projectDir 是已准备的目录；本段观察入口、参数与通信管道。ready/fatal 消息处理属于后续路径。",
-      "trace": "Main 的管理对象调用 spawn，启动 dsh-desktop-host 的 Node 子进程。当前项目目录成为子进程工作目录，管道和 IPC 供宿主观察输出与启动消息；spawn 返回并不等于收到 ready。",
+      "trace": "Main 的管理对象调用 spawn，启动 dsh-desktop-host 的 Node 子进程。当前项目目录成为子进程工作目录，管道和 IPC 供宿主观察输出与启动消息；spawn 仅返回进程句柄，ready 状态需等待后续 IPC 消息。",
       "explanations": [
         [
           "const 与 join 拼接路径",
@@ -947,7 +947,7 @@
         ],
         [
           "结束参数数组，开始 spawn 选项",
-          "下面是进程环境，不是工具参数。"
+          "后续字段配置 Host 子进程的工作目录、环境和通信方式。"
         ],
         [
           "cwd 选项",
@@ -975,8 +975,8 @@
       "path": "source/packages/test-support/llm-replay/src/index.ts",
       "start": 1064,
       "end": 1068,
-      "task": "本段在 replay 已依据 Session 找到或建立绑定状态之后。state 保存该 Session 的脚本数组和游标；重点看这次选择响应的依据。后续生成器负责脚本耗尽等错误。",
-      "trace": "cursor 为 0 时本次取 entries[0]，随后 cursor 变为 1；下次取 entries[1]。这些行没有按请求 Payload 查找等价条目。",
+      "task": "本段在 replay 已依据 Session 找到或建立绑定状态之后。state 保存该 Session 的脚本数组和游标；重点看这次选择响应的依据。后续生成器（可逐个产出值并暂停的函数，配合 yield，见附录）负责脚本耗尽等错误。",
+      "trace": "cursor 为 0 时本次取 entries[0]，随后 cursor 变为 1；下次取 entries[1]。这些行没有按请求内容（Payload）查找等价条目。",
       "explanations": [
         [
           "const 保存同一状态对象",
@@ -1037,8 +1037,8 @@
       "path": "source/packages/llm/token-meter/src/index.ts",
       "start": 114,
       "end": 116,
-      "task": "这是 TokenMeter 构造期间的三项注册。register 把投影定义交给管理者，不是在这三行中已经测量所有 Session；后续读取和事件观察推动相应状态。",
-      "trace": "装入计量组件后，消费者可以按需请求用量、压力与材料组成视图。注册数量为三项，不等于运行过三次模型请求。",
+      "task": "节选是 TokenMeter 构造时的投影注册。register 保存计算与读取定义，消费者后续查询和事件更新驱动具体统计。三项注册分别对应用量、上下文压力与材料组成。",
+      "trace": "计量组件注册三项投影定义，消费者随后按需读取用量、压力与材料组成。投影种类与模型请求次数分别计数。",
       "explanations": [
         [
           "调用投影注册方法",
@@ -1103,7 +1103,7 @@
         ],
         [
           "结束函数属性",
-          "这些资料交给输出和保存链，不是一个 React 组件。"
+          "返回可序列化元数据，供工具结果保存与客户端卡片派生使用。"
         ]
       ],
       "id": "E18A",
@@ -1115,7 +1115,7 @@
       "path": "source/docs/cordis-tutorial/02-lifecycle-and-effects.zh.md",
       "start": 20,
       "end": 26,
-      "task": "这是仓库官方 Cordis 教程中 heartbeat 的 effect 片段，属于真实文档示例，不是生产 Agent 的计时器。本次观察逆操作从哪里来。",
+      "task": "这是仓库官方 Cordis 教程中 heartbeat 的 effect 片段。观察定时器句柄怎样进入释放函数，以及 Cordis 怎样获得这项动作。",
       "trace": "装入时创建定时器，effect 记录回调返回的释放函数。卸载时框架调用作者写下的 clearInterval；它没有从 setInterval 自动推导这行代码。",
       "explanations": [
         [
@@ -1156,7 +1156,7 @@
       "path": "source/vendor/cordis/src/context.ts",
       "start": 121,
       "end": 125,
-      "task": "这是 Context.isolate 完整方法。name 是要隔离的服务名称，label 可让多个上下文共享同一个服务作用域标签；重点观察返回的对象是否是操作系统沙箱。",
+      "task": "Context.isolate 为 name 指定的服务名称设置解析标签。可选 label 用于让多个 Context 共享同一服务作用域，返回值是携带新解析表的派生 Context。",
       "trace": "不提供 label 时为指定服务建立新 Symbol 标签，其他继承关系仍保留；传相同 label 可加入同一服务作用域。没有创建进程、容器或文件权限边界。",
       "explanations": [
         [
@@ -1165,11 +1165,11 @@
         ],
         [
           "Object.create",
-          "建立继承父作用域表的新表，而不是复制整个宿主环境。"
+          "创建继承父服务作用域表的新表，保留其他名称的解析关系。"
         ],
         [
           "下标赋值与空值合并",
-          "为指定名称使用提供的标签或一个新 Symbol（语言内置的生成不重复值的工具，适合当标签）。"
+          "为指定名称使用已有标签，或创建唯一 Symbol 值作为新标签。"
         ],
         [
           "return、extend 与计算属性",
@@ -1189,7 +1189,7 @@
       "path": "source/vendor/cordis/src/fiber.ts",
       "start": 675,
       "end": 686,
-      "task": "这是 Fiber._unload 的释放开头。_disposables 保存所属 Fiber 的释放函数；本段之后还会清 store 并更新状态。观察 Promise.all 与逐个异常处理，不把论文的抽象回滚顺序直接套成这里的串行执行。",
+      "task": "节选位于 Fiber._unload 的资源释放阶段。_disposables 保存当前 Fiber 的释放函数，Promise.all 等待各项异步清理，每项有独立的异常记录。后续流程清理 store 并更新实例状态。",
       "trace": "多个释放函数被映射成异步任务，再统一等待。某项失败会记录错误；其他项仍被调用。严格顺序的资源需要在同一个释放动作中依次等待，不能依赖同层异步释放逐项完成。",
       "explanations": [
         [

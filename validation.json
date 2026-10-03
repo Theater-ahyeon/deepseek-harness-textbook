@@ -1,6 +1,6 @@
 {
   "edition": "nineteen_chapter_zero_code_rewrite",
-  "verified_at": "2026-10-03T02:27:41.979810+00:00",
+  "verified_at": "2026-10-03T05:44:22.012028+00:00",
   "source_commit": "639ed015397290b3745d163aafe02ffee4aa3f84",
   "chapter_count": 19,
   "annotated_source_excerpts": 27,
@@ -19,11 +19,11 @@
   "upstream_tests_run": false,
   "project_runtime_started": false,
   "real_model_calls": false,
-  "reader_sha256": "9939828ea5c87652ef9ebf8a4294172d4834471043dce89739fb4b1b97ab9b6c",
+  "reader_sha256": "a6ec9e1022d996545d51629b636f39580ebac39b9e51a03760bb4547ade30456",
   "browser_review": {
     "desktop": {
-      "width": 1912,
-      "documentWidth": 1897,
+      "width": 1440,
+      "documentWidth": 1425,
       "chapterAnchors": 19,
       "chapterLinks": 19,
       "chapterCards": 19,
@@ -33,49 +33,51 @@
       "sourceHidden": 0,
       "codeVisibleWhenHidden": 0,
       "sourceRestored": 19,
-      "searchResults": 5,
+      "searchResults": 7,
       "searchTarget": "#heading-116",
       "searchChapter": "chapter-08",
-      "searchTargetTop": 92.078125,
+      "searchTargetTop": 92.484375,
       "sourceLinkRevealsContent": true,
       "images": 38,
       "imagesLoaded": 38,
       "tableRowsConsistent": true
     },
-    "numericLinks": {
-      "chaptersWithCalculationLinks": [
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        11,
-        13,
-        14,
-        15,
-        17
-      ]
-    },
     "mobile": {
       "width": 390,
       "documentWidth": 390,
       "articleWidth": 350,
-      "drawerClosed": true,
       "chapter19Reachable": true,
-      "chapter19HeadingTop": 89.796875,
+      "drawerClosed": true,
       "tocClosedAfterSelection": true,
-      "tocTargetTop": 92.3125,
-      "searchResults": 15,
-      "backToTop": true,
       "imagesLoaded": 38,
-      "horizontalFigureContainers": 2
+      "forbiddenContrastMatches": 0,
+      "updatedTitles": [
+        "第 1 章｜DeepSeek Harness 的架构与任务流程¶",
+        "第 2 章｜TypeScript 基础与异步执行¶",
+        "第 3 章｜Agent 循环、Inbox 与工具调度¶",
+        "第 4 章｜文件读取：参数解析与窗口构造¶",
+        "第 5 章｜Session 事件日志、投影与持久化¶",
+        "第 6 章｜提示词组装与项目指令¶",
+        "第 7 章｜Skill 发现与按需加载¶",
+        "第 8 章｜上下文压缩与历史表示¶",
+        "第 9 章｜模型流式响应与请求恢复¶",
+        "第 10 章｜插件装配、运行配置与热重载¶",
+        "第 11 章｜工具准入、审批与执行约束¶",
+        "第 12 章｜MCP：外部工具与资源接入¶",
+        "第 13 章｜Subagent：任务拆分与历史继承¶",
+        "第 14 章｜Web Client：任务提交与状态同步¶",
+        "第 15 章｜桌面架构：Main、Renderer 与 Node Host¶",
+        "第 16 章｜测试、模型回放与行为验证¶",
+        "第 17 章｜任务评价、TokenMeter 与遥测¶",
+        "第 18 章｜综合案例：read 工具的接入与呈现¶",
+        "第 19 章｜Cordis 与 Spatiotemporal Composability¶"
+      ],
+      "codeBlocks": 27
     },
-    "method": "Final numerical-citation edition in real Edge; all nineteen chapter views and search/source interactions checked. Layout preserved.",
+    "method": "Final chapter-language edition; Kimi WebBridge in real Edge. Nineteen chapter views, search, source visibility, mobile navigation, code and images checked.",
     "review_date": "2026-10-03",
     "restored_focus_and_viewport_emulation": true,
-    "reader_sha256": "9939828ea5c87652ef9ebf8a4294172d4834471043dce89739fb4b1b97ab9b6c"
+    "reader_sha256": "a6ec9e1022d996545d51629b636f39580ebac39b9e51a03760bb4547ade30456"
   },
   "errors": [],
   "technical_review_findings": 11,
@@ -85,5 +87,12 @@
   "source_experiment_cases": 6,
   "source_experiments": "actual source functions; simulated Session/Projection seam; assertions passed",
   "second_review_findings": 8,
-  "second_review_source_ranges_checked": 12
+  "second_review_source_ranges_checked": 12,
+  "chapter_language_review": {
+    "chapters": 19,
+    "edits": 252,
+    "Gemini_suggestions_reviewed": 126,
+    "forbidden_contrast_matches": 0,
+    "original_code_and_images_preserved": true
+  }
 }

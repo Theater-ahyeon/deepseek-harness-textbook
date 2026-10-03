@@ -18,7 +18,7 @@
 
 <a id="e01b"></a>
 
-## E01B · 记录工具提议，而不是宣布完成
+## E01B · 工具调用的关联记录
 
 位置：[source/packages/core/agent-loop/src/tool-calls.ts](source/packages/core/agent-loop/src/tool-calls.ts)，原文件 263—266 行。
 
@@ -162,7 +162,7 @@
 
 <a id="e10a"></a>
 
-## E10A · 配置层交给条目补丁规则
+## E10A · 配置层与条目补丁的合成
 
 位置：[source/packages/boot/app-boot/src/profile.ts](source/packages/boot/app-boot/src/profile.ts)，原文件 731—738 行。
 

@@ -211,6 +211,15 @@ def validate(chapters,evidence):
     if second_review:
         result['second_review_findings']=len(second_review['findings'])
         result['second_review_source_ranges_checked']=second_ranges
+    if (ROOT/'revision/chapter-language-edits-20261003.json').is_file():
+        editorial=data('revision/chapter-language-edits-20261003.json')
+        for item in editorial['files']:
+            if hashlib.sha256((ROOT/item['file']).read_bytes()).hexdigest()!=item['after_sha256']:
+                errors.append('逐章语言复核版本变化：'+item['file'])
+        for p in [*[p for p,_ in chapters],ROOT/'subsystems.md',ROOT/'appendices.md']:
+            if re.search('而是|而不是',p.read_text(encoding='utf-8')):
+                errors.append('正文残留否定对照句式：'+p.name)
+        result['chapter_language_review']={'chapters':19,'edits':editorial['paragraph_or_heading_edits'],'Gemini_suggestions_reviewed':len(editorial['gemini_decisions']),'forbidden_contrast_matches':0,'original_code_and_images_preserved':editorial['original_code_and_images_preserved']}
     dump('validation.json',result)
     if errors:raise SystemExit(json.dumps(errors,ensure_ascii=False))
     return result
@@ -223,7 +232,7 @@ def build(package=False):
     if len(chapters)!=19:raise ValueError('本版应有十九章，实际 '+str(len(chapters)))
     preface='''# 深入理解 DeepSeek Harness
 
-这本书从读取项目 README 并总结三点开始。正文解释参与者、数据变化和处理顺序，遇到 TypeScript 与异步概念时补充基础；源码层提供逐行讲解，便于进一步查看实现。
+本书围绕“读取项目 README 并总结三项功能”的任务，讲解 DeepSeek Harness 的架构与运行机制。正文按数据流和执行顺序解释组件职责，并在需要时补充 TypeScript 与异步基础；源码研读提供逐行说明，支持进一步核对实现。
 
 第一至九章建立运行与材料基础；第十至十五章解释装配、执行边界和产品；第十六至十八章学习验证、评价和能力整合；第十九章讨论 Cordis 论文与具体实现的对应条件。
 

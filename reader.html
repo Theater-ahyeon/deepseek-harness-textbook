@@ -27,31 +27,31 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
   <aside class="book-sidebar" id="book-sidebar" aria-label="全书目录">
     <a class="sidebar-title" href="reader.html">深入理解 DeepSeek Harness</a>
     <p class="sidebar-subtitle">中文教材 · 原理与实现</p>
-    <nav id="book-nav" aria-label="章节导航"><a href="#book-home">全书导读</a><span class="nav-label">十九章正文</span><a href="#chapter-01">01 · 从一句话到一个结果：DeepSeek Harness 究竟做什么</a><a href="#chapter-02">02 · 读懂代码：类型与异步等待</a><a href="#chapter-03">03 · 循环与消息队列：一轮任务为什么需要多步</a><a href="#chapter-04">04 · 沿文件读取工具追到底：模型怎样得到材料</a><a href="#chapter-05">05 · Session 与日志：发生过的事怎样保存和还原</a><a href="#chapter-06">06 · 提示词与项目指令：下一次模型输入怎样形成</a><a href="#chapter-07">07 · Skill 的按需读取：目录可见为什么不等于正文已加载</a><a href="#chapter-08">08 · 上下文压缩：让历史变短需要付出什么</a><a href="#chapter-09">09 · 流式输出与重试：一次失败怎样留在同一步里</a><a href="#chapter-10">10 · 插件框架与运行配置：这些部件怎样装成一个应用</a><a href="#chapter-11">11 · 工具准入与审批：允许执行的决定在哪里发生</a><a href="#chapter-12">12 · 外部服务与能力接入：连接成功不等于拥有知识库</a><a href="#chapter-13">13 · Subagent：拆分任务前先看上下文起点</a><a href="#chapter-14">14 · 网页端：提交任务与跟随结果是两条链</a><a href="#chapter-15">15 · 桌面端：窗口、页面与宿主服务怎样合作</a><a href="#chapter-16">16 · 测试与回放：复现通过究竟证明了什么</a><a href="#chapter-17">17 · 量化评价：同时看质量、时间、用量与失败</a><a href="#chapter-18">18 · 综合案例：已有文件工具如何接入与呈现</a><a href="#chapter-19">19 · Cordis 与 Spatiotemporal Composability：论文契约怎样落到 Harness</a><span class="nav-label">随用随查</span><a href="appendices.html">语法与数据基础</a><a href="subsystems.html">补充能力</a><a href="glossary.html">术语索引</a><a href="evidence.html">实现证据</a><a href="references.html">原项目文档</a></nav>
+    <nav id="book-nav" aria-label="章节导航"><a href="#book-home">全书导读</a><span class="nav-label">十九章正文</span><a href="#chapter-01">01 · DeepSeek Harness 的架构与任务流程</a><a href="#chapter-02">02 · TypeScript 基础与异步执行</a><a href="#chapter-03">03 · Agent 循环、Inbox 与工具调度</a><a href="#chapter-04">04 · 文件读取：参数解析与窗口构造</a><a href="#chapter-05">05 · Session 事件日志、投影与持久化</a><a href="#chapter-06">06 · 提示词组装与项目指令</a><a href="#chapter-07">07 · Skill 发现与按需加载</a><a href="#chapter-08">08 · 上下文压缩与历史表示</a><a href="#chapter-09">09 · 模型流式响应与请求恢复</a><a href="#chapter-10">10 · 插件装配、运行配置与热重载</a><a href="#chapter-11">11 · 工具准入、审批与执行约束</a><a href="#chapter-12">12 · MCP：外部工具与资源接入</a><a href="#chapter-13">13 · Subagent：任务拆分与历史继承</a><a href="#chapter-14">14 · Web Client：任务提交与状态同步</a><a href="#chapter-15">15 · 桌面架构：Main、Renderer 与 Node Host</a><a href="#chapter-16">16 · 测试、模型回放与行为验证</a><a href="#chapter-17">17 · 任务评价、TokenMeter 与遥测</a><a href="#chapter-18">18 · 综合案例：read 工具的接入与呈现</a><a href="#chapter-19">19 · Cordis 与 Spatiotemporal Composability</a><span class="nav-label">随用随查</span><a href="appendices.html">语法与数据基础</a><a href="subsystems.html">补充能力</a><a href="glossary.html">术语索引</a><a href="evidence.html">实现证据</a><a href="references.html">原项目文档</a></nav>
   </aside>
   <main id="content" tabindex="-1">
     <div class="reading-toolbar"><span id="reading-context">开始阅读</span><div class="reading-options"><label><input id="source-toggle" type="checkbox">隐藏源码研读</label><button id="reading-mode" type="button" hidden>全文阅读</button><button class="toc-button" id="toc-button" type="button" aria-expanded="false" aria-controls="page-toc">本页目录</button></div></div>
     <article id="book-content"><section id="book-home" class="book-section home-section"><h1 id="heading-1">深入理解 DeepSeek Harness</h1>
-<p>这本书从读取项目 README 并总结三点开始。正文解释参与者、数据变化和处理顺序，遇到 TypeScript 与异步概念时补充基础；源码层提供逐行讲解，便于进一步查看实现。</p>
+<p>本书围绕“读取项目 README 并总结三项功能”的任务，讲解 DeepSeek Harness 的架构与运行机制。正文按数据流和执行顺序解释组件职责，并在需要时补充 TypeScript 与异步基础；源码研读提供逐行说明，支持进一步核对实现。</p>
 <p>第一至九章建立运行与材料基础；第十至十五章解释装配、执行边界和产品；第十六至十八章学习验证、评价和能力整合；第十九章讨论 Cordis 论文与具体实现的对应条件。</p>
 <p>每章配有讲解问答，把容易混淆的概念放回具体流程。页面顶部可隐藏源码研读，先连贯阅读机制说明，再按需要查看实现细节。</p>
 <p>实现固定在提交 <code>639ed015397290b3745d163aafe02ffee4aa3f84</code>，根包 0.2.0-rc.2，Cordis 4.0.4。版本与核验记录见 <a href="evidence.html">实现证据</a>。</p>
 <h2 id="heading-2">顺序目录</h2>
-<div class="chapter-overview"><a class="chapter-card" href="#chapter-01"><strong>第 1 章 · 从一句话到一个结果：DeepSeek Harness 究竟做什么</strong><span>沿读取 README 的案例，说明谁接纳任务、谁调用模型、谁读取文件、谁保存结果；区分工具提议、接纳回执与任务完成。</span></a><a class="chapter-card" href="#chapter-02"><strong>第 2 章 · 读懂代码：类型与异步等待</strong><span>认出值、对象、函数和类型的基本写法；解释一次 await 等待的结果，并区分注册回调、调用回调和后台完成。</span></a><a class="chapter-card" href="#chapter-03"><strong>第 3 章 · 循环与消息队列：一轮任务为什么需要多步</strong><span>追踪一个输入怎样被领取、怎样进入轮次和步骤；比较 followup 与 steer，并解释工具执行与结果提交的顺序。</span></a><a class="chapter-card" href="#chapter-04"><strong>第 4 章 · 沿文件读取工具追到底：模型怎样得到材料</strong><span>用路径、起始行和行数说明一次文件读取；预测缺失文件、非法参数与范围截断怎样影响获取的材料。</span></a><a class="chapter-card" href="#chapter-05"><strong>第 5 章 · Session 与日志：发生过的事怎样保存和还原</strong><span>说明事件怎样从当前 Session 进入记录和存储；区别 append、flush、重放与派生视图，判断崩溃时哪些事实已有持久证据。</span></a><a class="chapter-card" href="#chapter-06"><strong>第 6 章 · 提示词与项目指令：下一次模型输入怎样形成</strong><span>追踪目录中的指令怎样被发现、组合与加入模型请求；解释指令的适用范围，以及文字规则与执行权限的区别。</span></a><a class="chapter-card" href="#chapter-07"><strong>第 7 章 · Skill 的按需读取：目录可见为什么不等于正文已加载</strong><span>区分 Skill 目录、Skill 正文与已经执行的动作；说明按需加载怎样增加材料，以及为什么加载 Skill 不等于注册新工具。</span></a><a class="chapter-card" href="#chapter-08"><strong>第 8 章 · 上下文压缩：让历史变短需要付出什么</strong><span>说明上下文为何有容量限制，哪些历史可被压缩，哪些事实需要保留；比较摘要、检索、token 估计与真正的语义搜索。</span></a><a class="chapter-card" href="#chapter-09"><strong>第 9 章 · 流式输出与重试：一次失败怎样留在同一步里</strong><span>追踪模型路由、请求准备、流式结果与重试；说明哪些内容能进入后续工具阶段，哪些失败仍需单独处理。</span></a><a class="chapter-card" href="#chapter-10"><strong>第 10 章 · 插件框架与运行配置：这些部件怎样装成一个应用</strong><span>从配置条目说明插件怎样装配、怎样获取所需服务；区别 profile、条目修改与运行实例，并定位热更新的边界。</span></a><a class="chapter-card" href="#chapter-11"><strong>第 11 章 · 工具准入与审批：允许执行的决定在哪里发生</strong><span>跟踪一个工具请求经过参数检查、准入、审批与执行；区分批准动作和限制执行环境，解释拒绝与取消的不同结果。</span></a><a class="chapter-card" href="#chapter-12"><strong>第 12 章 · 外部服务与能力接入：连接成功不等于拥有知识库</strong><span>比较 stdio 和 HTTP 接入的参与者与步骤；将连接、能力发现、注册、调用、资源读取和记忆分别列出证据。</span></a><a class="chapter-card" href="#chapter-13"><strong>第 13 章 · Subagent：拆分任务前先看上下文起点</strong><span>说明子 Session 的来源与继承材料，比较 fresh 和 fork；解释子任务完成、团队消息送达与共享文件冲突是不同问题。</span></a><a class="chapter-card" href="#chapter-14"><strong>第 14 章 · 网页端：提交任务与跟随结果是两条链</strong><span>把宿主事实、客户端镜像和界面状态分开；追踪初次历史与后续事件怎样共同形成可观察的任务进展。</span></a><a class="chapter-card" href="#chapter-15"><strong>第 15 章 · 桌面端：窗口、页面与宿主服务怎样合作</strong><span>说明桌面主进程怎样启动与管理独立 Host；区别窗口状态、服务状态和 Session 记录，判断恢复究竟恢复了什么。</span></a><a class="chapter-card" href="#chapter-16"><strong>第 16 章 · 测试与回放：复现通过究竟证明了什么</strong><span>比较位置回放、工程测试与真实任务评价；解释回放游标怎样消费固定材料，以及它不能证明哪些实际模型效果。</span></a><a class="chapter-card" href="#chapter-17"><strong>第 17 章 · 量化评价：同时看质量、时间、用量与失败</strong><span>区别估计 token、Provider 用量和实际计费；为一次任务选择可解释的评价口径，避免把输入变短等同于质量提高。</span></a><a class="chapter-card" href="#chapter-18"><strong>第 18 章 · 综合案例：已有文件工具如何接入与呈现</strong><span>把同一个 read 工具从注册追到展示；区分参数、规范结果、模型文字与展示元数据，定位每个契约失败的影响。</span></a><a class="chapter-card" href="#chapter-19"><strong>第 19 章 · Cordis 与 Spatiotemporal Composability：论文契约怎样落到 Harness</strong><span>用资源登记和撤回解释 Cordis 的时空可组合性；把论文前提、作者责任和本版本清理、依赖与作用域实现对应起来。</span></a></div>
+<div class="chapter-overview"><a class="chapter-card" href="#chapter-01"><strong>第 1 章 · DeepSeek Harness 的架构与任务流程</strong><span>理解任务接纳、模型调用、工具执行与 Session 记录的分工，区分各阶段的输入和结果。</span></a><a class="chapter-card" href="#chapter-02"><strong>第 2 章 · TypeScript 基础与异步执行</strong><span>掌握值、对象、函数与类型的常见写法，理解 Promise、await 和回调的执行时机。</span></a><a class="chapter-card" href="#chapter-03"><strong>第 3 章 · Agent 循环、Inbox 与工具调度</strong><span>追踪输入从 Inbox 进入 turn、step 和 attempt 的过程，解释并发执行与有序提交。</span></a><a class="chapter-card" href="#chapter-04"><strong>第 4 章 · 文件读取：参数解析与窗口构造</strong><span>理解 read 的参数校验、文件访问和窗口构造，分析缺失文件与输出截断的处理。</span></a><a class="chapter-card" href="#chapter-05"><strong>第 5 章 · Session 事件日志、投影与持久化</strong><span>追踪事件从内存日志进入存储与派生视图的过程，解释 append、flush 和 Session 恢复。</span></a><a class="chapter-card" href="#chapter-06"><strong>第 6 章 · 提示词组装与项目指令</strong><span>理解提示贡献、项目指令与历史的组装规则，追踪作用域选择、去重和请求冻结。</span></a><a class="chapter-card" href="#chapter-07"><strong>第 7 章 · Skill 发现与按需加载</strong><span>追踪 Skill 的目录发现、入口检查与正文读取，区分工作方法与工具执行权限。</span></a><a class="chapter-card" href="#chapter-08"><strong>第 8 章 · 上下文压缩与历史表示</strong><span>理解上下文容量、压缩选区、稳定性检查与提交过程，比较信息保留与请求开销。</span></a><a class="chapter-card" href="#chapter-09"><strong>第 9 章 · 模型流式响应与请求恢复</strong><span>追踪模型路由、请求准备和流式消费，解释失败结算、恢复决定与同一步骤内的重试。</span></a><a class="chapter-card" href="#chapter-10"><strong>第 10 章 · 插件装配、运行配置与热重载</strong><span>理解配置条目、profile 与依赖注入，分析插件装配、字段覆盖和热重载。</span></a><a class="chapter-card" href="#chapter-11"><strong>第 11 章 · 工具准入、审批与执行约束</strong><span>追踪准入策略、审批、guard、参数校验与执行顺序，区分拒绝、取消和执行错误。</span></a><a class="chapter-card" href="#chapter-12"><strong>第 12 章 · MCP：外部工具与资源接入</strong><span>理解 stdio 与 Streamable HTTP 传输，追踪能力发现、注册代次、工具调用与资源读取。</span></a><a class="chapter-card" href="#chapter-13"><strong>第 13 章 · Subagent：任务拆分与历史继承</strong><span>比较 fresh 与 fork 的历史起点，分析子任务创建、结果汇合及共享工作区协调。</span></a><a class="chapter-card" href="#chapter-14"><strong>第 14 章 · Web Client：任务提交与状态同步</strong><span>理解任务提交与持续跟随，分析 pending 协调、事件序号、快照和状态同步。</span></a><a class="chapter-card" href="#chapter-15"><strong>第 15 章 · 桌面架构：Main、Renderer 与 Node Host</strong><span>理解 Main、Renderer 与 Node Host 的职责，追踪页面加载、Host 启动和客户端激活。</span></a><a class="chapter-card" href="#chapter-16"><strong>第 16 章 · 测试、模型回放与行为验证</strong><span>理解按位置消费的模型回放，区分调用轨迹检查、请求断言与真实任务评价。</span></a><a class="chapter-card" href="#chapter-17"><strong>第 17 章 · 任务评价、TokenMeter 与遥测</strong><span>区分 token 估计、Provider 用量和计费口径，联合分析任务质量、耗时与失败。</span></a><a class="chapter-card" href="#chapter-18"><strong>第 18 章 · 综合案例：read 工具的接入与呈现</strong><span>串联 read 的注册、参数校验、执行、结果渲染和客户端呈现，分析各层失败的影响。</span></a><a class="chapter-card" href="#chapter-19"><strong>第 19 章 · Cordis 与 Spatiotemporal Composability</strong><span>理解可逆 effect、响应式依赖与 Fiber 生命周期，将论文前提与 Cordis 实现逐项对应。</span></a></div>
 </section><section id="chapter-01" class="book-section" data-chapter="01">
-<h1 id="heading-3">第 1 章｜从一句话到一个结果：DeepSeek Harness 究竟做什么</h1>
-<p>本章学习任务：沿读取 README 的案例，说明谁接纳任务、谁调用模型、谁读取文件、谁保存结果；区分工具提议、接纳回执与任务完成。</p>
+<h1 id="heading-3">第 1 章｜DeepSeek Harness 的架构与任务流程</h1>
+<p>本章学习任务：理解任务接纳、模型调用、工具执行与 Session 记录的分工，区分各阶段的输入和结果。</p>
 <h2 id="heading-4">01.1 基本概念</h2>
-<p>计算机程序是一组交给计算机执行的步骤；数据是步骤处理的信息，例如一段任务文字或一份文件内容。大语言模型（Large Language Model，LLM）接收材料、生成文字或工具调用建议。运行模型的服务与管理本地文件的程序是不同的参与者。模型提出读取建议，文件服务实际读取，再把结果交给模型用于后续回答。</p>
-<p>Agent 在本书中指能够围绕任务反复获取材料、调用模型并使用工具的运行单元。Harness 组织这些步骤，DeepSeek Harness 是本书研究的具体项目。Tool 是由程序实现的一项操作，像 <code>read</code> 读取文本；模型看到的是工具的名称、用途和参数说明。参数是告诉操作“这次处理什么”的输入，例如文件路径；结果是操作返回的信息，例如第 1—20 行文字。</p>
-<p>Session 保存一次持续交互的身份和记录。日志是按发生顺序保存的记录集合；Session 事件日志因此能回答“先发生了什么，随后发生了什么”。消息是供对话使用的内容；事件是“某件事已经发生”的记录，例如开始一次工具调用。消息内容参与对话，轮次开始、工具调用等事件记录运行过程。Inbox 保存已经接纳、尚待领取的输入；它把下一轮输入与下一步输入分开保存，由驱动在对应时点领取。</p>
-<p>请求是向另一方提出的操作要求，例如“为这个 Session 接纳一段文字”。请求标识用来识别同一次提交，防止重复排队。客户端发起请求并接收结果，例如网页界面；Host 提供并处理项目能力。入口先返回接纳回执，后台任务随后继续运行。</p>
-<p>附件是随文字一同提交的文件或图像等材料；只有文字时不需要附件。后文会解释附件如何进入请求。</p>
+<p>程序由可执行的指令组成，数据是指令处理的信息，例如任务文本或文件内容。大语言模型（Large Language Model，LLM）根据输入生成文本或工具调用建议。模型服务负责生成，文件服务负责访问文件；读取建议经过工具链执行后，返回的文本才能用于后续回答。</p>
+<p>Agent 是围绕任务反复构造上下文、调用模型并使用工具的运行单元。Harness 提供支撑这一过程的运行机制，DeepSeek Harness 是本书分析的具体实现。Tool 是程序实现的操作，例如读取文本的 <code>read</code>。工具定义向模型公开名称、用途和参数说明；调用参数指定本次操作的目标，工具结果返回执行所得的信息，例如文件第 1—20 行的文本。</p>
+<p>Session 维护持续交互的身份与事件日志。日志按发生顺序记录消息、轮次边界和工具调用等事件。消息承载对话内容，过程事件描述任务的执行状态；后续模型请求使用从日志派生的消息历史。Inbox 保存已接纳、尚待领取的输入，分别维护下一轮和下一步的消息队列，由驱动在对应边界领取。</p>
+<p>请求指定调用方希望服务执行的操作，例如向某个 Session 提交文本。请求标识用于识别重复提交，避免同一输入重复排队。网页等客户端负责发起请求和接收结果，Host 提供项目的服务接口。提交入口返回接纳回执后，后台任务继续运行。</p>
+<p>附件是随消息提交的文件、图像等材料。纯文本请求可以省略附件；附件的处理与传输流程将在后续章节展开。</p>
 <p>上下文是本次请求提供给模型使用的材料，例如任务文字、行为规则和已读到的文件。system prompt 是用于向模型表达系统行为规则的那部分文字；模型根据这段文字生成回答；文件访问由工具链和文件服务控制。</p>
-<p>这条流程有六位参与者：用户、接纳入口、Agent 驱动、LLM 服务、ToolRuntime 和 Session。接纳入口收下任务，驱动安排步骤，LLM 服务调用模型，ToolRuntime 组织工具执行，Session 保存过程与结果。</p>
-<p>对照短源码还会用到几个基础词：函数封装一组可调用步骤，变量给值取名，对象把相关字段放在一起，属性是对象的一项字段，返回值是函数交给调用者的结果，类型说明值应有什么形状。第 2 章会用真实写法展开它们。</p>
+<p>这条流程涉及用户与五类系统组件：接纳入口、Agent 驱动、LLM 服务、ToolRuntime 和 Session。接纳入口校验并接收输入，驱动调度步骤，LLM 服务调用模型，ToolRuntime 管理工具执行，Session 记录过程与结果。</p>
+<p>源码讲解涉及以下基础概念：函数封装可调用的步骤，变量绑定值，对象组织相关属性，返回值是函数向调用方提供的结果，类型描述值的结构与约束。第 2 章结合项目中的实际写法逐项解释。</p>
 <h2 id="heading-5">01.2 沿一个任务看完整流程</h2>
-<p>先看成功路径：用户要求“读取 README，概括项目用途和三项功能”。用户提交一句话，入口建立消息并排入 Inbox，返回“已接纳”。驱动领取输入，组装第一次模型请求；模型提出读取建议。工具服务记录调用，按安全规则判断是否放行，这一步称为准入。获准后，文件服务读取文本。工具结果进入 Session，第二次请求才有这些文字可用。模型生成总结，驱动记录轮次结束，界面显示结果。</p>
+<p>以“读取 README，概括项目用途和三项功能”为例，成功路径从提交任务开始。入口构造消息、排入 Inbox，并返回接纳回执。驱动领取输入后构造第一次模型请求，模型返回读取文件的工具调用。ToolRuntime 记录调用并检查准入；调用获准后，文件服务读取文本。读取结果进入 Session，成为第二次模型请求的上下文。模型据此生成总结，驱动记录轮次结束，客户端显示结果。</p>
 <div class="table-wrap"><table>
 <tr><th>时点</th><th>谁处理</th><th>输入与变化</th><th>已知结论</th></tr>
 <tr><td>提交</td><td>接纳入口</td><td>输入文字变成待处理消息</td><td>接纳成功，不代表已读文件</td></tr>
@@ -62,7 +62,7 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 </table></div>
 <p>入口先检查是否有文字或附件，两者都没有就拒绝接纳。接纳以后若文件不存在，工具返回错误，后续请求可据此解释资料不足或选择其他目标。模型请求失败时，驱动先记录失败，再由恢复策略决定是否重试；工具阶段等待成功响应。这个案例的主循环包含两次相互依赖的请求：第一次提出读取，第二次使用读取结果。主循环就是驱动反复执行“请求模型—执行工具—再请求”的过程。</p>
 <h2 id="heading-6">01.3 关键机制与设计取舍</h2>
-<h3 id="heading-7">先看材料怎样流动</h3>
+<h3 id="heading-7">请求与结果的数据流转</h3>
 <figure><img loading="lazy" src="figures/F01A.svg" alt="F01A：请求、文件读取和回答之间的材料流动"><figcaption>F01A：请求、文件读取和回答之间的材料流动 · <a href="figures/F01A.svg">查看原图</a></figcaption></figure>
 <p>图 01A 按箭头展示成功路径：接纳任务、模型提出 read、文件服务返回窗口、下一次请求使用结果，再生成总结。第一次请求负责提出读取，第二次请求负责利用读到的文本。</p>
 <ol>
@@ -72,7 +72,7 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <li>工具结果记录到 Session；驱动组装第二次请求，把已获取的文件窗口交给模型。</li>
 <li>模型根据这些文字生成总结，驱动记录轮次结束，界面显示结果。</li>
 </ol>
-<h3 id="heading-8">把正常路径与失败放在一起</h3>
+<h3 id="heading-8">接纳与后台执行的分工</h3>
 <figure><img loading="lazy" src="figures/F01B.svg" alt="F01B：接纳结果与任务进展的两个观察范围"><figcaption>F01B：接纳结果与任务进展的两个观察范围 · <a href="figures/F01B.svg">查看原图</a></figcaption></figure>
 <p>图 01B 左侧是入口接纳，右侧是后台任务。左侧结束于输入排队，右侧继续经历模型请求、工具执行和轮次结束；文件不存在、模型限流等错误出现在后续运行中。</p>
 <p><code>accepted: true</code> 是入口接纳本次输入的回执。文件读取和模型生成随后各自产生结果。读取 README.md 时若文件不存在，工具服务构造带错误信息的 <code>ToolResult</code>，驱动把它加入历史。下一次模型请求便能根据这个错误说明资料不足，或调整读取目标。</p>
@@ -81,7 +81,7 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <h2 id="heading-9">01.4 源码研读</h2>
 <a id="e01a"></a>
 <h3 id="heading-10">E01A · 接纳时的身份与来源</h3>
-<p>阅读任务：位置是 prompt 已通过前面的输入检查之后。已知请求有 Session 标识和请求标识，本段观察怎样定位 Agent、识别重复输入并建立来源对象；后续附件、排队和接纳返回不在此节选中。</p>
+<p>阅读任务：节选位于 prompt 的输入校验之后。请求已包含 Session 标识和请求标识，代码据此定位 Agent、识别重复输入并构造消息来源对象。后续流程继续处理附件、消息排队和接纳回执。</p>
 <p>代码类型：<strong>真实源码摘录</strong>。证据编号 <a href="evidence.html#e01a">E01A</a>；下表的数字是原文件行号。</p>
 <pre><code class="language-ts">    const agent = await this.resolveAgent(request.sessionId)
     if (hasPromptRequest(agent, request.requestId)) return { accepted: true }
@@ -102,8 +102,8 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 </table></div>
 <p>执行推演：已识别的请求标识直接得到接纳回执；新标识则继续建立用户消息的来源信息，随后进入附件处理、排队和回执返回。</p>
 <a id="e01b"></a>
-<h3 id="heading-11">E01B · 记录工具提议，而不是宣布完成</h3>
-<p>阅读任务：这是 executeToolCalls 使用的调用记录辅助函数。参数已经包含 Session、轮次、步骤和一个工具调用块。本段观察保存哪些关联信息以及返回什么。</p>
+<h3 id="heading-11">E01B · 工具调用的关联记录</h3>
+<p>阅读任务：appendToolCall 是 executeToolCalls 使用的记录辅助函数。输入包含 Session、turn、step 和工具调用块；函数把调用信息追加到 Session 内存日志，并返回用于关联结果的事件序号。</p>
 <p>代码类型：<strong>真实源码摘录</strong>。证据编号 <a href="evidence.html#e01b">E01B</a>；下表的数字是原文件行号。</p>
 <pre><code class="language-ts">function appendToolCall(session: Session, turn: number, step: number, block: ToolCallBlock): SessionSeq {
   const event = session.append(&#x27;tool/call&#x27;, { turn, step, callId: block.id, name: block.name, arguments: block.arguments })
@@ -119,23 +119,23 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <p>执行推演：当前日志有 9 项时，新调用得到序号 9。函数返回该序号，供后续结果关联；调用者接着推进工具执行，存储写入由 Session 的监听器另行处理。</p>
 </section>
 <h2 id="heading-12">01.5 理解检查与讲解问答</h2>
-<h3 id="heading-13">问题 1 · 入口返回 accepted 后，能说已经读完 README 吗？</h3>
-<p>讲解：不能。这里只确认输入已接纳。还要经过领取、模型提议、准入与读取，才有文件结果。</p>
-<h3 id="heading-14">问题 2 · 模型给出了三点总结，怎样检查它依据了文件？</h3>
+<h3 id="heading-13">问题 1 · accepted 回执确认了哪个处理阶段？</h3>
+<p>讲解：accepted 回执确认入口已接纳输入。文件结果要在驱动领取输入、模型提出调用、工具准入和实际读取之后产生。</p>
+<h3 id="heading-14">问题 2 · 如何核对总结与实际读取内容的对应关系？</h3>
 <p>讲解：先找到 read 的调用记录和成功结果，确认返回的行范围覆盖总结所用的材料，再逐项对照总结与原文。这样才能把总结中的结论追到实际读取结果。</p>
-<h3 id="heading-15">问题 3 · 第一次模型请求与第二次请求的材料有什么差别？</h3>
-<p>讲解：成功案例的第二次请求增加了读取结果。它依赖前面的真实执行，不是独立重复同一份输入。</p>
+<h3 id="heading-15">问题 3 · 两次模型请求的上下文有什么差异？</h3>
+<p>讲解：成功路径中的第二次请求新增了工具读取结果。它依据前一步执行所得的文本生成总结，因此两次请求在数据上存在依赖。</p>
 <p><a href="reader.html">全书目录</a> · <a href="evidence.html">本章与原始证据</a> · <a href="glossary.html">术语索引</a></p>
 </section><section id="chapter-02" class="book-section" data-chapter="02">
-<h1 id="heading-16">第 2 章｜读懂代码：类型与异步等待</h1>
-<p>本章学习任务：认出值、对象、函数和类型的基本写法；解释一次 await 等待的结果，并区分注册回调、调用回调和后台完成。</p>
+<h1 id="heading-16">第 2 章｜TypeScript 基础与异步执行</h1>
+<p>本章学习任务：掌握值、对象、函数与类型的常见写法，理解 Promise、await 和回调的执行时机。</p>
 <h2 id="heading-17">02.1 基本概念</h2>
-<p>先把程序里的信息和动作拆开。变量是给一项值取的名字，例如 <code>path</code> 保存路径文字。字符串是文字值；数字可以表示起始行号；布尔值只有真和假。对象把相关信息放在一起，例如一份读取请求同时保存路径、起始行和行数。属性是对象中的一项信息，<code>request.content</code> 表示请求的内容属性。数组按位置保存多项值，例如多行文本；位置通常从 0 开始，文件行号却常从 1 开始，两个口径不能混用。</p>
-<p>函数把一组步骤包装成可以调用的操作。参数是调用者交给函数的值，返回值是函数返回的值。方法是属于某个对象的函数；<code>agent.followup(message)</code> 表示让这个 Agent 的方法处理消息。类描述一类对象的结构和操作，实际创建出来的对象叫实例。接口和类型说明规定数据形状，例如路径应是字符串。文件是否存在，要等文件服务访问目标时检查。</p>
+<p>变量是与值绑定的名称，例如 <code>path</code> 保存路径字符串。字符串表示文本，数字可以表示行号，布尔值表示真或假。对象组织相关属性，例如读取请求包含路径、起始行和行数，<code>request.content</code> 访问请求的内容属性。数组按索引保存一组值。数组索引通常从 0 开始，文件行号通常从 1 开始，窗口计算需要区分这两种编号方式。</p>
+<p>函数封装可复用的处理逻辑，通过参数接收输入，通过返回值提供结果。方法是对象上的函数，例如 <code>agent.followup(message)</code> 调用 Agent 的消息接纳方法。类定义对象的结构和操作，由类创建的对象称为实例。接口和类型描述数据结构，例如将路径声明为字符串；文件是否存在则由执行时的文件服务检查。</p>
 <p>TypeScript 在 JavaScript 的写法上增加类型说明。<code>const</code> 固定变量绑定，<code>let</code> 允许重新赋值；对象内部仍可能变化。冒号后面通常是类型，问号表示可缺省，<code>return</code> 把值返回调用者，<code>throw</code> 使当前路径失败。花括号既可能围住对象，也可能围住一组语句，要看它的位置。模块是单独组织代码的文件；<code>import</code> 引入别的模块，<code>export</code> 让别处能够使用本模块的名称。</p>
-<p>Promise 表示一项异步操作的结果，可以处于等待中、成功或失败状态。<code>async</code> 方法返回 Promise，<code>await</code> 暂停这个方法的后续部分，等待该结果；其他工作可以继续推进。进程是操作系统管理的一次程序运行，线程是进程内一条执行指令的路径。等待期间，JavaScript 运行时可以执行其他已经就绪的工作。并发是多项工作可以交错推进，并行是同一时刻用多个执行资源处理多项工作；多个操作怎样交错，取决于它们的启动与等待顺序。回调是交给别处、等特定时机再调用的函数，例如收到事件后更新记录。以后看到 <code>() =&gt; ...</code>，先问谁会在什么时候调用它，而不是把它当成已经执行的结果。</p>
-<p>JavaScript 是运行这些步骤的语言；TypeScript 的类型检查帮助在执行前发现写法与数据形状的问题。程序真正运行时，输入是否合法、资源是否可用仍要由实际代码检查。运行时的事件循环会处理已准备的工作并恢复后续执行；等待外部读取时，当前方法暂停，其他已准备工作仍可推进。</p>
-<h3 id="heading-18">语法导航：从已讲过的数据与动作认写法</h3>
+<p>Promise 表示异步操作的结果，状态包括等待中、成功和失败。<code>async</code> 函数返回 Promise，<code>await</code> 暂停当前函数的后续执行，等待该结果；JavaScript 运行时在此期间可以处理其他就绪工作。进程由操作系统管理，线程是进程内的执行路径。并发允许多项工作交错推进，并行使用多个执行资源在同一时刻处理工作。操作能否重叠，取决于启动和等待顺序。回调是供其他代码在约定时机调用的函数，例如事件监听器。阅读 <code>() =&gt; ...</code> 时，需要定位它的注册位置、调用者和触发条件。</p>
+<p>JavaScript 提供执行语义，TypeScript 在其基础上增加静态类型检查，用于发现数据结构和调用方式中的问题。输入合法性、文件权限与资源可用性由运行时代码检查。等待外部 I/O 时，事件循环继续处理就绪任务，结果到达后恢复相应的异步函数。</p>
+<h3 id="heading-18">常见语法与项目中的用途</h3>
 <p>阅读源码时，可以用下表查询常见写法；每段节选还配有逐行解释。</p>
 <div class="table-wrap"><table>
 <tr><th>写法</th><th>语言含义</th><th>本项目里的阅读用处</th></tr>
@@ -143,51 +143,51 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <tr><td>undefined / null</td><td>未提供的值／显式表示无值</td><td>区分缺省配置与实际结果</td></tr>
 <tr><td>this / new</td><td>当前对象／创建实例</td><td>访问所属服务，或建立错误与传输对象</td></tr>
 <tr><td>:、?、void</td><td>类型说明、可缺省、不使用返回值的类型约定</td><td>阅读参数形状、可选字段与函数签名</td></tr>
-<tr><td>Promise 与 await</td><td>将来结果与等待结果</td><td>找等待的是接纳、读取还是其他边界</td></tr>
+<tr><td>Promise 与 await</td><td>异步结果与等待该结果</td><td>确认等待结束对应接纳、读取还是其他阶段</td></tr>
 <tr><td>if / else / switch</td><td>按条件或类别选择路径</td><td>分清允许、拒绝和不同后端</td></tr>
 <tr><td>=== / !==</td><td>严格相等／不等比较</td><td>比较模式、序号或行动类别</td></tr>
 <tr><td>&amp;&amp; / ||</td><td>短路求值：&amp;&amp; 遇到假值停止，|| 遇到真值停止，返回停下时的操作数</td><td>阅读复合条件与取值表达式，确认右侧是否执行</td></tr>
 <tr><td>?. / ??</td><td>对缺省对象安全访问／缺省时采用另值</td><td>读取可选 Agent、选择配置默认值</td></tr>
-<tr><td>() =&gt; ...</td><td>把函数作为值写出</td><td>问谁以后调用回调，区别定义和执行</td></tr>
+<tr><td>() =&gt; ...</td><td>将函数写成可传递的值</td><td>定位回调的调用者与触发时机，区分定义和执行</td></tr>
 <tr><td>{...对象}</td><td>将已有对象属性放入新对象</td><td>保留已有决定，再替换 messages</td></tr>
 <tr><td>{a,b}=对象</td><td>解构取出指定属性</td><td>将目标和文件信息分开命名</td></tr>
 <tr><td>[...数组] / ...数组</td><td>复制数组成员／展开成员</td><td>返回新视图或组合领取结果</td></tr>
 <tr><td>for...of</td><td>逐项取出数组等集合的成员</td><td>对领取消息逐项发通知</td></tr>
 <tr><td>map / filter / some</td><td>转换每项／保留符合条件项／检查是否有符合项</td><td>构造卡片行、提取工具提议、检测重复材料</td></tr>
-<tr><td>slice / toSpliced</td><td>取前缀等子区间／建立修改后的新数组</td><td>继承事件或插入指令，不当然生成摘要</td></tr>
+<tr><td>slice / toSpliced</td><td>取子区间／返回修改后的新数组</td><td>截取历史前缀或插入指令；摘要需要单独生成</td></tr>
 <tr><td>try / catch / finally</td><td>尝试路径／处理失败／离开时收尾</td><td>跟踪错误怎样返回和资源怎样释放</td></tr>
-<tr><td>return / throw / continue</td><td>返回结果／失败退出／下一次循环</td><td>找输出交给谁，区分完成和重试</td></tr>
+<tr><td>return / throw / continue</td><td>返回结果／抛出错误／进入下一次循环</td><td>跟踪返回值、异常传播与重试位置</td></tr>
 <tr><td>yield</td><td>给流消费者一项结果并可继续</td><td>阅读跟随事件或逐步效果</td></tr>
 <tr><td>泛型 &lt;T&gt;、unknown、as</td><td>T 为具体类型留位置，例如同一容器可保存文字或事件；unknown 要求先确认值的种类；as 向类型检查器声明自己的判断</td><td>用类型组织事件；as 不会替程序验证真实输入</td></tr>
 <tr><td>readonly / private</td><td>TypeScript 的只读约束／类成员访问约束，主要用于类型检查</td><td>阅读代码中的写入与访问约定；运行时私有字段使用 # 名称</td></tr>
 <tr><td>using</td><td>作用域结束时调用资源释放协议</td><td>读取附件绑定等有资源生命周期的代码</td></tr>
 </table></div>
-<p>遇到单独一行的右括号，先看它关闭的是对象、函数、条件还是调用。逐行表会标出结构关系；沿函数的参数、调用和返回位置继续阅读，就能把这些写法接回实际流程。</p>
+<p>右括号结束的结构由对应左括号决定，可能是对象、函数、条件或调用。逐行说明标出这些结构；结合参数传递、函数调用和返回值，可以还原代码的执行流程。</p>
 <h2 id="heading-19">02.2 沿一个任务看完整流程</h2>
-<p><code>await prompt(...)</code> 等待提交回执。接纳方法校验请求内容，把消息交给 Agent，再返回接纳对象。调用方拿到回执后可以继续工作；Agent 驱动继续处理任务，最终总结通过持续观察通道送回界面。</p>
+<p><code>await prompt(...)</code> 等待提交回执。prompt 校验内容，将消息提交给 Agent，再返回接纳结果。调用方收到回执后继续执行，Agent 驱动在后台推进任务，生成结果通过持续观察通道传回客户端。</p>
 <p>假设输入是空白文字且没有附件，内容判断为假，方法抛出错误，调用者的等待以失败结束；假设输入有效，方法继续到后面的接纳逻辑。这里的 Promise 返回 SessionPromptValue，也就是接纳回执。</p>
 <p>注册工具时，程序把名称、参数说明和执行函数交给注册表。执行函数此时作为一个值保存，具体调用到来时才运行。箭头函数、对象方法和事件回调都要区分定义与调用。要让两个异步操作重叠，可以先分别启动，再用 <code>Promise.all</code> 汇总结果。全部成功时，它按传入顺序返回结果数组；任一项失败时，汇总的 Promise 就失败，其他已启动操作仍按各自流程收尾。</p>
 <h2 id="heading-20">02.3 关键机制与设计取舍</h2>
 <h3 id="heading-21">回执返回后，驱动继续工作</h3>
 <figure><img loading="lazy" src="figures/F02A.svg" alt="F02A：调用方等待接纳，驱动继续工作"><figcaption>F02A：调用方等待接纳，驱动继续工作 · <a href="figures/F02A.svg">查看原图</a></figcaption></figure>
 <p>图 02A 并排展示两个等待范围。调用方等待 prompt 返回接纳对象；Agent 驱动在被唤醒后继续领取输入、调用模型和执行工具。</p>
-<h3 id="heading-22">分析示例：注册不是执行</h3>
+<h3 id="heading-22">分析示例：注册次数与执行次数</h3>
 <p>假设启动时运行三次“注册工具”的函数，随后模型只调用了一次文件读取工具。注册次数是 3，执行次数是 1。注册次数统计能力定义，执行次数统计实际调用。</p>
 <figure><img loading="lazy" src="figures/F02B.svg" alt="F02B：工具定义在启动时注册，在调用时执行"><figcaption>F02B：工具定义在启动时注册，在调用时执行 · <a href="figures/F02B.svg">查看原图</a></figcaption></figure>
 <p>图 02B 左侧保存工具定义，右侧使用定义执行调用。名称、参数和回调在启动时注册，read 的执行函数在具体调用到来时运行。</p>
-<p>在文件读取插件中，<code>applyReadTool</code> 注册 <code>defineTool(...)</code>，对象里的 <code>async execute(...)</code> 是稍后执行的函数。读到函数对象时，要问“谁保存了它、谁以后调用它”，而不是假定控制流已经进入函数体。</p>
-<h3 id="heading-23">回到任务接纳</h3>
-<p>用代码写法重走接纳流程：<code>prompt</code> 校验请求内容并解析目标；已识别的 requestId 直接返回回执；新请求构造用户消息，调用 <code>followup</code> 或 <code>steer</code>，再返回接纳对象。<code>followup</code> 把消息送入 Inbox 并唤醒驱动，后续模型请求与工具执行由驱动推进。</p>
+<p>文件读取插件通过 <code>applyReadTool</code> 注册 <code>defineTool(...)</code> 定义，其中的 <code>async execute(...)</code> 以函数值的形式保存在注册表中。模型发出具体调用后，工具运行时才调用该函数并执行文件读取。注册位置和调用位置共同决定工具的执行时机。</p>
+<h3 id="heading-23">接纳入口的异步执行顺序</h3>
+<p><code>prompt</code> 首先校验请求并解析目标。已识别的 requestId 直接返回回执；新请求构造用户消息，调用 <code>followup</code> 或 <code>steer</code>，随后返回接纳结果。<code>followup</code> 将消息加入 Inbox 并请求唤醒驱动，模型请求与工具执行由驱动继续调度。</p>
 <p>调试“提交成功但没有回答”时，沿 Inbox、驱动状态、模型请求和工具结果继续查。await prompt 已经结束，后台驱动仍在运行。</p>
 <h3 id="heading-24">容易混淆的地方</h3>
 <p>“async 使函数内部所有动作并行”：连续写两个 await 时，第二个操作要等第一个返回后才开始。先启动两个操作、再汇总它们的 Promise，才给它们提供重叠推进的机会。</p>
 <p>“类型合法就不会失败”：类型不能证明文件存在、网络可达或权限获准；运行时检查依然必要。</p>
-<p>“工具对象里有 execute，所以启动已执行”：对象属性可以是一段尚未调用的函数。要追保存与调用位置。</p>
+<p>工具定义中的 execute 属性保存执行函数。注册完成后，具体调用仍需经过工具运行时，才能进入函数体。</p>
 <section class="source-section">
 <h2 id="heading-25">02.4 源码研读</h2>
 <a id="e02a"></a>
 <h3 id="heading-26">E02A · async 返回的结果由方法契约决定</h3>
-<p>阅读任务：这是 prompt 方法开头，不是完整方法。request 是入口交入的请求对象；先观察输入不合法时怎样结束。后续时区、附件、消息入队与 accepted 返回在第 1 章主链中解释。</p>
+<p>阅读任务：节选是 prompt 方法开头的输入校验。request 是入口接收的请求对象，内容不合法时方法抛出错误。时区、附件、消息入队与 accepted 返回位于后续逻辑，其主流程见第 1 章。</p>
 <p>代码类型：<strong>真实源码摘录</strong>。证据编号 <a href="evidence.html#e02a">E02A</a>；下表的数字是原文件行号。</p>
 <pre><code class="language-ts">  async prompt(request: SessionPromptRequest): Promise&lt;SessionPromptValue&gt; {
     if (!hasPromptContent(request.content)) {
@@ -199,7 +199,7 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
     }</code></pre>
 <div class="table-wrap"><table>
 <tr><th>原文件行号</th><th>写法</th><th>在这段流程中的作用</th></tr>
-<tr><td>311</td><td>async 标记异步方法，Promise 标注将来结果的类型</td><td>prompt 接收入口请求，结果契约是 SessionPromptValue，不是最终总结。</td></tr>
+<tr><td>311</td><td>async 标记异步方法，Promise 标注结果类型</td><td>prompt 的返回契约是 SessionPromptValue，调用方由此获得接纳回执。</td></tr>
 <tr><td>312</td><td>if 与感叹号分别表示判断和取反</td><td>内容不符合要求时进入拒绝分支。</td></tr>
 <tr><td>313</td><td>throw 抛出一个 new 创建的错误对象</td><td>中断当前接纳路径，将失败返回调用方。</td></tr>
 <tr><td>314</td><td>第一个字符串实参</td><td>指定远程错误类别 gateway/bad-request。</td></tr>
@@ -216,16 +216,16 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <h3 id="heading-29">问题 2 · 注册对象里写了 execute 函数，为什么没有立即读文件？</h3>
 <p>讲解：注册只是保存函数值与说明。后来发生具体工具调用时，框架才调用执行函数。</p>
 <h3 id="heading-30">问题 3 · 类型说路径是字符串，是否证明文件存在？</h3>
-<p>讲解：没有。类型说明数据形状，文件存在、权限和读取成功需要运行时检查。</p>
+<p>讲解：类型检查确认参数符合字符串类型；文件是否存在、权限是否允许以及读取是否成功，由运行时代码分别验证。</p>
 <p><a href="reader.html">全书目录</a> · <a href="evidence.html">本章与原始证据</a> · <a href="glossary.html">术语索引</a></p>
 </section><section id="chapter-03" class="book-section" data-chapter="03">
-<h1 id="heading-31">第 3 章｜循环与消息队列：一轮任务为什么需要多步</h1>
-<p>本章学习任务：追踪一个输入怎样被领取、怎样进入轮次和步骤；比较 followup 与 steer，并解释工具执行与结果提交的顺序。</p>
+<h1 id="heading-31">第 3 章｜Agent 循环、Inbox 与工具调度</h1>
+<p>本章学习任务：追踪输入从 Inbox 进入 turn、step 和 attempt 的过程，解释并发执行与有序提交。</p>
 <h2 id="heading-32">03.1 基本概念</h2>
-<p>轮次（turn）是驱动围绕一批输入推进的一段过程；步骤（step）是轮次里的一个推进单元；尝试（attempt）是该步骤中一次模型请求的执行。读取 README 后继续总结，可以是同一轮次的两个步骤。第一次请求失败、恢复策略允许再请求，则是同一步骤中的另一次尝试，而不是再收到一次用户任务。</p>
-<p>状态是某个时刻保存的信息，例如待处理消息有哪些、当前轮次编号是多少。状态转换说明一件事发生后这些信息怎样改变。驱动是负责持续推进转换的程序。取消信号是可被执行代码检查的停止请求；接到信号后，执行代码停止后续工作，并等待已经启动的操作收尾。</p>
+<p>轮次（turn）是驱动围绕一批输入推进的过程，步骤（step）是其中的执行单元，尝试（attempt）对应步骤内的一次模型请求。读取 README 和根据读取结果生成总结，可以构成同一轮次的两个步骤。请求失败后若恢复策略允许重试，新的请求仍属于原步骤，attempt 增加，turn 和 step 保持不变。</p>
+<p>状态描述系统在某个时刻保存的信息，例如待处理消息、轮次编号和驱动阶段。状态转换规定事件发生后这些信息如何更新，驱动负责调度转换。取消信号向执行代码传递停止请求；支持取消的路径检查信号、停止后续工作，并处理已启动操作的收尾。</p>
 <p>Inbox 分别保存 <code>next-turn</code> 和 <code>next-step</code> 输入。<code>followup</code> 放入前者，<code>steer</code> 放入后者。进入下一步骤时，驱动领取全部 next-step 输入；开启下一轮时，再把一项 next-turn 输入接到这批材料后面。因此，较晚到来的引导可以先被领取，较早排队的另一项普通任务仍在等待。领取以后还要经过前置判断，允许进入本步才发起模型请求。</p>
-<p>由此可以分别问：输入有没有接纳、有没有被领取、模型请求是否成功、工具是否执行、轮次以什么原因结束。这些问题各自对应不同记录，不能用一个“成功”替代。</p>
+<p>输入接纳、消息领取、模型请求、工具执行和轮次结束分别对应不同的处理阶段。判断任务进展时，需要把各阶段的事件与结果关联到同一轮次。</p>
 <h2 id="heading-33">03.2 沿一个任务看完整流程</h2>
 <p>设 A 是普通任务，B 是本轮中的补充要求，C 是另一条普通任务。A 已进入当前轮次；C 排在下一轮次；B 通过引导入口进入下一步。</p>
 <div class="table-wrap"><table>
@@ -246,9 +246,9 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <p>普通运行路径中，驱动开放轮次，准备下一步，领取消息并组装材料。前置决定可能允许进入或拒绝。进入后发起模型请求，成功消息有工具调用则进入工具批次；工具结果回到 Session 历史。驱动再看停止原因与下一步输入，决定继续或结束。</p>
 <h3 id="heading-37">工具执行能重叠，结果仍按模型顺序提交</h3>
 <p>把贯穿案例稍作教学扩展：模型在同一消息里先提出读取 README 的调用 A，再提出读取包信息的调用 B。要同时说明三个顺序：提议的排列、真实动作的完成先后，以及结果进入 Session 的顺序。三个顺序不必相同。<a href="evidence.html#s02">S02</a> 对照本节执行器。</p>
-<p>执行器先按模型排列建立计划，给每项保存调用身份、工具名、解析后的参数、所属 Agent 和取消信号。然后查询当前工具的执行模式：允许交错执行的调用可以进入有数量上限的池；需要独占的调用形成屏障，让当前池排空后再处理。池是保存正在执行操作的集合，屏障是在这里要求前面的执行先收尾的边界。</p>
-<p>启动每一项时，先记下 tool/call 及其序号，再等待这一项的前置准备。准备可能已经形成拒绝结果，也可能允许分派真实执行；前置准备按顺序推进，实际分派与工具体才可能重叠。拒绝结果同样要在相应位置进入结果链，不能把“未执行”理解为“没有结果记录”。</p>
-<p>假设 A、B 均允许重叠、数量上限足够，B 较早读完。执行器先把 B 的结果放到自己的结果槽里。槽是按调用位置保存结果的临时位置；B 放在位置 1，A 在位置 0。提交位置仍停在 0，因此不能跳过 A 先把 B 提交到 Session。A 完成后，执行器才依次进行 A、B 的结果后处理，记录各自结果，并把额外上下文交给下一步骤的材料批次。</p>
+<p>执行器按模型给出的顺序建立调用计划，保存调用标识、工具名、已解析参数、Agent 和取消信号。允许并发的调用进入有数量上限的执行池；需要独占的调用设置执行屏障，等待池内任务结束后运行。执行池管理正在执行的调用，屏障约束不同批次的启动顺序。</p>
+<p>启动每一项时，先记下 tool/call 及其序号，再等待这一项的前置准备。准备可能已经形成拒绝结果，也可能允许分派真实执行；前置准备按顺序推进，实际分派与工具体才可能重叠。拒绝结果同样要在相应位置进入结果链，作为确定的结果记录留存。</p>
+<p>假设 A、B 均允许并发且执行池容量足够，B 先完成。执行器将 B 的结果暂存于索引 1 的结果槽，提交游标仍停在 A 对应的索引 0。A 完成后，执行器按 A、B 的顺序运行结果后处理、追加 Session 结果，并把额外上下文传入下一步骤。结果槽按调用位置暂存完成结果，提交游标保证历史顺序与模型提议顺序一致。</p>
 <div class="table-wrap"><table>
 <tr><th>时点</th><th>A 的结果槽</th><th>B 的结果槽</th><th>已提交到 Session 的工具结果</th></tr>
 <tr><td>两项已开始</td><td>尚空</td><td>尚空</td><td>无</td></tr>
@@ -266,7 +266,7 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <h3 id="heading-39">分析示例：数一次有重试的读取任务</h3>
 <p>教学轨迹如下：开放一轮；第一步第一次模型尝试失败，第二次尝试成功并提出 read；工具返回文件片段；第二步模型成功生成总结；轮次结束。本例共有 1 个 turn、2 个 step、3 次模型 attempt、1 次工具调用。</p>
 <p>复算记录：<a href="examples/calculation-results.json">C3 · 轮次与步骤计数</a>。</p>
-<p>为什么不是 3 个 step？第一步重试发生在本步的尝试循环中，没有再次进入前置步骤，也没有把用户消息再提交一次。为什么不是 2 个 turn？工具结果引发的后续模型请求仍属于当前轮次推进。</p>
+<p>第一步的重试位于同一个尝试循环中，保留原 step，且不重复进入前置步骤或登记用户消息。因此 3 次 attempt 只对应 2 个 step。工具结果驱动的第二次模型步骤仍服务于本次用户输入，turn 数为 1。</p>
 <p>按 turn、step、attempt 分别计数，可以看出额外请求来自任务推进还是失败重试。</p>
 <h3 id="heading-40">运行中插入新要求</h3>
 <figure><img loading="lazy" src="figures/F03B.svg" alt="F03B：下一轮、下一步与是否唤醒的区别"><figcaption>F03B：下一轮、下一步与是否唤醒的区别 · <a href="figures/F03B.svg">查看原图</a></figcaption></figure>
@@ -274,7 +274,7 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <p>回到案例，读取结果后驱动进入下一次材料准备，如果约定时点领取了新约束，这次总结请求可以包含新约束。前置拒绝使轮次以 blocked 结束。取消则使正在运行的路径收尾，剩余输入由 Inbox 和下一次唤醒继续管理。</p>
 <h3 id="heading-41">常见误解</h3>
 <p>“下一步输入会立刻打断当前模型流”：next-step 指定下一次领取的位置。当前请求继续执行；取消则通过独立信号要求它停止。</p>
-<p>“结果按顺序记录，所以工具肯定串行执行”：工具的实际执行部分（工具体）可能同时跑多个，而准备、后处理和最终提交有顺序约束。</p>
+<p>工具结果按调用顺序记录。工具执行体可以并发运行，前置准备、结果后处理和最终提交分别遵循执行器的顺序约束。</p>
 <p>“出现 turn/start 就花费一次模型请求”：前置拒绝或初始空输入可能没有进入步骤。</p>
 <section class="source-section">
 <h2 id="heading-42">03.4 源码研读</h2>
@@ -293,7 +293,7 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <tr><td>109</td><td>方法接收边界和轮次，并返回消息数组</td><td>调用者是准备下一步骤的驱动。</td></tr>
 <tr><td>110</td><td>const 保存 mutate 返回值，length 表示列表项数</td><td>先取走当前全部 next-step 输入，保存为 claimed。</td></tr>
 <tr><td>111</td><td>if 比较 target，push 与展开追加数组成员</td><td>新轮次边界才再取一项 next-turn 输入，拼到领取批次后。</td></tr>
-<tr><td>112</td><td>for...of 遍历领取结果，emit 发出事件</td><td>让观察者知道每条消息被哪一轮领取，而不是直接执行模型。</td></tr>
+<tr><td>112</td><td>for...of 遍历领取结果，emit 发出事件</td><td>发布每条消息所属轮次的领取通知，供界面等观察者更新状态。</td></tr>
 <tr><td>113</td><td>return 返回数组</td><td>前置处理可使用这批消息形成本步材料。</td></tr>
 <tr><td>114</td><td>右花括号结束方法</td><td>领取动作完成，模型请求仍属于后续步骤。</td></tr>
 </table></div>
@@ -310,14 +310,14 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <p>讲解：执行器先把 B 存入位置 1 的临时结果槽，提交位置仍等待 A 所在的位置 0。A 完成后才依次处理、提交 A 和 B。真实执行先后与历史提交顺序不同；若下一次模型请求读取历史，也应以实际已提交的结果为依据。</p>
 <p><a href="reader.html">全书目录</a> · <a href="evidence.html">本章与原始证据</a> · <a href="glossary.html">术语索引</a></p>
 </section><section id="chapter-04" class="book-section" data-chapter="04">
-<h1 id="heading-49">第 4 章｜沿文件读取工具追到底：模型怎样得到材料</h1>
-<p>本章学习任务：用路径、起始行和行数说明一次文件读取；预测缺失文件、非法参数与范围截断怎样影响获取的材料。</p>
+<h1 id="heading-49">第 4 章｜文件读取：参数解析与窗口构造</h1>
+<p>本章学习任务：理解 read 的参数校验、文件访问和窗口构造，分析缺失文件与输出截断的处理。</p>
 <h2 id="heading-50">04.1 基本概念</h2>
-<p>文件路径指出要读哪份文件；当前工作目录是解析相对路径的起点。<code>README.md</code> 相对于哪个目录，必须由 Session 和所选文件后端决定。后端是实现统一接口的具体实现：接口规定“能够读文本”，后端决定从本机、远端或其他环境怎样读取。</p>
-<p>工具参数契约描述可接受的字段与值。解析把外部写法转成内部输入，并补齐默认值、拒绝不合法值。未提供的参数采用默认值；明确提供的值接受合法性检查。描述字段与类型等形状规则的定义称为 schema，例如路径应是文字、行号应是数字；实际解析还要检查值是否符合规则。读取窗口返回指定行范围，并携带总行数和截断信息。</p>
-<p>流式读取把文本分批交给处理者，避免先把整个大文件放进内存。它与模型逐段生成回答是不同对象上的流式处理。范围上限可以限制行数、单行长度和输出字节；结果需要如实表达保留了什么。输出结构、模型使用的文字和界面展示资料还会在第 18 章分别讨论。</p>
+<p>文件路径标识读取目标，当前工作目录是相对路径的解析基准。Session 与所选文件 Provider 共同确定 <code>README.md</code> 对应的实际位置。后端实现统一文件接口：接口规定读取操作及返回形式，具体后端负责本机、远端等环境中的路径解析和文件访问。</p>
+<p>工具参数契约规定可接受的字段、类型和值。schema 描述字段结构，例如字符串路径和数字行号；解析逻辑进一步检查取值、补齐缺省参数，并转换成执行体使用的内部输入。读取窗口保存本次选定的文本行，同时返回总行数与截断信息，供模型判断是否需要续读。</p>
+<p>流式文件读取按批次向窗口构造器提供文本，避免在内存中保存整个大文件。模型流式响应则按批次返回生成内容，两者分别作用于文件输入和模型输出。读取结果受行数、单行长度和输出字节上限约束，并明确标示实际保留范围。第 18 章进一步说明结构化结果如何生成模型文本与界面元数据。</p>
 <p>字节是存储和传输数据的计量单位。UTF-8 把文字编码成字节序列，一个汉字通常占多个字节。模型的 tokenizer 又把文字编码成 token。文件字节数、文本行数和模型 token 数采用不同计量规则，工具输出上限与模型容量分别控制。</p>
-<p>读取前要经过通用工具准入；这里先研究获准以后如何解释参数、选择读取方式和构造窗口。拒绝调用与读取时发现文件不存在，是两个阶段的结果。</p>
+<p>读取前要经过通用工具准入；获准后依次解释参数、选择读取方式并构造窗口。拒绝调用与读取时发现文件不存在，是两个独立阶段的结果。</p>
 <h2 id="heading-51">04.2 沿一个任务看完整流程</h2>
 <p>假设 README 有五行，工具参数是路径 README.md、offset 为 2、limit 为 2。调用先经过 ToolRuntime 准入；获准后，defineTool 包装函数检查参数的 schema，read 执行体再检查路径不为空、行号与行数为正整数。合法输入变成内部的 filePath、offset 和 limit。文件服务解析目标、获取文件信息，然后依大小信息选择一次读取或流式读取；窗口构造器保留第二、三行，并受其他输出上限限制。</p>
 <p>如果不提供 offset，使用第 1 行；不提供 limit，采用本次配置的默认上限。提供 0、负数或超过允许上限的 limit，会走参数错误分支。文件大小未知时采用流式路径，是为了避免无法判断大小的后端先缓存任意大文件。</p>
@@ -365,9 +365,9 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <tr><td>56</td><td>trim 去首尾空白，if 与 throw 建立错误分支</td><td>空白路径不能进入文件解析和读取。</td></tr>
 <tr><td>57</td><td>三元表达式根据 undefined 选值</td><td>未提供 offset 用 1，提供了则检查正整数。</td></tr>
 <tr><td>58</td><td>同样的三元选择</td><td>未提供 limit 用当前上限，明确提供的值必须合法。</td></tr>
-<tr><td>59</td><td>大于号比较，模板字符串插入上限</td><td>超出允许窗口行数时拒绝，而不是静默变成任意读取。</td></tr>
+<tr><td>59</td><td>大于号比较，模板字符串插入上限</td><td>limit 超过配置的窗口行数上限时，抛出参数错误。</td></tr>
 <tr><td>60</td><td>对象返回，显式改写属性名</td><td>外部 file_path 对应内部 filePath，其余采用解析后的值。</td></tr>
-<tr><td>61</td><td>结束函数</td><td>调用者拿到规范输入后继续真实读取。</td></tr>
+<tr><td>61</td><td>结束函数</td><td>返回规范化输入，供执行体继续解析目标并读取。</td></tr>
 </table></div>
 <p>执行推演：file_path 为 README.md、offset 缺省、limit 为 2 时，内部输入是 filePath=README.md、offset=1、limit=2；limit=0 由正整数解析拒绝，超过 maxLimit 则走原文件第 59 行。</p>
 <a id="e04b"></a>
@@ -404,20 +404,20 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 </section>
 <h2 id="heading-62">04.5 理解检查与讲解问答</h2>
 <h3 id="heading-63">问题 1 · offset=2、limit=2 是否代表文件只有两行？</h3>
-<p>讲解：不是。这是选取第二行开始的至多两行窗口；完整文件行数由结果的相应信息说明。</p>
+<p>讲解：offset=2 指定从第 2 行开始，limit=2 指定最多返回 2 行。整个文件的行数由结果中的总行数信息给出。</p>
 <h3 id="heading-64">问题 2 · 未提供 limit 与提供 limit=0 一样吗？</h3>
 <p>讲解：不同。缺省采用配置默认值；0 不满足正整数条件，走参数错误。</p>
 <h3 id="heading-65">问题 3 · 未知大小的文件为什么走流式路径？</h3>
 <p>讲解：避免先缓存一个无法判断大小的完整文件，同时让窗口处理接收有界输出所需的批次。</p>
 <p><a href="reader.html">全书目录</a> · <a href="evidence.html">本章与原始证据</a> · <a href="glossary.html">术语索引</a></p>
 </section><section id="chapter-05" class="book-section" data-chapter="05">
-<h1 id="heading-66">第 5 章｜Session 与日志：发生过的事怎样保存和还原</h1>
-<p>本章学习任务：说明事件怎样从当前 Session 进入记录和存储；区别 append、flush、重放与派生视图，判断崩溃时哪些事实已有持久证据。</p>
+<h1 id="heading-66">第 5 章｜Session 事件日志、投影与持久化</h1>
+<p>本章学习任务：追踪事件从内存日志进入存储与派生视图的过程，解释 append、flush 和 Session 恢复。</p>
 <h2 id="heading-67">05.1 基本概念</h2>
 <p>Session 事件日志按顺序记录消息、工具调用和运行边界。终端调试输出属于另一条输出通道。序号说明事件在 Session 中的位置；时间记录发生时刻，序号决定事件顺序和连续性。</p>
-<p>快照是在某个时刻获取的一份数据副本；冻结让已经建立的对象不能再被直接改写。派生是从事实计算另一种数据，例如从消息类事件形成模型历史。投影是按特定问题整理状态，例如当前有哪些待办。快照保留某个时刻的数据，派生生成新的数据形式，投影持续维护某项业务状态。</p>
-<p>可序列化表示数据能够按约定转成可保存或传输的形式，例如对象中的字符串与数字可形成 JSON，带任意函数的运行对象则不能直接当作同样的事实数据。冻结是限制对象修改，不是把它写到存储。缓存是保存已经算过的结果供后续复用，例如消息派生结果；原始记录变化后要使相关缓存失效。</p>
-<p>持久化把运行内存中的资料交给能够在退出后保留它的存储。JSON 是表示对象、数组等值的文本格式；JSONL 每行保存一个 JSON 记录。追加事件首先改变 Session 内的历史，并通知订阅者；JSONL Provider 把写入排队。flush 等待存储 Provider 排空缓冲并完成写入。Session.append 更新内存日志，存储 writer.append 才执行持久写入。</p>
+<p>快照保存某个时刻的数据副本，冻结限制对象及其内部数据被修改。派生根据已有事实生成新的数据形式，例如从消息事件形成模型历史；投影按事件规则持续维护可查询状态，例如最新待办列表。三者分别用于保留数据、构造视图和更新业务状态。</p>
+<p>可序列化数据可以按约定转换成存储或传输格式。例如包含字符串和数字的对象可表示为 JSON，含任意函数的运行对象需要另行处理。冻结保护内存对象，持久化负责写入存储。缓存复用已经计算的派生结果，原始记录变化时使相关缓存失效。</p>
+<p>持久化将内存数据写入程序退出后仍可保留的存储。JSON 是表示对象、数组等值的文本格式，JSONL 按行保存 JSON 记录。Session.append 更新内存日志并通知订阅者，JSONL Provider 将事件加入写入队列，再由 writer.append 完成文件追加。flush 等待存储 Provider 排空缓冲并完成写入。</p>
 <p>Session 恢复还原已经记录的对话和运行过程；文件当前内容由文件服务读取，外部进程状态由进程 Provider 查询。</p>
 <h2 id="heading-68">05.2 沿一个任务看完整流程</h2>
 <p>设 Session 已有 0—8 号事件，新工具调用追加为 9 号。Session 先创建数据副本，检查事件与 Surface 规则，再加入内存日志并通知观察者。Surface 是参与组装模型请求的消息序列，下一节展开它的维护方式。JSONL 写入者接到通知后安排存储，界面观察者则更新显示状态；同一条事件分别驱动这两项工作。</p>
@@ -438,16 +438,16 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <p>随后 Session 发布该事实，消费方依各自接口更新或排队处理。消息派生 <code>deriveMessages</code> 遍历当前 Surface 中的消息节点，生成新的消息数组。状态投影则按注册的事件消费规则维护可查询状态。消息视图处理消息节点，状态投影处理各自关心的过程事件。</p>
 <p>DSH 的 JSONL Provider 为每个 Session 管理一条写入通道，称为写入句柄。它监听 <code>session/event</code>，将新条目排入后台缓冲；收到 <code>session/flush</code> 后，先等待缓冲排空，再等待 writer.flush 完成。Session 通过事件通知存储，存储组件负责实际文件读写。</p>
 <h3 id="heading-72">投影和持久化屏障</h3>
-<p>投影可理解为“按用途整理事实”。给定同一份订单记录，可以整理出当前状态，也可以整理出明细清单；软件里同理。Session 投影同样按各自的事件规则更新结果。</p>
+<p>Session 投影按事件规则更新状态，供不同消费方查询。例如，待办投影根据待办变更事件维护最新列表，运行状态投影根据生命周期事件维护当前阶段。同一份日志可以支持多种投影，各自保留业务所需的数据。</p>
 <p>JSONL 的持久化链分为两层：实时监听器先把事件放进缓冲，writer.append 再按序写入文件并调用文件同步。session/flush 先等待 drainLive 排空实时缓冲，再等待 writer.flush；尚未写入事件的空 Session 会在此创建并同步头记录。文件追加或同步失败时，存储层关闭追加句柄，再把文件截回本批写入前的长度并同步，随后抛出原错误。若回退也失败，就用 AggregateError 同时报告写入错误与回退错误。成功回退后，本批可以按未推进的游标重试。</p>
-<h3 id="heading-73">分析示例：日志行数为什么不是对话数</h3>
+<h3 id="heading-73">分析示例：消息、调用与事件的计数</h3>
 <p>教学片段有一条用户消息、两条助手消息和一条工具结果，另有一条工具调用、两项轮次边界和四项步骤边界，共 11 个列出的事件。这里得到的消息数是 4，工具调用数是 1，日志片段事件数是 11；三个值回答不同问题。</p>
 <p>复算记录：<a href="examples/calculation-results.json">C5 · 消息与事件计数</a>。</p>
 <p>统计对话消息时筛选消息事件；统计工具调用时筛选 tool/call；统计运行轨迹时再纳入轮次、步骤、请求信息和用量。回放按这些事件还原对应模型响应。</p>
 <h3 id="heading-74">写入时间线与故障判断</h3>
 <figure><img loading="lazy" src="figures/F05B.svg" alt="F05B：Session 追加与存储完成的等待边界"><figcaption>F05B：Session 追加与存储完成的等待边界 · <a href="figures/F05B.svg">查看原图</a></figcaption></figure>
 <p>图 05B 对比 append 返回和 flush 等待。append 完成 Session 内追加与通知，flush 等待存储监听器排空并完成写入；后台写入从接到通知时就可以开始。</p>
-<p>回到读取任务：用户输入、助手工具提议、工具调用、工具结果、助手总结和轮次边界依次进入事件序列。消息视图组织后续请求，页面更新显示，存储 Provider 写入文件。页面已经显示而写入失败时，问题出在存储链；刷新后临时文字消失时，先查它是否曾被提交为助手消息，再查对应事件是否写入文件。</p>
+<p>在标准流程中，用户输入、助手工具提议、工具调用、工具结果、助手总结和轮次边界依次进入事件序列。消息视图组织后续请求，界面更新显示，存储 Provider 写入文件。若界面已更新但写入失败，故障定位于存储链；页面刷新后临时文字丢失时，需优先排查该片段是否曾提交为助手消息事件，并确认其是否成功写入文件。</p>
 <h3 id="heading-75">常见误解</h3>
 <p>“日志里每一项都发给模型”：消息派生只处理相应的消息节点，过程边界另有用途。</p>
 <p>“可从日志还原，所以视图必须与原日志相同”：派生视图可以按用途选择、组合和更新；压缩会在第八章进一步改变当前 Surface。</p>
@@ -473,7 +473,7 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <tr><td>745</td><td>属性简写</td><td>保存调用者指定的事件类别。</td></tr>
 <tr><td>746</td><td>读取 length 后包装序号</td><td>按日志当前位置建立连续的 Session 事件序号。</td></tr>
 <tr><td>747</td><td>方法调用获取当前时间</td><td>保存记录时间，不以时间替代序号。</td></tr>
-<tr><td>748</td><td>显式属性赋值</td><td>采用之前建立的 dataSnapshot，而不是继续共享原输入对象。</td></tr>
+<tr><td>748</td><td>显式属性赋值</td><td>使用已生成的 dataSnapshot 副本，隔离调用方对原始输入的后续修改。</td></tr>
 <tr><td>749</td><td>展开对象，as 说明类型</td><td>加入已建立副本的 Surface 意图和来源关联字段。</td></tr>
 <tr><td>750</td><td>结束对象与冻结调用，类型断言</td><td>把结果作为当前事件类型处理；类型断言本身不作磁盘写入。</td></tr>
 <tr><td>751</td><td>调用事件数据校验</td><td>检查事件字段符合该类型的运行约束。</td></tr>
@@ -482,7 +482,7 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <p>执行推演：已有 9 项日志时，新事件的 seq 为 9。方法先冻结并校验事件；校验失败就抛错，通过后才加入日志、发布通知。</p>
 <a id="e05b"></a>
 <h3 id="heading-78">E05B · 后台写入与持久化等待</h3>
-<p>阅读任务：这两项监听由 JSONL 存储组件注册。回调在收到相应 Session 事件时执行；不是注册当场立即写入。重点区分 enqueueLive 与等待 drainLive/flush。</p>
+<p>阅读任务：JSONL 存储组件注册两项事件监听。session/event 到达时将事件排入后台缓冲；session/flush 到达时等待缓冲排空并完成刷新。注册调用保存回调，具体事件触发回调执行。</p>
 <p>代码类型：<strong>真实源码摘录</strong>。证据编号 <a href="evidence.html#e05b">E05B</a>；下表的数字是原文件行号。</p>
 <pre><code class="language-ts">    ctx.on(&#x27;session/event&#x27;, (session: Session, event) =&gt; {
       this.writers.get(session.id)?.enqueueLive(event, (error) =&gt; {
@@ -502,7 +502,7 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <tr><td>535</td><td>on 注册事件回调，箭头函数接收 Session 与事件</td><td>订阅 Session 新事实，稍后发生事件才进入函数体。</td></tr>
 <tr><td>536</td><td>可选调用与回调参数</td><td>有对应 writer 才排入实时写入队列，并设置失败处理。</td></tr>
 <tr><td>537</td><td>模板字符串和 warn 调用</td><td>后台写入失败时记录 Session 与错误，提示缓冲事件仍保留。</td></tr>
-<tr><td>538</td><td>结束 enqueueLive 的错误回调</td><td>失败处理定义结束，不是把错误转成成功写入。</td></tr>
+<tr><td>538</td><td>结束 enqueueLive 的错误回调</td><td>回调负责记录后台写入错误，缓冲事件仍保留以供后续处理。</td></tr>
 <tr><td>539</td><td>结束新事件监听器</td><td>登记的监听器继续等待后续事件。</td></tr>
 <tr><td>540</td><td>注册另一项监听</td><td>session/flush 是要求等待持久化边界的事件。</td></tr>
 <tr><td>541</td><td>const 获取 Map 中的 writer</td><td>Map 是按键查值的集合；这里按当前 Session 身份找到它的存储写入者。</td></tr>
@@ -516,7 +516,7 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <p>执行推演：新事件发出后，如果有写入者则排入后台缓冲；后台失败会记录警告并保留缓冲事件。显式 flush 的处理获取同一写入者，先排空实时缓冲，再等待刷新。</p>
 </section>
 <h2 id="heading-79">05.5 理解检查与讲解问答</h2>
-<h3 id="heading-80">问题 1 · append 返回以后，能宣布已经完成磁盘持久化吗？</h3>
+<h3 id="heading-80">问题 1 · append 执行返回是否代表磁盘持久化已完成？</h3>
 <p>讲解：不能。追加首先完成 Session 内记录与发布，后台写入有单独的 flush 等待边界。</p>
 <h3 id="heading-81">问题 2 · 为什么事件与聊天消息数量不同？</h3>
 <p>讲解：事件包括生命周期和状态记录，只有相应消息节点参与消息派生。</p>
@@ -524,17 +524,17 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <p>讲解：Session 恢复对话记录和运行事实；终端进程保存在执行环境中，需要由进程 Provider 确认它是否仍在运行、连接是否可用。</p>
 <p><a href="reader.html">全书目录</a> · <a href="evidence.html">本章与原始证据</a> · <a href="glossary.html">术语索引</a></p>
 </section><section id="chapter-06" class="book-section" data-chapter="06">
-<h1 id="heading-83">第 6 章｜提示词与项目指令：下一次模型输入怎样形成</h1>
-<p>本章学习任务：追踪目录中的指令怎样被发现、组合与加入模型请求；解释指令的适用范围，以及文字规则与执行权限的区别。</p>
+<h1 id="heading-83">第 6 章｜提示词组装与项目指令</h1>
+<p>本章学习任务：理解提示贡献、项目指令与历史的组装规则，追踪作用域选择、去重和请求冻结。</p>
 <h2 id="heading-84">06.1 基本概念</h2>
-<p>一次模型请求不是只发送用户刚打出的那句话。上下文指这一次推理能够使用的材料，包括行为规则、当前输入、历史内容和工具说明。提示词是作为材料发送给模型的文字指示；system prompt 是其中用于表达系统规则的部分，用户消息、项目指令和工具结果各自保留来源。</p>
-<p>注册是先把某项贡献交给管理者保存，组装才是在请求需要时取出可见贡献形成材料。作用域回答贡献对谁可见；同名覆盖回答同一位置有多个版本时选择谁；排序回答不同贡献按什么顺序出现。这三件事分别决定请求内容。</p>
+<p>一次模型请求的上下文包含系统规则、当前输入、历史消息和工具说明等材料。提示词向模型描述目标与行为要求，system prompt 承载其中的系统规则。用户消息、项目指令和工具结果以各自的来源进入请求，后续组装依据这些来源选择内容和顺序。</p>
+<p>注册阶段保存插件提供的提示段或动态上下文，请求组装阶段读取当前可用的贡献。作用域决定贡献对哪些 Agent 可见，同名选择规则决定采用哪个版本，排序规则决定各项内容的排列顺序。三类规则共同确定本次请求的输入。</p>
 <p>项目指令描述工作区和当前文件路径相关的规则。每次模型请求前，项目指令插件先选择规则文件，将内容整理成指令消息，再与待处理输入一起进入本步。历史则从 Session 的 Surface 派生，随后与这些新材料汇合。</p>
-<p>请求冻结为正在执行的请求固定数据副本。新输入、插件变化或压缩仍可影响下一次组装，但不能倒回去改已经提交的这一份请求。这解释了为什么引导消息要等下一步骤生效。</p>
+<p>请求冻结为当前调用建立独立、稳定的数据副本。新消息、插件变化与压缩影响后续请求的组装；已经提交的请求继续使用原副本。因此运行中到达的引导消息，需要在下一步骤被领取后生效。</p>
 <h2 id="heading-85">06.2 沿一个任务看完整流程</h2>
 <p>以“总结 README，但保留实验性功能的限制”为例，用户目标是一条来源明确的消息。system prompt 贡献说明行为规则，工具贡献说明 read 怎样调用，历史提供先前已经获取的材料；工作区指令再依据当前范围补充约束。</p>
 <p>组装器先决定哪些贡献在当前作用域可见，再解决同名项和顺序问题。前置指令处理会清掉不再需要的待处理指令，并把这次需要的指令放入本步消息批次。用户消息在首次尝试登记，重试不再重复登记它；请求创建后获取独立配置副本。</p>
-<p>若请求执行期间用户补充“只总结正式功能”，这句话先进入下一步输入。当前请求仍使用原来的固定材料；下一步骤重新领取并组装，才有新要求。若之后发生压缩，后续历史视图可能变化，但已经在途的请求仍不变。检查材料缺失时，应分别查可见贡献、前置消息、历史 Surface 和实际请求，而不是只在某个大字符串里找一句话。</p>
+<p>请求执行期间补充的“只总结正式功能”先进入 next-step 队列。当前请求使用既定副本，下一步骤领取新消息并重新组装上下文。后续压缩可以改变历史 Surface，在途请求则保持原内容。定位材料缺失时，分别检查可见提示贡献、前置消息、历史 Surface 和最终请求。</p>
 <h2 id="heading-86">06.3 关键机制与设计取舍</h2>
 <h3 id="heading-87">材料有不同的入口</h3>
 <figure><img loading="lazy" src="figures/F06A.svg" alt="F06A：提示贡献、项目指令与历史分别进入请求"><figcaption>F06A：提示贡献、项目指令与历史分别进入请求 · <a href="figures/F06A.svg">查看原图</a></figcaption></figure>
@@ -542,15 +542,15 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <p>system prompt 通常描述运行方式和工具使用等约束。运行时上下文提供当时环境材料，例如当前时间、工作目录或刚读取过的文件路径。项目指令描述工作区规则。用户消息提出当前目标，工具结果给出已获取事实。知道每类材料从哪里来，才能检查冲突、遗漏与重复。</p>
 <h3 id="heading-88">从贡献到请求冻结</h3>
 <p>插件用 <code>SystemPrompt.section</code> 注册具名提示段，用 <code>context</code> 注册动态上下文。每项贡献带有作用域。同名项先选择当前 Agent 更近的作用域，再按服务规定的顺序排列。完整提示段另有自己的选择规则。SystemPrompt 服务根据这些规则组装本步提示词。</p>
-<p>驱动在前置步骤领取输入，调用 <code>assemble</code> 得到组装结果，并把运行时上下文投影成适合本步的材料。随后进入 <code>agent/pre-step</code> 链。这是一串按顺序执行的前置检查关卡，决定本步是否继续，以及哪些消息进入本次请求。项目指令插件在这条链上等待相关投影就绪，再按工作区与触及路径整理指令。触及路径就是本次任务接触过的文件路径，用来确定要加载哪些目录下的规则文件。插件把选中的指令整理成上下文消息，插入将要进入步骤的批次。</p>
-<p>进入步骤后，框架准备模型调用，记录需要的系统消息、首次进入的用户消息和请求信息，再派生并冻结请求。冻结意味着这次请求的内容不能被稍后修改的共享对象悄悄改变，下一步重新组装消息和上下文。</p>
+<p>驱动在步骤准备阶段领取输入，调用 <code>assemble</code> 组装提示，并生成本步运行时上下文，随后进入 <code>agent/pre-step</code> 前置处理链。该链按顺序执行，决定步骤能否继续及其消息批次。项目指令插件先等待相关投影就绪，再根据工作区和触及路径选择规则文件。触及路径是工具调用已经接触的文件路径，用于确定适用的目录规则。选中的规则形成上下文消息，插入本步批次。</p>
+<p>进入步骤后，框架准备模型调用，记录需要的系统消息、首次进入的用户消息和请求信息，再派生并冻结请求。冻结确保本次请求的内容不会因共享对象被修改而发生预期外变化，下一步重新组装消息和上下文。</p>
 <h3 id="heading-89">顺序与作用域的基础</h3>
-<p>贡献类似多个人填写同一份请求资料，但合并规则由系统决定。每项至少要有身份、范围和位置：身份帮助替换或去重，范围决定谁可见，位置决定有序组装。</p>
+<p>每项提示贡献通过名称、作用域和顺序参与组装。名称用于识别同名项并选择有效版本，作用域限制可见范围，顺序确定最终排列。显式定义这些信息，使不同插件提供的材料能够按一致规则组合。</p>
 <p>消息同时保存内容与来源。项目指令来自规则文件，用户需求来自提交入口，工具结果来自执行链。框架按这些来源组织消息；一段文字里出现“系统提醒”，不会改变它原有的消息类别。</p>
 <h3 id="heading-90">分析示例：重复材料占了多少空间</h3>
 <p>教学请求包含工具指导 800 字节、项目规则 600 字节、用户需求 200 字节、历史 2400 字节，共 4000 字节。某插件又加入完全相同的项目规则 600 字节，新总量为 4600 字节，增加 15%。</p>
 <p>这个算例的组成量保存在<a href="examples/metrics-input.json">计算输入</a>中，<code>calculations</code> 按“基础组成求和—加入重复规则—除以原总量计算增幅”的顺序复算。<a href="examples/calculation-results.json">计算记录</a>中的 <code>C6_baseline_bytes</code>、<code>C6_augmented_bytes</code> 与 <code>C6_increase_percent</code> 对应这三个结果。</p>
-<p>多一份相同规则没有提供新事实，还可能使来源难以辨认。合并前先识别同名项、作用域与历史中的既有材料，比盲目压缩整个请求更有针对性。项目指令用 sameContextPayload 判断等价消息，SystemPrompt 则按名称和作用域选择贡献。两条路径各自去重。</p>
+<p>重复规则增加请求体积，也使来源判断更加复杂。项目指令用 sameContextPayload 检查等价消息，SystemPrompt 按名称和作用域选择贡献。定位重复内容后，可以在对应组装入口处理，减少后续压缩需要处理的冗余。</p>
 <h3 id="heading-91">在下一步加入项目约束</h3>
 <figure><img loading="lazy" src="figures/F06B.svg" alt="F06B：重复规则前后的材料体积"><figcaption>F06B：重复规则前后的材料体积 · <a href="figures/F06B.svg">查看原图</a></figcaption></figure>
 <p>图 06B 比较重复材料的体积：基础请求 4000 字节，重复一份 600 字节规则后变成 4600 字节，增加 15%。两侧比较的是内容组成和字节数。</p>
@@ -592,20 +592,20 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <h3 id="heading-96">问题 1 · 项目指令一定进入 system prompt 吗？</h3>
 <p>讲解：项目指令由前置步骤形成消息，并加入本步材料；system prompt 则由 SystemPrompt 服务组装。两条路径在准备请求时汇合。</p>
 <h3 id="heading-97">问题 2 · 引导消息到来后，已经发出的请求会改变吗？</h3>
-<p>讲解：不会倒改在途请求。新消息在相应领取边界影响后续请求。</p>
+<p>讲解：在途请求使用已冻结的数据副本。新消息在下一次领取边界进入后续请求。</p>
 <h3 id="heading-98">问题 3 · 重试为什么不重复登记用户消息？</h3>
 <p>讲解：首次尝试登记后已有这份 Session 事实，再次登记会把一个输入变成重复历史。</p>
 <p><a href="reader.html">全书目录</a> · <a href="evidence.html">本章与原始证据</a> · <a href="glossary.html">术语索引</a></p>
 </section><section id="chapter-07" class="book-section" data-chapter="07">
-<h1 id="heading-99">第 7 章｜Skill 的按需读取：目录可见为什么不等于正文已加载</h1>
-<p>本章学习任务：区分 Skill 目录、Skill 正文与已经执行的动作；说明按需加载怎样增加材料，以及为什么加载 Skill 不等于注册新工具。</p>
+<h1 id="heading-99">第 7 章｜Skill 发现与按需加载</h1>
+<p>本章学习任务：追踪 Skill 的目录发现、入口检查与正文读取，区分工作方法与工具执行权限。</p>
 <h2 id="heading-100">07.1 基本概念</h2>
-<p>Skill 把一项做事方法整理成说明和相关资源，例如“如何分析某类项目”。目录摘要帮助模型知道有哪些方法，正文才说明具体步骤。模型先通过摘要选择 Skill，再获取正文。</p>
+<p>Skill 是封装任务方法的说明及相关资源，例如技术报告的整理流程。目录摘要公开名称和用途，正文解释操作步骤与要求。模型通过摘要发现候选，在需要使用时读取对应正文。</p>
 <p>Skill 服务负责发现、列出和读取定义，<code>skill</code> 工具让模型按名称获取正文。调用权限分别声明是否允许用户调用、是否允许模型调用；读取入口按相应标志检查。目录可见性用于发现候选，调用标志决定能否从这一入口加载。</p>
-<p>加载是实际获取正文并形成可供模型使用的内容，不是装上一个新的操作系统权限。正文可以指导模型组合已有工具，但工具仍受自己的注册、准入和执行边界约束。用户显式指定 Skill 与模型主动选择 Skill，进入材料的路径也不同。</p>
-<p>需要区分三个观察点：目录是否包含名称，读取是否获取定义，正文是否进入本次请求。排查“它没有按 Skill 做事”时，先找这三个证据，再评价正文的方法是否清楚。</p>
+<p>Skill 加载获取正文并将其加入模型上下文。正文指导模型组合已有工具，文件访问、网络调用和发布操作仍由工具注册、准入与执行环境控制。用户显式指定 Skill 和模型调用 skill 工具分别采用对应的读取路径。</p>
+<p>需要区分三个观察点：目录是否包含名称，读取是否获取定义，正文是否进入本次请求。排查未按 Skill 步骤执行的故障时，先找这三个证据，再评价正文的方法是否清楚。</p>
 <h2 id="heading-101">07.2 沿一个任务看完整流程</h2>
-<p>假设目录里出现 report-skill，摘要说它用于整理技术报告。模型先根据摘要判断有用，再调用 Skill 读取工具。工具根据当前工作目录、Agent 范围和取消信号获取目录，找到名称以后检查它是否允许模型调用；通过后再获取完整定义。</p>
+<p>假设目录包含 report-skill，摘要标明其用于整理技术报告。模型先根据摘要匹配任务需求，再调用 Skill 读取工具。工具根据当前工作目录、Agent 范围和取消信号获取目录，找到名称以后检查它是否允许模型调用；通过后再获取完整定义。</p>
 <p>若目录里的定义已经移除，查询不到名称就报错；名称仍可见但禁止模型调用时，工具返回入口限制错误。获取正文以后，框架把它整理成模型材料，后续模型请求便能使用其中的方法。</p>
 <p>用户显式调用的入口会检查用户可调用条件，符合时才建立 Skill 调用来源的指令消息。未知名称和不符合条件的文字不会都被解释为命令。正文中的方法通过后续模型推理与工具调用落实。</p>
 <h2 id="heading-102">07.3 关键机制与设计取舍</h2>
@@ -616,13 +616,13 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <p><code>SkillRegistry</code> 管理可见 Provider 和候选。文件系统 Provider 负责从相应目录发现 Skill 并读文件内容。<code>list</code> 返回摘要列表；<code>get</code> 按名称选择候选；同名项依次按 Provider 优先级、Provider 顺序和本地顺序取舍，把候选定位信息返回对应 Provider 读取，再校验完整定义。这使消费方不必固定绑定某个文件目录实现。</p>
 <p>工具插件在前置步骤把当前 Agent 可调用的 Skill 目录写成持久提示消息。目录包含名称与说明，正文按需读取。目录发生变化时，插件发布替换消息；发现过程不完整时，保留已有目录。模型调用 <code>skill</code> 后，执行体检查名称、可见摘要和模型调用标志，再获取完整定义并返回正文。</p>
 <p>用户直接调用走另一条路径。前置步骤检查直接用户消息第一行的 <code>/&lt;name&gt;</code>，名称存在且允许用户调用时，加载正文并注入本步消息。模型调用 <code>skill</code> 工具则把正文记录为工具结果，供后续步骤使用。消息来源与调用标志决定这两条路径各自何时生效。</p>
-<h3 id="heading-105">按需读取不等于权限授权</h3>
-<p>按需读取是到需要时再获取内容。Skill 正文是材料，可以指导做事，但读取它不会自动增加文件、网络或发布权限。工具是否可用、动作是否获准和运行环境怎样限制，仍有独立控制层。</p>
+<h3 id="heading-105">按需加载与工具权限</h3>
+<p>按需加载在任务需要时获取 Skill 内容。正文提供工作方法，工具注册决定可调用能力，准入链决定本次调用是否允许，执行环境限制实际资源访问。这些控制机制在加载后继续生效。</p>
 <p>目录摘要帮助选择 Skill，正文提供步骤、参数和限制。例如“用于文档整理”只说明用途，具体怎样整理要在加载正文后确定。Provider 读取失败、名称消失或入口禁止调用时，工具返回对应错误。</p>
 <h3 id="heading-106">分析示例：按需材料量</h3>
 <p>教学目录有三个 Skill，正文分别是 2000、3000、5000 字节，目录摘要合计 600 字节。本次只获取第一个 Skill，目录加正文为 2600 字节；若都加载则为 10600 字节，差额 8000 字节。计算假设两种方案都携带同一目录，忽略其他请求材料。</p>
 <p>复算记录：<a href="examples/calculation-results.json">C7 · Skill 材料用量</a>。</p>
-<p>本次请求只携带目录和选中正文，省去另外两份正文。多一次 Skill 查找也有调度和读取代价；Skill 选错、说明太含糊或正文过时，可能降低效果。合理比较应同时看材料、获取次数与实际任务检查。</p>
+<p>按需方案省去未选中 Skill 的正文，同时增加查找和读取操作。评价时需要同时记录材料量、加载次数和任务结果。摘要准确性、选择结果与正文版本影响加载所得的方法是否适合当前任务。</p>
 <h3 id="heading-107">回到项目说明整理</h3>
 <figure><img loading="lazy" src="figures/F07B.svg" alt="F07B：全部正文与只取所需正文的材料对照"><figcaption>F07B：全部正文与只取所需正文的材料对照 · <a href="figures/F07B.svg">查看原图</a></figcaption></figure>
 <p>图 07B 左侧携带三个 Skill 的全部正文和同一目录，共 10600 字节；右侧携带目录与第一个正文，共 2600 字节，差额为另外两份正文的 8000 字节。</p>
@@ -675,13 +675,13 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <p>讲解：不能。Skill 提供方法与说明，真实工具仍经过本身的准入和执行限制。</p>
 <p><a href="reader.html">全书目录</a> · <a href="evidence.html">本章与原始证据</a> · <a href="glossary.html">术语索引</a></p>
 </section><section id="chapter-08" class="book-section" data-chapter="08">
-<h1 id="heading-115">第 8 章｜上下文压缩：让历史变短需要付出什么</h1>
-<p>本章学习任务：说明上下文为何有容量限制，哪些历史可被压缩，哪些事实需要保留；比较摘要、检索、token 估计与真正的语义搜索。</p>
+<h1 id="heading-115">第 8 章｜上下文压缩与历史表示</h1>
+<p>本章学习任务：理解上下文容量、压缩选区、稳定性检查与提交过程，比较信息保留与请求开销。</p>
 <h2 id="heading-116">08.1 基本概念</h2>
 <p>模型一次请求可容纳的材料有容量限制。token 是模型处理文字时使用的编码单位，tokenizer 把文字编码成 token，词数、汉字数和 token 数分别统计。上下文压力把当前材料的 token 计量与模型容量比较。TokenMeter 分别记录本地估计和可复用的 Provider 用量信息。</p>
 <p>压缩（compaction）将选定历史改成较短表示，供后续请求使用。例如，把十次文件调查整理成“已读哪些文件、得到什么结论、还缺什么”。原始事件留在日志中，当前 Surface 则使用摘要表示这段历史。</p>
-<p>压缩不是无损编码：摘要可能遗漏细节。选区要保持工具调用与结果成对，并保留最近一段历史。选择边界时检查配对平衡；仍未关闭的步骤留在选区外，而不是交给摘要补造缺失结果。稳定性检查确认准备摘要期间，相关依赖没有变化到使旧摘要失效。提交是把准备好的结果正式纳入 Session 视图的动作，区别于仍在生成中的草稿。</p>
-<p>另有裁剪和 spill：裁剪移除选定可省略内容，spill 把长内容放到存储并返回取回入口。三者都能缩短当前请求，却改变了不同东西，不能用同一个“压缩掉了”概括。</p>
+<p>摘要压缩通过较短表示保留关键内容，细节可能被省略。选区检查保持工具调用与结果配对，保留最近历史，并将尚未关闭的步骤留在选区之外。摘要生成期间，稳定性检查确认相关依赖仍与准备依据一致；通过检查后，提交流程把摘要纳入 Session 的当前视图。</p>
+<p>裁剪、compaction 和 spill 分别改变不同的数据表示。裁剪移除可省略内容，compaction 以摘要替换选定历史，spill 将长文本保存到外部存储并提供取回入口。它们都减少当前请求承载的内容，后续恢复原文和访问细节的方式则各不相同。</p>
 <h2 id="heading-117">08.2 沿一个任务看完整流程</h2>
 <p>假设本轮准备请求时材料接近容量，压缩插件在前置步骤测量压力、选择可处理的历史范围、生成较短表示。若选不到范围，就没有压缩结果；若范围可处理，生成期间仍要保持关联条件，提交前再次检查稳定性。</p>
 <p>流程先追加 <code>compaction/start</code>，在请求摘要前建立压缩锁。摘要通过稳定性检查后，代码依次记录 <code>compaction/summary</code>、替换 Surface 的检查点消息和 <code>compaction/end</code>。开始以后的失败会进入收尾分支，尝试追加一次结束事件；结束事件本身失败时，未配对的开始标记继续占用锁。已追加的记录保留在 Session 中，错误按 summary 或 commit 阶段报告。自动压力钩子捕获错误、记录警告后继续前置链；上下文溢出恢复则按策略裁剪、重新计量并选择范围。</p>
@@ -695,26 +695,26 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <p>选区确定后，流程检查 Surface 范围和压缩事务状态。事务在这里指由开始、摘要、替换消息和结束标记组织的一次压缩流程。开始标记先建立锁，摘要返回后再检查选区稳定性，通过后按顺序追加提交记录。选区发生冲突时，稳定性检查抛错，流程转入失败收尾。</p>
 <p>前置压力压缩失败时，插件记录警告，驱动继续原有前置链。上下文溢出恢复由目标策略和次数上限决定是否再尝试。手工压缩通过维护阶段预留驱动，检查空闲状态与取消信号，并在结束标记追加后等待存储 flush。</p>
 <h3 id="heading-121">逻辑视图和信息保留</h3>
-<p>Surface 可以理解为当前需要呈现给模型的消息节点集合。历史事实记录发生过什么，Surface 选择当前怎样表示这些事实，两者职责不同。摘要以较短文字保留重点，细节和原文措辞会被省略。项目名、限制条件、路径和未完成事项往往比普通叙述更需要保留。</p>
+<p>Surface 是当前模型历史的消息节点序列。事件日志保留完整运行记录，Surface 根据任务需要选择这些记录的当前表示。摘要可以省略重复叙述，但应保留项目名称、路径、功能限制与未完成事项，避免改变后续推理所需的事实。</p>
 <p>长期记忆通过存取和检索把其他任务的材料带回请求；compaction 调整当前 Session 的历史表示。语义检索中的 embedding 把文字编码为用于相似度比较的数字向量，第 12 章再介绍这类外部服务。</p>
 <h3 id="heading-122">分析示例：长度与额外成本分开算</h3>
 <p>教学区域原为 12000 字节，摘要为 3000 字节，当前可见材料减少 9000 字节，即该区域缩短 75%。但为了生成摘要，流程仍要进行模型请求，产生输入与输出用量；评价总用量时，需要把摘要请求计入。</p>
 <p>压缩前后的假设值保存在<a href="examples/metrics-input.json">计算输入</a>中；<code>calculations</code> 用原大小减摘要大小，再将差值除以原大小。<a href="examples/calculation-results.json">计算记录</a>中的 <code>C8_saved_bytes</code> 和 <code>C8_reduction_percent</code> 分别给出减少量与缩短比例。</p>
 <p>设后续原本需要三次重复携带该区域，简化教学口径下，材料传输字节差额为 3×9000＝27000 字节。第 17 章把后续请求用量、缓存用量和这次摘要开销放在一起比较。若摘要漏了“某功能尚未稳定”，总结质量还可能下降。</p>
-<p>取舍因此不是越短越好。小摘要降低后续材料压力，保留较多细节则可能更有利于任务正确性。比较时需要相同任务检查，而不只看压缩比例。</p>
+<p>压缩效果由材料体积和信息保留程度共同决定。较短摘要降低后续请求的上下文压力，较完整摘要保留更多任务细节。比较不同方案时，应使用相同的产物检查规则，同时记录压缩比例与后续回答质量。</p>
 <h3 id="heading-123">两份摘要的区别</h3>
 <figure><img loading="lazy" src="figures/F08B.svg" alt="F08B：短摘要是否保留关键约束"><figcaption>F08B：短摘要是否保留关键约束 · <a href="figures/F08B.svg">查看原图</a></figcaption></figure>
 <p>图 08B 对比两份摘要：甲列出功能甲、乙、丙，乙同时保留“丙仍为实验性”的限制。总结项目功能时，乙能够提供本任务需要的完整约束。</p>
 <p>摘要生成失败时，选区仍采用原历史。提交阶段失败时，先前已追加的摘要或替换消息可能已经留在 Session 中，代码记录 commit 错误并处理结束标记。排查时要定位失败发生在哪次 append，以及当前 Surface 和压缩锁的状态。</p>
 <h3 id="heading-124">常见误解</h3>
 <p>“压缩就是删除历史”：当前 Surface 替换不等于抹去所有原始事实。</p>
-<p>“生成了摘要就永久记住”：跨 Session 发现和检索不是本流程的默认能力。</p>
+<p>compaction 调整当前 Session 的历史表示。跨 Session 记忆需要独立的存储、发现和检索能力，由相关服务提供。</p>
 <p>“越短的摘要越优”：必须结合本任务需要保留的事实与约束检查。</p>
 <section class="source-section">
 <h2 id="heading-125">08.4 源码研读</h2>
 <a id="e08a"></a>
 <h3 id="heading-126">E08A · 提交前稳定性检查与结束记录</h3>
-<p>阅读任务：这是摘要已经生成后的提交路径，不是整个压缩函数。dependencies、session 和 summarized 保存本次准备依据，lifecycle 保存本次压缩身份；owner 是这段提交的归属标记，没有归属时先响应取消；startEvent 是压缩开始事件，用于把提交与开始记录关联；外层 catch 还会记录失败阶段和关闭记录。</p>
+<p>阅读任务：节选位于摘要生成后的提交阶段。dependencies、session 和 summarized 保存准备依据，lifecycle 标识本次压缩，startEvent 关联开始事件。owner 为空时先检查取消信号，再校验稳定性并提交。外层 catch 根据失败阶段处理错误与结束记录。</p>
 <p>代码类型：<strong>真实源码摘录</strong>。证据编号 <a href="evidence.html#e08a">E08A</a>；下表的数字是原文件行号。</p>
 <pre><code class="language-ts">    if (options.owner === null) signal?.throwIfAborted()
     assertStable(dependencies, session, summarized)
@@ -744,16 +744,16 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <p>讲解：防止把基于旧依赖生成的摘要提交成当前有效材料。</p>
 <p><a href="reader.html">全书目录</a> · <a href="evidence.html">本章与原始证据</a> · <a href="glossary.html">术语索引</a></p>
 </section><section id="chapter-09" class="book-section" data-chapter="09">
-<h1 id="heading-131">第 9 章｜流式输出与重试：一次失败怎样留在同一步里</h1>
-<p>本章学习任务：追踪模型路由、请求准备、流式结果与重试；说明哪些内容能进入后续工具阶段，哪些失败仍需单独处理。</p>
+<h1 id="heading-131">第 9 章｜模型流式响应与请求恢复</h1>
+<p>本章学习任务：追踪模型路由、请求准备和流式消费，解释失败结算、恢复决定与同一步骤内的重试。</p>
 <h2 id="heading-132">09.1 基本概念</h2>
-<p>流式响应不是一条立即得到的完整回答，而是一段段到达的数据。一个片段可以是文字、工具调用信息、用量或结束信息，循环持续收集片段，直到收到 finish 或消费抛错。适配器把特定模型服务的交互转成项目统一接口；Provider 指提供这项能力的接入方，Provider 与模型选择决定这次请求实际交给谁。</p>
+<p>流式响应通过连续到达的数据片段传递模型输出，片段可以包含文本、工具调用信息、用量或结束状态。驱动持续消费片段，直至迭代结束或消费过程抛错，并根据 finish 结算结果。适配器将模型服务的协议转换成统一接口，Provider 与模型路由确定本次请求使用的服务。</p>
 <p>限流是服务限制一段时间里可接收的请求数量；超时是等待超过规定边界。它们都可能产生失败，但恢复方式由策略决定。</p>
 <p>重试是在某次执行失败后重新尝试。恢复策略决定哪些失败可以重试，以及要作哪些准备；agent/request-error 链返回 retry 时，循环才发起下一次尝试。失败尝试产生的临时内容可以被观察，但不能直接作为成功助手消息执行其中的工具提议。</p>
 <p>请求先解析模型路由和配置，再获取流并消费片段。流正常结束后，驱动检查 finish：成功则提交助手消息，错误或中止则记录失败尝试并询问恢复链。消费过程中直接抛出的异常走 catch 分支，结算已开始的尝试后继续抛出；这一分支与 finish 携带失败状态的恢复入口分开。</p>
 <p>当 finish.kind 为 max-tokens 时，循环先提交已经生成的助手消息，再返回 max-tokens 结束原因，跳过该消息的工具执行。这里达到的是当前请求的输出上限，与上下文过长触发的压缩恢复分开处理。</p>
 <h2 id="heading-133">09.2 沿一个任务看完整流程</h2>
-<p>假设第一次尝试先到达文字片段，再收到失败终结。临时流可供界面显示进度；循环记录失败事实，向恢复链交出失败类型、模型 Provider、重试策略和取消信号。如果恢复链没有返回 retry，抛出对应模型错误；返回 retry 才进入下一次尝试。</p>
+<p>假设第一次尝试返回部分文本后以失败状态结束。界面可以显示临时进展，驱动记录失败，并向恢复链提供失败类型、Provider、重试策略和取消信号。恢复链返回 retry 时进入下一次尝试；没有重试决定时抛出对应模型错误。</p>
 <div class="table-wrap"><table>
 <tr><th>到达的内容</th><th>循环处理</th><th>能否进入工具执行</th></tr>
 <tr><td>正在生成的片段</td><td>更新临时流状态</td><td>先显示临时进展</td></tr>
@@ -769,8 +769,8 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <p>LLM 服务的 <code>prepareCall</code> 按 provider 标识查找适配器，解析目标模型与配置，返回绑定这次调用的 prepared call。它保存冻结配置与重试策略，且只能分派一次。每次重试重新准备调用，适配器将具体服务的响应转换成统一流。</p>
 <p>DeepSeek 适配器把响应转换成异步片段，并组合取消信号。空闲监测统计等待新片段的时间，超出阈值就产生超时错误。超时、取消和传输失败分别分类；结束时停止消费，并尝试关闭逐项提供片段的迭代器。关闭失败作为诊断信息保留。</p>
 <p>驱动用 <code>for await</code> 消费片段，逐次检查取消信号并推送临时输出。正常终结生成助手消息并记录；符合请求错误恢复流程的失败先记录尝试，再经 <code>agent/request-error</code> 链决定是否重试。没有 retry 决定时抛出 LlmError；已取消时由取消信号结束等待。</p>
-<h3 id="heading-137">异步迭代的够用基础</h3>
-<p>Promise 是将来的一次结果，异步可迭代对象则是分次到来的序列：<code>for await</code> 每轮向它索取下一个片段，拿到就处理，取完为止。例如一条流依次交出文字甲、文字乙和结束信息，循环不是一次拿到三项，而是先等待甲并处理，再等待乙并处理，最后依据结束信息判断完成。</p>
+<h3 id="heading-137">异步迭代与响应消费</h3>
+<p>Promise 表示一次异步结果，异步可迭代对象表示依次产生的一组值。<code>for await</code> 等待下一项，处理完成后再继续迭代。例如流中依次出现文本甲、文本乙和结束信息，驱动按到达顺序处理各项，并在消费结束后读取终结状态。</p>
 <p><code>for await</code> 每次等待下一个片段，直到迭代器结束。驱动随后读取 finish，确定这次响应怎样结算。取消信号沿驱动和适配器传递，各层在检查到取消后停止后续消费，并进入连接清理。</p>
 <h3 id="heading-138">分析示例：重试等待算在哪里</h3>
 <p>教学轨迹为第一次尝试用时 400 ms 后失败，退避等待 300 ms（退避：失败后先等待一段时间再重试的策略），第二次尝试用时 700 ms 后成功。不计其他开销，模型阶段共 400＋300＋700＝1400 ms，其中请求尝试时间 1100 ms，等待时间 300 ms，尝试数 2。</p>
@@ -779,7 +779,7 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <h3 id="heading-139">失败、取消与成功走不同出口</h3>
 <figure><img loading="lazy" src="figures/F09B.svg" alt="F09B：同一步里的尝试、恢复与工具执行边界"><figcaption>F09B：同一步里的尝试、恢复与工具执行边界 · <a href="figures/F09B.svg">查看原图</a></figcaption></figure>
 <p>图 09B 左侧展示可重试失败的处理，右侧列出成功和取消出口。失败记录 attempt 后等待恢复；取消时，有保留文本就提交 interrupted 消息，无文本就记录 attempt。</p>
-<p>回到 README 任务：第一次模型流失败，符合策略则在本步重试；第二次成功给出读取调用，才进入工具执行。文件结果进入下一步，总结成功后再检查产物。这样避免把失败输出的工具提议当成已准备用来执行的动作。</p>
+<p>README 任务中的首次模型请求若失败，驱动记录该尝试并按恢复决定重试。成功响应提出 read 调用后，流程进入工具执行；读取结果加入下一步骤的上下文，模型据此生成总结。失败输出留在尝试记录中，成功消息中的调用才进入工具阶段。</p>
 <h3 id="heading-140">常见误解</h3>
 <p>“每个 chunk 都是一条助手消息”：片段属于尝试中的暂态流，最终消息有自己的提交边界。</p>
 <p>“重试只是再次发送同一函数，在哪里都一样”：重试位置决定是否重复材料、工具副作用（对外部世界产生的实际影响，例如写文件）或其他提交。</p>
@@ -788,7 +788,7 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <h2 id="heading-141">09.4 源码研读</h2>
 <a id="e09a"></a>
 <h3 id="heading-142">E09A · 配置复制与冻结</h3>
-<p>阅读任务：这是 prepareCall 方法内部的准备片段。config 已指明 Provider 与模型，registration 找到其适配器；重点是解析后的配置怎样变成独立副本，而不是本段就已经消费模型输出。</p>
+<p>阅读任务：节选位于 prepareCall 的配置准备阶段。config 指定 Provider 与模型，registration 提供适配器。代码解析配置并建立独立冻结副本，网络调用和流消费位于后续执行阶段。</p>
 <p>代码类型：<strong>真实源码摘录</strong>。证据编号 <a href="evidence.html#e09a">E09A</a>；下表的数字是原文件行号。</p>
 <pre><code class="language-ts">    const registration = this.registration(config.provider)
     const adapterCall = await registration.adapter.prepareCall(config.provider, config.model, signal)
@@ -825,7 +825,7 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <tr><td>506</td><td>可选属性与不等比较</td><td>只有明确的 retry 才允许正常进入下一尝试。</td></tr>
 <tr><td>507</td><td>throw 与 new</td><td>用失败消息、代码和详情构造 LlmError，交给上层错误路径。</td></tr>
 <tr><td>508</td><td>结束 if 分支</td><td>retry 情况跳过抛错。</td></tr>
-<tr><td>509</td><td>continue</td><td>回到尝试循环下一轮，而不是完成本轮用户任务。</td></tr>
+<tr><td>509</td><td>continue</td><td>进入当前步骤的下一次模型尝试，保持 turn 与 step 不变。</td></tr>
 </table></div>
 <p>执行推演：action 没有值或 kind 不是 retry，就抛出模型错误；kind 为 retry 且未取消，才进入同一步骤的下一次尝试，不进入本次失败响应的成功工具阶段。</p>
 </section>
@@ -838,16 +838,16 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <p>讲解：片段到达只说明生成正在推进，成功需要相应终结与后续处理完成。</p>
 <p><a href="reader.html">全书目录</a> · <a href="evidence.html">本章与原始证据</a> · <a href="glossary.html">术语索引</a></p>
 </section><section id="chapter-10" class="book-section" data-chapter="10">
-<h1 id="heading-148">第 10 章｜插件框架与运行配置：这些部件怎样装成一个应用</h1>
-<p>本章学习任务：从配置条目说明插件怎样装配、怎样获取所需服务；区别 profile、条目修改与运行实例，并定位热更新的边界。</p>
+<h1 id="heading-148">第 10 章｜插件装配、运行配置与热重载</h1>
+<p>本章学习任务：理解配置条目、profile 与依赖注入，分析插件装配、字段覆盖和热重载。</p>
 <h2 id="heading-149">10.1 基本概念</h2>
 <p>插件是一份可装入应用的能力实现，例如注册文件工具的模块。配置给出本次采用的参数，profile 选择整组插件及其设置。启动程序按配置装入插件，插件再注册服务、工具和监听器。</p>
-<p>依赖指一个部件运行前需要另一项能力，例如文件工具需要工具注册表与文件服务。依赖注入让框架提供这些能力，而不是让每个插件自行创建一份。Context 是 Cordis 用于访问当前可用服务与登记资源的对象。注册和资源清理属于插件生命周期：装入、运行、卸载各自有动作。</p>
-<p>条目是一项插件及其设置的记录，补丁描述这次怎样修改这些记录。配置合成规则决定补丁怎样作用到原条目。注册表保存名称与实现等对应关系，让使用者在需要时找到能力。</p>
+<p>依赖是插件运行所需的外部能力，例如文件工具依赖工具注册表与文件服务。依赖注入由框架向插件提供这些服务。Context 是 Cordis 访问服务、登记资源的接口对象；插件的装入、运行和卸载共同构成生命周期，注册与释放发生在对应阶段。</p>
+<p>配置条目保存插件身份及其设置，补丁指定对条目字段的修改。配置合成按既定顺序应用补丁，生成加载器使用的条目树。注册表维护名称与实现的对应关系，供消费方解析所需能力。</p>
 <p>启动入口先读取运行选择与配置层，再合成条目、加载插件，满足依赖后执行插件的装入函数。函数执行期间注册工具，不表示文件已经读取。条目补丁按 id 定位插件，对补丁中的每个条目字段直接赋值。</p>
 <p>热重载在运行时替换符合条件的部件。内部模块可以局部刷新，外部依赖变化则走完整重载路径。Cordis 在卸载时调用已登记的清理函数，例如撤销工具注册或事件监听；第 19 章展开资源登记与释放的机制。</p>
 <h2 id="heading-150">10.2 沿一个任务看完整流程</h2>
-<p>以文件工具插件为例：配置给出读取上限，启动程序把合成后的条目交给加载器；依赖可用以后执行 apply。apply 检查参数，再注册 read 等工具。此时注册表变了，但磁盘文件没有因注册而被读取。用户任务中出现合法调用，才进入执行函数。</p>
+<p>以文件工具插件为例：配置给出读取上限，启动程序把合成后的条目交给加载器；依赖可用以后执行 apply。apply 检查参数并注册 read 等工具，使注册表更新。实际的文件操作在用户任务发起合法调用并进入执行函数时发生。</p>
 <p>配置层先展平成有序补丁列表。applyEntryPatches 按 id 找条目，再用补丁值覆盖对应字段；config 也是一个整体字段。insert 可以向顶层或指定分组加入条目，新条目随即进入 id 索引，供后续补丁修改。缺少目标、目标不是分组或 name 校验不匹配时，函数记录警告并跳过该补丁。</p>
 <p>卸载时，框架处理登记的资源释放。热重载还需分析模块依赖：可替换的内部模块走局部处理，外部依赖变化会设置完整重载并调用退出路径。局部替换先释放旧实例的登记资源，再装入新实例；完整重载交给退出和重启路径处理。</p>
 <h2 id="heading-151">10.3 关键机制与设计取舍</h2>
@@ -870,12 +870,12 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <p>读取 README 的 profile 需要装入循环、工具、文件服务和模型 Provider。所选模型路由与工具作用域继续决定本次可用能力。Skill、压缩和 MCP 也按当前配置树启用。</p>
 <h3 id="heading-157">常见误解</h3>
 <p>“包安装了，能力就启用了”：安装与挂载是不同动作，当前 profile 决定是否进入应用树。</p>
-<p>“所有 profile 都带 base”：<code>sdk-minimal</code> 的明确例外推翻这一概括。</p>
+<p>base 是多数 profile 的共享配置层；<code>sdk-minimal</code> 使用独立的显式配置树。</p>
 <p>“卸载插件会撤销它做过的一切”：卸载调用已登记的释放函数；文件写入和远端请求由各自服务处理后续状态。</p>
 <section class="source-section">
 <h2 id="heading-158">10.4 源码研读</h2>
 <a id="e10a"></a>
-<h3 id="heading-159">E10A · 配置层交给条目补丁规则</h3>
+<h3 id="heading-159">E10A · 配置层与条目补丁的合成</h3>
 <p>阅读任务：这是 composeEntries 完整函数。layers 是启动阶段获取的配置层集合，warn 是可替换的警告回调；重点看展平、复制和真正执行合成规则的位置。</p>
 <p>代码类型：<strong>真实源码摘录</strong>。证据编号 <a href="evidence.html#e10a">E10A</a>；下表的数字是原文件行号。</p>
 <pre><code class="language-ts">export function composeEntries(
@@ -903,24 +903,24 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <h3 id="heading-161">问题 1 · 插件装入时注册 read，是否已经发生读取？</h3>
 <p>讲解：没有。装入使工具可用，后来具体调用才进入执行体。</p>
 <h3 id="heading-162">问题 2 · 热重载是否保证永远不重启？</h3>
-<p>讲解：内部模块满足局部替换条件时走热替换；外部依赖变化触发 fullReload，随后通过 loader.exit 退出，交给重启路径重新加载。</p>
+<p>讲解：内部模块满足局部替换条件时执行热替换；外部依赖变化触发 fullReload，随后通过 loader.exit 退出，交给重启路径重新加载。</p>
 <h3 id="heading-163">问题 3 · 配置覆盖能否按任意深合并理解？</h3>
 <p>讲解：applyEntryPatches 对条目字段直接赋值。config 是一个整体字段，后面的 config 会替换前面的对象；加载插件时，schema 再为缺省字段应用默认值。</p>
 <p><a href="reader.html">全书目录</a> · <a href="evidence.html">本章与原始证据</a> · <a href="glossary.html">术语索引</a></p>
 </section><section id="chapter-11" class="book-section" data-chapter="11">
-<h1 id="heading-164">第 11 章｜工具准入与审批：允许执行的决定在哪里发生</h1>
-<p>本章学习任务：沿工具准入、审批、守卫、参数校验与执行追踪一次请求，解释各阶段怎样放行、拒绝或取消。</p>
+<h1 id="heading-164">第 11 章｜工具准入、审批与执行约束</h1>
+<p>本章学习任务：追踪准入策略、审批、guard、参数校验与执行顺序，区分拒绝、取消和执行错误。</p>
 <h2 id="heading-165">11.1 基本概念</h2>
 <p>准入决定某次工具调用是否进入执行体。前置策略可以允许、拒绝、取消或要求审批；审批服务取得本次决定；后续守卫检查额外限制。<code>allowed-once</code> 将许可绑定到这一次审批，后来的调用重新进入准入流程。</p>
-<p>守卫的单调性是它只能增加拒绝，不能推翻前置拒绝而提高权限。<code>undefined</code> 表示该守卫不提出拒绝，不等于拥有批准权限。执行环境限制获准动作实际能访问什么；它是否存在操作系统沙箱，以及限制哪些文件或网络，取决于具体 Provider 和配置。</p>
+<p>守卫遵循单调约束：它可以增加拒绝，前置拒绝则继续有效。<code>undefined</code> 表示当前守卫没有提出额外拒绝，调用仍遵循已有准入决定。执行环境限制实际资源访问，操作系统沙箱及文件、网络控制由具体 Provider 和配置决定。</p>
 <p>一次调用依次留下调用记录、执行状态和结果。前置拒绝时，框架直接构造拒绝结果；进入执行体后抛错时，已经完成的外部动作按实际情况保留。结果后处理再决定交给模型哪些内容。沿这三个时点，可以分清“没有执行”和“执行后失败”。</p>
-<p>这套分工使策略与工具实现能分别扩展，同时增加了排查层次。发生错误时必须找到作出决定的位置，而不是把所有错误都归为“没权限”。</p>
+<p>准入策略、审批、守卫和执行环境各自提供控制接口，可以独立扩展。故障定位需要确认错误发生在哪一阶段：前置拒绝、审批拒绝、执行失败与结果处理失败分别对应不同记录。</p>
 <h2 id="heading-166">11.2 沿一个任务看完整流程</h2>
 <p>模型提出读取某路径，循环先登记调用事实。ToolRuntime 建立描述本次调用的执行上下文 exec，进入前置链。拒绝时直接形成拒绝结果；要求审批时，服务记录 asked，等待应答，再记录 decided。允许后继续检查守卫，通过后分派层重新解析执行工具，调用其包装函数。包装函数完成 schema 校验，才进入 read 的读取逻辑。</p>
 <p>考虑四项请求：前置拒绝、审批拒绝、允许后成功、允许后抛错。请求数是 4，实际进入执行体是 2，成功结果是 1。最后一项已经进入执行体，失败前发生了哪些动作，要沿执行体内部的调用顺序追踪。</p>
 <p>执行体返回后，结果规范化把返回值整理成统一结构，后置策略再决定模型最终收到的内容。若策略替换结果文字，模型会看到替换后的版本；此前完成的读取或修改保留在外部系统中。调用记录、准入决定和执行结果分别解释这次调用怎样推进。</p>
 <h2 id="heading-167">11.3 关键机制与设计取舍</h2>
-<h3 id="heading-168">工具体前后都有处理</h3>
+<h3 id="heading-168">工具执行前后的处理链</h3>
 <figure><img loading="lazy" src="figures/F11A.svg" alt="F11A：准入、可选审批、守卫、执行和结果处理"><figcaption>F11A：准入、可选审批、守卫、执行和结果处理 · <a href="figures/F11A.svg">查看原图</a></figcaption></figure>
 <p>图 11A 的主线是调用记录、前置决定、可选审批与守卫、执行、结果处理和记录。拒绝支线跳过 execute，再把拒绝结果交给后续处理。</p>
 <h3 id="heading-169">从调用到最终结果</h3>
@@ -928,14 +928,14 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <p>进入分派后，注册表重新解析可执行工具，融合来自调用方与外层封装的取消信号，再调用真实 <code>execute</code>。执行体返回的规范对象经过成功结果构造；抛错被转成工具错误。之后还有后置处理、内容约束和最终结果通知，循环再按约定顺序记录模型面对的结果。</p>
 <p>审批服务在开放轮次内记录 <code>approval/asked</code> 与 <code>approval/decided</code>。开放轮次指已经开始、尚未结束的 turn，这让询问和应答归属到同一轮任务。<code>allowed-once</code> 允许本次审批对应的调用。要求审批时，若缺少审批服务、调用 Agent 或可用应答通道，serviceAsk 返回拒绝。</p>
 <h3 id="heading-170">三种边界分别回答什么</h3>
-<p>策略回答“这次调用应怎样判定”；审批回答“这次需要的确认结果是什么”；执行环境回答“实际动作可以访问什么”。沙箱（限制程序能访问哪些资源的执行机制）或文件系统守卫提供具体范围限制，但它们不是审批弹窗的另一种名字。</p>
-<p>教学上可把它类比为门口决策、一次通行许可与场地围栏。profile 分别选择审批策略和执行 Provider，把这三类控制接入实际调用。</p>
+<p>准入策略为本次调用生成处理决定，审批服务收集确认结果，执行环境约束实际资源访问。沙箱或文件系统守卫在执行层实施范围限制；审批确认与这些资源约束分别配置，并在同一次调用中依次生效。</p>
+<p>profile 选择审批策略与执行 Provider，将决策流程和资源限制装配到工具链。分析权限行为时，需要同时检查前置决定、审批结果、后续 guard 与执行后端的配置。</p>
 <h3 id="heading-171">分析示例：请求数与执行数</h3>
 <p>教学批次有四项已记录工具请求：一项前置拒绝，一项审批拒绝，一项允许且执行成功，一项允许但执行体抛错。请求数 4，实际进入执行体数 2，成功结果数 1。被拒绝的两项没有进入工具体，但仍可能有错误形式的结果。</p>
 <p>复算记录：<a href="examples/calculation-results.json">C11 · 请求与执行计数</a>。</p>
 <p>isError 是工具结果中的错误标志。前两项在执行前被拒绝，后两项已经进入执行体；最后一项在失败前产生了哪些动作，要查看执行体。准入记录说明是否放行，结果记录说明调用怎样结束。</p>
 <p>发生拒绝时查前置决定和审批记录；执行体抛错时查文件服务或进程结果；输出错误则查结果校验与渲染。</p>
-<h3 id="heading-172">让读取案例走拒绝分支</h3>
+<h3 id="heading-172">读取任务的拒绝与结果替换</h3>
 <figure><img loading="lazy" src="figures/F11B.svg" alt="F11B：策略、一次审批与执行环境的不同职责"><figcaption>F11B：策略、一次审批与执行环境的不同职责 · <a href="figures/F11B.svg">查看原图</a></figcaption></figure>
 <p>图 11B 并列三类控制：策略给出处理决定，审批获取本次确认，执行环境限制实际资源访问。审批后，调用继续接受守卫与环境约束。</p>
 <p>假设 read 已获取文件，后置策略随后替换结果文字。下一次请求使用替换后的文字，文件读取本身已经完成。后置处理控制返回内容，外部资源的修改和撤回由执行服务处理。</p>
@@ -1004,18 +1004,18 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <h3 id="heading-179">问题 2 · 结果 isError 是否证明没有外部动作？</h3>
 <p>讲解：isError 标记这次调用以错误结束。若错误发生在准入阶段，执行体没有运行；若发生在执行体中，失败前已经完成的读取、写入或远端请求仍按实际执行情况保留。</p>
 <h3 id="heading-180">问题 3 · 后置处理删掉结果文字，能否撤销此前读取？</h3>
-<p>讲解：不能。改变模型结果与撤销外部动作是不同能力。</p>
+<p>讲解：后置处理修改返回给模型的内容。此前的读取已由文件服务执行，撤销外部动作需要执行服务提供相应操作。</p>
 <p><a href="reader.html">全书目录</a> · <a href="evidence.html">本章与原始证据</a> · <a href="glossary.html">术语索引</a></p>
 </section><section id="chapter-12" class="book-section" data-chapter="12">
-<h1 id="heading-181">第 12 章｜外部服务与能力接入：连接成功不等于拥有知识库</h1>
-<p>本章学习任务：比较 stdio 和 HTTP 接入的参与者与步骤；将连接、能力发现、注册、调用、资源读取和记忆分别列出证据。</p>
+<h1 id="heading-181">第 12 章｜MCP：外部工具与资源接入</h1>
+<p>本章学习任务：理解 stdio 与 Streamable HTTP 传输，追踪能力发现、注册代次、工具调用与资源读取。</p>
 <h2 id="heading-182">12.1 基本概念</h2>
 <p>Model Context Protocol（MCP）规定客户端怎样与服务端发现能力并交换请求和结果。客户端发起调用，服务端提供能力。协议处理通信与能力发现，具体服务实现存储、检索或其他动作。</p>
-<p>标准输入是程序接收外部数据的一条通道，标准输出是程序交出普通结果的通道。stdio 是 standard input/output 的缩写；它用子进程的这两条通道传递协议数据。HTTP（Hypertext Transfer Protocol，超文本传输协议）规定网页与服务请求怎样交换信息，URL 是定位服务的地址。Streamable HTTP 连接服务 URL，可以跨网络，不是本机子进程的另一种写法。连接、能力发现、工具注册和一次调用成功，是四个不同状态。</p>
+<p>stdio 是 standard input/output 的缩写，通过子进程的标准输入和标准输出传递协议数据。标准输入接收外部数据，标准输出发送程序结果。HTTP（Hypertext Transfer Protocol，超文本传输协议）规定请求与响应的交换方式，URL 标识服务地址。Streamable HTTP 使用服务 URL，支持跨网络连接。连接、能力发现、工具注册和调用完成分别对应不同状态。</p>
 <p>名称包装让来自不同服务器的工具能进入同一注册表。公开名称和服务器原工具名可能不同；执行包装保存二者的对应关系，因此模型调用公开名以后，客户端仍向服务器发送原名。</p>
 <p>MCP 工具接收参数并执行操作，资源接口按标识读取材料。客户端分别发现并调用这些能力。跨 Session 记忆还需要服务保存信息，并在后续 Session 中提供相应查询。</p>
 <h2 id="heading-183">12.2 沿一个任务看完整流程</h2>
-<p>假设服务 A 通过 stdio 提供一个 search 工具。客户端启动配置指定的进程并建立通信，获取完整工具列表，为它构造公开名称和定义，再交换注册代次（代次：一次连接及其注册结果的版本标记，详见下一节）。模型看到公开名后，调用仍经过本地通用工具链；包装执行体把参数、取消信号和超时交给服务器原工具名。</p>
+<p>假设服务 A 通过 stdio 提供 search 工具。客户端启动配置指定的进程、建立连接、获取完整工具列表，再构造公开名称并更新注册代次。代次标识本次连接及其工具注册结果。模型调用公开名称后，请求经过本地 ToolRuntime；执行包装使用服务器原工具名，将参数、取消信号与超时配置传入远端调用。</p>
 <p>服务 B 使用 Streamable HTTP 时，客户端连接它的 URL；服务 A 的 stdio 则由本机子进程承载。两者发现的工具都接入本地 ToolRuntime。更新时先准备完整定义，准备失败保留旧注册；开始交换后若新注册失败，客户端撤销本轮已注册项，结果是该服务器没有工具注册。</p>
 <p>远端工具返回内容后，本地包装按输出契约整理，再交给 Session。资源能力通过独立接口发现和读取。检索算法由服务器实现：子字符串查询匹配原文是否含查询词，向量检索则按 embedding 相似度选择材料。</p>
 <h2 id="heading-184">12.3 关键机制与设计取舍</h2>
@@ -1027,9 +1027,9 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <p>工具公开名采用 <code>mcp__服务名__原工具名</code> 的命名形式。简单有效名称直接拼接，非法字符和过长名称经过规范化与哈希处理。哈希把输入映射成较短标识，执行包装仍保存服务器原名，用于发送远端调用。</p>
 <p>包装定义将远端参数 schema、说明和执行函数接到 ToolRuntime。模型调用公开名，参数经过本地准入与执行链，再由包装层向服务器原名发起调用。返回的模型文本与结构化内容按输出契约处理；资源插件另行提供资源发现和读取。</p>
 <h3 id="heading-187">连接与知识能力的基础区别</h3>
-<p>客户端是发起请求的一方，服务端是提供协议能力的一方；远程调用把参数与结果跨越进程或网络边界。MCP 规定交互方式。RAG 是 Retrieval-Augmented Generation，检索增强生成：先检索与问题有关的材料，再把材料交给模型生成回答。例如先找出相关文档片段，再作总结；它是一种材料组织方法，和通信协议不是同义词。</p>
-<p>一个 Memory 服务是否使用 embedding（第 8 章简介：把文字转成可比较相似度的数字向量）、按语义搜索、保存跨 Session 信息，需要看该服务契约。本项目 Memory MCP 指南介绍可选第三方接入，并非默认内置数据库；其中 Reference Memory 按子字符串查询。</p>
-<h3 id="heading-188">分析示例：四项分别验收</h3>
+<p>客户端发起请求，服务端提供协议能力，远程调用在进程或网络之间传递参数与结果。MCP 规定这层交互协议。RAG（Retrieval-Augmented Generation，检索增强生成）先检索相关材料，再将材料加入模型上下文，例如检索项目文档后生成总结。协议接入和检索生成分别解决通信与信息组织问题。</p>
+<p>Memory 服务的存储与查询实现决定是否支持 embedding、语义检索和跨 Session 记忆。embedding 将文本编码为用于相似度比较的向量，第 8 章已有介绍。本项目的 Memory MCP 指南提供可选第三方服务的接入方式，其中 Reference Memory 采用子字符串查询；相关能力通过对应服务配置启用。</p>
+<h3 id="heading-188">分析示例：分项检查服务能力</h3>
 <p>教学服务已经建立连接，发现了一个检索工具，但没有声明资源能力，也没有验证跨 Session 记忆。四项验收应填：连接通过、工具发现通过、资源读取未证实、跨 Session 记忆未证实。</p>
 <p>继续使用该工具前，还要检查一次实际调用结果、调用许可与结果质量。以协议接入可以复用成熟链路，代价是多了外部可用性、超时、版本和返回契约问题。</p>
 <h3 id="heading-189">回到项目资料任务</h3>
@@ -1039,7 +1039,7 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <h3 id="heading-190">常见误解</h3>
 <p>“用了 MCP 就做了 RAG”：协议接入与检索生成方法是不同层次。</p>
 <p>“服务连上就知道它的全部资料”：需要能力发现和具体读取；连接本身不提供全文。</p>
-<p>“Memory 名字说明已经有向量库”：看实际存储、查询与启用方式，不按名字补造能力。</p>
+<p>Memory 服务的能力需要由存储实现、查询算法和启用配置确定。向量检索依赖相应的向量表示与检索实现。</p>
 <section class="source-section">
 <h2 id="heading-191">12.4 源码研读</h2>
 <a id="e12a"></a>
@@ -1075,7 +1075,7 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <tr><td>39</td><td>结束构造调用</td><td>stdio 分支返回传输，不再进入 HTTP 分支。</td></tr>
 <tr><td>40</td><td>第二个 case</td><td>进入 Streamable HTTP 分支。</td></tr>
 <tr><td>41</td><td>return new</td><td>创建按 HTTP 访问服务的传输。</td></tr>
-<tr><td>42</td><td>new URL</td><td>解析配置里的服务地址，不是启动本机命令。</td></tr>
+<tr><td>42</td><td>new URL</td><td>将配置的服务地址解析成 HTTP 传输使用的 URL 对象。</td></tr>
 <tr><td>43</td><td>对象嵌套</td><td>将配置请求头交给 HTTP 请求初始化设置。</td></tr>
 <tr><td>44</td><td>结束构造调用</td><td>返回 HTTP 传输对象。</td></tr>
 <tr><td>45</td><td>结束 switch</td><td>两种受支持配置分支已经说明。</td></tr>
@@ -1085,22 +1085,22 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 </section>
 <h2 id="heading-193">12.5 理解检查与讲解问答</h2>
 <h3 id="heading-194">问题 1 · 所有 MCP 服务都在本机子进程里运行吗？</h3>
-<p>讲解：不是。stdio 启动子进程，Streamable HTTP 连接服务 URL。</p>
+<p>讲解：stdio 服务由客户端启动的子进程承载；Streamable HTTP 通过 URL 连接服务，可以访问远端服务器。</p>
 <h3 id="heading-195">问题 2 · 工具列表更新失败，是否应该先清空旧工具？</h3>
 <p>讲解：同一连接更新工具列表时，先完整发现并构造新定义，准备失败保留旧注册。准备完成后才撤销旧注册；如果注册新列表发生冲突，代码清掉本轮已注册项，该服务器此时没有工具。</p>
 <h3 id="heading-196">问题 3 · 发现 search 是否证明已做语义检索？</h3>
 <p>讲解：MCP 传输工具说明、参数和调用结果。search 背后的检索方法由服务器实现，可以是关键词查询、数据库查询或向量检索；要沿服务器的实现确定具体算法。</p>
 <p><a href="reader.html">全书目录</a> · <a href="evidence.html">本章与原始证据</a> · <a href="glossary.html">术语索引</a></p>
 </section><section id="chapter-13" class="book-section" data-chapter="13">
-<h1 id="heading-197">第 13 章｜Subagent：拆分任务前先看上下文起点</h1>
-<p>本章学习任务：说明子 Session 的来源与继承材料，比较 fresh 和 fork；解释子任务完成、团队消息送达与共享文件冲突是不同问题。</p>
+<h1 id="heading-197">第 13 章｜Subagent：任务拆分与历史继承</h1>
+<p>本章学习任务：比较 fresh 与 fork 的历史起点，分析子任务创建、结果汇合及共享工作区协调。</p>
 <h2 id="heading-198">13.1 基本概念</h2>
-<p>Subagent 是父任务启动的另一运行单元，负责一部分工作。父 Agent 交代目标、材料、可用能力和交付要求，子 Agent 完成分工，父 Agent 再检查并整合结果。</p>
-<p>fresh 从不继承父历史的材料起点开始，fork 从已有历史的规定前缀开始。进程内 Provider 的 spawn 创建空历史子 Session，fork 截取父 Session 到最近已完成轮次为止的事件。前缀保留开头到该位置的全部记录；当前轮次新增资料由父 Agent 通过启动输入传给子任务。</p>
+<p>Subagent 是父 Agent 为子任务启动的独立运行单元。父 Agent 提供目标、上下文、能力配置与交付要求；子 Agent 执行任务并返回结果，父 Agent 负责检查和整合。</p>
+<p>fresh 以不继承父历史的状态创建子任务，fork 使用父历史的指定前缀。进程内 Provider 的 spawn 创建空历史子 Session，fork 截取父 Session 中最近 turn/end 及其之前的事件。当前未完成轮次的新增材料需要通过启动输入显式传入。</p>
 <p>Subagent Runtime 选择 Provider，检查选项与最大深度，再交给 Provider 创建运行。进程内 Provider 为子任务建立独立 Agent 和 Session，它们与父任务共享宿主进程。这里的 fork 指历史继承方式，子任务仍有自己的驱动和生命周期。</p>
 <p>实验性团队功能再增加成员、任务板和消息投递记录。邮箱机制可以安排投递、确认与恢复，但不会因此给共享工作区加文件锁。两个成员修改同一文件，仍需要实际的协调或冲突检查。</p>
 <h2 id="heading-199">13.2 沿一个任务看完整流程</h2>
-<p>父 Agent 在当前轮次刚读到一份 README，随后启动 fork Subagent。进程内 Provider 先查最近的 turn/end，只继承到已完成轮次；这份资料位于当前未结束轮次，因此不在继承前缀里。父 Agent 应把子任务必需材料明确交代，或选择适当的已完成起点。</p>
+<p>当父 Agent 在当前轮次刚读取一份 README 并随后启动 fork Subagent 时，进程内 Provider 会优先查找最近的 turn/end 并仅继承至已完成轮次。由于该资料属于当前未结束轮次，因此不在继承前缀中；父 Agent 须在启动输入中显式传入子任务必需的材料，或选择其他适当的已完成起点。</p>
 <div class="table-wrap"><table>
 <tr><th>起点</th><th>初始历史</th><th>父 Agent 应补什么</th></tr>
 <tr><td>spawn</td><td>不继承父事件历史</td><td>目标、材料和限制</td></tr>
@@ -1118,14 +1118,14 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <p>持续运行的历史起点在创建时捕获，后续继续运行沿用子 Session 已有历史。Provider 的能力契约列明支持的选项，Runtime 在启动前按该契约检查。</p>
 <h3 id="heading-203">并发、进程与历史</h3>
 <p>多个 Agent 和 Session 可以在同一进程内分别运行，各自保存 Inbox、历史与生命周期。进程内 spawn 和 fork 通过这些对象组织任务；进程、容器和操作系统资源由宿主与执行 Provider 管理。</p>
-<p>拆分任务先确定职责，再准备材料。例如一个子任务提取功能，另一个核对限制，父 Agent 最后整合。当前轮次刚读到的 README 尚未进入 fork 的已完成历史前缀，父 Agent 要在启动输入中把这份材料传给子任务。</p>
-<h3 id="heading-204">分析示例：拆分不只计算工作时间</h3>
-<p>教学单代理需要 1200 ms。拆成两个子任务，各 700 ms；假设允许重叠且确实同时开始，启动与交代开销 200 ms，汇合检查 250 ms，则简化总时间是 200＋max(700,700)＋250＝1150 ms，只减少 50 ms。</p>
+<p>任务拆分需要明确各子任务的职责与输入。例如分别提取功能、核对限制，再由父 Agent 整合。当前轮次读取的 README 尚未进入 fork 的已完成历史前缀，应在启动输入中显式传入，保证两个子任务使用正确的材料。</p>
+<h3 id="heading-204">分析示例：执行、启动与汇合的总耗时</h3>
+<p>教学单代理耗时 1200 ms。若将其拆分为两个各需 700 ms 的子任务，假设允许并发且确实同时开始，启动与参数传递开销为 200 ms，汇合检查为 250 ms，则简化总时间为 200＋max(700,700)＋250＝1150 ms，仅减少 50 ms。</p>
 <p>复算记录：<a href="examples/calculation-results.json">C13 · 并发耗时</a>。</p>
 <p>若串行执行，则相同假设下为 1850 ms。若结果不一致还需额外处理。因此比较不仅要计执行区间，还要计材料、请求量与汇合质量。</p>
 <h3 id="heading-205">选择任务起点</h3>
 <figure><img loading="lazy" src="figures/F13B.svg" alt="F13B：拆分增加交代、执行和汇合三段"><figcaption>F13B：拆分增加交代、执行和汇合三段 · <a href="figures/F13B.svg">查看原图</a></figcaption></figure>
-<p>图 13B 用三栏列出拆分任务的工作：父任务交代目标和材料，子任务运行并返回结果，父任务检查与汇合。时间分析应把这三段一起计入。</p>
+<p>图 13B 用三栏列出拆分任务的工作流程：父任务传入目标和材料，子任务运行并返回结果，父任务验证与汇合。时间分析应将这三个阶段完整计入。</p>
 <p>父 Agent 收集子结果，检查材料来源和相互矛盾，再形成最终总结。取消子任务时，Runtime 调用对应 Provider 的取消与清理路径，运行句柄返回收尾结果。</p>
 <h3 id="heading-206">常见误解</h3>
 <p>“fork 复制了父 Agent 当前全部内容”：本 Provider 只取最近已完成轮次前缀。</p>
@@ -1135,7 +1135,7 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <h2 id="heading-207">13.4 源码研读</h2>
 <a id="e13a"></a>
 <h3 id="heading-208">E13A · 进程内 fork 取到哪里</h3>
-<p>阅读任务：这是 completedTurnPrefix 完整辅助函数。parent 是父 Agent；重点观察事件边界，而不是猜测 fork 与操作系统进程复制相同。</p>
+<p>阅读任务：completedTurnPrefix 从 parent 所指父 Agent 的日志中计算可继承前缀。代码以最近 turn/end 为边界，截取相应的 Session 事件；子 Agent 的创建位于 Provider 的后续逻辑。</p>
 <p>代码类型：<strong>真实源码摘录</strong>。证据编号 <a href="evidence.html#e13a">E13A</a>；下表的数字是原文件行号。</p>
 <pre><code class="language-ts">function completedTurnPrefix(parent: Agent): SessionEvent[] {
   // oxlint-disable-next-line typescript/no-deprecated -- Existing Session history read; migration deferred.
@@ -1148,7 +1148,7 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <div class="table-wrap"><table>
 <tr><th>原文件行号</th><th>写法</th><th>在这段流程中的作用</th></tr>
 <tr><td>48</td><td>function 和参数类型</td><td>从父 Agent 计算可继承的完成轮次前缀。</td></tr>
-<tr><td>49</td><td>原 lint 注释</td><td>说明本处暂时采用现有历史读取接口，不是运行逻辑。</td></tr>
+<tr><td>49</td><td>原 lint 注释</td><td>说明当前历史读取接口的弃用警告处理及后续迁移安排。</td></tr>
 <tr><td>50</td><td>const 保存快照</td><td>获取当前父 Session 的事件数组。</td></tr>
 <tr><td>51</td><td>findLast 和箭头判断</td><td>从末尾找最后一个 turn/end 事件。</td></tr>
 <tr><td>52</td><td>if 与提前 return</td><td>没有完成轮次时不继承历史。</td></tr>
@@ -1167,17 +1167,17 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <p>讲解：邮箱协调消息的投递和确认。共享文件由文件服务修改，多个成员写同一路径时，应拆分修改范围、安排执行顺序，并在整合时检查冲突。</p>
 <p><a href="reader.html">全书目录</a> · <a href="evidence.html">本章与原始证据</a> · <a href="glossary.html">术语索引</a></p>
 </section><section id="chapter-14" class="book-section" data-chapter="14">
-<h1 id="heading-213">第 14 章｜网页端：提交任务与跟随结果是两条链</h1>
-<p>本章学习任务：把宿主事实、客户端镜像和界面状态分开；追踪初次历史与后续事件怎样共同形成可观察的任务进展。</p>
+<h1 id="heading-213">第 14 章｜Web Client：任务提交与状态同步</h1>
+<p>本章学习任务：理解任务提交与持续跟随，分析 pending 协调、事件序号、快照和状态同步。</p>
 <h2 id="heading-214">14.1 基本概念</h2>
 <p>网页交互至少有两条信息流：用户向宿主提交任务，宿主把后续变化送回页面。远程调用（RPC）让页面请求另一执行环境执行操作；它这次返回的是接纳结果。持续跟随则让页面在任务推进期间获取变化。</p>
-<p>本地回显先显示刚输入的内容，使人知道按钮已经响应。它属于客户端待提交状态，不是宿主已经保存的事实。请求标识用于把提交与后续记录关联起来，避免重试或状态协调时把同一输入显示两次。</p>
+<p>本地回显在请求完成前显示用户输入，提供即时交互反馈。输入此时保存在客户端 pending 状态，Host 接纳后生成正式记录。requestId 关联这两种表示，使客户端能够协调状态并避免重复显示。</p>
 <p>快照描述某个位置的已知状态，游标指出后续消费从哪个位置推进。持久事件有序号，助手临时流是尚在生成中的变化。跟随过程在准备快照前安装监听与缓冲，可以保留准备期间发生的事件。</p>
 <p>Host 的 follow 按序号发送事件：略过旧事件，发送符合预期的下一项，发现缺口则报错并结束这次流。客户端的历史来源管理与控制流重连分别处理历史和状态，下一节说明两条路径。</p>
 <h2 id="heading-215">14.2 沿一个任务看完整流程</h2>
-<p>用户点击发送后，页面先建立待提交记录并显示本地输入。附件等处理完成，客户端发送带 requestId 的 prompt 请求；宿主接纳后返回回执。页面还要把这项暂态与随后观察到的用户消息协调，避免重复显示。</p>
-<p>这里把已存在的完整状态称为基线，把其后新增的变化称为增量。订阅是登记自己要持续接收哪类变化，缓冲是先保存尚未处理的变化；监听器是收到变化以后调用的处理函数。</p>
-<p>另一条链获取快照与后续变化。假设下一预期序号是 41，而缓冲收到 39、41、43：39 是已经过去的重复记录，略过；41 正常消费后预期变成 42；43 暴露缺口，不能当作 42 使用。Host 跟随生成器因此抛出 gateway/internal 错误。</p>
+<p>用户发送消息后，客户端先创建 pending 记录并显示输入。附件处理完成后，客户端发出带 requestId 的 prompt 请求，Host 接纳后返回回执。后续跟随流提供正式用户消息，客户端根据 requestId 协调 pending 与正式记录，避免重复显示。</p>
+<p>基线是已知时点的完整状态，增量是此后发生的变化。订阅登记后续事件的接收关系，缓冲保存尚待处理的事件，监听器响应事件通知。快照与增量结合，持续维护客户端的 Session 镜像。</p>
+<p>另一条链路获取快照与后续变化。假设下一预期序号是 41，而缓冲收到 39、41、43：39 为过去的重复记录被略过；41 正常消费后预期更新为 42；43 暴露序号缺口，无法作为 42 消费。Host 跟随生成器因此抛出 gateway/internal 错误。</p>
 <p>页面刷新后，客户端重新获取快照，再接收后续变化。已提交的助手消息从 Session 记录恢复；正在生成的文字通过启用的助手临时流观察。页面不更新时，沿提交、接纳、跟随、客户端状态和视图订阅逐项定位。</p>
 <h2 id="heading-216">14.3 关键机制与设计取舍</h2>
 <h3 id="heading-217">两个方向</h3>
@@ -1187,11 +1187,11 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <p>Session 交互控制器从编辑器取出内容，用 <code>beginSubmission</code> 创建本地 pending 条目，立即显示用户输入。随后处理附件并发出请求；Host 的接纳与消息记录通过另一条通道返回。</p>
 <p>本地记录创建时生成 requestId，附件序列化完成后，Client Session 的 <code>prompt</code> 将同一标识送往 Host 命令控制器。后续跟随流带回对应记录，客户端据此协调 pending 条目与正式用户消息，避免重复显示。提交失败时，则按失败状态处理本地条目。</p>
 <h3 id="heading-219">跟随路径与网络基础</h3>
-<p>订阅让客户端持续接收事件流。snapshot 给出某个游标位置的状态，游标就是后续事件从哪里继续的序号标记。RPC 传递操作请求，持续流传递之后发生的变化。</p>
+<p>snapshot 提供游标位置的状态，后续订阅从该位置继续接收事件。游标记录事件消费进度。RPC 负责操作请求与回执，持续流负责传递任务执行期间的状态变化。</p>
 <p><code>SessionHistoryController.follow</code> 在准备快照前安装事件监听与缓冲，再发出快照并处理缓冲后续。这避免把快照准备期间的变化简单丢掉。持久事件与助手临时流分别处理；临时流只有在请求开启相应能力时提供。</p>
 <p>Host 用预期序号检查缓冲事件，旧事件略过，缺口抛错。客户端消费收到的事实并维护 Session 状态，ChatView 订阅状态变化，重新显示相应节点。</p>
 <h3 id="heading-220">分析示例：序号去重与缺口</h3>
-<p>教学快照游标为 40，后续期望先收到 41。缓冲中依次出现 39、41、43：39 已早于期待位置，可略过；41 正常推进后期待 42；43 不能冒充 42，应该触发缺口处理。</p>
+<p>教学快照游标为 40，后续预期序号为 41。缓冲依次包含 39、41、43：39 早于消费位置，予以跳过；消费 41 后，预期序号推进到 42；随后到达的 43 暴露了缺失事件，触发缺口处理。</p>
 <p>复算记录：<a href="examples/calculation-results.json">C14 · 预期序号</a>。</p>
 <p>这里的 39、41、43 来自 Host 的事件缓冲。预期 42 却收到 43 时，Host 报告 gateway/internal 并结束该流。客户端 <code>resync</code> 用于历史来源地址替换：关闭旧来源，再重新 open 历史窗口。投影状态由另一条控制流管理重连。事件连续性、历史来源替换和状态重连分别对应这些实现。</p>
 <h3 id="heading-221">刷新后重建视图</h3>
@@ -1220,8 +1220,8 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <tr><th>原文件行号</th><th>写法</th><th>在这段流程中的作用</th></tr>
 <tr><td>226</td><td>const 与序号包装</td><td>把当前消费位置转成期待的 Session 事件序号。</td></tr>
 <tr><td>227</td><td>小于比较和 continue</td><td>跳过已经早于期待位置的重复或旧事件。</td></tr>
-<tr><td>228</td><td>不等比较</td><td>剩余事件若不是恰好期待的一项，就是缺口。</td></tr>
-<tr><td>229</td><td>throw 构造远程错误</td><td>报告跳过了哪个序号，不无声继续。</td></tr>
+<tr><td>228</td><td>不等比较</td><td>事件序号高于预期位置时，判定流中存在缺口。</td></tr>
+<tr><td>229</td><td>throw 构造远程错误</td><td>报告缺失序号并中断当前跟随流。</td></tr>
 <tr><td>230</td><td>结束 if</td><td>连续事件才能进入后面推进。</td></tr>
 <tr><td>231</td><td>赋值和加 1</td><td>消费当前位置以后，期待下一项。</td></tr>
 <tr><td>232</td><td>yield 调用转换函数</td><td>把当前事实转成协议条目交给跟随消费者。</td></tr>
@@ -1237,23 +1237,23 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <p>讲解：提交表达操作并返回接纳，跟随传回后续过程；两者完成时间与数据契约不同。</p>
 <p><a href="reader.html">全书目录</a> · <a href="evidence.html">本章与原始证据</a> · <a href="glossary.html">术语索引</a></p>
 </section><section id="chapter-15" class="book-section" data-chapter="15">
-<h1 id="heading-229">第 15 章｜桌面端：窗口、页面与宿主服务怎样合作</h1>
-<p>本章学习任务：说明桌面主进程怎样启动与管理独立 Host；区别窗口状态、服务状态和 Session 记录，判断恢复究竟恢复了什么。</p>
+<h1 id="heading-229">第 15 章｜桌面架构：Main、Renderer 与 Node Host</h1>
+<p>本章学习任务：理解 Main、Renderer 与 Node Host 的职责，追踪页面加载、Host 启动和客户端激活。</p>
 <h2 id="heading-230">15.1 基本概念</h2>
-<p>桌面版使用 Electron 承载网页产品。Renderer 是显示页面的运行环境；Main 是管理窗口和桌面生命周期的主进程；preload 是给页面提供有限桌面接口的桥。实际 Harness 服务还有独立 Node Host 子进程，因此理解架构不能停在一个三层图。</p>
+<p>桌面版通过 Electron 承载 Web 客户端。Renderer 运行页面，Main 管理窗口与应用生命周期，preload 向页面暴露受控桌面接口。Harness 后端服务运行在独立的 Node Host 子进程中，由 Main 管理其启动与退出。</p>
 <p>进程是操作系统管理的一次程序运行，有自己的内存与生命周期。进程间通信（IPC）传递启动和退出等消息；聊天业务继续使用网页客户端的请求与持续流。HTTP 组织请求和响应，WebSocket 提供持续双向通道；它们与启动 IPC 各自解决不同问题。</p>
-<p>启动时，Main 先加载本地页面，再等待 Host 返回服务地址与启动资料。页面先显示等待状态，拿到资料后激活业务。请求转发同时校验页面来源，并为 Host 请求补齐认证信息。</p>
-<p>关闭普通窗口与退出应用也不是同一个动作。关闭普通窗口走隐藏并保留运行的路径；后者需要按应用生命周期处理仍在运行的任务。</p>
+<p>启动时，Main 先加载本地页面，再等待 Host 返回服务地址与启动参数。页面显示等待状态，接收到启动参数后激活客户端。业务请求转发校验页面来源，并向 Host 请求补充认证信息。</p>
+<p>普通主窗口关闭时隐藏窗口并保留后台运行；退出应用则进入任务中断检查和后端关闭流程。两类事件分别受桌面应用的生命周期管理。</p>
 <h2 id="heading-231">15.2 沿一个任务看完整流程</h2>
 <p>桌面启动的可见顺序是：Main 导航到本地网页文档，随后启动后端准备；HostProcess 启动独立 Node 子进程，接收 ready 或 fatal 等消息。ready 携带服务 URL 与启动注入资料，同一页面据此继续激活客户端。</p>
-<p>假设 200 毫秒看到等待界面，1000 毫秒业务可用，前者不能作为完整启动耗时。页面出现但 Host 失败时查子进程启动；Host 已 ready 但请求失败时查转发和服务；业务状态已有变化但没有显示时查客户端与视图。</p>
+<p>假设 200 毫秒看到等待界面，1000 毫秒业务可用，完整启动耗时应计为 1000 毫秒。页面出现但 Host 失败时排查子进程启动；Host 已 ready 但请求失败时排查转发和服务；业务状态已有变化但没有显示时排查客户端与视图。</p>
 <p>主进程把页面业务路径转发到 Host，校验来源并适配认证。preload 提供目录选择等桌面接口，聊天请求使用 Web 客户端已有的通信方式。Main 管理窗口与后端生命周期，Node Host 运行 Harness 服务。</p>
 <h2 id="heading-232">15.3 关键机制与设计取舍</h2>
 <h3 id="heading-233">三个环境与通信</h3>
 <figure><img loading="lazy" src="figures/F15A.svg" alt="F15A：主进程、页面和宿主服务的边界"><figcaption>F15A：主进程、页面和宿主服务的边界 · <a href="figures/F15A.svg">查看原图</a></figcaption></figure>
 <p>图 15A 并列 Main、Renderer 和独立 Node Host。Main 管理窗口与启动，Renderer 显示 Web 产品，Node Host 运行模型、工具和 Session 服务。</p>
 <h3 id="heading-234">先加载文档，再等服务准备</h3>
-<p><code>reconcileBackend</code> 先导航到打包页面，再调用后端启动。窗口加载本地 Web 资源并等待启动注入，不需要在 Host 准备好后换到另一份文档。</p>
+<p><code>reconcileBackend</code> 先导航到打包页面，再调用后端启动。窗口加载本地 Web 资源并等待启动注入，在 Host 准备就绪后直接基于当前文档激活服务。</p>
 <p><code>DesktopHostProcess.start</code> 创建 Node 子进程，建立 IPC 和输出管道，接收 ready 或 fatal 消息。ready 携带服务 URL 与 injections，也就是页面启动需要的服务地址等参数。已加载页面据此激活客户端，开始向 Host 发起业务请求。</p>
 <p>桌面协议分别处理本地静态资源与业务请求。转发函数检查页面来源，映射目标路径和查询参数，并适配认证凭据。WebSocket 为页面与 Host 建立双向流通道。preload 通过受控接口提供目录选择、ready 等桌面能力。</p>
 <h3 id="heading-235">进程与受控桥的基础</h3>
@@ -1263,7 +1263,7 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <p>教学启动时间线：0 ms 开始，200 ms 页面显示等待界面，900 ms Host 就绪，1000 ms 客户端可用。页面出现耗时 200 ms，业务可用耗时 1000 ms，中间等待区间为 800 ms。</p>
 <p>复算记录：<a href="examples/calculation-results.json">C15 · 启动耗时</a>。</p>
 <p>启动过程中，同一份页面先显示等待状态，收到 Host 的启动资料后再激活客户端。页面较早出现，让用户能看到启动进展；服务准备、启动注入和业务激活则继续在后台推进。</p>
-<h3 id="heading-237">把故障交给正确部件</h3>
+<h3 id="heading-237">启动故障的分层定位</h3>
 <figure><img loading="lazy" src="figures/F15B.svg" alt="F15B：同一页面等待注入后进入可用状态"><figcaption>F15B：同一页面等待注入后进入可用状态 · <a href="figures/F15B.svg">查看原图</a></figcaption></figure>
 <p>图 15B 按启动顺序展示窗口、打包页面、Host 和启动注入。页面先显示等待状态，收到 ready 资料后激活同一文档中的客户端。</p>
 <p>桌面上的 README 总结仍经过 Agent 循环、工具执行和 Session 记录。Renderer 负责界面，Main 负责桌面生命周期，Node Host 中的文件服务执行读取；桌面壳将这三个环境连接起来。</p>
@@ -1302,33 +1302,33 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <tr><td>194</td><td>数组成员</td><td>传入当前项目目录。</td></tr>
 <tr><td>195</td><td>空值合并和 join</td><td>显式主运行环境优先，否则使用约定的默认目录。</td></tr>
 <tr><td>196</td><td>条件展开</td><td>存在包管理器信息时追加其命令与 Node 目录。</td></tr>
-<tr><td>197</td><td>结束参数数组，开始 spawn 选项</td><td>下面是进程环境，不是工具参数。</td></tr>
+<tr><td>197</td><td>结束参数数组，开始 spawn 选项</td><td>后续字段配置 Host 子进程的工作目录、环境和通信方式。</td></tr>
 <tr><td>198</td><td>cwd 选项</td><td>子进程从当前项目目录运行。</td></tr>
 <tr><td>199</td><td>环境构造函数</td><td>根据所选 Node 与配置准备 Host 环境。</td></tr>
 <tr><td>200</td><td>stdio 数组</td><td>不使用标准输入，捕获输出与错误，并开启 IPC。</td></tr>
 <tr><td>201</td><td>结束 spawn 调用</td><td>获取子进程句柄，后续管理其 ready、失败与退出。</td></tr>
 </table></div>
-<p>执行推演：Main 的管理对象调用 spawn，启动 dsh-desktop-host 的 Node 子进程。当前项目目录成为子进程工作目录，管道和 IPC 供宿主观察输出与启动消息；spawn 返回并不等于收到 ready。</p>
+<p>执行推演：Main 的管理对象调用 spawn，启动 dsh-desktop-host 的 Node 子进程。当前项目目录成为子进程工作目录，管道和 IPC 供宿主观察输出与启动消息；spawn 仅返回进程句柄，ready 状态需等待后续 IPC 消息。</p>
 </section>
 <h2 id="heading-241">15.5 理解检查与讲解问答</h2>
-<h3 id="heading-242">问题 1 · Main 是不是 Harness 核心的唯一执行进程？</h3>
-<p>讲解：不是。Main 管理桌面与后端生命周期，另有 Node Host 子进程运行服务。</p>
+<h3 id="heading-242">问题 1 · Main 与 Node Host 分别运行哪些功能？</h3>
+<p>讲解：Main 管理桌面窗口和后端生命周期，独立 Node Host 子进程运行 Harness 服务。</p>
 <h3 id="heading-243">问题 2 · 等待页面出现是否等于业务已经可用？</h3>
-<p>讲解：不等于。还需要 Host ready 与客户端激活。</p>
+<p>讲解：等待页面表明 Renderer 已加载文档。业务可用还需要 Host 返回 ready，并完成客户端激活。</p>
 <h3 id="heading-244">问题 3 · preload 是否直接承接所有聊天业务？</h3>
-<p>讲解：不是。它暴露受控桌面接口，聊天继续走已有请求与流链路。</p>
+<p>讲解：preload 暴露受控桌面接口，聊天业务使用 Web 客户端已有的请求与持续流通道。</p>
 <p><a href="reader.html">全书目录</a> · <a href="evidence.html">本章与原始证据</a> · <a href="glossary.html">术语索引</a></p>
 </section><section id="chapter-16" class="book-section" data-chapter="16">
-<h1 id="heading-245">第 16 章｜测试与回放：复现通过究竟证明了什么</h1>
-<p>本章学习任务：比较位置回放、工程测试与真实任务评价；解释回放游标怎样消费固定材料，以及它不能证明哪些实际模型效果。</p>
+<h1 id="heading-245">第 16 章｜测试、模型回放与行为验证</h1>
+<p>本章学习任务：理解按位置消费的模型回放，区分调用轨迹检查、请求断言与真实任务评价。</p>
 <h2 id="heading-246">16.1 基本概念</h2>
-<p>测试把一个判断写成可检查的条件。断言是必须成立的条件，例如“失败模型尝试不执行其中的工具提议”。替身代替一个依赖；回放使用已有响应脚本代替这次模型输出，同时让所选真实循环和工具链继续运行。</p>
-<p>本项目 LLM 回放采用按 Session 绑定、按调用位置消费的方式。新 Session 获取下一份录制脚本，每调用一次前进一个位置。它不是把当前请求的全部内容与录制请求逐字段比较后再匹配响应。</p>
+<p>测试将预期行为表达为可检查的条件。断言规定必须满足的关系，例如失败模型尝试中的工具提议不得进入执行阶段。替身替代选定依赖，回放则用预录制响应替代模型生成，所选的真实循环和工具链继续处理这些响应。</p>
+<p>本项目的 LLM 回放按 Session 绑定响应脚本，再按调用位置选择条目。新 Session 绑定下一份脚本，每次模型调用消费下一项响应。响应选择的依据是调用序号，请求字段的正确性由测试中的独立断言检查。</p>
 <p>脚本在本章指一个录制 Session 的响应清单，每个条目对应一次模型调用。消费检查发现脚本没有绑定或条目没有用完；请求次数超出清单时也会报错。消费检查验证调用次数与脚本绑定。请求内容、工具动作和最终产物分别用对应断言检查。</p>
 <p>固定模型输出减少一种变化来源，不固定操作系统文件、时间、并发调度和远端工具的全部行为。回放时使用哪些文件和工具，由测试 profile 与替身配置决定。</p>
 <h2 id="heading-247">16.2 沿一个任务看完整流程</h2>
 <p>设录制脚本有两个响应：第一项提出 read，第二项生成总结。当前 Session 第一次请求获取第 0 项，第二次获取第 1 项，游标变成 2。只发一次请求时有条目未消费；第三次请求时脚本耗尽。消费检查帮助发现轨迹变化。</p>
-<p>位置回放按请求次数返回脚本条目。即使第一次请求组装错了材料，仍会拿到第 0 项响应。测试要另外检查实际请求的字段，才能发现材料组装错误。</p>
+<p>位置回放按调用序号返回响应，即使请求上下文存在错误，第一次调用仍会消费第 0 项。验证材料组装时，需要同时断言实际请求中的消息、工具定义和参数。</p>
 <div class="table-wrap"><table>
 <tr><th>想验证的命题</th><th>合适观察</th></tr>
 <tr><td>错误尝试没有执行工具</td><td>固定失败响应，并检查调用与执行</td></tr>
@@ -1355,14 +1355,14 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <h3 id="heading-253">README 故障怎样复现</h3>
 <figure><img loading="lazy" src="figures/F16B.svg" alt="F16B：不同检查的对象与盲区"><figcaption>F16B：不同检查的对象与盲区 · <a href="figures/F16B.svg">查看原图</a></figcaption></figure>
 <p>图 16B 比较三类检查：局部函数与固定响应回放、真实服务接口、业务任务评价。前两类检查程序行为和服务交互，业务评价比较新生成的产物。</p>
-<p>若故障是“模型漏掉限制”，保存材料与产物用于分析，但真正比较修改效果仍需要新模型输出和统一任务检查。选择最小合适证据，比不断扩大整套测试更有帮助。</p>
+<p>“总结遗漏功能限制”需要通过任务材料和模型产物定位，再用新生成的结果比较修改效果。固定回放检查工程路径，真实模型输出检查提示与上下文对产物的影响；两类验证分别对应明确的待测行为。</p>
 <h3 id="heading-254">常见误解</h3>
 <p>“测试通过说明所有场景正常”：测试只覆盖给定条件与断言。</p>
 <p>“回放通过说明新模型更强”：固定输出没有检验新模型行为。</p>
 <p>“读到测试就等于测试通过”：阅读测试说明预期行为，实际执行结果记录该环境下的通过与失败。</p>
 <section class="source-section">
 <h2 id="heading-255">16.4 源码研读</h2>
-<p>教材另附<a href="examples/README.md">源码验证记录</a>。它实际调用第四章的读取窗口函数和第三章的 Inbox 方法，检查分块换行、字节上限后的总行数、越界错误、边界领取和重复输入拒绝。断言写在代码中，观察结果与源文件哈希一起保存。读这个记录时，可以把“文字中的机制”“实际调用的函数”和“断言检查的结果”逐项对应起来。</p>
+<p>教材附有<a href="examples/README.md">源码验证记录</a>：验证代码实际调用第 4 章的读取窗口函数和第 3 章的 Inbox 方法，检查分块换行、达到字节上限后的总行数、越界错误、边界领取及重复输入拒绝。结果记录保存断言观察、执行环境和源文件哈希，可以逐项对应正文机制、函数调用与检查结果。</p>
 <a id="e16a"></a>
 <h3 id="heading-256">E16A · 消费按位置推进</h3>
 <p>阅读任务：本段在 replay 已依据 Session 找到或建立绑定状态之后。state 保存该 Session 的脚本数组和游标；重点看这次选择响应的依据。后续生成器（可逐个产出值并暂停的函数，配合 yield，见附录）负责脚本耗尽等错误。</p>
@@ -1407,17 +1407,17 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <p>讲解：回放替换模型响应。循环、工具和 Session 继续运行；若测试配置使用真实文件 Provider，工具仍会访问测试工作区。</p>
 <p><a href="reader.html">全书目录</a> · <a href="evidence.html">本章与原始证据</a> · <a href="glossary.html">术语索引</a></p>
 </section><section id="chapter-17" class="book-section" data-chapter="17">
-<h1 id="heading-262">第 17 章｜量化评价：同时看质量、时间、用量与失败</h1>
-<p>本章学习任务：区别估计 token、Provider 用量和实际计费；为一次任务选择可解释的评价口径，避免把输入变短等同于质量提高。</p>
+<h1 id="heading-262">第 17 章｜任务评价、TokenMeter 与遥测</h1>
+<p>本章学习任务：区分 token 估计、Provider 用量和计费口径，联合分析任务质量、耗时与失败。</p>
 <h2 id="heading-263">17.1 基本概念</h2>
-<p>评价先定义任务怎样算正确，再记录完成这些任务花了什么。质量是产物满足规则的程度；时间是选定起点到选定终点的耗时；用量是请求、token 或工具等资源数量；失败记录说明哪些样本没有正常完成以及原因。</p>
-<p>计量是记录或估算数量，遥测是把运行信息交给观察系统。投影把事件整理成可读取的用量和上下文状态；导出后端决定资料怎样发送。TokenMeter 负责用量和容量状态，业务评分规则负责判断结果，计费按 Provider 报告和对应计费类别计算。</p>
+<p>评价由任务正确性规则和资源统计共同组成。质量描述产物满足要求的程度，耗时记录指定起点至终点的时间，用量统计请求、token 和工具调用等资源，失败记录保存未正常完成样本的原因。先明确任务要求，再按照统一口径采集这些指标。</p>
+<p>计量记录或估算资源数量，遥测向观测系统输出运行信息。投影从事件维护用量与上下文状态，导出后端负责传输。TokenMeter 管理用量和容量统计，业务规则判断产物是否正确，费用依据 Provider 报告的计费类别与用量计算。</p>
 <p>比较需要保持任务集、版本、模型选择和验收规则一致，再改变一个明确因素。通过率是通过数除以全部样本数；百分点是两个百分比的直接差，区别于相对增幅。平均数反映所有纳入样本的算术平均，中位数反映排序后的中间位置，失败样本怎样处理要先写清。</p>
 <p>本章用一组十项任务的示例，说明怎样把质量、耗时和用量放在一起比较。</p>
 <h2 id="heading-264">17.2 沿一个任务看完整流程</h2>
 <p>假设同一组十项任务，甲通过九项、消耗 20000 token；乙通过八项、消耗 14000 token。乙用量少了 30%，通过率却从 90% 降到 80%，差 10 个百分点。两种方案的取舍是用量下降、通过率也下降。</p>
 <p>对每个任务同时记录输入标识、配置、产物、验收、接纳与终态时间、用量来源和失败原因。成功、失败与取消都保留；缺失数据不能填成零。费用按相应计费类别的用量乘单价求和，正式实验时再核验单价与缓存口径。</p>
-<p>TokenMeter 注册用量、压力和材料组成等投影，供消费者按用途读取；Session 遥测协调事件并交给导出后端。这些过程信息与业务规则一起组成评价记录。例如“如实说明资料不足”可以是读取失败任务的正确产物，而不是要求每个样本都强行生成三点总结。</p>
+<p>TokenMeter 注册用量、压力和材料组成投影，Session 遥测汇集事件并传入导出后端。业务评价将这些过程记录与产物检查关联。例如读取失败时，准确说明资料不足可以满足任务要求；读取成功时，再检查用途和功能总结是否有充分依据。</p>
 <h2 id="heading-265">17.3 关键机制与设计取舍</h2>
 <h3 id="heading-266">一次任务的三组记录</h3>
 <figure><img loading="lazy" src="figures/F17A.svg" alt="F17A：时间、用量和结果的三组记录"><figcaption>F17A：时间、用量和结果的三组记录 · <a href="figures/F17A.svg">查看原图</a></figcaption></figure>
@@ -1433,12 +1433,12 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <h3 id="heading-269">分析示例：便宜的方案未必更合适</h3>
 <p>以下全部为教学假设：同样十项任务，方案甲通过九项，用量 20000 token；方案乙通过八项，用量 14000 token。甲通过率 90%，乙 80%；乙用量减少 <code>(20000−14000)/20000＝30%</code>，通过率下降 10 个百分点。</p>
 <p>方案乙的变化是“用量减少 30%，通过率下降 10 个百分点”。若要求至少九项正确，选择甲；若预算允许八项通过，则继续比较失败类型和费用。将总用量除以通过数，甲约 2222、乙 1750 token，得到的是每项通过任务分摊的总用量，其中包含失败样本的消耗。</p>
-<p>指标并列让取舍可见，代价是需要保留完整样本记录，而不是只报最漂亮的一个数字。扩大任务集并重复测量，可以继续观察结果在其他样本中的分布。</p>
+<p>多项指标共同说明方案取舍，完整样本记录则支持分析这些差异的来源。扩大任务集并重复测量，可以进一步观察通过率、用量与失败类型的分布。</p>
 <p>这组数字有逐项输入和计算记录：<a href="examples/metrics-input.json">样本文件</a>保存每项任务的通过标记与用量，<a href="examples/calculation-results.json">calculations 输出</a>列出公式、结果和单位。这里使用本地 <code>calculations</code> 工具的 Decimal 四则运算；甲的分摊用量在结果中保留小数，正文取整数近似值。数字仍来自教学假设，计算记录使每一步可以复查。<a href="examples/verify-calculations.py">验证代码</a>检查百分点与相对增幅的区别，也检查任务身份是否配对和非法输入是否被拒绝。</p>
 <h3 id="heading-270">一个小型实验怎样安排</h3>
 <figure><img loading="lazy" src="figures/F17B.svg" alt="F17B：质量、用量与失败需要联合比较"><figcaption>F17B：质量、用量与失败需要联合比较 · <a href="figures/F17B.svg">查看原图</a></figcaption></figure>
 <p>图 17B 中甲通过九项，消耗 20000 token；乙通过八项，消耗 14000 token。乙少用 30% token，同时少通过一项。</p>
-<p>记录每次任务的输入标识、配置、产物、检查、时间、用量来源和失败原因。没有可靠 token 报告时标估算；没有终态时间时标缺失；不要把缺失填成零。分析后回到对应材料或执行机制修改，再用相同规则复查。</p>
+<p>任务记录包含输入标识、配置、产物、检查结果、耗时、用量来源和失败原因。token 估算标明来源，缺失终态时间保留为空，避免与零耗时混淆。分析定位到上下文或执行机制后，再按相同任务规则复查修改效果。</p>
 <h3 id="heading-271">常见误解</h3>
 <p>“用量少就是质量好”：上例乙更省却少通过一项。</p>
 <p>“通过率从 80% 到 90% 是提高 10%”：绝对差为 10 个百分点，相对增幅为 12.5%，口径必须注明。</p>
@@ -1447,7 +1447,7 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <h2 id="heading-272">17.4 源码研读</h2>
 <a id="e17a"></a>
 <h3 id="heading-273">E17A · 三项计量视图的注册</h3>
-<p>阅读任务：这是 TokenMeter 构造期间的三项注册。register 把投影定义交给管理者，不是在这三行中已经测量所有 Session；后续读取和事件观察推动相应状态。</p>
+<p>阅读任务：节选是 TokenMeter 构造时的投影注册。register 保存计算与读取定义，消费者后续查询和事件更新驱动具体统计。三项注册分别对应用量、上下文压力与材料组成。</p>
 <p>代码类型：<strong>真实源码摘录</strong>。证据编号 <a href="evidence.html#e17a">E17A</a>；下表的数字是原文件行号。</p>
 <pre><code class="language-ts">    ctx.sessionProjections.register(tokenUsageProjectionDefinition)
     ctx.sessionProjections.register(contextPressureProjectionDefinition)
@@ -1458,26 +1458,26 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <tr><td>115</td><td>同一方法接收另一项定义</td><td>登记 contextPressure 视图，供观察上下文容量压力。</td></tr>
 <tr><td>116</td><td>同一方法接收第三项定义</td><td>登记 contextBreakdown 视图，供解释材料由哪些部分组成。</td></tr>
 </table></div>
-<p>执行推演：装入计量组件后，消费者可以按需请求用量、压力与材料组成视图。注册数量为三项，不等于运行过三次模型请求。</p>
+<p>执行推演：计量组件注册三项投影定义，消费者随后按需读取用量、压力与材料组成。投影种类与模型请求次数分别计数。</p>
 </section>
 <h2 id="heading-274">17.5 理解检查与讲解问答</h2>
 <h3 id="heading-275">问题 1 · 通过率由 80% 到 90% 的直接差是多少？</h3>
 <p>讲解：10 个百分点；相对增幅是 12.5%，两种口径不同。</p>
 <h3 id="heading-276">问题 2 · 未知耗时填零会有什么问题？</h3>
-<p>讲解：零代表真实无耗时，缺失代表没有记录，混用会扭曲统计。</p>
+<p>讲解：零是有效数值，缺失表示没有相应记录。将未知耗时填成零会降低统计值，并掩盖采集缺失。</p>
 <h3 id="heading-277">问题 3 · 计量和遥测能否自动判断总结正确？</h3>
 <p>讲解：事件和用量记录提供运行事实。评价正确性时，先规定任务要求，再检查产物是否满足要求，例如功能总结是否保留实验性限制、是否标明资料不足。</p>
 <p><a href="reader.html">全书目录</a> · <a href="evidence.html">本章与原始证据</a> · <a href="glossary.html">术语索引</a></p>
 </section><section id="chapter-18" class="book-section" data-chapter="18">
-<h1 id="heading-278">第 18 章｜综合案例：已有文件工具如何接入与呈现</h1>
-<p>本章学习任务：把同一个 read 工具从注册追到展示；区分参数、规范结果、模型文字与展示元数据，定位每个契约失败的影响。</p>
+<h1 id="heading-278">第 18 章｜综合案例：read 工具的接入与呈现</h1>
+<p>本章学习任务：串联 read 的注册、参数校验、执行、结果渲染和客户端呈现，分析各层失败的影响。</p>
 <h2 id="heading-279">18.1 基本概念</h2>
 <p>扩展点是框架允许新增能力的位置，例如工具注册接口。接口契约既规定输入输出，也规定怎样处理生命周期、取消和结果。一个新能力复用这些位置，才能进入现有流程；插件通过 profile 挂载并注入依赖，工具定义才进入运行中的注册表。</p>
-<p>规范值是执行体返回的结构化结果，供程序检查。schema 规定结构，render 将它转成模型内容，presentationMeta 提取可保存的展示资料。模型读取渲染文字，客户端从原始事件与 meta 派生界面组件数据。</p>
+<p>规范值是执行体返回的结构化数据，供输出契约检查。schema 定义结构，render 生成模型内容，presentationMeta 提取可持久化的展示元数据。模型使用渲染文本，客户端根据原始事件与 meta 派生卡片数据。</p>
 <p>真实 read 工具通过已选文件服务获取有界文本，再构造路径、行范围和总行数等结果。模型从渲染文字获取资料，界面从保存的展示元数据重建读取卡片。持久记录保存模型内容和展示元数据；界面恢复时读取这份记录。</p>
-<p>这一章把启动装配、参数检查、工具准入、读取、结果记录和产品呈现连起来。新增能力的价值在于接上已有责任链，而不是再造一套绕开记录与限制的模型循环。</p>
+<p>本章将启动装配、参数校验、工具准入、文件读取、结果记录与界面呈现串联为同一条调用链。新增工具通过现有扩展接口接入各环节，复用统一的控制与记录机制。</p>
 <h2 id="heading-280">18.2 沿一个任务看完整流程</h2>
-<p>从启动追一次 read：profile 装入文件工具插件，插件声明所需服务并注册工具定义；模型调用时提交 file_path、offset 和 limit。ToolRuntime 先建立参数的 JSON 快照并完成准入。随后 defineTool 的 execute 包装函数检查参数 schema，read 执行体调用 parseReadArgs 补齐默认值、检查行范围，再由文件服务读取并构造窗口。</p>
+<p>read 的接入始于 profile 装载文件工具插件。插件声明依赖并注册工具，模型调用提交 file_path、offset 和 limit。ToolRuntime 创建参数 JSON 快照并完成准入；defineTool 的 execute 包装函数随后检查 schema，read 执行体通过 parseReadArgs 补齐缺省值、校验行范围，再调用文件服务读取目标并构造窗口。</p>
 <p>执行结果形成规范对象，输出 schema 检查形状，render 生成模型材料，顶层工具调用的 presentationMeta 提取可保存的窗口资料。通用链处理最终结果，循环将 content 和 meta 写入 tool/result。后续模型请求使用 content，Web Client 从原始调用、结果和 meta 生成卡片。</p>
 <div class="table-wrap"><table>
 <tr><th>出错位置</th><th>影响</th></tr>
@@ -1490,7 +1490,7 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 </table></div>
 <p>新增工具时，依次实现注册、输入检查、执行、输出渲染和资源释放；专用卡片通过展示契约接入。</p>
 <h2 id="heading-281">18.3 关键机制与设计取舍</h2>
-<h3 id="heading-282">接入已有接口，而不是另造循环</h3>
+<h3 id="heading-282">通过扩展接口接入运行链</h3>
 <figure><img loading="lazy" src="figures/F18A.svg" alt="F18A：读取工具注册后复用既有准入与结果链"><figcaption>F18A：读取工具注册后复用既有准入与结果链 · <a href="figures/F18A.svg">查看原图</a></figcaption></figure>
 <p>图 18A 按工具接入生命周期展开：确认契约、挂载插件、注册定义、复用 ToolRuntime、记录结果、卸载注册。read 的执行逻辑位于已有运行链中。</p>
 <h3 id="heading-283">参数、规范值、模型文本和展示元数据</h3>
@@ -1499,7 +1499,7 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <p>执行体通过所选文件服务读取，并检查取消与输出上限。schema 检查结构，解析逻辑检查具体值。插件的 <code>name</code> 标识实现，<code>inject</code> 声明依赖，<code>apply</code> 在依赖可用时注册工具。卸载时撤销注册，专用卡片则由客户端插件提供。</p>
 <h3 id="heading-284">原指南与真实工具各怎样参考</h3>
 <p>官方最小工具示例说明 defineTool、execute 与 render 的关系，并使用 Node 文件读取展示一个最小形态。实际 tool-fs 使用 DSH 文件服务，由所选 Provider 解析路径；文件观察与执行守卫通过独立插件参与调用。</p>
-<p>Web Client 的展示链从原始事件开始：Conversation 按 callId 配对工具调用与结果，ToolCallTree 按工具名称选择 tool.call.toolview 中的 renderer。这个按名称选择渲染组件的入口，是 keyed slot。read 对应 ReadRow，后者调用 readCardModel，从原始参数、结果文字和持久 meta 生成 React 组件的 props，也就是界面组件使用的数据。</p>
+<p>Web Client 的展示链从原始事件开始。Conversation 通过 callId 关联调用与结果，ToolCallTree 通过工具名称选择 tool.call.toolview 中的 renderer。这个按名称选择组件的入口称为 keyed slot。read 对应 ReadRow，它调用 readCardModel，从原始参数、结果文本与持久 meta 构造 React 组件的 props，即组件使用的输入数据。</p>
 <p>readCardModel 先确认这是已结算、成功的顶层 read，再检查参数、meta 中的路径与行号、每行文本，以及模型结果的文件文本格式。通过后生成路径标签、行列表、总行数与语言信息；不符合时返回 null，工具行保留原始输出。没有专用 renderer 时，ToolCallTree 选择 GenericToolCard。</p>
 <p>Host 的 presentCall 和 presentResult 是为本地消费方保留的纯转换接口。内置 Web Client 使用自己的卡片模型；page 和 follow 传输原始事实，Host 无需在读取历史时再次计算网页卡片。<a href="evidence.html#s03">展示链核验</a>列出这条路径的实现入口。</p>
 <h3 id="heading-285">分析示例：什么证据支持“能读文件”</h3>
@@ -1541,12 +1541,12 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <tr><td>130</td><td>属性读取</td><td>保留结果中的完整行数信息。</td></tr>
 <tr><td>131</td><td>条件展开</td><td>可识别语言时才加入 lang 字段。</td></tr>
 <tr><td>132</td><td>结束对象</td><td>本次展示资料建立完成。</td></tr>
-<tr><td>133</td><td>结束函数属性</td><td>这些资料交给输出和保存链，不是一个 React 组件。</td></tr>
+<tr><td>133</td><td>结束函数属性</td><td>返回可序列化元数据，供工具结果保存与客户端卡片派生使用。</td></tr>
 </table></div>
 <p>执行推演：路径、起始行、每行编号与文字及总行数形成卡片资料。文件扩展名能识别语言时增加 lang；无法识别就不增加。后续界面可以读取保存的元数据，不必再次读文件来重建这个窗口。</p>
 </section>
 <h2 id="heading-290">18.5 理解检查与讲解问答</h2>
-<h3 id="heading-291">问题 1 · 规范值、模型文本和展示元数据分别交给谁？</h3>
+<h3 id="heading-291">问题 1 · 规范值、模型文本与展示元数据各自有什么用途？</h3>
 <p>讲解：规范值供契约检查和内部处理，模型文本供模型推理，展示元数据供保存与卡片重建。</p>
 <h3 id="heading-292">问题 2 · 专用卡片失败是否意味着模型一定没收到文本？</h3>
 <p>讲解：Host 将规范结果渲染成模型文本，并为顶层调用保存窗口 meta。Web Client 从原始事件派生卡片；readCardModel 不接受当前数据时，工具行显示原始输出，模型仍使用已保存的文本。</p>
@@ -1554,23 +1554,23 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <p>讲解：不够。还要完成注册、参数与输出契约、准入配合、取消和资源生命周期。</p>
 <p><a href="reader.html">全书目录</a> · <a href="evidence.html">本章与原始证据</a> · <a href="glossary.html">术语索引</a></p>
 </section><section id="chapter-19" class="book-section" data-chapter="19">
-<h1 id="heading-294">第 19 章｜Cordis 与 Spatiotemporal Composability：论文契约怎样落到 Harness</h1>
+<h1 id="heading-294">第 19 章｜Cordis 与 Spatiotemporal Composability</h1>
 <p>本章从资源登记、依赖变化和插件卸载三个问题出发，讲解 Cordis 的 Spatiotemporal Composability。先用定时器和工具注册理解机制，再把它们与论文的定义和生命周期规则对应起来。</p>
 <p>论文是 <em>A Programming Paradigm for Spatiotemporal Composability</em>，作者 Yifan Shi、Wei Zhang、Tianyi Cui，本文采用 arXiv:2608.25512 的 v1（2026-08-26）。实现采用固定项目快照里的 <code>@deepseek-ai/cordis</code> 4.0.4。下面先解释论文模型，再说明 Cordis 4.0.4 的实现方式。</p>
-<h2 id="heading-295">19.1 先理解问题：装入以后，还要能够撤离</h2>
+<h2 id="heading-295">19.1 组件替换与资源释放</h2>
 <p>假设文件工具插件装入时做两件事：注册 read，监听文件观察事件。模型于是能够使用工具，其他组件也能收到观察通知。后来配置改变，要换成另一份实现。如果只把插件名字从列表删除，旧监听器可能继续接收通知，旧工具也可能留在注册表；重新装入又登记一次，便会出现重复响应或旧对象继续被访问。</p>
-<p>生命周期不仅关心“怎样让它工作”，还要说明“怎样停止并撤去它带来的贡献”。effect 是操作对状态造成的改变，例如增加一个监听器。disposer 是为撤销相应贡献而保存的动作，例如移除刚增加的那个监听器。inverse 在这里指可以撤回该操作的函数，而不是“再运行一次原函数”。</p>
+<p>组件生命周期同时管理能力启用与贡献撤销。effect 是操作对状态产生的改变，例如注册事件监听器；disposer 是释放该贡献的函数，例如移除本次注册的监听器；inverse 描述对应的逆操作，用于恢复操作前的状态。</p>
 <p>read 插件还依赖文件服务。提供者撤销服务后，消费者要重新检查依赖，退出当前实例或等待新的服务。服务名称标识可解析的能力，依赖声明列出装入前需要可用的入口。</p>
 <p>论文把这两个问题放在一起：时间方向上，组件的贡献怎样撤回；空间方向上，组件怎样在当前 Context 中获取依赖并随环境变化重新装配。这就是 Spatiotemporal Composability：时间方向上的可撤回与空间方向上的依赖组合。空间维度指服务的组织和解析关系。</p>
-<h2 id="heading-296">19.2 一个可逆操作需要交出什么</h2>
-<p>用一个工具集合说明数学记号。设状态 S 保存当前工具集合，装入 A 前为 <code>{read}</code>；执行操作 f 后为 <code>{read, search}</code>。同时保存的撤回动作 g 只移除 A 注册的 search，则 g(f(S)) 回到 <code>{read}</code>。写成关系是：先执行 f，再执行它给出的 g，恢复原状态。</p>
+<h2 id="heading-296">19.2 可逆操作与恢复见证</h2>
+<p>设状态 S 表示工具集合，组件 A 装入前为 <code>{read}</code>，操作 f 将其变为 <code>{read, search}</code>。f 同时提供逆操作 g，g 只移除 A 注册的 search，于是 <code>g(f(S)) = S</code>。这个关系要求逆操作恢复本次操作对应的输入状态。</p>
 <p>这里的“状态”是数学模型描述的数据，“函数”是从旧状态得到新状态的规则。论文的 witnessed effect function 不仅返回新状态，还返回一项逆操作，并要求逆操作确实恢复其对应输入；Definition 8 给出这项见证条件。witnessed 表示函数附带满足该等式的数学见证。实现中的 ctx.effect 保存 disposer，组件作者负责让它满足恢复条件。</p>
-<p>在程序里，disposer（释放函数）通常通过闭包保存所需信息。闭包是一个函数连同它以后仍需使用的外层值：例如清理回调记住本次创建的 timer 句柄，卸载时才能停止这个定时器，而不是误停别人的资源。登记资源时就把获得与释放放在一起，比以后重新寻找“我到底创建过什么”更容易保持对应关系。</p>
+<p>disposer（释放函数）通过闭包保留资源身份。闭包由函数及其引用的外层变量组成，例如清理函数捕获本次创建的 timer 句柄，卸载时据此停止对应定时器。资源创建时登记释放函数，使资源获取与撤销始终保持明确对应。</p>
 <p>释放动作由组件作者编写。以定时器为例，disposer 要记住创建时得到的 timer 句柄，并调用 clearInterval 停止它；只打印“已清理”不会停止定时器。论文 §5.1.1 将逆操作的正确性交给组件作者，Cordis 运行时负责登记和调用。文件写入、邮件发送等外部动作，则要由作者按对应服务的实际能力设计后续处理。</p>
 <figure><img loading="lazy" src="figures/C19A.svg" alt="图 19A：资源获取、逆操作返回、框架登记与卸载调用"><figcaption>图 19A：资源获取、逆操作返回、框架登记与卸载调用 · <a href="figures/C19A.svg">查看原图</a></figcaption></figure>
 <p>图 19A 从左向右展示资源交接：作者获取资源，返回记住这份资源的 disposer；Cordis 将它登记到当前 Fiber，卸载时调用作者提供的动作。</p>
-<h2 id="heading-297">19.3 怎样把多个操作的撤回连起来</h2>
-<p>设一个组件先申请资源 A，再用 A 建立资源 B。撤离时先撤 B 再撤 A，才不会在清理 B 时发现基础资源已经消失。LIFO 是 Last-In-First-Out，后进先出；像把纸依次放到一摞的顶部，再从顶部取出。</p>
+<h2 id="heading-297">19.3 逆操作的组合与释放顺序</h2>
+<p>若组件先申请资源 A，再基于 A 创建资源 B，释放时应先清理 B，再释放 A，以保留 B 清理所需的依赖。LIFO（Last-In-First-Out，后进先出）描述这种顺序：后创建的依赖资源先撤销。</p>
 <p>论文把每一步返回的逆操作接到已有恢复动作之前，形成反向组合。effect iterator 让装入逐步推进；迭代器每次给出下一项，并说明是否结束。运行时因此可以在步骤之间记录进度、检查目标状态，决定继续装入还是进入撤离。</p>
 <p>论文的反向组合、一个 ctx.effect 内的多步恢复、Fiber 上多个 effect 的释放采用不同组织方式。当前 Fiber._unload 用 Promise.all 等待同层释放任务，多个异步 disposer 会重叠运行。有严格依赖的两项清理，应写在同一个 disposer 中依次 await：先撤资源 B，再撤资源 A。</p>
 <p>框架捕获并记录单项释放错误，其他释放任务继续推进。排查时，可以从错误记录找到所属实例和释放位置，再检查该项动作停在了哪里。</p>
@@ -1578,7 +1578,7 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <p>coeffect 描述组件执行需要从环境获取什么，例如文件服务；effect 描述执行对状态造成什么改变，例如注册工具。服务 key 是用于识别和解析某项能力的名称或标识。提供者发布该键下的能力，消费者声明自己需要它，Context 根据当前范围解析到实际实现。</p>
 <p>理解一个组件时，可以依次查看它声明的依赖、提供的服务和装入行为。插件声明描述依赖，服务提供操作登记能力，Fiber 管理这次装入产生的资源。</p>
 <p>例如插件 T 需要 tools 和 fs。tools 让它登记工具，fs 让它实现读取。只有依赖条件成立，运行时才推进该实例的装入。fs 的提供者撤去服务时，运行时通知相关消费者重新评价目标状态；它们需要退出当前装配或等待新的满足条件的环境。</p>
-<p>响应式依赖意味着环境变化会推动实例重新计算目标状态。依赖注入使插件通过给定接口取能力，而不是自行硬编码每一个提供者。实例持有的连接、监听器和后台工作应通过资源管理接口登记，让卸载路径可以找到对应 disposer。</p>
+<p>响应式依赖使环境变化触发实例的目标状态更新。依赖注入通过统一接口解析服务提供者。实例创建的连接、监听器和后台任务经资源管理接口登记，对应 disposer 随实例卸载被调用。</p>
 <h2 id="heading-299">19.5 Fiber 与生命周期：目标变化时怎样收尾</h2>
 <p>Fiber 是组件的一次运行实例及其生命周期管理对象。每个 Fiber 保存自己的配置、依赖状态和释放动作。相同组件装入多次，可以有不同的 Context、配置、资源记录和状态；讨论清理时要指明是哪一个实例。</p>
 <p>论文 §4 用抽象状态和转换规则研究装入、已激活、撤离等过程。论文中的 Reloading 包含推进装入的情形；论文用四类抽象状态表达规则；FiberState 枚举进一步区分运行时状态。实现与官方教程还区分 PENDING、FAILED、DISPOSED 等状态，用于表达依赖未满足、装入失败和实例终结。</p>
@@ -1592,10 +1592,10 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <tr><td>消费者收尾</td><td>处理仍属于旧实例的资源</td><td>清理是否还需提供者</td></tr>
 <tr><td>提供者资源释放</td><td>撤去自身登记的贡献</td><td>是否按真实依赖组织等待</td></tr>
 </table></div>
-<h2 id="heading-300">19.6 为什么“正向能交换”还不足以任意卸载</h2>
+<h2 id="heading-300">19.6 操作独立性与安全卸载</h2>
 <p>交换律表示先做 A 再做 B，与先做 B 再做 A，得到同样结果。设 A 登记自己的键 a，B 登记另一个键 b。若两项操作都只改变自己的独立槽位，最终集合可以相同。若两项都修改一个顺序敏感的中间件（请求依次经过的一串处理环节）列表，先后就可能改变请求经过的规则。</p>
 <p>Definition 42 要求正向、撤回以及相关变换都满足独立性，并保持对方返回的逆操作与后续迭代。检查两次注册能否交换，只覆盖其中一部分；还要检查卸载 A 时，B 的贡献和后续运行是否保持。</p>
-<p>一个错误清理例子是：A 注册前保存整个工具集合；B 后来登记自己的工具；A 卸载时把集合整体恢复成旧副本。A 确实记住了一个旧状态，却把 B 的合法贡献也抹掉。正确的撤回应识别并移除自己贡献的条目。遇到重名、覆盖、排序或共享资源时，还要把条目的替换和撤销规则纳入独立性检查。</p>
+<p>考虑一种有缺陷的释放方式：A 注册前保存整个工具集合，B 随后注册另一项工具，A 卸载时用旧副本替换当前集合。这样会连同 B 的合法贡献一起删除。释放逻辑应识别并移除本实例注册的条目。存在重名、覆盖、排序或共享资源时，还需检查替换与撤销规则是否保持独立性。</p>
 <p>这解释了为什么论文讨论服务提供者的责任：它发布的操作采用怎样的表示，直接影响其他组件能否独立撤回。服务提供者在设计注册和撤销规则时，就要处理这些独立性条件。</p>
 <h2 id="heading-301">19.7 观测等价与证明条件</h2>
 <p>观测等价表示按指定的合法观察方式，看不到会影响契约的差别。相同工具集合不要求内存地址、分配顺序或运行时缓存逐字节相同。观察关系由模型规定；网络请求和外部设备写入则有它们自己的可观察状态。</p>
@@ -1643,7 +1643,7 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <p>执行推演：装入时创建定时器，effect 记录回调返回的释放函数。卸载时框架调用作者写下的 clearInterval；它没有从 setInterval 自动推导这行代码。</p>
 <a id="e19b"></a>
 <h3 id="heading-305">E19B · 服务名称作用域隔离</h3>
-<p>阅读任务：这是 Context.isolate 完整方法。name 是要隔离的服务名称，label 可让多个 Context 共享同一个服务作用域标签；重点观察返回的对象是否是操作系统沙箱。</p>
+<p>阅读任务：Context.isolate 为 name 指定的服务名称设置解析标签。可选 label 用于让多个 Context 共享同一服务作用域，返回值是携带新解析表的派生 Context。</p>
 <p>代码类型：<strong>真实源码摘录</strong>。证据编号 <a href="evidence.html#e19b">E19B</a>；下表的数字是原文件行号。</p>
 <pre><code class="language-ts">  isolate(name: string, label?: symbol) {
     const shadow = Object.create(this[symbols.isolate])
@@ -1653,15 +1653,15 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <div class="table-wrap"><table>
 <tr><th>原文件行号</th><th>写法</th><th>在这段流程中的作用</th></tr>
 <tr><td>121</td><td>方法、可选参数与 symbol 类型</td><td>指定哪个服务名称使用独立解析标签。</td></tr>
-<tr><td>122</td><td>Object.create</td><td>建立继承父作用域表的新表，而不是复制整个宿主环境。</td></tr>
-<tr><td>123</td><td>下标赋值与空值合并</td><td>为指定名称使用提供的标签或一个新 Symbol（语言内置的生成不重复值的工具，适合当标签）。</td></tr>
+<tr><td>122</td><td>Object.create</td><td>创建继承父服务作用域表的新表，保留其他名称的解析关系。</td></tr>
+<tr><td>123</td><td>下标赋值与空值合并</td><td>为指定名称使用已有标签，或创建唯一 Symbol 值作为新标签。</td></tr>
 <tr><td>124</td><td>return、extend 与计算属性</td><td>返回带新作用域表的派生 Context。</td></tr>
 <tr><td>125</td><td>结束方法</td><td>隔离针对服务解析；物理执行边界需要另外的机制。</td></tr>
 </table></div>
 <p>执行推演：不提供 label 时为指定服务建立新 Symbol 标签，其他继承关系仍保留；传相同 label 可加入同一服务作用域。没有创建进程、容器或文件权限边界。</p>
 <a id="e19c"></a>
 <h3 id="heading-306">E19C · 同层资源释放并发等待</h3>
-<p>阅读任务：这是 Fiber._unload 的释放开头。_disposables 保存所属 Fiber 的释放函数；本段之后还会清 store 并更新状态。观察 Promise.all 与逐个异常处理，不把论文的抽象回滚顺序直接套成这里的串行执行。</p>
+<p>阅读任务：节选位于 Fiber._unload 的资源释放阶段。_disposables 保存当前 Fiber 的释放函数，Promise.all 等待各项异步清理，每项有独立的异常记录。后续流程清理 store 并更新实例状态。</p>
 <p>代码类型：<strong>真实源码摘录</strong>。证据编号 <a href="evidence.html#e19c">E19C</a>；下表的数字是原文件行号。</p>
 <pre><code class="language-ts">  private async _unload() {
     await Promise.all(this._disposables.clear().map(async (dispose) =&gt; {
@@ -1698,7 +1698,7 @@ dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1p
 <p><strong>问题 2：同层两个异步释放函数，能否只靠登记顺序保证第一个完全结束后第二个才开始？</strong></p>
 <p>讲解：_unload 将同层释放函数映射成异步任务，再用 Promise.all 汇总等待。后启动的任务可以先结束。有先后依赖时，在同一个 disposer 中依次 await。</p>
 <p><strong>问题 3：把插件放入 ctx.isolate 后，能否运行不可信代码而无须其他隔离？</strong></p>
-<p>讲解：不能。它改变指定服务名的解析标签，仍是语言内组织机制。不可信代码的物理执行边界、桥接接口和可访问资源要另行设计。</p>
+<p>讲解：ctx.isolate 调整服务名称的解析标签，派生 Context 与原 Context 仍共享宿主进程。不可信组件的运行需要独立设计执行隔离、桥接接口与资源访问限制。</p>
 <p><strong>追问：怎样向别人准确讲述 Cordis 的价值？</strong></p>
 <p>Cordis 把插件组织成声明依赖、登记资源、响应环境变化并释放贡献的运行实例。Context 解析服务，Fiber 管理实例状态，effect 保存资源与 disposer 的对应关系。论文解释这些机制需要满足的可逆性和独立性条件，源码给出装入、撤离与依赖通知的具体执行方式。</p>
 <h2 id="heading-308">19.11 论文阅读定位</h2>

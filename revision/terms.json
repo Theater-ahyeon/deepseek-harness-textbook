@@ -4,7 +4,7 @@
     "explanation_chapter": 1,
     "file": "book/01.md",
     "line": 7,
-    "explanation_paragraph": "计算机程序是一组交给计算机执行的步骤；数据是步骤处理的信息，例如一段任务文字或一份文件内容。大语言模型（Large Language Model，LLM）接收材料、生成文字或工具调用建议。运行模型的服务与管理本地文件的程序是不同的参与者。模型提出读取建议，文件服务实际读取，再把结果交给模型用于后续回答。",
+    "explanation_paragraph": "程序由可执行的指令组成，数据是指令处理的信息，例如任务文本或文件内容。大语言模型（Large Language Model，LLM）根据输入生成文本或工具调用建议。模型服务负责生成，文件服务负责访问文件；读取建议经过工具链执行后，返回的文本才能用于后续回答。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -12,7 +12,7 @@
     "explanation_chapter": 1,
     "file": "book/01.md",
     "line": 7,
-    "explanation_paragraph": "计算机程序是一组交给计算机执行的步骤；数据是步骤处理的信息，例如一段任务文字或一份文件内容。大语言模型（Large Language Model，LLM）接收材料、生成文字或工具调用建议。运行模型的服务与管理本地文件的程序是不同的参与者。模型提出读取建议，文件服务实际读取，再把结果交给模型用于后续回答。",
+    "explanation_paragraph": "程序由可执行的指令组成，数据是指令处理的信息，例如任务文本或文件内容。大语言模型（Large Language Model，LLM）根据输入生成文本或工具调用建议。模型服务负责生成，文件服务负责访问文件；读取建议经过工具链执行后，返回的文本才能用于后续回答。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -20,7 +20,7 @@
     "explanation_chapter": 1,
     "file": "book/01.md",
     "line": 7,
-    "explanation_paragraph": "计算机程序是一组交给计算机执行的步骤；数据是步骤处理的信息，例如一段任务文字或一份文件内容。大语言模型（Large Language Model，LLM）接收材料、生成文字或工具调用建议。运行模型的服务与管理本地文件的程序是不同的参与者。模型提出读取建议，文件服务实际读取，再把结果交给模型用于后续回答。",
+    "explanation_paragraph": "程序由可执行的指令组成，数据是指令处理的信息，例如任务文本或文件内容。大语言模型（Large Language Model，LLM）根据输入生成文本或工具调用建议。模型服务负责生成，文件服务负责访问文件；读取建议经过工具链执行后，返回的文本才能用于后续回答。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -28,7 +28,7 @@
     "explanation_chapter": 1,
     "file": "book/01.md",
     "line": 9,
-    "explanation_paragraph": "Agent 在本书中指能够围绕任务反复获取材料、调用模型并使用工具的运行单元。Harness 组织这些步骤，DeepSeek Harness 是本书研究的具体项目。Tool 是由程序实现的一项操作，像 `read` 读取文本；模型看到的是工具的名称、用途和参数说明。参数是告诉操作“这次处理什么”的输入，例如文件路径；结果是操作返回的信息，例如第 1—20 行文字。",
+    "explanation_paragraph": "Agent 是围绕任务反复构造上下文、调用模型并使用工具的运行单元。Harness 提供支撑这一过程的运行机制，DeepSeek Harness 是本书分析的具体实现。Tool 是程序实现的操作，例如读取文本的 `read`。工具定义向模型公开名称、用途和参数说明；调用参数指定本次操作的目标，工具结果返回执行所得的信息，例如文件第 1—20 行的文本。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -36,7 +36,7 @@
     "explanation_chapter": 1,
     "file": "book/01.md",
     "line": 9,
-    "explanation_paragraph": "Agent 在本书中指能够围绕任务反复获取材料、调用模型并使用工具的运行单元。Harness 组织这些步骤，DeepSeek Harness 是本书研究的具体项目。Tool 是由程序实现的一项操作，像 `read` 读取文本；模型看到的是工具的名称、用途和参数说明。参数是告诉操作“这次处理什么”的输入，例如文件路径；结果是操作返回的信息，例如第 1—20 行文字。",
+    "explanation_paragraph": "Agent 是围绕任务反复构造上下文、调用模型并使用工具的运行单元。Harness 提供支撑这一过程的运行机制，DeepSeek Harness 是本书分析的具体实现。Tool 是程序实现的操作，例如读取文本的 `read`。工具定义向模型公开名称、用途和参数说明；调用参数指定本次操作的目标，工具结果返回执行所得的信息，例如文件第 1—20 行的文本。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -44,7 +44,7 @@
     "explanation_chapter": 1,
     "file": "book/01.md",
     "line": 9,
-    "explanation_paragraph": "Agent 在本书中指能够围绕任务反复获取材料、调用模型并使用工具的运行单元。Harness 组织这些步骤，DeepSeek Harness 是本书研究的具体项目。Tool 是由程序实现的一项操作，像 `read` 读取文本；模型看到的是工具的名称、用途和参数说明。参数是告诉操作“这次处理什么”的输入，例如文件路径；结果是操作返回的信息，例如第 1—20 行文字。",
+    "explanation_paragraph": "Agent 是围绕任务反复构造上下文、调用模型并使用工具的运行单元。Harness 提供支撑这一过程的运行机制，DeepSeek Harness 是本书分析的具体实现。Tool 是程序实现的操作，例如读取文本的 `read`。工具定义向模型公开名称、用途和参数说明；调用参数指定本次操作的目标，工具结果返回执行所得的信息，例如文件第 1—20 行的文本。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -52,7 +52,7 @@
     "explanation_chapter": 1,
     "file": "book/01.md",
     "line": 9,
-    "explanation_paragraph": "Agent 在本书中指能够围绕任务反复获取材料、调用模型并使用工具的运行单元。Harness 组织这些步骤，DeepSeek Harness 是本书研究的具体项目。Tool 是由程序实现的一项操作，像 `read` 读取文本；模型看到的是工具的名称、用途和参数说明。参数是告诉操作“这次处理什么”的输入，例如文件路径；结果是操作返回的信息，例如第 1—20 行文字。",
+    "explanation_paragraph": "Agent 是围绕任务反复构造上下文、调用模型并使用工具的运行单元。Harness 提供支撑这一过程的运行机制，DeepSeek Harness 是本书分析的具体实现。Tool 是程序实现的操作，例如读取文本的 `read`。工具定义向模型公开名称、用途和参数说明；调用参数指定本次操作的目标，工具结果返回执行所得的信息，例如文件第 1—20 行的文本。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -60,7 +60,7 @@
     "explanation_chapter": 1,
     "file": "book/01.md",
     "line": 11,
-    "explanation_paragraph": "Session 保存一次持续交互的身份和记录。日志是按发生顺序保存的记录集合；Session 事件日志因此能回答“先发生了什么，随后发生了什么”。消息是供对话使用的内容；事件是“某件事已经发生”的记录，例如开始一次工具调用。消息内容参与对话，轮次开始、工具调用等事件记录运行过程。Inbox 保存已经接纳、尚待领取的输入；它把下一轮输入与下一步输入分开保存，由驱动在对应时点领取。",
+    "explanation_paragraph": "Session 维护持续交互的身份与事件日志。日志按发生顺序记录消息、轮次边界和工具调用等事件。消息承载对话内容，过程事件描述任务的执行状态；后续模型请求使用从日志派生的消息历史。Inbox 保存已接纳、尚待领取的输入，分别维护下一轮和下一步的消息队列，由驱动在对应边界领取。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -68,7 +68,7 @@
     "explanation_chapter": 1,
     "file": "book/01.md",
     "line": 11,
-    "explanation_paragraph": "Session 保存一次持续交互的身份和记录。日志是按发生顺序保存的记录集合；Session 事件日志因此能回答“先发生了什么，随后发生了什么”。消息是供对话使用的内容；事件是“某件事已经发生”的记录，例如开始一次工具调用。消息内容参与对话，轮次开始、工具调用等事件记录运行过程。Inbox 保存已经接纳、尚待领取的输入；它把下一轮输入与下一步输入分开保存，由驱动在对应时点领取。",
+    "explanation_paragraph": "Session 维护持续交互的身份与事件日志。日志按发生顺序记录消息、轮次边界和工具调用等事件。消息承载对话内容，过程事件描述任务的执行状态；后续模型请求使用从日志派生的消息历史。Inbox 保存已接纳、尚待领取的输入，分别维护下一轮和下一步的消息队列，由驱动在对应边界领取。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -76,7 +76,7 @@
     "explanation_chapter": 1,
     "file": "book/01.md",
     "line": 11,
-    "explanation_paragraph": "Session 保存一次持续交互的身份和记录。日志是按发生顺序保存的记录集合；Session 事件日志因此能回答“先发生了什么，随后发生了什么”。消息是供对话使用的内容；事件是“某件事已经发生”的记录，例如开始一次工具调用。消息内容参与对话，轮次开始、工具调用等事件记录运行过程。Inbox 保存已经接纳、尚待领取的输入；它把下一轮输入与下一步输入分开保存，由驱动在对应时点领取。",
+    "explanation_paragraph": "Session 维护持续交互的身份与事件日志。日志按发生顺序记录消息、轮次边界和工具调用等事件。消息承载对话内容，过程事件描述任务的执行状态；后续模型请求使用从日志派生的消息历史。Inbox 保存已接纳、尚待领取的输入，分别维护下一轮和下一步的消息队列，由驱动在对应边界领取。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -84,7 +84,7 @@
     "explanation_chapter": 1,
     "file": "book/01.md",
     "line": 11,
-    "explanation_paragraph": "Session 保存一次持续交互的身份和记录。日志是按发生顺序保存的记录集合；Session 事件日志因此能回答“先发生了什么，随后发生了什么”。消息是供对话使用的内容；事件是“某件事已经发生”的记录，例如开始一次工具调用。消息内容参与对话，轮次开始、工具调用等事件记录运行过程。Inbox 保存已经接纳、尚待领取的输入；它把下一轮输入与下一步输入分开保存，由驱动在对应时点领取。",
+    "explanation_paragraph": "Session 维护持续交互的身份与事件日志。日志按发生顺序记录消息、轮次边界和工具调用等事件。消息承载对话内容，过程事件描述任务的执行状态；后续模型请求使用从日志派生的消息历史。Inbox 保存已接纳、尚待领取的输入，分别维护下一轮和下一步的消息队列，由驱动在对应边界领取。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -92,7 +92,7 @@
     "explanation_chapter": 1,
     "file": "book/01.md",
     "line": 21,
-    "explanation_paragraph": "对照短源码还会用到几个基础词：函数封装一组可调用步骤，变量给值取名，对象把相关字段放在一起，属性是对象的一项字段，返回值是函数交给调用者的结果，类型说明值应有什么形状。第 2 章会用真实写法展开它们。",
+    "explanation_paragraph": "源码讲解涉及以下基础概念：函数封装可调用的步骤，变量绑定值，对象组织相关属性，返回值是函数向调用方提供的结果，类型描述值的结构与约束。第 2 章结合项目中的实际写法逐项解释。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -100,7 +100,7 @@
     "explanation_chapter": 1,
     "file": "book/01.md",
     "line": 21,
-    "explanation_paragraph": "对照短源码还会用到几个基础词：函数封装一组可调用步骤，变量给值取名，对象把相关字段放在一起，属性是对象的一项字段，返回值是函数交给调用者的结果，类型说明值应有什么形状。第 2 章会用真实写法展开它们。",
+    "explanation_paragraph": "源码讲解涉及以下基础概念：函数封装可调用的步骤，变量绑定值，对象组织相关属性，返回值是函数向调用方提供的结果，类型描述值的结构与约束。第 2 章结合项目中的实际写法逐项解释。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -108,7 +108,7 @@
     "explanation_chapter": 1,
     "file": "book/01.md",
     "line": 21,
-    "explanation_paragraph": "对照短源码还会用到几个基础词：函数封装一组可调用步骤，变量给值取名，对象把相关字段放在一起，属性是对象的一项字段，返回值是函数交给调用者的结果，类型说明值应有什么形状。第 2 章会用真实写法展开它们。",
+    "explanation_paragraph": "源码讲解涉及以下基础概念：函数封装可调用的步骤，变量绑定值，对象组织相关属性，返回值是函数向调用方提供的结果，类型描述值的结构与约束。第 2 章结合项目中的实际写法逐项解释。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -116,7 +116,7 @@
     "explanation_chapter": 1,
     "file": "book/01.md",
     "line": 21,
-    "explanation_paragraph": "对照短源码还会用到几个基础词：函数封装一组可调用步骤，变量给值取名，对象把相关字段放在一起，属性是对象的一项字段，返回值是函数交给调用者的结果，类型说明值应有什么形状。第 2 章会用真实写法展开它们。",
+    "explanation_paragraph": "源码讲解涉及以下基础概念：函数封装可调用的步骤，变量绑定值，对象组织相关属性，返回值是函数向调用方提供的结果，类型描述值的结构与约束。第 2 章结合项目中的实际写法逐项解释。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -124,7 +124,7 @@
     "explanation_chapter": 1,
     "file": "book/01.md",
     "line": 21,
-    "explanation_paragraph": "对照短源码还会用到几个基础词：函数封装一组可调用步骤，变量给值取名，对象把相关字段放在一起，属性是对象的一项字段，返回值是函数交给调用者的结果，类型说明值应有什么形状。第 2 章会用真实写法展开它们。",
+    "explanation_paragraph": "源码讲解涉及以下基础概念：函数封装可调用的步骤，变量绑定值，对象组织相关属性，返回值是函数向调用方提供的结果，类型描述值的结构与约束。第 2 章结合项目中的实际写法逐项解释。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -132,7 +132,7 @@
     "explanation_chapter": 1,
     "file": "book/01.md",
     "line": 21,
-    "explanation_paragraph": "对照短源码还会用到几个基础词：函数封装一组可调用步骤，变量给值取名，对象把相关字段放在一起，属性是对象的一项字段，返回值是函数交给调用者的结果，类型说明值应有什么形状。第 2 章会用真实写法展开它们。",
+    "explanation_paragraph": "源码讲解涉及以下基础概念：函数封装可调用的步骤，变量绑定值，对象组织相关属性，返回值是函数向调用方提供的结果，类型描述值的结构与约束。第 2 章结合项目中的实际写法逐项解释。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -140,7 +140,7 @@
     "explanation_chapter": 1,
     "file": "book/01.md",
     "line": 13,
-    "explanation_paragraph": "请求是向另一方提出的操作要求，例如“为这个 Session 接纳一段文字”。请求标识用来识别同一次提交，防止重复排队。客户端发起请求并接收结果，例如网页界面；Host 提供并处理项目能力。入口先返回接纳回执，后台任务随后继续运行。",
+    "explanation_paragraph": "请求指定调用方希望服务执行的操作，例如向某个 Session 提交文本。请求标识用于识别重复提交，避免同一输入重复排队。网页等客户端负责发起请求和接收结果，Host 提供项目的服务接口。提交入口返回接纳回执后，后台任务继续运行。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -148,7 +148,7 @@
     "explanation_chapter": 1,
     "file": "book/01.md",
     "line": 13,
-    "explanation_paragraph": "请求是向另一方提出的操作要求，例如“为这个 Session 接纳一段文字”。请求标识用来识别同一次提交，防止重复排队。客户端发起请求并接收结果，例如网页界面；Host 提供并处理项目能力。入口先返回接纳回执，后台任务随后继续运行。",
+    "explanation_paragraph": "请求指定调用方希望服务执行的操作，例如向某个 Session 提交文本。请求标识用于识别重复提交，避免同一输入重复排队。网页等客户端负责发起请求和接收结果，Host 提供项目的服务接口。提交入口返回接纳回执后，后台任务继续运行。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -156,7 +156,7 @@
     "explanation_chapter": 1,
     "file": "book/01.md",
     "line": 15,
-    "explanation_paragraph": "附件是随文字一同提交的文件或图像等材料；只有文字时不需要附件。后文会解释附件如何进入请求。",
+    "explanation_paragraph": "附件是随消息提交的文件、图像等材料。纯文本请求可以省略附件；附件的处理与传输流程将在后续章节展开。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -164,7 +164,7 @@
     "explanation_chapter": 2,
     "file": "book/02.md",
     "line": 7,
-    "explanation_paragraph": "先把程序里的信息和动作拆开。变量是给一项值取的名字，例如 `path` 保存路径文字。字符串是文字值；数字可以表示起始行号；布尔值只有真和假。对象把相关信息放在一起，例如一份读取请求同时保存路径、起始行和行数。属性是对象中的一项信息，`request.content` 表示请求的内容属性。数组按位置保存多项值，例如多行文本；位置通常从 0 开始，文件行号却常从 1 开始，两个口径不能混用。",
+    "explanation_paragraph": "变量是与值绑定的名称，例如 `path` 保存路径字符串。字符串表示文本，数字可以表示行号，布尔值表示真或假。对象组织相关属性，例如读取请求包含路径、起始行和行数，`request.content` 访问请求的内容属性。数组按索引保存一组值。数组索引通常从 0 开始，文件行号通常从 1 开始，窗口计算需要区分这两种编号方式。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -172,7 +172,7 @@
     "explanation_chapter": 2,
     "file": "book/02.md",
     "line": 7,
-    "explanation_paragraph": "先把程序里的信息和动作拆开。变量是给一项值取的名字，例如 `path` 保存路径文字。字符串是文字值；数字可以表示起始行号；布尔值只有真和假。对象把相关信息放在一起，例如一份读取请求同时保存路径、起始行和行数。属性是对象中的一项信息，`request.content` 表示请求的内容属性。数组按位置保存多项值，例如多行文本；位置通常从 0 开始，文件行号却常从 1 开始，两个口径不能混用。",
+    "explanation_paragraph": "变量是与值绑定的名称，例如 `path` 保存路径字符串。字符串表示文本，数字可以表示行号，布尔值表示真或假。对象组织相关属性，例如读取请求包含路径、起始行和行数，`request.content` 访问请求的内容属性。数组按索引保存一组值。数组索引通常从 0 开始，文件行号通常从 1 开始，窗口计算需要区分这两种编号方式。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -180,7 +180,7 @@
     "explanation_chapter": 2,
     "file": "book/02.md",
     "line": 7,
-    "explanation_paragraph": "先把程序里的信息和动作拆开。变量是给一项值取的名字，例如 `path` 保存路径文字。字符串是文字值；数字可以表示起始行号；布尔值只有真和假。对象把相关信息放在一起，例如一份读取请求同时保存路径、起始行和行数。属性是对象中的一项信息，`request.content` 表示请求的内容属性。数组按位置保存多项值，例如多行文本；位置通常从 0 开始，文件行号却常从 1 开始，两个口径不能混用。",
+    "explanation_paragraph": "变量是与值绑定的名称，例如 `path` 保存路径字符串。字符串表示文本，数字可以表示行号，布尔值表示真或假。对象组织相关属性，例如读取请求包含路径、起始行和行数，`request.content` 访问请求的内容属性。数组按索引保存一组值。数组索引通常从 0 开始，文件行号通常从 1 开始，窗口计算需要区分这两种编号方式。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -188,7 +188,7 @@
     "explanation_chapter": 2,
     "file": "book/02.md",
     "line": 9,
-    "explanation_paragraph": "函数把一组步骤包装成可以调用的操作。参数是调用者交给函数的值，返回值是函数返回的值。方法是属于某个对象的函数；`agent.followup(message)` 表示让这个 Agent 的方法处理消息。类描述一类对象的结构和操作，实际创建出来的对象叫实例。接口和类型说明规定数据形状，例如路径应是字符串。文件是否存在，要等文件服务访问目标时检查。",
+    "explanation_paragraph": "函数封装可复用的处理逻辑，通过参数接收输入，通过返回值提供结果。方法是对象上的函数，例如 `agent.followup(message)` 调用 Agent 的消息接纳方法。类定义对象的结构和操作，由类创建的对象称为实例。接口和类型描述数据结构，例如将路径声明为字符串；文件是否存在则由执行时的文件服务检查。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -196,7 +196,7 @@
     "explanation_chapter": 2,
     "file": "book/02.md",
     "line": 9,
-    "explanation_paragraph": "函数把一组步骤包装成可以调用的操作。参数是调用者交给函数的值，返回值是函数返回的值。方法是属于某个对象的函数；`agent.followup(message)` 表示让这个 Agent 的方法处理消息。类描述一类对象的结构和操作，实际创建出来的对象叫实例。接口和类型说明规定数据形状，例如路径应是字符串。文件是否存在，要等文件服务访问目标时检查。",
+    "explanation_paragraph": "函数封装可复用的处理逻辑，通过参数接收输入，通过返回值提供结果。方法是对象上的函数，例如 `agent.followup(message)` 调用 Agent 的消息接纳方法。类定义对象的结构和操作，由类创建的对象称为实例。接口和类型描述数据结构，例如将路径声明为字符串；文件是否存在则由执行时的文件服务检查。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -204,7 +204,7 @@
     "explanation_chapter": 2,
     "file": "book/02.md",
     "line": 9,
-    "explanation_paragraph": "函数把一组步骤包装成可以调用的操作。参数是调用者交给函数的值，返回值是函数返回的值。方法是属于某个对象的函数；`agent.followup(message)` 表示让这个 Agent 的方法处理消息。类描述一类对象的结构和操作，实际创建出来的对象叫实例。接口和类型说明规定数据形状，例如路径应是字符串。文件是否存在，要等文件服务访问目标时检查。",
+    "explanation_paragraph": "函数封装可复用的处理逻辑，通过参数接收输入，通过返回值提供结果。方法是对象上的函数，例如 `agent.followup(message)` 调用 Agent 的消息接纳方法。类定义对象的结构和操作，由类创建的对象称为实例。接口和类型描述数据结构，例如将路径声明为字符串；文件是否存在则由执行时的文件服务检查。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -212,7 +212,7 @@
     "explanation_chapter": 2,
     "file": "book/02.md",
     "line": 9,
-    "explanation_paragraph": "函数把一组步骤包装成可以调用的操作。参数是调用者交给函数的值，返回值是函数返回的值。方法是属于某个对象的函数；`agent.followup(message)` 表示让这个 Agent 的方法处理消息。类描述一类对象的结构和操作，实际创建出来的对象叫实例。接口和类型说明规定数据形状，例如路径应是字符串。文件是否存在，要等文件服务访问目标时检查。",
+    "explanation_paragraph": "函数封装可复用的处理逻辑，通过参数接收输入，通过返回值提供结果。方法是对象上的函数，例如 `agent.followup(message)` 调用 Agent 的消息接纳方法。类定义对象的结构和操作，由类创建的对象称为实例。接口和类型描述数据结构，例如将路径声明为字符串；文件是否存在则由执行时的文件服务检查。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -236,7 +236,7 @@
     "explanation_chapter": 2,
     "file": "book/02.md",
     "line": 13,
-    "explanation_paragraph": "Promise 表示一项异步操作的结果，可以处于等待中、成功或失败状态。`async` 方法返回 Promise，`await` 暂停这个方法的后续部分，等待该结果；其他工作可以继续推进。进程是操作系统管理的一次程序运行，线程是进程内一条执行指令的路径。等待期间，JavaScript 运行时可以执行其他已经就绪的工作。并发是多项工作可以交错推进，并行是同一时刻用多个执行资源处理多项工作；多个操作怎样交错，取决于它们的启动与等待顺序。回调是交给别处、等特定时机再调用的函数，例如收到事件后更新记录。以后看到 `() => ...`，先问谁会在什么时候调用它，而不是把它当成已经执行的结果。",
+    "explanation_paragraph": "Promise 表示异步操作的结果，状态包括等待中、成功和失败。`async` 函数返回 Promise，`await` 暂停当前函数的后续执行，等待该结果；JavaScript 运行时在此期间可以处理其他就绪工作。进程由操作系统管理，线程是进程内的执行路径。并发允许多项工作交错推进，并行使用多个执行资源在同一时刻处理工作。操作能否重叠，取决于启动和等待顺序。回调是供其他代码在约定时机调用的函数，例如事件监听器。阅读 `() => ...` 时，需要定位它的注册位置、调用者和触发条件。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -244,7 +244,7 @@
     "explanation_chapter": 2,
     "file": "book/02.md",
     "line": 13,
-    "explanation_paragraph": "Promise 表示一项异步操作的结果，可以处于等待中、成功或失败状态。`async` 方法返回 Promise，`await` 暂停这个方法的后续部分，等待该结果；其他工作可以继续推进。进程是操作系统管理的一次程序运行，线程是进程内一条执行指令的路径。等待期间，JavaScript 运行时可以执行其他已经就绪的工作。并发是多项工作可以交错推进，并行是同一时刻用多个执行资源处理多项工作；多个操作怎样交错，取决于它们的启动与等待顺序。回调是交给别处、等特定时机再调用的函数，例如收到事件后更新记录。以后看到 `() => ...`，先问谁会在什么时候调用它，而不是把它当成已经执行的结果。",
+    "explanation_paragraph": "Promise 表示异步操作的结果，状态包括等待中、成功和失败。`async` 函数返回 Promise，`await` 暂停当前函数的后续执行，等待该结果；JavaScript 运行时在此期间可以处理其他就绪工作。进程由操作系统管理，线程是进程内的执行路径。并发允许多项工作交错推进，并行使用多个执行资源在同一时刻处理工作。操作能否重叠，取决于启动和等待顺序。回调是供其他代码在约定时机调用的函数，例如事件监听器。阅读 `() => ...` 时，需要定位它的注册位置、调用者和触发条件。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -252,7 +252,7 @@
     "explanation_chapter": 2,
     "file": "book/02.md",
     "line": 13,
-    "explanation_paragraph": "Promise 表示一项异步操作的结果，可以处于等待中、成功或失败状态。`async` 方法返回 Promise，`await` 暂停这个方法的后续部分，等待该结果；其他工作可以继续推进。进程是操作系统管理的一次程序运行，线程是进程内一条执行指令的路径。等待期间，JavaScript 运行时可以执行其他已经就绪的工作。并发是多项工作可以交错推进，并行是同一时刻用多个执行资源处理多项工作；多个操作怎样交错，取决于它们的启动与等待顺序。回调是交给别处、等特定时机再调用的函数，例如收到事件后更新记录。以后看到 `() => ...`，先问谁会在什么时候调用它，而不是把它当成已经执行的结果。",
+    "explanation_paragraph": "Promise 表示异步操作的结果，状态包括等待中、成功和失败。`async` 函数返回 Promise，`await` 暂停当前函数的后续执行，等待该结果；JavaScript 运行时在此期间可以处理其他就绪工作。进程由操作系统管理，线程是进程内的执行路径。并发允许多项工作交错推进，并行使用多个执行资源在同一时刻处理工作。操作能否重叠，取决于启动和等待顺序。回调是供其他代码在约定时机调用的函数，例如事件监听器。阅读 `() => ...` 时，需要定位它的注册位置、调用者和触发条件。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -260,7 +260,7 @@
     "explanation_chapter": 2,
     "file": "book/02.md",
     "line": 13,
-    "explanation_paragraph": "Promise 表示一项异步操作的结果，可以处于等待中、成功或失败状态。`async` 方法返回 Promise，`await` 暂停这个方法的后续部分，等待该结果；其他工作可以继续推进。进程是操作系统管理的一次程序运行，线程是进程内一条执行指令的路径。等待期间，JavaScript 运行时可以执行其他已经就绪的工作。并发是多项工作可以交错推进，并行是同一时刻用多个执行资源处理多项工作；多个操作怎样交错，取决于它们的启动与等待顺序。回调是交给别处、等特定时机再调用的函数，例如收到事件后更新记录。以后看到 `() => ...`，先问谁会在什么时候调用它，而不是把它当成已经执行的结果。",
+    "explanation_paragraph": "Promise 表示异步操作的结果，状态包括等待中、成功和失败。`async` 函数返回 Promise，`await` 暂停当前函数的后续执行，等待该结果；JavaScript 运行时在此期间可以处理其他就绪工作。进程由操作系统管理，线程是进程内的执行路径。并发允许多项工作交错推进，并行使用多个执行资源在同一时刻处理工作。操作能否重叠，取决于启动和等待顺序。回调是供其他代码在约定时机调用的函数，例如事件监听器。阅读 `() => ...` 时，需要定位它的注册位置、调用者和触发条件。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -268,7 +268,7 @@
     "explanation_chapter": 2,
     "file": "book/02.md",
     "line": 13,
-    "explanation_paragraph": "Promise 表示一项异步操作的结果，可以处于等待中、成功或失败状态。`async` 方法返回 Promise，`await` 暂停这个方法的后续部分，等待该结果；其他工作可以继续推进。进程是操作系统管理的一次程序运行，线程是进程内一条执行指令的路径。等待期间，JavaScript 运行时可以执行其他已经就绪的工作。并发是多项工作可以交错推进，并行是同一时刻用多个执行资源处理多项工作；多个操作怎样交错，取决于它们的启动与等待顺序。回调是交给别处、等特定时机再调用的函数，例如收到事件后更新记录。以后看到 `() => ...`，先问谁会在什么时候调用它，而不是把它当成已经执行的结果。",
+    "explanation_paragraph": "Promise 表示异步操作的结果，状态包括等待中、成功和失败。`async` 函数返回 Promise，`await` 暂停当前函数的后续执行，等待该结果；JavaScript 运行时在此期间可以处理其他就绪工作。进程由操作系统管理，线程是进程内的执行路径。并发允许多项工作交错推进，并行使用多个执行资源在同一时刻处理工作。操作能否重叠，取决于启动和等待顺序。回调是供其他代码在约定时机调用的函数，例如事件监听器。阅读 `() => ...` 时，需要定位它的注册位置、调用者和触发条件。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -276,7 +276,7 @@
     "explanation_chapter": 2,
     "file": "book/02.md",
     "line": 13,
-    "explanation_paragraph": "Promise 表示一项异步操作的结果，可以处于等待中、成功或失败状态。`async` 方法返回 Promise，`await` 暂停这个方法的后续部分，等待该结果；其他工作可以继续推进。进程是操作系统管理的一次程序运行，线程是进程内一条执行指令的路径。等待期间，JavaScript 运行时可以执行其他已经就绪的工作。并发是多项工作可以交错推进，并行是同一时刻用多个执行资源处理多项工作；多个操作怎样交错，取决于它们的启动与等待顺序。回调是交给别处、等特定时机再调用的函数，例如收到事件后更新记录。以后看到 `() => ...`，先问谁会在什么时候调用它，而不是把它当成已经执行的结果。",
+    "explanation_paragraph": "Promise 表示异步操作的结果，状态包括等待中、成功和失败。`async` 函数返回 Promise，`await` 暂停当前函数的后续执行，等待该结果；JavaScript 运行时在此期间可以处理其他就绪工作。进程由操作系统管理，线程是进程内的执行路径。并发允许多项工作交错推进，并行使用多个执行资源在同一时刻处理工作。操作能否重叠，取决于启动和等待顺序。回调是供其他代码在约定时机调用的函数，例如事件监听器。阅读 `() => ...` 时，需要定位它的注册位置、调用者和触发条件。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -284,7 +284,7 @@
     "explanation_chapter": 2,
     "file": "book/02.md",
     "line": 13,
-    "explanation_paragraph": "Promise 表示一项异步操作的结果，可以处于等待中、成功或失败状态。`async` 方法返回 Promise，`await` 暂停这个方法的后续部分，等待该结果；其他工作可以继续推进。进程是操作系统管理的一次程序运行，线程是进程内一条执行指令的路径。等待期间，JavaScript 运行时可以执行其他已经就绪的工作。并发是多项工作可以交错推进，并行是同一时刻用多个执行资源处理多项工作；多个操作怎样交错，取决于它们的启动与等待顺序。回调是交给别处、等特定时机再调用的函数，例如收到事件后更新记录。以后看到 `() => ...`，先问谁会在什么时候调用它，而不是把它当成已经执行的结果。",
+    "explanation_paragraph": "Promise 表示异步操作的结果，状态包括等待中、成功和失败。`async` 函数返回 Promise，`await` 暂停当前函数的后续执行，等待该结果；JavaScript 运行时在此期间可以处理其他就绪工作。进程由操作系统管理，线程是进程内的执行路径。并发允许多项工作交错推进，并行使用多个执行资源在同一时刻处理工作。操作能否重叠，取决于启动和等待顺序。回调是供其他代码在约定时机调用的函数，例如事件监听器。阅读 `() => ...` 时，需要定位它的注册位置、调用者和触发条件。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -292,7 +292,7 @@
     "explanation_chapter": 2,
     "file": "book/02.md",
     "line": 13,
-    "explanation_paragraph": "Promise 表示一项异步操作的结果，可以处于等待中、成功或失败状态。`async` 方法返回 Promise，`await` 暂停这个方法的后续部分，等待该结果；其他工作可以继续推进。进程是操作系统管理的一次程序运行，线程是进程内一条执行指令的路径。等待期间，JavaScript 运行时可以执行其他已经就绪的工作。并发是多项工作可以交错推进，并行是同一时刻用多个执行资源处理多项工作；多个操作怎样交错，取决于它们的启动与等待顺序。回调是交给别处、等特定时机再调用的函数，例如收到事件后更新记录。以后看到 `() => ...`，先问谁会在什么时候调用它，而不是把它当成已经执行的结果。",
+    "explanation_paragraph": "Promise 表示异步操作的结果，状态包括等待中、成功和失败。`async` 函数返回 Promise，`await` 暂停当前函数的后续执行，等待该结果；JavaScript 运行时在此期间可以处理其他就绪工作。进程由操作系统管理，线程是进程内的执行路径。并发允许多项工作交错推进，并行使用多个执行资源在同一时刻处理工作。操作能否重叠，取决于启动和等待顺序。回调是供其他代码在约定时机调用的函数，例如事件监听器。阅读 `() => ...` 时，需要定位它的注册位置、调用者和触发条件。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -300,7 +300,7 @@
     "explanation_chapter": 2,
     "file": "book/02.md",
     "line": 15,
-    "explanation_paragraph": "JavaScript 是运行这些步骤的语言；TypeScript 的类型检查帮助在执行前发现写法与数据形状的问题。程序真正运行时，输入是否合法、资源是否可用仍要由实际代码检查。运行时的事件循环会处理已准备的工作并恢复后续执行；等待外部读取时，当前方法暂停，其他已准备工作仍可推进。",
+    "explanation_paragraph": "JavaScript 提供执行语义，TypeScript 在其基础上增加静态类型检查，用于发现数据结构和调用方式中的问题。输入合法性、文件权限与资源可用性由运行时代码检查。等待外部 I/O 时，事件循环继续处理就绪任务，结果到达后恢复相应的异步函数。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -324,7 +324,7 @@
     "explanation_chapter": 2,
     "file": "book/02.md",
     "line": 13,
-    "explanation_paragraph": "Promise 表示一项异步操作的结果，可以处于等待中、成功或失败状态。`async` 方法返回 Promise，`await` 暂停这个方法的后续部分，等待该结果；其他工作可以继续推进。进程是操作系统管理的一次程序运行，线程是进程内一条执行指令的路径。等待期间，JavaScript 运行时可以执行其他已经就绪的工作。并发是多项工作可以交错推进，并行是同一时刻用多个执行资源处理多项工作；多个操作怎样交错，取决于它们的启动与等待顺序。回调是交给别处、等特定时机再调用的函数，例如收到事件后更新记录。以后看到 `() => ...`，先问谁会在什么时候调用它，而不是把它当成已经执行的结果。",
+    "explanation_paragraph": "Promise 表示异步操作的结果，状态包括等待中、成功和失败。`async` 函数返回 Promise，`await` 暂停当前函数的后续执行，等待该结果；JavaScript 运行时在此期间可以处理其他就绪工作。进程由操作系统管理，线程是进程内的执行路径。并发允许多项工作交错推进，并行使用多个执行资源在同一时刻处理工作。操作能否重叠，取决于启动和等待顺序。回调是供其他代码在约定时机调用的函数，例如事件监听器。阅读 `() => ...` 时，需要定位它的注册位置、调用者和触发条件。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -332,7 +332,7 @@
     "explanation_chapter": 3,
     "file": "book/03.md",
     "line": 7,
-    "explanation_paragraph": "轮次（turn）是驱动围绕一批输入推进的一段过程；步骤（step）是轮次里的一个推进单元；尝试（attempt）是该步骤中一次模型请求的执行。读取 README 后继续总结，可以是同一轮次的两个步骤。第一次请求失败、恢复策略允许再请求，则是同一步骤中的另一次尝试，而不是再收到一次用户任务。",
+    "explanation_paragraph": "轮次（turn）是驱动围绕一批输入推进的过程，步骤（step）是其中的执行单元，尝试（attempt）对应步骤内的一次模型请求。读取 README 和根据读取结果生成总结，可以构成同一轮次的两个步骤。请求失败后若恢复策略允许重试，新的请求仍属于原步骤，attempt 增加，turn 和 step 保持不变。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -340,7 +340,7 @@
     "explanation_chapter": 3,
     "file": "book/03.md",
     "line": 7,
-    "explanation_paragraph": "轮次（turn）是驱动围绕一批输入推进的一段过程；步骤（step）是轮次里的一个推进单元；尝试（attempt）是该步骤中一次模型请求的执行。读取 README 后继续总结，可以是同一轮次的两个步骤。第一次请求失败、恢复策略允许再请求，则是同一步骤中的另一次尝试，而不是再收到一次用户任务。",
+    "explanation_paragraph": "轮次（turn）是驱动围绕一批输入推进的过程，步骤（step）是其中的执行单元，尝试（attempt）对应步骤内的一次模型请求。读取 README 和根据读取结果生成总结，可以构成同一轮次的两个步骤。请求失败后若恢复策略允许重试，新的请求仍属于原步骤，attempt 增加，turn 和 step 保持不变。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -348,7 +348,7 @@
     "explanation_chapter": 3,
     "file": "book/03.md",
     "line": 7,
-    "explanation_paragraph": "轮次（turn）是驱动围绕一批输入推进的一段过程；步骤（step）是轮次里的一个推进单元；尝试（attempt）是该步骤中一次模型请求的执行。读取 README 后继续总结，可以是同一轮次的两个步骤。第一次请求失败、恢复策略允许再请求，则是同一步骤中的另一次尝试，而不是再收到一次用户任务。",
+    "explanation_paragraph": "轮次（turn）是驱动围绕一批输入推进的过程，步骤（step）是其中的执行单元，尝试（attempt）对应步骤内的一次模型请求。读取 README 和根据读取结果生成总结，可以构成同一轮次的两个步骤。请求失败后若恢复策略允许重试，新的请求仍属于原步骤，attempt 增加，turn 和 step 保持不变。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -356,7 +356,7 @@
     "explanation_chapter": 3,
     "file": "book/03.md",
     "line": 9,
-    "explanation_paragraph": "状态是某个时刻保存的信息，例如待处理消息有哪些、当前轮次编号是多少。状态转换说明一件事发生后这些信息怎样改变。驱动是负责持续推进转换的程序。取消信号是可被执行代码检查的停止请求；接到信号后，执行代码停止后续工作，并等待已经启动的操作收尾。",
+    "explanation_paragraph": "状态描述系统在某个时刻保存的信息，例如待处理消息、轮次编号和驱动阶段。状态转换规定事件发生后这些信息如何更新，驱动负责调度转换。取消信号向执行代码传递停止请求；支持取消的路径检查信号、停止后续工作，并处理已启动操作的收尾。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -364,7 +364,7 @@
     "explanation_chapter": 3,
     "file": "book/03.md",
     "line": 9,
-    "explanation_paragraph": "状态是某个时刻保存的信息，例如待处理消息有哪些、当前轮次编号是多少。状态转换说明一件事发生后这些信息怎样改变。驱动是负责持续推进转换的程序。取消信号是可被执行代码检查的停止请求；接到信号后，执行代码停止后续工作，并等待已经启动的操作收尾。",
+    "explanation_paragraph": "状态描述系统在某个时刻保存的信息，例如待处理消息、轮次编号和驱动阶段。状态转换规定事件发生后这些信息如何更新，驱动负责调度转换。取消信号向执行代码传递停止请求；支持取消的路径检查信号、停止后续工作，并处理已启动操作的收尾。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -372,7 +372,7 @@
     "explanation_chapter": 3,
     "file": "book/03.md",
     "line": 9,
-    "explanation_paragraph": "状态是某个时刻保存的信息，例如待处理消息有哪些、当前轮次编号是多少。状态转换说明一件事发生后这些信息怎样改变。驱动是负责持续推进转换的程序。取消信号是可被执行代码检查的停止请求；接到信号后，执行代码停止后续工作，并等待已经启动的操作收尾。",
+    "explanation_paragraph": "状态描述系统在某个时刻保存的信息，例如待处理消息、轮次编号和驱动阶段。状态转换规定事件发生后这些信息如何更新，驱动负责调度转换。取消信号向执行代码传递停止请求；支持取消的路径检查信号、停止后续工作，并处理已启动操作的收尾。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -380,7 +380,7 @@
     "explanation_chapter": 3,
     "file": "book/03.md",
     "line": 9,
-    "explanation_paragraph": "状态是某个时刻保存的信息，例如待处理消息有哪些、当前轮次编号是多少。状态转换说明一件事发生后这些信息怎样改变。驱动是负责持续推进转换的程序。取消信号是可被执行代码检查的停止请求；接到信号后，执行代码停止后续工作，并等待已经启动的操作收尾。",
+    "explanation_paragraph": "状态描述系统在某个时刻保存的信息，例如待处理消息、轮次编号和驱动阶段。状态转换规定事件发生后这些信息如何更新，驱动负责调度转换。取消信号向执行代码传递停止请求；支持取消的路径检查信号、停止后续工作，并处理已启动操作的收尾。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -404,7 +404,7 @@
     "explanation_chapter": 4,
     "file": "book/04.md",
     "line": 7,
-    "explanation_paragraph": "文件路径指出要读哪份文件；当前工作目录是解析相对路径的起点。`README.md` 相对于哪个目录，必须由 Session 和所选文件后端决定。后端是实现统一接口的具体实现：接口规定“能够读文本”，后端决定从本机、远端或其他环境怎样读取。",
+    "explanation_paragraph": "文件路径标识读取目标，当前工作目录是相对路径的解析基准。Session 与所选文件 Provider 共同确定 `README.md` 对应的实际位置。后端实现统一文件接口：接口规定读取操作及返回形式，具体后端负责本机、远端等环境中的路径解析和文件访问。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -412,7 +412,7 @@
     "explanation_chapter": 4,
     "file": "book/04.md",
     "line": 7,
-    "explanation_paragraph": "文件路径指出要读哪份文件；当前工作目录是解析相对路径的起点。`README.md` 相对于哪个目录，必须由 Session 和所选文件后端决定。后端是实现统一接口的具体实现：接口规定“能够读文本”，后端决定从本机、远端或其他环境怎样读取。",
+    "explanation_paragraph": "文件路径标识读取目标，当前工作目录是相对路径的解析基准。Session 与所选文件 Provider 共同确定 `README.md` 对应的实际位置。后端实现统一文件接口：接口规定读取操作及返回形式，具体后端负责本机、远端等环境中的路径解析和文件访问。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -420,7 +420,7 @@
     "explanation_chapter": 4,
     "file": "book/04.md",
     "line": 7,
-    "explanation_paragraph": "文件路径指出要读哪份文件；当前工作目录是解析相对路径的起点。`README.md` 相对于哪个目录，必须由 Session 和所选文件后端决定。后端是实现统一接口的具体实现：接口规定“能够读文本”，后端决定从本机、远端或其他环境怎样读取。",
+    "explanation_paragraph": "文件路径标识读取目标，当前工作目录是相对路径的解析基准。Session 与所选文件 Provider 共同确定 `README.md` 对应的实际位置。后端实现统一文件接口：接口规定读取操作及返回形式，具体后端负责本机、远端等环境中的路径解析和文件访问。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -428,7 +428,7 @@
     "explanation_chapter": 4,
     "file": "book/04.md",
     "line": 9,
-    "explanation_paragraph": "工具参数契约描述可接受的字段与值。解析把外部写法转成内部输入，并补齐默认值、拒绝不合法值。未提供的参数采用默认值；明确提供的值接受合法性检查。描述字段与类型等形状规则的定义称为 schema，例如路径应是文字、行号应是数字；实际解析还要检查值是否符合规则。读取窗口返回指定行范围，并携带总行数和截断信息。",
+    "explanation_paragraph": "工具参数契约规定可接受的字段、类型和值。schema 描述字段结构，例如字符串路径和数字行号；解析逻辑进一步检查取值、补齐缺省参数，并转换成执行体使用的内部输入。读取窗口保存本次选定的文本行，同时返回总行数与截断信息，供模型判断是否需要续读。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -436,7 +436,7 @@
     "explanation_chapter": 4,
     "file": "book/04.md",
     "line": 9,
-    "explanation_paragraph": "工具参数契约描述可接受的字段与值。解析把外部写法转成内部输入，并补齐默认值、拒绝不合法值。未提供的参数采用默认值；明确提供的值接受合法性检查。描述字段与类型等形状规则的定义称为 schema，例如路径应是文字、行号应是数字；实际解析还要检查值是否符合规则。读取窗口返回指定行范围，并携带总行数和截断信息。",
+    "explanation_paragraph": "工具参数契约规定可接受的字段、类型和值。schema 描述字段结构，例如字符串路径和数字行号；解析逻辑进一步检查取值、补齐缺省参数，并转换成执行体使用的内部输入。读取窗口保存本次选定的文本行，同时返回总行数与截断信息，供模型判断是否需要续读。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -460,7 +460,7 @@
     "explanation_chapter": 4,
     "file": "book/04.md",
     "line": 11,
-    "explanation_paragraph": "流式读取把文本分批交给处理者，避免先把整个大文件放进内存。它与模型逐段生成回答是不同对象上的流式处理。范围上限可以限制行数、单行长度和输出字节；结果需要如实表达保留了什么。输出结构、模型使用的文字和界面展示资料还会在第 18 章分别讨论。",
+    "explanation_paragraph": "流式文件读取按批次向窗口构造器提供文本，避免在内存中保存整个大文件。模型流式响应则按批次返回生成内容，两者分别作用于文件输入和模型输出。读取结果受行数、单行长度和输出字节上限约束，并明确标示实际保留范围。第 18 章进一步说明结构化结果如何生成模型文本与界面元数据。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -468,7 +468,7 @@
     "explanation_chapter": 1,
     "file": "book/01.md",
     "line": 11,
-    "explanation_paragraph": "Session 保存一次持续交互的身份和记录。日志是按发生顺序保存的记录集合；Session 事件日志因此能回答“先发生了什么，随后发生了什么”。消息是供对话使用的内容；事件是“某件事已经发生”的记录，例如开始一次工具调用。消息内容参与对话，轮次开始、工具调用等事件记录运行过程。Inbox 保存已经接纳、尚待领取的输入；它把下一轮输入与下一步输入分开保存，由驱动在对应时点领取。",
+    "explanation_paragraph": "Session 维护持续交互的身份与事件日志。日志按发生顺序记录消息、轮次边界和工具调用等事件。消息承载对话内容，过程事件描述任务的执行状态；后续模型请求使用从日志派生的消息历史。Inbox 保存已接纳、尚待领取的输入，分别维护下一轮和下一步的消息队列，由驱动在对应边界领取。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -484,7 +484,7 @@
     "explanation_chapter": 5,
     "file": "book/05.md",
     "line": 9,
-    "explanation_paragraph": "快照是在某个时刻获取的一份数据副本；冻结让已经建立的对象不能再被直接改写。派生是从事实计算另一种数据，例如从消息类事件形成模型历史。投影是按特定问题整理状态，例如当前有哪些待办。快照保留某个时刻的数据，派生生成新的数据形式，投影持续维护某项业务状态。",
+    "explanation_paragraph": "快照保存某个时刻的数据副本，冻结限制对象及其内部数据被修改。派生根据已有事实生成新的数据形式，例如从消息事件形成模型历史；投影按事件规则持续维护可查询状态，例如最新待办列表。三者分别用于保留数据、构造视图和更新业务状态。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -492,7 +492,7 @@
     "explanation_chapter": 5,
     "file": "book/05.md",
     "line": 9,
-    "explanation_paragraph": "快照是在某个时刻获取的一份数据副本；冻结让已经建立的对象不能再被直接改写。派生是从事实计算另一种数据，例如从消息类事件形成模型历史。投影是按特定问题整理状态，例如当前有哪些待办。快照保留某个时刻的数据，派生生成新的数据形式，投影持续维护某项业务状态。",
+    "explanation_paragraph": "快照保存某个时刻的数据副本，冻结限制对象及其内部数据被修改。派生根据已有事实生成新的数据形式，例如从消息事件形成模型历史；投影按事件规则持续维护可查询状态，例如最新待办列表。三者分别用于保留数据、构造视图和更新业务状态。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -500,7 +500,7 @@
     "explanation_chapter": 5,
     "file": "book/05.md",
     "line": 11,
-    "explanation_paragraph": "可序列化表示数据能够按约定转成可保存或传输的形式，例如对象中的字符串与数字可形成 JSON，带任意函数的运行对象则不能直接当作同样的事实数据。冻结是限制对象修改，不是把它写到存储。缓存是保存已经算过的结果供后续复用，例如消息派生结果；原始记录变化后要使相关缓存失效。",
+    "explanation_paragraph": "可序列化数据可以按约定转换成存储或传输格式。例如包含字符串和数字的对象可表示为 JSON，含任意函数的运行对象需要另行处理。冻结保护内存对象，持久化负责写入存储。缓存复用已经计算的派生结果，原始记录变化时使相关缓存失效。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -508,7 +508,7 @@
     "explanation_chapter": 5,
     "file": "book/05.md",
     "line": 11,
-    "explanation_paragraph": "可序列化表示数据能够按约定转成可保存或传输的形式，例如对象中的字符串与数字可形成 JSON，带任意函数的运行对象则不能直接当作同样的事实数据。冻结是限制对象修改，不是把它写到存储。缓存是保存已经算过的结果供后续复用，例如消息派生结果；原始记录变化后要使相关缓存失效。",
+    "explanation_paragraph": "可序列化数据可以按约定转换成存储或传输格式。例如包含字符串和数字的对象可表示为 JSON，含任意函数的运行对象需要另行处理。冻结保护内存对象，持久化负责写入存储。缓存复用已经计算的派生结果，原始记录变化时使相关缓存失效。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -516,7 +516,7 @@
     "explanation_chapter": 5,
     "file": "book/05.md",
     "line": 9,
-    "explanation_paragraph": "快照是在某个时刻获取的一份数据副本；冻结让已经建立的对象不能再被直接改写。派生是从事实计算另一种数据，例如从消息类事件形成模型历史。投影是按特定问题整理状态，例如当前有哪些待办。快照保留某个时刻的数据，派生生成新的数据形式，投影持续维护某项业务状态。",
+    "explanation_paragraph": "快照保存某个时刻的数据副本，冻结限制对象及其内部数据被修改。派生根据已有事实生成新的数据形式，例如从消息事件形成模型历史；投影按事件规则持续维护可查询状态，例如最新待办列表。三者分别用于保留数据、构造视图和更新业务状态。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -524,7 +524,7 @@
     "explanation_chapter": 5,
     "file": "book/05.md",
     "line": 9,
-    "explanation_paragraph": "快照是在某个时刻获取的一份数据副本；冻结让已经建立的对象不能再被直接改写。派生是从事实计算另一种数据，例如从消息类事件形成模型历史。投影是按特定问题整理状态，例如当前有哪些待办。快照保留某个时刻的数据，派生生成新的数据形式，投影持续维护某项业务状态。",
+    "explanation_paragraph": "快照保存某个时刻的数据副本，冻结限制对象及其内部数据被修改。派生根据已有事实生成新的数据形式，例如从消息事件形成模型历史；投影按事件规则持续维护可查询状态，例如最新待办列表。三者分别用于保留数据、构造视图和更新业务状态。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -532,7 +532,7 @@
     "explanation_chapter": 5,
     "file": "book/05.md",
     "line": 13,
-    "explanation_paragraph": "持久化把运行内存中的资料交给能够在退出后保留它的存储。JSON 是表示对象、数组等值的文本格式；JSONL 每行保存一个 JSON 记录。追加事件首先改变 Session 内的历史，并通知订阅者；JSONL Provider 把写入排队。flush 等待存储 Provider 排空缓冲并完成写入。Session.append 更新内存日志，存储 writer.append 才执行持久写入。",
+    "explanation_paragraph": "持久化将内存数据写入程序退出后仍可保留的存储。JSON 是表示对象、数组等值的文本格式，JSONL 按行保存 JSON 记录。Session.append 更新内存日志并通知订阅者，JSONL Provider 将事件加入写入队列，再由 writer.append 完成文件追加。flush 等待存储 Provider 排空缓冲并完成写入。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -540,7 +540,7 @@
     "explanation_chapter": 5,
     "file": "book/05.md",
     "line": 13,
-    "explanation_paragraph": "持久化把运行内存中的资料交给能够在退出后保留它的存储。JSON 是表示对象、数组等值的文本格式；JSONL 每行保存一个 JSON 记录。追加事件首先改变 Session 内的历史，并通知订阅者；JSONL Provider 把写入排队。flush 等待存储 Provider 排空缓冲并完成写入。Session.append 更新内存日志，存储 writer.append 才执行持久写入。",
+    "explanation_paragraph": "持久化将内存数据写入程序退出后仍可保留的存储。JSON 是表示对象、数组等值的文本格式，JSONL 按行保存 JSON 记录。Session.append 更新内存日志并通知订阅者，JSONL Provider 将事件加入写入队列，再由 writer.append 完成文件追加。flush 等待存储 Provider 排空缓冲并完成写入。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -548,7 +548,7 @@
     "explanation_chapter": 5,
     "file": "book/05.md",
     "line": 13,
-    "explanation_paragraph": "持久化把运行内存中的资料交给能够在退出后保留它的存储。JSON 是表示对象、数组等值的文本格式；JSONL 每行保存一个 JSON 记录。追加事件首先改变 Session 内的历史，并通知订阅者；JSONL Provider 把写入排队。flush 等待存储 Provider 排空缓冲并完成写入。Session.append 更新内存日志，存储 writer.append 才执行持久写入。",
+    "explanation_paragraph": "持久化将内存数据写入程序退出后仍可保留的存储。JSON 是表示对象、数组等值的文本格式，JSONL 按行保存 JSON 记录。Session.append 更新内存日志并通知订阅者，JSONL Provider 将事件加入写入队列，再由 writer.append 完成文件追加。flush 等待存储 Provider 排空缓冲并完成写入。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -556,7 +556,7 @@
     "explanation_chapter": 5,
     "file": "book/05.md",
     "line": 13,
-    "explanation_paragraph": "持久化把运行内存中的资料交给能够在退出后保留它的存储。JSON 是表示对象、数组等值的文本格式；JSONL 每行保存一个 JSON 记录。追加事件首先改变 Session 内的历史，并通知订阅者；JSONL Provider 把写入排队。flush 等待存储 Provider 排空缓冲并完成写入。Session.append 更新内存日志，存储 writer.append 才执行持久写入。",
+    "explanation_paragraph": "持久化将内存数据写入程序退出后仍可保留的存储。JSON 是表示对象、数组等值的文本格式，JSONL 按行保存 JSON 记录。Session.append 更新内存日志并通知订阅者，JSONL Provider 将事件加入写入队列，再由 writer.append 完成文件追加。flush 等待存储 Provider 排空缓冲并完成写入。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -572,7 +572,7 @@
     "explanation_chapter": 6,
     "file": "book/06.md",
     "line": 7,
-    "explanation_paragraph": "一次模型请求不是只发送用户刚打出的那句话。上下文指这一次推理能够使用的材料，包括行为规则、当前输入、历史内容和工具说明。提示词是作为材料发送给模型的文字指示；system prompt 是其中用于表达系统规则的部分，用户消息、项目指令和工具结果各自保留来源。",
+    "explanation_paragraph": "一次模型请求的上下文包含系统规则、当前输入、历史消息和工具说明等材料。提示词向模型描述目标与行为要求，system prompt 承载其中的系统规则。用户消息、项目指令和工具结果以各自的来源进入请求，后续组装依据这些来源选择内容和顺序。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -588,7 +588,7 @@
     "explanation_chapter": 6,
     "file": "book/06.md",
     "line": 9,
-    "explanation_paragraph": "注册是先把某项贡献交给管理者保存，组装才是在请求需要时取出可见贡献形成材料。作用域回答贡献对谁可见；同名覆盖回答同一位置有多个版本时选择谁；排序回答不同贡献按什么顺序出现。这三件事分别决定请求内容。",
+    "explanation_paragraph": "注册阶段保存插件提供的提示段或动态上下文，请求组装阶段读取当前可用的贡献。作用域决定贡献对哪些 Agent 可见，同名选择规则决定采用哪个版本，排序规则决定各项内容的排列顺序。三类规则共同确定本次请求的输入。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -596,7 +596,7 @@
     "explanation_chapter": 6,
     "file": "book/06.md",
     "line": 9,
-    "explanation_paragraph": "注册是先把某项贡献交给管理者保存，组装才是在请求需要时取出可见贡献形成材料。作用域回答贡献对谁可见；同名覆盖回答同一位置有多个版本时选择谁；排序回答不同贡献按什么顺序出现。这三件事分别决定请求内容。",
+    "explanation_paragraph": "注册阶段保存插件提供的提示段或动态上下文，请求组装阶段读取当前可用的贡献。作用域决定贡献对哪些 Agent 可见，同名选择规则决定采用哪个版本，排序规则决定各项内容的排列顺序。三类规则共同确定本次请求的输入。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -604,7 +604,7 @@
     "explanation_chapter": 6,
     "file": "book/06.md",
     "line": 13,
-    "explanation_paragraph": "请求冻结为正在执行的请求固定数据副本。新输入、插件变化或压缩仍可影响下一次组装，但不能倒回去改已经提交的这一份请求。这解释了为什么引导消息要等下一步骤生效。",
+    "explanation_paragraph": "请求冻结为当前调用建立独立、稳定的数据副本。新消息、插件变化与压缩影响后续请求的组装；已经提交的请求继续使用原副本。因此运行中到达的引导消息，需要在下一步骤被领取后生效。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -620,7 +620,7 @@
     "explanation_chapter": 7,
     "file": "book/07.md",
     "line": 7,
-    "explanation_paragraph": "Skill 把一项做事方法整理成说明和相关资源，例如“如何分析某类项目”。目录摘要帮助模型知道有哪些方法，正文才说明具体步骤。模型先通过摘要选择 Skill，再获取正文。",
+    "explanation_paragraph": "Skill 是封装任务方法的说明及相关资源，例如技术报告的整理流程。目录摘要公开名称和用途，正文解释操作步骤与要求。模型通过摘要发现候选，在需要使用时读取对应正文。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -628,7 +628,7 @@
     "explanation_chapter": 7,
     "file": "book/07.md",
     "line": 7,
-    "explanation_paragraph": "Skill 把一项做事方法整理成说明和相关资源，例如“如何分析某类项目”。目录摘要帮助模型知道有哪些方法，正文才说明具体步骤。模型先通过摘要选择 Skill，再获取正文。",
+    "explanation_paragraph": "Skill 是封装任务方法的说明及相关资源，例如技术报告的整理流程。目录摘要公开名称和用途，正文解释操作步骤与要求。模型通过摘要发现候选，在需要使用时读取对应正文。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -652,7 +652,7 @@
     "explanation_chapter": 7,
     "file": "book/07.md",
     "line": 11,
-    "explanation_paragraph": "加载是实际获取正文并形成可供模型使用的内容，不是装上一个新的操作系统权限。正文可以指导模型组合已有工具，但工具仍受自己的注册、准入和执行边界约束。用户显式指定 Skill 与模型主动选择 Skill，进入材料的路径也不同。",
+    "explanation_paragraph": "Skill 加载获取正文并将其加入模型上下文。正文指导模型组合已有工具，文件访问、网络调用和发布操作仍由工具注册、准入与执行环境控制。用户显式指定 Skill 和模型调用 skill 工具分别采用对应的读取路径。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -692,7 +692,7 @@
     "explanation_chapter": 8,
     "file": "book/08.md",
     "line": 11,
-    "explanation_paragraph": "压缩不是无损编码：摘要可能遗漏细节。选区要保持工具调用与结果成对，并保留最近一段历史。选择边界时检查配对平衡；仍未关闭的步骤留在选区外，而不是交给摘要补造缺失结果。稳定性检查确认准备摘要期间，相关依赖没有变化到使旧摘要失效。提交是把准备好的结果正式纳入 Session 视图的动作，区别于仍在生成中的草稿。",
+    "explanation_paragraph": "摘要压缩通过较短表示保留关键内容，细节可能被省略。选区检查保持工具调用与结果配对，保留最近历史，并将尚未关闭的步骤留在选区之外。摘要生成期间，稳定性检查确认相关依赖仍与准备依据一致；通过检查后，提交流程把摘要纳入 Session 的当前视图。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -700,7 +700,7 @@
     "explanation_chapter": 8,
     "file": "book/08.md",
     "line": 11,
-    "explanation_paragraph": "压缩不是无损编码：摘要可能遗漏细节。选区要保持工具调用与结果成对，并保留最近一段历史。选择边界时检查配对平衡；仍未关闭的步骤留在选区外，而不是交给摘要补造缺失结果。稳定性检查确认准备摘要期间，相关依赖没有变化到使旧摘要失效。提交是把准备好的结果正式纳入 Session 视图的动作，区别于仍在生成中的草稿。",
+    "explanation_paragraph": "摘要压缩通过较短表示保留关键内容，细节可能被省略。选区检查保持工具调用与结果配对，保留最近历史，并将尚未关闭的步骤留在选区之外。摘要生成期间，稳定性检查确认相关依赖仍与准备依据一致；通过检查后，提交流程把摘要纳入 Session 的当前视图。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -708,7 +708,7 @@
     "explanation_chapter": 8,
     "file": "book/08.md",
     "line": 13,
-    "explanation_paragraph": "另有裁剪和 spill：裁剪移除选定可省略内容，spill 把长内容放到存储并返回取回入口。三者都能缩短当前请求，却改变了不同东西，不能用同一个“压缩掉了”概括。",
+    "explanation_paragraph": "裁剪、compaction 和 spill 分别改变不同的数据表示。裁剪移除可省略内容，compaction 以摘要替换选定历史，spill 将长文本保存到外部存储并提供取回入口。它们都减少当前请求承载的内容，后续恢复原文和访问细节的方式则各不相同。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -716,7 +716,7 @@
     "explanation_chapter": 8,
     "file": "book/08.md",
     "line": 13,
-    "explanation_paragraph": "另有裁剪和 spill：裁剪移除选定可省略内容，spill 把长内容放到存储并返回取回入口。三者都能缩短当前请求，却改变了不同东西，不能用同一个“压缩掉了”概括。",
+    "explanation_paragraph": "裁剪、compaction 和 spill 分别改变不同的数据表示。裁剪移除可省略内容，compaction 以摘要替换选定历史，spill 将长文本保存到外部存储并提供取回入口。它们都减少当前请求承载的内容，后续恢复原文和访问细节的方式则各不相同。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -724,7 +724,7 @@
     "explanation_chapter": 9,
     "file": "book/09.md",
     "line": 7,
-    "explanation_paragraph": "流式响应不是一条立即得到的完整回答，而是一段段到达的数据。一个片段可以是文字、工具调用信息、用量或结束信息，循环持续收集片段，直到收到 finish 或消费抛错。适配器把特定模型服务的交互转成项目统一接口；Provider 指提供这项能力的接入方，Provider 与模型选择决定这次请求实际交给谁。",
+    "explanation_paragraph": "流式响应通过连续到达的数据片段传递模型输出，片段可以包含文本、工具调用信息、用量或结束状态。驱动持续消费片段，直至迭代结束或消费过程抛错，并根据 finish 结算结果。适配器将模型服务的协议转换成统一接口，Provider 与模型路由确定本次请求使用的服务。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -732,7 +732,7 @@
     "explanation_chapter": 9,
     "file": "book/09.md",
     "line": 7,
-    "explanation_paragraph": "流式响应不是一条立即得到的完整回答，而是一段段到达的数据。一个片段可以是文字、工具调用信息、用量或结束信息，循环持续收集片段，直到收到 finish 或消费抛错。适配器把特定模型服务的交互转成项目统一接口；Provider 指提供这项能力的接入方，Provider 与模型选择决定这次请求实际交给谁。",
+    "explanation_paragraph": "流式响应通过连续到达的数据片段传递模型输出，片段可以包含文本、工具调用信息、用量或结束状态。驱动持续消费片段，直至迭代结束或消费过程抛错，并根据 finish 结算结果。适配器将模型服务的协议转换成统一接口，Provider 与模型路由确定本次请求使用的服务。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -796,7 +796,7 @@
     "explanation_chapter": 10,
     "file": "book/10.md",
     "line": 9,
-    "explanation_paragraph": "依赖指一个部件运行前需要另一项能力，例如文件工具需要工具注册表与文件服务。依赖注入让框架提供这些能力，而不是让每个插件自行创建一份。Context 是 Cordis 用于访问当前可用服务与登记资源的对象。注册和资源清理属于插件生命周期：装入、运行、卸载各自有动作。",
+    "explanation_paragraph": "依赖是插件运行所需的外部能力，例如文件工具依赖工具注册表与文件服务。依赖注入由框架向插件提供这些服务。Context 是 Cordis 访问服务、登记资源的接口对象；插件的装入、运行和卸载共同构成生命周期，注册与释放发生在对应阶段。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -804,7 +804,7 @@
     "explanation_chapter": 10,
     "file": "book/10.md",
     "line": 9,
-    "explanation_paragraph": "依赖指一个部件运行前需要另一项能力，例如文件工具需要工具注册表与文件服务。依赖注入让框架提供这些能力，而不是让每个插件自行创建一份。Context 是 Cordis 用于访问当前可用服务与登记资源的对象。注册和资源清理属于插件生命周期：装入、运行、卸载各自有动作。",
+    "explanation_paragraph": "依赖是插件运行所需的外部能力，例如文件工具依赖工具注册表与文件服务。依赖注入由框架向插件提供这些服务。Context 是 Cordis 访问服务、登记资源的接口对象；插件的装入、运行和卸载共同构成生命周期，注册与释放发生在对应阶段。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -812,7 +812,7 @@
     "explanation_chapter": 10,
     "file": "book/10.md",
     "line": 9,
-    "explanation_paragraph": "依赖指一个部件运行前需要另一项能力，例如文件工具需要工具注册表与文件服务。依赖注入让框架提供这些能力，而不是让每个插件自行创建一份。Context 是 Cordis 用于访问当前可用服务与登记资源的对象。注册和资源清理属于插件生命周期：装入、运行、卸载各自有动作。",
+    "explanation_paragraph": "依赖是插件运行所需的外部能力，例如文件工具依赖工具注册表与文件服务。依赖注入由框架向插件提供这些服务。Context 是 Cordis 访问服务、登记资源的接口对象；插件的装入、运行和卸载共同构成生命周期，注册与释放发生在对应阶段。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -820,7 +820,7 @@
     "explanation_chapter": 10,
     "file": "book/10.md",
     "line": 9,
-    "explanation_paragraph": "依赖指一个部件运行前需要另一项能力，例如文件工具需要工具注册表与文件服务。依赖注入让框架提供这些能力，而不是让每个插件自行创建一份。Context 是 Cordis 用于访问当前可用服务与登记资源的对象。注册和资源清理属于插件生命周期：装入、运行、卸载各自有动作。",
+    "explanation_paragraph": "依赖是插件运行所需的外部能力，例如文件工具依赖工具注册表与文件服务。依赖注入由框架向插件提供这些服务。Context 是 Cordis 访问服务、登记资源的接口对象；插件的装入、运行和卸载共同构成生命周期，注册与释放发生在对应阶段。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -836,7 +836,7 @@
     "explanation_chapter": 10,
     "file": "book/10.md",
     "line": 11,
-    "explanation_paragraph": "条目是一项插件及其设置的记录，补丁描述这次怎样修改这些记录。配置合成规则决定补丁怎样作用到原条目。注册表保存名称与实现等对应关系，让使用者在需要时找到能力。",
+    "explanation_paragraph": "配置条目保存插件身份及其设置，补丁指定对条目字段的修改。配置合成按既定顺序应用补丁，生成加载器使用的条目树。注册表维护名称与实现的对应关系，供消费方解析所需能力。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -844,7 +844,7 @@
     "explanation_chapter": 10,
     "file": "book/10.md",
     "line": 11,
-    "explanation_paragraph": "条目是一项插件及其设置的记录，补丁描述这次怎样修改这些记录。配置合成规则决定补丁怎样作用到原条目。注册表保存名称与实现等对应关系，让使用者在需要时找到能力。",
+    "explanation_paragraph": "配置条目保存插件身份及其设置，补丁指定对条目字段的修改。配置合成按既定顺序应用补丁，生成加载器使用的条目树。注册表维护名称与实现的对应关系，供消费方解析所需能力。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -884,7 +884,7 @@
     "explanation_chapter": 11,
     "file": "book/11.md",
     "line": 41,
-    "explanation_paragraph": "策略回答“这次调用应怎样判定”；审批回答“这次需要的确认结果是什么”；执行环境回答“实际动作可以访问什么”。沙箱（限制程序能访问哪些资源的执行机制）或文件系统守卫提供具体范围限制，但它们不是审批弹窗的另一种名字。",
+    "explanation_paragraph": "准入策略为本次调用生成处理决定，审批服务收集确认结果，执行环境约束实际资源访问。沙箱或文件系统守卫在执行层实施范围限制；审批确认与这些资源约束分别配置，并在同一次调用中依次生效。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -892,7 +892,7 @@
     "explanation_chapter": 11,
     "file": "book/11.md",
     "line": 9,
-    "explanation_paragraph": "守卫的单调性是它只能增加拒绝，不能推翻前置拒绝而提高权限。`undefined` 表示该守卫不提出拒绝，不等于拥有批准权限。执行环境限制获准动作实际能访问什么；它是否存在操作系统沙箱，以及限制哪些文件或网络，取决于具体 Provider 和配置。",
+    "explanation_paragraph": "守卫遵循单调约束：它可以增加拒绝，前置拒绝则继续有效。`undefined` 表示当前守卫没有提出额外拒绝，调用仍遵循已有准入决定。执行环境限制实际资源访问，操作系统沙箱及文件、网络控制由具体 Provider 和配置决定。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -900,7 +900,7 @@
     "explanation_chapter": 11,
     "file": "book/11.md",
     "line": 9,
-    "explanation_paragraph": "守卫的单调性是它只能增加拒绝，不能推翻前置拒绝而提高权限。`undefined` 表示该守卫不提出拒绝，不等于拥有批准权限。执行环境限制获准动作实际能访问什么；它是否存在操作系统沙箱，以及限制哪些文件或网络，取决于具体 Provider 和配置。",
+    "explanation_paragraph": "守卫遵循单调约束：它可以增加拒绝，前置拒绝则继续有效。`undefined` 表示当前守卫没有提出额外拒绝，调用仍遵循已有准入决定。执行环境限制实际资源访问，操作系统沙箱及文件、网络控制由具体 Provider 和配置决定。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -916,7 +916,7 @@
     "explanation_chapter": 12,
     "file": "book/12.md",
     "line": 43,
-    "explanation_paragraph": "一个 Memory 服务是否使用 embedding（第 8 章简介：把文字转成可比较相似度的数字向量）、按语义搜索、保存跨 Session 信息，需要看该服务契约。本项目 Memory MCP 指南介绍可选第三方接入，并非默认内置数据库；其中 Reference Memory 按子字符串查询。",
+    "explanation_paragraph": "Memory 服务的存储与查询实现决定是否支持 embedding、语义检索和跨 Session 记忆。embedding 将文本编码为用于相似度比较的向量，第 8 章已有介绍。本项目的 Memory MCP 指南提供可选第三方服务的接入方式，其中 Reference Memory 采用子字符串查询；相关能力通过对应服务配置启用。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -924,7 +924,7 @@
     "explanation_chapter": 12,
     "file": "book/12.md",
     "line": 9,
-    "explanation_paragraph": "标准输入是程序接收外部数据的一条通道，标准输出是程序交出普通结果的通道。stdio 是 standard input/output 的缩写；它用子进程的这两条通道传递协议数据。HTTP（Hypertext Transfer Protocol，超文本传输协议）规定网页与服务请求怎样交换信息，URL 是定位服务的地址。Streamable HTTP 连接服务 URL，可以跨网络，不是本机子进程的另一种写法。连接、能力发现、工具注册和一次调用成功，是四个不同状态。",
+    "explanation_paragraph": "stdio 是 standard input/output 的缩写，通过子进程的标准输入和标准输出传递协议数据。标准输入接收外部数据，标准输出发送程序结果。HTTP（Hypertext Transfer Protocol，超文本传输协议）规定请求与响应的交换方式，URL 标识服务地址。Streamable HTTP 使用服务 URL，支持跨网络连接。连接、能力发现、工具注册和调用完成分别对应不同状态。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -932,7 +932,7 @@
     "explanation_chapter": 12,
     "file": "book/12.md",
     "line": 9,
-    "explanation_paragraph": "标准输入是程序接收外部数据的一条通道，标准输出是程序交出普通结果的通道。stdio 是 standard input/output 的缩写；它用子进程的这两条通道传递协议数据。HTTP（Hypertext Transfer Protocol，超文本传输协议）规定网页与服务请求怎样交换信息，URL 是定位服务的地址。Streamable HTTP 连接服务 URL，可以跨网络，不是本机子进程的另一种写法。连接、能力发现、工具注册和一次调用成功，是四个不同状态。",
+    "explanation_paragraph": "stdio 是 standard input/output 的缩写，通过子进程的标准输入和标准输出传递协议数据。标准输入接收外部数据，标准输出发送程序结果。HTTP（Hypertext Transfer Protocol，超文本传输协议）规定请求与响应的交换方式，URL 标识服务地址。Streamable HTTP 使用服务 URL，支持跨网络连接。连接、能力发现、工具注册和调用完成分别对应不同状态。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -940,7 +940,7 @@
     "explanation_chapter": 12,
     "file": "book/12.md",
     "line": 9,
-    "explanation_paragraph": "标准输入是程序接收外部数据的一条通道，标准输出是程序交出普通结果的通道。stdio 是 standard input/output 的缩写；它用子进程的这两条通道传递协议数据。HTTP（Hypertext Transfer Protocol，超文本传输协议）规定网页与服务请求怎样交换信息，URL 是定位服务的地址。Streamable HTTP 连接服务 URL，可以跨网络，不是本机子进程的另一种写法。连接、能力发现、工具注册和一次调用成功，是四个不同状态。",
+    "explanation_paragraph": "stdio 是 standard input/output 的缩写，通过子进程的标准输入和标准输出传递协议数据。标准输入接收外部数据，标准输出发送程序结果。HTTP（Hypertext Transfer Protocol，超文本传输协议）规定请求与响应的交换方式，URL 标识服务地址。Streamable HTTP 使用服务 URL，支持跨网络连接。连接、能力发现、工具注册和调用完成分别对应不同状态。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -964,7 +964,7 @@
     "explanation_chapter": 13,
     "file": "book/13.md",
     "line": 7,
-    "explanation_paragraph": "Subagent 是父任务启动的另一运行单元，负责一部分工作。父 Agent 交代目标、材料、可用能力和交付要求，子 Agent 完成分工，父 Agent 再检查并整合结果。",
+    "explanation_paragraph": "Subagent 是父 Agent 为子任务启动的独立运行单元。父 Agent 提供目标、上下文、能力配置与交付要求；子 Agent 执行任务并返回结果，父 Agent 负责检查和整合。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -972,7 +972,7 @@
     "explanation_chapter": 13,
     "file": "book/13.md",
     "line": 7,
-    "explanation_paragraph": "Subagent 是父任务启动的另一运行单元，负责一部分工作。父 Agent 交代目标、材料、可用能力和交付要求，子 Agent 完成分工，父 Agent 再检查并整合结果。",
+    "explanation_paragraph": "Subagent 是父 Agent 为子任务启动的独立运行单元。父 Agent 提供目标、上下文、能力配置与交付要求；子 Agent 执行任务并返回结果，父 Agent 负责检查和整合。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -988,7 +988,7 @@
     "explanation_chapter": 13,
     "file": "book/13.md",
     "line": 9,
-    "explanation_paragraph": "fresh 从不继承父历史的材料起点开始，fork 从已有历史的规定前缀开始。进程内 Provider 的 spawn 创建空历史子 Session，fork 截取父 Session 到最近已完成轮次为止的事件。前缀保留开头到该位置的全部记录；当前轮次新增资料由父 Agent 通过启动输入传给子任务。",
+    "explanation_paragraph": "fresh 以不继承父历史的状态创建子任务，fork 使用父历史的指定前缀。进程内 Provider 的 spawn 创建空历史子 Session，fork 截取父 Session 中最近 turn/end 及其之前的事件。当前未完成轮次的新增材料需要通过启动输入显式传入。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -996,7 +996,7 @@
     "explanation_chapter": 13,
     "file": "book/13.md",
     "line": 9,
-    "explanation_paragraph": "fresh 从不继承父历史的材料起点开始，fork 从已有历史的规定前缀开始。进程内 Provider 的 spawn 创建空历史子 Session，fork 截取父 Session 到最近已完成轮次为止的事件。前缀保留开头到该位置的全部记录；当前轮次新增资料由父 Agent 通过启动输入传给子任务。",
+    "explanation_paragraph": "fresh 以不继承父历史的状态创建子任务，fork 使用父历史的指定前缀。进程内 Provider 的 spawn 创建空历史子 Session，fork 截取父 Session 中最近 turn/end 及其之前的事件。当前未完成轮次的新增材料需要通过启动输入显式传入。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1028,7 +1028,7 @@
     "explanation_chapter": 14,
     "file": "book/14.md",
     "line": 41,
-    "explanation_paragraph": "订阅让客户端持续接收事件流。snapshot 给出某个游标位置的状态，游标就是后续事件从哪里继续的序号标记。RPC 传递操作请求，持续流传递之后发生的变化。",
+    "explanation_paragraph": "snapshot 提供游标位置的状态，后续订阅从该位置继续接收事件。游标记录事件消费进度。RPC 负责操作请求与回执，持续流负责传递任务执行期间的状态变化。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1036,7 +1036,7 @@
     "explanation_chapter": 14,
     "file": "book/14.md",
     "line": 9,
-    "explanation_paragraph": "本地回显先显示刚输入的内容，使人知道按钮已经响应。它属于客户端待提交状态，不是宿主已经保存的事实。请求标识用于把提交与后续记录关联起来，避免重试或状态协调时把同一输入显示两次。",
+    "explanation_paragraph": "本地回显在请求完成前显示用户输入，提供即时交互反馈。输入此时保存在客户端 pending 状态，Host 接纳后生成正式记录。requestId 关联这两种表示，使客户端能够协调状态并避免重复显示。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1044,7 +1044,7 @@
     "explanation_chapter": 1,
     "file": "book/01.md",
     "line": 13,
-    "explanation_paragraph": "请求是向另一方提出的操作要求，例如“为这个 Session 接纳一段文字”。请求标识用来识别同一次提交，防止重复排队。客户端发起请求并接收结果，例如网页界面；Host 提供并处理项目能力。入口先返回接纳回执，后台任务随后继续运行。",
+    "explanation_paragraph": "请求指定调用方希望服务执行的操作，例如向某个 Session 提交文本。请求标识用于识别重复提交，避免同一输入重复排队。网页等客户端负责发起请求和接收结果，Host 提供项目的服务接口。提交入口返回接纳回执后，后台任务继续运行。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1076,7 +1076,7 @@
     "explanation_chapter": 14,
     "file": "book/14.md",
     "line": 19,
-    "explanation_paragraph": "这里把已存在的完整状态称为基线，把其后新增的变化称为增量。订阅是登记自己要持续接收哪类变化，缓冲是先保存尚未处理的变化；监听器是收到变化以后调用的处理函数。",
+    "explanation_paragraph": "基线是已知时点的完整状态，增量是此后发生的变化。订阅登记后续事件的接收关系，缓冲保存尚待处理的事件，监听器响应事件通知。快照与增量结合，持续维护客户端的 Session 镜像。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1084,7 +1084,7 @@
     "explanation_chapter": 14,
     "file": "book/14.md",
     "line": 19,
-    "explanation_paragraph": "这里把已存在的完整状态称为基线，把其后新增的变化称为增量。订阅是登记自己要持续接收哪类变化，缓冲是先保存尚未处理的变化；监听器是收到变化以后调用的处理函数。",
+    "explanation_paragraph": "基线是已知时点的完整状态，增量是此后发生的变化。订阅登记后续事件的接收关系，缓冲保存尚待处理的事件，监听器响应事件通知。快照与增量结合，持续维护客户端的 Session 镜像。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1092,7 +1092,7 @@
     "explanation_chapter": 14,
     "file": "book/14.md",
     "line": 19,
-    "explanation_paragraph": "这里把已存在的完整状态称为基线，把其后新增的变化称为增量。订阅是登记自己要持续接收哪类变化，缓冲是先保存尚未处理的变化；监听器是收到变化以后调用的处理函数。",
+    "explanation_paragraph": "基线是已知时点的完整状态，增量是此后发生的变化。订阅登记后续事件的接收关系，缓冲保存尚待处理的事件，监听器响应事件通知。快照与增量结合，持续维护客户端的 Session 镜像。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1100,7 +1100,7 @@
     "explanation_chapter": 14,
     "file": "book/14.md",
     "line": 19,
-    "explanation_paragraph": "这里把已存在的完整状态称为基线，把其后新增的变化称为增量。订阅是登记自己要持续接收哪类变化，缓冲是先保存尚未处理的变化；监听器是收到变化以后调用的处理函数。",
+    "explanation_paragraph": "基线是已知时点的完整状态，增量是此后发生的变化。订阅登记后续事件的接收关系，缓冲保存尚待处理的事件，监听器响应事件通知。快照与增量结合，持续维护客户端的 Session 镜像。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1108,7 +1108,7 @@
     "explanation_chapter": 14,
     "file": "book/14.md",
     "line": 19,
-    "explanation_paragraph": "这里把已存在的完整状态称为基线，把其后新增的变化称为增量。订阅是登记自己要持续接收哪类变化，缓冲是先保存尚未处理的变化；监听器是收到变化以后调用的处理函数。",
+    "explanation_paragraph": "基线是已知时点的完整状态，增量是此后发生的变化。订阅登记后续事件的接收关系，缓冲保存尚待处理的事件，监听器响应事件通知。快照与增量结合，持续维护客户端的 Session 镜像。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1116,7 +1116,7 @@
     "explanation_chapter": 15,
     "file": "book/15.md",
     "line": 7,
-    "explanation_paragraph": "桌面版使用 Electron 承载网页产品。Renderer 是显示页面的运行环境；Main 是管理窗口和桌面生命周期的主进程；preload 是给页面提供有限桌面接口的桥。实际 Harness 服务还有独立 Node Host 子进程，因此理解架构不能停在一个三层图。",
+    "explanation_paragraph": "桌面版通过 Electron 承载 Web 客户端。Renderer 运行页面，Main 管理窗口与应用生命周期，preload 向页面暴露受控桌面接口。Harness 后端服务运行在独立的 Node Host 子进程中，由 Main 管理其启动与退出。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1124,7 +1124,7 @@
     "explanation_chapter": 15,
     "file": "book/15.md",
     "line": 7,
-    "explanation_paragraph": "桌面版使用 Electron 承载网页产品。Renderer 是显示页面的运行环境；Main 是管理窗口和桌面生命周期的主进程；preload 是给页面提供有限桌面接口的桥。实际 Harness 服务还有独立 Node Host 子进程，因此理解架构不能停在一个三层图。",
+    "explanation_paragraph": "桌面版通过 Electron 承载 Web 客户端。Renderer 运行页面，Main 管理窗口与应用生命周期，preload 向页面暴露受控桌面接口。Harness 后端服务运行在独立的 Node Host 子进程中，由 Main 管理其启动与退出。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1132,7 +1132,7 @@
     "explanation_chapter": 15,
     "file": "book/15.md",
     "line": 7,
-    "explanation_paragraph": "桌面版使用 Electron 承载网页产品。Renderer 是显示页面的运行环境；Main 是管理窗口和桌面生命周期的主进程；preload 是给页面提供有限桌面接口的桥。实际 Harness 服务还有独立 Node Host 子进程，因此理解架构不能停在一个三层图。",
+    "explanation_paragraph": "桌面版通过 Electron 承载 Web 客户端。Renderer 运行页面，Main 管理窗口与应用生命周期，preload 向页面暴露受控桌面接口。Harness 后端服务运行在独立的 Node Host 子进程中，由 Main 管理其启动与退出。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1140,7 +1140,7 @@
     "explanation_chapter": 15,
     "file": "book/15.md",
     "line": 7,
-    "explanation_paragraph": "桌面版使用 Electron 承载网页产品。Renderer 是显示页面的运行环境；Main 是管理窗口和桌面生命周期的主进程；preload 是给页面提供有限桌面接口的桥。实际 Harness 服务还有独立 Node Host 子进程，因此理解架构不能停在一个三层图。",
+    "explanation_paragraph": "桌面版通过 Electron 承载 Web 客户端。Renderer 运行页面，Main 管理窗口与应用生命周期，preload 向页面暴露受控桌面接口。Harness 后端服务运行在独立的 Node Host 子进程中，由 Main 管理其启动与退出。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1148,7 +1148,7 @@
     "explanation_chapter": 15,
     "file": "book/15.md",
     "line": 7,
-    "explanation_paragraph": "桌面版使用 Electron 承载网页产品。Renderer 是显示页面的运行环境；Main 是管理窗口和桌面生命周期的主进程；preload 是给页面提供有限桌面接口的桥。实际 Harness 服务还有独立 Node Host 子进程，因此理解架构不能停在一个三层图。",
+    "explanation_paragraph": "桌面版通过 Electron 承载 Web 客户端。Renderer 运行页面，Main 管理窗口与应用生命周期，preload 向页面暴露受控桌面接口。Harness 后端服务运行在独立的 Node Host 子进程中，由 Main 管理其启动与退出。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1156,7 +1156,7 @@
     "explanation_chapter": 15,
     "file": "book/15.md",
     "line": 7,
-    "explanation_paragraph": "桌面版使用 Electron 承载网页产品。Renderer 是显示页面的运行环境；Main 是管理窗口和桌面生命周期的主进程；preload 是给页面提供有限桌面接口的桥。实际 Harness 服务还有独立 Node Host 子进程，因此理解架构不能停在一个三层图。",
+    "explanation_paragraph": "桌面版通过 Electron 承载 Web 客户端。Renderer 运行页面，Main 管理窗口与应用生命周期，preload 向页面暴露受控桌面接口。Harness 后端服务运行在独立的 Node Host 子进程中，由 Main 管理其启动与退出。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1180,7 +1180,7 @@
     "explanation_chapter": 16,
     "file": "book/16.md",
     "line": 7,
-    "explanation_paragraph": "测试把一个判断写成可检查的条件。断言是必须成立的条件，例如“失败模型尝试不执行其中的工具提议”。替身代替一个依赖；回放使用已有响应脚本代替这次模型输出，同时让所选真实循环和工具链继续运行。",
+    "explanation_paragraph": "测试将预期行为表达为可检查的条件。断言规定必须满足的关系，例如失败模型尝试中的工具提议不得进入执行阶段。替身替代选定依赖，回放则用预录制响应替代模型生成，所选的真实循环和工具链继续处理这些响应。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1188,7 +1188,7 @@
     "explanation_chapter": 16,
     "file": "book/16.md",
     "line": 7,
-    "explanation_paragraph": "测试把一个判断写成可检查的条件。断言是必须成立的条件，例如“失败模型尝试不执行其中的工具提议”。替身代替一个依赖；回放使用已有响应脚本代替这次模型输出，同时让所选真实循环和工具链继续运行。",
+    "explanation_paragraph": "测试将预期行为表达为可检查的条件。断言规定必须满足的关系，例如失败模型尝试中的工具提议不得进入执行阶段。替身替代选定依赖，回放则用预录制响应替代模型生成，所选的真实循环和工具链继续处理这些响应。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1196,7 +1196,7 @@
     "explanation_chapter": 16,
     "file": "book/16.md",
     "line": 7,
-    "explanation_paragraph": "测试把一个判断写成可检查的条件。断言是必须成立的条件，例如“失败模型尝试不执行其中的工具提议”。替身代替一个依赖；回放使用已有响应脚本代替这次模型输出，同时让所选真实循环和工具链继续运行。",
+    "explanation_paragraph": "测试将预期行为表达为可检查的条件。断言规定必须满足的关系，例如失败模型尝试中的工具提议不得进入执行阶段。替身替代选定依赖，回放则用预录制响应替代模型生成，所选的真实循环和工具链继续处理这些响应。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1228,7 +1228,7 @@
     "explanation_chapter": 17,
     "file": "book/17.md",
     "line": 7,
-    "explanation_paragraph": "评价先定义任务怎样算正确，再记录完成这些任务花了什么。质量是产物满足规则的程度；时间是选定起点到选定终点的耗时；用量是请求、token 或工具等资源数量；失败记录说明哪些样本没有正常完成以及原因。",
+    "explanation_paragraph": "评价由任务正确性规则和资源统计共同组成。质量描述产物满足要求的程度，耗时记录指定起点至终点的时间，用量统计请求、token 和工具调用等资源，失败记录保存未正常完成样本的原因。先明确任务要求，再按照统一口径采集这些指标。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1236,7 +1236,7 @@
     "explanation_chapter": 17,
     "file": "book/17.md",
     "line": 7,
-    "explanation_paragraph": "评价先定义任务怎样算正确，再记录完成这些任务花了什么。质量是产物满足规则的程度；时间是选定起点到选定终点的耗时；用量是请求、token 或工具等资源数量；失败记录说明哪些样本没有正常完成以及原因。",
+    "explanation_paragraph": "评价由任务正确性规则和资源统计共同组成。质量描述产物满足要求的程度，耗时记录指定起点至终点的时间，用量统计请求、token 和工具调用等资源，失败记录保存未正常完成样本的原因。先明确任务要求，再按照统一口径采集这些指标。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1244,7 +1244,7 @@
     "explanation_chapter": 17,
     "file": "book/17.md",
     "line": 7,
-    "explanation_paragraph": "评价先定义任务怎样算正确，再记录完成这些任务花了什么。质量是产物满足规则的程度；时间是选定起点到选定终点的耗时；用量是请求、token 或工具等资源数量；失败记录说明哪些样本没有正常完成以及原因。",
+    "explanation_paragraph": "评价由任务正确性规则和资源统计共同组成。质量描述产物满足要求的程度，耗时记录指定起点至终点的时间，用量统计请求、token 和工具调用等资源，失败记录保存未正常完成样本的原因。先明确任务要求，再按照统一口径采集这些指标。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1252,7 +1252,7 @@
     "explanation_chapter": 17,
     "file": "book/17.md",
     "line": 7,
-    "explanation_paragraph": "评价先定义任务怎样算正确，再记录完成这些任务花了什么。质量是产物满足规则的程度；时间是选定起点到选定终点的耗时；用量是请求、token 或工具等资源数量；失败记录说明哪些样本没有正常完成以及原因。",
+    "explanation_paragraph": "评价由任务正确性规则和资源统计共同组成。质量描述产物满足要求的程度，耗时记录指定起点至终点的时间，用量统计请求、token 和工具调用等资源，失败记录保存未正常完成样本的原因。先明确任务要求，再按照统一口径采集这些指标。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1260,7 +1260,7 @@
     "explanation_chapter": 17,
     "file": "book/17.md",
     "line": 9,
-    "explanation_paragraph": "计量是记录或估算数量，遥测是把运行信息交给观察系统。投影把事件整理成可读取的用量和上下文状态；导出后端决定资料怎样发送。TokenMeter 负责用量和容量状态，业务评分规则负责判断结果，计费按 Provider 报告和对应计费类别计算。",
+    "explanation_paragraph": "计量记录或估算资源数量，遥测向观测系统输出运行信息。投影从事件维护用量与上下文状态，导出后端负责传输。TokenMeter 管理用量和容量统计，业务规则判断产物是否正确，费用依据 Provider 报告的计费类别与用量计算。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1268,7 +1268,7 @@
     "explanation_chapter": 17,
     "file": "book/17.md",
     "line": 9,
-    "explanation_paragraph": "计量是记录或估算数量，遥测是把运行信息交给观察系统。投影把事件整理成可读取的用量和上下文状态；导出后端决定资料怎样发送。TokenMeter 负责用量和容量状态，业务评分规则负责判断结果，计费按 Provider 报告和对应计费类别计算。",
+    "explanation_paragraph": "计量记录或估算资源数量，遥测向观测系统输出运行信息。投影从事件维护用量与上下文状态，导出后端负责传输。TokenMeter 管理用量和容量统计，业务规则判断产物是否正确，费用依据 Provider 报告的计费类别与用量计算。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1324,7 +1324,7 @@
     "explanation_chapter": 18,
     "file": "book/18.md",
     "line": 9,
-    "explanation_paragraph": "规范值是执行体返回的结构化结果，供程序检查。schema 规定结构，render 将它转成模型内容，presentationMeta 提取可保存的展示资料。模型读取渲染文字，客户端从原始事件与 meta 派生界面组件数据。",
+    "explanation_paragraph": "规范值是执行体返回的结构化数据，供输出契约检查。schema 定义结构，render 生成模型内容，presentationMeta 提取可持久化的展示元数据。模型使用渲染文本，客户端根据原始事件与 meta 派生卡片数据。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1332,7 +1332,7 @@
     "explanation_chapter": 4,
     "file": "book/04.md",
     "line": 9,
-    "explanation_paragraph": "工具参数契约描述可接受的字段与值。解析把外部写法转成内部输入，并补齐默认值、拒绝不合法值。未提供的参数采用默认值；明确提供的值接受合法性检查。描述字段与类型等形状规则的定义称为 schema，例如路径应是文字、行号应是数字；实际解析还要检查值是否符合规则。读取窗口返回指定行范围，并携带总行数和截断信息。",
+    "explanation_paragraph": "工具参数契约规定可接受的字段、类型和值。schema 描述字段结构，例如字符串路径和数字行号；解析逻辑进一步检查取值、补齐缺省参数，并转换成执行体使用的内部输入。读取窗口保存本次选定的文本行，同时返回总行数与截断信息，供模型判断是否需要续读。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1340,7 +1340,7 @@
     "explanation_chapter": 18,
     "file": "book/18.md",
     "line": 9,
-    "explanation_paragraph": "规范值是执行体返回的结构化结果，供程序检查。schema 规定结构，render 将它转成模型内容，presentationMeta 提取可保存的展示资料。模型读取渲染文字，客户端从原始事件与 meta 派生界面组件数据。",
+    "explanation_paragraph": "规范值是执行体返回的结构化数据，供输出契约检查。schema 定义结构，render 生成模型内容，presentationMeta 提取可持久化的展示元数据。模型使用渲染文本，客户端根据原始事件与 meta 派生卡片数据。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1348,7 +1348,7 @@
     "explanation_chapter": 18,
     "file": "book/18.md",
     "line": 9,
-    "explanation_paragraph": "规范值是执行体返回的结构化结果，供程序检查。schema 规定结构，render 将它转成模型内容，presentationMeta 提取可保存的展示资料。模型读取渲染文字，客户端从原始事件与 meta 派生界面组件数据。",
+    "explanation_paragraph": "规范值是执行体返回的结构化数据，供输出契约检查。schema 定义结构，render 生成模型内容，presentationMeta 提取可持久化的展示元数据。模型使用渲染文本，客户端根据原始事件与 meta 派生卡片数据。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1356,7 +1356,7 @@
     "explanation_chapter": 19,
     "file": "book/19.md",
     "line": 11,
-    "explanation_paragraph": "生命周期不仅关心“怎样让它工作”，还要说明“怎样停止并撤去它带来的贡献”。effect 是操作对状态造成的改变，例如增加一个监听器。disposer 是为撤销相应贡献而保存的动作，例如移除刚增加的那个监听器。inverse 在这里指可以撤回该操作的函数，而不是“再运行一次原函数”。",
+    "explanation_paragraph": "组件生命周期同时管理能力启用与贡献撤销。effect 是操作对状态产生的改变，例如注册事件监听器；disposer 是释放该贡献的函数，例如移除本次注册的监听器；inverse 描述对应的逆操作，用于恢复操作前的状态。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1372,7 +1372,7 @@
     "explanation_chapter": 19,
     "file": "book/19.md",
     "line": 11,
-    "explanation_paragraph": "生命周期不仅关心“怎样让它工作”，还要说明“怎样停止并撤去它带来的贡献”。effect 是操作对状态造成的改变，例如增加一个监听器。disposer 是为撤销相应贡献而保存的动作，例如移除刚增加的那个监听器。inverse 在这里指可以撤回该操作的函数，而不是“再运行一次原函数”。",
+    "explanation_paragraph": "组件生命周期同时管理能力启用与贡献撤销。effect 是操作对状态产生的改变，例如注册事件监听器；disposer 是释放该贡献的函数，例如移除本次注册的监听器；inverse 描述对应的逆操作，用于恢复操作前的状态。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1380,7 +1380,7 @@
     "explanation_chapter": 19,
     "file": "book/19.md",
     "line": 11,
-    "explanation_paragraph": "生命周期不仅关心“怎样让它工作”，还要说明“怎样停止并撤去它带来的贡献”。effect 是操作对状态造成的改变，例如增加一个监听器。disposer 是为撤销相应贡献而保存的动作，例如移除刚增加的那个监听器。inverse 在这里指可以撤回该操作的函数，而不是“再运行一次原函数”。",
+    "explanation_paragraph": "组件生命周期同时管理能力启用与贡献撤销。effect 是操作对状态产生的改变，例如注册事件监听器；disposer 是释放该贡献的函数，例如移除本次注册的监听器；inverse 描述对应的逆操作，用于恢复操作前的状态。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1388,7 +1388,7 @@
     "explanation_chapter": 19,
     "file": "book/19.md",
     "line": 23,
-    "explanation_paragraph": "在程序里，disposer（释放函数）通常通过闭包保存所需信息。闭包是一个函数连同它以后仍需使用的外层值：例如清理回调记住本次创建的 timer 句柄，卸载时才能停止这个定时器，而不是误停别人的资源。登记资源时就把获得与释放放在一起，比以后重新寻找“我到底创建过什么”更容易保持对应关系。",
+    "explanation_paragraph": "disposer（释放函数）通过闭包保留资源身份。闭包由函数及其引用的外层变量组成，例如清理函数捕获本次创建的 timer 句柄，卸载时据此停止对应定时器。资源创建时登记释放函数，使资源获取与撤销始终保持明确对应。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1404,7 +1404,7 @@
     "explanation_chapter": 19,
     "file": "book/19.md",
     "line": 33,
-    "explanation_paragraph": "设一个组件先申请资源 A，再用 A 建立资源 B。撤离时先撤 B 再撤 A，才不会在清理 B 时发现基础资源已经消失。LIFO 是 Last-In-First-Out，后进先出；像把纸依次放到一摞的顶部，再从顶部取出。",
+    "explanation_paragraph": "若组件先申请资源 A，再基于 A 创建资源 B，释放时应先清理 B，再释放 A，以保留 B 清理所需的依赖。LIFO（Last-In-First-Out，后进先出）描述这种顺序：后创建的依赖资源先撤销。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1507,35 +1507,35 @@
     "term": "Agent Teams",
     "file": "subsystems.md",
     "line": 255,
-    "explanation_paragraph": "Agent Teams 是本项目的实验性团队协作能力，需显式装配。Lead 指根 Session 中的带队者，teammate 指拥有自己 Session 的成员。roster 是成员名册，task board 是共享任务板，mailbox 是成员之间传递消息的邮箱。共享的是明确记录的团队状态，而不是让所有成员随意读写同一个模型上下文。[S01](evidence-index.md#s01) 对照本节源码。",
+    "explanation_paragraph": "Agent Teams 是需显式装配的实验性团队功能。Lead 是根 Session 中的协调者，teammate 是拥有独立 Session 的成员。roster 保存成员名册，task board 管理共享任务，mailbox 传递成员消息。团队共享这些有明确结构的状态，各成员仍维护自己的模型上下文。[S01](evidence-index.md#s01) 列出本节实现依据。",
     "location_kind": "supplemental_definition"
   },
   {
     "term": "Lead",
     "file": "subsystems.md",
     "line": 255,
-    "explanation_paragraph": "Agent Teams 是本项目的实验性团队协作能力，需显式装配。Lead 指根 Session 中的带队者，teammate 指拥有自己 Session 的成员。roster 是成员名册，task board 是共享任务板，mailbox 是成员之间传递消息的邮箱。共享的是明确记录的团队状态，而不是让所有成员随意读写同一个模型上下文。[S01](evidence-index.md#s01) 对照本节源码。",
+    "explanation_paragraph": "Agent Teams 是需显式装配的实验性团队功能。Lead 是根 Session 中的协调者，teammate 是拥有独立 Session 的成员。roster 保存成员名册，task board 管理共享任务，mailbox 传递成员消息。团队共享这些有明确结构的状态，各成员仍维护自己的模型上下文。[S01](evidence-index.md#s01) 列出本节实现依据。",
     "location_kind": "supplemental_definition"
   },
   {
     "term": "roster",
     "file": "subsystems.md",
     "line": 255,
-    "explanation_paragraph": "Agent Teams 是本项目的实验性团队协作能力，需显式装配。Lead 指根 Session 中的带队者，teammate 指拥有自己 Session 的成员。roster 是成员名册，task board 是共享任务板，mailbox 是成员之间传递消息的邮箱。共享的是明确记录的团队状态，而不是让所有成员随意读写同一个模型上下文。[S01](evidence-index.md#s01) 对照本节源码。",
+    "explanation_paragraph": "Agent Teams 是需显式装配的实验性团队功能。Lead 是根 Session 中的协调者，teammate 是拥有独立 Session 的成员。roster 保存成员名册，task board 管理共享任务，mailbox 传递成员消息。团队共享这些有明确结构的状态，各成员仍维护自己的模型上下文。[S01](evidence-index.md#s01) 列出本节实现依据。",
     "location_kind": "supplemental_definition"
   },
   {
     "term": "task board",
     "file": "subsystems.md",
     "line": 255,
-    "explanation_paragraph": "Agent Teams 是本项目的实验性团队协作能力，需显式装配。Lead 指根 Session 中的带队者，teammate 指拥有自己 Session 的成员。roster 是成员名册，task board 是共享任务板，mailbox 是成员之间传递消息的邮箱。共享的是明确记录的团队状态，而不是让所有成员随意读写同一个模型上下文。[S01](evidence-index.md#s01) 对照本节源码。",
+    "explanation_paragraph": "Agent Teams 是需显式装配的实验性团队功能。Lead 是根 Session 中的协调者，teammate 是拥有独立 Session 的成员。roster 保存成员名册，task board 管理共享任务，mailbox 传递成员消息。团队共享这些有明确结构的状态，各成员仍维护自己的模型上下文。[S01](evidence-index.md#s01) 列出本节实现依据。",
     "location_kind": "supplemental_definition"
   },
   {
     "term": "mailbox",
     "file": "subsystems.md",
     "line": 255,
-    "explanation_paragraph": "Agent Teams 是本项目的实验性团队协作能力，需显式装配。Lead 指根 Session 中的带队者，teammate 指拥有自己 Session 的成员。roster 是成员名册，task board 是共享任务板，mailbox 是成员之间传递消息的邮箱。共享的是明确记录的团队状态，而不是让所有成员随意读写同一个模型上下文。[S01](evidence-index.md#s01) 对照本节源码。",
+    "explanation_paragraph": "Agent Teams 是需显式装配的实验性团队功能。Lead 是根 Session 中的协调者，teammate 是拥有独立 Session 的成员。roster 保存成员名册，task board 管理共享任务，mailbox 传递成员消息。团队共享这些有明确结构的状态，各成员仍维护自己的模型上下文。[S01](evidence-index.md#s01) 列出本节实现依据。",
     "location_kind": "supplemental_definition"
   },
   {
@@ -1570,14 +1570,14 @@
     "term": "SQLite",
     "file": "subsystems.md",
     "line": 39,
-    "explanation_paragraph": "JSON 把对象、数组、文字与数字等数据写成可交换的文本；SQLite 是在本地数据库文件中管理记录的系统。一个“领域”在这里指某类业务数据，例如工作区注册或定时提醒。领域 API 是其他程序操作这类数据的方法入口，不是任意读取底层文件的权限。",
+    "explanation_paragraph": "JSON 以文本表示对象、数组、字符串与数字等数据，SQLite 在数据库文件中管理记录。领域层组织特定业务数据，例如工作区注册或定时提醒，并通过领域 API 公开受控操作；底层文件由存储后端管理。",
     "location_kind": "supplemental_definition"
   },
   {
     "term": "API",
     "file": "subsystems.md",
     "line": 39,
-    "explanation_paragraph": "JSON 把对象、数组、文字与数字等数据写成可交换的文本；SQLite 是在本地数据库文件中管理记录的系统。一个“领域”在这里指某类业务数据，例如工作区注册或定时提醒。领域 API 是其他程序操作这类数据的方法入口，不是任意读取底层文件的权限。",
+    "explanation_paragraph": "JSON 以文本表示对象、数组、字符串与数字等数据，SQLite 在数据库文件中管理记录。领域层组织特定业务数据，例如工作区注册或定时提醒，并通过领域 API 公开受控操作；底层文件由存储后端管理。",
     "location_kind": "supplemental_definition"
   },
   {
@@ -1626,14 +1626,14 @@
     "term": "SSH",
     "file": "subsystems.md",
     "line": 105,
-    "explanation_paragraph": "SSH（Secure Shell）是一种建立受保护远程连接的协议；例如在主机上的框架请求另一台机器读取其工作目录。LSP（Language Server Protocol，语言服务器协议）让编辑与分析程序向语言服务器询问代码的定义、引用等关系。这里的语义是代码中的含义与关联，不只是文字是否相同。",
+    "explanation_paragraph": "SSH（Secure Shell）提供安全的远程通信，用于请求另一台机器执行文件或进程操作。LSP（Language Server Protocol，语言服务器协议）提供代码定义、引用等语义查询；它根据符号关系返回结果，文本匹配则依据字符内容。",
     "location_kind": "supplemental_definition"
   },
   {
     "term": "LSP",
     "file": "subsystems.md",
     "line": 105,
-    "explanation_paragraph": "SSH（Secure Shell）是一种建立受保护远程连接的协议；例如在主机上的框架请求另一台机器读取其工作目录。LSP（Language Server Protocol，语言服务器协议）让编辑与分析程序向语言服务器询问代码的定义、引用等关系。这里的语义是代码中的含义与关联，不只是文字是否相同。",
+    "explanation_paragraph": "SSH（Secure Shell）提供安全的远程通信，用于请求另一台机器执行文件或进程操作。LSP（Language Server Protocol，语言服务器协议）提供代码定义、引用等语义查询；它根据符号关系返回结果，文本匹配则依据字符内容。",
     "location_kind": "supplemental_definition"
   },
   {
@@ -1668,70 +1668,70 @@
     "term": "构建",
     "file": "subsystems.md",
     "line": 125,
-    "explanation_paragraph": "构建是把源文件处理成程序能够加载的产物；发布是把一个已选版本分发出去。npm 是 JavaScript 生态中的包管理工具与分发入口，OS 是 operating system，即操作系统。原生组件使用特定系统与处理器的运行能力，因此 Windows 与另一平台的同名包不一定能互换。",
+    "explanation_paragraph": "构建将源文件转换为可加载产物，发布分发选定版本。npm 是 JavaScript 生态的包管理与分发工具。原生组件依赖操作系统（OS，Operating System）和处理器架构，安装时需要选择与目标平台匹配的包。",
     "location_kind": "supplemental_definition"
   },
   {
     "term": "npm",
     "file": "subsystems.md",
     "line": 125,
-    "explanation_paragraph": "构建是把源文件处理成程序能够加载的产物；发布是把一个已选版本分发出去。npm 是 JavaScript 生态中的包管理工具与分发入口，OS 是 operating system，即操作系统。原生组件使用特定系统与处理器的运行能力，因此 Windows 与另一平台的同名包不一定能互换。",
+    "explanation_paragraph": "构建将源文件转换为可加载产物，发布分发选定版本。npm 是 JavaScript 生态的包管理与分发工具。原生组件依赖操作系统（OS，Operating System）和处理器架构，安装时需要选择与目标平台匹配的包。",
     "location_kind": "supplemental_definition"
   },
   {
     "term": "OS",
     "file": "subsystems.md",
     "line": 125,
-    "explanation_paragraph": "构建是把源文件处理成程序能够加载的产物；发布是把一个已选版本分发出去。npm 是 JavaScript 生态中的包管理工具与分发入口，OS 是 operating system，即操作系统。原生组件使用特定系统与处理器的运行能力，因此 Windows 与另一平台的同名包不一定能互换。",
+    "explanation_paragraph": "构建将源文件转换为可加载产物，发布分发选定版本。npm 是 JavaScript 生态的包管理与分发工具。原生组件依赖操作系统（OS，Operating System）和处理器架构，安装时需要选择与目标平台匹配的包。",
     "location_kind": "supplemental_definition"
   },
   {
     "term": "Client model",
     "file": "subsystems.md",
     "line": 143,
-    "explanation_paragraph": "Client model 是客户端保存的可观察状态对象，UI adapter 是把这些状态接到界面的一层程序，Slots 是界面预留的内容插入位置。比如宿主新增一条消息，客户端镜像更新，适配层让聊天区域重新显示；并不是宿主直接修改浏览器中的每个按钮。",
+    "explanation_paragraph": "Client model 维护可观察的客户端状态，UI adapter 将这些状态映射到界面，Slots 提供功能组件的插入位置。Host 发布消息事件后，客户端更新镜像状态，适配层据此驱动聊天视图重新渲染。",
     "location_kind": "supplemental_definition"
   },
   {
     "term": "UI adapter",
     "file": "subsystems.md",
     "line": 143,
-    "explanation_paragraph": "Client model 是客户端保存的可观察状态对象，UI adapter 是把这些状态接到界面的一层程序，Slots 是界面预留的内容插入位置。比如宿主新增一条消息，客户端镜像更新，适配层让聊天区域重新显示；并不是宿主直接修改浏览器中的每个按钮。",
+    "explanation_paragraph": "Client model 维护可观察的客户端状态，UI adapter 将这些状态映射到界面，Slots 提供功能组件的插入位置。Host 发布消息事件后，客户端更新镜像状态，适配层据此驱动聊天视图重新渲染。",
     "location_kind": "supplemental_definition"
   },
   {
     "term": "Slots",
     "file": "subsystems.md",
     "line": 143,
-    "explanation_paragraph": "Client model 是客户端保存的可观察状态对象，UI adapter 是把这些状态接到界面的一层程序，Slots 是界面预留的内容插入位置。比如宿主新增一条消息，客户端镜像更新，适配层让聊天区域重新显示；并不是宿主直接修改浏览器中的每个按钮。",
+    "explanation_paragraph": "Client model 维护可观察的客户端状态，UI adapter 将这些状态映射到界面，Slots 提供功能组件的插入位置。Host 发布消息事件后，客户端更新镜像状态，适配层据此驱动聊天视图重新渲染。",
     "location_kind": "supplemental_definition"
   },
   {
     "term": "Office",
     "file": "subsystems.md",
     "line": 155,
-    "explanation_paragraph": "文件预览是让人查看文件的产品能力。Office 指文档、表格或演示文件等办公材料，PDF 是保持页面布局的文档格式。转换得到预览页与把文件交给模型，是两条不同的数据路径。",
+    "explanation_paragraph": "文件预览面向用户展示文件内容。Office 文档包括文字、表格和演示材料，PDF 用于保留页面布局。预览转换生成可查看的页面，模型输入链生成可推理的上下文，两条路径分别处理并授权。",
     "location_kind": "supplemental_definition"
   },
   {
     "term": "PDF",
     "file": "subsystems.md",
     "line": 155,
-    "explanation_paragraph": "文件预览是让人查看文件的产品能力。Office 指文档、表格或演示文件等办公材料，PDF 是保持页面布局的文档格式。转换得到预览页与把文件交给模型，是两条不同的数据路径。",
+    "explanation_paragraph": "文件预览面向用户展示文件内容。Office 文档包括文字、表格和演示材料，PDF 用于保留页面布局。预览转换生成可查看的页面，模型输入链生成可推理的上下文，两条路径分别处理并授权。",
     "location_kind": "supplemental_definition"
   },
   {
     "term": "OTel",
     "file": "subsystems.md",
     "line": 183,
-    "explanation_paragraph": "不变式是程序在规定条件下始终满足的关系，例如结果能够关联对应调用。遥测把选定运行信息交给观测系统。OTel 是 OpenTelemetry 的常用简称，提供组织与传输观测数据的机制；span 记录一段操作及其时间关系。业务包决定采集哪些操作，再通过共享通道上报。",
+    "explanation_paragraph": "不变式规定数据或执行过程需要持续满足的关系，例如每项工具结果能够关联对应调用。遥测向观测系统输出运行信息。OTel 是 OpenTelemetry 的简称，提供观测数据的组织与传输机制；span 描述操作耗时及其关联。业务包决定采集内容，再使用共享通道上报。",
     "location_kind": "supplemental_definition"
   },
   {
     "term": "span",
     "file": "subsystems.md",
     "line": 183,
-    "explanation_paragraph": "不变式是程序在规定条件下始终满足的关系，例如结果能够关联对应调用。遥测把选定运行信息交给观测系统。OTel 是 OpenTelemetry 的常用简称，提供组织与传输观测数据的机制；span 记录一段操作及其时间关系。业务包决定采集哪些操作，再通过共享通道上报。",
+    "explanation_paragraph": "不变式规定数据或执行过程需要持续满足的关系，例如每项工具结果能够关联对应调用。遥测向观测系统输出运行信息。OTel 是 OpenTelemetry 的简称，提供观测数据的组织与传输机制；span 描述操作耗时及其关联。业务包决定采集内容，再使用共享通道上报。",
     "location_kind": "supplemental_definition"
   },
   {
@@ -1809,7 +1809,7 @@
     "explanation_chapter": 12,
     "file": "book/12.md",
     "line": 41,
-    "explanation_paragraph": "客户端是发起请求的一方，服务端是提供协议能力的一方；远程调用把参数与结果跨越进程或网络边界。MCP 规定交互方式。RAG 是 Retrieval-Augmented Generation，检索增强生成：先检索与问题有关的材料，再把材料交给模型生成回答。例如先找出相关文档片段，再作总结；它是一种材料组织方法，和通信协议不是同义词。",
+    "explanation_paragraph": "客户端发起请求，服务端提供协议能力，远程调用在进程或网络之间传递参数与结果。MCP 规定这层交互协议。RAG（Retrieval-Augmented Generation，检索增强生成）先检索相关材料，再将材料加入模型上下文，例如检索项目文档后生成总结。协议接入和检索生成分别解决通信与信息组织问题。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1825,7 +1825,7 @@
     "explanation_chapter": 3,
     "file": "book/03.md",
     "line": 49,
-    "explanation_paragraph": "执行器先按模型排列建立计划，给每项保存调用身份、工具名、解析后的参数、所属 Agent 和取消信号。然后查询当前工具的执行模式：允许交错执行的调用可以进入有数量上限的池；需要独占的调用形成屏障，让当前池排空后再处理。池是保存正在执行操作的集合，屏障是在这里要求前面的执行先收尾的边界。",
+    "explanation_paragraph": "执行器按模型给出的顺序建立调用计划，保存调用标识、工具名、已解析参数、Agent 和取消信号。允许并发的调用进入有数量上限的执行池；需要独占的调用设置执行屏障，等待池内任务结束后运行。执行池管理正在执行的调用，屏障约束不同批次的启动顺序。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1833,7 +1833,7 @@
     "explanation_chapter": 3,
     "file": "book/03.md",
     "line": 49,
-    "explanation_paragraph": "执行器先按模型排列建立计划，给每项保存调用身份、工具名、解析后的参数、所属 Agent 和取消信号。然后查询当前工具的执行模式：允许交错执行的调用可以进入有数量上限的池；需要独占的调用形成屏障，让当前池排空后再处理。池是保存正在执行操作的集合，屏障是在这里要求前面的执行先收尾的边界。",
+    "explanation_paragraph": "执行器按模型给出的顺序建立调用计划，保存调用标识、工具名、已解析参数、Agent 和取消信号。允许并发的调用进入有数量上限的执行池；需要独占的调用设置执行屏障，等待池内任务结束后运行。执行池管理正在执行的调用，屏障约束不同批次的启动顺序。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1841,7 +1841,7 @@
     "explanation_chapter": 3,
     "file": "book/03.md",
     "line": 49,
-    "explanation_paragraph": "执行器先按模型排列建立计划，给每项保存调用身份、工具名、解析后的参数、所属 Agent 和取消信号。然后查询当前工具的执行模式：允许交错执行的调用可以进入有数量上限的池；需要独占的调用形成屏障，让当前池排空后再处理。池是保存正在执行操作的集合，屏障是在这里要求前面的执行先收尾的边界。",
+    "explanation_paragraph": "执行器按模型给出的顺序建立调用计划，保存调用标识、工具名、已解析参数、Agent 和取消信号。允许并发的调用进入有数量上限的执行池；需要独占的调用设置执行屏障，等待池内任务结束后运行。执行池管理正在执行的调用，屏障约束不同批次的启动顺序。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1849,7 +1849,7 @@
     "explanation_chapter": 3,
     "file": "book/03.md",
     "line": 53,
-    "explanation_paragraph": "假设 A、B 均允许重叠、数量上限足够，B 较早读完。执行器先把 B 的结果放到自己的结果槽里。槽是按调用位置保存结果的临时位置；B 放在位置 1，A 在位置 0。提交位置仍停在 0，因此不能跳过 A 先把 B 提交到 Session。A 完成后，执行器才依次进行 A、B 的结果后处理，记录各自结果，并把额外上下文交给下一步骤的材料批次。",
+    "explanation_paragraph": "假设 A、B 均允许并发且执行池容量足够，B 先完成。执行器将 B 的结果暂存于索引 1 的结果槽，提交游标仍停在 A 对应的索引 0。A 完成后，执行器按 A、B 的顺序运行结果后处理、追加 Session 结果，并把额外上下文传入下一步骤。结果槽按调用位置暂存完成结果，提交游标保证历史顺序与模型提议顺序一致。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {
@@ -1873,7 +1873,7 @@
     "explanation_chapter": 9,
     "file": "book/09.md",
     "line": 7,
-    "explanation_paragraph": "流式响应不是一条立即得到的完整回答，而是一段段到达的数据。一个片段可以是文字、工具调用信息、用量或结束信息，循环持续收集片段，直到收到 finish 或消费抛错。适配器把特定模型服务的交互转成项目统一接口；Provider 指提供这项能力的接入方，Provider 与模型选择决定这次请求实际交给谁。",
+    "explanation_paragraph": "流式响应通过连续到达的数据片段传递模型输出，片段可以包含文本、工具调用信息、用量或结束状态。驱动持续消费片段，直至迭代结束或消费过程抛错，并根据 finish 结算结果。适配器将模型服务的协议转换成统一接口，Provider 与模型路由确定本次请求使用的服务。",
     "location_kind": "definition_or_mechanism_explanation"
   },
   {

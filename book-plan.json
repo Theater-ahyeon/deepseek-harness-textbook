@@ -6,117 +6,117 @@
   "chapters": [
     {
       "id": "01",
-      "title": "从一句话到一个结果：DeepSeek Harness 究竟做什么",
+      "title": "DeepSeek Harness 的架构与任务流程",
       "file": "book/01.md",
-      "learning_objective": "沿读取 README 的案例，说明谁接纳任务、谁调用模型、谁读取文件、谁保存结果；区分工具提议、接纳回执与任务完成。"
+      "learning_objective": "理解任务接纳、模型调用、工具执行与 Session 记录的分工，区分各阶段的输入和结果。"
     },
     {
       "id": "02",
-      "title": "读懂代码：类型与异步等待",
+      "title": "TypeScript 基础与异步执行",
       "file": "book/02.md",
-      "learning_objective": "认出值、对象、函数和类型的基本写法；解释一次 await 等待的结果，并区分注册回调、调用回调和后台完成。"
+      "learning_objective": "掌握值、对象、函数与类型的常见写法，理解 Promise、await 和回调的执行时机。"
     },
     {
       "id": "03",
-      "title": "循环与消息队列：一轮任务为什么需要多步",
+      "title": "Agent 循环、Inbox 与工具调度",
       "file": "book/03.md",
-      "learning_objective": "追踪一个输入怎样被领取、怎样进入轮次和步骤；比较 followup 与 steer，并解释工具执行与结果提交的顺序。"
+      "learning_objective": "追踪输入从 Inbox 进入 turn、step 和 attempt 的过程，解释并发执行与有序提交。"
     },
     {
       "id": "04",
-      "title": "沿文件读取工具追到底：模型怎样得到材料",
+      "title": "文件读取：参数解析与窗口构造",
       "file": "book/04.md",
-      "learning_objective": "用路径、起始行和行数说明一次文件读取；预测缺失文件、非法参数与范围截断怎样影响获取的材料。"
+      "learning_objective": "理解 read 的参数校验、文件访问和窗口构造，分析缺失文件与输出截断的处理。"
     },
     {
       "id": "05",
-      "title": "Session 与日志：发生过的事怎样保存和还原",
+      "title": "Session 事件日志、投影与持久化",
       "file": "book/05.md",
-      "learning_objective": "说明事件怎样从当前 Session 进入记录和存储；区别 append、flush、重放与派生视图，判断崩溃时哪些事实已有持久证据。"
+      "learning_objective": "追踪事件从内存日志进入存储与派生视图的过程，解释 append、flush 和 Session 恢复。"
     },
     {
       "id": "06",
-      "title": "提示词与项目指令：下一次模型输入怎样形成",
+      "title": "提示词组装与项目指令",
       "file": "book/06.md",
-      "learning_objective": "追踪目录中的指令怎样被发现、组合与加入模型请求；解释指令的适用范围，以及文字规则与执行权限的区别。"
+      "learning_objective": "理解提示贡献、项目指令与历史的组装规则，追踪作用域选择、去重和请求冻结。"
     },
     {
       "id": "07",
-      "title": "Skill 的按需读取：目录可见为什么不等于正文已加载",
+      "title": "Skill 发现与按需加载",
       "file": "book/07.md",
-      "learning_objective": "区分 Skill 目录、Skill 正文与已经执行的动作；说明按需加载怎样增加材料，以及为什么加载 Skill 不等于注册新工具。"
+      "learning_objective": "追踪 Skill 的目录发现、入口检查与正文读取，区分工作方法与工具执行权限。"
     },
     {
       "id": "08",
-      "title": "上下文压缩：让历史变短需要付出什么",
+      "title": "上下文压缩与历史表示",
       "file": "book/08.md",
-      "learning_objective": "说明上下文为何有容量限制，哪些历史可被压缩，哪些事实需要保留；比较摘要、检索、token 估计与真正的语义搜索。"
+      "learning_objective": "理解上下文容量、压缩选区、稳定性检查与提交过程，比较信息保留与请求开销。"
     },
     {
       "id": "09",
-      "title": "流式输出与重试：一次失败怎样留在同一步里",
+      "title": "模型流式响应与请求恢复",
       "file": "book/09.md",
-      "learning_objective": "追踪模型路由、请求准备、流式结果与重试；说明哪些内容能进入后续工具阶段，哪些失败仍需单独处理。"
+      "learning_objective": "追踪模型路由、请求准备和流式消费，解释失败结算、恢复决定与同一步骤内的重试。"
     },
     {
       "id": "10",
-      "title": "插件框架与运行配置：这些部件怎样装成一个应用",
+      "title": "插件装配、运行配置与热重载",
       "file": "book/10.md",
-      "learning_objective": "从配置条目说明插件怎样装配、怎样获取所需服务；区别 profile、条目修改与运行实例，并定位热更新的边界。"
+      "learning_objective": "理解配置条目、profile 与依赖注入，分析插件装配、字段覆盖和热重载。"
     },
     {
       "id": "11",
-      "title": "工具准入与审批：允许执行的决定在哪里发生",
+      "title": "工具准入、审批与执行约束",
       "file": "book/11.md",
-      "learning_objective": "跟踪一个工具请求经过参数检查、准入、审批与执行；区分批准动作和限制执行环境，解释拒绝与取消的不同结果。"
+      "learning_objective": "追踪准入策略、审批、guard、参数校验与执行顺序，区分拒绝、取消和执行错误。"
     },
     {
       "id": "12",
-      "title": "外部服务与能力接入：连接成功不等于拥有知识库",
+      "title": "MCP：外部工具与资源接入",
       "file": "book/12.md",
-      "learning_objective": "比较 stdio 和 HTTP 接入的参与者与步骤；将连接、能力发现、注册、调用、资源读取和记忆分别列出证据。"
+      "learning_objective": "理解 stdio 与 Streamable HTTP 传输，追踪能力发现、注册代次、工具调用与资源读取。"
     },
     {
       "id": "13",
-      "title": "Subagent：拆分任务前先看上下文起点",
+      "title": "Subagent：任务拆分与历史继承",
       "file": "book/13.md",
-      "learning_objective": "说明子 Session 的来源与继承材料，比较 fresh 和 fork；解释子任务完成、团队消息送达与共享文件冲突是不同问题。"
+      "learning_objective": "比较 fresh 与 fork 的历史起点，分析子任务创建、结果汇合及共享工作区协调。"
     },
     {
       "id": "14",
-      "title": "网页端：提交任务与跟随结果是两条链",
+      "title": "Web Client：任务提交与状态同步",
       "file": "book/14.md",
-      "learning_objective": "把宿主事实、客户端镜像和界面状态分开；追踪初次历史与后续事件怎样共同形成可观察的任务进展。"
+      "learning_objective": "理解任务提交与持续跟随，分析 pending 协调、事件序号、快照和状态同步。"
     },
     {
       "id": "15",
-      "title": "桌面端：窗口、页面与宿主服务怎样合作",
+      "title": "桌面架构：Main、Renderer 与 Node Host",
       "file": "book/15.md",
-      "learning_objective": "说明桌面主进程怎样启动与管理独立 Host；区别窗口状态、服务状态和 Session 记录，判断恢复究竟恢复了什么。"
+      "learning_objective": "理解 Main、Renderer 与 Node Host 的职责，追踪页面加载、Host 启动和客户端激活。"
     },
     {
       "id": "16",
-      "title": "测试与回放：复现通过究竟证明了什么",
+      "title": "测试、模型回放与行为验证",
       "file": "book/16.md",
-      "learning_objective": "比较位置回放、工程测试与真实任务评价；解释回放游标怎样消费固定材料，以及它不能证明哪些实际模型效果。"
+      "learning_objective": "理解按位置消费的模型回放，区分调用轨迹检查、请求断言与真实任务评价。"
     },
     {
       "id": "17",
-      "title": "量化评价：同时看质量、时间、用量与失败",
+      "title": "任务评价、TokenMeter 与遥测",
       "file": "book/17.md",
-      "learning_objective": "区别估计 token、Provider 用量和实际计费；为一次任务选择可解释的评价口径，避免把输入变短等同于质量提高。"
+      "learning_objective": "区分 token 估计、Provider 用量和计费口径，联合分析任务质量、耗时与失败。"
     },
     {
       "id": "18",
-      "title": "综合案例：已有文件工具如何接入与呈现",
+      "title": "综合案例：read 工具的接入与呈现",
       "file": "book/18.md",
-      "learning_objective": "把同一个 read 工具从注册追到展示；区分参数、规范结果、模型文字与展示元数据，定位每个契约失败的影响。"
+      "learning_objective": "串联 read 的注册、参数校验、执行、结果渲染和客户端呈现，分析各层失败的影响。"
     },
     {
       "id": "19",
-      "title": "Cordis 与 Spatiotemporal Composability：论文契约怎样落到 Harness",
+      "title": "Cordis 与 Spatiotemporal Composability",
       "file": "book/19.md",
-      "learning_objective": "用资源登记和撤回解释 Cordis 的时空可组合性；把论文前提、作者责任和本版本清理、依赖与作用域实现对应起来。"
+      "learning_objective": "理解可逆 effect、响应式依赖与 Fiber 生命周期，将论文前提与 Cordis 实现逐项对应。"
     }
   ]
 }

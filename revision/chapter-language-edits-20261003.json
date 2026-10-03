@@ -1,0 +1,2926 @@
+{
+  "date": "2026-10-03T05:32:09.660553+00:00",
+  "backup": "E:\\agentcoding\\deepseek-harness-learning\\archive\\before-chapter-language-review-20261003",
+  "reference": "https://bojieli.github.io/ai-agent-book/",
+  "chapters_reviewed": 19,
+  "Gemini_model": "newapi/gemini-3.1-pro-high",
+  "Gemini_tools_enabled": false,
+  "paragraph_or_heading_edits": 252,
+  "gemini_decisions": [
+    {
+      "chapter": "01",
+      "line": 15,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "01",
+      "line": 19,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "01",
+      "line": 21,
+      "decision": "rewritten_by_primary",
+      "flags": [
+        "missing_numbers:2"
+      ]
+    },
+    {
+      "chapter": "01",
+      "line": 39,
+      "decision": "accepted",
+      "flags": []
+    },
+    {
+      "chapter": "01",
+      "line": 51,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "01",
+      "line": 67,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "01",
+      "line": 97,
+      "decision": "rejected_or_original_retained",
+      "flags": [
+        "protected_or_empty_line"
+      ]
+    },
+    {
+      "chapter": "01",
+      "line": 98,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "01",
+      "line": 121,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "01",
+      "line": 123,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "01",
+      "line": 125,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "01",
+      "line": 127,
+      "decision": "rejected_or_original_retained",
+      "flags": []
+    },
+    {
+      "chapter": "01",
+      "line": 129,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "01",
+      "line": 131,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "02",
+      "line": 7,
+      "decision": "rewritten_by_primary",
+      "flags": [
+        "missing_literals:`path`,`request.content`"
+      ]
+    },
+    {
+      "chapter": "02",
+      "line": 13,
+      "decision": "rewritten_by_primary",
+      "flags": [
+        "missing_literals:`async`,`await`,`() => ...`"
+      ]
+    },
+    {
+      "chapter": "02",
+      "line": 46,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "02",
+      "line": 72,
+      "decision": "rewritten_by_primary",
+      "flags": [
+        "missing_literals:`applyReadTool`,`defineTool(...)`,`async execute(...)`"
+      ]
+    },
+    {
+      "chapter": "02",
+      "line": 94,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "03",
+      "line": 7,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "03",
+      "line": 13,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "03",
+      "line": 51,
+      "decision": "accepted",
+      "flags": []
+    },
+    {
+      "chapter": "03",
+      "line": 82,
+      "decision": "rewritten_by_primary",
+      "flags": [
+        "missing_numbers:3"
+      ]
+    },
+    {
+      "chapter": "04",
+      "line": 15,
+      "decision": "accepted",
+      "flags": []
+    },
+    {
+      "chapter": "05",
+      "line": 3,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "05",
+      "line": 11,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "05",
+      "line": 49,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "05",
+      "line": 67,
+      "decision": "accepted",
+      "flags": []
+    },
+    {
+      "chapter": "05",
+      "line": 83,
+      "decision": "rejected_or_original_retained",
+      "flags": []
+    },
+    {
+      "chapter": "05",
+      "line": 112,
+      "decision": "rejected_or_original_retained",
+      "flags": []
+    },
+    {
+      "chapter": "05",
+      "line": 118,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "05",
+      "line": 155,
+      "decision": "rejected_or_original_retained",
+      "flags": []
+    },
+    {
+      "chapter": "05",
+      "line": 159,
+      "decision": "accepted",
+      "flags": []
+    },
+    {
+      "chapter": "05",
+      "line": 161,
+      "decision": "rejected_or_original_retained",
+      "flags": []
+    },
+    {
+      "chapter": "05",
+      "line": 165,
+      "decision": "rejected_or_original_retained",
+      "flags": []
+    },
+    {
+      "chapter": "05",
+      "line": 169,
+      "decision": "rejected_or_original_retained",
+      "flags": []
+    },
+    {
+      "chapter": "06",
+      "line": 7,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "06",
+      "line": 9,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "06",
+      "line": 13,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "06",
+      "line": 21,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "06",
+      "line": 39,
+      "decision": "accepted",
+      "flags": []
+    },
+    {
+      "chapter": "06",
+      "line": 43,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "06",
+      "line": 116,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "07",
+      "line": 7,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "07",
+      "line": 11,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "07",
+      "line": 13,
+      "decision": "accepted",
+      "flags": []
+    },
+    {
+      "chapter": "07",
+      "line": 17,
+      "decision": "accepted",
+      "flags": []
+    },
+    {
+      "chapter": "07",
+      "line": 41,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "08",
+      "line": 11,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "08",
+      "line": 13,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "08",
+      "line": 33,
+      "decision": "rejected_or_original_retained",
+      "flags": [
+        "missing_literals:`compactIfNeeded`"
+      ]
+    },
+    {
+      "chapter": "08",
+      "line": 53,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "08",
+      "line": 65,
+      "decision": "rejected_or_original_retained",
+      "flags": []
+    },
+    {
+      "chapter": "08",
+      "line": 67,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "08",
+      "line": 77,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "08",
+      "line": 102,
+      "decision": "rejected_or_original_retained",
+      "flags": []
+    },
+    {
+      "chapter": "09",
+      "line": 7,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "09",
+      "line": 27,
+      "decision": "rejected_or_original_retained",
+      "flags": []
+    },
+    {
+      "chapter": "09",
+      "line": 47,
+      "decision": "rewritten_by_primary",
+      "flags": [
+        "missing_literals:`for await`"
+      ]
+    },
+    {
+      "chapter": "09",
+      "line": 81,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "10",
+      "line": 3,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "10",
+      "line": 9,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "10",
+      "line": 11,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "10",
+      "line": 13,
+      "decision": "rejected_or_original_retained",
+      "flags": []
+    },
+    {
+      "chapter": "10",
+      "line": 15,
+      "decision": "rejected_or_original_retained",
+      "flags": []
+    },
+    {
+      "chapter": "10",
+      "line": 19,
+      "decision": "accepted",
+      "flags": []
+    },
+    {
+      "chapter": "10",
+      "line": 23,
+      "decision": "rejected_or_original_retained",
+      "flags": []
+    },
+    {
+      "chapter": "10",
+      "line": 39,
+      "decision": "rejected_or_original_retained",
+      "flags": []
+    },
+    {
+      "chapter": "10",
+      "line": 108,
+      "decision": "rejected_or_original_retained",
+      "flags": []
+    },
+    {
+      "chapter": "10",
+      "line": 112,
+      "decision": "accepted",
+      "flags": []
+    },
+    {
+      "chapter": "11",
+      "line": 9,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "11",
+      "line": 13,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "11",
+      "line": 33,
+      "decision": "rejected_or_original_retained",
+      "flags": []
+    },
+    {
+      "chapter": "11",
+      "line": 41,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "11",
+      "line": 43,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "12",
+      "line": 9,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "12",
+      "line": 41,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "12",
+      "line": 43,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "12",
+      "line": 122,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "13",
+      "line": 7,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "13",
+      "line": 17,
+      "decision": "accepted",
+      "flags": []
+    },
+    {
+      "chapter": "13",
+      "line": 51,
+      "decision": "accepted",
+      "flags": []
+    },
+    {
+      "chapter": "13",
+      "line": 61,
+      "decision": "accepted",
+      "flags": []
+    },
+    {
+      "chapter": "13",
+      "line": 79,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "14",
+      "line": 3,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "14",
+      "line": 7,
+      "decision": "rejected_or_original_retained",
+      "flags": []
+    },
+    {
+      "chapter": "14",
+      "line": 9,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "14",
+      "line": 17,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "14",
+      "line": 21,
+      "decision": "accepted",
+      "flags": []
+    },
+    {
+      "chapter": "14",
+      "line": 41,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "14",
+      "line": 49,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "14",
+      "line": 53,
+      "decision": "rejected_or_original_retained",
+      "flags": [
+        "missing_literals:`resync`"
+      ]
+    },
+    {
+      "chapter": "14",
+      "line": 63,
+      "decision": "rejected_or_original_retained",
+      "flags": []
+    },
+    {
+      "chapter": "15",
+      "line": 7,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "15",
+      "line": 9,
+      "decision": "rejected_or_original_retained",
+      "flags": []
+    },
+    {
+      "chapter": "15",
+      "line": 13,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "15",
+      "line": 19,
+      "decision": "accepted",
+      "flags": []
+    },
+    {
+      "chapter": "15",
+      "line": 33,
+      "decision": "accepted",
+      "flags": []
+    },
+    {
+      "chapter": "15",
+      "line": 63,
+      "decision": "rejected_or_original_retained",
+      "flags": []
+    },
+    {
+      "chapter": "15",
+      "line": 65,
+      "decision": "rejected_or_original_retained",
+      "flags": []
+    },
+    {
+      "chapter": "15",
+      "line": 67,
+      "decision": "rejected_or_original_retained",
+      "flags": []
+    },
+    {
+      "chapter": "15",
+      "line": 114,
+      "decision": "accepted",
+      "flags": []
+    },
+    {
+      "chapter": "15",
+      "line": 120,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "15",
+      "line": 124,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "15",
+      "line": 128,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "16",
+      "line": 3,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "16",
+      "line": 9,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "16",
+      "line": 13,
+      "decision": "rejected_or_original_retained",
+      "flags": []
+    },
+    {
+      "chapter": "16",
+      "line": 19,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "16",
+      "line": 56,
+      "decision": "rejected_or_original_retained",
+      "flags": []
+    },
+    {
+      "chapter": "16",
+      "line": 66,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "16",
+      "line": 136,
+      "decision": "rejected_or_original_retained",
+      "flags": []
+    },
+    {
+      "chapter": "16",
+      "line": 140,
+      "decision": "rejected_or_original_retained",
+      "flags": []
+    },
+    {
+      "chapter": "17",
+      "line": 21,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "17",
+      "line": 53,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "17",
+      "line": 79,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "17",
+      "line": 96,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "18",
+      "line": 3,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "18",
+      "line": 13,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "18",
+      "line": 17,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "18",
+      "line": 34,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "18",
+      "line": 88,
+      "decision": "rejected_or_original_retained",
+      "flags": []
+    },
+    {
+      "chapter": "19",
+      "line": 11,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "19",
+      "line": 23,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "19",
+      "line": 33,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    },
+    {
+      "chapter": "19",
+      "line": 49,
+      "decision": "rewritten_by_primary",
+      "flags": []
+    }
+  ],
+  "edits": [
+    {
+      "file": "book/01.md",
+      "original_line": 7,
+      "old": "计算机程序是一组交给计算机执行的步骤；数据是步骤处理的信息，例如一段任务文字或一份文件内容。大语言模型（Large Language Model，LLM）接收材料、生成文字或工具调用建议。运行模型的服务与管理本地文件的程序是不同的参与者。模型提出读取建议，文件服务实际读取，再把结果交给模型用于后续回答。",
+      "new": "程序由可执行的指令组成，数据是指令处理的信息，例如任务文本或文件内容。大语言模型（Large Language Model，LLM）根据输入生成文本或工具调用建议。模型服务负责生成，文件服务负责访问文件；读取建议经过工具链执行后，返回的文本才能用于后续回答。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/01.md",
+      "original_line": 9,
+      "old": "Agent 在本书中指能够围绕任务反复获取材料、调用模型并使用工具的运行单元。Harness 组织这些步骤，DeepSeek Harness 是本书研究的具体项目。Tool 是由程序实现的一项操作，像 `read` 读取文本；模型看到的是工具的名称、用途和参数说明。参数是告诉操作“这次处理什么”的输入，例如文件路径；结果是操作返回的信息，例如第 1—20 行文字。",
+      "new": "Agent 是围绕任务反复构造上下文、调用模型并使用工具的运行单元。Harness 提供支撑这一过程的运行机制，DeepSeek Harness 是本书分析的具体实现。Tool 是程序实现的操作，例如读取文本的 `read`。工具定义向模型公开名称、用途和参数说明；调用参数指定本次操作的目标，工具结果返回执行所得的信息，例如文件第 1—20 行的文本。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/01.md",
+      "original_line": 11,
+      "old": "Session 保存一次持续交互的身份和记录。日志是按发生顺序保存的记录集合；Session 事件日志因此能回答“先发生了什么，随后发生了什么”。消息是供对话使用的内容；事件是“某件事已经发生”的记录，例如开始一次工具调用。消息内容参与对话，轮次开始、工具调用等事件记录运行过程。Inbox 保存已经接纳、尚待领取的输入；它把下一轮输入与下一步输入分开保存，由驱动在对应时点领取。",
+      "new": "Session 维护持续交互的身份与事件日志。日志按发生顺序记录消息、轮次边界和工具调用等事件。消息承载对话内容，过程事件描述任务的执行状态；后续模型请求使用从日志派生的消息历史。Inbox 保存已接纳、尚待领取的输入，分别维护下一轮和下一步的消息队列，由驱动在对应边界领取。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/01.md",
+      "original_line": 13,
+      "old": "请求是向另一方提出的操作要求，例如“为这个 Session 接纳一段文字”。请求标识用来识别同一次提交，防止重复排队。客户端发起请求并接收结果，例如网页界面；Host 提供并处理项目能力。入口先返回接纳回执，后台任务随后继续运行。",
+      "new": "请求指定调用方希望服务执行的操作，例如向某个 Session 提交文本。请求标识用于识别重复提交，避免同一输入重复排队。网页等客户端负责发起请求和接收结果，Host 提供项目的服务接口。提交入口返回接纳回执后，后台任务继续运行。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/01.md",
+      "original_line": 15,
+      "old": "附件是随文字一同提交的文件或图像等材料；只有文字时不需要附件。后文会解释附件如何进入请求。",
+      "new": "附件是随消息提交的文件、图像等材料。纯文本请求可以省略附件；附件的处理与传输流程将在后续章节展开。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/01.md",
+      "original_line": 19,
+      "old": "这条流程有六位参与者：用户、接纳入口、Agent 驱动、LLM 服务、ToolRuntime 和 Session。接纳入口收下任务，驱动安排步骤，LLM 服务调用模型，ToolRuntime 组织工具执行，Session 保存过程与结果。",
+      "new": "这条流程涉及用户与五类系统组件：接纳入口、Agent 驱动、LLM 服务、ToolRuntime 和 Session。接纳入口校验并接收输入，驱动调度步骤，LLM 服务调用模型，ToolRuntime 管理工具执行，Session 记录过程与结果。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/01.md",
+      "original_line": 21,
+      "old": "对照短源码还会用到几个基础词：函数封装一组可调用步骤，变量给值取名，对象把相关字段放在一起，属性是对象的一项字段，返回值是函数交给调用者的结果，类型说明值应有什么形状。第 2 章会用真实写法展开它们。",
+      "new": "源码讲解涉及以下基础概念：函数封装可调用的步骤，变量绑定值，对象组织相关属性，返回值是函数向调用方提供的结果，类型描述值的结构与约束。第 2 章结合项目中的实际写法逐项解释。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/01.md",
+      "original_line": 25,
+      "old": "先看成功路径：用户要求“读取 README，概括项目用途和三项功能”。用户提交一句话，入口建立消息并排入 Inbox，返回“已接纳”。驱动领取输入，组装第一次模型请求；模型提出读取建议。工具服务记录调用，按安全规则判断是否放行，这一步称为准入。获准后，文件服务读取文本。工具结果进入 Session，第二次请求才有这些文字可用。模型生成总结，驱动记录轮次结束，界面显示结果。",
+      "new": "以“读取 README，概括项目用途和三项功能”为例，成功路径从提交任务开始。入口构造消息、排入 Inbox，并返回接纳回执。驱动领取输入后构造第一次模型请求，模型返回读取文件的工具调用。ToolRuntime 记录调用并检查准入；调用获准后，文件服务读取文本。读取结果进入 Session，成为第二次模型请求的上下文。模型据此生成总结，驱动记录轮次结束，客户端显示结果。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/01.md",
+      "original_line": 39,
+      "old": "### 先看材料怎样流动",
+      "new": "### 请求与结果的数据流转",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/01.md",
+      "original_line": 51,
+      "old": "### 把正常路径与失败放在一起",
+      "new": "### 接纳与后台执行的分工",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/01.md",
+      "original_line": 67,
+      "old": "阅读任务：位置是 prompt 已通过前面的输入检查之后。已知请求有 Session 标识和请求标识，本段观察怎样定位 Agent、识别重复输入并建立来源对象；后续附件、排队和接纳返回不在此节选中。",
+      "new": "阅读任务：节选位于 prompt 的输入校验之后。请求已包含 Session 标识和请求标识，代码据此定位 Agent、识别重复输入并构造消息来源对象。后续流程继续处理附件、消息排队和接纳回执。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/01.md",
+      "original_line": 96,
+      "old": "### E01B · 记录工具提议，而不是宣布完成",
+      "new": "### E01B · 工具调用的关联记录",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/01.md",
+      "original_line": 98,
+      "old": "阅读任务：这是 executeToolCalls 使用的调用记录辅助函数。参数已经包含 Session、轮次、步骤和一个工具调用块。本段观察保存哪些关联信息以及返回什么。",
+      "new": "阅读任务：appendToolCall 是 executeToolCalls 使用的记录辅助函数。输入包含 Session、turn、step 和工具调用块；函数把调用信息追加到 Session 内存日志，并返回用于关联结果的事件序号。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/01.md",
+      "original_line": 121,
+      "old": "### 问题 1 · 入口返回 accepted 后，能说已经读完 README 吗？",
+      "new": "### 问题 1 · accepted 回执确认了哪个处理阶段？",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/01.md",
+      "original_line": 123,
+      "old": "讲解：不能。这里只确认输入已接纳。还要经过领取、模型提议、准入与读取，才有文件结果。",
+      "new": "讲解：accepted 回执确认入口已接纳输入。文件结果要在驱动领取输入、模型提出调用、工具准入和实际读取之后产生。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/01.md",
+      "original_line": 125,
+      "old": "### 问题 2 · 模型给出了三点总结，怎样检查它依据了文件？",
+      "new": "### 问题 2 · 如何核对总结与实际读取内容的对应关系？",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/01.md",
+      "original_line": 129,
+      "old": "### 问题 3 · 第一次模型请求与第二次请求的材料有什么差别？",
+      "new": "### 问题 3 · 两次模型请求的上下文有什么差异？",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/01.md",
+      "original_line": 131,
+      "old": "讲解：成功案例的第二次请求增加了读取结果。它依赖前面的真实执行，不是独立重复同一份输入。",
+      "new": "讲解：成功路径中的第二次请求新增了工具读取结果。它依据前一步执行所得的文本生成总结，因此两次请求在数据上存在依赖。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/02.md",
+      "original_line": 7,
+      "old": "先把程序里的信息和动作拆开。变量是给一项值取的名字，例如 `path` 保存路径文字。字符串是文字值；数字可以表示起始行号；布尔值只有真和假。对象把相关信息放在一起，例如一份读取请求同时保存路径、起始行和行数。属性是对象中的一项信息，`request.content` 表示请求的内容属性。数组按位置保存多项值，例如多行文本；位置通常从 0 开始，文件行号却常从 1 开始，两个口径不能混用。",
+      "new": "变量是与值绑定的名称，例如 `path` 保存路径字符串。字符串表示文本，数字可以表示行号，布尔值表示真或假。对象组织相关属性，例如读取请求包含路径、起始行和行数，`request.content` 访问请求的内容属性。数组按索引保存一组值。数组索引通常从 0 开始，文件行号通常从 1 开始，窗口计算需要区分这两种编号方式。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/02.md",
+      "original_line": 9,
+      "old": "函数把一组步骤包装成可以调用的操作。参数是调用者交给函数的值，返回值是函数返回的值。方法是属于某个对象的函数；`agent.followup(message)` 表示让这个 Agent 的方法处理消息。类描述一类对象的结构和操作，实际创建出来的对象叫实例。接口和类型说明规定数据形状，例如路径应是字符串。文件是否存在，要等文件服务访问目标时检查。",
+      "new": "函数封装可复用的处理逻辑，通过参数接收输入，通过返回值提供结果。方法是对象上的函数，例如 `agent.followup(message)` 调用 Agent 的消息接纳方法。类定义对象的结构和操作，由类创建的对象称为实例。接口和类型描述数据结构，例如将路径声明为字符串；文件是否存在则由执行时的文件服务检查。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/02.md",
+      "original_line": 13,
+      "old": "Promise 表示一项异步操作的结果，可以处于等待中、成功或失败状态。`async` 方法返回 Promise，`await` 暂停这个方法的后续部分，等待该结果；其他工作可以继续推进。进程是操作系统管理的一次程序运行，线程是进程内一条执行指令的路径。等待期间，JavaScript 运行时可以执行其他已经就绪的工作。并发是多项工作可以交错推进，并行是同一时刻用多个执行资源处理多项工作；多个操作怎样交错，取决于它们的启动与等待顺序。回调是交给别处、等特定时机再调用的函数，例如收到事件后更新记录。以后看到 `() => ...`，先问谁会在什么时候调用它，而不是把它当成已经执行的结果。",
+      "new": "Promise 表示异步操作的结果，状态包括等待中、成功和失败。`async` 函数返回 Promise，`await` 暂停当前函数的后续执行，等待该结果；JavaScript 运行时在此期间可以处理其他就绪工作。进程由操作系统管理，线程是进程内的执行路径。并发允许多项工作交错推进，并行使用多个执行资源在同一时刻处理工作。操作能否重叠，取决于启动和等待顺序。回调是供其他代码在约定时机调用的函数，例如事件监听器。阅读 `() => ...` 时，需要定位它的注册位置、调用者和触发条件。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/02.md",
+      "original_line": 15,
+      "old": "JavaScript 是运行这些步骤的语言；TypeScript 的类型检查帮助在执行前发现写法与数据形状的问题。程序真正运行时，输入是否合法、资源是否可用仍要由实际代码检查。运行时的事件循环会处理已准备的工作并恢复后续执行；等待外部读取时，当前方法暂停，其他已准备工作仍可推进。",
+      "new": "JavaScript 提供执行语义，TypeScript 在其基础上增加静态类型检查，用于发现数据结构和调用方式中的问题。输入合法性、文件权限与资源可用性由运行时代码检查。等待外部 I/O 时，事件循环继续处理就绪任务，结果到达后恢复相应的异步函数。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/02.md",
+      "original_line": 17,
+      "old": "### 语法导航：从已讲过的数据与动作认写法",
+      "new": "### 常见语法与项目中的用途",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/02.md",
+      "original_line": 27,
+      "old": "| Promise 与 await | 将来结果与等待结果 | 找等待的是接纳、读取还是其他边界 |",
+      "new": "| Promise 与 await | 异步结果与等待该结果 | 确认等待结束对应接纳、读取还是其他阶段 |",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/02.md",
+      "original_line": 32,
+      "old": "| () => ... | 把函数作为值写出 | 问谁以后调用回调，区别定义和执行 |",
+      "new": "| () => ... | 将函数写成可传递的值 | 定位回调的调用者与触发时机，区分定义和执行 |",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/02.md",
+      "original_line": 38,
+      "old": "| slice / toSpliced | 取前缀等子区间／建立修改后的新数组 | 继承事件或插入指令，不当然生成摘要 |",
+      "new": "| slice / toSpliced | 取子区间／返回修改后的新数组 | 截取历史前缀或插入指令；摘要需要单独生成 |",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/02.md",
+      "original_line": 40,
+      "old": "| return / throw / continue | 返回结果／失败退出／下一次循环 | 找输出交给谁，区分完成和重试 |",
+      "new": "| return / throw / continue | 返回结果／抛出错误／进入下一次循环 | 跟踪返回值、异常传播与重试位置 |",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/02.md",
+      "original_line": 46,
+      "old": "遇到单独一行的右括号，先看它关闭的是对象、函数、条件还是调用。逐行表会标出结构关系；沿函数的参数、调用和返回位置继续阅读，就能把这些写法接回实际流程。",
+      "new": "右括号结束的结构由对应左括号决定，可能是对象、函数、条件或调用。逐行说明标出这些结构；结合参数传递、函数调用和返回值，可以还原代码的执行流程。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/02.md",
+      "original_line": 50,
+      "old": "`await prompt(...)` 等待提交回执。接纳方法校验请求内容，把消息交给 Agent，再返回接纳对象。调用方拿到回执后可以继续工作；Agent 驱动继续处理任务，最终总结通过持续观察通道送回界面。",
+      "new": "`await prompt(...)` 等待提交回执。prompt 校验内容，将消息提交给 Agent，再返回接纳结果。调用方收到回执后继续执行，Agent 驱动在后台推进任务，生成结果通过持续观察通道传回客户端。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/02.md",
+      "original_line": 64,
+      "old": "### 分析示例：注册不是执行",
+      "new": "### 分析示例：注册次数与执行次数",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/02.md",
+      "original_line": 72,
+      "old": "在文件读取插件中，`applyReadTool` 注册 `defineTool(...)`，对象里的 `async execute(...)` 是稍后执行的函数。读到函数对象时，要问“谁保存了它、谁以后调用它”，而不是假定控制流已经进入函数体。",
+      "new": "文件读取插件通过 `applyReadTool` 注册 `defineTool(...)` 定义，其中的 `async execute(...)` 以函数值的形式保存在注册表中。模型发出具体调用后，工具运行时才调用该函数并执行文件读取。注册位置和调用位置共同决定工具的执行时机。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/02.md",
+      "original_line": 74,
+      "old": "### 回到任务接纳",
+      "new": "### 接纳入口的异步执行顺序",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/02.md",
+      "original_line": 76,
+      "old": "用代码写法重走接纳流程：`prompt` 校验请求内容并解析目标；已识别的 requestId 直接返回回执；新请求构造用户消息，调用 `followup` 或 `steer`，再返回接纳对象。`followup` 把消息送入 Inbox 并唤醒驱动，后续模型请求与工具执行由驱动推进。",
+      "new": "`prompt` 首先校验请求并解析目标。已识别的 requestId 直接返回回执；新请求构造用户消息，调用 `followup` 或 `steer`，随后返回接纳结果。`followup` 将消息加入 Inbox 并请求唤醒驱动，模型请求与工具执行由驱动继续调度。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/02.md",
+      "original_line": 86,
+      "old": "“工具对象里有 execute，所以启动已执行”：对象属性可以是一段尚未调用的函数。要追保存与调用位置。",
+      "new": "工具定义中的 execute 属性保存执行函数。注册完成后，具体调用仍需经过工具运行时，才能进入函数体。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/02.md",
+      "original_line": 94,
+      "old": "阅读任务：这是 prompt 方法开头，不是完整方法。request 是入口交入的请求对象；先观察输入不合法时怎样结束。后续时区、附件、消息入队与 accepted 返回在第 1 章主链中解释。",
+      "new": "阅读任务：节选是 prompt 方法开头的输入校验。request 是入口接收的请求对象，内容不合法时方法抛出错误。时区、附件、消息入队与 accepted 返回位于后续逻辑，其主流程见第 1 章。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/02.md",
+      "original_line": 111,
+      "old": "| 311 | async 标记异步方法，Promise 标注将来结果的类型 | prompt 接收入口请求，结果契约是 SessionPromptValue，不是最终总结。 |",
+      "new": "| 311 | async 标记异步方法，Promise 标注结果类型 | prompt 的返回契约是 SessionPromptValue，调用方由此获得接纳回执。 |",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/02.md",
+      "original_line": 135,
+      "old": "讲解：没有。类型说明数据形状，文件存在、权限和读取成功需要运行时检查。",
+      "new": "讲解：类型检查确认参数符合字符串类型；文件是否存在、权限是否允许以及读取是否成功，由运行时代码分别验证。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/03.md",
+      "original_line": 7,
+      "old": "轮次（turn）是驱动围绕一批输入推进的一段过程；步骤（step）是轮次里的一个推进单元；尝试（attempt）是该步骤中一次模型请求的执行。读取 README 后继续总结，可以是同一轮次的两个步骤。第一次请求失败、恢复策略允许再请求，则是同一步骤中的另一次尝试，而不是再收到一次用户任务。",
+      "new": "轮次（turn）是驱动围绕一批输入推进的过程，步骤（step）是其中的执行单元，尝试（attempt）对应步骤内的一次模型请求。读取 README 和根据读取结果生成总结，可以构成同一轮次的两个步骤。请求失败后若恢复策略允许重试，新的请求仍属于原步骤，attempt 增加，turn 和 step 保持不变。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/03.md",
+      "original_line": 9,
+      "old": "状态是某个时刻保存的信息，例如待处理消息有哪些、当前轮次编号是多少。状态转换说明一件事发生后这些信息怎样改变。驱动是负责持续推进转换的程序。取消信号是可被执行代码检查的停止请求；接到信号后，执行代码停止后续工作，并等待已经启动的操作收尾。",
+      "new": "状态描述系统在某个时刻保存的信息，例如待处理消息、轮次编号和驱动阶段。状态转换规定事件发生后这些信息如何更新，驱动负责调度转换。取消信号向执行代码传递停止请求；支持取消的路径检查信号、停止后续工作，并处理已启动操作的收尾。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/03.md",
+      "original_line": 13,
+      "old": "由此可以分别问：输入有没有接纳、有没有被领取、模型请求是否成功、工具是否执行、轮次以什么原因结束。这些问题各自对应不同记录，不能用一个“成功”替代。",
+      "new": "输入接纳、消息领取、模型请求、工具执行和轮次结束分别对应不同的处理阶段。判断任务进展时，需要把各阶段的事件与结果关联到同一轮次。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/03.md",
+      "original_line": 49,
+      "old": "执行器先按模型排列建立计划，给每项保存调用身份、工具名、解析后的参数、所属 Agent 和取消信号。然后查询当前工具的执行模式：允许交错执行的调用可以进入有数量上限的池；需要独占的调用形成屏障，让当前池排空后再处理。池是保存正在执行操作的集合，屏障是在这里要求前面的执行先收尾的边界。",
+      "new": "执行器按模型给出的顺序建立调用计划，保存调用标识、工具名、已解析参数、Agent 和取消信号。允许并发的调用进入有数量上限的执行池；需要独占的调用设置执行屏障，等待池内任务结束后运行。执行池管理正在执行的调用，屏障约束不同批次的启动顺序。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/03.md",
+      "original_line": 53,
+      "old": "假设 A、B 均允许重叠、数量上限足够，B 较早读完。执行器先把 B 的结果放到自己的结果槽里。槽是按调用位置保存结果的临时位置；B 放在位置 1，A 在位置 0。提交位置仍停在 0，因此不能跳过 A 先把 B 提交到 Session。A 完成后，执行器才依次进行 A、B 的结果后处理，记录各自结果，并把额外上下文交给下一步骤的材料批次。",
+      "new": "假设 A、B 均允许并发且执行池容量足够，B 先完成。执行器将 B 的结果暂存于索引 1 的结果槽，提交游标仍停在 A 对应的索引 0。A 完成后，执行器按 A、B 的顺序运行结果后处理、追加 Session 结果，并把额外上下文传入下一步骤。结果槽按调用位置暂存完成结果，提交游标保证历史顺序与模型提议顺序一致。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/03.md",
+      "original_line": 82,
+      "old": "为什么不是 3 个 step？第一步重试发生在本步的尝试循环中，没有再次进入前置步骤，也没有把用户消息再提交一次。为什么不是 2 个 turn？工具结果引发的后续模型请求仍属于当前轮次推进。",
+      "new": "第一步的重试位于同一个尝试循环中，保留原 step，且不重复进入前置步骤或登记用户消息。因此 3 次 attempt 只对应 2 个 step。工具结果驱动的第二次模型步骤仍服务于本次用户输入，turn 数为 1。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer",
+      "final_consistency_review": true
+    },
+    {
+      "file": "book/03.md",
+      "original_line": 98,
+      "old": "“结果按顺序记录，所以工具肯定串行执行”：工具的实际执行部分（工具体）可能同时跑多个，而准备、后处理和最终提交有顺序约束。",
+      "new": "工具结果按调用顺序记录。工具执行体可以并发运行，前置准备、结果后处理和最终提交分别遵循执行器的顺序约束。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/03.md",
+      "original_line": 126,
+      "old": "| 112 | for...of 遍历领取结果，emit 发出事件 | 让观察者知道每条消息被哪一轮领取，而不是直接执行模型。 |",
+      "new": "| 112 | for...of 遍历领取结果，emit 发出事件 | 发布每条消息所属轮次的领取通知，供界面等观察者更新状态。 |",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/04.md",
+      "original_line": 7,
+      "old": "文件路径指出要读哪份文件；当前工作目录是解析相对路径的起点。`README.md` 相对于哪个目录，必须由 Session 和所选文件后端决定。后端是实现统一接口的具体实现：接口规定“能够读文本”，后端决定从本机、远端或其他环境怎样读取。",
+      "new": "文件路径标识读取目标，当前工作目录是相对路径的解析基准。Session 与所选文件 Provider 共同确定 `README.md` 对应的实际位置。后端实现统一文件接口：接口规定读取操作及返回形式，具体后端负责本机、远端等环境中的路径解析和文件访问。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/04.md",
+      "original_line": 9,
+      "old": "工具参数契约描述可接受的字段与值。解析把外部写法转成内部输入，并补齐默认值、拒绝不合法值。未提供的参数采用默认值；明确提供的值接受合法性检查。描述字段与类型等形状规则的定义称为 schema，例如路径应是文字、行号应是数字；实际解析还要检查值是否符合规则。读取窗口返回指定行范围，并携带总行数和截断信息。",
+      "new": "工具参数契约规定可接受的字段、类型和值。schema 描述字段结构，例如字符串路径和数字行号；解析逻辑进一步检查取值、补齐缺省参数，并转换成执行体使用的内部输入。读取窗口保存本次选定的文本行，同时返回总行数与截断信息，供模型判断是否需要续读。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/04.md",
+      "original_line": 11,
+      "old": "流式读取把文本分批交给处理者，避免先把整个大文件放进内存。它与模型逐段生成回答是不同对象上的流式处理。范围上限可以限制行数、单行长度和输出字节；结果需要如实表达保留了什么。输出结构、模型使用的文字和界面展示资料还会在第 18 章分别讨论。",
+      "new": "流式文件读取按批次向窗口构造器提供文本，避免在内存中保存整个大文件。模型流式响应则按批次返回生成内容，两者分别作用于文件输入和模型输出。读取结果受行数、单行长度和输出字节上限约束，并明确标示实际保留范围。第 18 章进一步说明结构化结果如何生成模型文本与界面元数据。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/04.md",
+      "original_line": 99,
+      "old": "| 59 | 大于号比较，模板字符串插入上限 | 超出允许窗口行数时拒绝，而不是静默变成任意读取。 |",
+      "new": "| 59 | 大于号比较，模板字符串插入上限 | limit 超过配置的窗口行数上限时，抛出参数错误。 |",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/04.md",
+      "original_line": 101,
+      "old": "| 61 | 结束函数 | 调用者拿到规范输入后继续真实读取。 |",
+      "new": "| 61 | 结束函数 | 返回规范化输入，供执行体继续解析目标并读取。 |",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/04.md",
+      "original_line": 150,
+      "old": "讲解：不是。这是选取第二行开始的至多两行窗口；完整文件行数由结果的相应信息说明。",
+      "new": "讲解：offset=2 指定从第 2 行开始，limit=2 指定最多返回 2 行。整个文件的行数由结果中的总行数信息给出。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/05.md",
+      "original_line": 9,
+      "old": "快照是在某个时刻获取的一份数据副本；冻结让已经建立的对象不能再被直接改写。派生是从事实计算另一种数据，例如从消息类事件形成模型历史。投影是按特定问题整理状态，例如当前有哪些待办。快照保留某个时刻的数据，派生生成新的数据形式，投影持续维护某项业务状态。",
+      "new": "快照保存某个时刻的数据副本，冻结限制对象及其内部数据被修改。派生根据已有事实生成新的数据形式，例如从消息事件形成模型历史；投影按事件规则持续维护可查询状态，例如最新待办列表。三者分别用于保留数据、构造视图和更新业务状态。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/05.md",
+      "original_line": 11,
+      "old": "可序列化表示数据能够按约定转成可保存或传输的形式，例如对象中的字符串与数字可形成 JSON，带任意函数的运行对象则不能直接当作同样的事实数据。冻结是限制对象修改，不是把它写到存储。缓存是保存已经算过的结果供后续复用，例如消息派生结果；原始记录变化后要使相关缓存失效。",
+      "new": "可序列化数据可以按约定转换成存储或传输格式。例如包含字符串和数字的对象可表示为 JSON，含任意函数的运行对象需要另行处理。冻结保护内存对象，持久化负责写入存储。缓存复用已经计算的派生结果，原始记录变化时使相关缓存失效。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/05.md",
+      "original_line": 13,
+      "old": "持久化把运行内存中的资料交给能够在退出后保留它的存储。JSON 是表示对象、数组等值的文本格式；JSONL 每行保存一个 JSON 记录。追加事件首先改变 Session 内的历史，并通知订阅者；JSONL Provider 把写入排队。flush 等待存储 Provider 排空缓冲并完成写入。Session.append 更新内存日志，存储 writer.append 才执行持久写入。",
+      "new": "持久化将内存数据写入程序退出后仍可保留的存储。JSON 是表示对象、数组等值的文本格式，JSONL 按行保存 JSON 记录。Session.append 更新内存日志并通知订阅者，JSONL Provider 将事件加入写入队列，再由 writer.append 完成文件追加。flush 等待存储 Provider 排空缓冲并完成写入。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/05.md",
+      "original_line": 49,
+      "old": "投影可理解为“按用途整理事实”。给定同一份订单记录，可以整理出当前状态，也可以整理出明细清单；软件里同理。Session 投影同样按各自的事件规则更新结果。",
+      "new": "Session 投影按事件规则更新状态，供不同消费方查询。例如，待办投影根据待办变更事件维护最新列表，运行状态投影根据生命周期事件维护当前阶段。同一份日志可以支持多种投影，各自保留业务所需的数据。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/05.md",
+      "original_line": 53,
+      "old": "### 分析示例：日志行数为什么不是对话数",
+      "new": "### 分析示例：消息、调用与事件的计数",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/05.md",
+      "original_line": 105,
+      "old": "| 748 | 显式属性赋值 | 采用之前建立的 dataSnapshot，而不是继续共享原输入对象。 |",
+      "new": "| 748 | 显式属性赋值 | 使用已生成的 dataSnapshot 副本，隔离调用方对原始输入的后续修改。 |",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/05.md",
+      "original_line": 118,
+      "old": "阅读任务：这两项监听由 JSONL 存储组件注册。回调在收到相应 Session 事件时执行；不是注册当场立即写入。重点区分 enqueueLive 与等待 drainLive/flush。",
+      "new": "阅读任务：JSONL 存储组件注册两项事件监听。session/event 到达时将事件排入后台缓冲；session/flush 到达时等待缓冲排空并完成刷新。注册调用保存回调，具体事件触发回调执行。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/05.md",
+      "original_line": 143,
+      "old": "| 538 | 结束 enqueueLive 的错误回调 | 失败处理定义结束，不是把错误转成成功写入。 |",
+      "new": "| 538 | 结束 enqueueLive 的错误回调 | 回调负责记录后台写入错误，缓冲事件仍保留以供后续处理。 |",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/06.md",
+      "original_line": 7,
+      "old": "一次模型请求不是只发送用户刚打出的那句话。上下文指这一次推理能够使用的材料，包括行为规则、当前输入、历史内容和工具说明。提示词是作为材料发送给模型的文字指示；system prompt 是其中用于表达系统规则的部分，用户消息、项目指令和工具结果各自保留来源。",
+      "new": "一次模型请求的上下文包含系统规则、当前输入、历史消息和工具说明等材料。提示词向模型描述目标与行为要求，system prompt 承载其中的系统规则。用户消息、项目指令和工具结果以各自的来源进入请求，后续组装依据这些来源选择内容和顺序。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/06.md",
+      "original_line": 9,
+      "old": "注册是先把某项贡献交给管理者保存，组装才是在请求需要时取出可见贡献形成材料。作用域回答贡献对谁可见；同名覆盖回答同一位置有多个版本时选择谁；排序回答不同贡献按什么顺序出现。这三件事分别决定请求内容。",
+      "new": "注册阶段保存插件提供的提示段或动态上下文，请求组装阶段读取当前可用的贡献。作用域决定贡献对哪些 Agent 可见，同名选择规则决定采用哪个版本，排序规则决定各项内容的排列顺序。三类规则共同确定本次请求的输入。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/06.md",
+      "original_line": 13,
+      "old": "请求冻结为正在执行的请求固定数据副本。新输入、插件变化或压缩仍可影响下一次组装，但不能倒回去改已经提交的这一份请求。这解释了为什么引导消息要等下一步骤生效。",
+      "new": "请求冻结为当前调用建立独立、稳定的数据副本。新消息、插件变化与压缩影响后续请求的组装；已经提交的请求继续使用原副本。因此运行中到达的引导消息，需要在下一步骤被领取后生效。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/06.md",
+      "original_line": 21,
+      "old": "若请求执行期间用户补充“只总结正式功能”，这句话先进入下一步输入。当前请求仍使用原来的固定材料；下一步骤重新领取并组装，才有新要求。若之后发生压缩，后续历史视图可能变化，但已经在途的请求仍不变。检查材料缺失时，应分别查可见贡献、前置消息、历史 Surface 和实际请求，而不是只在某个大字符串里找一句话。",
+      "new": "请求执行期间补充的“只总结正式功能”先进入 next-step 队列。当前请求使用既定副本，下一步骤领取新消息并重新组装上下文。后续压缩可以改变历史 Surface，在途请求则保持原内容。定位材料缺失时，分别检查可见提示贡献、前置消息、历史 Surface 和最终请求。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/06.md",
+      "original_line": 37,
+      "old": "驱动在前置步骤领取输入，调用 `assemble` 得到组装结果，并把运行时上下文投影成适合本步的材料。随后进入 `agent/pre-step` 链。这是一串按顺序执行的前置检查关卡，决定本步是否继续，以及哪些消息进入本次请求。项目指令插件在这条链上等待相关投影就绪，再按工作区与触及路径整理指令。触及路径就是本次任务接触过的文件路径，用来确定要加载哪些目录下的规则文件。插件把选中的指令整理成上下文消息，插入将要进入步骤的批次。",
+      "new": "驱动在步骤准备阶段领取输入，调用 `assemble` 组装提示，并生成本步运行时上下文，随后进入 `agent/pre-step` 前置处理链。该链按顺序执行，决定步骤能否继续及其消息批次。项目指令插件先等待相关投影就绪，再根据工作区和触及路径选择规则文件。触及路径是工具调用已经接触的文件路径，用于确定适用的目录规则。选中的规则形成上下文消息，插入本步批次。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/06.md",
+      "original_line": 43,
+      "old": "贡献类似多个人填写同一份请求资料，但合并规则由系统决定。每项至少要有身份、范围和位置：身份帮助替换或去重，范围决定谁可见，位置决定有序组装。",
+      "new": "每项提示贡献通过名称、作用域和顺序参与组装。名称用于识别同名项并选择有效版本，作用域限制可见范围，顺序确定最终排列。显式定义这些信息，使不同插件提供的材料能够按一致规则组合。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/06.md",
+      "original_line": 53,
+      "old": "多一份相同规则没有提供新事实，还可能使来源难以辨认。合并前先识别同名项、作用域与历史中的既有材料，比盲目压缩整个请求更有针对性。项目指令用 sameContextPayload 判断等价消息，SystemPrompt 则按名称和作用域选择贡献。两条路径各自去重。",
+      "new": "重复规则增加请求体积，也使来源判断更加复杂。项目指令用 sameContextPayload 检查等价消息，SystemPrompt 按名称和作用域选择贡献。定位重复内容后，可以在对应组装入口处理，减少后续压缩需要处理的冗余。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/06.md",
+      "original_line": 116,
+      "old": "讲解：不会倒改在途请求。新消息在相应领取边界影响后续请求。",
+      "new": "讲解：在途请求使用已冻结的数据副本。新消息在下一次领取边界进入后续请求。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/07.md",
+      "original_line": 7,
+      "old": "Skill 把一项做事方法整理成说明和相关资源，例如“如何分析某类项目”。目录摘要帮助模型知道有哪些方法，正文才说明具体步骤。模型先通过摘要选择 Skill，再获取正文。",
+      "new": "Skill 是封装任务方法的说明及相关资源，例如技术报告的整理流程。目录摘要公开名称和用途，正文解释操作步骤与要求。模型通过摘要发现候选，在需要使用时读取对应正文。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/07.md",
+      "original_line": 11,
+      "old": "加载是实际获取正文并形成可供模型使用的内容，不是装上一个新的操作系统权限。正文可以指导模型组合已有工具，但工具仍受自己的注册、准入和执行边界约束。用户显式指定 Skill 与模型主动选择 Skill，进入材料的路径也不同。",
+      "new": "Skill 加载获取正文并将其加入模型上下文。正文指导模型组合已有工具，文件访问、网络调用和发布操作仍由工具注册、准入与执行环境控制。用户显式指定 Skill 和模型调用 skill 工具分别采用对应的读取路径。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/07.md",
+      "original_line": 39,
+      "old": "### 按需读取不等于权限授权",
+      "new": "### 按需加载与工具权限",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/07.md",
+      "original_line": 41,
+      "old": "按需读取是到需要时再获取内容。Skill 正文是材料，可以指导做事，但读取它不会自动增加文件、网络或发布权限。工具是否可用、动作是否获准和运行环境怎样限制，仍有独立控制层。",
+      "new": "按需加载在任务需要时获取 Skill 内容。正文提供工作方法，工具注册决定可调用能力，准入链决定本次调用是否允许，执行环境限制实际资源访问。这些控制机制在加载后继续生效。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/07.md",
+      "original_line": 51,
+      "old": "本次请求只携带目录和选中正文，省去另外两份正文。多一次 Skill 查找也有调度和读取代价；Skill 选错、说明太含糊或正文过时，可能降低效果。合理比较应同时看材料、获取次数与实际任务检查。",
+      "new": "按需方案省去未选中 Skill 的正文，同时增加查找和读取操作。评价时需要同时记录材料量、加载次数和任务结果。摘要准确性、选择结果与正文版本影响加载所得的方法是否适合当前任务。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/08.md",
+      "original_line": 11,
+      "old": "压缩不是无损编码：摘要可能遗漏细节。选区要保持工具调用与结果成对，并保留最近一段历史。选择边界时检查配对平衡；仍未关闭的步骤留在选区外，而不是交给摘要补造缺失结果。稳定性检查确认准备摘要期间，相关依赖没有变化到使旧摘要失效。提交是把准备好的结果正式纳入 Session 视图的动作，区别于仍在生成中的草稿。",
+      "new": "摘要压缩通过较短表示保留关键内容，细节可能被省略。选区检查保持工具调用与结果配对，保留最近历史，并将尚未关闭的步骤留在选区之外。摘要生成期间，稳定性检查确认相关依赖仍与准备依据一致；通过检查后，提交流程把摘要纳入 Session 的当前视图。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/08.md",
+      "original_line": 13,
+      "old": "另有裁剪和 spill：裁剪移除选定可省略内容，spill 把长内容放到存储并返回取回入口。三者都能缩短当前请求，却改变了不同东西，不能用同一个“压缩掉了”概括。",
+      "new": "裁剪、compaction 和 spill 分别改变不同的数据表示。裁剪移除可省略内容，compaction 以摘要替换选定历史，spill 将长文本保存到外部存储并提供取回入口。它们都减少当前请求承载的内容，后续恢复原文和访问细节的方式则各不相同。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/08.md",
+      "original_line": 41,
+      "old": "Surface 可以理解为当前需要呈现给模型的消息节点集合。历史事实记录发生过什么，Surface 选择当前怎样表示这些事实，两者职责不同。摘要以较短文字保留重点，细节和原文措辞会被省略。项目名、限制条件、路径和未完成事项往往比普通叙述更需要保留。",
+      "new": "Surface 是当前模型历史的消息节点序列。事件日志保留完整运行记录，Surface 根据任务需要选择这些记录的当前表示。摘要可以省略重复叙述，但应保留项目名称、路径、功能限制与未完成事项，避免改变后续推理所需的事实。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/08.md",
+      "original_line": 53,
+      "old": "取舍因此不是越短越好。小摘要降低后续材料压力，保留较多细节则可能更有利于任务正确性。比较时需要相同任务检查，而不只看压缩比例。",
+      "new": "压缩效果由材料体积和信息保留程度共同决定。较短摘要降低后续请求的上下文压力，较完整摘要保留更多任务细节。比较不同方案时，应使用相同的产物检查规则，同时记录压缩比例与后续回答质量。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/08.md",
+      "original_line": 77,
+      "old": "阅读任务：这是摘要已经生成后的提交路径，不是整个压缩函数。dependencies、session 和 summarized 保存本次准备依据，lifecycle 保存本次压缩身份；owner 是这段提交的归属标记，没有归属时先响应取消；startEvent 是压缩开始事件，用于把提交与开始记录关联；外层 catch 还会记录失败阶段和关闭记录。",
+      "new": "阅读任务：节选位于摘要生成后的提交阶段。dependencies、session 和 summarized 保存准备依据，lifecycle 标识本次压缩，startEvent 关联开始事件。owner 为空时先检查取消信号，再校验稳定性并提交。外层 catch 根据失败阶段处理错误与结束记录。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/09.md",
+      "original_line": 7,
+      "old": "流式响应不是一条立即得到的完整回答，而是一段段到达的数据。一个片段可以是文字、工具调用信息、用量或结束信息，循环持续收集片段，直到收到 finish 或消费抛错。适配器把特定模型服务的交互转成项目统一接口；Provider 指提供这项能力的接入方，Provider 与模型选择决定这次请求实际交给谁。",
+      "new": "流式响应通过连续到达的数据片段传递模型输出，片段可以包含文本、工具调用信息、用量或结束状态。驱动持续消费片段，直至迭代结束或消费过程抛错，并根据 finish 结算结果。适配器将模型服务的协议转换成统一接口，Provider 与模型路由确定本次请求使用的服务。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/09.md",
+      "original_line": 19,
+      "old": "假设第一次尝试先到达文字片段，再收到失败终结。临时流可供界面显示进度；循环记录失败事实，向恢复链交出失败类型、模型 Provider、重试策略和取消信号。如果恢复链没有返回 retry，抛出对应模型错误；返回 retry 才进入下一次尝试。",
+      "new": "假设第一次尝试返回部分文本后以失败状态结束。界面可以显示临时进展，驱动记录失败，并向恢复链提供失败类型、Provider、重试策略和取消信号。恢复链返回 retry 时进入下一次尝试；没有重试决定时抛出对应模型错误。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/09.md",
+      "original_line": 45,
+      "old": "### 异步迭代的够用基础",
+      "new": "### 异步迭代与响应消费",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/09.md",
+      "original_line": 47,
+      "old": "Promise 是将来的一次结果，异步可迭代对象则是分次到来的序列：`for await` 每轮向它索取下一个片段，拿到就处理，取完为止。例如一条流依次交出文字甲、文字乙和结束信息，循环不是一次拿到三项，而是先等待甲并处理，再等待乙并处理，最后依据结束信息判断完成。",
+      "new": "Promise 表示一次异步结果，异步可迭代对象表示依次产生的一组值。`for await` 等待下一项，处理完成后再继续迭代。例如流中依次出现文本甲、文本乙和结束信息，驱动按到达顺序处理各项，并在消费结束后读取终结状态。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/09.md",
+      "original_line": 65,
+      "old": "回到 README 任务：第一次模型流失败，符合策略则在本步重试；第二次成功给出读取调用，才进入工具执行。文件结果进入下一步，总结成功后再检查产物。这样避免把失败输出的工具提议当成已准备用来执行的动作。",
+      "new": "README 任务中的首次模型请求若失败，驱动记录该尝试并按恢复决定重试。成功响应提出 read 调用后，流程进入工具执行；读取结果加入下一步骤的上下文，模型据此生成总结。失败输出留在尝试记录中，成功消息中的调用才进入工具阶段。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/09.md",
+      "original_line": 81,
+      "old": "阅读任务：这是 prepareCall 方法内部的准备片段。config 已指明 Provider 与模型，registration 找到其适配器；重点是解析后的配置怎样变成独立副本，而不是本段就已经消费模型输出。",
+      "new": "阅读任务：节选位于 prepareCall 的配置准备阶段。config 指定 Provider 与模型，registration 提供适配器。代码解析配置并建立独立冻结副本，网络调用和流消费位于后续执行阶段。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/09.md",
+      "original_line": 132,
+      "old": "| 509 | continue | 回到尝试循环下一轮，而不是完成本轮用户任务。 |",
+      "new": "| 509 | continue | 进入当前步骤的下一次模型尝试，保持 turn 与 step 不变。 |",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/10.md",
+      "original_line": 9,
+      "old": "依赖指一个部件运行前需要另一项能力，例如文件工具需要工具注册表与文件服务。依赖注入让框架提供这些能力，而不是让每个插件自行创建一份。Context 是 Cordis 用于访问当前可用服务与登记资源的对象。注册和资源清理属于插件生命周期：装入、运行、卸载各自有动作。",
+      "new": "依赖是插件运行所需的外部能力，例如文件工具依赖工具注册表与文件服务。依赖注入由框架向插件提供这些服务。Context 是 Cordis 访问服务、登记资源的接口对象；插件的装入、运行和卸载共同构成生命周期，注册与释放发生在对应阶段。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/10.md",
+      "original_line": 11,
+      "old": "条目是一项插件及其设置的记录，补丁描述这次怎样修改这些记录。配置合成规则决定补丁怎样作用到原条目。注册表保存名称与实现等对应关系，让使用者在需要时找到能力。",
+      "new": "配置条目保存插件身份及其设置，补丁指定对条目字段的修改。配置合成按既定顺序应用补丁，生成加载器使用的条目树。注册表维护名称与实现的对应关系，供消费方解析所需能力。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/10.md",
+      "original_line": 73,
+      "old": "### E10A · 配置层交给条目补丁规则",
+      "new": "### E10A · 配置层与条目补丁的合成",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/10.md",
+      "original_line": 65,
+      "old": "“所有 profile 都带 base”：`sdk-minimal` 的明确例外推翻这一概括。",
+      "new": "base 是多数 profile 的共享配置层；`sdk-minimal` 使用独立的显式配置树。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer",
+      "final_consistency_review": true
+    },
+    {
+      "file": "book/11.md",
+      "original_line": 13,
+      "old": "这套分工使策略与工具实现能分别扩展，同时增加了排查层次。发生错误时必须找到作出决定的位置，而不是把所有错误都归为“没权限”。",
+      "new": "准入策略、审批、守卫和执行环境各自提供控制接口，可以独立扩展。故障定位需要确认错误发生在哪一阶段：前置拒绝、审批拒绝、执行失败与结果处理失败分别对应不同记录。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/11.md",
+      "original_line": 9,
+      "old": "守卫的单调性是它只能增加拒绝，不能推翻前置拒绝而提高权限。`undefined` 表示该守卫不提出拒绝，不等于拥有批准权限。执行环境限制获准动作实际能访问什么；它是否存在操作系统沙箱，以及限制哪些文件或网络，取决于具体 Provider 和配置。",
+      "new": "守卫遵循单调约束：它可以增加拒绝，前置拒绝则继续有效。`undefined` 表示当前守卫没有提出额外拒绝，调用仍遵循已有准入决定。执行环境限制实际资源访问，操作系统沙箱及文件、网络控制由具体 Provider 和配置决定。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/11.md",
+      "original_line": 25,
+      "old": "### 工具体前后都有处理",
+      "new": "### 工具执行前后的处理链",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/11.md",
+      "original_line": 41,
+      "old": "策略回答“这次调用应怎样判定”；审批回答“这次需要的确认结果是什么”；执行环境回答“实际动作可以访问什么”。沙箱（限制程序能访问哪些资源的执行机制）或文件系统守卫提供具体范围限制，但它们不是审批弹窗的另一种名字。",
+      "new": "准入策略为本次调用生成处理决定，审批服务收集确认结果，执行环境约束实际资源访问。沙箱或文件系统守卫在执行层实施范围限制；审批确认与这些资源约束分别配置，并在同一次调用中依次生效。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/11.md",
+      "original_line": 43,
+      "old": "教学上可把它类比为门口决策、一次通行许可与场地围栏。profile 分别选择审批策略和执行 Provider，把这三类控制接入实际调用。",
+      "new": "profile 选择审批策略与执行 Provider，将决策流程和资源限制装配到工具链。分析权限行为时，需要同时检查前置决定、审批结果、后续 guard 与执行后端的配置。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/11.md",
+      "original_line": 55,
+      "old": "### 让读取案例走拒绝分支",
+      "new": "### 读取任务的拒绝与结果替换",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/11.md",
+      "original_line": 155,
+      "old": "讲解：不能。改变模型结果与撤销外部动作是不同能力。",
+      "new": "讲解：后置处理修改返回给模型的内容。此前的读取已由文件服务执行，撤销外部动作需要执行服务提供相应操作。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/12.md",
+      "original_line": 9,
+      "old": "标准输入是程序接收外部数据的一条通道，标准输出是程序交出普通结果的通道。stdio 是 standard input/output 的缩写；它用子进程的这两条通道传递协议数据。HTTP（Hypertext Transfer Protocol，超文本传输协议）规定网页与服务请求怎样交换信息，URL 是定位服务的地址。Streamable HTTP 连接服务 URL，可以跨网络，不是本机子进程的另一种写法。连接、能力发现、工具注册和一次调用成功，是四个不同状态。",
+      "new": "stdio 是 standard input/output 的缩写，通过子进程的标准输入和标准输出传递协议数据。标准输入接收外部数据，标准输出发送程序结果。HTTP（Hypertext Transfer Protocol，超文本传输协议）规定请求与响应的交换方式，URL 标识服务地址。Streamable HTTP 使用服务 URL，支持跨网络连接。连接、能力发现、工具注册和调用完成分别对应不同状态。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/12.md",
+      "original_line": 17,
+      "old": "假设服务 A 通过 stdio 提供一个 search 工具。客户端启动配置指定的进程并建立通信，获取完整工具列表，为它构造公开名称和定义，再交换注册代次（代次：一次连接及其注册结果的版本标记，详见下一节）。模型看到公开名后，调用仍经过本地通用工具链；包装执行体把参数、取消信号和超时交给服务器原工具名。",
+      "new": "假设服务 A 通过 stdio 提供 search 工具。客户端启动配置指定的进程、建立连接、获取完整工具列表，再构造公开名称并更新注册代次。代次标识本次连接及其工具注册结果。模型调用公开名称后，请求经过本地 ToolRuntime；执行包装使用服务器原工具名，将参数、取消信号与超时配置传入远端调用。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/12.md",
+      "original_line": 41,
+      "old": "客户端是发起请求的一方，服务端是提供协议能力的一方；远程调用把参数与结果跨越进程或网络边界。MCP 规定交互方式。RAG 是 Retrieval-Augmented Generation，检索增强生成：先检索与问题有关的材料，再把材料交给模型生成回答。例如先找出相关文档片段，再作总结；它是一种材料组织方法，和通信协议不是同义词。",
+      "new": "客户端发起请求，服务端提供协议能力，远程调用在进程或网络之间传递参数与结果。MCP 规定这层交互协议。RAG（Retrieval-Augmented Generation，检索增强生成）先检索相关材料，再将材料加入模型上下文，例如检索项目文档后生成总结。协议接入和检索生成分别解决通信与信息组织问题。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/12.md",
+      "original_line": 43,
+      "old": "一个 Memory 服务是否使用 embedding（第 8 章简介：把文字转成可比较相似度的数字向量）、按语义搜索、保存跨 Session 信息，需要看该服务契约。本项目 Memory MCP 指南介绍可选第三方接入，并非默认内置数据库；其中 Reference Memory 按子字符串查询。",
+      "new": "Memory 服务的存储与查询实现决定是否支持 embedding、语义检索和跨 Session 记忆。embedding 将文本编码为用于相似度比较的向量，第 8 章已有介绍。本项目的 Memory MCP 指南提供可选第三方服务的接入方式，其中 Reference Memory 采用子字符串查询；相关能力通过对应服务配置启用。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/12.md",
+      "original_line": 45,
+      "old": "### 分析示例：四项分别验收",
+      "new": "### 分析示例：分项检查服务能力",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/12.md",
+      "original_line": 65,
+      "old": "“Memory 名字说明已经有向量库”：看实际存储、查询与启用方式，不按名字补造能力。",
+      "new": "Memory 服务的能力需要由存储实现、查询算法和启用配置确定。向量检索依赖相应的向量表示与检索实现。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/12.md",
+      "original_line": 109,
+      "old": "| 42 | new URL | 解析配置里的服务地址，不是启动本机命令。 |",
+      "new": "| 42 | new URL | 将配置的服务地址解析成 HTTP 传输使用的 URL 对象。 |",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/12.md",
+      "original_line": 122,
+      "old": "讲解：不是。stdio 启动子进程，Streamable HTTP 连接服务 URL。",
+      "new": "讲解：stdio 服务由客户端启动的子进程承载；Streamable HTTP 通过 URL 连接服务，可以访问远端服务器。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/13.md",
+      "original_line": 7,
+      "old": "Subagent 是父任务启动的另一运行单元，负责一部分工作。父 Agent 交代目标、材料、可用能力和交付要求，子 Agent 完成分工，父 Agent 再检查并整合结果。",
+      "new": "Subagent 是父 Agent 为子任务启动的独立运行单元。父 Agent 提供目标、上下文、能力配置与交付要求；子 Agent 执行任务并返回结果，父 Agent 负责检查和整合。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/13.md",
+      "original_line": 9,
+      "old": "fresh 从不继承父历史的材料起点开始，fork 从已有历史的规定前缀开始。进程内 Provider 的 spawn 创建空历史子 Session，fork 截取父 Session 到最近已完成轮次为止的事件。前缀保留开头到该位置的全部记录；当前轮次新增资料由父 Agent 通过启动输入传给子任务。",
+      "new": "fresh 以不继承父历史的状态创建子任务，fork 使用父历史的指定前缀。进程内 Provider 的 spawn 创建空历史子 Session，fork 截取父 Session 中最近 turn/end 及其之前的事件。当前未完成轮次的新增材料需要通过启动输入显式传入。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/13.md",
+      "original_line": 47,
+      "old": "拆分任务先确定职责，再准备材料。例如一个子任务提取功能，另一个核对限制，父 Agent 最后整合。当前轮次刚读到的 README 尚未进入 fork 的已完成历史前缀，父 Agent 要在启动输入中把这份材料传给子任务。",
+      "new": "任务拆分需要明确各子任务的职责与输入。例如分别提取功能、核对限制，再由父 Agent 整合。当前轮次读取的 README 尚未进入 fork 的已完成历史前缀，应在启动输入中显式传入，保证两个子任务使用正确的材料。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/13.md",
+      "original_line": 49,
+      "old": "### 分析示例：拆分不只计算工作时间",
+      "new": "### 分析示例：执行、启动与汇合的总耗时",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/13.md",
+      "original_line": 79,
+      "old": "阅读任务：这是 completedTurnPrefix 完整辅助函数。parent 是父 Agent；重点观察事件边界，而不是猜测 fork 与操作系统进程复制相同。",
+      "new": "阅读任务：completedTurnPrefix 从 parent 所指父 Agent 的日志中计算可继承前缀。代码以最近 turn/end 为边界，截取相应的 Session 事件；子 Agent 的创建位于 Provider 的后续逻辑。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/13.md",
+      "original_line": 97,
+      "old": "| 49 | 原 lint 注释 | 说明本处暂时采用现有历史读取接口，不是运行逻辑。 |",
+      "new": "| 49 | 原 lint 注释 | 说明当前历史读取接口的弃用警告处理及后续迁移安排。 |",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/14.md",
+      "original_line": 9,
+      "old": "本地回显先显示刚输入的内容，使人知道按钮已经响应。它属于客户端待提交状态，不是宿主已经保存的事实。请求标识用于把提交与后续记录关联起来，避免重试或状态协调时把同一输入显示两次。",
+      "new": "本地回显在请求完成前显示用户输入，提供即时交互反馈。输入此时保存在客户端 pending 状态，Host 接纳后生成正式记录。requestId 关联这两种表示，使客户端能够协调状态并避免重复显示。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/14.md",
+      "original_line": 19,
+      "old": "这里把已存在的完整状态称为基线，把其后新增的变化称为增量。订阅是登记自己要持续接收哪类变化，缓冲是先保存尚未处理的变化；监听器是收到变化以后调用的处理函数。",
+      "new": "基线是已知时点的完整状态，增量是此后发生的变化。订阅登记后续事件的接收关系，缓冲保存尚待处理的事件，监听器响应事件通知。快照与增量结合，持续维护客户端的 Session 镜像。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/14.md",
+      "original_line": 17,
+      "old": "用户点击发送后，页面先建立待提交记录并显示本地输入。附件等处理完成，客户端发送带 requestId 的 prompt 请求；宿主接纳后返回回执。页面还要把这项暂态与随后观察到的用户消息协调，避免重复显示。",
+      "new": "用户发送消息后，客户端先创建 pending 记录并显示输入。附件处理完成后，客户端发出带 requestId 的 prompt 请求，Host 接纳后返回回执。后续跟随流提供正式用户消息，客户端根据 requestId 协调 pending 与正式记录，避免重复显示。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/14.md",
+      "original_line": 41,
+      "old": "订阅让客户端持续接收事件流。snapshot 给出某个游标位置的状态，游标就是后续事件从哪里继续的序号标记。RPC 传递操作请求，持续流传递之后发生的变化。",
+      "new": "snapshot 提供游标位置的状态，后续订阅从该位置继续接收事件。游标记录事件消费进度。RPC 负责操作请求与回执，持续流负责传递任务执行期间的状态变化。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/14.md",
+      "original_line": 49,
+      "old": "教学快照游标为 40，后续期望先收到 41。缓冲中依次出现 39、41、43：39 已早于期待位置，可略过；41 正常推进后期待 42；43 不能冒充 42，应该触发缺口处理。",
+      "new": "教学快照游标为 40，后续预期序号为 41。缓冲依次包含 39、41、43：39 早于消费位置，予以跳过；消费 41 后，预期序号推进到 42；随后到达的 43 暴露了缺失事件，触发缺口处理。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/14.md",
+      "original_line": 97,
+      "old": "| 228 | 不等比较 | 剩余事件若不是恰好期待的一项，就是缺口。 |",
+      "new": "| 228 | 不等比较 | 事件序号高于预期位置时，判定流中存在缺口。 |",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/14.md",
+      "original_line": 98,
+      "old": "| 229 | throw 构造远程错误 | 报告跳过了哪个序号，不无声继续。 |",
+      "new": "| 229 | throw 构造远程错误 | 报告缺失序号并中断当前跟随流。 |",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/15.md",
+      "original_line": 7,
+      "old": "桌面版使用 Electron 承载网页产品。Renderer 是显示页面的运行环境；Main 是管理窗口和桌面生命周期的主进程；preload 是给页面提供有限桌面接口的桥。实际 Harness 服务还有独立 Node Host 子进程，因此理解架构不能停在一个三层图。",
+      "new": "桌面版通过 Electron 承载 Web 客户端。Renderer 运行页面，Main 管理窗口与应用生命周期，preload 向页面暴露受控桌面接口。Harness 后端服务运行在独立的 Node Host 子进程中，由 Main 管理其启动与退出。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/15.md",
+      "original_line": 11,
+      "old": "启动时，Main 先加载本地页面，再等待 Host 返回服务地址与启动资料。页面先显示等待状态，拿到资料后激活业务。请求转发同时校验页面来源，并为 Host 请求补齐认证信息。",
+      "new": "启动时，Main 先加载本地页面，再等待 Host 返回服务地址与启动参数。页面显示等待状态，接收到启动参数后激活客户端。业务请求转发校验页面来源，并向 Host 请求补充认证信息。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/15.md",
+      "original_line": 13,
+      "old": "关闭普通窗口与退出应用也不是同一个动作。关闭普通窗口走隐藏并保留运行的路径；后者需要按应用生命周期处理仍在运行的任务。",
+      "new": "普通主窗口关闭时隐藏窗口并保留后台运行；退出应用则进入任务中断检查和后端关闭流程。两类事件分别受桌面应用的生命周期管理。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/15.md",
+      "original_line": 53,
+      "old": "### 把故障交给正确部件",
+      "new": "### 启动故障的分层定位",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/15.md",
+      "original_line": 107,
+      "old": "| 197 | 结束参数数组，开始 spawn 选项 | 下面是进程环境，不是工具参数。 |",
+      "new": "| 197 | 结束参数数组，开始 spawn 选项 | 后续字段配置 Host 子进程的工作目录、环境和通信方式。 |",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/15.md",
+      "original_line": 118,
+      "old": "### 问题 1 · Main 是不是 Harness 核心的唯一执行进程？",
+      "new": "### 问题 1 · Main 与 Node Host 分别运行哪些功能？",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/15.md",
+      "original_line": 120,
+      "old": "讲解：不是。Main 管理桌面与后端生命周期，另有 Node Host 子进程运行服务。",
+      "new": "讲解：Main 管理桌面窗口和后端生命周期，独立 Node Host 子进程运行 Harness 服务。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/15.md",
+      "original_line": 124,
+      "old": "讲解：不等于。还需要 Host ready 与客户端激活。",
+      "new": "讲解：等待页面表明 Renderer 已加载文档。业务可用还需要 Host 返回 ready，并完成客户端激活。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/15.md",
+      "original_line": 128,
+      "old": "讲解：不是。它暴露受控桌面接口，聊天继续走已有请求与流链路。",
+      "new": "讲解：preload 暴露受控桌面接口，聊天业务使用 Web 客户端已有的请求与持续流通道。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/16.md",
+      "original_line": 7,
+      "old": "测试把一个判断写成可检查的条件。断言是必须成立的条件，例如“失败模型尝试不执行其中的工具提议”。替身代替一个依赖；回放使用已有响应脚本代替这次模型输出，同时让所选真实循环和工具链继续运行。",
+      "new": "测试将预期行为表达为可检查的条件。断言规定必须满足的关系，例如失败模型尝试中的工具提议不得进入执行阶段。替身替代选定依赖，回放则用预录制响应替代模型生成，所选的真实循环和工具链继续处理这些响应。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/16.md",
+      "original_line": 9,
+      "old": "本项目 LLM 回放采用按 Session 绑定、按调用位置消费的方式。新 Session 获取下一份录制脚本，每调用一次前进一个位置。它不是把当前请求的全部内容与录制请求逐字段比较后再匹配响应。",
+      "new": "本项目的 LLM 回放按 Session 绑定响应脚本，再按调用位置选择条目。新 Session 绑定下一份脚本，每次模型调用消费下一项响应。响应选择的依据是调用序号，请求字段的正确性由测试中的独立断言检查。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/16.md",
+      "original_line": 19,
+      "old": "位置回放按请求次数返回脚本条目。即使第一次请求组装错了材料，仍会拿到第 0 项响应。测试要另外检查实际请求的字段，才能发现材料组装错误。",
+      "new": "位置回放按调用序号返回响应，即使请求上下文存在错误，第一次调用仍会消费第 0 项。验证材料组装时，需要同时断言实际请求中的消息、工具定义和参数。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/16.md",
+      "original_line": 66,
+      "old": "若故障是“模型漏掉限制”，保存材料与产物用于分析，但真正比较修改效果仍需要新模型输出和统一任务检查。选择最小合适证据，比不断扩大整套测试更有帮助。",
+      "new": "“总结遗漏功能限制”需要通过任务材料和模型产物定位，再用新生成的结果比较修改效果。固定回放检查工程路径，真实模型输出检查提示与上下文对产物的影响；两类验证分别对应明确的待测行为。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/16.md",
+      "original_line": 78,
+      "old": "教材另附[源码验证记录](../examples/README.md)。它实际调用第四章的读取窗口函数和第三章的 Inbox 方法，检查分块换行、字节上限后的总行数、越界错误、边界领取和重复输入拒绝。断言写在代码中，观察结果与源文件哈希一起保存。读这个记录时，可以把“文字中的机制”“实际调用的函数”和“断言检查的结果”逐项对应起来。",
+      "new": "教材附有[源码验证记录](../examples/README.md)：验证代码实际调用第 4 章的读取窗口函数和第 3 章的 Inbox 方法，检查分块换行、达到字节上限后的总行数、越界错误、边界领取及重复输入拒绝。结果记录保存断言观察、执行环境和源文件哈希，可以逐项对应正文机制、函数调用与检查结果。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/17.md",
+      "original_line": 7,
+      "old": "评价先定义任务怎样算正确，再记录完成这些任务花了什么。质量是产物满足规则的程度；时间是选定起点到选定终点的耗时；用量是请求、token 或工具等资源数量；失败记录说明哪些样本没有正常完成以及原因。",
+      "new": "评价由任务正确性规则和资源统计共同组成。质量描述产物满足要求的程度，耗时记录指定起点至终点的时间，用量统计请求、token 和工具调用等资源，失败记录保存未正常完成样本的原因。先明确任务要求，再按照统一口径采集这些指标。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/17.md",
+      "original_line": 9,
+      "old": "计量是记录或估算数量，遥测是把运行信息交给观察系统。投影把事件整理成可读取的用量和上下文状态；导出后端决定资料怎样发送。TokenMeter 负责用量和容量状态，业务评分规则负责判断结果，计费按 Provider 报告和对应计费类别计算。",
+      "new": "计量记录或估算资源数量，遥测向观测系统输出运行信息。投影从事件维护用量与上下文状态，导出后端负责传输。TokenMeter 管理用量和容量统计，业务规则判断产物是否正确，费用依据 Provider 报告的计费类别与用量计算。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/17.md",
+      "original_line": 21,
+      "old": "TokenMeter 注册用量、压力和材料组成等投影，供消费者按用途读取；Session 遥测协调事件并交给导出后端。这些过程信息与业务规则一起组成评价记录。例如“如实说明资料不足”可以是读取失败任务的正确产物，而不是要求每个样本都强行生成三点总结。",
+      "new": "TokenMeter 注册用量、压力和材料组成投影，Session 遥测汇集事件并传入导出后端。业务评价将这些过程记录与产物检查关联。例如读取失败时，准确说明资料不足可以满足任务要求；读取成功时，再检查用途和功能总结是否有充分依据。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/17.md",
+      "original_line": 53,
+      "old": "指标并列让取舍可见，代价是需要保留完整样本记录，而不是只报最漂亮的一个数字。扩大任务集并重复测量，可以继续观察结果在其他样本中的分布。",
+      "new": "多项指标共同说明方案取舍，完整样本记录则支持分析这些差异的来源。扩大任务集并重复测量，可以进一步观察通过率、用量与失败类型的分布。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/17.md",
+      "original_line": 63,
+      "old": "记录每次任务的输入标识、配置、产物、检查、时间、用量来源和失败原因。没有可靠 token 报告时标估算；没有终态时间时标缺失；不要把缺失填成零。分析后回到对应材料或执行机制修改，再用相同规则复查。",
+      "new": "任务记录包含输入标识、配置、产物、检查结果、耗时、用量来源和失败原因。token 估算标明来源，缺失终态时间保留为空，避免与零耗时混淆。分析定位到上下文或执行机制后，再按相同任务规则复查修改效果。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/17.md",
+      "original_line": 79,
+      "old": "阅读任务：这是 TokenMeter 构造期间的三项注册。register 把投影定义交给管理者，不是在这三行中已经测量所有 Session；后续读取和事件观察推动相应状态。",
+      "new": "阅读任务：节选是 TokenMeter 构造时的投影注册。register 保存计算与读取定义，消费者后续查询和事件更新驱动具体统计。三项注册分别对应用量、上下文压力与材料组成。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/17.md",
+      "original_line": 96,
+      "old": "执行推演：装入计量组件后，消费者可以按需请求用量、压力与材料组成视图。注册数量为三项，不等于运行过三次模型请求。",
+      "new": "执行推演：计量组件注册三项投影定义，消费者随后按需读取用量、压力与材料组成。投影种类与模型请求次数分别计数。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/17.md",
+      "original_line": 106,
+      "old": "讲解：零代表真实无耗时，缺失代表没有记录，混用会扭曲统计。",
+      "new": "讲解：零是有效数值，缺失表示没有相应记录。将未知耗时填成零会降低统计值，并掩盖采集缺失。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/18.md",
+      "original_line": 9,
+      "old": "规范值是执行体返回的结构化结果，供程序检查。schema 规定结构，render 将它转成模型内容，presentationMeta 提取可保存的展示资料。模型读取渲染文字，客户端从原始事件与 meta 派生界面组件数据。",
+      "new": "规范值是执行体返回的结构化数据，供输出契约检查。schema 定义结构，render 生成模型内容，presentationMeta 提取可持久化的展示元数据。模型使用渲染文本，客户端根据原始事件与 meta 派生卡片数据。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/18.md",
+      "original_line": 13,
+      "old": "这一章把启动装配、参数检查、工具准入、读取、结果记录和产品呈现连起来。新增能力的价值在于接上已有责任链，而不是再造一套绕开记录与限制的模型循环。",
+      "new": "本章将启动装配、参数校验、工具准入、文件读取、结果记录与界面呈现串联为同一条调用链。新增工具通过现有扩展接口接入各环节，复用统一的控制与记录机制。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/18.md",
+      "original_line": 17,
+      "old": "从启动追一次 read：profile 装入文件工具插件，插件声明所需服务并注册工具定义；模型调用时提交 file_path、offset 和 limit。ToolRuntime 先建立参数的 JSON 快照并完成准入。随后 defineTool 的 execute 包装函数检查参数 schema，read 执行体调用 parseReadArgs 补齐默认值、检查行范围，再由文件服务读取并构造窗口。",
+      "new": "read 的接入始于 profile 装载文件工具插件。插件声明依赖并注册工具，模型调用提交 file_path、offset 和 limit。ToolRuntime 创建参数 JSON 快照并完成准入；defineTool 的 execute 包装函数随后检查 schema，read 执行体通过 parseReadArgs 补齐缺省值、校验行范围，再调用文件服务读取目标并构造窗口。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/18.md",
+      "original_line": 34,
+      "old": "### 接入已有接口，而不是另造循环",
+      "new": "### 通过扩展接口接入运行链",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/18.md",
+      "original_line": 52,
+      "old": "Web Client 的展示链从原始事件开始：Conversation 按 callId 配对工具调用与结果，ToolCallTree 按工具名称选择 tool.call.toolview 中的 renderer。这个按名称选择渲染组件的入口，是 keyed slot。read 对应 ReadRow，后者调用 readCardModel，从原始参数、结果文字和持久 meta 生成 React 组件的 props，也就是界面组件使用的数据。",
+      "new": "Web Client 的展示链从原始事件开始。Conversation 通过 callId 关联调用与结果，ToolCallTree 通过工具名称选择 tool.call.toolview 中的 renderer。这个按名称选择组件的入口称为 keyed slot。read 对应 ReadRow，它调用 readCardModel，从原始参数、结果文本与持久 meta 构造 React 组件的 props，即组件使用的输入数据。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/18.md",
+      "original_line": 116,
+      "old": "| 133 | 结束函数属性 | 这些资料交给输出和保存链，不是一个 React 组件。 |",
+      "new": "| 133 | 结束函数属性 | 返回可序列化元数据，供工具结果保存与客户端卡片派生使用。 |",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/18.md",
+      "original_line": 123,
+      "old": "### 问题 1 · 规范值、模型文本和展示元数据分别交给谁？",
+      "new": "### 问题 1 · 规范值、模型文本与展示元数据各自有什么用途？",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/19.md",
+      "original_line": 7,
+      "old": "## 19.1 先理解问题：装入以后，还要能够撤离",
+      "new": "## 19.1 组件替换与资源释放",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/19.md",
+      "original_line": 11,
+      "old": "生命周期不仅关心“怎样让它工作”，还要说明“怎样停止并撤去它带来的贡献”。effect 是操作对状态造成的改变，例如增加一个监听器。disposer 是为撤销相应贡献而保存的动作，例如移除刚增加的那个监听器。inverse 在这里指可以撤回该操作的函数，而不是“再运行一次原函数”。",
+      "new": "组件生命周期同时管理能力启用与贡献撤销。effect 是操作对状态产生的改变，例如注册事件监听器；disposer 是释放该贡献的函数，例如移除本次注册的监听器；inverse 描述对应的逆操作，用于恢复操作前的状态。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/19.md",
+      "original_line": 17,
+      "old": "## 19.2 一个可逆操作需要交出什么",
+      "new": "## 19.2 可逆操作与恢复见证",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/19.md",
+      "original_line": 19,
+      "old": "用一个工具集合说明数学记号。设状态 S 保存当前工具集合，装入 A 前为 `{read}`；执行操作 f 后为 `{read, search}`。同时保存的撤回动作 g 只移除 A 注册的 search，则 g(f(S)) 回到 `{read}`。写成关系是：先执行 f，再执行它给出的 g，恢复原状态。",
+      "new": "设状态 S 表示工具集合，组件 A 装入前为 `{read}`，操作 f 将其变为 `{read, search}`。f 同时提供逆操作 g，g 只移除 A 注册的 search，于是 `g(f(S)) = S`。这个关系要求逆操作恢复本次操作对应的输入状态。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/19.md",
+      "original_line": 23,
+      "old": "在程序里，disposer（释放函数）通常通过闭包保存所需信息。闭包是一个函数连同它以后仍需使用的外层值：例如清理回调记住本次创建的 timer 句柄，卸载时才能停止这个定时器，而不是误停别人的资源。登记资源时就把获得与释放放在一起，比以后重新寻找“我到底创建过什么”更容易保持对应关系。",
+      "new": "disposer（释放函数）通过闭包保留资源身份。闭包由函数及其引用的外层变量组成，例如清理函数捕获本次创建的 timer 句柄，卸载时据此停止对应定时器。资源创建时登记释放函数，使资源获取与撤销始终保持明确对应。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/19.md",
+      "original_line": 31,
+      "old": "## 19.3 怎样把多个操作的撤回连起来",
+      "new": "## 19.3 逆操作的组合与释放顺序",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/19.md",
+      "original_line": 33,
+      "old": "设一个组件先申请资源 A，再用 A 建立资源 B。撤离时先撤 B 再撤 A，才不会在清理 B 时发现基础资源已经消失。LIFO 是 Last-In-First-Out，后进先出；像把纸依次放到一摞的顶部，再从顶部取出。",
+      "new": "若组件先申请资源 A，再基于 A 创建资源 B，释放时应先清理 B，再释放 A，以保留 B 清理所需的依赖。LIFO（Last-In-First-Out，后进先出）描述这种顺序：后创建的依赖资源先撤销。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/19.md",
+      "original_line": 49,
+      "old": "响应式依赖意味着环境变化会推动实例重新计算目标状态。依赖注入使插件通过给定接口取能力，而不是自行硬编码每一个提供者。实例持有的连接、监听器和后台工作应通过资源管理接口登记，让卸载路径可以找到对应 disposer。",
+      "new": "响应式依赖使环境变化触发实例的目标状态更新。依赖注入通过统一接口解析服务提供者。实例创建的连接、监听器和后台任务经资源管理接口登记，对应 disposer 随实例卸载被调用。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/19.md",
+      "original_line": 70,
+      "old": "## 19.6 为什么“正向能交换”还不足以任意卸载",
+      "new": "## 19.6 操作独立性与安全卸载",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/19.md",
+      "original_line": 76,
+      "old": "一个错误清理例子是：A 注册前保存整个工具集合；B 后来登记自己的工具；A 卸载时把集合整体恢复成旧副本。A 确实记住了一个旧状态，却把 B 的合法贡献也抹掉。正确的撤回应识别并移除自己贡献的条目。遇到重名、覆盖、排序或共享资源时，还要把条目的替换和撤销规则纳入独立性检查。",
+      "new": "考虑一种有缺陷的释放方式：A 注册前保存整个工具集合，B 随后注册另一项工具，A 卸载时用旧副本替换当前集合。这样会连同 B 的合法贡献一起删除。释放逻辑应识别并移除本实例注册的条目。存在重名、覆盖、排序或共享资源时，还需检查替换与撤销规则是否保持独立性。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/19.md",
+      "original_line": 163,
+      "old": "| 122 | Object.create | 建立继承父作用域表的新表，而不是复制整个宿主环境。 |",
+      "new": "| 122 | Object.create | 创建继承父服务作用域表的新表，保留其他名称的解析关系。 |",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/19.md",
+      "original_line": 164,
+      "old": "| 123 | 下标赋值与空值合并 | 为指定名称使用提供的标签或一个新 Symbol（语言内置的生成不重复值的工具，适合当标签）。 |",
+      "new": "| 123 | 下标赋值与空值合并 | 为指定名称使用已有标签，或创建唯一 Symbol 值作为新标签。 |",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/19.md",
+      "original_line": 148,
+      "old": "阅读任务：这是 Context.isolate 完整方法。name 是要隔离的服务名称，label 可让多个 Context 共享同一个服务作用域标签；重点观察返回的对象是否是操作系统沙箱。",
+      "new": "阅读任务：Context.isolate 为 name 指定的服务名称设置解析标签。可选 label 用于让多个 Context 共享同一服务作用域，返回值是携带新解析表的派生 Context。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/19.md",
+      "original_line": 175,
+      "old": "阅读任务：这是 Fiber._unload 的释放开头。_disposables 保存所属 Fiber 的释放函数；本段之后还会清 store 并更新状态。观察 Promise.all 与逐个异常处理，不把论文的抽象回滚顺序直接套成这里的串行执行。",
+      "new": "阅读任务：节选位于 Fiber._unload 的资源释放阶段。_disposables 保存当前 Fiber 的释放函数，Promise.all 等待各项异步清理，每项有独立的异常记录。后续流程清理 store 并更新实例状态。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "book/19.md",
+      "original_line": 224,
+      "old": "讲解：不能。它改变指定服务名的解析标签，仍是语言内组织机制。不可信代码的物理执行边界、桥接接口和可访问资源要另行设计。",
+      "new": "讲解：ctx.isolate 调整服务名称的解析标签，派生 Context 与原 Context 仍共享宿主进程。不可信组件的运行需要独立设计执行隔离、桥接接口与资源访问限制。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "subsystems.md",
+      "original_line": 5,
+      "old": "阅读每项能力时，先找输入来自哪里，再看它做了什么，最后追踪结果怎样回到 Session、工具或客户端。这样就能把不同的子系统接回前面的运行主线。",
+      "new": "各节按输入、处理和输出组织：说明材料或事件如何进入子系统，组件如何处理，以及结果如何返回 Session、工具链或客户端。通过这些接口可以把扩展能力与核心运行流程关联起来。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "subsystems.md",
+      "original_line": 7,
+      "old": "## 用一张地图认识整个仓库",
+      "new": "## 项目分层与子系统关系",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "subsystems.md",
+      "original_line": 13,
+      "old": "可以把项目理解为六层。最内侧是 Session 事实与 Agent 运行；围绕它是模型、材料和工具；再外侧是文件、进程、检索等 Provider；宿主接口把这些能力交给客户端；网页与桌面形成用户产品；测试、计量与发布支撑版本维护。",
+      "new": "项目可按职责划分为六层：Session 与 Agent 运行维护核心状态；模型、上下文和工具构成任务执行链；文件、进程与检索 Provider 实现外部能力；Host 接口暴露服务；Web 与桌面客户端提供用户交互；测试、计量与发布支撑版本维护。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "subsystems.md",
+      "original_line": 21,
+      "old": "上传图片不是把浏览器临时 URL 永久塞进对话。浏览器临时地址只在当前环境有效，刷新或换进程可能失效。附件服务先校验并保存二进制对象，成功后才发布不可变引用；Session 记录保存引用与元数据，图片字节由附件 Provider 管理。这样恢复和 fork 可以共享已有对象，而不是重复复制整张图。",
+      "new": "图片附件需要稳定的存储引用。浏览器临时 URL 依赖当前运行环境，刷新或切换进程后可能失效。附件服务校验并保存二进制对象，成功后发布不可变引用；Session 保存引用与元数据，附件 Provider 管理图片字节。恢复和 fork 通过引用复用已有对象。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "subsystems.md",
+      "original_line": 31,
+      "old": "作用域可以理解为“这项贡献对谁可见，并由谁负责撤销”。全局工具或提示片段可被多位 Agent 使用，某个 Agent 专属条目只影响对应身份；插件卸载要撤销自己的注册，不能移除其他贡献方的条目。作用域对象身份与显示名字分开，因此重名不代表同一个拥有者。",
+      "new": "作用域规定工具、提示等贡献的可见范围与资源归属。全局条目可以服务多个 Agent，Agent 专属条目限定对应身份；插件卸载按归属撤销注册，保留其他插件的贡献。作用域依靠对象身份识别，显示名称相同的对象仍可属于不同拥有者。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "subsystems.md",
+      "original_line": 39,
+      "old": "JSON 把对象、数组、文字与数字等数据写成可交换的文本；SQLite 是在本地数据库文件中管理记录的系统。一个“领域”在这里指某类业务数据，例如工作区注册或定时提醒。领域 API 是其他程序操作这类数据的方法入口，不是任意读取底层文件的权限。",
+      "new": "JSON 以文本表示对象、数组、字符串与数字等数据，SQLite 在数据库文件中管理记录。领域层组织特定业务数据，例如工作区注册或定时提醒，并通过领域 API 公开受控操作；底层文件由存储后端管理。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "subsystems.md",
+      "original_line": 41,
+      "old": "Session 日志用于运行事实；工作区目录注册、定时记录等产品数据，使用另一类领域存储。存储枢纽只是注册后端与数据形式的入口，本身不做文件读写。JSON 与 SQLite 后端提供不同介质，领域层声明记录结构与版本，业务包通过领域 API 操作自己的数据。",
+      "new": "Session 日志保存运行事件，工作区注册和定时记录等产品数据使用领域存储。存储枢纽注册后端与数据类型，JSON 或 SQLite 后端执行介质读写。领域层声明结构与版本，业务包通过领域 API 维护相应记录。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "subsystems.md",
+      "original_line": 51,
+      "old": "投影把有序事件折叠成某种业务状态，例如最新待办、计划状态、目标或团队任务板。领域贡献纯计算单元，宿主注册表驱动折叠，再向客户端提供完整视图。客户端接收的状态是成品值，不要求每个 UI 自己重做一遍所有领域事件逻辑。快照携带序号，说明它对应日志中的哪个切面。",
+      "new": "投影将有序事件归约为可查询的业务状态，例如待办列表、计划状态、目标或团队任务板。领域包提供纯计算逻辑，Host 注册表驱动更新，并向客户端发送完整状态视图。快照携带序号，标识其对应的日志位置；客户端据此显示状态，无须重复实现领域事件的归约过程。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "subsystems.md",
+      "original_line": 79,
+      "old": "程序化工具调用（PTC）则改变组织方式：模型提交一段程序，通过运行时绑定调用已有工具。绑定类似程序可用的异步函数入口，其参数与结果走可传输的 JSON 约定；它不是把整套 Host 对象直接交给程序随便操作。",
+      "new": "程序化工具调用（PTC）通过程序组织已有工具。模型提交代码，运行时将工具绑定为异步函数入口，参数与结果按 JSON 契约跨执行环境传递。程序使用这些受控入口调用能力，Host 对象保留在宿主环境中。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "subsystems.md",
+      "original_line": 87,
+      "old": "权限预设把沙箱模式与审批策略组成便于选择的界面选项。这两个旋钮仍独立：审批决定某次操作是否获准，沙箱决定进入执行后文件效果受到什么限制。预设名称是产品表达，实际限制来自具体后端。",
+      "new": "权限预设将沙箱模式和审批策略组合为便于选择的界面选项。审批决定本次操作是否允许，沙箱限制执行后的文件访问范围，两项设置分别生效。具体后端实施资源约束，并报告支持程度。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "subsystems.md",
+      "original_line": 105,
+      "old": "SSH（Secure Shell）是一种建立受保护远程连接的协议；例如在主机上的框架请求另一台机器读取其工作目录。LSP（Language Server Protocol，语言服务器协议）让编辑与分析程序向语言服务器询问代码的定义、引用等关系。这里的语义是代码中的含义与关联，不只是文字是否相同。",
+      "new": "SSH（Secure Shell）提供安全的远程通信，用于请求另一台机器执行文件或进程操作。LSP（Language Server Protocol，语言服务器协议）提供代码定义、引用等语义查询；它根据符号关系返回结果，文本匹配则依据字符内容。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "subsystems.md",
+      "original_line": 125,
+      "old": "构建是把源文件处理成程序能够加载的产物；发布是把一个已选版本分发出去。npm 是 JavaScript 生态中的包管理工具与分发入口，OS 是 operating system，即操作系统。原生组件使用特定系统与处理器的运行能力，因此 Windows 与另一平台的同名包不一定能互换。",
+      "new": "构建将源文件转换为可加载产物，发布分发选定版本。npm 是 JavaScript 生态的包管理与分发工具。原生组件依赖操作系统（OS，Operating System）和处理器架构，安装时需要选择与目标平台匹配的包。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "subsystems.md",
+      "original_line": 137,
+      "old": "凭据配置保存引用，例如一个环境变量名，实际秘密由凭据 Provider 管理。模型适配器按请求解析引用，因此已轮换的值可以用于下一次请求，不需要把旧密钥写入每条 Session。空值视为缺失，不应默默借用另一套无关凭据。",
+      "new": "凭据配置保存环境变量名等引用，凭据 Provider 管理实际秘密值。模型适配器在请求时解析引用，轮换后的凭据可用于下一次调用，Session 无须逐条保存旧密钥。空值按缺失处理，凭据选择遵循当前路由的配置。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "subsystems.md",
+      "original_line": 143,
+      "old": "Client model 是客户端保存的可观察状态对象，UI adapter 是把这些状态接到界面的一层程序，Slots 是界面预留的内容插入位置。比如宿主新增一条消息，客户端镜像更新，适配层让聊天区域重新显示；并不是宿主直接修改浏览器中的每个按钮。",
+      "new": "Client model 维护可观察的客户端状态，UI adapter 将这些状态映射到界面，Slots 提供功能组件的插入位置。Host 发布消息事件后，客户端更新镜像状态，适配层据此驱动聊天视图重新渲染。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "subsystems.md",
+      "original_line": 145,
+      "old": "Host 拥有真实状态，Client model 维护可观察镜像，UI adapter 把镜像接到视图，Slots 将功能组件装进页面。客户端模块系统扫描包声明，形成启动图并加载资源；这和模型看到的 skill 目录不是同一种注册表。",
+      "new": "Host 管理服务端状态，Client model 维护镜像，UI adapter 驱动视图，Slots 组织功能组件。客户端模块系统根据包声明生成启动图并加载资源；Skill 目录则向模型公开任务方法的摘要，两类目录分别服务于客户端装配和模型上下文。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "subsystems.md",
+      "original_line": 149,
+      "old": "Typert Remote 把业务方法变成类型化远程调用：请求携带端点与参数，宿主解析相应对象身份和调用上下文，取消通过独立信号承载。传来的 id 是对象的传输身份，不是任意对象本体；解析器不可用时应失败，不能把 JSON 值当作拥有实际权限的服务实例。",
+      "new": "Typert Remote 将业务方法暴露为类型化远程调用。请求携带端点、参数和对象标识，Host 解析对象身份与调用上下文，取消通过独立信号传递。id 是远程对象的传输标识，只有解析器成功定位对象后才能调用相应接口；解析不可用时返回错误。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "subsystems.md",
+      "original_line": 155,
+      "old": "文件预览是让人查看文件的产品能力。Office 指文档、表格或演示文件等办公材料，PDF 是保持页面布局的文档格式。转换得到预览页与把文件交给模型，是两条不同的数据路径。",
+      "new": "文件预览面向用户展示文件内容。Office 文档包括文字、表格和演示材料，PDF 用于保留页面布局。预览转换生成可查看的页面，模型输入链生成可推理的上下文，两条路径分别处理并授权。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "subsystems.md",
+      "original_line": 177,
+      "old": "材料不足或需要人类决定时，提问工具递交一批带稳定 id 的问题。UI 显示选项、说明或自由文本，再按 id 将答案返回请求方。批准型问题根据指定答案表达同意，呈现样式负责显示。",
+      "new": "提问工具在缺少材料或需要人工决定时提交带稳定 id 的问题集合。UI 展示选项、说明或自由文本输入，用户提交后按 id 返回答案。批准型问题依据指定答案表达同意，界面呈现与决策语义分别处理。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "subsystems.md",
+      "original_line": 183,
+      "old": "不变式是程序在规定条件下始终满足的关系，例如结果能够关联对应调用。遥测把选定运行信息交给观测系统。OTel 是 OpenTelemetry 的常用简称，提供组织与传输观测数据的机制；span 记录一段操作及其时间关系。业务包决定采集哪些操作，再通过共享通道上报。",
+      "new": "不变式规定数据或执行过程需要持续满足的关系，例如每项工具结果能够关联对应调用。遥测向观测系统输出运行信息。OTel 是 OpenTelemetry 的简称，提供观测数据的组织与传输机制；span 描述操作耗时及其关联。业务包决定采集内容，再使用共享通道上报。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "subsystems.md",
+      "original_line": 215,
+      "old": "## Schedule 与 Webhook：不是每项任务都由当前页面发起",
+      "new": "## Schedule 与 Webhook：时间触发与外部事件接入",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "subsystems.md",
+      "original_line": 223,
+      "old": "Schedule 在独立领域存储中保存提醒，与目标 Session 绑定。时间可能是带偏移量的绝对时刻，也可能是指定时区的每天、每周或 cron 规则。浏览器当前时区不是永久 Session 默认值；自然语言“明天九点”需要明确解释，再形成规范时间记录。",
+      "new": "Schedule 将提醒保存在独立领域存储中，并绑定目标 Session。时间规则支持带偏移量的绝对时刻，以及指定时区的每天、每周或 cron 周期。浏览器时区描述客户端当前环境，提醒时区依据规则解析；“明天九点”等自然语言需要先转换成明确的时间记录。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "subsystems.md",
+      "original_line": 245,
+      "old": "工作流引擎是可替换服务，现有 PTC 实现通过共享程序运行时执行相应脚本。脚本可组织子任务，但 Provider 选择、总 Agent 上限、执行策略与取消仍由引擎和消费方拥有。子任务成功、脚本返回值与整个业务结果仍分别有含义。",
+      "new": "工作流引擎是可替换服务，当前 PTC 实现通过共享程序运行时执行脚本。脚本负责组织子任务，引擎与消费方管理 Provider 选择、Agent 数量上限、执行策略和取消。子任务状态、脚本返回值与业务产物分别记录，用于判断各阶段的结果。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "subsystems.md",
+      "original_line": 247,
+      "old": "后台 Jobs 把长时间命令、终端操作与 Subagent 等统一成身份、拥有者、状态和输出控制。生产方拥有实际资源，运行时拥有访问与生命周期记录；done 要等资源释放，而不只是“工作内容算完了”。running、stopping、completed、killed 与 failed 不能合成一个布尔值。",
+      "new": "后台 Jobs 统一描述长时间命令、终端与 Subagent 的身份、拥有者、状态和输出。生产方管理实际资源，运行时维护访问和生命周期记录；done 表示资源已经释放。running、stopping、completed、killed 与 failed 分别标识不同阶段或结束原因。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "subsystems.md",
+      "original_line": 249,
+      "old": "模型按运行期消费游标读取输出，前端观察者按绝对字节偏移拉取，两者各自推进。输出缓冲有容量上限，完成时关闭数据流；结果交付型任务在首次完整读取时交出产物。生产方另外报告进程收尾，消费者另外记录读取位置，由此区分停止输出、资源释放和产物已读取。",
+      "new": "模型按运行期消费游标读取输出，前端按绝对字节偏移获取数据，两类游标独立推进。输出缓冲受容量限制，完成时关闭流；结果交付型任务在首次完整读取时提供产物。生产方报告资源收尾，消费方记录读取进度，分别对应停止输出、资源释放和产物交接。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "subsystems.md",
+      "original_line": 255,
+      "old": "Agent Teams 是本项目的实验性团队协作能力，需显式装配。Lead 指根 Session 中的带队者，teammate 指拥有自己 Session 的成员。roster 是成员名册，task board 是共享任务板，mailbox 是成员之间传递消息的邮箱。共享的是明确记录的团队状态，而不是让所有成员随意读写同一个模型上下文。[S01](evidence-index.md#s01) 对照本节源码。",
+      "new": "Agent Teams 是需显式装配的实验性团队功能。Lead 是根 Session 中的协调者，teammate 是拥有独立 Session 的成员。roster 保存成员名册，task board 管理共享任务，mailbox 传递成员消息。团队共享这些有明确结构的状态，各成员仍维护自己的模型上下文。[S01](evidence-index.md#s01) 列出本节实现依据。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "subsystems.md",
+      "original_line": 257,
+      "old": "沿读取任务看一个拆分例子：Lead 把“读 README”交给甲，把“核对包版本”交给乙，然后整合资料。成员记录保存身份、描述、Provider、fresh 或 fork 的材料来源，以及 provisioning、active 或 failed 阶段。provisioning 表示创建中，active 表示成员已可用，failed 表示创建失败；是否正在处理任务则读取实时 Session 状态。",
+      "new": "以资料整理为例，Lead 分配 README 读取与包版本核对两个子任务，再整合结果。成员记录保存身份、描述、Provider、fresh 或 fork 的历史来源，以及 provisioning、active、failed 阶段，分别表示创建中、已可用和创建失败。成员是否正在执行任务，由对应 Session 的实时状态给出。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "subsystems.md",
+      "original_line": 263,
+      "old": "再看甲向 Lead 发送材料。发送方先交入目标与消息内容，邮箱检查成员身份、目标、待投递数量和消息大小。在根 Session 的日志事务中建立稳定 messageId，并把 queued 事件写入、等待持久化，再组织投递。同一目标的投递按该邮箱记录顺序进入；不同目标仍可各自推进。",
+      "new": "成员向 Lead 发送结果时，先提交目标与内容。邮箱检查身份、目标、队列容量和消息大小，再在根 Session 的日志事务中生成稳定 messageId，记录 queued 并等待持久化，随后执行投递。同一目标按邮箱记录顺序接收，不同目标可以独立推进。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "subsystems.md",
+      "original_line": 271,
+      "old": "| 后续结果 | 成员实际处理并交出资料 | Lead 还需按任务要求检查内容 |",
+      "new": "| 后续结果 | 成员处理任务并返回资料 | Lead 按任务要求检查内容 |",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "appendices.md",
+      "original_line": 7,
+      "old": "从已讲过的数据与动作认写法",
+      "new": "常见语法及其运行含义",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "appendices.md",
+      "original_line": 17,
+      "old": "| Promise 与 await | 将来结果与等待结果 | 找等待的是接纳、读取还是其他边界 |",
+      "new": "| Promise 与 await | 异步结果与等待该结果 | 确认等待结束对应接纳、读取还是其他阶段 |",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "appendices.md",
+      "original_line": 22,
+      "old": "| () => ... | 把函数作为值写出 | 问谁以后调用回调，区别定义和执行 |",
+      "new": "| () => ... | 将函数写成可传递的值 | 定位回调的调用者与触发时机，区分定义和执行 |",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "appendices.md",
+      "original_line": 28,
+      "old": "| slice / toSpliced | 取前缀等子区间／建立修改后的新数组 | 继承事件或插入指令，不当然生成摘要 |",
+      "new": "| slice / toSpliced | 取子区间／返回修改后的新数组 | 截取历史前缀或插入指令；摘要需要单独生成 |",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "appendices.md",
+      "original_line": 30,
+      "old": "| return / throw / continue | 返回结果／失败退出／下一次循环 | 找输出交给谁，区分完成和重试 |",
+      "new": "| return / throw / continue | 返回结果／抛出错误／进入下一次循环 | 跟踪返回值、异常传播与重试位置 |",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "appendices.md",
+      "original_line": 41,
+      "old": "遇到单独一行的右括号，先看它关闭的是对象、函数、条件还是调用。逐行表会标出结构关系；沿函数的参数、调用和返回位置继续阅读，就能把这些写法接回实际流程。",
+      "new": "右括号结束的结构由对应左括号决定，可能是对象、函数、条件或调用。逐行说明标出这些结构；结合参数传递、函数调用和返回值，可以还原代码的执行流程。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "appendices.md",
+      "original_line": 47,
+      "old": "参数说明规定允许哪些字段；实际参数给出这次调用的值；规范结果保存执行体的结构化输出；展示资料从结果中提取，供保存和显示使用。例如 read 的路径参数、窗口结果和卡片 meta 分别位于输入、执行输出与展示这三个位置。",
+      "new": "工具数据分为四类：参数 schema 描述输入结构，调用参数指定本次操作，规范结果保存结构化输出，展示元数据支持持久化与界面重建。以 read 为例，路径参数进入执行体，窗口结果经过输出校验，content 与卡片 meta 分别用于模型请求和客户端展示。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "appendices.md",
+      "original_line": 49,
+      "old": "一个对象可以保存路径与行数，一个函数负责依据它执行读取。函数类型告诉读者怎样调用，函数执行才会产生动作。模块导入也要区别类型与运行值：import type 用于类型检查，不直接把一个服务实例装进应用。",
+      "new": "对象保存路径与行数等输入，函数根据输入执行读取。函数类型描述调用方式，函数体决定实际操作。模块导入还区分类型与运行值：import type 用于静态检查，服务实例则需要在运行时装配。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "README.md",
+      "original_line": 5,
+      "old": "面向没有系统编程基础的读者。十九章沿“读取 README 并总结”的任务解释项目：原理正文独立成立，源码研读逐行区分写法与实际作用，理解题附参考回答。",
+      "new": "本书面向具备少量概念基础的读者。十九章围绕“读取 README 并总结”的任务，依次讲解项目架构、运行机制与关键实现。正文完整解释流程，源码节选配有逐行说明，讲解问答梳理易混淆概念。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer"
+    },
+    {
+      "file": "README.md",
+      "original_line": 20,
+      "old": "固定源码提交 639ed015397290b3745d163aafe02ffee4aa3f84，根包 0.2.0-rc.2，Cordis 4.0.4，核验日期 2026-10-03。未运行上游项目或测试，未调用真实模型，教学数字是推演。",
+      "new": "固定源码提交为 639ed015397290b3745d163aafe02ffee4aa3f84，根包版本 0.2.0-rc.2，Cordis 版本 4.0.4，核验日期为 2026-10-03。源码、参考文档与节选校验记录见 validation.json；数值算例以明确标注的教学输入计算，examples/ 保存实际执行的局部源码验证结果。",
+      "reason": "主审调整：直接定义概念、描述机制，保留原技术信息。",
+      "author": "primary_reviewer",
+      "final_consistency_review": true
+    },
+    {
+      "file": "book/03.md",
+      "original_line": 51,
+      "old": "启动每一项时，先记下 tool/call 及其序号，再等待这一项的前置准备。准备可能已经形成拒绝结果，也可能允许分派真实执行；前置准备按顺序推进，实际分派与工具体才可能重叠。拒绝结果同样要在相应位置进入结果链，不能把“未执行”理解为“没有结果记录”。",
+      "new": "启动每一项时，先记下 tool/call 及其序号，再等待这一项的前置准备。准备可能已经形成拒绝结果，也可能允许分派真实执行；前置准备按顺序推进，实际分派与工具体才可能重叠。拒绝结果同样要在相应位置进入结果链，作为确定的结果记录留存。",
+      "reason": "清除“不能把……理解为……”的口语化提醒，直接陈述拒绝即有效记录的事实。",
+      "author": "Gemini_suggestion_reviewed_by_primary"
+    },
+    {
+      "file": "book/04.md",
+      "original_line": 15,
+      "old": "读取前要经过通用工具准入；这里先研究获准以后如何解释参数、选择读取方式和构造窗口。拒绝调用与读取时发现文件不存在，是两个阶段的结果。",
+      "new": "读取前要经过通用工具准入；获准后依次解释参数、选择读取方式并构造窗口。拒绝调用与读取时发现文件不存在，是两个独立阶段的结果。",
+      "reason": "清除‘这里先研究’这类机械教学提醒，直接按照系统机制连贯陈述处理顺序，并强化阶段隔离的事实属性。",
+      "author": "Gemini_suggestion_reviewed_by_primary"
+    },
+    {
+      "file": "book/05.md",
+      "original_line": 67,
+      "old": "回到读取任务：用户输入、助手工具提议、工具调用、工具结果、助手总结和轮次边界依次进入事件序列。消息视图组织后续请求，页面更新显示，存储 Provider 写入文件。页面已经显示而写入失败时，问题出在存储链；刷新后临时文字消失时，先查它是否曾被提交为助手消息，再查对应事件是否写入文件。",
+      "new": "在标准流程中，用户输入、助手工具提议、工具调用、工具结果、助手总结和轮次边界依次进入事件序列。消息视图组织后续请求，界面更新显示，存储 Provider 写入文件。若界面已更新但写入失败，故障定位于存储链；页面刷新后临时文字丢失时，需优先排查该片段是否曾提交为助手消息事件，并确认其是否成功写入文件。",
+      "reason": "去除口语化过渡“回到读取任务：”，使故障排查逻辑描述更加严密和技术化。",
+      "author": "Gemini_suggestion_reviewed_by_primary"
+    },
+    {
+      "file": "book/05.md",
+      "original_line": 159,
+      "old": "### 问题 1 · append 返回以后，能宣布已经完成磁盘持久化吗？",
+      "new": "### 问题 1 · append 执行返回是否代表磁盘持久化已完成？",
+      "reason": "减少过度口语化的设问“能宣布……吗”，提升小节标题技术客观性。",
+      "author": "Gemini_suggestion_reviewed_by_primary"
+    },
+    {
+      "file": "book/06.md",
+      "original_line": 39,
+      "old": "进入步骤后，框架准备模型调用，记录需要的系统消息、首次进入的用户消息和请求信息，再派生并冻结请求。冻结意味着这次请求的内容不能被稍后修改的共享对象悄悄改变，下一步重新组装消息和上下文。",
+      "new": "进入步骤后，框架准备模型调用，记录需要的系统消息、首次进入的用户消息和请求信息，再派生并冻结请求。冻结确保本次请求的内容不会因共享对象被修改而发生预期外变化，下一步重新组装消息和上下文。",
+      "reason": "清除“不能被……悄悄改变”的拟人化与口语化表达。",
+      "author": "Gemini_suggestion_reviewed_by_primary"
+    },
+    {
+      "file": "book/07.md",
+      "original_line": 13,
+      "old": "需要区分三个观察点：目录是否包含名称，读取是否获取定义，正文是否进入本次请求。排查“它没有按 Skill 做事”时，先找这三个证据，再评价正文的方法是否清楚。",
+      "new": "需要区分三个观察点：目录是否包含名称，读取是否获取定义，正文是否进入本次请求。排查未按 Skill 步骤执行的故障时，先找这三个证据，再评价正文的方法是否清楚。",
+      "reason": "将“它没有按 Skill 做事”这种拟人化和极端口语化的故障描述修正为严谨的技术排查表述。",
+      "author": "Gemini_suggestion_reviewed_by_primary"
+    },
+    {
+      "file": "book/07.md",
+      "original_line": 17,
+      "old": "假设目录里出现 report-skill，摘要说它用于整理技术报告。模型先根据摘要判断有用，再调用 Skill 读取工具。工具根据当前工作目录、Agent 范围和取消信号获取目录，找到名称以后检查它是否允许模型调用；通过后再获取完整定义。",
+      "new": "假设目录包含 report-skill，摘要标明其用于整理技术报告。模型先根据摘要匹配任务需求，再调用 Skill 读取工具。工具根据当前工作目录、Agent 范围和取消信号获取目录，找到名称以后检查它是否允许模型调用；通过后再获取完整定义。",
+      "reason": "修正“摘要说它用于”这种拟人化描述，改为客观的字段声明；将“判断有用”改为更精确的任务匹配。",
+      "author": "Gemini_suggestion_reviewed_by_primary"
+    },
+    {
+      "file": "book/10.md",
+      "original_line": 3,
+      "old": "本章学习任务：从配置条目说明插件怎样装配、怎样获取所需服务；区别 profile、条目修改与运行实例，并定位热更新的边界。",
+      "new": "本章学习任务：理解配置条目、profile 与依赖注入，分析插件装配、字段覆盖和热重载。",
+      "reason": "将口语化的“怎样装配、怎样获取”改为准确的专业陈述“装配机制与服务获取流程”。",
+      "author": "primary_reviewer",
+      "final_consistency_review": true
+    },
+    {
+      "file": "book/10.md",
+      "original_line": 19,
+      "old": "以文件工具插件为例：配置给出读取上限，启动程序把合成后的条目交给加载器；依赖可用以后执行 apply。apply 检查参数，再注册 read 等工具。此时注册表变了，但磁盘文件没有因注册而被读取。用户任务中出现合法调用，才进入执行函数。",
+      "new": "以文件工具插件为例：配置给出读取上限，启动程序把合成后的条目交给加载器；依赖可用以后执行 apply。apply 检查参数并注册 read 等工具，使注册表更新。实际的文件操作在用户任务发起合法调用并进入执行函数时发生。",
+      "reason": "移除“但磁盘文件没有因注册而被读取”的负面提醒式生活化口吻，直接说明真实发生文件操作的时机。",
+      "author": "Gemini_suggestion_reviewed_by_primary"
+    },
+    {
+      "file": "book/10.md",
+      "original_line": 112,
+      "old": "讲解：内部模块满足局部替换条件时走热替换；外部依赖变化触发 fullReload，随后通过 loader.exit 退出，交给重启路径重新加载。",
+      "new": "讲解：内部模块满足局部替换条件时执行热替换；外部依赖变化触发 fullReload，随后通过 loader.exit 退出，交给重启路径重新加载。",
+      "reason": "将过度口语化的“走热替换”修正为正式的“执行热替换”。",
+      "author": "Gemini_suggestion_reviewed_by_primary"
+    },
+    {
+      "file": "book/13.md",
+      "original_line": 17,
+      "old": "父 Agent 在当前轮次刚读到一份 README，随后启动 fork Subagent。进程内 Provider 先查最近的 turn/end，只继承到已完成轮次；这份资料位于当前未结束轮次，因此不在继承前缀里。父 Agent 应把子任务必需材料明确交代，或选择适当的已完成起点。",
+      "new": "当父 Agent 在当前轮次刚读取一份 README 并随后启动 fork Subagent 时，进程内 Provider 会优先查找最近的 turn/end 并仅继承至已完成轮次。由于该资料属于当前未结束轮次，因此不在继承前缀中；父 Agent 须在启动输入中显式传入子任务必需的材料，或选择其他适当的已完成起点。",
+      "reason": "消除拟人化表达（“交代”），增强段落因果连贯性与技术操作准确性",
+      "author": "Gemini_suggestion_reviewed_by_primary"
+    },
+    {
+      "file": "book/13.md",
+      "original_line": 51,
+      "old": "教学单代理需要 1200 ms。拆成两个子任务，各 700 ms；假设允许重叠且确实同时开始，启动与交代开销 200 ms，汇合检查 250 ms，则简化总时间是 200＋max(700,700)＋250＝1150 ms，只减少 50 ms。",
+      "new": "教学单代理耗时 1200 ms。若将其拆分为两个各需 700 ms 的子任务，假设允许并发且确实同时开始，启动与参数传递开销为 200 ms，汇合检查为 250 ms，则简化总时间为 200＋max(700,700)＋250＝1150 ms，仅减少 50 ms。",
+      "reason": "修改过度口语化表达（“交代开销”、“重叠”），采用精确的技术术语（“参数传递”、“并发”）",
+      "author": "Gemini_suggestion_reviewed_by_primary"
+    },
+    {
+      "file": "book/13.md",
+      "original_line": 61,
+      "old": "图 13B 用三栏列出拆分任务的工作：父任务交代目标和材料，子任务运行并返回结果，父任务检查与汇合。时间分析应把这三段一起计入。",
+      "new": "图 13B 用三栏列出拆分任务的工作流程：父任务传入目标和材料，子任务运行并返回结果，父任务验证与汇合。时间分析应将这三个阶段完整计入。",
+      "reason": "消除拟人化“交代”，使用“传入”、“验证”、“阶段”等更严谨的描述",
+      "author": "Gemini_suggestion_reviewed_by_primary"
+    },
+    {
+      "file": "book/14.md",
+      "original_line": 21,
+      "old": "另一条链获取快照与后续变化。假设下一预期序号是 41，而缓冲收到 39、41、43：39 是已经过去的重复记录，略过；41 正常消费后预期变成 42；43 暴露缺口，不能当作 42 使用。Host 跟随生成器因此抛出 gateway/internal 错误。",
+      "new": "另一条链路获取快照与后续变化。假设下一预期序号是 41，而缓冲收到 39、41、43：39 为过去的重复记录被略过；41 正常消费后预期更新为 42；43 暴露序号缺口，无法作为 42 消费。Host 跟随生成器因此抛出 gateway/internal 错误。",
+      "reason": "消除口语和拟人化表达“变成”“不能当作……使用”，规范流程术语。",
+      "author": "Gemini_suggestion_reviewed_by_primary"
+    },
+    {
+      "file": "book/15.md",
+      "original_line": 19,
+      "old": "假设 200 毫秒看到等待界面，1000 毫秒业务可用，前者不能作为完整启动耗时。页面出现但 Host 失败时查子进程启动；Host 已 ready 但请求失败时查转发和服务；业务状态已有变化但没有显示时查客户端与视图。",
+      "new": "假设 200 毫秒看到等待界面，1000 毫秒业务可用，完整启动耗时应计为 1000 毫秒。页面出现但 Host 失败时排查子进程启动；Host 已 ready 但请求失败时排查转发和服务；业务状态已有变化但没有显示时排查客户端与视图。",
+      "reason": "移除否定式表达“前者不能作为……”，正面定义测量基准，并修正口语化的“查”。",
+      "author": "Gemini_suggestion_reviewed_by_primary"
+    },
+    {
+      "file": "book/15.md",
+      "original_line": 33,
+      "old": "`reconcileBackend` 先导航到打包页面，再调用后端启动。窗口加载本地 Web 资源并等待启动注入，不需要在 Host 准备好后换到另一份文档。",
+      "new": "`reconcileBackend` 先导航到打包页面，再调用后端启动。窗口加载本地 Web 资源并等待启动注入，在 Host 准备就绪后直接基于当前文档激活服务。",
+      "reason": "清除“不需要……换到另一份文档”的否定描述，改写为就绪后执行的具体技术动作。",
+      "author": "Gemini_suggestion_reviewed_by_primary"
+    },
+    {
+      "file": "book/15.md",
+      "original_line": 114,
+      "old": "执行推演：Main 的管理对象调用 spawn，启动 dsh-desktop-host 的 Node 子进程。当前项目目录成为子进程工作目录，管道和 IPC 供宿主观察输出与启动消息；spawn 返回并不等于收到 ready。",
+      "new": "执行推演：Main 的管理对象调用 spawn，启动 dsh-desktop-host 的 Node 子进程。当前项目目录成为子进程工作目录，管道和 IPC 供宿主观察输出与启动消息；spawn 仅返回进程句柄，ready 状态需等待后续 IPC 消息。",
+      "reason": "清除“并不等于……”的否定式定义，明确说明 spawn 返回的具体对象以及 ready 的获取机制。",
+      "author": "Gemini_suggestion_reviewed_by_primary"
+    },
+    {
+      "file": "book/08.md",
+      "original_line": 67,
+      "old": "“生成了摘要就永久记住”：跨 Session 发现和检索不是本流程的默认能力。",
+      "new": "compaction 调整当前 Session 的历史表示。跨 Session 记忆需要独立的存储、发现和检索能力，由相关服务提供。",
+      "author": "primary_reviewer",
+      "reason": "最终一致性复核：用直接机制说明替换口语化误解。"
+    },
+    {
+      "file": "book/01.md",
+      "original_line": 1,
+      "old": "# 第 1 章｜从一句话到一个结果：DeepSeek Harness 究竟做什么",
+      "new": "# 第 1 章｜DeepSeek Harness 的架构与任务流程",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/01.md",
+      "original_line": 3,
+      "old": "本章学习任务：沿读取 README 的案例，说明谁接纳任务、谁调用模型、谁读取文件、谁保存结果；区分工具提议、接纳回执与任务完成。",
+      "new": "本章学习任务：理解任务接纳、模型调用、工具执行与 Session 记录的分工，区分各阶段的输入和结果。",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/02.md",
+      "original_line": 1,
+      "old": "# 第 2 章｜读懂代码：类型与异步等待",
+      "new": "# 第 2 章｜TypeScript 基础与异步执行",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/02.md",
+      "original_line": 3,
+      "old": "本章学习任务：认出值、对象、函数和类型的基本写法；解释一次 await 等待的结果，并区分注册回调、调用回调和后台完成。",
+      "new": "本章学习任务：掌握值、对象、函数与类型的常见写法，理解 Promise、await 和回调的执行时机。",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/03.md",
+      "original_line": 1,
+      "old": "# 第 3 章｜循环与消息队列：一轮任务为什么需要多步",
+      "new": "# 第 3 章｜Agent 循环、Inbox 与工具调度",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/03.md",
+      "original_line": 3,
+      "old": "本章学习任务：追踪一个输入怎样被领取、怎样进入轮次和步骤；比较 followup 与 steer，并解释工具执行与结果提交的顺序。",
+      "new": "本章学习任务：追踪输入从 Inbox 进入 turn、step 和 attempt 的过程，解释并发执行与有序提交。",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/04.md",
+      "original_line": 1,
+      "old": "# 第 4 章｜沿文件读取工具追到底：模型怎样得到材料",
+      "new": "# 第 4 章｜文件读取：参数解析与窗口构造",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/04.md",
+      "original_line": 3,
+      "old": "本章学习任务：用路径、起始行和行数说明一次文件读取；预测缺失文件、非法参数与范围截断怎样影响获取的材料。",
+      "new": "本章学习任务：理解 read 的参数校验、文件访问和窗口构造，分析缺失文件与输出截断的处理。",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/05.md",
+      "original_line": 1,
+      "old": "# 第 5 章｜Session 与日志：发生过的事怎样保存和还原",
+      "new": "# 第 5 章｜Session 事件日志、投影与持久化",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/05.md",
+      "original_line": 3,
+      "old": "本章学习任务：说明事件怎样从当前 Session 进入记录和存储；区别 append、flush、重放与派生视图，判断崩溃时哪些事实已有持久证据。",
+      "new": "本章学习任务：追踪事件从内存日志进入存储与派生视图的过程，解释 append、flush 和 Session 恢复。",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/06.md",
+      "original_line": 1,
+      "old": "# 第 6 章｜提示词与项目指令：下一次模型输入怎样形成",
+      "new": "# 第 6 章｜提示词组装与项目指令",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/06.md",
+      "original_line": 3,
+      "old": "本章学习任务：追踪目录中的指令怎样被发现、组合与加入模型请求；解释指令的适用范围，以及文字规则与执行权限的区别。",
+      "new": "本章学习任务：理解提示贡献、项目指令与历史的组装规则，追踪作用域选择、去重和请求冻结。",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/07.md",
+      "original_line": 1,
+      "old": "# 第 7 章｜Skill 的按需读取：目录可见为什么不等于正文已加载",
+      "new": "# 第 7 章｜Skill 发现与按需加载",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/07.md",
+      "original_line": 3,
+      "old": "本章学习任务：区分 Skill 目录、Skill 正文与已经执行的动作；说明按需加载怎样增加材料，以及为什么加载 Skill 不等于注册新工具。",
+      "new": "本章学习任务：追踪 Skill 的目录发现、入口检查与正文读取，区分工作方法与工具执行权限。",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/08.md",
+      "original_line": 1,
+      "old": "# 第 8 章｜上下文压缩：让历史变短需要付出什么",
+      "new": "# 第 8 章｜上下文压缩与历史表示",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/08.md",
+      "original_line": 3,
+      "old": "本章学习任务：说明上下文为何有容量限制，哪些历史可被压缩，哪些事实需要保留；比较摘要、检索、token 估计与真正的语义搜索。",
+      "new": "本章学习任务：理解上下文容量、压缩选区、稳定性检查与提交过程，比较信息保留与请求开销。",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/09.md",
+      "original_line": 1,
+      "old": "# 第 9 章｜流式输出与重试：一次失败怎样留在同一步里",
+      "new": "# 第 9 章｜模型流式响应与请求恢复",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/09.md",
+      "original_line": 3,
+      "old": "本章学习任务：追踪模型路由、请求准备、流式结果与重试；说明哪些内容能进入后续工具阶段，哪些失败仍需单独处理。",
+      "new": "本章学习任务：追踪模型路由、请求准备和流式消费，解释失败结算、恢复决定与同一步骤内的重试。",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/10.md",
+      "original_line": 1,
+      "old": "# 第 10 章｜插件框架与运行配置：这些部件怎样装成一个应用",
+      "new": "# 第 10 章｜插件装配、运行配置与热重载",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/11.md",
+      "original_line": 1,
+      "old": "# 第 11 章｜工具准入与审批：允许执行的决定在哪里发生",
+      "new": "# 第 11 章｜工具准入、审批与执行约束",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/11.md",
+      "original_line": 3,
+      "old": "本章学习任务：沿工具准入、审批、守卫、参数校验与执行追踪一次请求，解释各阶段怎样放行、拒绝或取消。",
+      "new": "本章学习任务：追踪准入策略、审批、guard、参数校验与执行顺序，区分拒绝、取消和执行错误。",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/12.md",
+      "original_line": 1,
+      "old": "# 第 12 章｜外部服务与能力接入：连接成功不等于拥有知识库",
+      "new": "# 第 12 章｜MCP：外部工具与资源接入",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/12.md",
+      "original_line": 3,
+      "old": "本章学习任务：比较 stdio 和 HTTP 接入的参与者与步骤；将连接、能力发现、注册、调用、资源读取和记忆分别列出证据。",
+      "new": "本章学习任务：理解 stdio 与 Streamable HTTP 传输，追踪能力发现、注册代次、工具调用与资源读取。",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/13.md",
+      "original_line": 1,
+      "old": "# 第 13 章｜Subagent：拆分任务前先看上下文起点",
+      "new": "# 第 13 章｜Subagent：任务拆分与历史继承",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/13.md",
+      "original_line": 3,
+      "old": "本章学习任务：说明子 Session 的来源与继承材料，比较 fresh 和 fork；解释子任务完成、团队消息送达与共享文件冲突是不同问题。",
+      "new": "本章学习任务：比较 fresh 与 fork 的历史起点，分析子任务创建、结果汇合及共享工作区协调。",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/14.md",
+      "original_line": 1,
+      "old": "# 第 14 章｜网页端：提交任务与跟随结果是两条链",
+      "new": "# 第 14 章｜Web Client：任务提交与状态同步",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/14.md",
+      "original_line": 3,
+      "old": "本章学习任务：把宿主事实、客户端镜像和界面状态分开；追踪初次历史与后续事件怎样共同形成可观察的任务进展。",
+      "new": "本章学习任务：理解任务提交与持续跟随，分析 pending 协调、事件序号、快照和状态同步。",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/15.md",
+      "original_line": 1,
+      "old": "# 第 15 章｜桌面端：窗口、页面与宿主服务怎样合作",
+      "new": "# 第 15 章｜桌面架构：Main、Renderer 与 Node Host",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/15.md",
+      "original_line": 3,
+      "old": "本章学习任务：说明桌面主进程怎样启动与管理独立 Host；区别窗口状态、服务状态和 Session 记录，判断恢复究竟恢复了什么。",
+      "new": "本章学习任务：理解 Main、Renderer 与 Node Host 的职责，追踪页面加载、Host 启动和客户端激活。",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/16.md",
+      "original_line": 1,
+      "old": "# 第 16 章｜测试与回放：复现通过究竟证明了什么",
+      "new": "# 第 16 章｜测试、模型回放与行为验证",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/16.md",
+      "original_line": 3,
+      "old": "本章学习任务：比较位置回放、工程测试与真实任务评价；解释回放游标怎样消费固定材料，以及它不能证明哪些实际模型效果。",
+      "new": "本章学习任务：理解按位置消费的模型回放，区分调用轨迹检查、请求断言与真实任务评价。",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/17.md",
+      "original_line": 1,
+      "old": "# 第 17 章｜量化评价：同时看质量、时间、用量与失败",
+      "new": "# 第 17 章｜任务评价、TokenMeter 与遥测",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/17.md",
+      "original_line": 3,
+      "old": "本章学习任务：区别估计 token、Provider 用量和实际计费；为一次任务选择可解释的评价口径，避免把输入变短等同于质量提高。",
+      "new": "本章学习任务：区分 token 估计、Provider 用量和计费口径，联合分析任务质量、耗时与失败。",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/18.md",
+      "original_line": 1,
+      "old": "# 第 18 章｜综合案例：已有文件工具如何接入与呈现",
+      "new": "# 第 18 章｜综合案例：read 工具的接入与呈现",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/18.md",
+      "original_line": 3,
+      "old": "本章学习任务：把同一个 read 工具从注册追到展示；区分参数、规范结果、模型文字与展示元数据，定位每个契约失败的影响。",
+      "new": "本章学习任务：串联 read 的注册、参数校验、执行、结果渲染和客户端呈现，分析各层失败的影响。",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    },
+    {
+      "file": "book/19.md",
+      "original_line": 1,
+      "old": "# 第 19 章｜Cordis 与 Spatiotemporal Composability：论文契约怎样落到 Harness",
+      "new": "# 第 19 章｜Cordis 与 Spatiotemporal Composability",
+      "author": "primary_reviewer",
+      "reason": "统一技术教材的标题与章节目标。"
+    }
+  ],
+  "files": [
+    {
+      "file": "book/08.md",
+      "before_sha256": "d6193bd2fedf702b794031a4b6a5a96e7d7aa5155962eaa7712b27904c3cda50",
+      "after_sha256": "507fce292e3f052ba6867156f09810958f03d9756f68fcc2e6700961856c593b"
+    },
+    {
+      "file": "subsystems.md",
+      "before_sha256": "f9c240106783105decf49c2a00d23ed0bafeeca09e159e4d140a858abf2dd733",
+      "after_sha256": "dc70ab564f1033a8422c1b8623b0ff31d6e618285df525993dfeab0311b7098d"
+    },
+    {
+      "file": "book/09.md",
+      "before_sha256": "ac54d29ebf564385e064caef9c8e6028d58f77b49b2381a8bd6b354a7d258b9f",
+      "after_sha256": "9923628ddea21f0146989e73cd4cddb4500f2683008d67d095beee9c97d37b6a"
+    },
+    {
+      "file": "book/14.md",
+      "before_sha256": "249a19b9bf9bac5ec985feb2ecc0dbef8091abb794c9ccfd1af2d6166e09d9e2",
+      "after_sha256": "7928da54511cff253e578da582ba2f5f092c5685a534cbd6924f5e13e3c84353"
+    },
+    {
+      "file": "README.md",
+      "before_sha256": "3b2d678c423ce5a6ceeb6f2165c21e138a181a7c99ad7233015e4ff859ab61a4",
+      "after_sha256": "a88301e9e5d025bb4c741ad44f3361751615fc2142f7fb8042e96fc9a747647c"
+    },
+    {
+      "file": "book/12.md",
+      "before_sha256": "973f481254384241ecc59737a5bb93f6b6fda6644cdc40843a334fdba81b231b",
+      "after_sha256": "82c6cbc49fc7e9e92b1fed11a04cedd0fb334054ca222e8ebe48d5e24a7ff24e"
+    },
+    {
+      "file": "book/06.md",
+      "before_sha256": "f82fff14c93836824cb1bf296f36d591e28be4cfc0d203ad0317518bdf2603b8",
+      "after_sha256": "1aafda83b0bfb210bfd7ad036148346943f71f7a344152995786351598fa939b"
+    },
+    {
+      "file": "book/16.md",
+      "before_sha256": "f93d78f0f9a7678ae856010c1e67d3a9e5e705cf71a2bc61f2d55e4827c8351f",
+      "after_sha256": "13e5b6fd967a1059e77c89f30b0eb7c86c7e6efeeb9378649eb9d81a6aabf069"
+    },
+    {
+      "file": "book/01.md",
+      "before_sha256": "10069ebb59d03a774f3b68ca227b4e48cc0129c74c6afedce03b108d51466ce0",
+      "after_sha256": "e6827c5b861aef45991c1ef1cdb1bff13790d7d7dffeb79e7cc80ae0532e5eb4"
+    },
+    {
+      "file": "book/19.md",
+      "before_sha256": "1f102da1be40fe52e86dd8630c46d3c9b637950bf669ff81693fcb071050624a",
+      "after_sha256": "46daae8b551750ff4fa8a751249af4bd0ab36cf6eb80226bd6e2eac78460a8ae"
+    },
+    {
+      "file": "book/17.md",
+      "before_sha256": "f6fab6107a214c8ea91bcab6479ab37104540a1af7bb06a14718fbc5467b908d",
+      "after_sha256": "11208f7b545e6bbbb8b25c61d56e1d3accec3394de077155cc16d574728d1e2e"
+    },
+    {
+      "file": "book/05.md",
+      "before_sha256": "1f7ff053e014af8e0dadb65ed653af29d80b9145b71b2ab7c7a6947169d03312",
+      "after_sha256": "49984a747c9597220c80793e7bddf4e45f9d8e146161bc71085248e9e6b86e76"
+    },
+    {
+      "file": "book/11.md",
+      "before_sha256": "ed9ac04343c9725dabe5c8853dda9ab0d891a0bb7ec86a37fd041343f857f309",
+      "after_sha256": "c47fb6470afb85d5aa8f47cbfa3ec3c58037debff3cc22bb9e73c3c326cbabc9"
+    },
+    {
+      "file": "book/02.md",
+      "before_sha256": "e5d5b4c85b8881f28856544e86350ae8f89775c7a24fe4f2f34f04b3e38bb9d7",
+      "after_sha256": "061e420c9c141c349f1295806747458a03bb74be8bc0e0cb739f12d97ec0a650"
+    },
+    {
+      "file": "book/03.md",
+      "before_sha256": "4509ba19797ea7c2980f30523e43670a5a42a7737eec01e8c22ddcaf2ad5f6e5",
+      "after_sha256": "dcbcbe2952c2068728d7b18cdfcd390dd2b6772de8274bc36a003aab5ce4c816"
+    },
+    {
+      "file": "appendices.md",
+      "before_sha256": "18a8ace538af51cebbd38d1bbb3397da34f86cac86ea79de65c06dd18195a7c1",
+      "after_sha256": "d51b9ad6532d1c8511a6d83018e436daf2b73119116b5c521d469761b38d9eb3"
+    },
+    {
+      "file": "book/04.md",
+      "before_sha256": "6af838b8cc1592194538ca33f917860bb9fb3112795e02f68c3ef4ce9789f4d3",
+      "after_sha256": "e34b825d0759d58d4b7c135401a55f7d48e6c010ad17ca585eff435d12fe1549"
+    },
+    {
+      "file": "book/18.md",
+      "before_sha256": "c793fcf62d490d004c087edde4835f78695f3e3c1cb5472f67fa8ed56fbbf8ad",
+      "after_sha256": "e776b8c82943b548fc50daf4a44d0716b1dd82563ce0d5b131607ed6ad583775"
+    },
+    {
+      "file": "book/07.md",
+      "before_sha256": "1052a4b195aee7472cad8989f992aa87c2911aae51a49069f381957a03adf056",
+      "after_sha256": "fd8a76fedc83729a6fb77bf02c7a4950aa1ac640e60e32ce02bb2cb72f68d05a"
+    },
+    {
+      "file": "book/15.md",
+      "before_sha256": "c5c64c971f13956fb2d4ea3deac87e6606c51f8065e5c142570fd82be4169b95",
+      "after_sha256": "b05d6f0098864255627ce8cab986d5267efea33b04cc625e45d34d1da6986799"
+    },
+    {
+      "file": "book/13.md",
+      "before_sha256": "0d5dc297fbf847d64baa08068dd5e61c3fa716d069fd5d0ee1555b4ebf8a4382",
+      "after_sha256": "7f77b8bcfb368b2857f7ac21b02b181485e0ee0d6ea39ada9d6324efc42437a6"
+    },
+    {
+      "file": "book/10.md",
+      "before_sha256": "a0d1b19d20eb154396829452d69522917ac1e18d7beac874165965c9c0c5524e",
+      "after_sha256": "bc10d19574e6957c05f30c31d3a4e5de3fca2eab8c21a1ccec24f2b800fd5e3a"
+    },
+    {
+      "file": "revision/learning-objectives.json",
+      "before_sha256": "690aac8fa86a5723734bca48d8a85773835e39328dee14211acc05124caa4c7d",
+      "after_sha256": "d08991411bde1d8d30388ed99397b3fb1eff2aa87b359ea8925fe3372ed3cc71"
+    }
+  ],
+  "original_code_and_images_preserved": true,
+  "titles_refined": true
+}
