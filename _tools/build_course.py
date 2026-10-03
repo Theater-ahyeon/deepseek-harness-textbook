@@ -16,10 +16,27 @@ def dump(name,obj):write(name,json.dumps(obj,ensure_ascii=False,indent=2))
 def reviewed_sha_matches(name,expected):
     actual=hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
     if actual==expected:return True
+    full_path=ROOT/'revision/omp-full-rewrite-20261003.json'
+    if full_path.is_file():
+        full=data('revision/omp-full-rewrite-20261003.json')
+        item=next((r for r in full['files'] if r['file']==name),None)
+        if item and item['before_sha256']==expected and item['after_sha256']==actual:
+            return hashlib.sha256((ROOT/item['baseline']).read_bytes()).hexdigest()==expected
     if name=='README.md' and (ROOT/'revision/readme-refresh-20261003.json').is_file():
         revision=data('revision/readme-refresh-20261003.json')
         return revision['before_sha256']==expected and revision['after_sha256']==actual
     return False
+def reviewed_baseline_bytes(name,expected):
+    """Verify older evidence against its preserved edition, never rewrite historical hashes."""
+    raw=(ROOT/name).read_bytes()
+    if hashlib.sha256(raw).hexdigest()==expected:return raw
+    full_path=ROOT/'revision/omp-full-rewrite-20261003.json'
+    if full_path.is_file():
+        item=next((r for r in data('revision/omp-full-rewrite-20261003.json')['files'] if r['file']==name),None)
+        if item and item['before_sha256']==expected and item['after_sha256']==hashlib.sha256(raw).hexdigest():
+            baseline=(ROOT/item['baseline']).read_bytes()
+            if hashlib.sha256(baseline).hexdigest()==expected:return baseline
+    return raw
 def retarget(md):
     out=[];fenced=False
     for line in md.splitlines():
@@ -238,7 +255,7 @@ def validate(chapters,evidence):
             if {r['file'] for r in followup['files']}!={*[f'book/{i:02}.md' for i in range(1,20)],'revision/terms.json','README.md','chapter-format.md'}:
                 errors.append('独立实现详解修订文件不完整')
             for item in followup['files']:
-                raw=(ROOT/item['file']).read_bytes()
+                raw=reviewed_baseline_bytes(item['file'],item['after_sha256'])
                 if not reviewed_sha_matches(item['file'],item['after_sha256']):errors.append('实现详解版本变化：'+item['file'])
                 if item['file'].startswith('book/'):
                     newline='\r\n' if b'\r\n' in raw else '\n'
@@ -252,9 +269,36 @@ def validate(chapters,evidence):
                 if hashlib.sha256((ROOT/source_binding['path']).read_bytes()).hexdigest()!=source_binding['file_sha256']:
                     errors.append('实现详解来源变化：'+block['id'])
                 if len(block['text'].split('\n\n'))<5 or len(block['text'])<420:errors.append('实现详解过于简略：'+block['id'])
-                chapter=read(block['file']);start=chapter.index('<a id="'+block['id'].lower()+'"></a>')
+                prior=next(r for r in followup['files'] if r['file']==block['file'])
+                chapter=reviewed_baseline_bytes(block['file'],prior['after_sha256']).decode('utf-8').replace('\r\n','\n');start=chapter.index('<a id="'+block['id'].lower()+'"></a>')
                 if chapter.index(block['text'],start)>chapter.index('代码类型：',start):errors.append('实现详解不在源码之前：'+block['id'])
             result['source_reading_explanations']={'chapters':19,'detailed_blocks':27,'added_characters':sum(len(b['text']) for b in followup['blocks']),'original_chapters_recoverable':True,'code_tables_figures_preserved':True}
+    if (ROOT/'revision/omp-full-rewrite-20261003.json').is_file():
+        full=data('revision/omp-full-rewrite-20261003.json')
+        if full['chapter_count']!=19 or len(full['chapters'])!=19:errors.append('OMP 全文重构章节不完整')
+        for item in full['files']:
+            if hashlib.sha256((ROOT/item['file']).read_bytes()).hexdigest()!=item['after_sha256']:errors.append('OMP 重构当前版本变化：'+item['file'])
+            if hashlib.sha256((ROOT/item['baseline']).read_bytes()).hexdigest()!=item['before_sha256']:errors.append('OMP 重构原版对照变化：'+item['file'])
+        for item in full['chapters']:
+            before=read(item['baseline']);after=read(item['file'])
+            # Match fixed headings, tables, fenced code, figures and documentary labels.
+            def fixed(text):
+                rows=[];fenced=False
+                for line in text.splitlines():
+                    protected=fenced or line.startswith(('```','#','|','![','<a ','[全书目录]','本章学习任务：','代码类型：','复算记录：'))
+                    if line.startswith('```'):fenced=not fenced
+                    if protected:rows.append(line)
+                return rows
+            if fixed(before)!=fixed(after):errors.append('OMP 重构固定材料变化：'+item['file'])
+            if not item['primary_review_completed']:errors.append('OMP 重构缺少主审：'+item['file'])
+        if len(full['detailed_blocks'])!=27:errors.append('OMP 重构实现详解覆盖不完整')
+        for block in full['detailed_blocks']:
+            chapter=read(block['file']);start=chapter.index('<a id="'+block['id'].lower()+'"></a>')
+            if chapter.count(block['text'])!=1 or chapter.index(block['text'],start)>chapter.index('代码类型：',start):errors.append('OMP 重构实现详解位置变化：'+block['id'])
+            if len(block['text'].split('\n\n'))<5 or len(block['text'])<420:errors.append('OMP 重构实现详解过于简略：'+block['id'])
+        for binding in full.get('additional_source_bindings',[]):
+            if hashlib.sha256((ROOT/binding['path']).read_bytes()).hexdigest()!=binding['sha256']:errors.append('OMP 重构补充核验来源变化：'+binding['path'])
+        result['omp_full_prose_rewrite']={'chapters':19,'model':full['model'],'rewritten_segments':sum(c['changed_segments'] for c in full['chapters']),'primary_review_completed':True,'detailed_blocks':27,'original_code_tables_figures_preserved':True,'baseline_recoverable':True,'comparison':'revision/omp-full-rewrite-20261003.md'}
     if (ROOT/'revision/technology-choices-review-20261003.json').is_file():
         choices=data('revision/technology-choices-review-20261003.json')
         if hashlib.sha256((ROOT/choices['file']).read_bytes()).hexdigest()!=choices['sha256']:

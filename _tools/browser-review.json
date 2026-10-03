@@ -1,7 +1,7 @@
 {
   "desktop": {
-    "width": 1912,
-    "documentWidth": 1897,
+    "width": 1470,
+    "documentWidth": 1455,
     "chapterAnchors": 19,
     "chaptersVisited": 19,
     "fullTextVisibleSections": 20,
@@ -31,7 +31,7 @@
     "codeVisibleWhenHidden": 0,
     "lineTablesVisibleWhenHidden": 0,
     "explanationsVisibleWhenHidden": 3,
-    "searchResults": 1,
+    "searchResults": 2,
     "searchClosed": true,
     "searchPreservesHidden": true,
     "technologyNavLinks": 1
@@ -61,9 +61,10 @@
       "searchClosed": true
     }
   },
-  "reader_sha256": "692b942957da7e587c2bf662c10d5448e65a05e2ce44093d12d73452598f165d",
-  "method": "Kimi WebBridge in real Edge: all nineteen chapter views, 27 independent implementation explanations, hiding only code and line tables, retained TOC, search preserves hidden state, 38 images loaded, mobile 390px navigation and search.",
+  "reader_sha256": "a64aef2b1a523b3c693ad4d628234612d6fbe0ef5ca8ae35fde43c585ffe920f",
+  "method": "Kimi WebBridge in real Edge: all nineteen rewritten chapters; 27 implementation explanations remain readable with code/line tables hidden; TOC/search; all 38 images; mobile 390px navigation; screenshot visually reviewed.",
   "review_date": "2026-10-03",
   "restored_focus_and_viewport_emulation": true,
-  "final_compaction_ownership_text_verified": true
+  "final_compaction_ownership_text_verified": true,
+  "full_rewrite_verified": true
 }

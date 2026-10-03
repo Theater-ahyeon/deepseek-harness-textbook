@@ -36,15 +36,15 @@
 | Promise | [第 2 章](reader.html#chapter-02)，book/02.md 第 13 行 |
 | async | [第 2 章](reader.html#chapter-02)，book/02.md 第 13 行 |
 | await | [第 2 章](reader.html#chapter-02)，book/02.md 第 13 行 |
-| 回调 | [第 2 章](reader.html#chapter-02)，book/02.md 第 13 行 |
-| 进程 | [第 2 章](reader.html#chapter-02)，book/02.md 第 13 行 |
-| 线程 | [第 2 章](reader.html#chapter-02)，book/02.md 第 13 行 |
-| 并发 | [第 2 章](reader.html#chapter-02)，book/02.md 第 13 行 |
-| 并行 | [第 2 章](reader.html#chapter-02)，book/02.md 第 13 行 |
-| JavaScript | [第 2 章](reader.html#chapter-02)，book/02.md 第 15 行 |
-| 泛型 | [第 2 章](reader.html#chapter-02)，book/02.md 第 42 行 |
-| unknown | [第 2 章](reader.html#chapter-02)，book/02.md 第 42 行 |
-| as | [第 2 章](reader.html#chapter-02)，book/02.md 第 13 行 |
+| 回调 | [第 2 章](reader.html#chapter-02)，book/02.md 第 17 行 |
+| 进程 | [第 2 章](reader.html#chapter-02)，book/02.md 第 15 行 |
+| 线程 | [第 2 章](reader.html#chapter-02)，book/02.md 第 15 行 |
+| 并发 | [第 2 章](reader.html#chapter-02)，book/02.md 第 15 行 |
+| 并行 | [第 2 章](reader.html#chapter-02)，book/02.md 第 15 行 |
+| JavaScript | [第 2 章](reader.html#chapter-02)，book/02.md 第 19 行 |
+| 泛型 | [第 2 章](reader.html#chapter-02)，book/02.md 第 46 行 |
+| unknown | [第 2 章](reader.html#chapter-02)，book/02.md 第 46 行 |
+| as | [第 2 章](reader.html#chapter-02)，book/02.md 第 46 行 |
 | 轮次 | [第 3 章](reader.html#chapter-03)，book/03.md 第 7 行 |
 | 步骤 | [第 3 章](reader.html#chapter-03)，book/03.md 第 7 行 |
 | 尝试 | [第 3 章](reader.html#chapter-03)，book/03.md 第 7 行 |
@@ -118,7 +118,7 @@
 | 单调性 | [第 11 章](reader.html#chapter-11)，book/11.md 第 9 行 |
 | 执行环境 | [第 11 章](reader.html#chapter-11)，book/11.md 第 9 行 |
 | Model Context Protocol | [第 12 章](reader.html#chapter-12)，book/12.md 第 7 行 |
-| MCP | [第 12 章](reader.html#chapter-12)，book/12.md 第 43 行 |
+| MCP | [第 12 章](reader.html#chapter-12)，book/12.md 第 7 行 |
 | stdio | [第 12 章](reader.html#chapter-12)，book/12.md 第 9 行 |
 | Streamable | [第 12 章](reader.html#chapter-12)，book/12.md 第 9 行 |
 | HTTP | [第 12 章](reader.html#chapter-12)，book/12.md 第 9 行 |
@@ -155,7 +155,7 @@
 | 断言 | [第 16 章](reader.html#chapter-16)，book/16.md 第 7 行 |
 | 替身 | [第 16 章](reader.html#chapter-16)，book/16.md 第 7 行 |
 | 回放 | [第 16 章](reader.html#chapter-16)，book/16.md 第 44 行 |
-| 脚本 | [第 16 章](reader.html#chapter-16)，book/16.md 第 44 行 |
+| 脚本 | [第 16 章](reader.html#chapter-16)，book/16.md 第 11 行 |
 | 消费检查 | [第 16 章](reader.html#chapter-16)，book/16.md 第 11 行 |
 | 质量 | [第 17 章](reader.html#chapter-17)，book/17.md 第 7 行 |
 | 时间 | [第 17 章](reader.html#chapter-17)，book/17.md 第 7 行 |
