@@ -1,5 +1,7 @@
 # 深入理解 DeepSeek Harness
 
+[在线阅读](https://theater-ahyeon.github.io/deepseek-harness-textbook/) · [下载完整教材](https://github.com/Theater-ahyeon/deepseek-harness-textbook/releases/latest) · [GitHub 仓库](https://github.com/Theater-ahyeon/deepseek-harness-textbook)
+
 面向没有系统编程基础的读者。十九章沿“读取 README 并总结”的任务解释项目：原理正文独立成立，源码研读逐行区分写法与实际作用，理解题附参考回答。
 
 **开始阅读：[离线图文教材](reader.html)。** 无需联网加载图、字体或脚本；页面顶部可隐藏源码研读，先读完整机制说明。
