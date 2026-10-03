@@ -41,7 +41,7 @@
     updateTurns();
   }
   function updateToc() {
-    tocHeadings = [...current.querySelectorAll('h2[id],h3[id]')].filter(h => !(sourceToggle.checked && h.closest('.source-section')));
+    tocHeadings = [...current.querySelectorAll('h2[id],h3[id]')];
     toc.replaceChildren();
     for (const h of tocHeadings) {
       const a = document.createElement('a');
@@ -79,7 +79,7 @@
     const target = id ? document.getElementById(id) : null;
     const block = target?.closest('.book-section') || (id === 'content' || id === 'top' ? current : blocks[0]) || content;
     if (reader) for (const b of blocks) b.hidden = !full && b !== block;
-    if (target?.closest('.source-section') && sourceToggle.checked) {
+    if (target?.closest('.source-code,.source-line-table,.source-code-note') && sourceToggle.checked) {
       sourceToggle.checked = false; document.body.classList.remove('hide-source');
     }
     setCurrent(block);

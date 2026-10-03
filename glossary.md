@@ -131,7 +131,7 @@
 | 前缀 | [第 13 章](reader.html#chapter-13)，book/13.md 第 9 行 |
 | Provider | [第 13 章](reader.html#chapter-13)，book/13.md 第 39 行 |
 | 团队 | [第 13 章](reader.html#chapter-13)，book/13.md 第 13 行 |
-| 邮箱 | [第 13 章](reader.html#chapter-13)，book/13.md 第 120 行 |
+| 邮箱 | [第 13 章](reader.html#chapter-13)，book/13.md 第 130 行 |
 | RPC | [第 14 章](reader.html#chapter-14)，book/14.md 第 41 行 |
 | 本地回显 | [第 14 章](reader.html#chapter-14)，book/14.md 第 9 行 |
 | 请求标识 | [第 1 章](reader.html#chapter-01)，book/01.md 第 13 行 |
@@ -174,7 +174,7 @@
 | render | [第 18 章](reader.html#chapter-18)，book/18.md 第 9 行 |
 | presentationMeta | [第 18 章](reader.html#chapter-18)，book/18.md 第 9 行 |
 | effect | [第 19 章](reader.html#chapter-19)，book/19.md 第 11 行 |
-| effect | [第 19 章](reader.html#chapter-19)，book/19.md 第 142 行 |
+| effect | [第 19 章](reader.html#chapter-19)，book/19.md 第 152 行 |
 | disposer | [第 19 章](reader.html#chapter-19)，book/19.md 第 11 行 |
 | inverse | [第 19 章](reader.html#chapter-19)，book/19.md 第 11 行 |
 | 闭包 | [第 19 章](reader.html#chapter-19)，book/19.md 第 23 行 |

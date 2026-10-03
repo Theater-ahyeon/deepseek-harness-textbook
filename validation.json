@@ -1,12 +1,12 @@
 {
   "edition": "nineteen_chapter_zero_code_rewrite",
-  "verified_at": "2026-10-03T06:16:45.417878+00:00",
+  "verified_at": "2026-10-03T06:57:16.548716+00:00",
   "source_commit": "639ed015397290b3745d163aafe02ffee4aa3f84",
   "chapter_count": 19,
   "annotated_source_excerpts": 27,
   "nonempty_source_lines_explained": 223,
   "reference_hashes_checked": 154,
-  "local_links_checked": 1819,
+  "local_links_checked": 1820,
   "html_pages_checked": 8,
   "reader_figure_occurrences": 38,
   "reader_unique_figures": 38,
@@ -19,36 +19,44 @@
   "upstream_tests_run": false,
   "project_runtime_started": false,
   "real_model_calls": false,
-  "reader_sha256": "37d1596c367710d767762145d09fa2e101f997dce43d1de20db3d0763e87bb2f",
+  "reader_sha256": "692b942957da7e587c2bf662c10d5448e65a05e2ce44093d12d73452598f165d",
   "browser_review": {
     "desktop": {
       "width": 1912,
       "documentWidth": 1897,
       "chapterAnchors": 19,
-      "chapterLinks": 19,
-      "chapterCards": 19,
       "chaptersVisited": 19,
       "fullTextVisibleSections": 20,
-      "sourceBefore": 19,
-      "sourceHidden": 0,
+      "detailedExplanations": 27,
+      "codeBefore": 27,
       "codeVisibleWhenHidden": 0,
-      "sourceRestored": 19,
-      "searchResults": 7,
-      "searchTarget": "#heading-116",
-      "searchChapter": "chapter-08",
-      "searchTargetTop": 92.484375,
-      "sourceLinkRevealsContent": true,
+      "lineTablesVisibleWhenHidden": 0,
+      "explanationsVisibleWhenHidden": 27,
+      "sourceSectionsVisibleWhenHidden": 19,
+      "tocKeepsSource": true,
+      "searchResults": 1,
+      "searchTarget": "#heading-46",
+      "searchPreservesHidden": true,
+      "searchClosed": true,
+      "codeRestored": 27,
       "images": 38,
-      "imagesLoaded": 38,
-      "tableRowsConsistent": true
+      "imagesLoaded": 38
     },
     "mobile": {
       "width": 390,
       "documentWidth": 390,
       "chapter19Reachable": true,
+      "drawerOpened": true,
       "drawerClosed": true,
-      "technologyNavLinks": 1,
-      "codeBlocks": 27
+      "tocClosedAfterSelection": true,
+      "codeBlocks": 27,
+      "codeVisibleWhenHidden": 0,
+      "lineTablesVisibleWhenHidden": 0,
+      "explanationsVisibleWhenHidden": 3,
+      "searchResults": 1,
+      "searchClosed": true,
+      "searchPreservesHidden": true,
+      "technologyNavLinks": 1
     },
     "technology_choices": {
       "desktop": {
@@ -75,10 +83,11 @@
         "searchClosed": true
       }
     },
-    "reader_sha256": "37d1596c367710d767762145d09fa2e101f997dce43d1de20db3d0763e87bb2f",
-    "method": "Kimi WebBridge in real Edge: nineteen main chapter views, search, source visibility and images; new technology supplement's seventeen tables, search, TOC and mobile drawer; main mobile chapter navigation and supplement link.",
+    "reader_sha256": "692b942957da7e587c2bf662c10d5448e65a05e2ce44093d12d73452598f165d",
+    "method": "Kimi WebBridge in real Edge: all nineteen chapter views, 27 independent implementation explanations, hiding only code and line tables, retained TOC, search preserves hidden state, 38 images loaded, mobile 390px navigation and search.",
     "review_date": "2026-10-03",
-    "restored_focus_and_viewport_emulation": true
+    "restored_focus_and_viewport_emulation": true,
+    "final_compaction_ownership_text_verified": true
   },
   "errors": [],
   "technical_review_findings": 11,
@@ -95,6 +104,13 @@
     "Gemini_suggestions_reviewed": 126,
     "forbidden_contrast_matches": 0,
     "original_code_and_images_preserved": true
+  },
+  "source_reading_explanations": {
+    "chapters": 19,
+    "detailed_blocks": 27,
+    "added_characters": 18831,
+    "original_chapters_recoverable": true,
+    "code_tables_figures_preserved": true
   },
   "technology_choices": {
     "comparison_topics": 14,

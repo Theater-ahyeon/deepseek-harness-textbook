@@ -1019,7 +1019,7 @@
     "term": "邮箱",
     "explanation_chapter": 13,
     "file": "book/13.md",
-    "line": 120,
+    "line": 130,
     "explanation_paragraph": "讲解：邮箱协调消息的投递和确认。共享文件由文件服务修改，多个成员写同一路径时，应拆分修改范围、安排执行顺序，并在整合时检查冲突。",
     "location_kind": "definition_or_mechanism_explanation"
   },
@@ -1363,7 +1363,7 @@
     "term": "effect",
     "explanation_chapter": 19,
     "file": "book/19.md",
-    "line": 142,
+    "line": 152,
     "explanation_paragraph": "执行推演：装入时创建定时器，effect 记录回调返回的释放函数。卸载时框架调用作者写下的 clearInterval；它没有从 setInterval 自动推导这行代码。",
     "location_kind": "definition_or_mechanism_explanation"
   },

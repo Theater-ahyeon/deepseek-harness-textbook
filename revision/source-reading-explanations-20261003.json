@@ -1,0 +1,445 @@
+{
+  "source_commit": "639ed015397290b3745d163aafe02ffee4aa3f84",
+  "chapters": 19,
+  "excerpts": 27,
+  "files": [
+    {
+      "file": "book/01.md",
+      "before_sha256": "e6827c5b861aef45991c1ef1cdb1bff13790d7d7dffeb79e7cc80ae0532e5eb4",
+      "after_sha256": "647ceccb01e85dc635b45e45bcfec476bdf5116a0ce2cc5eecfe8676ecdd8049"
+    },
+    {
+      "file": "book/02.md",
+      "before_sha256": "061e420c9c141c349f1295806747458a03bb74be8bc0e0cb739f12d97ec0a650",
+      "after_sha256": "b80c027178a041804399eb76cb9e5f3f643a3cbb60aa1e3dbf1a9fc0dbb7f7af"
+    },
+    {
+      "file": "book/03.md",
+      "before_sha256": "dcbcbe2952c2068728d7b18cdfcd390dd2b6772de8274bc36a003aab5ce4c816",
+      "after_sha256": "d5aad0c7b09fe4a6dbae83545a877c895d4cead40184898282f19757d9d5b317"
+    },
+    {
+      "file": "book/04.md",
+      "before_sha256": "e34b825d0759d58d4b7c135401a55f7d48e6c010ad17ca585eff435d12fe1549",
+      "after_sha256": "f064a024282043855a9d36aec87cc8e8ec015024be7de3f26dc0fb1887dc623f"
+    },
+    {
+      "file": "book/05.md",
+      "before_sha256": "49984a747c9597220c80793e7bddf4e45f9d8e146161bc71085248e9e6b86e76",
+      "after_sha256": "2e601fef93addfd6cbb1ddf046daa42b3f1d08befa7e8c93df9ac2911613b45b"
+    },
+    {
+      "file": "book/06.md",
+      "before_sha256": "1aafda83b0bfb210bfd7ad036148346943f71f7a344152995786351598fa939b",
+      "after_sha256": "5f52200312b3d76154972646c28cab6f411318619bfb539159b3664c5b699d93"
+    },
+    {
+      "file": "book/07.md",
+      "before_sha256": "fd8a76fedc83729a6fb77bf02c7a4950aa1ac640e60e32ce02bb2cb72f68d05a",
+      "after_sha256": "0d4bad82c084f70f2bfa84f8dd220432e8c9ea3997a08a8e0851ab779b212a0a"
+    },
+    {
+      "file": "book/08.md",
+      "before_sha256": "507fce292e3f052ba6867156f09810958f03d9756f68fcc2e6700961856c593b",
+      "after_sha256": "2da89306ab37edb37214c4999b913c3cda45aa93e272345509d5d02352a6c5cf"
+    },
+    {
+      "file": "book/09.md",
+      "before_sha256": "9923628ddea21f0146989e73cd4cddb4500f2683008d67d095beee9c97d37b6a",
+      "after_sha256": "1e4d8c37333a92a0ed8c1ec18c3ecdd2d2a9652dfeec86e21f2bd73a4549730a"
+    },
+    {
+      "file": "book/10.md",
+      "before_sha256": "bc10d19574e6957c05f30c31d3a4e5de3fca2eab8c21a1ccec24f2b800fd5e3a",
+      "after_sha256": "48b526d664b9f07564b7b189520bb55049b514113bd33c276ff2b350a476760f"
+    },
+    {
+      "file": "book/11.md",
+      "before_sha256": "c47fb6470afb85d5aa8f47cbfa3ec3c58037debff3cc22bb9e73c3c326cbabc9",
+      "after_sha256": "b26cc58cfdf34448ab8083225786c8db7bbcc614814f9d66f40946a3ab955e18"
+    },
+    {
+      "file": "book/12.md",
+      "before_sha256": "82c6cbc49fc7e9e92b1fed11a04cedd0fb334054ca222e8ebe48d5e24a7ff24e",
+      "after_sha256": "969eb54715209db6283d43cf1e90495abe74623155b807080f20aa586bb76ef3"
+    },
+    {
+      "file": "book/13.md",
+      "before_sha256": "7f77b8bcfb368b2857f7ac21b02b181485e0ee0d6ea39ada9d6324efc42437a6",
+      "after_sha256": "151c881ca1ab2ef93f96938bdcfed54ca02cb25d58d7265dbf58bc8f1933acc8"
+    },
+    {
+      "file": "book/14.md",
+      "before_sha256": "7928da54511cff253e578da582ba2f5f092c5685a534cbd6924f5e13e3c84353",
+      "after_sha256": "a67446da4c64f5bf3edb1f208a5529d9e2e6f6ac8909ba0770509f29070ca111"
+    },
+    {
+      "file": "book/15.md",
+      "before_sha256": "b05d6f0098864255627ce8cab986d5267efea33b04cc625e45d34d1da6986799",
+      "after_sha256": "ead5b6a278e5b24242c27ebeec3169fd1ad702ada006f449778ff80bf353a089"
+    },
+    {
+      "file": "book/16.md",
+      "before_sha256": "13e5b6fd967a1059e77c89f30b0eb7c86c7e6efeeb9378649eb9d81a6aabf069",
+      "after_sha256": "6d16dd537cd2ca16b1941feac26ce42347dd93372211e2a3f35126e972818139"
+    },
+    {
+      "file": "book/17.md",
+      "before_sha256": "11208f7b545e6bbbb8b25c61d56e1d3accec3394de077155cc16d574728d1e2e",
+      "after_sha256": "2ef7a5ba0559f24040f40d38b814350d3713adbd80498d8aefd631ae35f41c8a"
+    },
+    {
+      "file": "book/18.md",
+      "before_sha256": "e776b8c82943b548fc50daf4a44d0716b1dd82563ce0d5b131607ed6ad583775",
+      "after_sha256": "134699c01b3fa610949cad92b45f392741a18d9a6df61176d1eba24cab623745"
+    },
+    {
+      "file": "book/19.md",
+      "before_sha256": "46daae8b551750ff4fa8a751249af4bd0ab36cf6eb80226bd6e2eac78460a8ae",
+      "after_sha256": "254a8a1dd2dabbb5d6435f5f91dd30c59e31e7114020c50b45e21dd52d10411d"
+    },
+    {
+      "file": "revision/terms.json",
+      "before_sha256": "8a16ce2edc4a2e8a46e6a80283f4e41e9cd0513291dbb4e434db80b5d5ff5b45",
+      "after_sha256": "5ac37c41e1d00535940e1998a9cd73038dabd1790c3e3d3f6bce54f88e51d5a0"
+    },
+    {
+      "file": "README.md",
+      "before_sha256": "a88301e9e5d025bb4c741ad44f3361751615fc2142f7fb8042e96fc9a747647c",
+      "after_sha256": "379310ecdeca53a973533445cc25fb2a726d8e62fbc4a908b024228ec411c0b5"
+    },
+    {
+      "file": "chapter-format.md",
+      "before_sha256": "79b57ba72ebcf72fee914571186c14f8f05321052a143e7e2c0fd95fbd7a1bd2",
+      "after_sha256": "a5f4d1a8fe489723f6f2890a3fb1932faa5c851cb6f7eb0ee493778d0b5ec88b"
+    }
+  ],
+  "blocks": [
+    {
+      "id": "E01A",
+      "file": "book/01.md",
+      "text": "#### 实现详解\n\n一次 prompt 请求要把客户端提交的内容交给特定 Agent，同时保留这次提交的身份。请求中有两个用途不同的标识：sessionId 决定接收输入的 Session，requestId 标识客户端的这一次提交。入口先根据 sessionId 获取 Agent，后续的重复检查、消息排队和附件绑定都围绕这个对象进行。例如，两位用户分别向不同 Session 提交相同文字，仍是两次独立输入。\n\n获取 Agent 后，入口检查这个 requestId 是否已出现。检查范围包括 Agent 的两类 Inbox 队列，以及 Session 中已经登记的用户消息：尚未领取的提交可以在队列中识别，已经领取并登记的提交可以在历史中识别。找到对应记录就直接返回 accepted 回执，避免重复排队。比较的是请求身份，相同文字配上新的 requestId 仍会作为新提交处理。客户端因网络问题重发同一个请求时，这项检查让已有接纳记录能够继续使用。\n\n新请求随后建立 MessageSource，也就是随用户消息保存的来源信息。kind 将它标为用户输入，rpcId 保存 requestId，使后续正式消息能够与客户端的本地 pending 条目关联。客户端时区此前已经过规范化和合法性检查；提供了有效时区才写入来源对象，缺省时保留字段缺省状态。来源对象保存提交元数据，任务文字和附件另在消息内容中组织。\n\n这一阶段完成后，入口继续校验图像能力、解析附件凭据并接纳附件，再创建用户消息。steer 模式把消息送往下一步，普通提交通过 followup 排入下一轮；附件绑定提交成功后，入口返回 accepted。以“读取 README”为例，此时确定的是输入已排队且具备可追踪身份，随后由驱动领取消息、调用模型并执行读取。请求回执与后续任务事件共同构成客户端观察一次提交的完整路径。\n\n",
+      "source": {
+        "path": "source/packages/api/session-controller/src/commands.ts",
+        "start": 329,
+        "end": 335,
+        "excerpt_sha256": "df9508f64cab980b1b83d1925420aef67f1d5e618a68ea4f3d1d4de5d93ec29c",
+        "file_sha256": "e5e9b7df2ff4d3477d9005548496e5ca1c2adaa69470aa6de399e822d683c7a7"
+      }
+    },
+    {
+      "id": "E01B",
+      "file": "book/01.md",
+      "text": "#### 实现详解\n\n模型提出工具调用后，执行器需要先建立一条能够追踪的调用记录，再把它与后续结果关联。appendToolCall 接收四组信息：所属 Session、当前 turn、当前 step，以及模型给出的 ToolCallBlock。调用块保存本次调用的 id、工具名称和参数；轮次与步骤说明它出现在任务推进的哪个位置。同一轮里多次调用 read 时，调用身份和推进位置能区分每一次读取。\n\n辅助函数将这些字段作为 tool/call 事件交给 Session.append。Session 对事件作快照和校验，追加到内存日志，再通知观察者。调用者因此得到包含 seq 的事件对象，seq 是这条记录在当前 Session 日志中的位置。例如日志原有 9 项，位置为 0—8，本次调用就取得位置 9。其他消息和过程事件也占用日志位置，所以 seq 反映完整事件序列中的顺序。\n\n函数把 seq 返回给执行器，执行器在产生工具结果时再传入这个位置。结果事件通过关联字段指回原调用，同时保留调用 id、turn 和 step。读取成功、准入拒绝以及取消后生成的跳过结果，都可以按这套关联方式解释：哪一次提议得到了什么结论，结论属于哪个步骤。界面展示和历史查询无需仅凭工具名猜测配对关系。\n\n以模型提出 read 为例，调用事件先进入 Session，之后执行器才继续准备准入和分派。获准且文件存在时，文件服务返回窗口，再登记与原调用相连的结果；拒绝时则形成对应的拒绝结果。Session 的存储监听器另外安排写入文件，appendToolCall 的返回点完成的是调用事实的建立。沿“调用记录—准入与执行—结果记录”观察，就能还原这一次工具请求的进展。\n\n",
+      "source": {
+        "path": "source/packages/core/agent-loop/src/tool-calls.ts",
+        "start": 263,
+        "end": 266,
+        "excerpt_sha256": "e42f6877041eecfac66444e8b0a3ffa89971ab06c4678e99ef734059752d0a4a",
+        "file_sha256": "5c7e8d8ff0028b436efdd13e5dffa4801d2311c211c3af039e7dab705f87b303"
+      }
+    },
+    {
+      "id": "E02A",
+      "file": "book/02.md",
+      "text": "#### 实现详解\n\nprompt 是客户端提交任务的异步入口，返回类型 SessionPromptValue 规定调用者拿到接纳回执。方法开头先检查请求是否包含可处理内容。content 是内容块数组，其中的文字块可以包含正文，非文字块承载图像、文件等材料。hasPromptContent 遍历这些块：文字去掉首尾空白后还有内容，或者存在非文字块，便通过这一项检查。\n\n空数组、只含空字符串或只含空白文字的请求会在这里失败。入口构造 gateway/bad-request 类别的 RemoteError，附带“需要非空白文字或附件”的说明，然后终止当前方法。错误类别让远程调用方识别失败性质，说明文字帮助客户端显示原因；本次错误没有额外的结构化详情。因为检查发生在解析 Agent 和创建消息之前，这类请求不会经由后续路径进入 Inbox。\n\nasync 把方法结果组织成 Promise。方法中的 throw 会使这个 Promise 失败，客户端 await prompt 时便进入错误处理；合法请求跳过拒绝分支，继续检查时区、目标 Agent 和附件，最终获得接纳结果。入口中的 await 用来等待这些接纳工作。后台驱动处理模型与工具的时间线由后续事件呈现，调用方可在收到回执后继续响应界面操作。\n\n比较两个输入便能看到完整顺序：提交三个空格且没有附件时，内容检查直接返回远程错误；只提交一个文件附件时，这项检查通过，随后还要解析附件凭据、接纳附件并绑定到消息。前者在入口结束，后者能否排队由后续接纳步骤决定。阅读异步方法时，先确定它承诺返回的结果，再沿各个等待点和错误分支观察，就能判断 await 结束时系统已经推进到哪一阶段。\n\n",
+      "source": {
+        "path": "source/packages/api/session-controller/src/commands.ts",
+        "start": 311,
+        "end": 318,
+        "excerpt_sha256": "4a725a0a69d39dc0b0f23e6d7b0e693a3b4e92aef3ff17527808685be3954413",
+        "file_sha256": "e5e9b7df2ff4d3477d9005548496e5ca1c2adaa69470aa6de399e822d683c7a7"
+      }
+    },
+    {
+      "id": "E03A",
+      "file": "book/03.md",
+      "text": "#### 实现详解\n\nInbox.claim 把待处理输入转成当前步骤要使用的一批消息。调用者是准备步骤的 Agent 驱动，传入 target 表明当前边界是否同时开启新轮次，传入 turn 标明这批输入归属哪一轮。Inbox 内有 next-step 和 next-turn 两个列表：前者承载需要在下一步纳入的引导或注入，后者承载等待下一轮的普通任务。\n\n每次领取先取走 next-step 的全部现有消息，并按列表顺序放入 claimed。mutate 同时更新队列状态和返回取出的消息，因此领取后这些输入从待处理列表中移除。在 next-step 边界，领取到此为止；在 next-turn 边界，再从下一轮列表的头部取一项，接在 claimed 后面。即使下一轮排着多项普通任务，本次也只取其中一项。\n\n这样安排使当前轮次的补充要求能够在下一步骤及时进入，同时让排队的普通任务逐轮推进。例如 next-step 有 B、D，next-turn 有 C、E：在当前轮次准备下一步时得到 B、D，C、E 继续等待；在新轮次边界领取相同队列时得到 B、D、C，E 留给后续轮次。这批结果按目标边界和列表顺序组合，不能用所有消息的提交时间重新排序。\n\n队列更新完成后，方法逐条发出 agent/inbox/claimed 通知，通知携带消息和所属 turn，让界面及其他观察者知道输入已被领取。返回的 claimed 数组交给前置步骤处理，随后才组装模型请求。领取说明消息从队列进入了步骤准备，前置处理仍可以拒绝继续。后到的输入保存在队列中，由下次驱动到达领取边界时处理，已发出的模型请求保持原有材料。\n\n",
+      "source": {
+        "path": "source/packages/core/agent-loop/src/inbox.ts",
+        "start": 109,
+        "end": 114,
+        "excerpt_sha256": "66a316e130d9fab1ede5bc38d0937b8c0621ffba5fffc4cb58d7d841db3cbdaf",
+        "file_sha256": "70c07ea75ebcf18df353bbccf7c2aa3ecf6cb0d687b96e3520b675680c29f662"
+      }
+    },
+    {
+      "id": "E04A",
+      "file": "book/04.md",
+      "text": "#### 实现详解\n\nparseReadArgs 连接 read 的外部参数接口与内部执行逻辑。外部调用使用 file_path、offset 和 limit；包装函数已经检查这些字段的结构与类型，本函数进一步检查具体值，并为缺省项建立明确规则。maxLimit 来自插件配置，既是未指定 limit 时使用的默认行数，也是允许请求的最大行数。\n\n路径首先经过非空检查。函数对 file_path 的临时值去除首尾空白，再检查长度；空字符串和纯空白路径被拒绝。通过检查后，返回对象仍保留原 file_path 字符串，只把属性名改成内部使用的 filePath。因此，这里的 trim 服务于非空判断，实际路径解析仍交给后续文件服务。\n\n行参数分别处理“没有提供”和“明确提供”。offset 缺省时取 1，表示从文件第一行开始；limit 缺省时取 maxLimit。提供的值则必须是有限的正整数，所以 0、负数、小数以及非有限数字都会报错。limit 通过正整数检查后还要与 maxLimit 比较，超过上限直接拒绝。合法的 offset 可以大于文件总行数，是否越界由读取与窗口构造阶段结合实际文件判断。\n\n例如配置 maxLimit 为 100，调用只给出 README.md 和 limit=2，得到内部输入 filePath=README.md、offset=1、limit=2。给出 limit=0 会在正整数检查中失败，给出 limit=101 会在上限检查中失败。只有完整参数通过后，执行体才解析目标、获取文件信息并读取。默认值、参数错误和文件错误各在对应阶段形成结果，便于定位一次读取在哪一步停止。\n\n",
+      "source": {
+        "path": "source/packages/fs/tool-fs/src/read.ts",
+        "start": 55,
+        "end": 61,
+        "excerpt_sha256": "0571fb8c96d3b6a97c6e3a7d5b3354de08ecdb8b5e9357d2bab902b9c068619a",
+        "file_sha256": "1e7d5743be73623b07cde79f2f7168f4466794c26c714b923c289cd0e155115f"
+      }
+    },
+    {
+      "id": "E04B",
+      "file": "book/04.md",
+      "text": "#### 实现详解\n\nread 的执行体取得合法参数后，需要解决两个连续问题：怎样获取文件文本，以及怎样从文本中构造本次返回窗口。它先调用 resolveRegularReadTarget，由当前文件 Provider 解析路径并确认目标适合普通文件读取。返回的 target 表示后端可访问的目标，info 提供文件信息，包括可选的大小；target.displayPath 用于在结果中显示路径。\n\n获取方式由文件大小和配置阈值决定。大小已知且小于 streamMinSize 时，一次 readText 获取完整文字，再包装成单个文本批次；大小达到阈值或后端没有给出大小时，streamText 提供逐批文字。未知大小选择流式路径，避免先缓存一个无法判断体积的完整文件。两条文件接口都接收 exec.signal，将本次调用的取消信号传递给后端。\n\n接下来，两种输入统一交给 buildWindow。它按 offset 跳过窗口之前的行，最多保存 limit 行，同时应用 maxLineLength 和 maxBytes，分别控制单行长度与输出字节数。流式路径按批次提供文字，一次读取路径提供一个完整批次；窗口构造器处理跨批次的行边界，并继续扫描剩余输入以统计总行数。获取方式决定文本怎样到达，窗口规则决定最终保留哪些内容。\n\n假设文件有 120 行，请求从第 41 行取 30 行，其他上限没有提前截断，窗口保存第 41—70 行，并报告总行数 120。若字节上限使保存停在第 60 行，结果保留第 41—60 行，仍统计完整文件的行数。执行体随后用窗口建立规范值，并记录本次文件观察；输出契约再生成模型文本和展示元数据。后续模型据实际返回范围决定是否从第 61 行继续读取。\n\n",
+      "source": {
+        "path": "source/packages/fs/tool-fs/src/read.ts",
+        "start": 141,
+        "end": 152,
+        "excerpt_sha256": "ab938e5af52b8deef090aadda32610976f7dfefcdf1b7f39ab0d1b7db7eb6d7c",
+        "file_sha256": "1e7d5743be73623b07cde79f2f7168f4466794c26c714b923c289cd0e155115f"
+      }
+    },
+    {
+      "id": "E05A",
+      "file": "book/05.md",
+      "text": "#### 实现详解\n\nSession.append 要把调用方提交的数据变成稳定、有序且符合事件规则的事实。进入这段代码前，事件正文和可选的 Surface 元数据已经转换成可序列化快照；不能转换的数据提前报错。新事件使用这些快照，使调用方之后改动原始对象时，已经记录的内容保持一致。\n\n事件对象包含类型、序号、时间、正文以及需要时附加的 Surface 更新信息。seq 取当前日志长度：日志有 9 项时，新事件的位置为 9。time 记录建立事件的时刻，日志连续性则按 seq 判断。surfaceOp 可以说明消息应怎样改变当前 Surface，sourceEventSeqs 可以指出派生内容关联的来源事件。deepFreeze 冻结这组字段及其内部数据，形成稳定的内存记录。\n\n对象建立后要通过两层验证。事件数据验证检查该类型要求的字段；Surface 管理器验证它是否符合当前消息序列的更新规则，例如替换目标能否作为合法区域处理。这些验证都发生在 log.push 之前，失败时事件尚未进入日志，日志长度也不会因本次失败增加。TypeScript 的类型说明帮助组织代码，实际运行中的字段与状态约束由这两层验证执行。\n\n验证通过后，append 将事件加入日志、使事件快照缓存失效，再通知已收集的观察者并返回事件。假设追加一个 read 调用：序号让结果能够指回它，冻结保护调用参数，通知让界面更新并让存储组件安排写入。内存追加与文件保存沿不同阶段推进，等待存储完成由 flush 路径负责。这样，一条事件从数据提交到正式记录再到多个消费方，有明确的处理顺序。\n\n",
+      "source": {
+        "path": "source/packages/core/session/src/index.ts",
+        "start": 744,
+        "end": 752,
+        "excerpt_sha256": "90afb132a58060eec1b67c9d255abb66e59fd9f922c1036b90d7e05fee9342b7",
+        "file_sha256": "711d4d071bdce9afb4ab2abcf36b5dfc79e4a956b3236aa880c8c019d73ab9e6"
+      }
+    },
+    {
+      "id": "E05B",
+      "file": "book/05.md",
+      "text": "#### 实现详解\n\nJSONL Provider 通过事件监听接入 Session，为每个受管理的 Session 保存写入句柄。Session 发布新事件时，session/event 回调按 session.id 找到对应 writer，再调用 enqueueLive。这个调用把事件加入实时写入缓冲，由写入通道继续追加到文件；Session 的界面观察者可以在同一时期更新显示。\n\n实时写入在后台推进，发生错误时回调记录警告，并保留尚未完成的缓冲事件。这使调用方可以从日志中看到具体哪个 Session 的写入失败，后续排空流程仍能够处理保留的事件。写入句柄的内部逻辑负责顺序、追加位置与失败回退，监听器本身只负责将 Session 事件路由到相应通道。\n\nsession/flush 提供显式等待点。回调找到 writer 后，立即启动并返回一个异步操作：先等待 drainLive，把已经排入的实时事件写完，再等待 writer.flush 完成存储层的刷新工作。Session 的 flush 流程收集并等待这些监听结果，调用方据此获知持久化等待是否成功。找不到写入句柄时，这个 Provider 返回 undefined，表示本次没有对应通道参与等待。\n\n以 read 结果为例，工具结果先进入 Session 内存日志，随后被排入 writer 的缓冲。此时界面可能已经显示文件窗口，文件追加仍在进行；关闭或其他需要保存完成的路径再等待 flush，就会先排空缓冲，再等待刷新。若其中一步失败，等待向调用方报告错误。沿“事件发布—缓冲入队—后台追加—显式排空与刷新”观察，可以准确定位显示与保存之间的进度差。\n\n",
+      "source": {
+        "path": "source/packages/session/session-persistence-jsonl/src/storage.ts",
+        "start": 535,
+        "end": 547,
+        "excerpt_sha256": "f5c9f19720259576ec7236da0673f9928813c34560e15146ac4e1f36f4d8459c",
+        "file_sha256": "41d6e4af01d3f613eb9d4e89e3d8ddded5070b4e73c7b3f858a61cbbd3b43b33"
+      }
+    },
+    {
+      "id": "E06A",
+      "file": "book/06.md",
+      "text": "#### 实现详解\n\n项目指令插件在 agent/pre-step 链中，把当前工作区规则加入本步消息。进入这一段前，它已经等待相关投影更新，计算出 desired 指令消息，并得到其他前置处理返回的 decision。decision.messages 是目前准备采用的消息数组，messages 保存驱动本次从 Inbox 领取的输入，pending 则是 Inbox 中等待更新的项目指令消息。\n\n拒绝继续的步骤，以及首次进入却没有输入的轮次，前面的分支会保留或更新待处理指令。到达本段意味着当前步骤能够继续，插件先从 Inbox 移除 pending 中的旧指令，让它们不再作为后续重复输入排队。随后检查 desired：没有需要插入的指令，或者批次中已经包含等价指令内容，就返回原 decision。等价判断比较上下文内容，用来避免同一份规则反复进入批次。\n\n需要新指令时，插件在 decision.messages 中找到最后一条属于本次领取批次的消息，将 desired 插在它后面。这样直接输入位于项目规则之前，驱动追加的运行时上下文位于规则之后。假设原批次为“用户要求、运行时上下文”，加入后便成为“用户要求、项目指令、运行时上下文”。若数组中没有本次领取项，查找结果为 -1，插入位置因此是数组开头。\n\n插入使用新数组，返回值也保留 decision 的其他字段，只替换 messages。后续请求组装采用这份更新后的批次，当前代码没有直接发送模型请求。以读取目录下的 README 为例，此前访问文件产生的触及路径可以影响 desired 的规则选择；本段负责把选好的规则去重并安放到确定位置，使下一步模型同时看到任务、目录约束与运行环境资料。\n\n",
+      "source": {
+        "path": "source/packages/context/agent-instructions/src/index.ts",
+        "start": 332,
+        "end": 340,
+        "excerpt_sha256": "dd9106ae23be4e4c05068b73c1c2634dcc2f0a14cb280bf73fc55ab027f0f3ca",
+        "file_sha256": "bca2df91166de1b4eac099c532e6762a8f30387366097cec16a73b8078860d82"
+      }
+    },
+    {
+      "id": "E07A",
+      "file": "book/07.md",
+      "text": "#### 实现详解\n\n模型调用 skill 工具时，需要把名称解析成当前 Agent 可读取、可调用的完整定义。工具先检查名称格式，随后建立 lookup 查询条件：工作目录来自 Agent 的 Session，scope 使用当前 Agent，signal 传递本次调用的取消信号。目录发现和正文读取都使用这组条件，因而沿当前 Agent 的插件装配与工作区解析候选。\n\n工具先调用 skills.list 获取摘要目录，再查找与 args.name 相同的条目。目录里没有这个名称，就报告未知或已经不可用；找到摘要后，再检查它是否允许模型调用。某个 Skill 可以被发现，却只允许用户显式调用，这种候选在模型入口会被拒绝。摘要在这里同时提供发现信息和入口策略，正文尚未进入结果。\n\n摘要检查通过后，skills.get 才获取完整定义。两次异步查询之间，Provider 的可用状态或文件可能变化，所以 get 返回空时仍要报告不可用。紧接节选的代码还会检查完整定义的模型调用标志，通过后才把名称、Provider、可选资源基址与 content 组织成结果。资源基址为正文引用的相关资源提供定位信息，content 保存实际方法说明。\n\n例如模型选中 report-skill：当前目录里没有它时停止于摘要查找；目录存在但只允许用户调用时停止于入口检查；目录允许且完整定义有效时，工具返回正文。正文再由输出渲染与工具结果记录进入后续模型请求，指导报告结构。接下来的文件读取仍使用已有工具链和准入规则。由此，候选发现、入口许可、完整读取和上下文使用构成四个相连的阶段。\n\n",
+      "source": {
+        "path": "source/packages/skill/tool-skill/src/index.ts",
+        "start": 133,
+        "end": 144,
+        "excerpt_sha256": "d05d09dbab2d88dab8c9f0f011a7a737c936d026959e78baccb250e19b0cb848",
+        "file_sha256": "fb7b9f7558d516854ffe159803586decd1da003d7f10e04e026c4b7ca3622a1c"
+      }
+    },
+    {
+      "id": "E08A",
+      "file": "book/08.md",
+      "text": "#### 实现详解\n\n上下文压缩先选择历史区域、建立 compaction/start 记录，再异步请求摘要。本段处理摘要返回后的提交边界。summarized 保存摘要、原选区及其计量依据，startEvent 标识本次压缩开始。摘要生成耗时期间，Session 可能继续变化，因此提交前必须重新核对摘要所依据的历史是否仍能作为合法替换目标。\n\nowner 表示本次压缩的轮次归属。手工压缩使用 null，提交前再次检查取消信号；自动压缩归属于当前开放轮次。随后执行 assertStable。稳定性检查由本次选用的策略决定：一种检查整个 Surface，另一种检查所选区域仍然存在、连续、关联平衡且计量一致。区域外增加消息可以与后者兼容，区域内被改写则会阻止提交。检查失败后，流程进入外层错误处理，当前摘要不会经由正常提交路径替换历史。\n\n通过检查后，stage 切换为 commit，让后续错误能够归因到提交阶段。commitCompactionBody 依次追加 compaction/summary 和携带替换操作的检查点消息：前者保存摘要及来源，后者更新当前 Surface，原始日志继续保留。函数返回摘要和替换记录的关联信息，随后追加 compaction/end，再由 completeCompaction 组合出完整结果。\n\nclosing 与 closed 记录关闭过程的进度。准备追加结束标记时置 closing，追加成功后置 closed；外层错误处理据此决定是否尝试失败结束标记，并避免在结束追加失败后再次走同一关闭分支。假设摘要已生成，但选区在等待期间被替换，稳定性检查先发现冲突；假设摘要和检查点已经追加，而结束记录失败，前面的记录保留在 Session 中。需要持久化等待的调用还会在关闭成功后执行 flush，整个流程按明确的记录边界报告结果。\n\n",
+      "source": {
+        "path": "source/packages/compaction/compaction-basic/src/region.ts",
+        "start": 232,
+        "end": 238,
+        "excerpt_sha256": "b756e27f37f6ff8ae7550878ca0d148e629a06dec762f920ec1324e3302d0115",
+        "file_sha256": "295b53cc9e924f7cb2e843e0d0d296e89ead73da2aab9790282db30736e2e063"
+      }
+    },
+    {
+      "id": "E09A",
+      "file": "book/09.md",
+      "text": "#### 实现详解\n\n一次模型调用需要同时确定 Provider 实现、目标模型、有效配置和附加上下文。prepareCall 先按 config.provider 找到当前适配器登记，再等待适配器准备指定模型的信息。这项准备可能查询能力，接收调用的取消信号；模型输出流由随后返回句柄的 stream 操作获取。\n\n适配器返回的信息先规范成项目统一的模型描述，再用于解析配置。解析结合调用方设置与模型能力，确定本次有效参数，例如适用的输出上限和推理设置。附加 context 也来自解析结果。这样的顺序让请求头记录和实际分派使用同一组模型与配置依据。\n\n配置随后先经 structuredClone 建立独立副本，再经 deepFreeze 冻结。复制切断它与原配置对象的共享引用，冻结保护准备资料免受后续修改。附加 context 存在时同样复制和冻结，缺省时保持 undefined。假设调用准备完成后，设置页面改变下一次请求的参数，本次句柄仍保留已确定的配置，后续新调用再读取更新值。\n\n后面的代码把冻结配置、重试策略和流入口组织成一次性句柄，并绑定这次选中的适配器登记。插件热重载发生在准备与分派之间时，这个句柄仍使用原登记，避免能力信息与执行实现来自不同版本；同一个句柄再次分派会报错。驱动重试时重新准备句柄，使新的尝试可以使用恢复流程调整后的设置。准备、冻结和一次性分派共同确定每一次模型请求的执行依据。\n\n",
+      "source": {
+        "path": "source/packages/llm/llm/src/index.ts",
+        "start": 937,
+        "end": 944,
+        "excerpt_sha256": "6b60157d8a23d05df618d232b37407e5020efd99f46f5468df319e15cb6b6b7d",
+        "file_sha256": "95364943b5c48dba3cb2239981a6ebe89393b55927b4d646ee72a581f23e6914"
+      }
+    },
+    {
+      "id": "E09B",
+      "file": "book/09.md",
+      "text": "#### 实现详解\n\n本段位于当前步骤的模型尝试循环。流已消费结束，finish 表明这次尝试失败或中止；驱动已经追加 assistant/attempt，保存本次未成功完成的流状态，并等待 agent/request-error 恢复链处理。恢复链收到 Provider、失败详情、当前重试策略与取消信号，返回 action，说明是否继续尝试。\n\n恢复处理可能等待退避或压缩，等待期间用户仍可取消。驱动在使用 action 前再次检查 signal：已经取消就立即进入取消路径，即使恢复链刚返回 retry，也不会启动下一次请求。这个检查使取消状态在恢复等待之后继续有效。\n\n未取消时，驱动要求 action 明确为 retry。没有返回值，或者返回其他行动，都用 finish.failure 中的消息、代码和详情构造 LlmError，再交给上层结束当前步骤。明确重试则执行 continue，回到本步骤的尝试循环起点，重新准备并发起模型调用。它沿用现有 turn 和 step，增加一次 attempt，首次已登记的用户输入也保持原记录。\n\n例如第 1 步首次请求以限流错误结束，恢复链等待后允许重试，第二次请求仍属于第 1 步。第二次成功并提出 read，才进入工具调度。第一次失败流中的临时文字和工具提议留在尝试记录中，跳过成功助手消息及其工具阶段。这个控制顺序把失败记录、恢复决定和新尝试连接起来，避免把未成功完成的响应当成可执行结论。\n\n",
+      "source": {
+        "path": "source/packages/core/agent-loop/src/agent.ts",
+        "start": 505,
+        "end": 509,
+        "excerpt_sha256": "0bae018eab905c1e60649080b17bf0f781c00c780342085b9b703e39849efb1b",
+        "file_sha256": "9c985dd5ce3612b0a6f1833cb592930e4e390d4249821accea53064d8e42015c"
+      }
+    },
+    {
+      "id": "E10A",
+      "file": "book/10.md",
+      "text": "#### 实现详解\n\ncomposeEntries 把启动阶段读取的配置层合成为加载器采用的插件条目列表。layers 的外层数组表示应用顺序，内层数组保存一层的补丁。函数从空条目集开始，将每层展开成一条有序补丁序列，再交给 applyEntryPatches 逐项处理。基础组合包提供条目，后续 profile、用户或命令行补丁沿既定顺序修改它们。\n\n展开后先作 structuredClone，得到独立的补丁数据。补丁处理会建立条目树、维护 id 索引并修改目标字段，独立副本使这些操作不改写调用方保留的原配置层。合成规则由 applyEntryPatches 实现：插入项建立条目，修改项按 id 定位已有条目，再对给出的字段赋值。目标缺失、分组不符或名称校验不匹配时，处理器发出警告并跳过相应补丁。\n\n字段覆盖包含整个 config。例如前层条目保存 timeout=100、limit=20，后层给同一 id 的 config 设置 timeout=300，合成后的 config 就只有 timeout=300。插件加载时再通过自己的 schema 处理缺省字段，应用配置默认值。因此，条目合成的字段覆盖与插件参数的默认值解析分别发生在两个阶段。\n\n警告回调将消息里的 %C 占位符依次替换成附加参数的 JSON 表示，再交给调用方的 warn；没有提供 warn 时使用空操作。函数最终返回 EntryOptions 数组，加载器依据这份结果挂载插件，并在依赖满足后执行 apply。以文件工具为例，合成决定它的启用和读取上限，挂载负责注册 read，具体文件访问等待任务中的工具调用。\n\n",
+      "source": {
+        "path": "source/packages/boot/app-boot/src/profile.ts",
+        "start": 731,
+        "end": 738,
+        "excerpt_sha256": "7d873d19bd8dcfb63585828c757e15379971d03312007e9de06d7f57b7e1b413",
+        "file_sha256": "30a883b090c4489b14371d947113d532ab9484d4e0f79c7a4fcddd066e24b6ab"
+      }
+    },
+    {
+      "id": "E11A",
+      "file": "book/11.md",
+      "text": "#### 实现详解\n\nToolRuntime 在执行工具前建立 exec，保存本次调用的 Agent、参数、身份和取消状态。本段发生在执行上下文创建成功且初次取消检查通过之后。scopeTarget 按当前工具服务与调用 Agent 选择派发范围，使准入策略沿这次调用所见的插件环境工作。\n\ntools/pre-execute 是一条可等待的前置处理链。策略处理者接收 exec，结合工具名称、参数及调用环境形成 allow、deny、cancel 或 ask 决定。链尾提供默认 allow，处理者可以据自身规则改变结果或直接返回。waterfall 完成后，gate 保存本次处理链最终给出的决定，真实工具体此时尚未分派。\n\ngate 为 ask 时，ToolRuntime 调用 serviceAsk，等待审批服务并取得决策与审批取消状态。缺少可用审批条件时，这条询问路径会形成拒绝。其他 gate 直接包装成统一结构，approvalCancelled 置为 false，表示这个分支没有经历审批取消。此字段与实际决策分别保存，方便后续代码区分调用取消和询问过程中的取消。\n\n随后运行时继续检查取消、拒绝原因和 guard。前置允许的调用仍可被 guard 否决，通过这些检查才进入分派；工具包装函数再检查参数 schema，最后运行 execute。以读取 README 为例，allow 路径经过守卫后读取，deny 路径形成拒绝结果，ask 路径等待一次审批再选择后续出口。这段代码把策略和交互审批统一成可供后续阶段处理的决定。\n\n",
+      "source": {
+        "path": "source/packages/core/tools/src/index.ts",
+        "start": 1504,
+        "end": 1511,
+        "excerpt_sha256": "afd6b6fb67cf8a962d92cf8dabfd063c37c85c858da312d6f087aa075545f5e7",
+        "file_sha256": "9107a2b6447b10c2ecb90429d7c1b80b956759e96d35230af16f5a88f5d3eccd"
+      }
+    },
+    {
+      "id": "E11B",
+      "file": "book/11.md",
+      "text": "#### 实现详解\n\n审批服务为一次需要确认的工具请求记录询问与结论。request 先要求 Session 有尚未结束的 turn，让两条审批事件归属当前任务。进入本段后，它用 randomUUID 建立本次审批 id；这个 id 标识一次询问，工具调用的 callId 则标识被询问的操作，两者分别承担审批配对和调用关联。\n\n服务先追加 approval/asked，保存审批 id 和工具名，并在请求提供时附加 callId 与 reason。asked 进入 Session 后，观察方就能知道任务正在等待什么确认。随后 await decide：服务检查取消与有效策略，再通过 approval/request 链获取应答。never 策略直接拒绝；无人应答、应答抛错或返回不合法值时，结论归为 unavailable；取消可以使等待以 cancelled 收尾。\n\n正常取得 outcome 后，服务用相同 id 追加 approval/decided，再把结论返回 ToolRuntime。allowed-once 是这套结论中授予本次许可的值，后续调用重新进入自己的准入流程。记录先于结论返回，保证调用方使用审批结果时，Session 已有对应询问和决策事实。若事件追加本身在提交前失败，方法报错，无法沿正常返回路径交付结论。\n\n例如一次文件修改需要确认：日志先出现 asked，界面据此展示工具与原因，用户同意后出现同 id 的 decided，工具链才继续处理守卫和执行。若用户在等待中取消，decide 返回 cancelled，并记录该结论；之后到来的迟答不会覆盖已经结束的等待。沿审批 id 找到这两条记录，再用 callId 对应工具调用，就能解释一次操作为什么获准、拒绝或取消。\n\n",
+      "source": {
+        "path": "source/packages/interaction/user-approval/src/index.ts",
+        "start": 224,
+        "end": 233,
+        "excerpt_sha256": "cbf872d82d316b92e21660db7edb1de17da8844194d26bd9194c1936f691f72e",
+        "file_sha256": "6bba9feef5257063aa41d89ddd51c31a1a474b5920c256c65d5ec2857cff1ff6"
+      }
+    },
+    {
+      "id": "E12A",
+      "file": "book/12.md",
+      "text": "#### 实现详解\n\ncreateTransport 将已经解析的 MCP 配置转换成客户端连接所需的传输对象。transport 字段决定构造哪一种实现，两种分支最后都返回 Transport 接口，后续客户端可以通过同一连接流程完成协议握手、能力发现和工具同步。构造对象这一步主要建立连接参数，实际连接由后续客户端逻辑推进。\n\nstdio 分支使用 MCP SDK 的 StdioClientTransport，交入 command、args、cwd 和环境变量。SDK 在传输启动时负责创建服务端子进程，并通过标准输入输出交换协议数据。command 选择程序，args 指定程序参数，cwd 指定工作目录。buildChildEnv 先取得项目规则清理后的父环境，再覆盖显式配置的 env；项目在这里复用环境清理规则，实际 spawn 由 SDK 执行。\n\nStreamable HTTP 分支将 config.url 解析成 URL 对象，把 headers 放进 HTTP 请求初始化设置，再构造相应传输。它通过服务地址访问 MCP Server，服务端进程由服务端的部署方式管理。URL 解析失败会使构造过程报错，网络连接与协议错误则在后续请求中处理。请求头可以携带这份服务配置需要的认证资料。\n\n例如本机检索服务以命令启动，使用 stdio 配置；已有网络检索服务提供 URL，使用 Streamable HTTP 配置。客户端取得传输后连接服务、发现 search 等工具，再包装成 ToolRuntime 注册项。模型调用这些公开工具名时，仍经过本地准入和执行包装，最后才发送远端请求。传输选择由此决定进程或网络边界，能力注册与每次调用继续沿客户端主流程完成。\n\n",
+      "source": {
+        "path": "source/packages/mcp/mcp-client/src/transport.ts",
+        "start": 31,
+        "end": 46,
+        "excerpt_sha256": "f2a51ac6bf584f0d4de856f7afb8674067f4f7adfe9cd5f4feeaaddce2093f7d",
+        "file_sha256": "6f3fca685af3d5654c476e95db24e1245dc1fa021a0bd7f477ce4ad997e1c8f6"
+      }
+    },
+    {
+      "id": "E13A",
+      "file": "book/13.md",
+      "text": "#### 实现详解\n\n进程内 fork 为子 Agent 选择初始历史，completedTurnPrefix 负责确定这份种子。它先获取父 Session 当前事件数组的快照，再从末尾寻找最近的 turn/end。这个结束标记给出已经完成轮次的边界，使子任务能够从包含完整轮次结算的历史起点开始。\n\n找到结束事件后，函数从数组开头截取到该事件，并把结束事件本身包含在结果中。Session 的追加契约让 seq 与数组下标对应，而 slice 的结束位置不包含在返回范围内，所以使用 lastEnd.seq+1。例如最后一个 turn/end 的 seq 为 20，返回位置 0—20，共 21 项；位置 21 以后的事件全部留在父 Session。\n\n没有 turn/end 时返回空数组，子任务以空历史种子开始。存在完成轮次时，种子包含从位置 0 起的整个事件前缀，涵盖消息、工具调用、结果和边界记录。该函数按位置切片，保留前缀中的历史表示及其关联，后续创建流程再据此建立新的子 Session。\n\n假设父 Agent 在当前尚未结束的轮次刚读到 README，随后创建 fork 子任务。新读取结果位于最近 turn/end 之后，因此不会进入这份种子；父任务应在启动输入中传入本次需要的文本或其他材料。Provider 随后为子任务建立独立 Agent、Session 与循环，同父任务共享宿主进程。历史继承边界、子任务输入和运行对象的创建分别决定子任务知道什么以及怎样执行。\n\n",
+      "source": {
+        "path": "source/packages/subagent/subagent-fork-in-process/src/index.ts",
+        "start": 48,
+        "end": 55,
+        "excerpt_sha256": "8d3dae537c9af1b72e3974b601386a16ce261f88ae48a12de075acd651f7ba05",
+        "file_sha256": "7e6d4ca3e668541f16b660bf06e1557ae4cb069f47b98ca3b0f66751226abb03"
+      }
+    },
+    {
+      "id": "E14A",
+      "file": "book/14.md",
+      "text": "#### 实现详解\n\nHost 的 follow 先提供快照，再从缓冲队列消费后续变化。nextOffset 表示下一个等待的持久事件位置，初始值由快照游标加 1 得到。本段处理缓冲中的 Session 事件；助手临时流使用另一类条目和序号判断，在此前的分支处理。持久历史的连续性由 Session 的 seq 检查。\n\n当前事件比 expectedSeq 小时，说明它位于已知或已消费位置，循环跳过这项。安装监听、准备快照和读取缓冲之间可以覆盖到同一事件，跳过旧项能避免重复交付。当前事件等于 expectedSeq 时，通过连续性检查，nextOffset 先增加 1，再把事件转换成协议条目，通过 yield 交给流的消费方。\n\n当前事件大于 expectedSeq 时，Host 抛出 gateway/internal，错误说明缺少的序号，当前跟随流终止。它没有把较大的序号当成连续事件继续发送，因为消费方可能依赖中间事实才能正确更新状态。外层 finally 撤销事件及临时流监听，移除取消处理，收尾这次订阅。\n\n例如快照游标为 40，预期接收 41。缓冲先给出 39，Host 略过；收到 41 后发送它，预期推进为 42；随后给出 43，就报告缺少 42。客户端用收到的快照和连续增量更新 Session 镜像，再由视图订阅刷新页面。历史来源替换与投影控制流重连各有自己的客户端流程，本段承担的工作是检查并交付这次跟随中的连续持久事件。\n\n",
+      "source": {
+        "path": "source/packages/api/session-controller/src/history.ts",
+        "start": 226,
+        "end": 232,
+        "excerpt_sha256": "9829a357f68b3820e455eddb9e7dd627b45163043f44c164f0a86ba6091ef828",
+        "file_sha256": "20a2b002816817b04d7bae25e429034f79dbfa445ec2f7d90e4525a9c1652db8"
+      }
+    },
+    {
+      "id": "E15A",
+      "file": "book/15.md",
+      "text": "#### 实现详解\n\n桌面 Main 通过 DesktopHostProcess 管理 Harness 后端，start 在这里真正创建独立的 Node Host 子进程。它首先在 runtimeDir 下定位 dsh-desktop-host 包的 lib/index.js，再用 this.node 指定的 Node 程序执行入口。此前 start 会检查是否已有子进程，重复调用沿用现有的 readyPromise，避免再次启动同一个管理对象。\n\n启动参数先放 Node 选项，再放 Host 入口和应用参数。--expose-internals 启用入口所需选项，配置 inspectPort 时才增加绑定 127.0.0.1 的调试参数。入口随后接收运行包目录、项目目录和主运行环境目录；主运行环境有显式设置时优先采用，否则使用约定路径。存在包管理器信息时，再追加 pnpm 和 Node 目录，供 Host 使用对应运行环境。\n\nspawn 选项将项目目录设为工作目录，并通过 desktopNodeEnvironment 组织环境变量。标准输入设为 ignore，标准输出和错误输出设为 pipe，另开 IPC 通道。输出管道用于转发运行输出和保存失败诊断，IPC 用来接收 ready、fatal 与退出相关消息。这些设置将后端启动信息与普通进程输出分开处理。\n\nspawn 返回子进程句柄后，管理器登记输出、消息和退出监听，继续等待 readyPromise。Host 启动完成时通过 ready 消息给出服务 URL 和页面注入资料，Main 才能使已经加载的等待页面激活业务客户端；fatal 或启动失败进入错误路径。以桌面 README 任务为例，页面先显示，后端就绪后才发出业务请求，模型与文件服务运行在这个 Node Host 中，Renderer 根据持续状态显示结果。\n\n",
+      "source": {
+        "path": "source/apps/desktop/src/host-process.ts",
+        "start": 188,
+        "end": 201,
+        "excerpt_sha256": "7a2808013c50da9b9f701f08ed1795c88a46bbd3331c1d7913678f85acbe7d17",
+        "file_sha256": "6b9d3e558f526b7832020fb43d6682a07a68bf2d5657f26951f50a4f3eabfa28"
+      }
+    },
+    {
+      "id": "E16A",
+      "file": "book/16.md",
+      "text": "#### 实现详解\n\n模型回放为实际运行的每个 Session 绑定一份响应脚本，再按该 Session 的调用位置消费条目。进入这段代码前，replay 已查找绑定状态；首次出现的 Session 领取下一份录制脚本，后续调用沿用自己的 entries 和 cursor。多个 Session 因而分别推进各自的响应序列。\n\n本次调用先保留 boundState，并捕获已绑定脚本数与脚本总数，供后面的错误消息说明录制范围。随后取 cursor 的旧值作为 index，再把 cursor 增加 1，用 index 读取 entries。cursor=0 时选择第 0 项，下一次选择第 1 项。位置在返回生成器之前已经推进，后面的响应消费沿本次选中的 entry 继续。\n\nentry 允许为空，因为实际请求次数可能超过录制条目数。返回的异步生成器检查未录制 Session 和脚本耗尽情况，并给出要求重新录制的错误；合法条目经过必要的标识与消息相关处理，再逐项产出响应。选择哪一项的核心依据仍是调用位置，请求中的完整上下文是否符合预期要由测试断言检查。\n\n例如一份脚本录制“先提出 read，再生成总结”两项响应，实际两次模型调用依次取得这两项；只调用一次时，assertConsumed 发现还有条目未消费；第三次调用时，生成器报告脚本耗尽。即使首次请求漏了项目规则，位置选择仍能取得第 0 项，因此验证提示组装时，还要检查实际 messages、工具定义和参数。响应回放与请求断言合作，分别检查轨迹和输入内容。\n\n",
+      "source": {
+        "path": "source/packages/test-support/llm-replay/src/index.ts",
+        "start": 1064,
+        "end": 1068,
+        "excerpt_sha256": "a9f577f03bad1c79999a054886fe4b39c706d3ea9ebd21097885aaf7bf14e305",
+        "file_sha256": "eee9a34c77cc5d9842e386aacd4bd32644ad356d5f68cba77a3cf2f2181d1323"
+      }
+    },
+    {
+      "id": "E16B",
+      "file": "book/16.md",
+      "text": "#### 实现详解\n\ninstallLlmReplay 载入脚本并建立 replay 函数后，需要把替身接到应用的模型边界。本段按照 providers 配置选择接入位置，缺省时采用空数组。两种安装方式最终都把模型请求交给同一 replay 函数，响应选择继续遵循 Session 绑定与游标推进规则。\n\nproviders 非空时，代码提取各项 id，再注册 ReplayAdapter。这个适配器提供测试配置中的 Provider 信息，并在对应路由获取流时调用 replay，因而可让正常模型路由和调用准备继续参与测试。注册只覆盖给出的 Provider 身份，其他路由仍由其自身登记处理。\n\n没有配置 providers 时，代码在 llm/stream 上登记监听器。请求到达这个流边界时，监听器直接返回 replay(options)，不继续调用传入的 _next，因此由脚本提供模型响应。注册监听器时只是保存回调，实际模型调用到来时才执行它。dispose 保存相应安装方式返回的释放函数，测试结束后可撤销本次替身登记。\n\n以 README 回放测试为例，模型边界返回预录制的 read 提议，真实 Agent 循环仍解析调用、经过工具准入、访问测试配置指定的文件服务，再取得脚本中的总结响应。测试既可以按 Provider 路由安装适配器，也可以在流入口接管响应；文件、工具和 Session 的实现由测试装配另行选择。固定模型输出使程序轨迹易于复现，断言继续检查实际执行与产物。\n\n",
+      "source": {
+        "path": "source/packages/test-support/llm-replay/src/index.ts",
+        "start": 1101,
+        "end": 1104,
+        "excerpt_sha256": "968a92e55287eecd02b3760e7c273af68cf1f70d968e6eabb239c6e604579b36",
+        "file_sha256": "eee9a34c77cc5d9842e386aacd4bd32644ad356d5f68cba77a3cf2f2181d1323"
+      }
+    },
+    {
+      "id": "E17A",
+      "file": "book/17.md",
+      "text": "#### 实现详解\n\nTokenMeter 装入时先验证配置，并依赖 sessionProjections 服务。本段向该服务注册三份投影定义。定义说明某类统计如何从 Session 事实形成可查询视图，消费者随后按投影名称读取所需数据；构造时的三次 register 建立统计能力，具体 Session 状态在后续消费和查询中计算。\n\ntokenUsage 关注模型调用用量，让消费方查看请求消耗；contextPressure 关注当前请求材料与模型容量的关系，供压缩等机制判断上下文压力；contextBreakdown 解释材料组成，帮助定位用户输入、历史或工具材料等部分的占用。三项视图从同一 Session 读取各自需要的事实，服务不同的查询目的。\n\nTokenMeter 为不同 Session 保留独立的折叠状态，读取时推进到相应事件位置；事件监听也会为已经建立状态的 Session 同步更新，减少普通读取需要补算的工作。尚无消费者读取的 Session 不会仅因该监听建立统计状态。压力计量在符合条件时复用 Provider 用量，否则采用本地估计，并保留计量来源。\n\n例如 README 任务先调用模型提出 read，再调用模型生成总结。用量视图记录这些调用相关消耗，压力视图反映当前可用历史和请求材料，组成视图帮助说明新增文件窗口占了哪部分。三种投影可以共同查询，但各自采用定义中的计算口径。界面和压缩组件使用这些统计推进显示或决策，业务评价再把它们与总结正确性、耗时和失败记录关联。\n\n",
+      "source": {
+        "path": "source/packages/llm/token-meter/src/index.ts",
+        "start": 114,
+        "end": 116,
+        "excerpt_sha256": "4c1dad11d5845b97e86d8e5beb6c7143c3fff5f729dd8ea2c05a77ba93247cbf",
+        "file_sha256": "9d399314121785154296af650c6059bfd967a4ba6fc72299aadf8a2dce3f7ce1"
+      }
+    },
+    {
+      "id": "E18A",
+      "file": "book/18.md",
+      "text": "#### 实现详解\n\nread 执行体读取文件并构造窗口后，返回规范值 value，其中包含显示路径、起始行、逐行文本和总行数。输出定义一方面用 render 将这个值转换成模型文本，另一方面用 presentationMeta 提取界面恢复需要的结构化资料。本段实现后一条路径，读取的数据已经取得，函数只根据结果值组织元数据。\n\n元数据保留 path 和 offset，再遍历 value.lines，为每一行建立只含 number 与 text 的对象，最后保留 totalLines。新的行数组使展示结构明确，消费方能够直接知道每行编号和文字。offset 表示本次请求的窗口起点，实际保留行数由 lines 给出，totalLines 表示完整文件行数；即使窗口被字节上限截断，这几项信息仍能共同描述覆盖范围。\n\nlangFromPath 根据路径推断语言，能识别时加入 lang，无法识别时省略这个字段。界面可据此选择语法显示方式，逐行内容始终来自实际读取结果。函数的 _args 参数在这里未使用，展示资料从 value 派生，避免将请求行数直接当成已经返回的行数。\n\n例如请求从 README 第 41 行读取 30 行，但结果只保留到第 60 行，meta 会保存 offset=41、20 项带实际编号的行和文件总行数。ToolRuntime 为顶层调用取得这份元数据，驱动随模型 content 一起写入 tool/result。Web Client 再校验原参数、结果和 meta，派生读取卡片；刷新后可以使用已保存资料重建同一窗口，无须再读当前文件。这样模型文本与可恢复的卡片共享读取事实，并各自保留所需形式。\n\n",
+      "source": {
+        "path": "source/packages/fs/tool-fs/src/read.ts",
+        "start": 124,
+        "end": 133,
+        "excerpt_sha256": "d8cbbfa4de003d804f56f8ff61c5c6a396e9e42e70b1255e12f2163732716aa1",
+        "file_sha256": "1e7d5743be73623b07cde79f2f7168f4466794c26c714b923c289cd0e155115f"
+      }
+    },
+    {
+      "id": "E19A",
+      "file": "book/19.md",
+      "text": "#### 实现详解\n\n官方教程用 heartbeat 插件说明资源获取与释放怎样成对登记。插件装入时调用 ctx.effect，并传入一个获取资源的函数。这个函数创建定时器，每 200 毫秒输出一次 tick，将得到的 timer 句柄保存在当前调用的局部变量中。句柄标识本次创建的定时器，后面的清理函数依靠它定位资源。\n\n获取函数随后返回另一项函数，作为 disposer 交给 Cordis。这个返回动作只交付释放逻辑，定时器继续运行；Cordis 将 disposer 记入所属 Fiber 的资源集合。释放函数通过闭包保留 timer，所以获取函数结束后，后续清理仍能访问正确句柄。\n\n插件卸载时，框架调用已登记的 disposer。它先用 clearInterval(timer) 停止本次定时器，再输出 heartbeat cleaned up，供教程观察清理确已发生。同一插件的其他实例各有自己的 timer 和闭包，卸载一份实例时沿对应登记清理这份资源。热重载使用同样的生命周期路径撤销旧实例贡献，再推进新实例。\n\n这个例子把责任分成两个相连的部分：组件作者提供正确的获取与释放操作，Cordis 保存对应关系并在实例退出时调用。论文中的恢复条件要求逆操作恢复相应输入状态；这里的具体恢复由 clearInterval 实现。注册 read 或事件监听时，也需要保留本次登记的身份，使释放只撤销这份贡献。资源创建、句柄捕获、disposer 登记与卸载调用共同构成可追踪的生命周期。\n\n",
+      "source": {
+        "path": "source/docs/cordis-tutorial/02-lifecycle-and-effects.zh.md",
+        "start": 20,
+        "end": 26,
+        "excerpt_sha256": "9a3763c8b3db919d4392ae0a18e5e08bd0122d8813103c5cd5def14a70fc4664",
+        "file_sha256": "568d7abd06db7f054c73348fe6c5decd57c1ca69f996dfcb8ab30ea3cdbc816c"
+      }
+    },
+    {
+      "id": "E19B",
+      "file": "book/19.md",
+      "text": "#### 实现详解\n\nContext.isolate 为指定服务名建立派生的解析范围。Context 内的隔离表保存“服务名到 Symbol 标签”的关系，服务读写按标签选择实现。方法接收 name，指定哪项服务使用新的范围；可选 label 决定是否复用已有标签。返回值是派生 Context，调用方随后可在它下面挂载插件或提供服务。\n\n方法先建立继承当前隔离表的新表，再只为 name 设置标签。查找其他服务时，新表仍沿继承关系取得父范围的标签，所以局部改动不影响其他名称。设置新表也不改写原 Context 的隔离表，父范围继续使用原来的服务解析关系。\n\n缺省 label 时，每次 Symbol(name) 都生成新的唯一身份，即使两次的 name 相同，标签仍不同。显式传入同一个 Symbol 时，多个派生 Context 使用同一标签，可以共享这项服务的解析空间。例如为 fs 分别创建两项新标签，可以在两个子范围提供不同文件服务；复用同一 label 则把它们接到同一个 fs 解析范围。\n\nextend 将新表放进派生 Context，服务名称的读取和提供由后续操作沿这张表解析。这个方法自身只建立解析标签，没有创建文件 Provider 或启动子进程。各 Context 仍位于同一宿主中；profile 与插件装配决定每个标签下实际提供的实现，文件与进程服务负责资源访问。把服务名、解析标签和实际实现分开，就能理解插件树为什么可以在局部范围替换同名能力。\n\n",
+      "source": {
+        "path": "source/vendor/cordis/src/context.ts",
+        "start": 121,
+        "end": 125,
+        "excerpt_sha256": "ce17bf1a2b6cefc62bd332f4151c2ee2f9449f87a7d99e323a5d6c9c78ae4c40",
+        "file_sha256": "96b388162d6013c1898de61e35f28917abb93809de24174980f2a1a348d0b115"
+      }
+    },
+    {
+      "id": "E19C",
+      "file": "book/19.md",
+      "text": "#### 实现详解\n\nFiber._unload 负责释放这个插件实例登记的资源，再清理实例存储并推进生命周期状态。本段先从 _disposables 取出整组释放动作，同时清空登记集合，让这次卸载处理明确的一组资源。每个释放动作都由作者或注册 API 提供，框架通过 runDisposable 实际调用它。\n\n代码把每一项映射成异步任务，再用 Promise.all 等待整组收尾。各任务之间能够重叠推进，结束顺序由实际等待决定。例如移除监听器很快完成，关闭网络连接需要等待，前者可以先结束；整个卸载仍等待连接清理返回。若某项释放一直不结束，统一等待也无法完成，因此资源操作内部要具备相应的超时或取消处理。\n\n每项任务有独立的 try/catch，并通过 composeError 组织诊断信息。调用释放动作之前先经过一个异步等待点，再记录本次错误位置；失败时结合外层调用信息写入日志。某项释放报错后，它的处理路径结束，其他释放任务继续收尾。这里使用的 Promise.all 汇总的是这些带独立错误处理的任务。\n\n所有任务结束后，后续代码清空 store，再按目标状态决定保持未激活或重新装入。具有严格依赖的清理应在同一个 disposer 中按顺序等待：例如先停止仍会访问连接的后台任务，再关闭连接。同层两个 disposer 分别启动时，不会因为登记顺序就保证前一项完全结束。实例资源集合、独立错误记录和整组等待共同说明一次卸载怎样从开始走到状态更新。\n\n",
+      "source": {
+        "path": "source/vendor/cordis/src/fiber.ts",
+        "start": 675,
+        "end": 686,
+        "excerpt_sha256": "8268990ba934eb54a88d56e5883118c0eb251a87eca8381b5a201a7f001090aa",
+        "file_sha256": "b7661d6c19be76cef6b97d88719a8112c0f8b5abe65bd9e7d5947773fd4b96d4"
+      }
+    }
+  ],
+  "additive_only": true,
+  "original_code_tables_figures_preserved": true
+}

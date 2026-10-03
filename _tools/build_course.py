@@ -52,7 +52,7 @@ def render(md):
         if line.startswith('```'):
             lang=line[3:];i+=1;code=[]
             while i<len(lines) and not lines[i].startswith('```'):code.append(lines[i]);i+=1
-            out.append('<pre><code class="language-'+escape(lang,quote=True)+'">'+escape('\n'.join(code))+'</code></pre>');i+=1;continue
+            out.append('<pre'+(' class="source-code"' if source else '')+'><code class="language-'+escape(lang,quote=True)+'">'+escape('\n'.join(code))+'</code></pre>');i+=1;continue
         m=re.match(r'^(#{1,6}) (.*)',line)
         if m:
             level=len(m[1]);head+=1
@@ -70,7 +70,7 @@ def render(md):
                 cells=[x.strip().replace(r'\|','|') for x in re.split(r'(?<!\\)\|',lines[i].strip().strip('|'))]
                 if not all(re.fullmatch(r':?-+:?',x) for x in cells):rows.append(cells)
                 i+=1
-            out.append('<div class="table-wrap"><table>')
+            out.append('<div class="table-wrap'+(' source-line-table' if source and rows and rows[0][0]=='原文件行号' else '')+'"><table>')
             for n,row in enumerate(rows):
                 tag='th' if n==0 else 'td';out.append('<tr>'+''.join('<'+tag+'>'+inline(x)+'</'+tag+'>' for x in row)+'</tr>')
             out.append('</table></div>');continue
@@ -83,7 +83,7 @@ def render(md):
         if line.strip()=='---':out.append('<hr>');i+=1;continue
         paragraph=[line];i+=1
         while i<len(lines) and lines[i].strip() and not re.match(r'^(#|```|<!--|<a |\||- |\d+\. |!\[)',lines[i]):paragraph.append(lines[i]);i+=1
-        out.append('<p>'+inline(' '.join(paragraph))+'</p>')
+        out.append('<p'+(' class="source-code-note"' if source and line.startswith('代码类型：') else '')+'>'+inline(' '.join(paragraph))+'</p>')
     close_source();return '\n'.join(out)
 def page(title,md,nav=''):
     main_reader=bool(nav)
@@ -214,13 +214,40 @@ def validate(chapters,evidence):
         result['second_review_source_ranges_checked']=second_ranges
     if (ROOT/'revision/chapter-language-edits-20261003.json').is_file():
         editorial=data('revision/chapter-language-edits-20261003.json')
+        followup=data('revision/source-reading-explanations-20261003.json') if (ROOT/'revision/source-reading-explanations-20261003.json').is_file() else None
+        followup_files={r['file']:r for r in followup['files']} if followup else {}
         for item in editorial['files']:
-            if hashlib.sha256((ROOT/item['file']).read_bytes()).hexdigest()!=item['after_sha256']:
+            actual_sha=hashlib.sha256((ROOT/item['file']).read_bytes()).hexdigest()
+            successor=followup_files.get(item['file'])
+            if actual_sha!=item['after_sha256'] and not (successor and successor['before_sha256']==item['after_sha256'] and successor['after_sha256']==actual_sha):
                 errors.append('逐章语言复核版本变化：'+item['file'])
         for p in [*[p for p,_ in chapters],ROOT/'subsystems.md',ROOT/'appendices.md']:
             if re.search('而是|而不是',p.read_text(encoding='utf-8')):
                 errors.append('正文残留否定对照句式：'+p.name)
         result['chapter_language_review']={'chapters':19,'edits':editorial['paragraph_or_heading_edits'],'Gemini_suggestions_reviewed':len(editorial['gemini_decisions']),'forbidden_contrast_matches':0,'original_code_and_images_preserved':editorial['original_code_and_images_preserved']}
+        if followup:
+            if len(followup['blocks'])!=27 or {b['id'] for b in followup['blocks']}!={e['id'] for e in evidence}:
+                errors.append('独立实现详解覆盖不完整')
+            if {r['file'] for r in followup['files']}!={*[f'book/{i:02}.md' for i in range(1,20)],'revision/terms.json','README.md','chapter-format.md'}:
+                errors.append('独立实现详解修订文件不完整')
+            for item in followup['files']:
+                raw=(ROOT/item['file']).read_bytes()
+                if hashlib.sha256(raw).hexdigest()!=item['after_sha256']:errors.append('实现详解版本变化：'+item['file'])
+                if item['file'].startswith('book/'):
+                    newline='\r\n' if b'\r\n' in raw else '\n'
+                    for block in [b for b in followup['blocks'] if b['file']==item['file']]:
+                        insertion=block['text'].replace('\n',newline).encode('utf-8')
+                        if raw.count(insertion)!=1:errors.append('实现详解内容缺失或重复：'+block['id'])
+                        raw=raw.replace(insertion,b'',1)
+                    if hashlib.sha256(raw).hexdigest()!=item['before_sha256']:errors.append('实现详解之外的原章节内容变化：'+item['file'])
+            for block in followup['blocks']:
+                source_binding=block['source']
+                if hashlib.sha256((ROOT/source_binding['path']).read_bytes()).hexdigest()!=source_binding['file_sha256']:
+                    errors.append('实现详解来源变化：'+block['id'])
+                if len(block['text'].split('\n\n'))<5 or len(block['text'])<420:errors.append('实现详解过于简略：'+block['id'])
+                chapter=read(block['file']);start=chapter.index('<a id="'+block['id'].lower()+'"></a>')
+                if chapter.index(block['text'],start)>chapter.index('代码类型：',start):errors.append('实现详解不在源码之前：'+block['id'])
+            result['source_reading_explanations']={'chapters':19,'detailed_blocks':27,'added_characters':sum(len(b['text']) for b in followup['blocks']),'original_chapters_recoverable':True,'code_tables_figures_preserved':True}
     if (ROOT/'revision/technology-choices-review-20261003.json').is_file():
         choices=data('revision/technology-choices-review-20261003.json')
         if hashlib.sha256((ROOT/choices['file']).read_bytes()).hexdigest()!=choices['sha256']:
@@ -250,7 +277,7 @@ def build(package=False):
 
 [技术选型与替代方案](tech-choices.md)解释十四组选型的源码依据、优势、维护代价与替代实现，可以随对应章节查阅。
 
-每章配有讲解问答，把容易混淆的概念放回具体流程。页面顶部可隐藏源码研读，先连贯阅读机制说明，再按需要查看实现细节。
+每章配有讲解问答，把容易混淆的概念放回具体流程。源码研读在代码前提供独立的“实现详解”，连贯说明输入、执行顺序、关键分支与后续交接。页面顶部可“隐藏代码与逐行表”，保留全部文字讲解，按需再展开源码核对。
 
 实现固定在提交 `639ed015397290b3745d163aafe02ffee4aa3f84`，根包 0.2.0-rc.2，Cordis 4.0.4。版本与核验记录见 [实现证据](evidence-index.md)。
 
