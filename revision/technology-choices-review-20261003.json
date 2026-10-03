@@ -1,0 +1,325 @@
+{
+  "updated_at": "2026-10-03T06:16:39.580160+00:00",
+  "source_commit": "639ed015397290b3745d163aafe02ffee4aa3f84",
+  "file": "tech-choices.md",
+  "sha256": "952e4da7a59dff47df8d1968901f05254aa66f46dd22515cb710ca589816e0ef",
+  "comparison_topics": 14,
+  "evidence_groups": [
+    {
+      "id": "T01",
+      "supports": "Node 范围、ESM、构建命令与开发依赖",
+      "sources": [
+        {
+          "path": "source/package.json",
+          "sha256": "a303ffb8994be8e7a874bc887db1abd47a77a6e08872e65f1d65281f43eab91b"
+        },
+        {
+          "path": "source/tsconfig.host.json",
+          "sha256": "845dfc943f9f0435fb70c8823d1ed204accf7638edf9e0cb544d5f672f6905ab"
+        },
+        {
+          "path": "source/tsconfig.client.json",
+          "sha256": "eff33581ce82353dd0178ca0926605faf72141277804f8b3d0771dfae12d2d57"
+        }
+      ]
+    },
+    {
+      "id": "T02",
+      "supports": "Cordis 上下文、插件装配与生命周期",
+      "sources": [
+        {
+          "path": "source/vendor/cordis/src/context.ts",
+          "sha256": "96b388162d6013c1898de61e35f28917abb93809de24174980f2a1a348d0b115"
+        },
+        {
+          "path": "source/vendor/cordis/src/registry.ts",
+          "sha256": "34bbd60ae502b4f85201c204afb52a9acabde6878d9278493478c1b2183debd3"
+        },
+        {
+          "path": "source/vendor/cordis/src/fiber.ts",
+          "sha256": "b7661d6c19be76cef6b97d88719a8112c0f8b5abe65bd9e7d5947773fd4b96d4"
+        },
+        {
+          "path": "source/packages/boot/app-boot/src/profile.ts",
+          "sha256": "30a883b090c4489b14371d947113d532ab9484d4e0f79c7a4fcddd066e24b6ab"
+        }
+      ]
+    },
+    {
+      "id": "T03",
+      "supports": "默认 Agent loop 与并行工具上限",
+      "sources": [
+        {
+          "path": "source/packages/core/agent-loop/README.zh.md",
+          "sha256": "b2df762bb642f23a6fd8e378aa498f31f9c76bfd3f8c93087f9c88fc171ccef3"
+        },
+        {
+          "path": "source/packages/core/agent-loop/src/inbox.ts",
+          "sha256": "70c07ea75ebcf18df353bbccf7c2aa3ecf6cb0d687b96e3520b675680c29f662"
+        }
+      ]
+    },
+    {
+      "id": "T04",
+      "supports": "Session 内存事件追加与 Surface",
+      "sources": [
+        {
+          "path": "source/packages/core/session/src/index.ts",
+          "sha256": "711d4d071bdce9afb4ab2abcf36b5dfc79e4a956b3236aa880c8c019d73ab9e6"
+        }
+      ]
+    },
+    {
+      "id": "T05",
+      "supports": "JSONL writer 与写入队列",
+      "sources": [
+        {
+          "path": "source/packages/session/session-persistence-jsonl/src/storage.ts",
+          "sha256": "41d6e4af01d3f613eb9d4e89e3d8ddded5070b4e73c7b3f858a61cbbd3b43b33"
+        },
+        {
+          "path": "source/docs/subsystems/persistence.zh.md",
+          "sha256": "fd5046d2939c397fe8fe9ad272e01a0cb0a77a1da409176e432718aec2d8a6f9"
+        }
+      ]
+    },
+    {
+      "id": "T06",
+      "supports": "Domain、JSON、SQLite、同步连接与单操作原子性",
+      "sources": [
+        {
+          "path": "source/docs/subsystems/storage.zh.md",
+          "sha256": "4f2dc65a5e7c548ef90eaca1abf33587527ec480528e16be4381e79ce4baf46b"
+        },
+        {
+          "path": "source/packages/storage/storage-json/src/index.ts",
+          "sha256": "bae1a1c29859dea20d21c2730bbf3c5a30e31ed6cd7d872b8e1c726e65a33a63"
+        },
+        {
+          "path": "source/packages/storage/storage-sqlite/src/index.ts",
+          "sha256": "14df50e3a48f8f15a61dcc44fdfc06c518e261bb3d14938ecf0369aa29a184fc"
+        },
+        {
+          "path": "source/packages/storage/storage-sqlite/src/unit.ts",
+          "sha256": "f6b53281c82ff00601bbb1aeb0598832cea38285e74772115103361d2df9ffdf"
+        },
+        {
+          "path": "source/packages/storage/storage-sqlite/src/schema.ts",
+          "sha256": "7536636af47b23ffffd85cbdbf6ead1a32031bd582accc4bf573ec2c7df397fa"
+        }
+      ]
+    },
+    {
+      "id": "T07",
+      "supports": "Schemastery 配置与工具 JSON-value schema DSL",
+      "sources": [
+        {
+          "path": "source/vendor/schemastery/package.json",
+          "sha256": "853b0935cb1d49c477de8600c91ed1829fa46c61d2cd83dbbf406bb405ef7f93"
+        },
+        {
+          "path": "source/packages/core/tools/src/index.ts",
+          "sha256": "9107a2b6447b10c2ecb90429d7c1b80b956759e96d35230af16f5a88f5d3eccd"
+        },
+        {
+          "path": "source/packages/core/tools/src/schema.ts",
+          "sha256": "d54459d0ad535ff3375138d40f3b37b39c6994703f1ea6a331df9a97c7e3cd23"
+        },
+        {
+          "path": "source/packages/core/tools/src/json-schema.ts",
+          "sha256": "13deffdfd34539e23706b0fde235991da45b2f07c5c18dbbf3ca734c1da0c788"
+        }
+      ]
+    },
+    {
+      "id": "T08",
+      "supports": "Typert descriptor、Zod 与 Gateway 分工",
+      "sources": [
+        {
+          "path": "source/docs/subsystems/typert.zh.md",
+          "sha256": "38b2fb66a3d60ea15bac44136ce9bf9c33ec402e6ff08ae3084c2f5669ecadc4"
+        },
+        {
+          "path": "source/packages/typert/protocol/src/types.ts",
+          "sha256": "5ffb787a9d0751c7296723de83a4ec54abaf814bc41dbc7dd62d2de30cb32e94"
+        },
+        {
+          "path": "source/packages/typert/registry/package.json",
+          "sha256": "6fe39a413d1c57382a8fdff3c327983ee4e1c2150f42048bd80bba6213031426"
+        },
+        {
+          "path": "source/packages/api/gateway/src/index.ts",
+          "sha256": "4df5b38b5e73f7ae5fe5bcab5c633c1aa589e99d36b5f9c975708df01e28b839"
+        }
+      ]
+    },
+    {
+      "id": "T09",
+      "supports": "pi-ai 适配器、路由和模型配置",
+      "sources": [
+        {
+          "path": "source/packages/llm/llm-pi-ai/src/index.ts",
+          "sha256": "1aa1823262d01d9e2bdc33177b82bfb1082b4559cbde288bb3606db19d575f2d"
+        },
+        {
+          "path": "source/packages/llm/llm-pi-ai/README.zh.md",
+          "sha256": "75d6a38c8afe995b963dbe72999c5e1ee14bbfb9af6a8e56848b7be59d3a7cb9"
+        }
+      ]
+    },
+    {
+      "id": "T10",
+      "supports": "MCP stdio 与 Streamable HTTP 工厂",
+      "sources": [
+        {
+          "path": "source/packages/mcp/mcp-client/src/transport.ts",
+          "sha256": "6f3fca685af3d5654c476e95db24e1245dc1fa021a0bd7f477ce4ad997e1c8f6"
+        },
+        {
+          "path": "source/packages/mcp/mcp-client/README.zh.md",
+          "sha256": "1f6751a7b6a778a69379b103cfcc964f33a7eabf9b9187d2fd20957be907ceb0"
+        }
+      ]
+    },
+    {
+      "id": "T11",
+      "supports": "React、Zustand、Immer 与 Vite",
+      "sources": [
+        {
+          "path": "source/apps/web/package.json",
+          "sha256": "f1d0bd20b883ceb7357a346425d95f7e36216c82a2725d84df2603714e421c6a"
+        },
+        {
+          "path": "source/packages/client/store/src/index.ts",
+          "sha256": "6969ed123830868c44d90b664cd40d81d4f6a8fd18245a695fdc3cca38c9da08"
+        },
+        {
+          "path": "source/packages/client/store/src/contract.ts",
+          "sha256": "d4ba75c2559f22713f1f3659d03fce6cf17b6f1c1fe82a9615b71f6a504e9e81"
+        },
+        {
+          "path": "source/packages/client/store/package.json",
+          "sha256": "4304dfa46a48bd0b3403560cbaeb4550a864818b7f89271c59cadde2a73f384f"
+        }
+      ]
+    },
+    {
+      "id": "T12",
+      "supports": "Electron、Node Host 与 Renderer 配置",
+      "sources": [
+        {
+          "path": "source/apps/desktop/package.json",
+          "sha256": "eef6bc1131564aac2af0667487236edc5c1be721747b4ac81c9442937d34252c"
+        },
+        {
+          "path": "source/apps/desktop/src/host-process.ts",
+          "sha256": "6b9d3e558f526b7832020fb43d6682a07a68bf2d5657f26951f50a4f3eabfa28"
+        },
+        {
+          "path": "source/apps/desktop/src/main.ts",
+          "sha256": "1fd424f16514d82d79665e0e8a1e2448dd8636126d3a37be7fa888d883b6ea3a"
+        }
+      ]
+    },
+    {
+      "id": "T13",
+      "supports": "workspace、安装脚本策略和分包构建",
+      "sources": [
+        {
+          "path": "source/pnpm-workspace.yaml",
+          "sha256": "8486cab8bfbba2b0f740eac3d5109132b18a3bd53d3b07aebf441e4f1462eb4e"
+        },
+        {
+          "path": "source/package.json",
+          "sha256": "a303ffb8994be8e7a874bc887db1abd47a77a6e08872e65f1d65281f43eab91b"
+        }
+      ]
+    },
+    {
+      "id": "T14",
+      "supports": "Vitest 配置、回放位置与消费检查",
+      "sources": [
+        {
+          "path": "source/vitest.config.ts",
+          "sha256": "8c7b9d830a9557aa603f564c67031180a80e969b4945b2e736f8e79de54de1b4"
+        },
+        {
+          "path": "source/packages/test-support/llm-replay/src/index.ts",
+          "sha256": "eee9a34c77cc5d9842e386aacd4bd32644ad356d5f68cba77a3cf2f2181d1323"
+        },
+        {
+          "path": "source/packages/test-support/llm-replay/README.zh.md",
+          "sha256": "a4aa2592e79c0796c3a79439b75a0cccbbf638b1c73b4623d9d26b80174a99e5"
+        }
+      ]
+    },
+    {
+      "id": "T15",
+      "supports": "新 Node 进程、OS 沙箱、绑定与资源限制",
+      "sources": [
+        {
+          "path": "source/packages/ptc-runtime/ptc-runtime-node/README.zh.md",
+          "sha256": "2fb06bc87d15b3c1f6d4be1f0bcca409b8e1ffb00873f3e5aeaedd1825121d4a"
+        },
+        {
+          "path": "source/packages/ptc-runtime/ptc-runtime-node/src/index.ts",
+          "sha256": "bba371dc7154ed10637db7157e3c0c9a8e72eb622db251fedd9f100d4052eae7"
+        },
+        {
+          "path": "source/packages/experimental/ptc-runtime-python/README.zh.md",
+          "sha256": "82d069027af8ca05c838ab02a6ea0e07f816c045ed7ec47aaf9774a087c79257"
+        }
+      ]
+    }
+  ],
+  "official_comparison_references": [
+    "https://ajv.js.org/guide/getting-started.html",
+    "https://docs.langchain.com/oss/javascript/langgraph/overview",
+    "https://docs.langchain.com/oss/javascript/langgraph/persistence",
+    "https://docs.nestjs.com/fundamentals/injection-scopes",
+    "https://docs.npmjs.com/cli/v11/using-npm/workspaces/",
+    "https://docs.python.org/3/library/asyncio.html",
+    "https://grpc.io/docs/what-is-grpc/introduction/",
+    "https://modelcontextprotocol.io/specification/2025-11-25/basic/transports",
+    "https://nodejs.org/api/test.html",
+    "https://nodejs.org/api/vm.html",
+    "https://nodejs.org/en/learn/asynchronous-work/dont-block-the-event-loop",
+    "https://pnpm.io/workspaces",
+    "https://react.dev/reference/react/useSyncExternalStore",
+    "https://redux.js.org/toolkit/usage/immer-reducers",
+    "https://trpc.io/docs/",
+    "https://v2.tauri.app/concept/process-model/",
+    "https://vitest.dev/guide/comparisons",
+    "https://www.electronjs.org/docs/latest/tutorial/process-model",
+    "https://www.sqlite.org/wal.html",
+    "https://www.sqlite.org/whentouse.html",
+    "https://www.typescriptlang.org/docs/handbook/2/basic-types.html",
+    "https://zod.dev/json-schema"
+  ],
+  "fact_policy": "Actual choices come from the pinned source; benefits and migration costs are stated as engineering analysis, not author intent or benchmark results.",
+  "reviewed_distinctions": [
+    "TypeScript compile-time checks and runtime validation",
+    "Cordis lifecycle management and external action effects",
+    "Agent loop, plugin assembly, and graph workflows",
+    "Session event model and persistence medium",
+    "JSON single/per-record and SQLite synchronous document-per-row operations",
+    "Per-operation atomicity and multi-operation business transactions",
+    "Schemastery configuration, Zod records, and the custom tool schema DSL",
+    "Typert strict codecs and SRC JSON checks",
+    "MCP transports and Client WebSocket Remote streams",
+    "Store engine, React rendering, and Vite builds",
+    "Electron Renderer isolation and tool execution confinement",
+    "Package management, type builds, bundling, and task caches",
+    "Replay positions, request assertions, and live model evaluation",
+    "Node PTC subprocesses, direct Node APIs, Host bindings, and OS sandbox enforcement"
+  ],
+  "quantitative_performance_claims_added": false,
+  "existing_chapters_modified": false,
+  "Gemini_review": {
+    "model": "newapi/gemini-3.1-pro-high",
+    "tools_enabled": false,
+    "findings": [],
+    "input_packet_sha256": "1b3398a8771e438cf83441027dac94d6344a2f22e259172ab5d99daeec2c89ae",
+    "primary_review": "Compared the full supplement with source facts, checked the fourteen listed technical distinctions, and preserved all existing chapter bodies."
+  }
+}

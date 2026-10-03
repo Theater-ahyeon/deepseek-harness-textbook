@@ -21,7 +21,7 @@ def retarget(md):
     return '\n'.join(out)
 
 CSS=read('_tools/reader-layout.css')
-MD_HTML={'tutorial.md':'reader.html','appendices.md':'appendices.html','subsystems.md':'subsystems.html','evidence-index.md':'evidence.html','reference-index.md':'references.html','glossary.md':'glossary.html'}
+MD_HTML={'tutorial.md':'reader.html','appendices.md':'appendices.html','subsystems.md':'subsystems.html','evidence-index.md':'evidence.html','reference-index.md':'references.html','glossary.md':'glossary.html','tech-choices.md':'tech-choices.html'}
 def inline(s):
     saved=[]
     def keep(v):saved.append(v);return f'@@KEEP{len(saved)-1}@@'
@@ -92,6 +92,7 @@ def page(title,md,nav=''):
     else:
         nav='<a href="#book-home">全书导读</a><span class="nav-label">十九章正文</span>'+nav
         nav=nav.replace('<a href="subsystems.html">','<span class="nav-label">随用随查</span><a href="appendices.html">语法与数据基础</a><a href="subsystems.html">')+'<a href="references.html">原项目文档</a>'
+    nav += '<a href="tech-choices.html">技术选型与替代方案</a>'
     content=render(md)
     if main_reader:
         parts=re.split(r'<a id="(chapter-\d\d)"></a>',content)
@@ -152,7 +153,7 @@ def validate(chapters,evidence):
                 quote='\n'.join(read(loc['path']).splitlines()[loc['start']-1:loc['end']])
                 if hashlib.sha256(quote.encode()).hexdigest()!=loc['sha256']:errors.append('第二轮复审定位变化：'+loc['path'])
                 second_ranges+=1
-    files=[ROOT/f for f in ['README.md','tutorial.md','appendices.md','subsystems.md','glossary.md','evidence-index.md','reference-index.md','source-excerpts.md','examples/README.md']]+[p for p,_ in chapters]
+    files=[ROOT/f for f in ['README.md','tutorial.md','appendices.md','subsystems.md','glossary.md','evidence-index.md','reference-index.md','source-excerpts.md','examples/README.md','tech-choices.md']]+[p for p,_ in chapters]
     for p in files:
         s=p.read_text(encoding='utf-8');s=re.sub(r'```[^\n]*\n[\s\S]*?```','',s)
         for m in re.finditer(r'!?\[[^\]]*\]\(([^)]+)\)',s):
@@ -220,6 +221,17 @@ def validate(chapters,evidence):
             if re.search('而是|而不是',p.read_text(encoding='utf-8')):
                 errors.append('正文残留否定对照句式：'+p.name)
         result['chapter_language_review']={'chapters':19,'edits':editorial['paragraph_or_heading_edits'],'Gemini_suggestions_reviewed':len(editorial['gemini_decisions']),'forbidden_contrast_matches':0,'original_code_and_images_preserved':editorial['original_code_and_images_preserved']}
+    if (ROOT/'revision/technology-choices-review-20261003.json').is_file():
+        choices=data('revision/technology-choices-review-20261003.json')
+        if hashlib.sha256((ROOT/choices['file']).read_bytes()).hexdigest()!=choices['sha256']:
+            errors.append('技术选型专题正文与复核记录不一致')
+        for group in choices['evidence_groups']:
+            for item in group['sources']:
+                if hashlib.sha256((ROOT/item['path']).read_bytes()).hexdigest()!=item['sha256']:
+                    errors.append('技术选型依据变化：'+item['path'])
+        if re.search('而是|而不是',read('tech-choices.md')):
+            errors.append('技术选型专题残留否定对照句式')
+        result['technology_choices']={'comparison_topics':choices['comparison_topics'],'evidence_groups':len(choices['evidence_groups']),'source_file_bindings':sum(len(g['sources']) for g in choices['evidence_groups']),'official_reference_links':len(choices['official_comparison_references']),'file':'tech-choices.md'}
     dump('validation.json',result)
     if errors:raise SystemExit(json.dumps(errors,ensure_ascii=False))
     return result
@@ -235,6 +247,8 @@ def build(package=False):
 本书围绕“读取项目 README 并总结三项功能”的任务，讲解 DeepSeek Harness 的架构与运行机制。正文按数据流和执行顺序解释组件职责，并在需要时补充 TypeScript 与异步基础；源码研读提供逐行说明，支持进一步核对实现。
 
 第一至九章建立运行与材料基础；第十至十五章解释装配、执行边界和产品；第十六至十八章学习验证、评价和能力整合；第十九章讨论 Cordis 论文与具体实现的对应条件。
+
+[技术选型与替代方案](tech-choices.md)解释十四组选型的源码依据、优势、维护代价与替代实现，可以随对应章节查阅。
 
 每章配有讲解问答，把容易混淆的概念放回具体流程。页面顶部可隐藏源码研读，先连贯阅读机制说明，再按需要查看实现细节。
 
@@ -258,7 +272,7 @@ def build(package=False):
     goals={r['chapter']:r['objective'] for r in data('revision/learning-objectives.json')}
     plan={'title':'深入理解 DeepSeek Harness','chapter_count':len(chapters),'canonical':'book/*.md','exercise_sections':True,'chapters':[{'id':f'{i:02}','title':title.split('｜',1)[1],'file':p.relative_to(ROOT).as_posix(),'learning_objective':goals[i]} for i,(p,title) in enumerate(chapters,1)]}
     dump('book-plan.json',plan)
-    dump('course-plan.json',{**plan,'stage':'full_rewrite','commit':COMMIT,'supplement':'subsystems.md'})
+    dump('course-plan.json',{**plan,'stage':'full_rewrite','commit':COMMIT,'supplement':'subsystems.md','technology_choices':'tech-choices.md'})
     figure_rows=[]
     for n in ['tutorial.md','subsystems.md']:
         for label,target in re.findall(r'!\[([^\]]+)\]\(([^)]+)\)',read(n)):
@@ -276,6 +290,7 @@ def build(package=False):
     if not any(x['id']=='cordis-paper-v1' for x in source['sources']):
         source['sources'].append({'id':'cordis-paper-v1','kind':'primary_research_paper','title':'A Programming Paradigm for Spatiotemporal Composability','url':'https://arxiv.org/abs/2608.25512','version':'v1','accessed_date':'2026-10-03','use':'第十九章效果、独立性、生命周期与边界；实际章节定位见 19.11','limits':'阅读并解释列明部分，不声称核验全部形式证明；不在分享包复制原文 PDF'})
     source['verification']['course_artifact_validation']='validation.json 的本次实际计数与错误列表；旧十章核验不沿用'
+    source['technology_choices']={'file':'tech-choices.md','review':'revision/technology-choices-review-20261003.json','comparison_topics':14,'evidence':'固定源码的实际选型与官方技术文档；收益和迁移成本为正文明确标注的工程分析'}
     dump('sources.json',source)
     if package:
         print('Package: artifact checks passed; selecting files',flush=True)
@@ -285,7 +300,7 @@ def build(package=False):
             if not backup.exists():
                 import shutil;backup.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(dest,backup)
         selected=[]
-        root_files={'README.md','index.html','.nojekyll','source-snapshot.json','tutorial.md','subsystems.md','appendices.md','glossary.md','evidence-index.md','reference-index.md','source-excerpts.md','chapter-format.md','illustration-plan.md','book-plan.json','course-plan.json','sources.json','coverage.json','reference-manifest.json','excerpt-manifest.json','validation.json','package-info.json',*MD_HTML.values()}
+        root_files={'README.md','index.html','.nojekyll','source-snapshot.json','tutorial.md','subsystems.md','appendices.md','glossary.md','evidence-index.md','reference-index.md','source-excerpts.md','tech-choices.md','chapter-format.md','illustration-plan.md','book-plan.json','course-plan.json','sources.json','coverage.json','reference-manifest.json','excerpt-manifest.json','validation.json','package-info.json',*MD_HTML.values()}
         # 在遍历前排除依赖和历史目录；源快照只选 Git 跟踪文件，
         # 不枚举本机 node_modules，也不把未跟踪的运行产物装入教材。
         for folder in ['book','figures','revision','examples']:

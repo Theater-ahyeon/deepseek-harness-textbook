@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>技术选型与替代方案：从项目需求理解架构取舍</title><style>:root{--ink:#2c3e50;--muted:#697586;--line:#e6eaef;--accent:#2f855a;--link:#2764cf;--header:58px;--font:"Noto Sans SC","PingFang SC","Hiragino Sans GB","Microsoft YaHei",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+*{box-sizing:border-box}body{margin:0;background:#fff;color:var(--ink);font-family:var(--font);font-size:16px;line-height:1.8}button,input{font:inherit}button{cursor:pointer}a{color:var(--link);text-decoration:none;overflow-wrap:anywhere}a:hover{text-decoration:underline}button:focus-visible,a:focus-visible,input:focus-visible,main:focus-visible{outline:2px solid var(--link);outline-offset:3px}[hidden]{display:none!important}.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.skip-link{position:fixed;top:-80px;left:12px;padding:8px 16px;z-index:30;background:white}.skip-link:focus{top:8px}
+.site-header{position:sticky;top:0;z-index:10;height:var(--header);background:#fff;border-bottom:1px solid var(--line)}.header-inner{height:100%;max-width:1512px;margin:auto;padding:0 28px;display:flex;align-items:center;gap:22px}.brand{display:flex;align-items:center;gap:13px;flex-shrink:0;color:var(--ink);font-size:18px;font-weight:650;white-space:nowrap}.brand:hover{text-decoration:none}.brand svg{width:28px;height:28px;stroke:#6a46a8;fill:none;stroke-width:1.7;stroke-linejoin:round}.header-context{color:var(--muted);font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.search-button{margin-left:auto;display:flex;align-items:center;gap:10px;flex-shrink:0;min-width:240px;padding:6px 13px;background:#f5f7f9;border:1px solid transparent;border-radius:4px;text-align:left;color:var(--muted);font-size:14px}.search-button:hover{border-color:#d2d9e2}.search-button svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8}.search-button kbd{margin-left:auto;color:#88929e;font:12px Consolas,monospace;border:1px solid #dce2e8;padding:0 5px;border-radius:3px}.icon-button{border:0;background:transparent;padding:6px;color:var(--ink);font-size:22px;line-height:1.2}.menu-button{display:none}
+.book-layout{max-width:1512px;margin:auto;display:grid;grid-template-columns:280px minmax(0,1fr) 220px;gap:32px;padding:30px 28px 0}.book-sidebar,.toc-sidebar{position:sticky;top:88px;align-self:start;max-height:calc(100vh - 114px);overflow:auto;scrollbar-width:thin;font-size:14px;line-height:1.55;padding-bottom:24px}.book-sidebar{border-right:1px solid var(--line);padding-right:22px}.sidebar-title{display:block;color:var(--ink);font-size:15px;font-weight:650}.sidebar-subtitle{color:var(--muted);font-size:12px;margin:7px 0 20px}.book-sidebar nav a{display:block;color:var(--ink);padding:9px 10px;border-left:2px solid transparent;margin:2px 0}.book-sidebar nav a:hover{background:#f7f9fb;text-decoration:none}.book-sidebar nav a.active{color:var(--accent);border-left-color:var(--accent);background:#f2f8f4}.nav-label{display:block;margin:19px 10px 8px;font-size:12px;color:var(--muted);font-weight:600}.toc-title{font-weight:650;color:#82909e;font-size:13px;margin:2px 0 12px}.toc-sidebar nav{border-left:1px solid var(--line)}.toc-sidebar a{display:block;color:var(--muted);font-size:13px;line-height:1.6;padding:5px 0 5px 14px;margin-left:-1px;border-left:2px solid transparent}.toc-sidebar a.subheading{padding-left:24px;font-size:12px}.toc-sidebar a.active{color:var(--accent);border-left-color:var(--accent)}.toc-sidebar a:hover{color:var(--link);text-decoration:none}
+main{min-width:0;padding:0 0 28px}.reading-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--muted);font-size:12px;padding:0 0 16px;border-bottom:1px solid var(--line);margin-bottom:32px}.reading-options{display:flex;align-items:center;gap:15px;flex-shrink:0}.reading-options label{display:flex;align-items:center;gap:5px;cursor:pointer}.reading-options input{accent-color:var(--accent)}.reading-options button{border:0;background:transparent;color:var(--link);padding:0;font-size:12px}.toc-button{display:none}article{font-size:16px;line-height:1.85;overflow-wrap:break-word}h1,h2,h3,h4{line-height:1.45;font-weight:600;color:var(--ink);scroll-margin-top:92px}h1{font-size:34px;letter-spacing:-.4px;margin:0 0 30px}h2{font-size:26px;margin:48px 0 22px;padding-bottom:10px;border-bottom:1px solid var(--line)}h3{font-size:21px;margin:34px 0 16px}h4{font-size:18px;margin:28px 0 12px}p{margin:0 0 21px}li{margin:6px 0}ul,ol{padding-left:25px;margin:18px 0 24px}strong{font-weight:650}hr{border:0;border-top:1px solid var(--line);margin:36px 0}a[id]{scroll-margin-top:92px}.heading-link{font-size:.65em;margin-left:8px;opacity:0;vertical-align:middle;color:#8695a3}.heading-link:focus,h1:hover .heading-link,h2:hover .heading-link,h3:hover .heading-link{opacity:1}code{font-family:Consolas,"SFMono-Regular",monospace;font-size:.9em;background:#f1f3f5;color:#476582;border-radius:3px;padding:2px 5px;overflow-wrap:anywhere}pre{position:relative;background:#f6f8fa;color:#34495e;padding:20px;overflow:auto;font-size:14px;line-height:1.7;border:1px solid var(--line);border-radius:4px;margin:24px 0}pre code{padding:0;background:none;color:inherit;white-space:pre;overflow-wrap:normal}.code-copy{position:absolute;right:8px;top:8px;padding:3px 8px;font-size:11px;background:#fff;border:1px solid #dce2e8;border-radius:3px;color:var(--muted)}figure{margin:32px 0;overflow-x:auto}figure img{display:block;width:100%;min-width:620px;height:auto}figcaption{font-size:13px;color:var(--muted);text-align:center;margin:12px 0 4px}table{border-collapse:collapse;width:100%;font-size:14px;line-height:1.75}th,td{border:1px solid var(--line);padding:11px 14px;text-align:left;vertical-align:top}th{background:#f5f7f9;font-weight:600}tr:nth-child(even){background:#fbfcfd}.table-wrap{overflow:auto;margin:26px 0;border-radius:3px}blockquote{margin:24px 0;padding:14px 20px;background:#f6f8fb;border-left:3px solid #7f9ab7}blockquote p:last-child{margin-bottom:0}.source-section{border-top:2px solid #dce7ef;margin-top:40px}.hide-source .source-section{display:none}.book-section{scroll-margin-top:90px}.book-section+[hidden]{display:none}.home-section>h1{text-align:center;font-size:37px;margin:38px 0 30px}.home-section>p:first-of-type{font-size:17px;line-height:1.9}.chapter-overview{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:4px;overflow:hidden;margin:28px 0 44px}.chapter-card{padding:18px 20px;color:var(--ink);border-bottom:1px solid var(--line);border-right:1px solid var(--line)}.chapter-card:nth-child(even){border-right:0}.chapter-card:hover{background:#f7f9fb;text-decoration:none}.chapter-card strong{display:block;font-size:17px;line-height:1.6;margin-bottom:8px}.chapter-card span{display:block;font-size:13px;line-height:1.8;color:var(--muted)}.chapter-number{color:var(--accent)}.page-turns{display:grid;grid-template-columns:1fr 1fr;gap:20px;border-top:1px solid var(--line);margin-top:56px;padding:24px 0}.page-turns a{color:var(--ink);line-height:1.6}.page-turns a:last-child{text-align:right}.page-turns small{display:block;color:var(--muted);font-size:12px;margin-bottom:4px}.page-turns span{font-size:15px;font-weight:600}.page-footer{border-top:1px solid var(--line);padding:20px 0;margin-top:28px;display:flex;justify-content:space-between;gap:12px;font-size:12px;color:var(--muted)}
+dialog{width:min(720px,calc(100% - 32px));max-height:80vh;padding:24px;border:1px solid var(--line);border-radius:8px;color:var(--ink);box-shadow:0 16px 60px #15243833}dialog::backdrop{background:#1c2c4070}.search-heading{display:flex;align-items:center;justify-content:space-between}.search-heading h2{font-size:21px;margin:0 0 18px;border:0;padding:0}.search-field input{width:100%;padding:12px 14px;border:1px solid #c7d2df;border-radius:4px;font-size:16px;background:white;color:var(--ink)}#search-status{font-size:12px;color:var(--muted);margin:12px 0}#search-results a{display:block;padding:15px 4px;border-top:1px solid var(--line);color:var(--ink)}#search-results a:hover{background:#f7f9fb;text-decoration:none}#search-results strong{display:block;font-size:15px;margin:4px 0}#search-results small{color:var(--accent);font-size:12px}#search-results p{font-size:13px;color:var(--muted);margin:0}mark{background:#fff1ae;color:inherit}.noscript-note{background:#f6f8fb;padding:12px;font-size:13px}.drawer-backdrop{position:fixed;inset:58px 0 0;background:#17283b55;z-index:12}
+@media(min-width:1500px){.book-layout{grid-template-columns:280px minmax(0,850px) 220px;gap:42px}}
+@media(max-width:1190px){.book-layout{grid-template-columns:240px minmax(0,1fr);gap:30px}.toc-sidebar{display:none;position:fixed;top:108px;right:24px;background:white;padding:18px;width:280px;max-height:70vh;border:1px solid var(--line);border-radius:4px;box-shadow:0 8px 28px #1524381a;z-index:11}.toc-sidebar.open{display:block}.toc-button{display:inline-block}.header-context{max-width:280px}}
+@media(max-width:800px){.header-inner{padding:0 16px;gap:12px}.menu-button{display:block}.brand{font-size:16px;gap:9px}.brand svg{width:23px;height:23px}.header-context{display:none}.search-button{min-width:0;padding:7px;margin-left:auto;background:transparent}.search-button span,.search-button kbd{display:none}.search-button svg{width:22px;height:22px}.book-layout{display:block;padding:22px 20px 0}.book-sidebar{display:none;position:fixed;top:58px;left:0;bottom:0;width:min(320px,85vw);max-height:none;background:#fff;padding:24px 20px;z-index:13;border-right:1px solid var(--line)}.book-sidebar.open{display:block}.reading-toolbar{font-size:11px;margin-bottom:25px;gap:8px}.reading-options{gap:11px}.reading-options button{font-size:11px}.reading-options label{font-size:11px}#reading-context{max-width:80px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}h1{font-size:28px;margin-bottom:24px}h2{font-size:23px;margin-top:36px}h3{font-size:19px}article{font-size:15px;line-height:1.9}.home-section>h1{font-size:30px;margin-top:24px}.home-section>p:first-of-type{font-size:15px}.chapter-overview{grid-template-columns:1fr}.chapter-card{border-right:0;padding:17px}.chapter-card strong{font-size:16px}figure{margin:26px 0}table{min-width:620px}pre{font-size:12px;padding:16px}.page-turns{gap:16px}.page-turns span{font-size:13px}.page-footer{font-size:11px}.toc-sidebar{right:20px;top:104px;width:min(300px,calc(100vw - 40px))}dialog{padding:18px}}
+@media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+@media print{.site-header,.book-sidebar,.toc-sidebar,.reading-toolbar,.page-turns,.page-footer,.code-copy,.heading-link{display:none!important}.book-layout{display:block;padding:0}main{padding:0}article{font-size:11pt}.book-section[hidden]{display:block!important}.hide-source .source-section{display:block}pre{white-space:pre-wrap}pre code{white-space:pre-wrap}figure img{min-width:0}.table-wrap,figure{overflow:visible}h1,h2,h3{break-after:avoid}figure,pre{break-inside:avoid}}
+</style></head>
+<body id="top">
+<a class="skip-link" href="#content">跳到正文</a>
+<header class="site-header">
+  <div class="header-inner">
+    <button class="icon-button menu-button" id="menu-button" aria-label="打开全书目录" aria-expanded="false" aria-controls="book-sidebar">☰</button>
+    <a class="brand" href="reader.html"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5c3-1 6-1 9 1 3-2 6-2 9-1v14c-3-1-6-1-9 1-3-2-6-2-9-1Z M12 6v14"/></svg><span>DeepSeek Harness</span></a>
+    <span class="header-context" id="header-context">中文教材</span>
+    <button class="search-button" id="search-button" aria-haspopup="dialog"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10" cy="10" r="6"/><path d="m15 15 5 5"/></svg><span>搜索本书</span><kbd>/</kbd></button>
+  </div>
+</header>
+<div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
+<div class="book-layout">
+  <aside class="book-sidebar" id="book-sidebar" aria-label="全书目录">
+    <a class="sidebar-title" href="reader.html">深入理解 DeepSeek Harness</a>
+    <p class="sidebar-subtitle">中文教材 · 原理与实现</p>
+    <nav id="book-nav" aria-label="章节导航"><a href="reader.html">全书导读</a><span class="nav-label">随用随查</span><a href="appendices.html">语法与数据基础</a><a href="subsystems.html">补充能力</a><a href="glossary.html">术语索引</a><a href="evidence.html">实现证据</a><a href="references.html">原项目文档</a><a href="tech-choices.html">技术选型与替代方案</a></nav>
+  </aside>
+  <main id="content" tabindex="-1">
+    <div class="reading-toolbar"><span id="reading-context">开始阅读</span><div class="reading-options"><label><input id="source-toggle" type="checkbox">隐藏源码研读</label><button id="reading-mode" type="button" hidden>全文阅读</button><button class="toc-button" id="toc-button" type="button" aria-expanded="false" aria-controls="page-toc">本页目录</button></div></div>
+    <article id="book-content"><h1 id="heading-1">技术选型与替代方案：从项目需求理解架构取舍</h1>
+<p>DeepSeek Harness 同时承担 Agent 运行、工具执行、插件装配、Session 恢复和产品交互。理解技术选型，需要先确定这些职责，再分析每项技术承担的部分，以及替换后需要重新实现的机制。</p>
+<p>本专题比较十四组选型。每节先列出固定源码版本中的实际实现，再分析它对项目的收益、维护代价和替代方案。收益与迁移成本是依据实现结构作出的工程分析，原项目的依赖声明与接口约定作为事实证据。比较使用相同的功能目标，不给不同层次的技术排列总分。</p>
+<p>建议在读完第 1 章后阅读总览，学习各章时查阅对应比较；读完第 19 章后，再集中阅读 Cordis、执行模型和生命周期的取舍。</p>
+<h2 id="heading-2">选型总览</h2>
+<div class="table-wrap"><table>
+<tr><th>项目需求</th><th>当前采用的方案</th><th>主要收益</th><th>需要承担的代价</th><th>对应正文</th></tr>
+<tr><td>多包协作与跨端契约</td><td>TypeScript、Node.js、ESM</td><td>Host 与 Client 共用类型约定，接入 JavaScript 生态</td><td>编译期类型之外仍需运行时校验，重计算需要安排执行位置</td><td>第 2、14、15 章</td></tr>
+<tr><td>动态装配与资源管理</td><td>Cordis 插件、服务注入与 effect</td><td>注册项和清理行为归属插件，支持按依赖启停</td><td>学习作用域、依赖和卸载规则</td><td>第 10、19 章</td></tr>
+<tr><td>开放任务的逐步执行</td><td>Agent loop、Inbox 与工具调度</td><td>模型请求、工具执行和事件记录使用同一运行链</td><td>自行维护轮次、步骤、取消和恢复语义</td><td>第 3、9、11 章</td></tr>
+<tr><td>可恢复的交互历史</td><td>Session 事件日志、Surface 与 JSONL Provider</td><td>原始事实与派生视图分离，支持恢复和历史继承</td><td>日志格式、迁移、写入权与 flush 都需治理</td><td>第 5、8、13 章</td></tr>
+<tr><td>产品数据持久化</td><td>Domain API、JSON 与 SQLite 后端</td><td>业务结构与介质分离，各领域选择后端</td><td>版本兼容和跨操作顺序仍由领域维护</td><td>补充能力</td></tr>
+<tr><td>外部数据校验</td><td>Schemastery、Zod、工具 schema DSL</td><td>配置、领域数据和工具输入分别按契约验证</td><td>多种 schema 系统需要明确分工</td><td>第 10、11 章</td></tr>
+<tr><td>Host 与 Client 调用</td><td>Typert、Gateway 与生成产物</td><td>方法、参数、对象身份和流式契约相互对应</td><td>生成链、codec 与运行时注册增加维护环节</td><td>第 14、15 章</td></tr>
+<tr><td>多模型接入</td><td>LLM 服务与 Provider，含 pi-ai 适配器</td><td>核心循环使用统一请求和流式响应入口</td><td>保留不同模型的能力差异与异常语义</td><td>第 9 章</td></tr>
+<tr><td>外部工具生态</td><td>MCP 的 stdio 与 Streamable HTTP</td><td>工具和资源使用共同发现、调用约定</td><td>连接、认证、重连和注册更新需要处理</td><td>第 12 章</td></tr>
+<tr><td>交互界面与状态</td><td>React、Zustand、Immer、Vite</td><td>状态快照与组件订阅分离，Web 和桌面共享界面基础</td><td>高频更新、状态归属和订阅清理需要设计</td><td>第 14、15 章</td></tr>
+<tr><td>桌面产品</td><td>Electron Main、Renderer 与独立 Node Host</td><td>网页界面与 Node 运行环境衔接</td><td>多进程通信、打包、升级和资源占用</td><td>第 15 章</td></tr>
+<tr><td>多包构建与发布</td><td>pnpm workspace、tsc、tsdown</td><td>按包管理依赖，区分类型构建与分发产物</td><td>依赖图、导出条件和构建顺序需要一致</td><td>第 10 章、补充能力</td></tr>
+<tr><td>可重复验证</td><td>Vitest、模型回放与独立断言</td><td>稳定复现运行分支，减少测试对在线模型的依赖</td><td>fixture、请求断言与真实评价分别维护</td><td>第 16、17 章</td></tr>
+<tr><td>程序化工具调用</td><td>全新 Node 子进程、Host 绑定与 OS 沙箱</td><td>TypeScript 程序组织多项工具，Host 管理执行与清理</td><td>进程启动、协议、输出预算和平台沙箱</td><td>补充能力</td></tr>
+</table></div>
+<a id="choice-runtime"></a>
+<h2 id="heading-3">1. TypeScript 与 Node.js：统一契约和运行生态</h2>
+<h3 id="heading-4">项目实际采用什么</h3>
+<p>根包声明 ESM，使用 pnpm workspace，并要求 Node.js <code>^22.19.0 || &gt;=24.0.0</code>。Host 与 Client 分别通过 TypeScript project references 构建。桌面应用使用独立 Node Host，Web 前端也在同一个多包仓库中开发。版本事实见文末 T01、T12 和 T13。</p>
+<p>TypeScript 为编译期检查提供依据：服务方法的参数、工具结果和 Session 事件都能在开发时关联到对应类型。它在运行前发现类型不匹配；外部 JSON、模型输出和持久文件则由运行时校验处理。<a href="https://www.typescriptlang.org/docs/handbook/2/basic-types.html">TypeScript 官方基础文档</a>解释了类型检查与类型擦除的关系。</p>
+<h3 id="heading-5">对这个项目的优势与代价</h3>
+<p>统一语言让 Host 接口、Client 调用和插件声明可以直接共享类型与生成工具。例如 Session 标识类型变化后，相关调用点可以在构建中暴露问题；新增远程方法时，生成器可以同时产出 Host descriptor 与 Client 侧契约。</p>
+<p>Node.js 适合组织模型流、网络请求、文件访问和子进程等异步任务。等待 I/O 时，事件循环继续处理其他工作。同步 JavaScript 计算会占用事件循环；添加 <code>async</code> 关键字不会把计算移到其他线程。这个机制可在 <a href="https://nodejs.org/en/learn/asynchronous-work/dont-block-the-event-loop">Node.js 事件循环说明</a>中核对。项目通过独立 Host、子进程和 Provider 分工安排执行职责，具体操作的延迟仍取决于实现和输入规模。</p>
+<h3 id="heading-6">与替代方案比较</h3>
+<div class="table-wrap"><table>
+<tr><th>方案</th><th>主要优势</th><th>替换时需要处理的工作</th></tr>
+<tr><td>TypeScript + Node.js</td><td>Host、Web Client 和插件使用同一语言与包生态</td><td>保留运行时校验，控制同步重计算，管理原生扩展与分发</td></tr>
+<tr><td>Python + asyncio</td><td>直接使用 Python 的模型、数据处理与科研库，支持异步网络和子进程</td><td>浏览器 Client 仍需 JavaScript；重新连接跨语言类型、事件表示和远程调用契约</td></tr>
+<tr><td>以原生服务承担 Host</td><td>将系统调用和计算集中到原生实现中</td><td>重新设计与 Client、插件、模型 SDK 的语言边界及构建发布流程</td></tr>
+</table></div>
+<p><a href="https://docs.python.org/3/library/asyncio.html">Python asyncio</a>同样提供异步并发、网络与子进程能力。选择 Node.js 的架构收益集中在跨端协作和既有生态；CPU 计算能力要按实际负载单独测量。</p>
+<a id="choice-cordis"></a>
+<h2 id="heading-7">2. Cordis：把依赖与资源生命周期纳入装配</h2>
+<h3 id="heading-8">项目实际采用什么</h3>
+<p>插件声明所需服务，在激活时注册工具、监听器或 Provider，并通过 effect 关联清理行为。profile 选择插件组合，Cordis 依据服务可用性和插件生命周期管理装配。<code>Context.isolate()</code> 与 <code>intercept()</code> 提供服务作用域和配置干预入口。源码与装配规则见 T02，第 19 章解释对应理论。</p>
+<h3 id="heading-9">对这个项目的优势与代价</h3>
+<p>一个文件工具可能同时贡献工具定义、调用监听器和界面呈现。将这些贡献归属同一插件，可以在卸载时沿已登记的清理路径撤销它们。文件 Provider 变更后，依赖它的部件也能依据服务状态重新安排激活。</p>
+<p>这种管理方式减少了各模块自行保存全局注册表和清理列表的重复工作。开发者需要理解服务身份、插件归属、effect 和异步清理。已经交给外部系统的动作，还需要由对应 Provider 管理结果和恢复；资源登记不能撤回已经发生的外部操作。</p>
+<h3 id="heading-10">与替代方案比较</h3>
+<div class="table-wrap"><table>
+<tr><th>方案</th><th>装配方式</th><th>在相同功能目标下的实现差异</th></tr>
+<tr><td>手写模块与注册表</td><td>启动函数显式创建服务，手动登记与清理</td><td>初始结构直接；扩展热替换后，需要补齐依赖失效、作用域和撤销顺序</td></tr>
+<tr><td>NestJS 模块与依赖注入</td><td>模块组织 Provider，使用 singleton、request 或 transient 生命周期</td><td>适合围绕应用模块和请求组织服务；本项目的动态插件树与贡献撤销还需具体设计</td></tr>
+<tr><td>Cordis</td><td>按上下文装配插件，关联服务依赖与 effect</td><td>与项目的可替换 Provider 和动态贡献机制相互配合；需要维护完整的资源归属</td></tr>
+</table></div>
+<p><a href="https://docs.nestjs.com/fundamentals/injection-scopes">NestJS 的 injection scopes</a>定义了三种 Provider 生命周期。Cordis 的插件上下文、服务隔离和卸载机制解决另一组装配问题，迁移时应逐项映射这些行为。</p>
+<a id="choice-loop"></a>
+<h2 id="heading-11">3. Agent loop：围绕模型与工具建立连续运行链</h2>
+<h3 id="heading-12">项目实际采用什么</h3>
+<p>默认 agent-loop 驱动器创建或恢复 Agent，处理 Inbox、模型流、工具调用和持久历史。工具调度区分可并行与独占调用，并配置并行上限。工具执行经过准入、审批和 guard 等边界，执行结果再进入后续模型请求。事实见 T03、T07。</p>
+<h3 id="heading-13">对这个项目的优势与代价</h3>
+<p>“读取文件再总结”与“搜索多份材料再编辑文档”都可以沿模型请求、工具结果、下一步请求的循环运行。工具集合由插件贡献，任务可以在运行中依据结果继续展开。Session 提供统一记录，使模型、工具和用户界面能够围绕同一执行历史协作。</p>
+<p>控制流由项目直接维护，因此轮次与步骤边界、重试、取消、工具顺序和恢复规则都需要明确实现。增加一种驱动方式时，还要保持它与 Session、审批和 Client 事件的约定一致。</p>
+<h3 id="heading-14">与 LangGraph 和固定工作流比较</h3>
+<div class="table-wrap"><table>
+<tr><th>方案</th><th>控制结构</th><th>更直接表达的需求</th><th>迁移时的关键工作</th></tr>
+<tr><td>项目默认 Agent loop</td><td>模型与工具循环，运行边界进入 Session</td><td>步骤随观察结果继续展开的交互任务</td><td>将新增控制机制接入现有历史、审批与取消链</td></tr>
+<tr><td>LangGraph</td><td>图节点、状态及图的执行机制</td><td>显式分支、子图、状态检查点与人工中断</td><td>映射 graph state、thread、checkpoint 与本项目 Session 事件语义</td></tr>
+<tr><td>固定步骤工作流</td><td>预定义步骤与分支</td><td>次序清晰的审批、报表或批处理</td><td>规定失败后重试哪一步、保存什么状态、怎样去重外部动作</td></tr>
+</table></div>
+<p><a href="https://docs.langchain.com/oss/javascript/langgraph/overview">LangGraph 官方概述</a>和<a href="https://docs.langchain.com/oss/javascript/langgraph/persistence">持久化说明</a>介绍了图执行与 checkpoint。图式编排与 Agent loop 可以组合；DeepSeek Harness 也包含工作流扩展。选型首先决定由哪一层维护控制流，再安排状态、工具准入和产品接口。</p>
+<a id="choice-session"></a>
+<h2 id="heading-15">4. Session 事件日志：保存事实，再构造当前视图</h2>
+<h3 id="heading-16">项目实际采用什么</h3>
+<p><code>Session.append</code> 按顺序追加内存事件并发出通知。JSONL 持久化 Provider 在存在对应 writer 时排入写入队列，flush 处理写入结算。Surface 从历史中构造当前可用的消息表示，压缩和 fork 在相应历史约定上运行。append、排队与持久化完成是不同阶段，源码事实见 T04、T05。</p>
+<h3 id="heading-17">对这个项目的优势与代价</h3>
+<p>模型请求的中间状态、工具调用结果和运行结束边界都可以记录为事件。界面投影、模型消息历史与恢复逻辑读取同一组事实，各自形成需要的视图。调查一次失败时，可以追踪接受输入、模型尝试、工具交接与结算的顺序。</p>
+<p>事件类型和持久格式必须版本化。恢复需要处理未完成步骤、generation 选择与写入权；长历史需要通过投影、索引或压缩控制读取成本。保存事件历史也要求维护迁移逻辑，确保旧记录能按既定规则恢复。</p>
+<h3 id="heading-18">与消息数组、快照和数据库事件表比较</h3>
+<div class="table-wrap"><table>
+<tr><th>方案</th><th>保存的主体</th><th>优势</th><th>为本项目补齐什么</th></tr>
+<tr><td>可变 messages 数组</td><td>当前对话消息</td><td>最初实现简单，直接构造模型输入</td><td>增加工具状态、尝试、运行边界、历史变更和中断恢复</td></tr>
+<tr><td>状态 checkpoint</td><td>某个执行位置的状态快照</td><td>从选定位置恢复状态，便于图或工作流执行</td><td>明确外部动作是否已完成，以及快照间需要保留的事实</td></tr>
+<tr><td>JSONL 事件日志</td><td>有序事件与版本信息</td><td>按流保存历史，文件可以随本地 Session 管理</td><td>顺序、迁移、写入结算和查询索引</td></tr>
+<tr><td>数据库事件表</td><td>数据库中的有序事件</td><td>将事件持久化纳入数据库的查询和事务机制</td><td>实现相同事件语义、序号、写入归属与恢复约定</td></tr>
+</table></div>
+<p>事件模型和存储介质是两个决策。将 JSONL 改成数据库事件表，仍然可以保留事件驱动的 Session；将日志改成单个最新快照，则会改变可观察的历史信息。LangGraph 的 checkpoint 与跨 thread store 也承担不同用途，其区分见<a href="https://docs.langchain.com/oss/javascript/langgraph/persistence">官方持久化文档</a>。</p>
+<a id="choice-storage"></a>
+<h2 id="heading-19">5. JSON 与 SQLite：为不同产品数据选择持久介质</h2>
+<h3 id="heading-20">项目实际采用什么</h3>
+<p>工作区注册等非 Session 数据通过 storage hub 与 Domain API 访问。JSON 后端支持整 unit 文档和 per-record 文档；SQLite 后端通过 <code>node:sqlite</code> 的 <code>DatabaseSync</code> 在一个数据库中保存按行组织的 JSON 文档。领域根据配置选择后端。事实见 T06。</p>
+<h3 id="heading-21">对这个项目的优势与代价</h3>
+<p>JSON 文件便于查看结构、复制和排查数据；整 unit 布局每次更新重新发布对应文档，per-record 布局按记录保存。SQLite 适合把较多独立更新放在数据库内，通过单条操作修改记录，避免每次重写整个 unit 文件。这里的 SQLite 后端仍按文档存储值，领域对象没有自动转成任意关系表。</p>
+<p>项目后端约定保证每次独立操作的原子性，多个业务操作的顺序由调用方维护。当前 SQLite unit 实现没有为一组领域更新自动开启事务，也没有内部写队列。<code>DatabaseSync</code> 操作同步执行，频繁或较大的数据库操作需要检查 Host 的阻塞时间。</p>
+<h3 id="heading-22">与 PostgreSQL 等服务型数据库比较</h3>
+<div class="table-wrap"><table>
+<tr><th>方案</th><th>部署与访问特点</th><th>在项目中的收益</th><th>需要处理的成本</th></tr>
+<tr><td>JSON</td><td>本地文件树，按配置布局保存文档</td><td>人工检查直接，随本地应用管理</td><td>文件发布、版本处理及大量更新时的写入成本</td></tr>
+<tr><td>SQLite</td><td>嵌入式数据库文件</td><td>无须另起数据库服务，独立记录更新集中管理</td><td>写竞争、同步调用和数据库文件生命周期</td></tr>
+<tr><td>PostgreSQL 等服务型数据库</td><td>应用通过连接访问数据库服务</td><td>集中管理共享数据与多实例访问</td><td>连接、认证、事务映射、迁移及服务运维</td></tr>
+</table></div>
+<p><a href="https://www.sqlite.org/whentouse.html">SQLite 官方选型说明</a>区分了嵌入式数据库与服务型数据库。当前 SQLite 配置默认 WAL，并支持 rollback journal 模式。WAL 的共享内存机制限制了网络文件系统上的部署方式，见<a href="https://www.sqlite.org/wal.html">官方 WAL 文档</a>；项目源码也为此提供 journalMode 选择。迁移到服务型数据库时，应先实现 StorageBackend 约定，再明确多实例写入权与业务事务。</p>
+<a id="choice-schema"></a>
+<h2 id="heading-23">6. 类型与 schema：分别约束配置、领域和工具输入</h2>
+<h3 id="heading-24">项目实际采用什么</h3>
+<p>本项目包含三种需要区分的 schema 用途：Schemastery 验证插件配置并应用默认值；Zod 定义领域记录等结构，并参与 Typert strict schema；工具系统使用自己的 JSON-value schema DSL 与 JSON Schema 校验约定。源码中的 <code>import z from &#x27;@deepseek-ai/schemastery&#x27;</code> 指向 Schemastery，变量名 <code>z</code> 无法单独说明它使用 Zod。事实见 T07、T08。</p>
+<h3 id="heading-25">对这个项目的优势与代价</h3>
+<p>每个入口可以按自己的语义校验。例如插件配置需要默认值，持久记录需要格式版本和明确结构，模型工具参数需要可公开的 JSON Schema 及执行前检查。统一工具 DSL 还能关联参数推导、输入校验和生成的工具声明，减少重复定义。</p>
+<p>多套系统增加了学习和维护成本。类型、默认值、输入结构与输出结构需要一致；一些运行时结构也无法直接表达为模型工具可接受的 JSON Schema。扩展节点或生成 codec 时，需要同时核对输入、输出和序列化后的表示。</p>
+<h3 id="heading-26">与其他校验方式比较</h3>
+<div class="table-wrap"><table>
+<tr><th>方案</th><th>契约所在位置</th><th>优势</th><th>主要实现工作</th></tr>
+<tr><td>仅 TypeScript 类型</td><td>源文件与构建检查</td><td>编辑器和编译器可追踪调用关系</td><td>外部数据入口另加运行时校验</td></tr>
+<tr><td>Zod</td><td>代码中的 schema</td><td>关联运行时解析与类型推导</td><td>管理转换、默认值及 JSON Schema 可表示性</td></tr>
+<tr><td>JSON Schema + Ajv</td><td>数据形式的 schema 与编译后的 validator</td><td>可以独立分发 schema，便于多语言边界协作</td><td>对齐版本、类型生成、默认值和校验选项</td></tr>
+<tr><td>项目的分层 schema</td><td>配置、领域、工具按职责定义</td><td>让各入口保留对应语义</td><td>维护多套生成与校验规则，防止边界漂移</td></tr>
+</table></div>
+<p><a href="https://ajv.js.org/guide/getting-started.html">Ajv 官方说明</a>解释了从 schema 编译校验函数的方式；<a href="https://zod.dev/json-schema">Zod 的 JSON Schema 文档</a>列出了转换机制与不可表示类型。换用统一 validator 时，需要先列出配置默认值、工具声明和持久记录校验的差异，再确定如何表达它们。</p>
+<a id="choice-rpc"></a>
+<h2 id="heading-27">7. Typert：连接服务方法、远程对象与传输</h2>
+<h3 id="heading-28">项目实际采用什么</h3>
+<p>Typert 的生成 descriptor 描述服务、方法、参数 codec、对象 lookup、调用作用域和流式结果。请求发送 endpoint 与具名 args，Host 在注册表中解析活对象；取消通过带外 signal 传递。strict codec 使用生成 schema，SRC 路径检查 JSON 安全值。Gateway 分派服务调用，Connection 承担对应传输与响应信封，实时 Remote stream 使用 Gateway 管理的 WebSocket mux。事实见 T08。</p>
+<h3 id="heading-29">对这个项目的优势与代价</h3>
+<p>Client 请求某个 Session 的方法时，只需传递约定的身份值。Host 解析真实对象，保留服务作用域；生成器让客户端声明、Host descriptor 与校验方式相互对应。类型变化、对象身份和流式调用都纳入同一构建链。</p>
+<p>生成器、manifest、注册表和 codec 必须一起维护。缺失 lookup Provider 时，身份解析应按不可用处理。跨版本通信还需要兼容策略，构建通过也不能替代运行时的权限判断与数据校验。</p>
+<h3 id="heading-30">与 REST、tRPC 和 gRPC 比较</h3>
+<div class="table-wrap"><table>
+<tr><th>方案</th><th>契约表达</th><th>对相同需求的实现差异</th></tr>
+<tr><td>REST + OpenAPI</td><td>路径、HTTP 方法与数据 schema</td><td>接口便于公开；对象 lookup、作用域、取消和双向流需要相应设计</td></tr>
+<tr><td>tRPC</td><td>TypeScript Router 与推导类型</td><td>同一 TypeScript 技术栈能共享调用类型；需将项目服务与对象身份映射到 Router</td></tr>
+<tr><td>gRPC + Protocol Buffers</td><td>服务与消息定义、生成客户端和服务端</td><td>跨语言代码生成和流式 RPC 契约明确；需安排浏览器接入及领域对象映射</td></tr>
+<tr><td>Typert</td><td>项目服务方法、生成 descriptor 与运行时注册</td><td>与 Cordis 服务、作用域和 Host 对象身份直接配合；维护项目专用生成体系</td></tr>
+</table></div>
+<p><a href="https://trpc.io/docs/">tRPC 官方文档</a>和<a href="https://grpc.io/docs/what-is-grpc/introduction/">gRPC 官方介绍</a>说明了各自的契约形式。上述方案都可以实现经过认证与校验的调用，差别在于契约如何定义、生成及接入项目的服务模型。</p>
+<a id="choice-model"></a>
+<h2 id="heading-31">8. 模型 Provider：统一调用入口，保留模型差异</h2>
+<h3 id="heading-32">项目实际采用什么</h3>
+<p>Agent 通过 LLM 服务选择 Provider 与模型，消费统一的请求及流式结果。仓库包含 pi-ai 适配器和其他模型接入实现；pi-ai 路由使用提供方目录，也允许显式声明路由，结合模型能力、端点和凭据配置形成请求。事实见 T09。</p>
+<h3 id="heading-33">对这个项目的优势与代价</h3>
+<p>更换模型接入方式时，工具调度、Session 和界面仍可以围绕同一组运行事件工作。测试 Provider 也能接入这个边界，使固定响应与实时模型使用相同上层流程。模型配置和凭据处理集中在相应接入层。</p>
+<p>不同模型对工具、图片、推理设置和请求格式的支持不同。统一服务需要保留这些能力声明，并转换流式块、错误和用量信息。新增 Provider 后，要核对取消、部分输出、重试和接受时点等细节。</p>
+<div class="table-wrap"><table>
+<tr><th>方案</th><th>收益</th><th>对项目的实现影响</th></tr>
+<tr><td>直接调用单一厂商 SDK</td><td>接近该厂商的接口和新增能力</td><td>上层业务若直接使用厂商对象，需要另加稳定边界才能切换 Provider</td></tr>
+<tr><td>多提供方适配库</td><td>复用路由、模型目录和协议适配</td><td>仍需对接项目的事件、凭据和错误语义</td></tr>
+<tr><td>项目 LLM 服务 + Provider</td><td>核心运行链保持稳定，接入实现可替换</td><td>维护公共契约与各模型能力之间的对应关系</td></tr>
+</table></div>
+<p>pi-ai 已作为 Provider 实现的一部分使用。比较“统一模型服务”和“采用某个 SDK”时，需要分别观察架构边界与边界内的实现库。</p>
+<a id="choice-mcp"></a>
+<h2 id="heading-34">9. MCP：为外部工具和资源采用共同协议</h2>
+<h3 id="heading-35">项目实际采用什么</h3>
+<p>MCP 客户端按配置创建 stdio 或 Streamable HTTP transport。stdio 启动服务器子进程并构造传入环境；HTTP 连接配置 URL 与请求头。远端工具注册进入工具链，资源则经过发现和读取接口进入材料链。事实见 T10。</p>
+<h3 id="heading-36">对这个项目的优势与代价</h3>
+<p>外部服务能使用相同的工具和资源约定接入，应用无需为每种服务重新设计发现协议。工具名称、输入结构和资源 URI 按 MCP 消息传递，再映射到项目的注册与调用机制。</p>
+<p>连接失败、能力协商、认证、重连和列表更新增加了运行状态。远端工具同样需要经过调用准入；本地执行环境的限制也不能自动覆盖远端服务的资源访问。协议接入与权限执行分别由对应机制承担。</p>
+<div class="table-wrap"><table>
+<tr><th>方案</th><th>适合表达的连接</th><th>实现与维护特点</th></tr>
+<tr><td>进程内插件</td><td>直接访问项目服务的可信模块</td><td>调用链短，生命周期随插件管理，直接耦合项目 API</td></tr>
+<tr><td>自定义 HTTP API</td><td>已有业务服务接口</td><td>能保留业务语义，需要单独设计工具描述与资源发现</td></tr>
+<tr><td>MCP stdio</td><td>由客户端管理的本地服务器进程</td><td>采用标准消息约定，需管理进程、环境与退出</td></tr>
+<tr><td>MCP Streamable HTTP</td><td>独立部署的远端或本地服务</td><td>采用共同能力协议，需管理 URL、连接与认证</td></tr>
+</table></div>
+<p><a href="https://modelcontextprotocol.io/specification/2025-11-25/basic/transports">MCP transport 规范</a>定义 stdio 和 Streamable HTTP。Streamable HTTP 使用 HTTP 请求并可承载 SSE；它与本项目 Client 的 WebSocket Remote stream 是不同通信路径。</p>
+<a id="choice-ui"></a>
+<h2 id="heading-37">10. React、Zustand、Immer 与 Vite：把状态组织和页面呈现分开</h2>
+<h3 id="heading-38">项目实际采用什么</h3>
+<p>Web 与桌面界面使用 React。共享 Store 引擎使用 Zustand vanilla、selector 订阅和 Immer，向消费方公开 subscribe 与 snapshot 契约；Store 引擎本身不依赖 React。Web 应用通过 Vite 构建。事实见 T11、T12。</p>
+<h3 id="heading-39">对这个项目的优势与代价</h3>
+<p>Session 历史、流式消息和运行状态先进入 Store，再由组件订阅相应快照。React 负责界面呈现，Store 负责状态更新。共享状态引擎也可以供其他观察端使用，降低业务状态与组件生命周期之间的耦合。</p>
+<p>selector 帮助组件选择需要观察的部分，Immer 支持以草稿更新方式生成新的状态。项目还包含按动画帧批量通知的机制，用于安排高频更新。组件更新成本仍由订阅粒度、状态结构和实际事件量决定。分组状态、完整历史和当前快照之间也需要避免重复成为可写的权威来源。</p>
+<div class="table-wrap"><table>
+<tr><th>方案</th><th>状态组织方式</th><th>对项目的迁移影响</th></tr>
+<tr><td>React + 当前 Store 引擎</td><td>外部快照与 selector，组件按需订阅</td><td>保留共享引擎及现有客户端插件接口</td></tr>
+<tr><td>React + Redux Toolkit</td><td>Store、action 与 reducer 组织状态更新</td><td>将现有 actions 和 snapshot 契约映射到新的状态接口；Redux Toolkit 同样使用 Immer</td></tr>
+<tr><td>Vue 或 Svelte 界面</td><td>使用各自组件与响应式机制</td><td>重写组件、插槽和生命周期接入，能够继续通过适配器消费既有状态与远程接口</td></tr>
+<tr><td>手写 DOM 与订阅</td><td>显式更新节点与清理监听器</td><td>页面较少时实现直接；界面模块增多后需维护自己的组合和更新约定</td></tr>
+</table></div>
+<p><a href="https://react.dev/reference/react/useSyncExternalStore">React 的外部 Store 接口</a>说明了 subscribe 与 snapshot 的配合；<a href="https://redux.js.org/toolkit/usage/immer-reducers">Redux Toolkit 的 Immer 说明</a>表明草稿更新并非某个 Store 独有。Vite 负责开发和构建，状态库负责运行时数据更新，两者承担不同职责。</p>
+<a id="choice-desktop"></a>
+<h2 id="heading-40">11. Electron 与独立 Node Host：分离桌面外壳和任务运行</h2>
+<h3 id="heading-41">项目实际采用什么</h3>
+<p>Electron Main 管理窗口与桌面生命周期，Renderer 加载界面，<code>DesktopHostProcess.start</code> 启动独立 Node 子进程。Main 中的窗口配置关闭 nodeIntegration，开启 contextIsolation 与 sandbox。Host 返回服务地址和 injections，界面据此启动业务调用。事实见 T12。</p>
+<h3 id="heading-42">对这个项目的优势与代价</h3>
+<p>Web 界面可以复用到桌面；Main 专注窗口、协议转发和系统集成，Host 承担 Agent 与插件运行。Host 的标准输出、退出和 ready/fatal 通知也形成独立的诊断入口。界面等待后端启动时，可以保留明确的启动状态。</p>
+<p>多进程架构要求维护通信、认证、启动握手、退出与重启路径。分发需要携带相应运行环境和界面资源，安装包、内存和启动成本都要实际测量。Renderer 隔离与工具执行沙箱分属不同层次：前者管理页面权限，后者约束执行环境。</p>
+<div class="table-wrap"><table>
+<tr><th>方案</th><th>运行结构</th><th>替换时的关键变化</th></tr>
+<tr><td>Electron + Node Host</td><td>Chromium Renderer、Main 和独立 Host</td><td>复用当前界面与 Node 服务，同时维护多进程和分发</td></tr>
+<tr><td>Tauri + Node sidecar 或重写 Host</td><td>Core process、系统 WebView 与额外运行服务</td><td>重做桌面桥接；保留 Node Host 时仍需分发它及其依赖</td></tr>
+<tr><td>纯 Web + 外部 Host</td><td>浏览器页面访问已有服务</td><td>减少桌面安装工作，重新安排本地文件、进程和系统能力的访问入口</td></tr>
+</table></div>
+<p><a href="https://www.electronjs.org/docs/latest/tutorial/process-model">Electron 的进程模型</a>与<a href="https://v2.tauri.app/concept/process-model/">Tauri 的进程模型</a>给出了各自结构。Tauri 使用系统 WebView；将当前应用换成 Tauri 时，必须一并决定 Node Host 的保留方式，才能估算完整产品的体积和维护工作。</p>
+<a id="choice-build"></a>
+<h2 id="heading-43">12. pnpm workspace 与分包构建：让能力以包为单位协作</h2>
+<h3 id="heading-44">项目实际采用什么</h3>
+<p>workspace 覆盖 vendor、分组 packages、原生系统包、apps 和 website。依赖通过 <code>workspace:*</code> 等声明关联。Host 与 Client 使用独立 tsconfig 构建，tsc 执行类型和声明构建，tsdown 生成相应分发产物；Web 产品另由 Vite 构建。workspace 配置还声明依赖安装脚本的允许项。事实见 T13。</p>
+<h3 id="heading-45">对这个项目的优势与代价</h3>
+<p>服务定义、Provider 和 Consumer 可以拆成不同包，产品组合按依赖选用它们。修改公共类型时，项目能沿构建关系检查消费方。分包也让发布导出面与运行入口更明确，帮助控制 Host 代码和 Client 代码的边界。</p>
+<p>包数增加后，需要检查循环依赖、导出条件、构建顺序和运行时依赖闭包。开发环境能解析到源码，不代表发布后的包能解析到同一模块。project references、路径映射和打包配置必须与真实发布布局一致。</p>
+<div class="table-wrap"><table>
+<tr><th>方案</th><th>管理层次</th><th>对项目的影响</th></tr>
+<tr><td>pnpm workspace</td><td>包依赖、本地包关联与安装</td><td>已与仓库的 workspace 协议和依赖策略结合</td></tr>
+<tr><td>npm 或 Yarn workspace</td><td>同仓库多包协作</td><td>重新核对依赖解析、安装布局、peer dependency 和构建脚本</td></tr>
+<tr><td>单包仓库</td><td>同一个包内组织全部模块</td><td>简化最初配置，同时缩小独立发布和组合的边界</td></tr>
+<tr><td>Nx、Turborepo 等任务编排</td><td>构建任务图与缓存</td><td>可以叠加到包管理之上；还需定义任务输入、输出和失效条件</td></tr>
+</table></div>
+<p><a href="https://pnpm.io/workspaces">pnpm workspace</a>与<a href="https://docs.npmjs.com/cli/v11/using-npm/workspaces/">npm workspace</a>都支持多包协作。包管理、类型构建、bundling 和任务缓存是不同决策，不能只换一个命令就假定所有发布行为等价。</p>
+<a id="choice-tests"></a>
+<h2 id="heading-46">13. Vitest 与模型回放：分别验证软件行为和任务效果</h2>
+<h3 id="heading-47">项目实际采用什么</h3>
+<p>仓库使用 Vitest，设置单元、快照、Web、E2E 与 benchmark 等测试入口。LLM replay 按 Session 分配脚本，并按调用位置消费条目；测试可以在 Provider 层或模型流边界接入回放。事实见 T14。</p>
+<h3 id="heading-48">对这个项目的优势与代价</h3>
+<p>固定响应让工具调度、流式展示、取消和恢复分支能够重复执行。开发者可以明确制造一次工具调用、一次错误或一段部分响应，观察项目怎样处理它们。测试框架再通过断言检查真正关心的状态和数据。</p>
+<p>回放位置只说明消费了哪项响应。请求中的 system prompt、工具 schema 或历史消息错误时，按序返回的响应仍可能使测试走完流程；因此请求内容必须独立断言。fixture 也需要随持久格式与行为变化维护。实际模型的工具选择与产物质量，继续通过在线评价和任务样本测量。</p>
+<div class="table-wrap"><table>
+<tr><th>方案</th><th>主要验证对象</th><th>为完整验证补充什么</th></tr>
+<tr><td>Vitest + 项目回放</td><td>固定模型响应下的真实运行链</td><td>请求断言、错误分支、fixture 消费检查和真实任务评价</td></tr>
+<tr><td>Jest + 等价替身</td><td>测试运行与 mock、assertion</td><td>对齐模块、转换、快照和项目测试工具的行为</td></tr>
+<tr><td>Node 内置 test runner</td><td>Node 原生测试执行</td><td>配置 TypeScript、DOM 或浏览器测试所需环境，并接入回放</td></tr>
+<tr><td>每次调用在线模型</td><td>当时的模型和网络表现</td><td>控制费用、波动与外部副作用，另外保留可重复的软件行为测试</td></tr>
+</table></div>
+<p><a href="https://vitest.dev/guide/comparisons">Vitest 官方比较</a>与<a href="https://nodejs.org/api/test.html">Node test runner 文档</a>介绍各自执行机制。测试框架决定怎样运行断言；回放决定怎样替代外部响应；评价决定怎样衡量任务产物。</p>
+<a id="choice-ptc"></a>
+<h2 id="heading-49">14. PTC Node 子进程：用程序组织工具，再由 Host 管理执行</h2>
+<h3 id="heading-50">项目实际采用什么</h3>
+<p><code>ptc-runtime-node</code> 为每次程序运行创建全新 Node 进程，执行可擦除 TypeScript 程序，通过异步绑定请求 Host 工具。Host 负责沙箱准备、截止时间、输出预算、协议检查和受管清理。直接 Node API 仍能在所选执行限制内使用；嵌套工具调用重新进入工具准入链。事实见 T15。</p>
+<h3 id="heading-51">对这个项目的优势与代价</h3>
+<p>模型可以用一次程序调用组织循环、多项读取或并发工具任务，减少逐次向模型请求下一动作的往返。全新进程提供独立的执行生命周期，Host 能在超时、取消或完成后清理受管进程。绑定保留项目的工具可见性与审批机制。</p>
+<p>进程边界增加启动和通信成本。Host 要区分日志与控制帧，限制同时待处理的调用和输出大小，并验证结果是否为无损 JSON。具体文件与网络限制由 OS 沙箱后端实施，运行时需要检查其可用性和约束程度。</p>
+<div class="table-wrap"><table>
+<tr><th>方案</th><th>执行机制</th><th>需要设计的边界</th></tr>
+<tr><td>当前 Node 子进程</td><td>完整 Node 执行环境，OS 沙箱与 Host 绑定</td><td>进程、平台策略、控制通信及资源清理</td></tr>
+<tr><td><code>node:vm</code> 同进程求值</td><td>在 Node 进程中建立 JavaScript context</td><td>仍需可靠的外部隔离与终止机制；Node 官方明确它不构成安全机制</td></tr>
+<tr><td>受限 JavaScript 引擎</td><td>嵌入引擎并显式提供宿主能力</td><td>定义可见 API、计量、取消和逃逸后的隔离边界，核对 Node API 兼容性</td></tr>
+<tr><td>Python 子进程</td><td>使用 Python 程序和工具代理</td><td>维护解释器分发、绑定协议、结果编码与相同的执行约束</td></tr>
+<tr><td>容器或远端执行服务</td><td>将程序交给独立运行环境</td><td>镜像或服务生命周期、文件映射、身份、通信和恢复</td></tr>
+</table></div>
+<p><a href="https://nodejs.org/api/vm.html">Node vm 文档</a>明确说明该模块不应用作安全隔离。减少启动开销和改变隔离机制是两个问题，替代运行时需要分别验证工具调用语义、资源约束与清理能力。仓库还包含实验性的 Python PTC 实现，说明这个能力已通过接口与具体运行环境分离。</p>
+<h2 id="heading-52">需求变化后，哪些选型需要重新评估</h2>
+<div class="table-wrap"><table>
+<tr><th>新的主要需求</th><th>优先检查的选择</th><th>对架构的具体影响</th></tr>
+<tr><td>单个本地 Agent，工具数量少</td><td>插件数量、分包粒度与界面入口</td><td>可以减少组合和产品层，同时保留工具准入与状态记录</td></tr>
+<tr><td>大量固定业务流程</td><td>驱动方式与检查点</td><td>显式定义步骤和分支，再接入相同的工具与历史接口</td></tr>
+<tr><td>多实例共同维护产品数据</td><td>存储后端与写入权</td><td>引入共享介质，并设计跨实例协调和事务</td></tr>
+<tr><td>主要依赖 Python 数据处理库</td><td>Host 语言边界或独立计算 Provider</td><td>让计算通过受控接口执行，再确定需要共享哪些类型与事件</td></tr>
+<tr><td>安装包大小是硬指标</td><td>桌面外壳与 Node Host 分发</td><td>对完整产品测量体积，包含外壳、Host、原生模块与资源</td></tr>
+<tr><td>流式消息量显著增加</td><td>Store 通知、投影和界面订阅</td><td>测量事件处理与渲染延迟，调整批处理和订阅粒度</td></tr>
+<tr><td>执行来自多个用户的不可信程序</td><td>执行隔离、身份与资源计量</td><td>把运行环境、Host 绑定和租户数据范围一起设计</td></tr>
+</table></div>
+<p>项目的主要组合关系是：TypeScript 连接类型与生成产物，Cordis 连接插件与服务生命周期，Session 连接运行事实与派生视图，Provider 连接公共接口与具体执行环境，Client 通过远程契约观察和操作 Host。替换技术时，先确认这些关系仍由哪一层承担，再比较开发成本、运行成本和维护工作。</p>
+<h2 id="heading-53">原项目证据与进一步阅读</h2>
+<p>本专题固定使用源码提交 <code>639ed015397290b3745d163aafe02ffee4aa3f84</code>。下面的材料用于核对实际选型；正文已解释比较所需的机制。</p>
+<div class="table-wrap"><table>
+<tr><th>编号</th><th>支持的事实</th><th>原项目材料</th></tr>
+<tr><td>T01</td><td>Node 范围、ESM、构建命令与开发依赖</td><td><a href="source/package.json">根 package.json</a>、<a href="source/tsconfig.host.json">Host tsconfig</a>、<a href="source/tsconfig.client.json">Client tsconfig</a></td></tr>
+<tr><td>T02</td><td>Cordis 上下文、插件装配与生命周期</td><td><a href="source/vendor/cordis/src/context.ts">Cordis Context</a>、<a href="source/vendor/cordis/src/registry.ts">插件注册与依赖</a>、<a href="source/vendor/cordis/src/fiber.ts">资源生命周期</a>、<a href="source/packages/boot/app-boot/src/profile.ts">profile 合成</a></td></tr>
+<tr><td>T03</td><td>默认 Agent loop 与并行工具上限</td><td><a href="source/packages/core/agent-loop/README.zh.md">Agent loop 原文</a>、<a href="source/packages/core/agent-loop/src/inbox.ts">Inbox 实现</a></td></tr>
+<tr><td>T04</td><td>Session 内存事件追加与 Surface</td><td><a href="source/packages/core/session/src/index.ts">Session 实现</a>、<a href="reader.html#chapter-05">Session 章节</a></td></tr>
+<tr><td>T05</td><td>JSONL writer 与写入队列</td><td><a href="source/packages/session/session-persistence-jsonl/src/storage.ts">持久化实现</a>、<a href="source/docs/subsystems/persistence.zh.md">持久化原文</a></td></tr>
+<tr><td>T06</td><td>Domain、JSON、SQLite、同步连接与单操作原子性</td><td><a href="source/docs/subsystems/storage.zh.md">存储原文</a>、<a href="source/packages/storage/storage-json/src/index.ts">JSON 后端</a>、<a href="source/packages/storage/storage-sqlite/src/index.ts">SQLite 后端</a>、<a href="source/packages/storage/storage-sqlite/src/unit.ts">SQLite unit</a>、<a href="source/packages/storage/storage-sqlite/src/schema.ts">SQLite schema</a></td></tr>
+<tr><td>T07</td><td>Schemastery 配置与工具 JSON-value schema DSL</td><td><a href="source/vendor/schemastery/package.json">Schemastery 依赖</a>、<a href="source/packages/core/tools/src/index.ts">工具注册表</a>、<a href="source/packages/core/tools/src/schema.ts">工具 schema</a>、<a href="source/packages/core/tools/src/json-schema.ts">工具 JSON Schema 校验</a></td></tr>
+<tr><td>T08</td><td>Typert descriptor、Zod 与 Gateway 分工</td><td><a href="source/docs/subsystems/typert.zh.md">Typert 原文</a>、<a href="source/packages/typert/protocol/src/types.ts">协议类型</a>、<a href="source/packages/typert/registry/package.json">Typert registry 依赖</a>、<a href="source/packages/api/gateway/src/index.ts">Gateway</a></td></tr>
+<tr><td>T09</td><td>pi-ai 适配器、路由和模型配置</td><td><a href="source/packages/llm/llm-pi-ai/src/index.ts">pi-ai 接入实现</a>、<a href="source/packages/llm/llm-pi-ai/README.zh.md">接入原文</a></td></tr>
+<tr><td>T10</td><td>MCP stdio 与 Streamable HTTP 工厂</td><td><a href="source/packages/mcp/mcp-client/src/transport.ts">MCP transport</a>、<a href="source/packages/mcp/mcp-client/README.zh.md">MCP 原文</a></td></tr>
+<tr><td>T11</td><td>React、Zustand、Immer 与 Vite</td><td><a href="source/apps/web/package.json">Web 依赖</a>、<a href="source/packages/client/store/src/index.ts">Store 引擎</a>、<a href="source/packages/client/store/src/contract.ts">Store 契约</a>、<a href="source/packages/client/store/package.json">Store 依赖</a></td></tr>
+<tr><td>T12</td><td>Electron、Node Host 与 Renderer 配置</td><td><a href="source/apps/desktop/package.json">桌面依赖</a>、<a href="source/apps/desktop/src/host-process.ts">Host 子进程</a>、<a href="source/apps/desktop/src/main.ts">Main</a></td></tr>
+<tr><td>T13</td><td>workspace、安装脚本策略和分包构建</td><td><a href="source/pnpm-workspace.yaml">workspace 配置</a>、<a href="source/package.json">根构建命令</a></td></tr>
+<tr><td>T14</td><td>Vitest 配置、回放位置与消费检查</td><td><a href="source/vitest.config.ts">测试配置</a>、<a href="source/packages/test-support/llm-replay/src/index.ts">回放实现</a>、<a href="source/packages/test-support/llm-replay/README.zh.md">回放原文</a></td></tr>
+<tr><td>T15</td><td>新 Node 进程、OS 沙箱、绑定与资源限制</td><td><a href="source/packages/ptc-runtime/ptc-runtime-node/README.zh.md">Node PTC 原文</a>、<a href="source/packages/ptc-runtime/ptc-runtime-node/src/index.ts">Node PTC 实现</a>、<a href="source/packages/experimental/ptc-runtime-python/README.zh.md">Python PTC 原文</a></td></tr>
+</table></div>
+<p><a href="reader.html">全书目录</a> · <a href="subsystems.html">补充能力</a> · <a href="evidence.html">源码与文档证据</a></p></article>
+    <nav class="page-turns" id="page-turns" aria-label="前后章节" hidden></nav>
+    <footer class="page-footer"><span>深入理解 DeepSeek Harness · 中文教材</span><a href="#top" id="back-top">回到顶部 ↑</a></footer>
+  </main>
+  <aside class="toc-sidebar" id="page-toc" aria-label="本页目录"><div class="toc-title">本页目录</div><nav id="toc-nav" aria-label="本页小节"></nav></aside>
+</div>
+<dialog id="search-dialog" aria-labelledby="search-title">
+  <div class="search-heading"><h2 id="search-title">搜索本书</h2><button class="icon-button" id="search-close" aria-label="关闭搜索">×</button></div>
+  <label class="search-field"><span class="visually-hidden">搜索关键词</span><input id="search-input" type="search" placeholder="输入概念、工具名称或章节标题" autocomplete="off"></label>
+  <p id="search-status" role="status">搜索当前阅读文件的正文和标题</p>
+  <div id="search-results"></div>
+</dialog>
+<noscript><div class="noscript-note">当前显示全文。浏览器启用 JavaScript 后可按章阅读和搜索。</div></noscript>
+<script>(() => {
+  'use strict';
+  const $ = selector => document.querySelector(selector);
+  const content = $('#book-content');
+  const blocks = [...content.querySelectorAll(':scope > .book-section')];
+  const chapterBlocks = blocks.filter(e => e.dataset.chapter);
+  const reader = chapterBlocks.length > 0;
+  const navLinks = [...$('#book-nav').querySelectorAll('a')];
+  const toc = $('#toc-nav');
+  const mode = $('#reading-mode');
+  const sourceToggle = $('#source-toggle');
+  const dialog = $('#search-dialog');
+  const searchInput = $('#search-input');
+  let full = false;
+  let current = blocks[0] || content;
+  let tocHeadings = [];
+  let lastOpener = null;
+  let scrollQueued = false;
+  const escapeHTML = value => value.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const plainHeading = element => element?.dataset.title || element?.textContent.replace(/¶$/, '').trim() || '';
+  const headingOf = block => plainHeading(block.querySelector('h1'));
+  const shortTitle = block => headingOf(block).split('｜').pop();
+  function fragment() { try { return decodeURIComponent(location.hash.slice(1)); } catch { return location.hash.slice(1); } }
+  function closeDrawer() {
+    $('#book-sidebar').classList.remove('open');
+    $('#drawer-backdrop').hidden = true;
+    $('#menu-button').setAttribute('aria-expanded', 'false');
+  }
+  function closeToc() { $('#page-toc').classList.remove('open'); $('#toc-button').setAttribute('aria-expanded', 'false'); }
+  function setCurrent(block) {
+    current = block;
+    for (const a of navLinks) {
+      const active = reader ? (a.getAttribute('href') === '#' + block.id || (!block.dataset.chapter && block.id === 'book-home' && a.getAttribute('href') === '#book-home')) : a.pathname === location.pathname;
+      a.classList.toggle('active', active);
+      if (active) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+    }
+    $('#reading-context').textContent = block.dataset.chapter ? '第 ' + Number(block.dataset.chapter) + ' 章' : reader ? '全书导读' : '随用随查';
+    $('#header-context').textContent = reader ? shortTitle(block) : document.title;
+    document.title = reader && block.dataset.chapter ? shortTitle(block) + ' · DeepSeek Harness' : document.documentElement.dataset.pageTitle;
+    updateToc();
+    updateTurns();
+  }
+  function updateToc() {
+    tocHeadings = [...current.querySelectorAll('h2[id],h3[id]')].filter(h => !(sourceToggle.checked && h.closest('.source-section')));
+    toc.replaceChildren();
+    for (const h of tocHeadings) {
+      const a = document.createElement('a');
+      a.href = '#' + h.id; a.textContent = plainHeading(h);
+      if (h.tagName === 'H3') a.className = 'subheading';
+      toc.append(a);
+    }
+    markToc();
+  }
+  function markToc() {
+    let active = tocHeadings[0];
+    for (const h of tocHeadings) if (h.getBoundingClientRect().top <= 150) active = h;
+    for (const a of toc.children) {
+      const on = a.hash === '#' + active?.id;
+      a.classList.toggle('active', on);
+      if (on) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current');
+    }
+  }
+  function updateTurns() {
+    const turns = $('#page-turns');
+    if (!reader) return;
+    turns.hidden = false;
+    const index = blocks.indexOf(current);
+    turns.replaceChildren();
+    for (const [next, label] of [[blocks[index - 1], '← 上一章'], [blocks[index + 1], '下一章 →']]) {
+      if (!next) { turns.append(document.createElement('span')); continue; }
+      const a = document.createElement('a'); a.href = '#' + next.id;
+      const small = document.createElement('small'); small.textContent = label;
+      const title = document.createElement('span'); title.textContent = next.dataset.chapter ? '第 ' + Number(next.dataset.chapter) + ' 章 · ' + shortTitle(next) : '全书导读';
+      a.append(small, title); turns.append(a);
+    }
+  }
+  function showTarget(scroll = true) {
+    const id = fragment();
+    const target = id ? document.getElementById(id) : null;
+    const block = target?.closest('.book-section') || (id === 'content' || id === 'top' ? current : blocks[0]) || content;
+    if (reader) for (const b of blocks) b.hidden = !full && b !== block;
+    if (target?.closest('.source-section') && sourceToggle.checked) {
+      sourceToggle.checked = false; document.body.classList.remove('hide-source');
+    }
+    setCurrent(block);
+    closeDrawer(); closeToc();
+    if (scroll) requestAnimationFrame(() => {
+      if (target && id !== 'top') target.scrollIntoView({block:'start', behavior:'instant'});
+      else window.scrollTo({top:0, behavior:'instant'});
+    });
+  }
+  document.documentElement.dataset.pageTitle = document.title;
+  for (const h of content.querySelectorAll('h1[id],h2[id],h3[id]')) {
+    h.dataset.title = h.textContent;
+    const a = document.createElement('a'); a.className = 'heading-link'; a.href = '#' + h.id; a.textContent = '¶'; a.setAttribute('aria-label', '链接到：' + h.textContent); h.append(a);
+  }
+  sourceToggle.addEventListener('change', () => { document.body.classList.toggle('hide-source', sourceToggle.checked); updateToc(); });
+  if (reader) {
+    mode.hidden = false;
+    mode.addEventListener('click', () => {
+      const anchor = current;
+      full = !full;
+      mode.textContent = full ? '按章阅读' : '全文阅读';
+      mode.setAttribute('aria-pressed', String(full));
+      for (const b of blocks) b.hidden = !full && b !== anchor;
+      updateToc();
+      requestAnimationFrame(() => anchor.scrollIntoView({block:'start',behavior:'instant'}));
+    });
+  }
+  window.addEventListener('hashchange', () => showTarget());
+  window.addEventListener('scroll', () => {
+    if (scrollQueued) return;
+    scrollQueued = true;
+    requestAnimationFrame(() => {
+      if (reader && full) {
+        let active = blocks[0];
+        for (const b of blocks) if (b.getBoundingClientRect().top <= 160) active = b;
+        if (active !== current) setCurrent(active);
+      }
+      markToc(); scrollQueued = false;
+    });
+  }, {passive:true});
+  $('#book-nav').addEventListener('click', e => { if (e.target.closest('a')) closeDrawer(); });
+  toc.addEventListener('click', e => { if (e.target.closest('a')) closeToc(); });
+  $('#menu-button').addEventListener('click', () => {
+    const open = $('#book-sidebar').classList.toggle('open');
+    $('#menu-button').setAttribute('aria-expanded', String(open));
+    $('#drawer-backdrop').hidden = !open;
+    if (open) (navLinks.find(a => a.classList.contains('active')) || navLinks[0])?.focus();
+  });
+  $('#drawer-backdrop').addEventListener('click', closeDrawer);
+  $('#toc-button').addEventListener('click', () => {
+    const open = $('#page-toc').classList.toggle('open'); $('#toc-button').setAttribute('aria-expanded', String(open));
+  });
+  $('#back-top').addEventListener('click', e => { e.preventDefault(); window.scrollTo({top:0,behavior:'instant'}); });
+  const searchRows = [];
+  for (const block of (reader ? blocks : [content])) {
+    let heading = block.querySelector('h1')?.id;
+    for (const node of block.querySelectorAll('h1,h2,h3,p,li,td')) {
+      if (node.matches('h1,h2,h3')) heading = node.id;
+      if (node.closest('.chapter-overview') || node.closest('table') && node.cellIndex === undefined) continue;
+      const text = node.textContent.replace(/¶$/, '').trim();
+      if (text.length < 2) continue;
+      searchRows.push({text, lower:text.toLocaleLowerCase(), target:heading || block.id, title:heading ? plainHeading(document.getElementById(heading)) : headingOf(block), chapter:reader ? shortTitle(block) : document.title, section:node.closest('.source-section') !== null, heading:node.matches('h1,h2,h3')});
+    }
+  }
+  function highlight(text, terms) {
+    const longest = [...terms].sort((a,b) => b.length-a.length);
+    const pattern = new RegExp(longest.map(t => t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|'), 'giu');
+    let last = 0, result = '';
+    for (const hit of text.matchAll(pattern)) { result += escapeHTML(text.slice(last, hit.index)) + '<mark>' + escapeHTML(hit[0]) + '</mark>'; last = hit.index + hit[0].length; }
+    return result + escapeHTML(text.slice(last));
+  }
+  function search() {
+    const value = searchInput.value.trim();
+    const results = $('#search-results'); results.replaceChildren();
+    if (!value) { $('#search-status').textContent = '搜索当前阅读文件的正文和标题'; return; }
+    const terms = value.toLocaleLowerCase().split(/\s+/).filter(Boolean);
+    const seen = new Set();
+    const rows = searchRows.filter(r => terms.every(t => r.lower.includes(t))).sort((a,b) => Number(b.heading)-Number(a.heading)).filter(r => {const key=r.target+'|'+r.text;if(seen.has(key))return false;seen.add(key);return true;});
+    $('#search-status').textContent = rows.length ? '找到 ' + rows.length + ' 处匹配' + (rows.length > 60 ? '，显示前 60 处' : '') : '没有找到匹配内容，试试工具名称或更短的关键词。';
+    for (const r of rows.slice(0,60)) {
+      const at = Math.max(0, r.lower.indexOf(terms[0])-35);
+      const snippet = (at ? '…' : '') + r.text.slice(at,at+160) + (r.text.length>at+160 ? '…' : '');
+      const a = document.createElement('a'); a.href = '#' + r.target;
+      a.innerHTML = '<small>' + escapeHTML(r.chapter) + (r.section ? ' · 源码研读' : '') + '</small><strong>' + highlight(r.title,terms) + '</strong><p>' + highlight(snippet,terms) + '</p>';
+      a.addEventListener('click', () => { dialog.close(); if(location.hash === a.hash) showTarget(); });
+      results.append(a);
+    }
+  }
+  function openSearch() { lastOpener = document.activeElement; closeDrawer(); closeToc(); dialog.showModal(); searchInput.focus(); }
+  $('#search-button').addEventListener('click', openSearch);
+  $('#search-close').addEventListener('click', () => dialog.close());
+  dialog.addEventListener('close', () => lastOpener?.focus());
+  dialog.addEventListener('click', e => { const r=dialog.getBoundingClientRect(); if(e.target===dialog&&(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom))dialog.close(); });
+  searchInput.addEventListener('input', search);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { closeDrawer(); closeToc(); }
+    if (e.key === '/' && !dialog.open && !e.ctrlKey && !e.metaKey && !e.altKey && !e.target.closest('input,textarea,[contenteditable]')) { e.preventDefault(); openSearch(); }
+  });
+  showTarget();
+})();
+</script>
+</body></html>

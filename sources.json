@@ -101,5 +101,11 @@
   "subsystems_explained": 63,
   "reader_prerequisite": "普通电脑操作；正文补基础；无需预读源码",
   "scope": "十九章核心主链与补充子系统约定；核验范围见 evidence-index.md 和 revision/status.json",
-  "naming_policy": "revision/naming-policy.md"
+  "naming_policy": "revision/naming-policy.md",
+  "technology_choices": {
+    "file": "tech-choices.md",
+    "review": "revision/technology-choices-review-20261003.json",
+    "comparison_topics": 14,
+    "evidence": "固定源码的实际选型与官方技术文档；收益和迁移成本为正文明确标注的工程分析"
+  }
 }
