@@ -1,9 +1,9 @@
 {
   "path": "E:\\agentcoding\\DeepSeek-Harness-中文教材完整版.zip",
   "entrypoint": "reader.html",
-  "entry_count": 14267,
-  "sha256": "d10199e08bca7b954b40522d0004220a6911fe8a6b7311f0ae4eb001116b9380",
-  "zip_bytes": 45107154,
+  "entry_count": 14269,
+  "sha256": "39e9284618e6f58e55affd2dc992dd8919080b73d2a934f01ee46dbfee0d5fae",
+  "zip_bytes": 45114088,
   "chapter_count": 19,
   "source_commit": "639ed015397290b3745d163aafe02ffee4aa3f84",
   "annotated_excerpts": 27,

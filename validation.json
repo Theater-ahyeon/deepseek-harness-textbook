@@ -1,12 +1,12 @@
 {
   "edition": "nineteen_chapter_zero_code_rewrite",
-  "verified_at": "2026-10-03T06:57:16.548716+00:00",
+  "verified_at": "2026-10-03T07:14:21.115535+00:00",
   "source_commit": "639ed015397290b3745d163aafe02ffee4aa3f84",
   "chapter_count": 19,
   "annotated_source_excerpts": 27,
   "nonempty_source_lines_explained": 223,
   "reference_hashes_checked": 154,
-  "local_links_checked": 1820,
+  "local_links_checked": 1851,
   "html_pages_checked": 8,
   "reader_figure_occurrences": 38,
   "reader_unique_figures": 38,
@@ -118,5 +118,11 @@
     "source_file_bindings": 44,
     "official_reference_links": 22,
     "file": "tech-choices.md"
+  },
+  "readme_homepage": {
+    "chapter_links": 19,
+    "cover": "figures/readme-cover.svg",
+    "local_links_valid": true,
+    "sha256": "8da247bc98f6d5027b033799641237d340db0bfe423105ecdd085b3172ed81bd"
   }
 }

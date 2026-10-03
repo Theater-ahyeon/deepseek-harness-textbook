@@ -1,0 +1,13 @@
+{
+  "file": "README.md",
+  "before_sha256": "379310ecdeca53a973533445cc25fb2a726d8e62fbc4a908b024228ec411c0b5",
+  "after_sha256": "8da247bc98f6d5027b033799641237d340db0bfe423105ecdd085b3172ed81bd",
+  "cover": {
+    "path": "figures/readme-cover.svg",
+    "sha256": "9685861b96c9163898c8ee67c919354f98664845beb5194490a781e542da3d3d"
+  },
+  "chapter_map": 19,
+  "source_detail_blocks": 27,
+  "reader_sha256": "692b942957da7e587c2bf662c10d5448e65a05e2ce44093d12d73452598f165d",
+  "scope": "README homepage and local SVG cover; course prose and reader unchanged"
+}

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="600" viewBox="0 0 1600 600" role="img" aria-labelledby="title desc">
+  <title id="title">深入理解 DeepSeek Harness：中文源码导学教材</title>
+  <desc id="desc">十九章系统导学、二十七段实现详解、四十二幅讲解配图、十四组选型比较。沿任务接纳、Agent 循环、工具执行和 Session 记录理解项目。</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#10172e"/><stop offset=".55" stop-color="#15223d"/><stop offset="1" stop-color="#092f40"/></linearGradient>
+    <linearGradient id="accent" x1="0" x2="1"><stop stop-color="#a8afff"/><stop offset="1" stop-color="#69e4e0"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#58d7df" stop-opacity=".16"/><stop offset="1" stop-color="#58d7df" stop-opacity="0"/></radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#7c9abe" stroke-opacity=".09"/></pattern>
+  </defs>
+  <rect width="1600" height="600" rx="24" fill="url(#bg)"/>
+  <rect width="1600" height="600" rx="24" fill="url(#grid)"/>
+  <circle cx="1370" cy="190" r="370" fill="url(#glow)"/>
+  <path d="M84 96h50" stroke="url(#accent)" stroke-width="5" stroke-linecap="round"/>
+  <g font-family="Segoe UI, Microsoft YaHei, PingFang SC, sans-serif">
+    <text x="153" y="102" fill="#97b0cf" font-size="19" letter-spacing="3">中文教材 · 原理与实现</text>
+    <text x="84" y="175" fill="#dbe9ff" font-size="40" font-weight="600">深入理解</text>
+    <text x="80" y="268" fill="url(#accent)" font-size="78" font-weight="750" letter-spacing="-2">DeepSeek Harness</text>
+    <text x="84" y="323" fill="#c6d6ed" font-size="25">从任务接纳到工具执行，读懂 Agent 的完整运行链</text>
+    <text x="84" y="368" fill="#89a2c1" font-size="19">先读连贯讲解，再按需核对源码与原项目文档。</text>
+    <rect x="1035" y="118" width="465" height="279" rx="18" fill="#122137" fill-opacity=".85" stroke="#385770"/>
+    <circle cx="1063" cy="147" r="5" fill="#acb4ff"/><circle cx="1084" cy="147" r="5" fill="#72d8e4"/><circle cx="1105" cy="147" r="5" fill="#99d6b3"/>
+    <text x="1475" y="153" text-anchor="end" fill="#6f92b3" font-size="15">运行机制地图</text>
+    <path d="M1064 173H1473" stroke="#2d4863"/>
+    <g font-size="21">
+      <text x="1064" y="216" fill="#85dce7">01</text><text x="1113" y="216" fill="#dbe9fc">输入接纳 · Inbox</text>
+      <text x="1064" y="265" fill="#aab4ff">02</text><text x="1113" y="265" fill="#dbe9fc">Agent 循环 · 模型请求</text>
+      <text x="1064" y="314" fill="#91dbb7">03</text><text x="1113" y="314" fill="#dbe9fc">工具执行 · 结果交接</text>
+      <text x="1064" y="363" fill="#e6be83">04</text><text x="1113" y="363" fill="#dbe9fc">Session · 历史与恢复</text>
+    </g>
+    <g font-size="20" font-weight="600">
+      <rect x="84" y="447" width="318" height="65" rx="12" fill="#243151" stroke="#475984"/><text x="108" y="488" fill="#dce3ff">19 章</text><text x="185" y="488" fill="#9eafcc">系统导学</text>
+      <rect x="422" y="447" width="318" height="65" rx="12" fill="#183b49" stroke="#386675"/><text x="446" y="488" fill="#b1eff0">27 段</text><text x="523" y="488" fill="#99c4d1">实现详解</text>
+      <rect x="760" y="447" width="318" height="65" rx="12" fill="#1b3c3b" stroke="#3d6964"/><text x="784" y="488" fill="#b6edd4">42 幅</text><text x="861" y="488" fill="#9abeb5">讲解配图</text>
+      <rect x="1098" y="447" width="402" height="65" rx="12" fill="#343744" stroke="#616479"/><text x="1122" y="488" fill="#eee0bd">14 组</text><text x="1199" y="488" fill="#bfc0ce">技术选型与替代方案</text>
+    </g>
+    <text x="84" y="557" fill="#6885a6" font-size="16">源码基线 639ed01 · 支持在线与离线阅读</text>
+    <path d="M1352 550H1500" stroke="url(#accent)" stroke-width="2"/>
+  </g>
+</svg>

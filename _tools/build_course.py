@@ -13,6 +13,13 @@ def read(name):return (ROOT/name).read_text(encoding='utf-8')
 def write(name,text):(ROOT/name).write_text(text.rstrip()+'\n',encoding='utf-8')
 def data(name):return json.loads(read(name))
 def dump(name,obj):write(name,json.dumps(obj,ensure_ascii=False,indent=2))
+def reviewed_sha_matches(name,expected):
+    actual=hashlib.sha256((ROOT/name).read_bytes()).hexdigest()
+    if actual==expected:return True
+    if name=='README.md' and (ROOT/'revision/readme-refresh-20261003.json').is_file():
+        revision=data('revision/readme-refresh-20261003.json')
+        return revision['before_sha256']==expected and revision['after_sha256']==actual
+    return False
 def retarget(md):
     out=[];fenced=False
     for line in md.splitlines():
@@ -219,7 +226,7 @@ def validate(chapters,evidence):
         for item in editorial['files']:
             actual_sha=hashlib.sha256((ROOT/item['file']).read_bytes()).hexdigest()
             successor=followup_files.get(item['file'])
-            if actual_sha!=item['after_sha256'] and not (successor and successor['before_sha256']==item['after_sha256'] and successor['after_sha256']==actual_sha):
+            if not reviewed_sha_matches(item['file'],item['after_sha256']) and not (successor and successor['before_sha256']==item['after_sha256'] and reviewed_sha_matches(item['file'],successor['after_sha256'])):
                 errors.append('逐章语言复核版本变化：'+item['file'])
         for p in [*[p for p,_ in chapters],ROOT/'subsystems.md',ROOT/'appendices.md']:
             if re.search('而是|而不是',p.read_text(encoding='utf-8')):
@@ -232,7 +239,7 @@ def validate(chapters,evidence):
                 errors.append('独立实现详解修订文件不完整')
             for item in followup['files']:
                 raw=(ROOT/item['file']).read_bytes()
-                if hashlib.sha256(raw).hexdigest()!=item['after_sha256']:errors.append('实现详解版本变化：'+item['file'])
+                if not reviewed_sha_matches(item['file'],item['after_sha256']):errors.append('实现详解版本变化：'+item['file'])
                 if item['file'].startswith('book/'):
                     newline='\r\n' if b'\r\n' in raw else '\n'
                     for block in [b for b in followup['blocks'] if b['file']==item['file']]:
@@ -259,6 +266,19 @@ def validate(chapters,evidence):
         if re.search('而是|而不是',read('tech-choices.md')):
             errors.append('技术选型专题残留否定对照句式')
         result['technology_choices']={'comparison_topics':choices['comparison_topics'],'evidence_groups':len(choices['evidence_groups']),'source_file_bindings':sum(len(g['sources']) for g in choices['evidence_groups']),'official_reference_links':len(choices['official_comparison_references']),'file':'tech-choices.md'}
+    if (ROOT/'revision/readme-refresh-20261003.json').is_file():
+        revision=data('revision/readme-refresh-20261003.json')
+        if hashlib.sha256((ROOT/'README.md').read_bytes()).hexdigest()!=revision['after_sha256']:errors.append('README 与首页修订记录不一致')
+        cover=revision['cover']
+        if hashlib.sha256((ROOT/cover['path']).read_bytes()).hexdigest()!=cover['sha256']:errors.append('README 封面变化')
+        readme=read('README.md')
+        chapter_links=re.findall(r'\]\((book/\d\d\.md)\)',readme)
+        if set(chapter_links)!={f'book/{i:02}.md' for i in range(1,20)}:errors.append('README 章节地图不完整')
+        for target in re.findall(r'(?:\]\(|href=")([^\s)"<>]+)',readme):
+            if target.startswith(('http:','https:','#')):continue
+            if not (ROOT/target.split('#',1)[0]).exists():errors.append('README 本地入口缺失：'+target)
+        if re.search('而是|而不是',readme):errors.append('README 残留否定对照句式')
+        result['readme_homepage']={'chapter_links':19,'cover':cover['path'],'local_links_valid':True,'sha256':revision['after_sha256']}
     dump('validation.json',result)
     if errors:raise SystemExit(json.dumps(errors,ensure_ascii=False))
     return result
