@@ -1,14 +1,72 @@
 {
   "tool": "calculations",
   "implementation": "local Python CLI; Decimal, precision=40",
-  "input_kind": "教学假设：用于复算第十七章的评价示例；不是实际模型实验",
+  "input_kind": "教学假设：用于复算第六、八、十七章的数值示例；不是实际模型实验",
+  "numeric_example_chapters": [
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    11,
+    13,
+    14,
+    15,
+    17
+  ],
   "variables": {
     "A_tasks": "10",
     "A_passed": "9",
     "A_tokens": "20000",
     "B_tasks": "10",
     "B_passed": "8",
-    "B_tokens": "14000"
+    "B_tokens": "14000",
+    "tools_guidance": "800",
+    "project_rules": "600",
+    "user_request": "200",
+    "history": "2400",
+    "duplicate_rules": "600",
+    "region_before": "12000",
+    "region_after": "3000",
+    "file_lines": "120",
+    "read_offset": "41",
+    "read_limit": "30",
+    "skill_directory_bytes": "600",
+    "skill_first_bytes": "2000",
+    "skill_second_bytes": "3000",
+    "skill_third_bytes": "5000",
+    "future_requests": "3",
+    "retry_first_ms": "400",
+    "retry_backoff_ms": "300",
+    "retry_second_ms": "700",
+    "single_agent_ms": "1200",
+    "child_first_ms": "700",
+    "child_second_ms": "700",
+    "spawn_ms": "200",
+    "join_ms": "250",
+    "launch_start_ms": "0",
+    "launch_waiting_ui_ms": "200",
+    "host_ready_ms": "900",
+    "client_ready_ms": "1000",
+    "snapshot_cursor": "40",
+    "old_buffered_seq": "39",
+    "first_normal_seq": "41",
+    "gap_candidate_seq": "43",
+    "C3_turn_starts": "1",
+    "C3_step_starts": "2",
+    "C3_attempts": "3",
+    "C3_tool_calls": "1",
+    "C5_message_count": "4",
+    "C5_tool_calls": "1",
+    "C5_event_count": "11",
+    "C11_requested": "4",
+    "C11_executed": "2",
+    "C11_succeeded": "1",
+    "C11_rejected": "2",
+    "retry_attempt_count": "2",
+    "parallel_children_ms": "700"
   },
   "results": {
     "A_pass_percent": {
@@ -52,12 +110,216 @@
       "value": "1750",
       "rounded_integer": "1750",
       "unit": "token / 通过任务"
+    },
+    "C6_baseline_bytes": {
+      "expression": "tools_guidance + project_rules + user_request + history",
+      "value": "4000",
+      "rounded_integer": "4000",
+      "unit": "字节"
+    },
+    "C6_augmented_bytes": {
+      "expression": "tools_guidance + project_rules + user_request + history + duplicate_rules",
+      "value": "4600",
+      "rounded_integer": "4600",
+      "unit": "字节"
+    },
+    "C6_increase_percent": {
+      "expression": "duplicate_rules / (tools_guidance + project_rules + user_request + history) * 100",
+      "value": "15.00",
+      "rounded_integer": "15",
+      "unit": "%"
+    },
+    "C8_saved_bytes": {
+      "expression": "region_before - region_after",
+      "value": "9000",
+      "rounded_integer": "9000",
+      "unit": "字节"
+    },
+    "C8_reduction_percent": {
+      "expression": "(region_before - region_after) / region_before * 100",
+      "value": "75.00",
+      "rounded_integer": "75",
+      "unit": "%"
+    },
+    "C8_future_saved_bytes": {
+      "expression": "(region_before - region_after) * future_requests",
+      "value": "27000",
+      "rounded_integer": "27000",
+      "unit": "字节"
+    },
+    "C3_turn_count": {
+      "expression": "C3_turn_starts",
+      "value": "1",
+      "rounded_integer": "1",
+      "unit": "turn"
+    },
+    "C3_step_count": {
+      "expression": "C3_step_starts",
+      "value": "2",
+      "rounded_integer": "2",
+      "unit": "step"
+    },
+    "C3_attempt_count": {
+      "expression": "C3_attempts",
+      "value": "3",
+      "rounded_integer": "3",
+      "unit": "attempt"
+    },
+    "C3_tool_call_count": {
+      "expression": "C3_tool_calls",
+      "value": "1",
+      "rounded_integer": "1",
+      "unit": "Tool Call"
+    },
+    "C4_last_line": {
+      "expression": "read_offset + read_limit - 1",
+      "value": "70",
+      "rounded_integer": "70",
+      "unit": "行号"
+    },
+    "C4_remaining_lines": {
+      "expression": "file_lines - (read_offset + read_limit - 1)",
+      "value": "50",
+      "rounded_integer": "50",
+      "unit": "行"
+    },
+    "C5_messages": {
+      "expression": "C5_message_count",
+      "value": "4",
+      "rounded_integer": "4",
+      "unit": "消息"
+    },
+    "C5_calls": {
+      "expression": "C5_tool_calls",
+      "value": "1",
+      "rounded_integer": "1",
+      "unit": "Tool Call"
+    },
+    "C5_events": {
+      "expression": "C5_event_count",
+      "value": "11",
+      "rounded_integer": "11",
+      "unit": "事件"
+    },
+    "C7_selected_bytes": {
+      "expression": "skill_directory_bytes + skill_first_bytes",
+      "value": "2600",
+      "rounded_integer": "2600",
+      "unit": "字节"
+    },
+    "C7_all_bytes": {
+      "expression": "skill_directory_bytes + skill_first_bytes + skill_second_bytes + skill_third_bytes",
+      "value": "10600",
+      "rounded_integer": "10600",
+      "unit": "字节"
+    },
+    "C7_saved_bytes": {
+      "expression": "skill_second_bytes + skill_third_bytes",
+      "value": "8000",
+      "rounded_integer": "8000",
+      "unit": "字节"
+    },
+    "C9_total_ms": {
+      "expression": "retry_first_ms + retry_backoff_ms + retry_second_ms",
+      "value": "1400",
+      "rounded_integer": "1400",
+      "unit": "ms"
+    },
+    "C9_attempts_ms": {
+      "expression": "retry_first_ms + retry_second_ms",
+      "value": "1100",
+      "rounded_integer": "1100",
+      "unit": "ms"
+    },
+    "C9_backoff_ms": {
+      "expression": "retry_backoff_ms",
+      "value": "300",
+      "rounded_integer": "300",
+      "unit": "ms"
+    },
+    "C9_attempt_count": {
+      "expression": "retry_attempt_count",
+      "value": "2",
+      "rounded_integer": "2",
+      "unit": "attempt"
+    },
+    "C11_requests": {
+      "expression": "C11_requested",
+      "value": "4",
+      "rounded_integer": "4",
+      "unit": "请求"
+    },
+    "C11_executions": {
+      "expression": "C11_executed",
+      "value": "2",
+      "rounded_integer": "2",
+      "unit": "执行"
+    },
+    "C11_successes": {
+      "expression": "C11_succeeded",
+      "value": "1",
+      "rounded_integer": "1",
+      "unit": "成功结果"
+    },
+    "C11_rejections": {
+      "expression": "C11_rejected",
+      "value": "2",
+      "rounded_integer": "2",
+      "unit": "拒绝"
+    },
+    "C13_parallel_total_ms": {
+      "expression": "spawn_ms + parallel_children_ms + join_ms",
+      "value": "1150",
+      "rounded_integer": "1150",
+      "unit": "ms"
+    },
+    "C13_saved_ms": {
+      "expression": "single_agent_ms - (spawn_ms + parallel_children_ms + join_ms)",
+      "value": "50",
+      "rounded_integer": "50",
+      "unit": "ms"
+    },
+    "C14_first_expected_seq": {
+      "expression": "snapshot_cursor + 1",
+      "value": "41",
+      "rounded_integer": "41",
+      "unit": "序号"
+    },
+    "C14_after_normal_expected_seq": {
+      "expression": "first_normal_seq + 1",
+      "value": "42",
+      "rounded_integer": "42",
+      "unit": "序号"
+    },
+    "C14_missing_sequences": {
+      "expression": "gap_candidate_seq - (first_normal_seq + 1)",
+      "value": "1",
+      "rounded_integer": "1",
+      "unit": "事件"
+    },
+    "C15_ui_ms": {
+      "expression": "launch_waiting_ui_ms - launch_start_ms",
+      "value": "200",
+      "rounded_integer": "200",
+      "unit": "ms"
+    },
+    "C15_ready_ms": {
+      "expression": "client_ready_ms - launch_start_ms",
+      "value": "1000",
+      "rounded_integer": "1000",
+      "unit": "ms"
+    },
+    "C15_wait_ms": {
+      "expression": "client_ready_ms - launch_waiting_ui_ms",
+      "value": "800",
+      "rounded_integer": "800",
+      "unit": "ms"
     }
   },
-  "input_sha256": "704a73ed9a99ee9b7698aa0cdacd363547a7ad6c6d8118bb71b3f28fedfb21fe",
+  "input_sha256": "97021aae842645272e1f2e22fc18724545d25b6c9dc6488069520204499c4c92",
   "source_experiments": {
     "cases_checked": 6,
-    "input_sha256": "8d48502cc852678c446aface99f672a5661b76826c7cde517f8c220e5a4fbbc6",
+    "input_sha256": "68de6337c14aa5f0316fa444e556d3c10fed4d92fe4c29fa572574e177ec057c",
     "case_ids": [
       "E01-window-and-chunk-boundary",
       "E02-byte-cap-keeps-scanning",

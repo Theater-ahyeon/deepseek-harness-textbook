@@ -55,13 +55,14 @@ const inbox = new ReactLoopInbox(projections,session,dispatch)
 const message = (text: string) => createUserMessage({content:[{type:'text',text}],source:{kind:'user'}})
 const turn1=message('第一个任务'),turn2=message('第二个任务'),step1=message('当前步骤补充一'),step2=message('当前步骤补充二')
 inbox.append('next-turn',turn1);inbox.append('next-turn',turn2);inbox.append('next-step',step1);inbox.append('next-step',step2)
-assert.deepEqual(inbox.claim('next-step',1).map(m=>m.id),[step1.id,step2.id])
+const stepClaims=inbox.claim('next-step',1)
+assert.deepEqual(stepClaims.map(m=>m.id),[step1.id,step2.id])
 assert.deepEqual(inbox.nextTurn.map(m=>m.id),[turn1.id,turn2.id])
 assert.deepEqual(inbox.nextStep,[])
 const first=inbox.claim('next-turn',2)
 assert.deepEqual(first.map(m=>m.id),[turn1.id])
 assert.deepEqual(inbox.nextTurn.map(m=>m.id),[turn2.id])
-cases.push({id:'E05-inbox-boundary-selection',observation:{stepClaims:2,turnClaims:first.length,pendingTurns:inbox.nextTurn.length}})
+cases.push({id:'E05-inbox-boundary-selection',observation:{stepClaims:stepClaims.length,turnClaims:first.length,pendingTurns:inbox.nextTurn.length}})
 
 const before=events.length
 assert.throws(()=>inbox.append('next-step',turn2),/already pending/)
@@ -72,6 +73,7 @@ cases.push({id:'E06-inbox-rejects-duplicate-before-append',observation:{eventsBe
 
 const inputs=['source/packages/fs/tool-fs/src/read-render.ts','source/packages/core/agent-loop/src/inbox.ts']
 const source=inputs.map(path=>({path,sha256:createHash('sha256').update(readFileSync(root+path)).digest('hex')}))
-const result={sourceCommit:'639ed015397290b3745d163aafe02ffee4aa3f84',method:'actual source functions; simulated Session/Projection persistence seam; no Host or model calls',runtime:{node:process.version,executor:'tsx'},source,cases}
+const scriptSha256=createHash('sha256').update(readFileSync(fileURLToPath(import.meta.url))).digest('hex')
+const result={sourceCommit:'639ed015397290b3745d163aafe02ffee4aa3f84',scriptSha256,method:'actual source functions; simulated Session/Projection persistence seam; no Host or model calls',runtime:{node:process.version,executor:'tsx'},source,cases}
 writeFileSync(root+'examples/source-experiment-results.json',JSON.stringify(result,null,2)+'\n')
 console.log(JSON.stringify({experimentCases:cases.length,passed:cases.map(c=>c.id)}))

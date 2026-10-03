@@ -201,6 +201,7 @@ def validate(chapters,evidence):
     experiments=data('examples/source-experiment-results.json')
     if calculations['source_experiments']['input_sha256']!=hashlib.sha256((ROOT/'examples/source-experiment-results.json').read_bytes()).hexdigest():errors.append('实验统计与实际观察不一致')
     if experiments['sourceCommit']!=COMMIT:errors.append('实验与固定源码版本不一致')
+    if experiments['scriptSha256']!=hashlib.sha256((ROOT/'examples/source-experiments.ts').read_bytes()).hexdigest():errors.append('实验输出与实验代码不一致')
     for loc in experiments['source']:
         if hashlib.sha256((ROOT/loc['path']).read_bytes()).hexdigest()!=loc['sha256']:errors.append('实验源文件哈希变化：'+loc['path'])
     result['calculations_tool']=calculations['tool']+' (local Python CLI)'

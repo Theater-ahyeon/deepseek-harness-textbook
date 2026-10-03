@@ -1,5 +1,28 @@
 {
-  "kind": "教学假设：用于复算第十七章的评价示例；不是实际模型实验",
+  "kind": "教学假设：用于复算第六、八、十七章的数值示例；不是实际模型实验",
+  "byte_examples": {
+    "tools_guidance": 800,
+    "project_rules": 600,
+    "user_request": 200,
+    "history": 2400,
+    "duplicate_rules": 600,
+    "region_before": 12000,
+    "region_after": 3000
+  },
+  "numeric_examples": {
+    "file_lines":120,"read_offset":41,"read_limit":30,
+    "skill_directory_bytes":600,"skill_first_bytes":2000,"skill_second_bytes":3000,"skill_third_bytes":5000,
+    "future_requests":3,"retry_first_ms":400,"retry_backoff_ms":300,"retry_second_ms":700,
+    "single_agent_ms":1200,"child_first_ms":700,"child_second_ms":700,"spawn_ms":200,"join_ms":250,
+    "launch_start_ms":0,"launch_waiting_ui_ms":200,"host_ready_ms":900,"client_ready_ms":1000,
+    "snapshot_cursor":40,"old_buffered_seq":39,"first_normal_seq":41,"gap_candidate_seq":43
+  },
+  "event_examples": {
+    "note":"教学计数材料；类别清单不代表实际事件日志或时间顺序",
+    "C3":["turn-start","step-start","attempt","attempt","tool-call","step-start","attempt","turn-end"],
+    "C5":["user-message","assistant-message","assistant-message","tool-result","tool-call","turn-boundary","turn-boundary","step-boundary","step-boundary","step-boundary","step-boundary"],
+    "C11":["pre-policy-rejected","approval-rejected","execution-succeeded","execution-threw"]
+  },
   "samples": {
     "A": [
       {"id":"task-01","passed":true,"tokens":2000},
